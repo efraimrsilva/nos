@@ -1,0 +1,13 @@
+IMPORTANTE!!
+Ao implementar novas funcionalidades, verificar impacto em funcionalidades: Manifesto do Núcleo (1.8)
+
+
+Associações:
+1 pessoa pode estar em diversos Núcleos
+1 pessoa tem somente 1 conta
+1 núcleo tem várias pessoas
+
+
+
+Entrar através de API da conta Google e da conta Apple
+Permitir entrar através de biometria
