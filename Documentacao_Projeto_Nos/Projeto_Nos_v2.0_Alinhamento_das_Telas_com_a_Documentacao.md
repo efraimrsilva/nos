@@ -1,4 +1,4 @@
-# Projeto Nós - Alinhamento das Telas com a Documentação (Versão 1.9)
+# Projeto Nós - Alinhamento das Telas com a Documentação (Versão 2.0)
 
 ## Status
 
