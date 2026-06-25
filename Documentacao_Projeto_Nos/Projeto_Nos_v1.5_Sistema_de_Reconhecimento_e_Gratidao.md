@@ -530,3 +530,59 @@ O Sistema de Reconhecimento e Gratidão torna o Projeto Nós mais humano, equili
 Ele ajuda cada Núcleo a registrar não apenas o que precisa ser ajustado, mas também o que já está florescendo na convivência.
 
 Ao preservar gratidão, reconhecimento e evolução percebida, o Projeto Nós fortalece sua missão de transformar pequenas atitudes repetidas em vínculos mais saudáveis, conscientes e duradouros.
+
+---
+
+# Complemento de Alinhamento com as Telas do Protótipo
+
+## Gratidão como ação rápida
+
+As telas validam uma ação dedicada para demonstrar gratidão.
+
+A tela deve permitir:
+
+- escolher destinatário;
+- escrever uma mensagem;
+- usar sugestões leves;
+- enviar gratidão;
+- registrar a gratidão nas memórias do Núcleo;
+- alimentar a árvore de forma simbólica e coletiva.
+
+Sugestões observadas:
+
+- Por me ouvir.
+- Pelo cuidado.
+- Por estar presente.
+
+## Gratidão na Home
+
+A Home pode exibir a gratidão mais recente como um card de destaque do dia.
+
+Isso reforça que o app não é apenas sobre pendências, mas também sobre reconhecimento do que já está florescendo.
+
+## Memórias
+
+As telas introduzem uma área chamada "Memórias", com filtros:
+
+- Tudo.
+- Fotos.
+- Agradecimentos.
+- Marcos.
+
+Essa área deve reunir registros afetivos positivos, momentos registrados, marcos e lembranças importantes do Núcleo.
+
+## Notificações positivas
+
+Notificações relacionadas a gratidão devem manter tom afetivo e discreto.
+
+Exemplo observado:
+
+> Ana agradeceu você.
+
+Esse tipo de notificação deve convidar à leitura, não exigir reciprocidade.
+
+## Regra adicional
+
+## Regra R11
+
+Toda gratidão enviada pode compor a memória afetiva do Núcleo, respeitando as regras de visibilidade e sem gerar obrigação de resposta.

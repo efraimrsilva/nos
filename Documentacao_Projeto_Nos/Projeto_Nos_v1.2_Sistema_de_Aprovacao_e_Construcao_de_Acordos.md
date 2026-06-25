@@ -288,3 +288,100 @@ Nossa Essência
 - Mais alinhamento emocional
 - Evolução gradual dos hábitos
 - Base sólida para futuras funcionalidades
+
+---
+
+# Complemento de Alinhamento com as Telas do Protótipo
+
+## Fluxo apresentado na interface
+
+As telas consolidam um fluxo visual de criação de acordo em quatro etapas:
+
+Necessidade -> Proposta -> Conversar -> Acordo
+
+Esse fluxo é uma versão mais simples e amigável da jornada completa descrita neste documento.
+
+## Etapa visual: Necessidade
+
+A primeira tela do fluxo pergunta:
+
+> Qual necessidade você gostaria de transformar em um acordo?
+
+Opções iniciais observadas:
+
+- Mais conexão.
+- Mais tempo juntos.
+- Mais carinho.
+- Comunicação.
+- Respeito.
+- Outro.
+
+Essas opções funcionam como atalhos emocionais para reduzir o atrito inicial. Elas não substituem a conversa nem definem o acordo automaticamente.
+
+## Detalhe do acordo
+
+O detalhe de um acordo deve apresentar, no mínimo:
+
+- nome do acordo;
+- ritmo ou frequência;
+- descrição clara do combinado;
+- data de criação;
+- próxima revisão;
+- impacto esperado;
+- linguagem de cuidado associada;
+- progresso recente;
+- próxima ocorrência agendada;
+- ações de revisar e registrar momento.
+
+Exemplo validado nas telas:
+
+- Acordo: Conversar sem distrações.
+- Ritmo: 3x por semana.
+- Impacto esperado: Alto.
+- Linguagem: Tempo de qualidade.
+- Progresso: 80%.
+
+## Revisão do acordo
+
+A tela de revisão apresenta quatro caminhos principais:
+
+- Manter e promover.
+- Ajustar o acordo.
+- Conversar sobre dificuldades.
+- Encerrar de comum acordo.
+
+Essa decisão deve sempre preservar consenso e segurança emocional.
+
+## Conversa de cuidado
+
+Quando um acordo fica difícil, a interface deve conduzir a conversa sem culpa.
+
+Texto orientador validado:
+
+> Quando um acordo fica difícil, não é falha de ninguém. É um convite para se entenderem melhor.
+
+Motivos iniciais observados:
+
+- Falta de tempo.
+- Estamos nos desencontrando.
+- O combinado não está claro.
+
+A mensagem enviada deve incentivar comunicação em primeira pessoa, focada no sentimento e na necessidade, não em acusação.
+
+## Promoção para Essência
+
+A tela de promoção reforça que um hábito só vira Essência quando amadurece na prática e recebe aceite dos envolvidos.
+
+Exemplo:
+
+> Um hábito virou quem vocês são.
+
+O sistema deve mostrar claramente quem ainda precisa aceitar a promoção.
+
+---
+
+# Regras de Negócio Adicionais
+
+## Regra A1
+
+O fluxo visual pode simplificar a linguagem da jornada completa, mas não pode remover consenso, clareza, período de reflexão, revisão ou possibilidade de ajuste.

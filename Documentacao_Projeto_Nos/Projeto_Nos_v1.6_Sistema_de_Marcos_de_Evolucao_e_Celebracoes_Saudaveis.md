@@ -618,3 +618,68 @@ O Sistema de Marcos de Evolução e Celebrações Saudáveis torna o Projeto Nó
 Ele ajuda cada Núcleo a perceber que sua história está sendo construída aos poucos, por meio de práticas, conversas, gestos, revisões, gratidão e presença.
 
 Ao celebrar a caminhada sem transformar vínculos em competição, o Projeto Nós fortalece sua missão de apoiar relações mais saudáveis, conscientes, duradouras e humanas.
+
+---
+
+# Complemento de Alinhamento com as Telas do Protótipo
+
+## Nossa árvore como visualização de marcos
+
+As telas consolidam a árvore como a principal visualização de evolução saudável.
+
+Ela deve comunicar:
+
+- nível atual;
+- estágio afetivo;
+- experiência acumulada;
+- progresso até o próximo estágio;
+- hábitos cultivados;
+- experiências vividas;
+- valores na essência.
+
+Exemplo observado:
+
+- Nível 7.
+- Raízes fortes.
+- Próximo estágio: Copa florescente.
+
+## Marcos na área de Memórias
+
+Marcos aparecem também na área de Memórias.
+
+Exemplo observado:
+
+> Completamos 2 meses do hábito "Conversar sem distrações".
+
+Isso indica que todo marco relevante pode virar memória afetiva consultável depois.
+
+## Agenda e experiências
+
+As telas apresentam agenda e próximos momentos, como:
+
+- jantar em família;
+- noite do filme;
+- passeio ao ar livre;
+- jantar romântico mensal.
+
+Experiências planejadas e vividas devem poder gerar marcos e memórias.
+
+## Registro de momento
+
+A tela "Registrar momento" permite registrar como foi uma prática.
+
+Campos observados:
+
+- sentimento do momento;
+- nota opcional;
+- foto;
+- acordo relacionado;
+- ação de salvar momento.
+
+Esse registro pode alimentar memórias, progresso do acordo, impacto percebido e marcos futuros.
+
+## Regra adicional
+
+## Regra M11
+
+Momentos registrados a partir de acordos ou experiências podem alimentar a árvore, as memórias e os marcos do Núcleo, desde que não sejam usados para punir interrupções ou comparar membros.

@@ -519,3 +519,57 @@ Percentuais de aceite entre 80% e 90% poderão ser considerados apenas em expans
 O Sistema de Impacto torna o Projeto Nós mais consciente, priorizado e orientado à transformação real.
 
 Ele ajuda cada Núcleo a não apenas criar compromissos, mas compreender quais práticas realmente fortalecem seus laços, amadurecem sua convivência e constroem sua identidade compartilhada ao longo do tempo.
+
+---
+
+# Complemento de Alinhamento com as Telas do Protótipo
+
+## Impacto na interface
+
+As telas mostram o impacto como um atributo simples e legível dentro do detalhe do acordo.
+
+Exemplo:
+
+- Impacto esperado: Alto.
+
+Esse campo deve aparecer como informação de contexto, não como julgamento moral do acordo.
+
+## Relação com progresso
+
+As telas também apresentam progresso percentual de acordos, como 80%, 90%, 60% e 70%.
+
+O percentual deve representar cumprimento ou continuidade recente, enquanto impacto representa a relevância percebida do compromisso.
+
+Esses dois conceitos não devem ser confundidos:
+
+- Progresso responde: "Quanto praticamos recentemente?"
+- Impacto responde: "Quanto isso fortalece ou transforma o Núcleo?"
+
+## Relação com a árvore
+
+A árvore usa experiência, nível e estágio para simbolizar maturidade do Núcleo.
+
+Exemplo observado:
+
+- Nível 7.
+- Raízes fortes.
+- 1.250 / 1.800 exp.
+- Próximo estágio: Copa florescente.
+
+Impacto pode influenciar a relevância de uma prática na evolução do Núcleo, mas não deve criar competição individual.
+
+## Indicadores coletivos observados
+
+A tela "Nossa árvore" apresenta indicadores como:
+
+- hábitos cultivados;
+- experiências vividas;
+- valores na essência.
+
+Esses indicadores devem ser agregados do Núcleo, não rankings de membros.
+
+## Regra adicional
+
+## Regra I10
+
+Percentuais, experiência, níveis e estágios devem ser apresentados como sinais de amadurecimento coletivo, nunca como pontuação individual de afeto, valor ou desempenho.

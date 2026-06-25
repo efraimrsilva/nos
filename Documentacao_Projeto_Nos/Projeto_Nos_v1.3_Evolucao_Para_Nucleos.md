@@ -314,6 +314,10 @@ O Propósito do Núcleo pode ser revisado anualmente mediante consenso.
 
 A criação de novos tipos de Núcleo não deve exigir alteração das regras fundamentais da plataforma.
 
+## Regra N6
+
+Nenhum usuário deve acessar acordos, gratidões, memórias, manifesto ou dados afetivos de um Núcleo sem convite válido e aceite explícito.
+
 ---
 
 # Benefícios Estratégicos
@@ -358,3 +362,69 @@ Tipos customizados e futuras expansões:
 - Mentorias
 
 Essa abordagem evita retrabalho arquitetural e mantém a evolução alinhada à filosofia original do Projeto Nós.
+
+---
+
+# Complemento de Alinhamento com as Telas do Protótipo
+
+## Núcleos como seletor central da experiência
+
+As telas confirmam que um usuário pode participar de múltiplos Núcleos e alternar entre eles.
+
+Exemplos observados:
+
+- Família Andrade.
+- Nós dois.
+- Eu e o André.
+
+Cada Núcleo possui identidade própria, nível próprio, membros próprios, acordos próprios, memórias próprias e propósito próprio.
+
+## Tela "Seus núcleos"
+
+A lista de Núcleos deve exibir:
+
+- tipo do Núcleo;
+- status ativo;
+- nome;
+- frase de propósito;
+- avatares ou iniciais dos membros;
+- convites recebidos;
+- ação para criar novo Núcleo.
+
+## Convite para Núcleo
+
+As telas indicam dois estados importantes:
+
+- convidar outras pessoas para um Núcleo existente;
+- receber convite para entrar em um Núcleo.
+
+O convite pode ser representado por:
+
+- código de convite;
+- QR code;
+- link copiável;
+- ação de compartilhar;
+- lista de convites pendentes;
+- status do convite.
+
+## Privacidade do Núcleo
+
+O protótipo reforça que o Núcleo é privado e só acessível por convite.
+
+Texto de intenção observado:
+
+> Só quem tem o código entra. O Núcleo é um espaço privado e íntimo, cuidado por vocês.
+
+Essa regra deve orientar onboarding, convite, configurações e entrada de novos membros.
+
+## Entrada no Núcleo
+
+Antes de aceitar um convite, o usuário deve visualizar:
+
+- quem convidou;
+- nome do Núcleo;
+- tipo do Núcleo;
+- propósito;
+- membros já presentes;
+- aviso de privacidade;
+- ações de aceitar ou recusar.

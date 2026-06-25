@@ -850,6 +850,68 @@ Essa melhoria aprofunda a missão central do Projeto Nós:
 
 > Ajudar pessoas a transformar necessidades, expectativas e pequenos gestos repetidos em vínculos mais saudáveis, conscientes, duradouros e humanos.
 
+---
+
+# Complemento de Alinhamento com as Telas do Protótipo
+
+## Perfil afetivo do membro
+
+As telas ampliam o uso das Linguagens de Cuidado para um perfil afetivo individual.
+
+O perfil pode conter:
+
+- frase pessoal;
+- percentual de completude;
+- lista de desejos;
+- gostos musicais;
+- filmes e séries favoritos;
+- sabores favoritos;
+- hobbies;
+- formas preferidas de cuidado;
+- datas importantes.
+
+Esse perfil existe para ajudar quem ama a conhecer melhor a pessoa, não para classificá-la ou reduzi-la.
+
+## Lista de desejos
+
+A lista de desejos deve ser tratada como pista de cuidado, não como obrigação de compra.
+
+Campos observados:
+
+- nome do desejo;
+- categoria;
+- valor aproximado opcional;
+- tipo, como livros, tecnologia, experiência ou bem-estar.
+
+Presentes devem continuar seguindo a regra de não gerar cobrança financeira ou comparação de esforço.
+
+## Perfil de outro membro
+
+As telas mostram um perfil relacional de outra pessoa, com:
+
+- vínculo;
+- tempo juntos no app;
+- acordos ativos;
+- gratidões trocadas;
+- linguagens de cuidado percebidas;
+- ideias de presente;
+- gostos pessoais;
+- ações rápidas de agradecer ou criar novo acordo.
+
+Esse perfil deve apoiar cuidado consciente e personalizado.
+
+## Completude do perfil
+
+O indicador de completude, como "Perfil 75% completo", deve ser usado apenas como convite leve para compartilhar mais.
+
+Ele não deve virar cobrança, ranking ou requisito obrigatório.
+
+## Regra adicional
+
+## Regra L16
+
+Preferências, desejos, gostos e datas importantes devem ser tratados como pistas afetivas voluntárias para facilitar cuidado personalizado, nunca como exigências de comportamento ou consumo.
+
 
 
 

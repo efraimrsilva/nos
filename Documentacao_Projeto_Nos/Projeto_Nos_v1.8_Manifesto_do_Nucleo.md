@@ -905,3 +905,60 @@ Ao reunir Propósito, Nossa Essência, acordos, hábitos, experiências, gratid�
 Essa melhoria fortalece a missão central do Projeto Nós:
 
 > Ajudar pessoas a transformar pequenas atitudes repetidas em vínculos mais saudáveis, conscientes, duradouros e humanos.
+
+---
+
+# Complemento de Alinhamento com as Telas do Protótipo
+
+## Manifesto apresentado como experiência emocional
+
+As telas mostram o Manifesto em uma tela especial, com fundo roxo, árvore, texto centralizado e ação de compartilhar.
+
+Para o tipo Família, o título visual usado no protótipo foi:
+
+> Nossa Constituição do Amor
+
+Essa variação é compatível com as variações afetivas já previstas neste documento.
+
+## Exemplo visual validado
+
+O Manifesto exibido nas telas contém:
+
+- nome do Núcleo;
+- texto narrativo curto;
+- valores em destaque;
+- frase final simbólica;
+- membros que assinaram;
+- ação de compartilhar manifesto.
+
+Exemplo de frase final:
+
+> Um dia de cada vez, escolhemos nós.
+
+## Assinaturas
+
+A tela mostra assinaturas por iniciais dos membros e texto "assinado por todos".
+
+Esse padrão confirma que a confirmação do Manifesto deve ter representação visual clara.
+
+## Card no perfil/núcleo
+
+Antes da tela completa, o Manifesto aparece como card no perfil do Núcleo:
+
+- título afetivo;
+- status de geração;
+- idade aproximada, como "6 meses";
+- trecho inicial;
+- ação "Ler manifesto completo".
+
+## Compartilhamento
+
+O Manifesto pode ter ação de compartilhamento.
+
+O compartilhamento deve respeitar privacidade do Núcleo e só deve estar disponível quando todos os membros diretamente envolvidos permitirem ou quando as regras do Núcleo autorizarem.
+
+## Regra adicional
+
+## Regra MN21
+
+O Manifesto compartilhável deve preservar a intimidade do Núcleo: nenhum conteúdo sensível, privado ou não confirmado deve ser exposto fora do Núcleo sem consentimento adequado.
