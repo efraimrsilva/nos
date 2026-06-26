@@ -745,7 +745,7 @@ Características:
 
 - "Que tal cuidar disso com calma?"
 - "Um pequeno obrigado pode virar memória."
-- "Nada vira acordo sem o sim das duas pessoas."
+- "Nada vira acordo sem o sim das pessoas envolvidas."
 - "Fale do que você sente, não do que o outro errou."
 - "Cada relação é um jardim diferente."
 - "Vocês se ouviram com carinho."
@@ -932,4 +932,3 @@ Ao implementar novas telas do Projeto Nós:
 8. Use consentimento explícito para acordos, Essência, Manifesto e eventos importantes.
 9. Preserve o tom visual orgânico: fundos quentes, bordas suaves, cores de cuidado.
 10. Evite interfaces frias, administrativas ou corporativas.
-

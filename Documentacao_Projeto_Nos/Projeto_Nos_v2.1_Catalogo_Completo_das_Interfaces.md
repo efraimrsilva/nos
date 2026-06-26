@@ -488,7 +488,7 @@ Iniciar a criação de um novo acordo a partir de uma necessidade afetiva, antes
 - título "Novo acordo";
 - etapas: "Necessidade", "Proposta", "Conversar", "Acordo";
 - pergunta: "Qual necessidade você gostaria de transformar em um acordo?";
-- texto de apoio: "Pense em algo que é importante para você e para o nosso relacionamento.";
+- texto de apoio: "Pense em algo que é importante para você e para este vínculo.";
 - opções:
   - "Mais conexão";
   - "Mais tempo juntos";
@@ -1179,7 +1179,7 @@ Conduzir uma revisão cuidadosa de um acordo, oferecendo caminhos construtivos.
   - "Ajustar o acordo";
   - "Conversar sobre dificuldades";
   - "Encerrar de comum acordo";
-- aviso: "Toda revisão precisa do sim das duas pessoas. Mudanças passam por um período de reflexão de 7 dias."
+- aviso: "Toda revisão precisa do sim das pessoas envolvidas. Mudanças passam por um período de reflexão de 7 dias."
 
 ### Interações
 
@@ -1807,7 +1807,7 @@ Centralizar decisões pendentes que exigem consentimento entre membros.
 - exemplos:
   - "Acordo para a Maria - Ligar toda semana - Aguardando";
   - "Convite ao núcleo - Lucas - Aceito";
-- aviso: "Nada vira acordo sem o sim das duas pessoas. Assim cada combinado é de verdade, dos dois."
+- aviso: "Nada vira acordo sem o sim das pessoas envolvidas. Assim cada combinado é de verdade, do Núcleo."
 
 ### Interações
 

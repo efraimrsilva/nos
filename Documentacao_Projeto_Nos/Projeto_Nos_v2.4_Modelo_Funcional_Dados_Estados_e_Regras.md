@@ -586,9 +586,9 @@ Consentimento explícito para ações importantes.
 
 ---
 
-## 2.16 Conversa Guiada
+## 2.16 Diálogo Guiado / Conversa Guiada
 
-Espaço mediado para cuidado em temas sensíveis.
+Espaço mediado para cuidado em temas sensíveis. "Diálogo Guiado" é o nome de produto exibido na interface; "Conversa Guiada" pode ser usado como nome técnico da entidade persistida.
 
 ### Campos recomendados
 
@@ -1098,4 +1098,3 @@ Ao criar código para o Projeto Nós, a IA deve assumir:
 8. Dados pessoais do perfil afetivo pertencem ao usuário.
 9. Integrações externas nunca são fonte oficial de agenda.
 10. A árvore e o Manifesto são sínteses de trajetória, não métricas brutas.
-

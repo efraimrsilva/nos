@@ -205,7 +205,7 @@ Um acordo torna-se elegível quando:
 
 - Está ativo há pelo menos 6 meses.
 - Passou por revisões positivas.
-- Existe consenso mútuo.
+- Existe consenso dos membros diretamente envolvidos.
 
 ### Status
 

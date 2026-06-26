@@ -122,7 +122,7 @@ Momentos especiais que fortalecem o relacionamento de forma periódica.
 
 ## Categoria 3 – Nossa Essência
 
-Valores, comportamentos e atitudes que deixaram de ser objetivos temporários e passaram a representar a identidade do relacionamento.
+Valores, comportamentos e atitudes que deixaram de ser objetivos temporários e passaram a representar a identidade do vínculo ou Núcleo.
 
 | Nossa Essência |
 | -------------- |
@@ -154,13 +154,13 @@ Todo item deve passar por conversa e consenso entre as partes.
 
 ## Regra 3
 
-O objetivo não é mudar o parceiro.
+O objetivo não é mudar outra pessoa do vínculo.
 
-O objetivo é construir um relacionamento melhor para ambos.
+O objetivo é construir uma convivência melhor para todos os membros diretamente envolvidos.
 
 ## Regra 4
 
-Os acordos devem ser realistas, alcançáveis e compatíveis com a rotina do casal ou família.
+Os acordos devem ser realistas, alcançáveis e compatíveis com a rotina do Núcleo, seja ele casal, família, irmãos, amigos ou outro tipo de vínculo.
 
 ## Regra 5
 
@@ -172,15 +172,15 @@ Ao final de cada ciclo de revisão, os participantes avaliam os resultados alcan
 
 ## Regra 7
 
-A cada 6 meses, um item de cada categoria poderá ser promovido para Nossa Essência.
+Após pelo menos 6 meses de prática, revisões positivas, alinhamento ao propósito do Núcleo e consenso dos membros diretamente envolvidos, um item poderá ser considerado elegível para promoção para Nossa Essência.
 
 ## Regra 8
 
-Itens presentes em Nossa Essência representam compromissos permanentes da identidade do relacionamento.
+Itens presentes em Nossa Essência representam compromissos identitários e duradouros da identidade do vínculo ou Núcleo. Eles continuam revisáveis por consenso, pois a identidade do Núcleo pode amadurecer ao longo do tempo.
 
 ## Regra 9
 
-Uma vez por ano, os participantes poderão revisar Nossa Essência e substituir até um item por consenso mútuo.
+Uma vez por ano, os participantes poderão revisar Nossa Essência. Alterações, substituições ou remoções devem ocorrer apenas por consenso dos membros diretamente envolvidos.
 
 ## Regra 10
 

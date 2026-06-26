@@ -304,7 +304,7 @@ Todo membro possui voz durante a construção dos acordos.
 
 ## Regra N3
 
-A promoção para Nossa Essência exige consenso dos membros participantes.
+A promoção para Nossa Essência exige consenso dos membros diretamente envolvidos.
 
 ## Regra N4
 

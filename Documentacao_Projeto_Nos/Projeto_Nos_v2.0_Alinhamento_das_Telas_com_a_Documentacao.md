@@ -270,7 +270,7 @@ Documentação detalhada:
 
 - v2.1, tela 37;
 - v2.2, fluxo de Diálogo Guiado;
-- v2.4, entidade Conversa Guiada.
+- v2.4, entidade Diálogo Guiado / Conversa Guiada.
 
 ## Tipos de Vínculo
 
@@ -288,7 +288,7 @@ Linha de evolução para vínculos em que fases fazem sentido, como relações r
 Documentação detalhada:
 
 - v2.1, tela 34;
-- v2.2, Aprovações;
+- v2.2, fluxo de Aprovações;
 - v2.4, Marco e Aprovação.
 
 ## Perfil Afetivo expandido
@@ -476,7 +476,7 @@ Conforme a v2.4, o produto deve modelar:
 - Evento de Calendário;
 - Convite;
 - Aprovação;
-- Conversa Guiada;
+- Diálogo Guiado / Conversa Guiada;
 - Manifesto;
 - Notificação.
 
