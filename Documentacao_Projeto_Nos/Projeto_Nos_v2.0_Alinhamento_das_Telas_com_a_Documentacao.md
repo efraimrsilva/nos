@@ -1,489 +1,626 @@
-# Projeto Nós - Alinhamento das Telas com a Documentação (Versão 2.0)
+# Projeto Nós - Síntese Consolidada das Interfaces e Documentações (Versão 2.0)
 
 ## Status
 
-Documento de consolidação inicial
+Documento consolidado.
 
 ## Objetivo
 
-Comparar as 28 telas do protótipo com a documentação existente do Projeto Nós e registrar o que já está coberto, o que foi refinado pelas telas e o que ainda precisa ser documentado em detalhe.
+Esta versão 2.0 consolida a visão geral do Projeto Nós após a análise completa do protótipo `Nós App.dc 1.html` e após a criação das documentações de interface, fluxo, design e modelagem funcional nas versões 2.1 a 2.4.
 
-Este documento serve como ponte entre a documentação conceitual atual e a próxima etapa: documentação completa de todas as telas, fluxos, componentes, estados e regras de interface.
-
----
-
-# 1. Síntese da Comparação
-
-## O que a documentação já cobre bem
-
-- Propósito do produto.
-- Jornada de transformação de necessidades em acordos.
-- Estrutura de Hábitos, Experiências e Nossa Essência.
-- Evolução para Núcleos.
-- Consenso e aprovação.
-- Impacto esperado e percebido.
-- Gratidão e reconhecimento.
-- Marcos saudáveis.
-- Linguagens de cuidado.
-- Manifesto do Núcleo.
-
-## O que as telas tornaram mais concreto
-
-- Arquitetura inicial de navegação.
-- Home do Núcleo.
-- Árvore como metáfora central de evolução.
-- Agenda e próximos momentos.
-- Área de Memórias.
-- Registro de momentos.
-- Convites por código, QR e link.
-- Perfil afetivo do usuário.
-- Perfil de outro membro.
-- Configurações de privacidade e notificações.
-- Notificações positivas e de evolução.
-- Estados visuais de acordos, revisão, promoção para Essência e conversa de cuidado.
-
-## O que ainda precisa virar documentação própria
-
-- Documentação tela a tela.
-- Design system.
-- Componentes reutilizáveis.
-- Modelo de navegação.
-- Estados vazios.
-- Estados de erro.
-- Estados de carregamento.
-- Permissões e visibilidade por Núcleo.
-- Modelo de dados inicial.
-- Eventos de notificação.
-- Regras de agenda.
-- Regras de memória.
-- Regras de perfil afetivo.
-- Regras de compartilhamento.
+Ela deve ser usada como ponto de entrada para uma equipe de produto ou uma equipe de engenharia antes de consultar os documentos detalhados.
 
 ---
 
-# 2. Mapa das Telas do Protótipo
-
-## Tela 1 - Abertura
-
-Função: apresentar marca, slogan e entrada no app.
-
-Elementos:
-
-- árvore;
-- nome Nós;
-- slogan;
-- botão Começar;
-- botão Entrar;
-- paisagem inferior.
-
-Documentação relacionada:
-
-- v1.1 Visão e Regras de Negócio.
-
-## Telas 2 e 3 - Home do Núcleo
-
-Função: resumir o estado afetivo e prático do Núcleo.
-
-Elementos:
-
-- saudação personalizada;
-- seletor de Núcleo;
-- notificações;
-- card emocional;
-- Nossa árvore;
-- gratidão recente;
-- agenda;
-- próximos momentos.
-
-Documentação relacionada:
-
-- v1.1 Visão.
-- v1.3 Núcleos.
-- v1.5 Gratidão.
-- v1.6 Marcos.
-
-Lacuna:
-
-- precisa de documentação própria da Home.
-
-## Telas 4, 5, 6, 8, 22, 23 e 24 - Acordos
-
-Função: criar, acompanhar, registrar, revisar, ajustar e promover acordos.
-
-Elementos:
-
-- lista de acordos;
-- abas Hábitos, Experiências e Essência;
-- filtros por status;
-- detalhe do acordo;
-- fluxo Novo acordo;
-- revisão;
-- promoção para Essência;
-- conversa de cuidado.
-
-Documentação relacionada:
-
-- v1.2 Acordos.
-- v1.4 Impacto.
-- v1.7 Linguagens de Cuidado.
-
-Lacuna:
-
-- precisa de documentação detalhada do fluxo completo de acordos na interface.
-
-## Tela 7 - Nossa Árvore
-
-Função: visualizar evolução coletiva do Núcleo.
-
-Elementos:
-
-- árvore;
-- nível;
-- estágio;
-- experiência;
-- próximo estágio;
-- hábitos cultivados;
-- experiências vividas;
-- valores na essência.
-
-Documentação relacionada:
-
-- v1.4 Impacto.
-- v1.6 Marcos.
-
-Lacuna:
-
-- precisa de regras específicas de experiência, níveis e estágios.
-
-## Tela 9 - Memórias
-
-Função: preservar linha do tempo afetiva do Núcleo.
-
-Elementos:
-
-- filtros Tudo, Fotos, Agradecimentos e Marcos;
-- gratidões;
-- marcos;
-- momentos registrados.
-
-Documentação relacionada:
-
-- v1.5 Gratidão.
-- v1.6 Marcos.
-
-Lacuna:
-
-- precisa de documentação própria de Memórias.
-
-## Telas 10, 11, 13, 14 e 18 - Núcleos e Convites
-
-Função: gerenciar vínculos, trocar de Núcleo, convidar membros e aceitar convites.
-
-Elementos:
-
-- perfil do Núcleo;
-- lista de Núcleos;
-- maturidade;
-- convite recebido;
-- código de convite;
-- QR code;
-- convites pendentes;
-- privacidade.
-
-Documentação relacionada:
-
-- v1.3 Núcleos.
-- v1.8 Manifesto.
-
-Lacuna:
-
-- precisa de documentação detalhada de permissões, convites e papéis.
-
-## Tela 12 - Cadastro
-
-Função: criar conta com promessa de privacidade.
-
-Elementos:
-
-- nome;
-- email;
-- senha;
-- mensagem de espaço privado;
-- CTA continuar.
-
-Documentação relacionada:
-
-- v1.1 Visão.
-- v1.3 Núcleos.
-
-Lacuna:
-
-- precisa de documentação de onboarding, autenticação e primeira experiência.
-
-## Tela 15 - Notificações
-
-Função: avisar sobre gratidões, acordos, entradas no Núcleo e marcos.
-
-Elementos:
-
-- agrupamento por tempo;
-- notificações positivas;
-- notificações de acordo;
-- notificações de entrada;
-- notificações de Essência.
-
-Documentação relacionada:
-
-- v1.5 Gratidão.
-- v1.6 Marcos.
-- v1.2 Acordos.
-
-Lacuna:
-
-- precisa de catálogo de notificações.
-
-## Telas 16, 17 e 21 - Momentos, Gratidão e Experiências
-
-Função: registrar práticas, agradecimentos e experiências planejadas ou vividas.
-
-Elementos:
-
-- sentimento do momento;
-- nota;
-- foto;
-- destinatários;
-- mensagem;
-- sugestões;
-- ideias para próxima experiência;
-- agendamento.
-
-Documentação relacionada:
-
-- v1.5 Gratidão.
-- v1.6 Marcos.
-- v1.7 Linguagens.
-
-Lacuna:
-
-- precisa de documentação de registros de momento e agenda.
-
-## Telas 19, 20, 27 e 28 - Perfil Afetivo
-
-Função: ajudar membros a conhecerem melhor uns aos outros.
-
-Elementos:
-
-- vínculo;
-- estatísticas relacionais;
-- linguagens de cuidado;
-- ideias de presente;
-- gostos;
-- lista de desejos;
-- datas importantes;
-- completude de perfil.
-
-Documentação relacionada:
-
-- v1.7 Linguagens de Cuidado.
-
-Lacuna:
-
-- precisa de documentação própria do perfil afetivo e lista de desejos.
-
-## Tela 25 - Manifesto
-
-Função: apresentar identidade afetiva confirmada do Núcleo.
-
-Elementos:
-
-- título afetivo;
-- nome do Núcleo;
-- texto manifesto;
-- assinaturas;
-- ação de compartilhar.
-
-Documentação relacionada:
-
-- v1.8 Manifesto do Núcleo.
-
-## Tela 26 - Configurações
-
-Função: controlar privacidade, notificações e conta.
-
-Elementos:
-
-- Núcleo privado;
-- só por convite;
-- memórias visíveis só ao Núcleo;
-- gratidões e acordos;
-- lembretes da agenda;
-- editar perfil;
-- ajuda e suporte.
-
-Documentação relacionada:
-
-- v1.3 Núcleos.
-- v1.5 Gratidão.
-- v1.8 Manifesto.
-
-Lacuna:
-
-- precisa de documentação de configurações e privacidade.
+# 1. Linha Documental do Projeto
+
+## Documentações conceituais
+
+- v1.1 - Visão e Regras de Negócio.
+- v1.2 - Sistema de Aprovação e Construção de Acordos.
+- v1.3 - Evolução para Núcleos.
+- v1.4 - Sistema de Impacto dos Compromissos.
+- v1.5 - Sistema de Reconhecimento e Gratidão.
+- v1.6 - Sistema de Marcos de Evolução e Celebrações Saudáveis.
+- v1.7 - Sistema de Linguagens de Cuidado e Amor.
+- v1.8 - Manifesto do Núcleo.
+- v1.9 - Calendário do Núcleo e Sincronização Segura.
+
+## Documentações de interface e implementação
+
+- v2.0 - Síntese consolidada das interfaces e documentações.
+- v2.1 - Catálogo Completo das Interfaces.
+- v2.2 - Fluxos, Navegação e Interações.
+- v2.3 - Design System, Componentes e Tom de Interface.
+- v2.4 - Modelo Funcional, Dados, Estados e Regras.
 
 ---
 
-# 3. Decisões de Produto Derivadas das Telas
+# 2. Síntese da Visão do Produto
 
-## Decisão 1 - Núcleo é o contexto principal
+O Projeto Nós é uma plataforma privada para fortalecer vínculos por meio de pequenos acordos, gratidão, memórias, experiências, conversas de cuidado e evolução coletiva.
 
-Todo conteúdo sensível deve estar associado a um Núcleo.
+O produto não deve ser interpretado como:
 
-Isso inclui:
+- aplicativo de tarefas;
+- rede social pública;
+- ferramenta de cobrança;
+- ranking afetivo;
+- gamificação competitiva;
+- sistema de vigilância relacional.
+
+O produto deve ser interpretado como:
+
+- espaço privado de cuidado;
+- memória viva do Núcleo;
+- ferramenta de construção de acordos;
+- apoio para presença e gratidão;
+- mapa de vínculos e linguagens de cuidado;
+- registro de evolução coletiva;
+- mediador leve para conversas difíceis.
+
+---
+
+# 3. Conceitos Centrais
+
+## Núcleo
+
+Núcleo é o contexto principal da experiência.
+
+Tudo que for sensível deve pertencer a um Núcleo:
 
 - acordos;
+- hábitos;
+- experiências;
+- Essência;
 - memórias;
 - gratidões;
-- agenda;
-- árvore;
-- manifesto;
+- calendário;
+- eventos;
 - membros;
+- convites;
+- aprovações;
+- Manifesto;
+- árvore;
 - notificações;
 - configurações.
 
-## Decisão 2 - A árvore é o símbolo de evolução coletiva
+Regra consolidada: nenhum dado afetivo deve vazar entre Núcleos.
 
-A árvore deve aparecer como elemento de identidade e progresso do Núcleo.
+## Árvore
 
-Ela não deve representar desempenho individual.
+A árvore é o símbolo de evolução coletiva.
 
-## Decisão 3 - A Home precisa equilibrar cuidado e ação
+Ela representa:
 
-A Home deve mostrar:
+- crescimento;
+- raízes;
+- cuidado recorrente;
+- memória;
+- maturidade;
+- história compartilhada.
 
-- acolhimento;
-- estado atual do Núcleo;
-- progresso simbólico;
-- registro positivo recente;
-- agenda próxima;
-- acesso rápido às ações importantes.
+Ela não representa:
 
-## Decisão 4 - Memórias são uma camada transversal
+- competição;
+- desempenho individual;
+- cobrança;
+- ranking.
 
-Memórias devem reunir registros de:
+## Acordos
 
-- gratidão;
+Acordos nascem de necessidades, conversas e consentimento.
+
+O fluxo consolidado é:
+
+1. Necessidade.
+2. Proposta.
+3. Conversar.
+4. Acordo.
+5. Prática.
+6. Registro.
+7. Revisão.
+8. Possível promoção para Essência.
+
+Regra consolidada: proposta não é acordo; acordo exige aceite.
+
+## Essência
+
+Nossa Essência é formada por práticas que deixaram de ser apenas compromisso e passaram a representar identidade do Núcleo.
+
+Regra consolidada: promoção para Essência exige consenso.
+
+## Gratidão
+
+Gratidão é registro positivo de cuidado percebido.
+
+Ela pode aparecer:
+
+- na Home;
+- em Memórias;
+- em Notificações;
+- no Perfil de Membro;
+- em Conexões;
+- em revisões;
+- como contribuição para a árvore.
+
+Regra consolidada: gratidão não deve virar ranking.
+
+## Memórias
+
+Memórias guardam registros afetivos do Núcleo.
+
+Podem ser:
+
 - fotos;
-- momentos;
-- marcos;
-- experiências;
-- celebrações.
-
-## Decisão 5 - Perfil afetivo é parte do cuidado
-
-O perfil não é apenas cadastro. Ele ajuda os membros a cuidarem melhor uns dos outros.
-
-## Decisão 6 - Privacidade deve ser visível
-
-O app deve reforçar em telas sensíveis que o Núcleo é privado e acessível apenas por convite.
-
-## Decisão 7 - Revisão deve proteger o vínculo
-
-Quando algo não está indo bem, a interface deve conduzir para conversa de cuidado, não cobrança.
-
----
-
-# 4. Próximos Documentos Recomendados
-
-## v2.0 - Arquitetura de Navegação e Home
-
-Deve documentar:
-
-- navegação principal;
-- Home;
-- árvore resumida;
-- agenda;
-- próximos momentos;
-- ações rápidas.
-
-## v2.1 - Documentação Completa de Acordos na Interface
-
-Deve documentar:
-
-- lista;
-- filtros;
-- detalhe;
-- criação;
-- registro de momento;
-- revisão;
-- conversa de cuidado;
-- promoção para Essência.
-
-## v2.2 - Memórias, Agenda e Experiências
-
-Deve documentar:
-
-- linha do tempo afetiva;
-- filtros;
-- tipos de memória;
-- experiências recorrentes;
+- gratidões;
 - momentos registrados;
-- fotos.
+- experiências;
+- marcos;
+- celebrações;
+- entrada de membros;
+- Manifesto confirmado.
 
-## v2.3 - Núcleos, Convites e Permissões
+Regra consolidada: memórias são privadas ao Núcleo por padrão.
 
-Deve documentar:
+## Perfil Afetivo
 
-- lista de Núcleos;
-- criação;
-- convite;
-- aceite;
-- membros;
-- privacidade;
-- troca de Núcleo.
+Perfil afetivo ajuda pessoas a cuidarem melhor umas das outras.
 
-## v2.4 - Perfil Afetivo e Preferências de Cuidado
+Inclui:
 
-Deve documentar:
-
-- perfil próprio;
-- perfil de outro membro;
+- bio;
 - lista de desejos;
 - gostos;
-- datas;
-- linguagens;
-- completude.
+- hobbies;
+- datas importantes;
+- linguagens de cuidado;
+- formas preferidas de cuidado.
 
-## v2.5 - Design System do Projeto Nós
+Regra consolidada: o usuário é dono do próprio perfil afetivo.
 
-Deve documentar:
+## Calendário
 
-- cores;
-- tipografia;
-- botões;
-- cards;
-- abas;
-- chips;
-- ícones;
-- estados;
-- tom de voz;
-- padrões de microcopy.
+O calendário do Núcleo organiza momentos compartilhados.
+
+Pode conter:
+
+- experiências;
+- hábitos agendados;
+- revisões;
+- conversas de cuidado;
+- celebrações;
+- datas importantes;
+- eventos livres.
+
+Regra consolidada: calendário interno é fonte oficial; integrações externas são espelho seguro.
+
+## Manifesto
+
+Manifesto é a síntese viva dos valores, práticas e identidade do Núcleo.
+
+Regra consolidada: Manifesto confirmado exige aceite e não deve expor conflitos íntimos literalizados.
 
 ---
 
-# 5. Observação Técnica
+# 4. Novas Funcionalidades Consolidadas a Partir do Protótipo
 
-O PDF analisado possui 28 páginas em formato mobile vertical e aparenta ter sido exportado de uma página HTML/protótipo.
+As telas do protótipo expandem e concretizam as documentações 1.1 a 1.9. As principais funcionalidades novas ou mais maduras são:
 
-As telas devem ser tratadas como fonte de intenção de produto e UX, não necessariamente como especificação final pixel-perfect.
+## Home do Núcleo
 
-O próximo passo recomendado é documentar tela por tela com:
+Interface inicial com saudação, Núcleo ativo, árvore, gratidão recente, agenda e próximos momentos.
 
-- objetivo;
-- contexto;
-- componentes;
-- dados necessários;
-- ações;
-- regras;
-- estados;
-- navegação;
-- dependências com outras funcionalidades.
+Documentação detalhada:
+
+- v2.1, telas 02 e 03;
+- v2.2, fluxo da Home.
+
+## Catálogo completo de interfaces
+
+Foram documentadas 37 telas/estados:
+
+- 28 telas visualmente exportadas;
+- 9 estados adicionais encontrados no HTML.
+
+Documentação detalhada:
+
+- v2.1.
+
+## Navegação principal
+
+O produto se organiza em cinco áreas:
+
+- Início;
+- Acordos;
+- Memórias;
+- Conexões;
+- Perfil.
+
+Documentação detalhada:
+
+- v2.2;
+- v2.3.
+
+## Conexões
+
+Nova área para visualizar a árvore de laços do usuário, filtrar conexões fortes, médias e frágeis, e agir com cuidado.
+
+Documentação detalhada:
+
+- v2.1, tela 35;
+- v2.2, fluxo de Conexões;
+- v2.4, entidade Vínculo.
+
+## Aprovações
+
+Fila centralizada de consentimentos para acordos, experiências, convites, mudanças e promoções.
+
+Documentação detalhada:
+
+- v2.1, tela 36;
+- v2.2, fluxo de Aprovações;
+- v2.4, entidade Aprovação.
+
+## Diálogo Guiado
+
+Espaço seguro mediado pelo Nós para conversas delicadas.
+
+Documentação detalhada:
+
+- v2.1, tela 37;
+- v2.2, fluxo de Diálogo Guiado;
+- v2.4, entidade Conversa Guiada.
+
+## Tipos de Vínculo
+
+Catálogo de vínculos com sugestões de acordos e experiências por tipo de relação.
+
+Documentação detalhada:
+
+- v2.1, tela 33;
+- v2.4, entidade Vínculo.
+
+## Nossa Jornada
+
+Linha de evolução para vínculos em que fases fazem sentido, como relações românticas.
+
+Documentação detalhada:
+
+- v2.1, tela 34;
+- v2.2, Aprovações;
+- v2.4, Marco e Aprovação.
+
+## Perfil Afetivo expandido
+
+O protótipo concretiza "Sobre mim", lista de desejos, gostos, linguagens de cuidado e datas importantes.
+
+Documentação detalhada:
+
+- v2.1, telas 27 e 28;
+- v2.2, fluxo de Perfil Afetivo;
+- v2.4, Perfil Afetivo, Desejo e Data Importante.
+
+## Design System
+
+A experiência visual foi consolidada em padrões de cor, tipografia, cards, botões, chips, estados e microcopy.
+
+Documentação detalhada:
+
+- v2.3.
+
+---
+
+# 5. Mapa das 37 Interfaces Documentadas
+
+1. Splash e Entrada Afetiva.
+2. Home do Núcleo: Resumo Afetivo.
+3. Home do Núcleo: Agenda e Próximos Momentos.
+4. Acordos: Hub de Hábitos, Experiências e Essência.
+5. Detalhe do Hábito: Conversar sem Distrações.
+6. Detalhe do Hábito: Ações Fixas.
+7. Nossa Árvore.
+8. Novo Acordo: Necessidade.
+9. Memórias.
+10. Perfil do Usuário e Núcleo Ativo.
+11. Perfil: Maturidade e Configurações.
+12. Onboarding: Criar Conta.
+13. Seus Núcleos.
+14. Convidar para o Núcleo.
+15. Notificações.
+16. Registrar Momento.
+17. Demonstrar Gratidão.
+18. Aceitar Convite de Núcleo.
+19. Perfil de Membro: Ana.
+20. Perfil de Membro: Gostos e Ações.
+21. Detalhe de Experiência: Jantar Romântico.
+22. Revisar Acordo.
+23. Promoção para Essência.
+24. Conversa de Cuidado.
+25. Manifesto: Nossa Constituição do Amor.
+26. Configurações.
+27. Sobre Mim: Perfil Afetivo.
+28. Sobre Mim: Gostos, Cuidado e Datas.
+29. Onboarding: Escolher Caminho.
+30. Onboarding: Tipo de Núcleo.
+31. Onboarding: Propósito do Núcleo.
+32. Onboarding: Convite Inicial.
+33. Tipos de Vínculo.
+34. Nossa Jornada.
+35. Conexões.
+36. Aprovações.
+37. Diálogo Guiado.
+
+---
+
+# 6. Alinhamento Entre Versões
+
+## v1.1 para v2.x
+
+A visão geral se materializa em:
+
+- Splash;
+- Home;
+- Árvore;
+- Núcleo;
+- Acordos;
+- Memórias;
+- Perfil.
+
+## v1.2 para v2.x
+
+O sistema de aprovação se materializa em:
+
+- Novo acordo;
+- Revisar acordo;
+- Promoção para Essência;
+- Aprovações;
+- Conversa de cuidado;
+- Diálogo Guiado.
+
+## v1.3 para v2.x
+
+A evolução para Núcleos se materializa em:
+
+- Seus Núcleos;
+- Convidar para o Núcleo;
+- Aceitar convite;
+- Perfil do Núcleo;
+- Configurações de privacidade;
+- calendário separado por Núcleo.
+
+## v1.4 para v2.x
+
+O sistema de impacto se materializa em:
+
+- detalhe do acordo;
+- progresso;
+- árvore;
+- revisão;
+- indicadores coletivos.
+
+## v1.5 para v2.x
+
+Gratidão se materializa em:
+
+- Demonstrar gratidão;
+- Home;
+- Memórias;
+- Notificações;
+- Perfil de Membro;
+- Conexões.
+
+## v1.6 para v2.x
+
+Marcos se materializam em:
+
+- Nossa Árvore;
+- Memórias;
+- Promoção para Essência;
+- Nossa Jornada;
+- Manifesto;
+- notificações de evolução.
+
+## v1.7 para v2.x
+
+Linguagens de cuidado se materializam em:
+
+- detalhe do acordo;
+- Perfil de Membro;
+- Sobre Mim;
+- lista de desejos;
+- gostos;
+- formas de cuidado.
+
+## v1.8 para v2.x
+
+Manifesto se materializa em:
+
+- card no Perfil;
+- tela Manifesto;
+- assinaturas;
+- compartilhamento;
+- relação com Essência e trajetória.
+
+## v1.9 para v2.x
+
+Calendário seguro se materializa em:
+
+- agenda da Home;
+- próximos momentos;
+- detalhe de experiência;
+- registro pós-momento;
+- lembretes;
+- eventos do Núcleo.
+
+---
+
+# 7. Arquitetura Funcional Consolidada
+
+## Entidades principais
+
+Conforme a v2.4, o produto deve modelar:
+
+- Usuário;
+- Núcleo;
+- Membro do Núcleo;
+- Vínculo;
+- Perfil Afetivo;
+- Desejo;
+- Data Importante;
+- Acordo;
+- Registro de Momento;
+- Gratidão;
+- Memória;
+- Marco;
+- Evento de Calendário;
+- Convite;
+- Aprovação;
+- Conversa Guiada;
+- Manifesto;
+- Notificação.
+
+## Regras transversais
+
+1. `nucleoId` é obrigatório para dados afetivos do Núcleo.
+2. Consentimento é regra de domínio.
+3. Privacidade é padrão.
+4. Progresso é simbólico e coletivo.
+5. Perfil afetivo pertence ao usuário.
+6. Calendário interno é fonte oficial.
+7. A árvore representa evolução coletiva.
+8. IA pode sugerir textos, mas não decidir por pessoas.
+9. Recusa é resposta válida.
+10. Conversas difíceis devem proteger o vínculo.
+
+---
+
+# 8. Diretrizes de Design Consolidadas
+
+## Visual
+
+O app usa:
+
+- verdes para crescimento e cuidado;
+- roxos para identidade e ações principais;
+- rosas para gratidão e afeto;
+- amarelos/âmbar para convites e atenção leve;
+- fundos quentes e suaves.
+
+## Tipografia
+
+- Fredoka para títulos, labels e botões;
+- Plus Jakarta Sans para textos, metadados e microcopy;
+- Baloo 2 apenas para momentos de marca.
+
+## Componentes centrais
+
+- cards;
+- chips;
+- abas;
+- botões primários e secundários;
+- bottom navigation;
+- árvore;
+- avatares de iniciais;
+- indicadores de progresso;
+- cards de aprovação;
+- campos afetivos.
+
+## Tom
+
+Preferir:
+
+- cuidado;
+- calma;
+- clareza;
+- convite;
+- presença;
+- consentimento.
+
+Evitar:
+
+- cobrança;
+- culpa;
+- ranking;
+- alerta agressivo;
+- diagnóstico;
+- linguagem corporativa fria.
+
+Detalhamento completo:
+
+- v2.3.
+
+---
+
+# 9. Prioridades de Implementação Recomendadas
+
+## Fase 1 - Base do Núcleo
+
+- autenticação;
+- criar/entrar em Núcleo;
+- Home básica;
+- Acordos;
+- Convites;
+- Perfil.
+
+## Fase 2 - Cuidado recorrente
+
+- registro de momento;
+- gratidão;
+- memórias;
+- notificações;
+- calendário interno simples.
+
+## Fase 3 - Evolução e consentimento
+
+- revisões;
+- aprovações;
+- promoção para Essência;
+- árvore;
+- marcos.
+
+## Fase 4 - Perfil afetivo e vínculos
+
+- Sobre Mim;
+- Perfil de Membro;
+- lista de desejos;
+- linguagens de cuidado;
+- Conexões.
+
+## Fase 5 - Experiências avançadas
+
+- Diálogo Guiado;
+- Manifesto;
+- Tipos de vínculo;
+- Nossa Jornada;
+- sincronização externa segura.
+
+---
+
+# 10. Como uma IDE com IA deve usar estes documentos
+
+Antes de implementar qualquer funcionalidade, a IA deve:
+
+1. Ler esta v2.0 para entender a síntese.
+2. Consultar a v2.1 para telas e conteúdo.
+3. Consultar a v2.2 para fluxos e navegação.
+4. Consultar a v2.3 para componentes, cores e tom.
+5. Consultar a v2.4 para entidades, estados e regras.
+6. Consultar v1.1 a v1.9 quando precisar entender a intenção conceitual profunda.
+
+Regra para IA: se houver dúvida entre criar uma funcionalidade eficiente e criar uma funcionalidade cuidadosa, priorizar cuidado, consentimento e privacidade.
+
+---
+
+# 11. Observação Técnica Sobre o Protótipo
+
+O arquivo `Nós App.dc 1.html` apresenta alguns textos com problema de codificação, como `NÃ³s` em vez de `Nós`. As documentações 2.0 a 2.4 normalizam os textos para português correto, preservando o sentido original das telas.
+
+As telas devem ser tratadas como fonte de intenção de produto e UX. A implementação real pode adaptar layout e tecnologia, desde que preserve:
+
+- estrutura funcional;
+- tom de interface;
+- privacidade;
+- consentimento;
+- relações entre entidades;
+- experiência emocional central.
