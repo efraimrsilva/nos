@@ -385,3 +385,21 @@ O sistema deve mostrar claramente quem ainda precisa aceitar a promoção.
 ## Regra A1
 
 O fluxo visual pode simplificar a linguagem da jornada completa, mas não pode remover consenso, clareza, período de reflexão, revisão ou possibilidade de ajuste.
+
+---
+
+# Complemento de Alinhamento com a v1.10
+
+A v1.10 formaliza Conversas Guiadas como camada transversal e aprofunda as etapas Compreensão e Conversar deste documento.
+
+## Compreensão
+
+Passa a ser implementada como Conversa de Compreensão: troca única estruturada de reformulação, sem chat livre.
+
+## Conversa de cuidado na revisão
+
+Encaminha para preparação com Ponte do Nós e Conversa ao vivo presencial, não para mensageria aberta.
+
+## Regra A2
+
+Conversas Guiadas preparam diálogo presencial; não substituem aprovação, consenso ou construção de acordos definidos neste documento.

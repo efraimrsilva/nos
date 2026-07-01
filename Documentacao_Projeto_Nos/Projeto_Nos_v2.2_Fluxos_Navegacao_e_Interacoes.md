@@ -55,7 +55,7 @@ Algumas telas ocultam a navegação inferior para manter concentração e privac
 - Revisão;
 - Promoção para Essência;
 - Conversa de cuidado;
-- Diálogo guiado;
+- Espaço de Conversa Guiada;
 - Manifesto;
 - Configurações;
 - Sobre mim;
@@ -423,12 +423,21 @@ Ao salvar:
 - desencontro recorrente;
 - solicitação manual do usuário.
 
+### Fluxo
+
+1. Convite (Conversar agora · Adiar · Prefiro não agora).
+2. Preparação com Ponte do Nós.
+3. Cartão de Intenção opcional (mensagem única).
+4. Conversa ao vivo agendada (desfecho preferencial).
+5. Desfecho pós-encontro opcional.
+
 ### Regras
 
 - deve usar primeira pessoa;
 - deve evitar acusação;
-- deve permitir conversa mediada;
-- deve poder virar evento ao vivo.
+- **não possui chat ou thread de mensagens**;
+- adiar ou recusar não gera penalidade;
+- desfecho preferencial é encontro presencial.
 
 ## 5.7 Promoção para Essência
 
@@ -730,7 +739,11 @@ Centralizar consentimentos necessários.
 
 ---
 
-# 12. Fluxo de Diálogo Guiado
+# 12. Fluxo de Conversas Guiadas
+
+## Decisão de produto
+
+O Projeto Nós **não possui chat livre**. Conversas Guiadas preparam encontros presenciais; não substituem diálogo face a face.
 
 ## Gatilhos
 
@@ -738,35 +751,105 @@ Centralizar consentimentos necessários.
 - aprovação escolhida como "Conversar";
 - acordo difícil;
 - vínculo frágil;
-- desencontro registrado.
+- desencontro registrado;
+- Novo Acordo, etapas Compreensão e Conversar;
+- Demonstrar Gratidão (Conversa de Gratidão).
 
-## Papel do sistema
+## Tipos de conversa (v1.10)
 
-O sistema atua como ponte, não como juiz.
+- Compreensão (troca única estruturada).
+- Alinhamento.
+- Reparo.
+- Revisão de acordo.
+- Gratidão.
+- Necessidade não atendida.
+- Retomada.
+
+## Fases do fluxo
+
+### Fase 0 — Convite
+
+- Conversar agora.
+- Adiar.
+- Prefiro não agora.
+
+### Fase 1 — Preparação
+
+- Reconhecer o momento.
+- Escolher tipo de conversa.
+- Micro-pausa opcional.
+- Rascunho em primeira pessoa com Ponte do Nós.
+
+### Fase 2 — Cartão de Intenção (opcional)
+
+- Mensagem única ao destinatário.
+- Respostas estruturadas: aceitar · sugerir horário · adiar.
+- Não abre thread.
+
+### Fase 3 — Conversa ao vivo
+
+- Evento no calendário interno (v1.9).
+- Modo silencioso: agendar sem Cartão de Intenção.
+
+### Fase 4 — Desfecho
+
+- Ajuste de acordo.
+- Gratidão.
+- Pausa.
+- Nova proposta.
+- Registro de momento.
+- Encerrar com cuidado.
+
+## Papel do Ponte do Nós
+
+O Ponte do Nós apoia a preparação. Não julga, não diagnostica, não decide quem está certo.
 
 Pode:
 
-- reformular mensagens em tom cuidadoso;
-- destacar quando o usuário falou do próprio sentimento;
-- sugerir próximos passos;
-- propor reparação;
-- sugerir conversa ao vivo.
+- sugerir linguagem em primeira pessoa;
+- reforçar rascunhos cuidadosos;
+- detectar tom acusatório e sugerir reformulação privada;
+- recomendar Conversa ao vivo cedo em temas sensíveis;
+- propor desfechos seguros após preparação.
 
 Não pode:
 
 - diagnosticar pessoas;
 - decidir quem está certo;
-- expor histórico sensível fora da conversa;
-- pressionar reconciliação.
+- expor rascunhos ao destinatário;
+- pressionar reconciliação;
+- incentivar conversa prolongada por texto.
+
+## Exceção: Compreensão
+
+No fluxo de Novo Acordo, permite **uma troca estruturada**:
+
+- A expressa necessidade ou proposta.
+- B reformula o que entendeu (campo único).
+- A confirma ou solicita Conversa ao vivo.
+
+Não é chat. Não permite respostas em cadeia.
 
 ## Estados
 
-- iniciada;
-- aguardando resposta;
-- em mediação;
-- próxima ação sugerida;
-- resolvida;
-- arquivada.
+- convite;
+- preparando;
+- cartaoEnviado;
+- aguardandoEncontro;
+- encontroRealizado;
+- desfechoRegistrado;
+- adiada;
+- arquivada;
+- compreensaoPendente;
+- compreensaoConfirmada.
+
+## Regras
+
+- máximo uma intervenção do Ponte do Nós por etapa;
+- feedback corretivo visível só ao autor;
+- recusar ou adiar não penaliza;
+- Manifesto não usa conteúdo literal de conversas difíceis;
+- marcos celebram cuidado, não volume de interações.
 
 ---
 

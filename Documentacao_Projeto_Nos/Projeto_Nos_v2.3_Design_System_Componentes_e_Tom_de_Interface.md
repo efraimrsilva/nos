@@ -7,7 +7,7 @@ Documento de especificação visual e de componentes.
 ## Relação com versões anteriores
 
 - v1.1 define a filosofia do produto.
-- v1.2 a v1.9 definem sistemas funcionais.
+- v1.2 a v1.10 definem sistemas funcionais.
 - v2.1 cataloga as telas.
 - v2.2 descreve fluxos e navegação.
 - v2.3 transforma o protótipo em padrões reutilizáveis de interface.
@@ -703,13 +703,45 @@ Visual:
 
 ---
 
+## 5.16 Ponte do Nós
+
+### Uso
+
+- Espaço de Conversa Guiada;
+- Conversa de Cuidado;
+- preparação antes de Cartão de Intenção;
+- Compreensão no fluxo de Novo Acordo.
+
+### Anatomia
+
+- ícone de folha ou ponto de luz verde (`#5C8A3A`);
+- label **PONTO DO NÓS** em uppercase, discreto;
+- texto da dica em Plus Jakarta Sans, tom encorajador;
+- fundo suave (`#F3F4EC` ou `#DCE8C6`).
+
+### Variantes
+
+- reforço positivo (rascunho em 1ª pessoa);
+- sugestão privada de reformulação (tom acusatório detectado);
+- encaminhamento para Conversa ao vivo (impasse ou tema sensível);
+- pós-encontro (desfecho sugerido).
+
+### Regras
+
+- máximo um Ponte do Nós visível por etapa;
+- feedback corretivo visível somente ao autor do rascunho;
+- nunca usar tom de sermão, diagnóstico ou julgamento;
+- não substituir o botão principal de agendar Conversa ao vivo.
+
+---
+
 # 6. Ícones e Símbolos
 
 ## Símbolos recorrentes
 
 - árvore: Núcleo, crescimento, identidade;
 - coração: gratidão, carinho, cuidado;
-- folha: cultivo, leveza, continuidade;
+- folha: cultivo, leveza, continuidade, Ponte do Nós;
 - calendário: momentos e agenda;
 - check: aprovação ou conclusão;
 - sino: notificações;
@@ -793,20 +825,25 @@ Evitar:
 - "Ganhe pontos agradecendo";
 - "Você recebeu menos gratidões".
 
-## Conversas difíceis
+## Conversas difíceis e Conversas Guiadas (v1.10)
 
 Preferir:
 
 - "Quando um acordo fica difícil, não é falha de ninguém."
-- "Podemos remarcar com calma?"
-- "Responder com carinho."
+- "Podemos conversar pessoalmente com calma?"
+- "Fale do que você sente, não do que o outro errou."
+- "Alguns temas pedem presença — que tal marcar um encontro?"
+- "Você pode adiar se não for um bom momento."
 
 Evitar:
 
 - "Resolver conflito";
 - "culpado";
 - "acusação";
-- "provar".
+- "provar";
+- "Enviar mensagem";
+- "Continuar conversando aqui";
+- "Responder agora".
 
 ## Convites
 

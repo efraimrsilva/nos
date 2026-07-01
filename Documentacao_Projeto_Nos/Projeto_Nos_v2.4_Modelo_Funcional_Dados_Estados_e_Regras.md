@@ -13,7 +13,7 @@ Documento de modelagem funcional.
 
 ## Objetivo
 
-Definir um modelo funcional coerente com as interfaces do protótipo e com as documentações 1.1 a 1.9, evitando que a implementação crie estruturas desalinhadas com a filosofia do Projeto Nós.
+Definir um modelo funcional coerente com as interfaces do protótipo e com as documentações 1.1 a 1.10, evitando que a implementação crie estruturas desalinhadas com a filosofia do Projeto Nós.
 
 ---
 
@@ -586,46 +586,123 @@ Consentimento explícito para ações importantes.
 
 ---
 
-## 2.16 Diálogo Guiado / Conversa Guiada
+## 2.16 ConversaGuiada (Espaço de Conversa Guiada)
 
-Espaço mediado para cuidado em temas sensíveis. "Diálogo Guiado" é o nome de produto exibido na interface; "Conversa Guiada" pode ser usado como nome técnico da entidade persistida.
+Fluxo estruturado de preparação para diálogo presencial em temas sensíveis. "Espaço de Conversa Guiada" ou "Diálogo Guiado" são nomes de produto na interface; `ConversaGuiada` é o nome técnico da entidade persistida.
+
+O Projeto Nós **não possui chat livre** nem mensageria aberta entre membros.
 
 ### Campos recomendados
 
 - `id`;
 - `nucleoId`;
 - `participantes`;
+- `tipoConversa`;
 - `origemTipo`;
 - `origemId`;
 - `status`;
+- `motivoPeso`;
+- `rascunhoPreparacao`;
+- `cartaoIntencao`;
+- `eventoAoVivoId`;
+- `desfecho`;
+- `pontosUtilizados`;
 - `createdAt`;
-- `resolvedAt`;
+- `resolvedAt`.
 
-### Mensagem da conversa
+### Tipos de conversa (`tipoConversa`)
+
+- `compreensao`;
+- `alinhamento`;
+- `reparo`;
+- `revisao`;
+- `gratidao`;
+- `necessidade`;
+- `retomada`.
+
+### Origem (`origemTipo`)
+
+- `acordo`;
+- `proposta`;
+- `revisao`;
+- `gratidao`;
+- `vinculo`;
+- `aprovacao`;
+- `manual`.
+
+### Status
+
+- `convite`;
+- `preparando`;
+- `cartaoEnviado`;
+- `aguardandoEncontro`;
+- `encontroRealizado`;
+- `desfechoRegistrado`;
+- `adiada`;
+- `arquivada`;
+- `compreensaoPendente`;
+- `compreensaoConfirmada`.
+
+### Desfechos (`desfecho`)
+
+- `reparacao`;
+- `evento`;
+- `ajuste`;
+- `gratidao`;
+- `pausa`;
+- `arquivado`;
+- `proposta`;
+- `compreensaoConfirmada`.
+
+### Cartão de Intenção (`cartaoIntencao`)
+
+Mensagem única opcional que convida ao encontro presencial. Não abre thread.
 
 Campos:
 
-- `id`;
-- `conversaId`;
-- `autorTipo`;
-- `autorId`;
 - `texto`;
-- `createdAt`;
-- `tipo`;
+- `enviadoEm`;
+- `enviadoPor`;
+- `resposta`; // aceitar · sugerirHorario · adiar
+- `respondidoEm`.
 
-Tipos:
+### Compreensão (troca única estruturada)
 
-- usuario;
-- ponteDoNos;
-- sugestao;
-- sistema.
+Campos auxiliares quando `tipoConversa = compreensao`:
+
+- `necessidadeOriginal`;
+- `reformulacao`;
+- `reformuladoPor`;
+- `confirmadoPor`;
+- `confirmadoEm`.
+
+Permite no máximo uma reformulação por rodada. Não é chat.
+
+### Registro do Ponte do Nós
+
+Referência às dicas aplicadas durante a preparação. O Ponte do Nós não é entidade de domínio separada; dicas vêm de biblioteca configurável.
+
+Campos em `pontosUtilizados`:
+
+- `pontoId`;
+- `momento`; // pre_preparacao · pre_envio · pos_preparacao_positiva · impasse · escalada · pos_encontro · encerramento
+- `exibidoEm`.
+
+Tipos de autor em registros auxiliares:
+
+- `usuario`;
+- `pontoDoNos`;
+- `sistema`.
 
 ### Regras
 
-- sistema media, não julga;
-- mensagens do Nós devem evitar diagnóstico;
-- conversa pode gerar proposta, reparação, evento ou encerramento;
-- acesso restrito aos participantes.
+- sistema apoia, não julga;
+- Ponte do Nós evita diagnóstico;
+- conversa encaminha para evento ao vivo, proposta, reparação ou encerramento;
+- acesso restrito aos participantes;
+- **não persistir thread de mensagens abertas**;
+- feedback corretivo do Ponte do Nós privado ao autor;
+- Manifesto não consome conteúdo literal por padrão.
 
 ---
 
@@ -800,9 +877,12 @@ Aviso interno do app.
 - integrações externas precisam de consentimento;
 - espelho externo deve usar título seguro quando necessário.
 
-## Diálogo Guiado
+## Diálogo Guiado / ConversaGuiada
 
 - privado aos participantes;
+- não possui chat livre nem inbox;
+- rascunhos de preparação privados ao autor;
+- Cartão de Intenção é mensagem única, sem thread;
 - não deve alimentar Manifesto sem consentimento explícito;
 - conteúdo sensível não deve aparecer em notificações públicas.
 
@@ -895,6 +975,10 @@ Eventos úteis para implementação:
 - `EventoConfirmado`;
 - `EventoRealizado`;
 - `DialogoIniciado`;
+- `ConversaGuiadaPreparada`;
+- `CartaoIntencaoEnviado`;
+- `ConversaAoVivoAgendada`;
+- `CompreensaoConfirmada`;
 - `DialogoResolvido`;
 - `ManifestoGerado`;
 - `ManifestoConfirmado`;
@@ -1037,7 +1121,10 @@ O Projeto Nós não deve implementar:
 - Manifesto confirmado sem aceite;
 - entrada pública em Núcleo;
 - comparação entre Núcleos;
-- cobrança insistente de resposta.
+- cobrança insistente de resposta;
+- chat livre ou mensageria contínua entre membros;
+- thread de respostas após Cartão de Intenção;
+- inbox ou caixa de mensagens do Núcleo.
 
 ---
 
@@ -1058,7 +1145,7 @@ Adicionar `nucleoId` em entidades do Núcleo:
 - convites;
 - aprovações;
 - manifesto;
-- conversas.
+- conversasGuiadas.
 
 ## Auditoria
 
@@ -1098,3 +1185,5 @@ Ao criar código para o Projeto Nós, a IA deve assumir:
 8. Dados pessoais do perfil afetivo pertencem ao usuário.
 9. Integrações externas nunca são fonte oficial de agenda.
 10. A árvore e o Manifesto são sínteses de trajetória, não métricas brutas.
+11. Conversas Guiadas preparam encontros presenciais; o Projeto Nós não possui chat livre.
+12. O Ponte do Nós orienta preparação; não julga, não diagnostica e não decide culpa.

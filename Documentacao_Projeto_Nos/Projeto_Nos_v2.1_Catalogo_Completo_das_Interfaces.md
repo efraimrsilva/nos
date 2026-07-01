@@ -6,17 +6,17 @@ Documento de especificação de interfaces.
 
 ## Fonte de referência
 
-Este documento foi criado a partir da análise do protótipo `Nós App.dc 1.html`, das 28 telas exportadas em imagem e das documentações do Projeto Nós nas versões 1.1 a 1.9.
+Este documento foi criado a partir da análise do protótipo `Nós App.dc 1.html`, das 28 telas exportadas em imagem e das documentações do Projeto Nós nas versões 1.1 a 1.10.
 
 ## Objetivo
 
 Descrever todas as interfaces observadas no protótipo com um nível de detalhe suficiente para um designer de produto ou uma equipe de engenharia consiga entender a intenção de cada tela, seus componentes, seus dados, suas interações e suas regras sem depender de interpretação visual solta.
 
-Esta versão não substitui as versões 1.1 a 1.9. Ela traduz os conceitos já documentados para interfaces concretas.
+Esta versão não substitui as versões 1.1 a 1.10. Ela traduz os conceitos já documentados para interfaces concretas.
 
 ---
 
-# 1. Princípios de Interface Herdados das Versões 1.1 a 1.9
+# 1. Princípios de Interface Herdados das Versões 1.1 a 1.10
 
 ## 1.1 Visão e regras de negócio
 
@@ -116,6 +116,18 @@ Aplicação nas telas:
 - próximos momentos;
 - experiência com próxima data;
 - registro pós-momento.
+
+## 1.10 Conversas Guiadas e Ponte do Nós
+
+Temas sensíveis devem ser preparados com cuidado e encaminhados para encontro presencial. Não existe chat livre no Projeto Nós.
+
+Aplicação nas telas:
+
+- Conversa de Cuidado como preparação, não como mensageria;
+- Espaço de Conversa Guiada com Ponte do Nós;
+- Cartão de Intenção (mensagem única);
+- agendamento de Conversa ao vivo;
+- Compreensão como troca única estruturada no Novo Acordo.
 
 ---
 
@@ -1262,7 +1274,7 @@ Celebrar quando um hábito consistente pode se tornar parte da Nossa Essência.
 
 ### Objetivo
 
-Transformar dificuldade em convite para diálogo seguro, sem culpa.
+Transformar dificuldade em preparação para diálogo presencial seguro, sem culpa e sem chat livre.
 
 ### Conteúdo
 
@@ -1274,39 +1286,52 @@ Transformar dificuldade em convite para diálogo seguro, sem culpa.
   - "Falta de tempo";
   - "Estamos nos desencontrando";
   - "O combinado não está claro";
-- campo "Quero dizer para a Ana";
-- mensagem exemplo: "Senti falta dos nossos momentos essa semana. Podemos remarcar com calma?";
-- dica: "Fale do que você sente, não do que o outro errou. Isso mantém a conversa segura.";
-- botão "Enviar com carinho".
+- seleção do tipo de conversa (revisão, reparo, retomada, etc.);
+- campo de preparação "O que quero dizer";
+- mensagem exemplo: "Senti falta dos nossos momentos essa semana. Podemos conversar pessoalmente com calma?";
+- **Ponte do Nós** com dica: "Fale do que você sente, não do que o outro errou. Isso mantém a conversa segura.";
+- ações:
+  - "Enviar Cartão de Intenção";
+  - "Marcar Conversa ao vivo";
+  - "Adiar";
+  - "Prefiro não agora".
 
 ### Interações
 
 - selecionar motivo contextualiza a conversa;
-- editar mensagem;
-- enviar abre Diálogo guiado ou envia mensagem mediada;
-- voltar retorna à revisão.
+- editar rascunho de preparação;
+- Ponte do Nós pode sugerir reformulação privada antes do envio;
+- Cartão de Intenção envia mensagem única, sem abrir thread;
+- Marcar Conversa ao vivo abre calendário (v1.9);
+- voltar retorna à revisão ou origem do fluxo.
 
 ### Dados necessários
 
-- acordo relacionado;
-- destinatário;
+- acordo ou entidade relacionada;
+- destinatário(s);
+- tipo de conversa;
 - motivo selecionado;
-- mensagem;
-- estado da conversa.
+- rascunho de preparação;
+- Cartão de Intenção, se enviado;
+- evento de Conversa ao vivo, se agendado;
+- estado da ConversaGuiada.
 
 ### Regras
 
 - linguagem deve incentivar primeira pessoa;
 - evitar acusação;
 - conversa deve ser privada aos envolvidos;
-- pode gerar evento de conversa ao vivo.
+- **não existe chat ou thread de mensagens**;
+- desfecho preferencial é Conversa ao vivo;
+- adiar ou recusar não gera penalidade.
 
 ### Alinhamento documental
 
 - v1.2: discussão e ajustes;
 - v1.7: cuidados de linguagem;
-- v1.9: conversa de cuidado;
-- v1.5: reconhecimento positivo.
+- v1.9: Conversa ao vivo no calendário;
+- v1.5: reconhecimento positivo;
+- v1.10: Conversas Guiadas e Ponte do Nós.
 
 ---
 
@@ -1841,58 +1866,69 @@ Centralizar decisões pendentes que exigem consentimento entre membros.
 
 ---
 
-## Tela 37 - Diálogo Guiado
+## Tela 37 - Espaço de Conversa Guiada
 
 ### Objetivo
 
-Mediar conversas delicadas com apoio de microcopy cuidadosa e próximos passos seguros.
+Apoiar a preparação de uma conversa presencial delicada, com dicas do Ponte do Nós e encaminhamento para Conversa ao vivo — sem chat entre membros.
 
 ### Conteúdo
 
-- título "Diálogo com Ana";
-- indicador "Espaço seguro - mediado pelo Nós";
-- mensagem enviada pelo usuário;
-- ponte do app:
-  - "Você falou do que sentiu, sem culpar. Isso deixa a conversa segura e convida a Ana a se abrir também.";
-- resposta da outra pessoa;
-- nova ponte do app:
-  - "Vocês se ouviram com carinho. Que tal transformar esse entendimento num próximo passo, juntos?";
-- ações:
-  - "Propor uma reparação";
-  - "Marcar uma conversa ao vivo";
-  - "Está tudo bem entre nós agora";
-- compositor "Responder com carinho".
+- título "Preparar conversa com Ana" ou "Espaço seguro — apoiado pelo Nós";
+- indicador de privacidade: "Só vocês participam desta preparação";
+- seção de rascunho do usuário: "O que quero dizer";
+- **Ponte do Nós** com dica contextual, exemplo:
+  - "Você falou do que sentiu, sem culpar. Isso convida o outro a se abrir também — especialmente pessoalmente.";
+- status do Cartão de Intenção, se enviado;
+- status da Conversa ao vivo, se agendada;
+- ações principais:
+  - "Enviar Cartão de Intenção";
+  - "Marcar Conversa ao vivo";
+  - "Adiar";
+  - "Encerrar com cuidado";
+- após encontro realizado, sugestões de desfecho:
+  - "Registrar gratidão";
+  - "Ajustar acordo";
+  - "Está bem entre nós";
 
 ### Interações
 
-- responder envia mensagem;
-- propor reparação abre revisão ou proposta de acordo;
-- marcar conversa abre registro/agendamento;
-- finalizar retorna a Conexões;
-- voltar retorna à Conversa de cuidado.
+- editar rascunho de preparação;
+- receber sugestão privada do Ponte do Nós;
+- enviar Cartão de Intenção (mensagem única);
+- agendar Conversa ao vivo no calendário;
+- adiar ou encerrar sem penalidade;
+- após encontro, escolher desfecho opcional;
+- voltar retorna à Conversa de cuidado ou origem do fluxo.
 
 ### Dados necessários
 
-- conversa;
+- ConversaGuiada;
 - participantes;
-- mensagens;
-- mediações do sistema;
+- tipo de conversa;
+- rascunho de preparação;
+- pontosUtilizados (ids das dicas do Ponte do Nós);
+- cartaoIntencao, se enviado;
+- eventoAoVivoId, se agendado;
 - acordo ou vínculo relacionado;
 - status de resolução.
 
 ### Regras
 
-- sistema media, não julga;
+- sistema apoia, não julga;
 - deve reforçar comunicação em primeira pessoa;
 - não deve gerar diagnóstico psicológico;
-- conversa deve ser privada aos participantes.
+- conversa deve ser privada aos participantes;
+- **não exibe thread de mensagens entre membros**;
+- desfecho preferencial é Conversa ao vivo presencial.
 
 ### Alinhamento documental
 
-- v1.2: discussão;
+- v1.2: discussão e compreensão;
 - v1.7: cuidados de linguagem;
-- v1.9: conversa de cuidado;
-- v1.5: reconhecimento.
+- v1.9: Conversa ao vivo;
+- v1.5: reconhecimento;
+- v1.10: Conversas Guiadas e Ponte do Nós.
 
 ---
 

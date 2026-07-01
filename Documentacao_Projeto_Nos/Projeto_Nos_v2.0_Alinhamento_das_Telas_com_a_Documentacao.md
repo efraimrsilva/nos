@@ -25,6 +25,7 @@ Ela deve ser usada como ponto de entrada para uma equipe de produto ou uma equip
 - v1.7 - Sistema de Linguagens de Cuidado e Amor.
 - v1.8 - Manifesto do Núcleo.
 - v1.9 - Calendário do Núcleo e Sincronização Segura.
+- v1.10 - Sistema de Conversas Guiadas e Mediação Afetiva.
 
 ## Documentações de interface e implementação
 
@@ -205,7 +206,7 @@ Regra consolidada: Manifesto confirmado exige aceite e não deve expor conflitos
 
 # 4. Novas Funcionalidades Consolidadas a Partir do Protótipo
 
-As telas do protótipo expandem e concretizam as documentações 1.1 a 1.9. As principais funcionalidades novas ou mais maduras são:
+As telas do protótipo expandem e concretizam as documentações 1.1 a 1.10. As principais funcionalidades novas ou mais maduras são:
 
 ## Home do Núcleo
 
@@ -262,15 +263,18 @@ Documentação detalhada:
 - v2.2, fluxo de Aprovações;
 - v2.4, entidade Aprovação.
 
-## Diálogo Guiado
+## Conversas Guiadas e Ponte do Nós
 
-Espaço seguro mediado pelo Nós para conversas delicadas.
+Camada transversal de preparação para diálogo seguro, sem chat livre, com encaminhamento prioritário para Conversa ao vivo.
+
+O Ponte do Nós oferece dicas contextuais durante a preparação. O Projeto Nós não possui mensageria aberta entre membros.
 
 Documentação detalhada:
 
-- v2.1, tela 37;
-- v2.2, fluxo de Diálogo Guiado;
-- v2.4, entidade Diálogo Guiado / Conversa Guiada.
+- v1.10, Sistema de Conversas Guiadas e Mediação Afetiva;
+- v2.1, telas 24 e 37;
+- v2.2, fluxo de Conversas Guiadas;
+- v2.4, entidade ConversaGuiada.
 
 ## Tipos de Vínculo
 
@@ -336,7 +340,7 @@ Documentação detalhada:
 21. Detalhe de Experiência: Jantar Romântico.
 22. Revisar Acordo.
 23. Promoção para Essência.
-24. Conversa de Cuidado.
+24. Conversa de Cuidado (preparação para encontro presencial).
 25. Manifesto: Nossa Constituição do Amor.
 26. Configurações.
 27. Sobre Mim: Perfil Afetivo.
@@ -349,7 +353,7 @@ Documentação detalhada:
 34. Nossa Jornada.
 35. Conexões.
 36. Aprovações.
-37. Diálogo Guiado.
+37. Espaço de Conversa Guiada (preparação + Ponte do Nós, sem chat).
 
 ---
 
@@ -376,7 +380,8 @@ O sistema de aprovação se materializa em:
 - Promoção para Essência;
 - Aprovações;
 - Conversa de cuidado;
-- Diálogo Guiado.
+- Espaço de Conversa Guiada;
+- Ponte do Nós.
 
 ## v1.3 para v2.x
 
@@ -453,6 +458,20 @@ Calendário seguro se materializa em:
 - lembretes;
 - eventos do Núcleo.
 
+## v1.10 para v2.x
+
+Conversas Guiadas se materializam em:
+
+- Conversa de Cuidado (preparação);
+- Espaço de Conversa Guiada;
+- Ponte do Nós;
+- Cartão de Intenção;
+- Conversa ao vivo no calendário;
+- Compreensão no fluxo de Novo Acordo;
+- desfechos pós-encontro.
+
+Regra consolidada: não existe chat livre; o desfecho preferencial é encontro presencial.
+
 ---
 
 # 7. Arquitetura Funcional Consolidada
@@ -476,7 +495,9 @@ Conforme a v2.4, o produto deve modelar:
 - Evento de Calendário;
 - Convite;
 - Aprovação;
-- Diálogo Guiado / Conversa Guiada;
+- ConversaGuiada;
+- Cartão de Intenção;
+- Ponte do Nós (referência de dicas, não entidade persistida isolada);
 - Manifesto;
 - Notificação.
 
@@ -491,7 +512,8 @@ Conforme a v2.4, o produto deve modelar:
 7. A árvore representa evolução coletiva.
 8. IA pode sugerir textos, mas não decidir por pessoas.
 9. Recusa é resposta válida.
-10. Conversas difíceis devem proteger o vínculo.
+10. Conversas difíceis devem proteger o vínculo e priorizar encontro presencial.
+11. O Projeto Nós não possui chat livre entre membros.
 
 ---
 
@@ -589,7 +611,7 @@ Detalhamento completo:
 
 ## Fase 5 - Experiências avançadas
 
-- Diálogo Guiado;
+- Conversas Guiadas e Ponte do Nós;
 - Manifesto;
 - Tipos de vínculo;
 - Nossa Jornada;
@@ -606,7 +628,7 @@ Antes de implementar qualquer funcionalidade, a IA deve:
 3. Consultar a v2.2 para fluxos e navegação.
 4. Consultar a v2.3 para componentes, cores e tom.
 5. Consultar a v2.4 para entidades, estados e regras.
-6. Consultar v1.1 a v1.9 quando precisar entender a intenção conceitual profunda.
+6. Consultar v1.1 a v1.10 quando precisar entender a intenção conceitual profunda.
 
 Regra para IA: se houver dúvida entre criar uma funcionalidade eficiente e criar uma funcionalidade cuidadosa, priorizar cuidado, consentimento e privacidade.
 
