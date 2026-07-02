@@ -889,7 +889,6 @@ O Sistema de Conversas Guiadas não deve implementar:
 - exposição pública de rascunhos;
 - substituição de terapia ou aconselhamento profissional;
 - reconciliação forçada;
-- gamificação por quantidade de conversas;
 - crescimento da árvore por volume de texto;
 - notificações insistentes para responder;
 - importação de conversas de apps externos.
