@@ -34,6 +34,9 @@ Ela deve ser usada como ponto de entrada para uma equipe de produto ou uma equip
 - v2.2 - Fluxos, Navegação e Interações.
 - v2.3 - Design System, Componentes e Tom de Interface.
 - v2.4 - Modelo Funcional, Dados, Estados e Regras.
+- v2.5 - Matriz de Permissões, Privacidade e Visibilidade.
+- v2.6 - Estados Vazios, Erros e Carregamento.
+- v2.7 - Notificações e Eventos do Sistema.
 
 ---
 
@@ -472,6 +475,14 @@ Conversas Guiadas se materializam em:
 
 Regra consolidada: não existe chat livre; o desfecho preferencial é encontro presencial.
 
+## Novas versões de documentação (v2.5 a v2.7)
+
+As versões mais novas expandem a documentação de implementação:
+
+- v2.5: Define matriz de permissões, privacidade e visibilidade por entidade e papel.
+- v2.6: Define estados vazios, mensagens de erro e estados de carregamento para todas as telas.
+- v2.7: Define sistema completo de notificações, gatilhos, destinatários, textos, deep links e configurações.
+
 ---
 
 # 7. Arquitetura Funcional Consolidada
@@ -514,6 +525,9 @@ Conforme a v2.4, o produto deve modelar:
 9. Recusa é resposta válida.
 10. Conversas difíceis devem proteger o vínculo e priorizar encontro presencial.
 11. O Projeto Nós não possui chat livre entre membros.
+12. Usuário controla suas preferências de notificação.
+13. Notificações devem informar, não cobrar.
+14. Conteúdo sensível não aparece em tela bloqueada.
 
 ---
 
@@ -628,7 +642,10 @@ Antes de implementar qualquer funcionalidade, a IA deve:
 3. Consultar a v2.2 para fluxos e navegação.
 4. Consultar a v2.3 para componentes, cores e tom.
 5. Consultar a v2.4 para entidades, estados e regras.
-6. Consultar v1.1 a v1.10 quando precisar entender a intenção conceitual profunda.
+6. Consultar a v2.5 para permissões, privacidade e visibilidade.
+7. Consultar a v2.6 para estados vazios, erros e carregamento.
+8. Consultar a v2.7 para notificações e eventos do sistema.
+9. Consultar v1.1 a v1.10 quando precisar entender a intenção conceitual profunda.
 
 Regra para IA: se houver dúvida entre criar uma funcionalidade eficiente e criar uma funcionalidade cuidadosa, priorizar cuidado, consentimento e privacidade.
 
