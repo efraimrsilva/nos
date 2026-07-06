@@ -2,11 +2,11 @@
 
 ## Status
 
-Documento consolidado.
+Documento consolidado, incluindo versões 2.5 a 2.7.
 
 ## Objetivo
 
-Esta versão 2.0 consolida a visão geral do Projeto Nós após a análise completa do protótipo `Nós App.dc 1.html` e após a criação das documentações de interface, fluxo, design e modelagem funcional nas versões 2.1 a 2.4.
+Esta versão 2.0 consolida a visão geral do Projeto Nós após a análise completa do protótipo `Nós App.dc 1.html` e após a criação das documentações de interface, fluxo, design, modelagem funcional, permissões, estados e notificações nas versões 2.1 a 2.7.
 
 Ela deve ser usada como ponto de entrada para uma equipe de produto ou uma equipe de engenharia antes de consultar os documentos detalhados.
 
@@ -316,6 +316,30 @@ Documentação detalhada:
 
 - v2.3.
 
+## Matriz de Permissões, Privacidade e Visibilidade
+
+Definido quem pode ver, criar, editar e excluir cada entidade do sistema, alinhado com a filosofia do Projeto Nós. Inclui papéis (Criador, Administrador, Membro, Convidado Pendente) e níveis de visibilidade.
+
+Documentação detalhada:
+
+- v2.5.
+
+## Estados Vazios, Erros e Carregamento
+
+Catálogo único de estados de interface para todas as telas, seguindo o tom de cuidado do projeto. Inclui estados de carregamento, vazios e erros (convite, permissão, rede, validação).
+
+Documentação detalhada:
+
+- v2.6.
+
+## Notificações e Eventos do Sistema
+
+Sistema completo de notificações com 17 tipos, gatilhos, destinatários, textos, deep links, prioridades, configurações de usuário e anti-regras. Segue arquitetura orientada a eventos.
+
+Documentação detalhada:
+
+- v2.7.
+
 ---
 
 # 5. Mapa das 37 Interfaces Documentadas
@@ -528,6 +552,9 @@ Conforme a v2.4, o produto deve modelar:
 12. Usuário controla suas preferências de notificação.
 13. Notificações devem informar, não cobrar.
 14. Conteúdo sensível não aparece em tela bloqueada.
+15. Todo acesso a dados afetivos deve ser contextualizado por `nucleoId` ou `usuarioId` (regra-mãe de permissões).
+16. Estados de interface devem ser humanos, acolhedores e orientar o usuário para a próxima ação.
+17. Não há hierarquia afetiva — permissões administrativas não dão acesso a dados pessoais de outros membros.
 
 ---
 
