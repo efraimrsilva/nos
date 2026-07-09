@@ -1,4 +1,4 @@
-# Projeto Nós - Matriz de Permissões, Privacidade e Visibilidade (Versão 2.5)
+﻿# Projeto Nós - Matriz de Permissões, Privacidade e Visibilidade (Versão 2.5)
 
 ## Categoria
 **2.x - Interface e Implementação**
@@ -189,3 +189,32 @@ Implementar funções como:
 - `podeEditar(usuarioId, entidade)`: verifica se o usuário pode editar a entidade
 - `podeExcluir(usuarioId, entidade)`: verifica se o usuário pode excluir a entidade
 - `podeCriar(usuarioId, nucleoId, tipoEntidade)`: verifica se o usuário pode criar a entidade no Núcleo
+
+
+---
+
+# Diagrama de Fluxo da Versao
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#fff', 'primaryBorderColor': '#fff', 'lineColor': '#fff', 'secondaryColor': '#fff', 'tertiaryColor': '#fff', 'background': '#000', 'mainBkg': '#333', 'nodeBorder': '#fff', 'clusterBkg': '#333', 'clusterBorder': '#fff', 'titleColor': '#fff', 'edgeLabelBackground': '#333', 'tertiaryBorderColor': '#fff', 'fontFamily': 'arial'}}}%%
+graph TD
+    A[Requisicao do Usuario] --> B{Usuario Autenticado?}
+    B -->|Nao| C[Erro 401: Acesso Negado]
+    B -->|Sim| D{Membro do Nucleo solicitado?}
+    D -->|Nao| E[Erro 403: Proibido]
+    D -->|Sim| F{Papel permite a Acao?}
+    F -->|Nao| G[Erro 403: Acao Negada]
+    F -->|Sim| H{Visibilidade permite?}
+    H -->|Nao| I[Erro 403: Oculto]
+    H -->|Sim| J[Retornar Recurso Solicitado]
+    style A fill:#4F7E2C,stroke:#fff,color:#fff
+    style B fill:#E2A52C,stroke:#fff,color:#fff
+    style C fill:#EC6F9E,stroke:#fff,color:#fff
+    style D fill:#E2A52C,stroke:#fff,color:#fff
+    style E fill:#EC6F9E,stroke:#fff,color:#fff
+    style F fill:#E2A52C,stroke:#fff,color:#fff
+    style G fill:#EC6F9E,stroke:#fff,color:#fff
+    style H fill:#E2A52C,stroke:#fff,color:#fff
+    style I fill:#EC6F9E,stroke:#fff,color:#fff
+    style J fill:#4F7E2C,stroke:#fff,color:#fff
+```

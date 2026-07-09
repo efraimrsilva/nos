@@ -1,4 +1,4 @@
-# Projeto Nós - Sistema de Reconhecimento e Gratidão (Versão 1.5)
+﻿# Projeto Nós - Sistema de Reconhecimento e Gratidão (Versão 1.5)
 
 ## Categoria
 **1.x - Visão e Regras de Negócio**
@@ -614,3 +614,26 @@ Esse tipo de notificação deve convidar à leitura, não exigir reciprocidade.
 ## Regra R11
 
 Toda gratidão enviada pode compor a memória afetiva do Núcleo, respeitando as regras de visibilidade e sem gerar obrigação de resposta.
+
+
+---
+
+# Diagrama de Fluxo da Versao
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#fff', 'primaryBorderColor': '#fff', 'lineColor': '#fff', 'secondaryColor': '#fff', 'tertiaryColor': '#fff', 'background': '#000', 'mainBkg': '#333', 'nodeBorder': '#fff', 'clusterBkg': '#333', 'clusterBorder': '#fff', 'titleColor': '#fff', 'edgeLabelBackground': '#333', 'tertiaryBorderColor': '#fff', 'fontFamily': 'arial'}}}%%
+graph TD
+    A[Membro Sente Gratidao] --> B[Escrever Mensagem]
+    B --> C[Associar Linguagem de Cuidado]
+    C --> D[Selecionar Visibilidade: Privada ou Publica]
+    D --> E[Enviar Gratidao]
+    E --> F[Destinatario Recebe Notificacao]
+    F --> G[Mensagem Guardada no Bau de Memorias]
+    style A fill:#4F7E2C,stroke:#fff,color:#fff
+    style B fill:#6A3FD1,stroke:#fff,color:#fff
+    style C fill:#E2A52C,stroke:#fff,color:#fff
+    style D fill:#EC6F9E,stroke:#fff,color:#fff
+    style E fill:#4F7E2C,stroke:#fff,color:#fff
+    style F fill:#6A3FD1,stroke:#fff,color:#fff
+    style G fill:#EC6F9E,stroke:#fff,color:#fff
+```

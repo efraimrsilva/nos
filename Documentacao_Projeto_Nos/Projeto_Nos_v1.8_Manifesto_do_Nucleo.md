@@ -1,4 +1,4 @@
-# Projeto Nós - Manifesto do Núcleo (Versão 1.8)
+﻿# Projeto Nós - Manifesto do Núcleo (Versão 1.8)
 
 ## Categoria
 **1.x - Visão e Regras de Negócio**
@@ -990,3 +990,25 @@ O compartilhamento deve respeitar privacidade do Núcleo e só deve estar dispon
 ## Regra MN21
 
 O Manifesto compartilhável deve preservar a intimidade do Núcleo: nenhum conteúdo sensível, privado ou não confirmado deve ser exposto fora do Núcleo sem consentimento adequado.
+
+
+---
+
+# Diagrama de Fluxo da Versao
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#fff', 'primaryBorderColor': '#fff', 'lineColor': '#fff', 'secondaryColor': '#fff', 'tertiaryColor': '#fff', 'background': '#000', 'mainBkg': '#333', 'nodeBorder': '#fff', 'clusterBkg': '#333', 'clusterBorder': '#fff', 'titleColor': '#fff', 'edgeLabelBackground': '#333', 'tertiaryBorderColor': '#fff', 'fontFamily': 'arial'}}}%%
+graph TD
+    A[Interacoes do Nucleo] --> B[Geracao Automatica de Rascunho]
+    B --> C[Revisao e Colaboracao dos Membros]
+    C --> D{Consenso e Aprovacao?}
+    D -->|Nao| C
+    D -->|Sim| E[Assinatura Conjunta do Manifesto]
+    E --> F[Manifesto Ativo e Exibido na Home]
+    style A fill:#4F7E2C,stroke:#fff,color:#fff
+    style B fill:#6A3FD1,stroke:#fff,color:#fff
+    style C fill:#E2A52C,stroke:#fff,color:#fff
+    style D fill:#EC6F9E,stroke:#fff,color:#fff
+    style E fill:#4F7E2C,stroke:#fff,color:#fff
+    style F fill:#6A3FD1,stroke:#fff,color:#fff
+```

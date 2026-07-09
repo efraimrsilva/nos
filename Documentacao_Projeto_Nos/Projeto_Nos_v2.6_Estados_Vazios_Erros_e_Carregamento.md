@@ -1,4 +1,4 @@
-# Projeto Nós - Estados Vazios, Erros e Carregamento (Versão 2.6)
+﻿# Projeto Nós - Estados Vazios, Erros e Carregamento (Versão 2.6)
 
 ## Categoria
 **2.x - Interface e Implementação**
@@ -230,3 +230,26 @@ Todo estado deve:
 3. **Ação Claro**: Sempre que possível, oferecer uma ação para recuperar ou continuar.
 4. **Visual Leve**: Não usar cores vibrantes de alerta excessivamente — preferir tons suaves.
 5. **Histórico**: Para erros graves, registrar log para debug, mas não exibir detalhes técnicos ao usuário.
+
+
+---
+
+# Diagrama de Fluxo da Versao
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#fff', 'primaryBorderColor': '#fff', 'lineColor': '#fff', 'secondaryColor': '#fff', 'tertiaryColor': '#fff', 'background': '#000', 'mainBkg': '#333', 'nodeBorder': '#fff', 'clusterBkg': '#333', 'clusterBorder': '#fff', 'titleColor': '#fff', 'edgeLabelBackground': '#333', 'tertiaryBorderColor': '#fff', 'fontFamily': 'arial'}}}%%
+graph TD
+    A[Acao do Usuario] --> B[Transicao de Estado]
+    B --> C[Estado Carregando: Animacao Arvore]
+    C --> D{Requisicao Concluida?}
+    D -->|Sucesso e sem dados| E[Estado Vazio: Mensagem e Acao]
+    D -->|Sucesso com dados| F[Estado Normal / UI Preenchida]
+    D -->|Falha / Erro| G[Estado Erro Amigavel / Recalcular]
+    style A fill:#4F7E2C,stroke:#fff,color:#fff
+    style B fill:#6A3FD1,stroke:#fff,color:#fff
+    style C fill:#E2A52C,stroke:#fff,color:#fff
+    style D fill:#EC6F9E,stroke:#fff,color:#fff
+    style E fill:#4F7E2C,stroke:#fff,color:#fff
+    style F fill:#6A3FD1,stroke:#fff,color:#fff
+    style G fill:#EC6F9E,stroke:#fff,color:#fff
+```

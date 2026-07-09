@@ -1,4 +1,4 @@
-# Projeto Nós - Notificações e Eventos do Sistema (Versão 2.7)
+﻿# Projeto Nós - Notificações e Eventos do Sistema (Versão 2.7)
 
 ## Categoria
 **2.x - Interface e Implementação**
@@ -395,3 +395,29 @@ Todas as notificações devem seguir o tom de cuidado definido na v2.3:
 - Sem emojis excessivos
 - Usar nomes dos membros quando for apropriado
 - Ser direto e claro
+
+
+---
+
+# Diagrama de Fluxo da Versao
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#fff', 'primaryBorderColor': '#fff', 'lineColor': '#fff', 'secondaryColor': '#fff', 'tertiaryColor': '#fff', 'background': '#000', 'mainBkg': '#333', 'nodeBorder': '#fff', 'clusterBkg': '#333', 'clusterBorder': '#fff', 'titleColor': '#fff', 'edgeLabelBackground': '#333', 'tertiaryBorderColor': '#fff', 'fontFamily': 'arial'}}}%%
+graph TD
+    A[Evento de Dominio] --> B[Gatilho do Sistema]
+    B --> C[Verificar Configuracao do Usuario]
+    C -->{Notificacao Ativada?}
+    C -->|Nao| D[Ignorar]
+    C -->|Sim| E[Dispositivo Bloqueado?]
+    E -->|Sim| F[Ocultar Conteudo Sensivel / Mostrar Texto Generico]
+    E -->|Nao| G[Exibir Notificacao Completa]
+    F & G --> H[Redirecionamento via Deep Link para a Tela Relacionada]
+    style A fill:#4F7E2C,stroke:#fff,color:#fff
+    style B fill:#6A3FD1,stroke:#fff,color:#fff
+    style C fill:#E2A52C,stroke:#fff,color:#fff
+    style D fill:#EC6F9E,stroke:#fff,color:#fff
+    style E fill:#E2A52C,stroke:#fff,color:#fff
+    style F fill:#EC6F9E,stroke:#fff,color:#fff
+    style G fill:#4F7E2C,stroke:#fff,color:#fff
+    style H fill:#6A3FD1,stroke:#fff,color:#fff
+```

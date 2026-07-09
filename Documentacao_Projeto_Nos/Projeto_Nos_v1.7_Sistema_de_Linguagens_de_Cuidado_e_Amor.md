@@ -1,4 +1,4 @@
-# Projeto Nós - Sistema de Linguagens de Cuidado e Amor (Versão 1.7)
+﻿# Projeto Nós - Sistema de Linguagens de Cuidado e Amor (Versão 1.7)
 
 ## Categoria
 **1.x - Visão e Regras de Negócio**
@@ -941,9 +941,24 @@ Ele não deve virar cobrança, ranking ou requisito obrigatório.
 Preferências, desejos, gostos e datas importantes devem ser tratados como pistas afetivas voluntárias para facilitar cuidado personalizado, nunca como exigências de comportamento ou consumo.
 
 
+---
 
+# Diagrama de Fluxo da Versao
 
-
-
-
-
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#fff', 'primaryBorderColor': '#fff', 'lineColor': '#fff', 'secondaryColor': '#fff', 'tertiaryColor': '#fff', 'background': '#000', 'mainBkg': '#333', 'nodeBorder': '#fff', 'clusterBkg': '#333', 'clusterBorder': '#fff', 'titleColor': '#fff', 'edgeLabelBackground': '#333', 'tertiaryBorderColor': '#fff', 'fontFamily': 'arial'}}}%%
+graph TD
+    A[Preencher Perfil Afetivo] --> B[Identificar Linguagens de Cuidado]
+    B --> C[Salvar Preferencias no Perfil]
+    C --> D[Algoritmo sugere Atitudes do Dia]
+    D --> E[Membro realiza Expressao de Cuidado]
+    E --> F[Feedback do Destinatario]
+    F --> G[Fortalecimento e Sintonia do Vinculo]
+    style A fill:#4F7E2C,stroke:#fff,color:#fff
+    style B fill:#6A3FD1,stroke:#fff,color:#fff
+    style C fill:#E2A52C,stroke:#fff,color:#fff
+    style D fill:#EC6F9E,stroke:#fff,color:#fff
+    style E fill:#4F7E2C,stroke:#fff,color:#fff
+    style F fill:#6A3FD1,stroke:#fff,color:#fff
+    style G fill:#EC6F9E,stroke:#fff,color:#fff
+```

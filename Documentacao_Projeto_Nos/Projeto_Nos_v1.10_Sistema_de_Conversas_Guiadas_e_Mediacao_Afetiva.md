@@ -1,4 +1,4 @@
-# Projeto Nós - Sistema de Conversas Guiadas e Mediação Afetiva (Versão 1.10)
+﻿# Projeto Nós - Sistema de Conversas Guiadas e Mediação Afetiva (Versão 1.10)
 
 ## Categoria
 **1.x - Visão e Regras de Negócio**
@@ -1074,3 +1074,28 @@ A v1.10 redefine essas telas:
 - Evento tipo "Conversa de cuidado" ou "Conversa ao vivo".
 - Intenção visível aos participantes.
 - Lembrete suave antes do horário.
+
+
+---
+
+# Diagrama de Fluxo da Versao
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#fff', 'primaryBorderColor': '#fff', 'lineColor': '#fff', 'secondaryColor': '#fff', 'tertiaryColor': '#fff', 'background': '#000', 'mainBkg': '#333', 'nodeBorder': '#fff', 'clusterBkg': '#333', 'clusterBorder': '#fff', 'titleColor': '#fff', 'edgeLabelBackground': '#333', 'tertiaryBorderColor': '#fff', 'fontFamily': 'arial'}}}%%
+graph TD
+    A[Identificacao de Tensao / Desentendimento] --> B[Escolha do Tema da Conversa]
+    B --> C[Preparacao Individual: Ponte do Nos]
+    C --> D[Inicio da Conversa Estruturada]
+    D --> E[Fase de Escuta e Expressao Alternada]
+    E --> F[Fase de Sintese de Compreensao]
+    F --> G[Encontro Presencial Coletivo]
+    G --> H[Criacao de Novo Acordo de Resolucao]
+    style A fill:#4F7E2C,stroke:#fff,color:#fff
+    style B fill:#6A3FD1,stroke:#fff,color:#fff
+    style C fill:#E2A52C,stroke:#fff,color:#fff
+    style D fill:#EC6F9E,stroke:#fff,color:#fff
+    style E fill:#4F7E2C,stroke:#fff,color:#fff
+    style F fill:#6A3FD1,stroke:#fff,color:#fff
+    style G fill:#E2A52C,stroke:#fff,color:#fff
+    style H fill:#EC6F9E,stroke:#fff,color:#fff
+```

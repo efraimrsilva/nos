@@ -1,4 +1,4 @@
-# Projeto Nós - Documento de Visão e Regras de Negócio (Versão 1.1)
+﻿# Projeto Nós - Documento de Visão e Regras de Negócio (Versão 1.1)
 
 ## Categoria
 **1.x - Visão e Regras de Negócio**
@@ -307,3 +307,29 @@ Exemplos de tom validado nas telas:
 - "Nossa história floresce a cada escolha."
 - "Quando um acordo fica difícil, não é falha de ninguém."
 - "Um pequeno obrigado faz a árvore de vocês crescer."
+
+
+---
+
+# Diagrama de Fluxo da Versao
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#fff', 'primaryBorderColor': '#fff', 'lineColor': '#fff', 'secondaryColor': '#fff', 'tertiaryColor': '#fff', 'background': '#000', 'mainBkg': '#333', 'nodeBorder': '#fff', 'clusterBkg': '#333', 'clusterBorder': '#fff', 'titleColor': '#fff', 'edgeLabelBackground': '#333', 'tertiaryBorderColor': '#fff', 'fontFamily': 'arial'}}}%%
+graph TD
+    A[Sentimento / Necessidade] --> B[Criar Proposta de Acordo]
+    B --> C[Conversar e Alinhar]
+    C --> D[Consenso e Criacao do Acordo]
+    D --> E[Pratica no Dia a Dia]
+    E --> F[Revisao Periodica]
+    F -->|Precisa Ajuste| C
+    F -->|Sucesso por 6 meses| G[Elegivel para Nossa Essencia]
+    G -->|Aprovacao de Todos| H[Nossa Essencia]
+    style A fill:#4F7E2C,stroke:#fff,color:#fff
+    style B fill:#6A3FD1,stroke:#fff,color:#fff
+    style C fill:#E2A52C,stroke:#fff,color:#fff
+    style D fill:#EC6F9E,stroke:#fff,color:#fff
+    style E fill:#4F7E2C,stroke:#fff,color:#fff
+    style F fill:#6A3FD1,stroke:#fff,color:#fff
+    style G fill:#E2A52C,stroke:#fff,color:#fff
+    style H fill:#EC6F9E,stroke:#fff,color:#fff
+```

@@ -1,4 +1,4 @@
-# Projeto Nós - Síntese Consolidada das Interfaces e Documentações (Versão 2.0)
+﻿﻿# Projeto Nós - Síntese Consolidada das Interfaces e Documentações (Versão 2.0)
 
 ## Categoria
 **2.x - Interface e Implementação**
@@ -718,3 +718,28 @@ As telas devem ser tratadas como fonte de intenção de produto e UX. A implemen
 - consentimento;
 - relações entre entidades;
 - experiência emocional central.
+
+
+---
+
+# Diagrama de Fluxo da Versao
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#fff', 'primaryBorderColor': '#fff', 'lineColor': '#fff', 'secondaryColor': '#fff', 'tertiaryColor': '#fff', 'background': '#000', 'mainBkg': '#333', 'nodeBorder': '#fff', 'clusterBkg': '#333', 'clusterBorder': '#fff', 'titleColor': '#fff', 'edgeLabelBackground': '#333', 'tertiaryBorderColor': '#fff', 'fontFamily': 'arial'}}}%%
+graph TD
+    A[Splash / Boas-vindas] --> B[Cadastro / Login v2.8]
+    B --> C[Criar / Entrar em Nucleo v1.3]
+    C --> D[Home do Nucleo v2.1]
+    D --> E[Modulo Acordos v1.2]
+    D --> F[Modulo Memorias & Gratidao v1.5]
+    D --> G[Nossa Arvore v1.4]
+    D --> H[Conversas Guiadas v1.10]
+    style A fill:#4F7E2C,stroke:#fff,color:#fff
+    style B fill:#6A3FD1,stroke:#fff,color:#fff
+    style C fill:#E2A52C,stroke:#fff,color:#fff
+    style D fill:#EC6F9E,stroke:#fff,color:#fff
+    style E fill:#4F7E2C,stroke:#fff,color:#fff
+    style F fill:#6A3FD1,stroke:#fff,color:#fff
+    style G fill:#E2A52C,stroke:#fff,color:#fff
+    style H fill:#EC6F9E,stroke:#fff,color:#fff
+```

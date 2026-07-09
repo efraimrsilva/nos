@@ -1,4 +1,4 @@
-# Projeto Nós - Design System, Componentes e Tom de Interface (Versão 2.3)
+﻿# Projeto Nós - Design System, Componentes e Tom de Interface (Versão 2.3)
 
 ## Categoria
 **2.x - Interface e Implementação**
@@ -997,3 +997,22 @@ Ao implementar novas telas do Projeto Nós:
 8. Use consentimento explícito para acordos, Essência, Manifesto e eventos importantes.
 9. Preserve o tom visual orgânico: fundos quentes, bordas suaves, cores de cuidado.
 10. Evite interfaces frias, administrativas ou corporativas.
+
+
+---
+
+# Diagrama de Fluxo da Versao
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#fff', 'primaryBorderColor': '#fff', 'lineColor': '#fff', 'secondaryColor': '#fff', 'tertiaryColor': '#fff', 'background': '#000', 'mainBkg': '#333', 'nodeBorder': '#fff', 'clusterBkg': '#333', 'clusterBorder': '#fff', 'titleColor': '#fff', 'edgeLabelBackground': '#333', 'tertiaryBorderColor': '#fff', 'fontFamily': 'arial'}}}%%
+graph TD
+    A[Design Tokens: Cores HSL, Tipografia Outfit] --> B[Estilos Base Tailwind CSS]
+    B --> C[Componentes Customizados: Botoes, Cards, Modals]
+    C --> D[Validacao de Tom de Voz e Cuidado]
+    D --> E[Interface Acolhedora Consistente]
+    style A fill:#4F7E2C,stroke:#fff,color:#fff
+    style B fill:#6A3FD1,stroke:#fff,color:#fff
+    style C fill:#E2A52C,stroke:#fff,color:#fff
+    style D fill:#EC6F9E,stroke:#fff,color:#fff
+    style E fill:#4F7E2C,stroke:#fff,color:#fff
+```

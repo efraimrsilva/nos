@@ -1,4 +1,4 @@
-# Projeto Nós - Modelo Funcional, Dados, Estados e Regras (Versão 2.4)
+﻿# Projeto Nós - Modelo Funcional, Dados, Estados e Regras (Versão 2.4)
 
 ## Categoria
 **2.x - Interface e Implementação**
@@ -1215,3 +1215,22 @@ Ao criar código para o Projeto Nós, a IA deve assumir:
 10. A árvore e o Manifesto são sínteses de trajetória, não métricas brutas.
 11. Conversas Guiadas preparam encontros presenciais; o Projeto Nós não possui chat livre.
 12. O Ponte do Nós orienta preparação; não julga, não diagnostica e não decide culpa.
+
+
+---
+
+# Diagrama de Fluxo da Versao
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#fff', 'primaryBorderColor': '#fff', 'lineColor': '#fff', 'secondaryColor': '#fff', 'tertiaryColor': '#fff', 'background': '#000', 'mainBkg': '#333', 'nodeBorder': '#fff', 'clusterBkg': '#333', 'clusterBorder': '#fff', 'titleColor': '#fff', 'edgeLabelBackground': '#333', 'tertiaryBorderColor': '#fff', 'fontFamily': 'arial'}}}%%
+stateDiagram-v2
+    [*] --> Deslogado
+    Deslogado --> CriandoConta
+    CriandoConta --> AutenticadoSemNucleo: Cadastro Completo
+    AutenticadoSemNucleo --> AutenticadoComNucleo: Selecionar/Criar Nucleo
+    AutenticadoComNucleo --> SessaoExpirada: Token Expirado / Inatividade
+    SessaoExpirada --> Deslogado: Logout / Reautenticar
+    classDef default fill:#4F7E2C,stroke:#fff,color:#fff
+    classDef state fill:#6A3FD1,stroke:#fff,color:#fff
+    classDef transition fill:#E2A52C,stroke:#fff,color:#fff
+```

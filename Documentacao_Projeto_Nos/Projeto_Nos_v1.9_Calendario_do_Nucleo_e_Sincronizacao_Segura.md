@@ -1,4 +1,4 @@
-# Projeto Nós - Calendário do Núcleo e Sincronização Segura (Versão 1.9)
+﻿# Projeto Nós - Calendário do Núcleo e Sincronização Segura (Versão 1.9)
 
 ## Categoria
 **1.x - Visão e Regras de Negócio**
@@ -1062,3 +1062,29 @@ Quando bem desenhado, o calendário não é uma ferramenta de cobrança.
 Ele é um lembrete cuidadoso de presença.
 
 Ao sincronizar apenas eventos do Projeto Nós e proteger totalmente os compromissos privados dos membros, essa melhoria fortalece a utilidade diária da plataforma sem quebrar sua promessa de confiança, intimidade e respeito.
+
+
+---
+
+# Diagrama de Fluxo da Versao
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#fff', 'primaryBorderColor': '#fff', 'lineColor': '#fff', 'secondaryColor': '#fff', 'tertiaryColor': '#fff', 'background': '#000', 'mainBkg': '#333', 'nodeBorder': '#fff', 'clusterBkg': '#333', 'clusterBorder': '#fff', 'titleColor': '#fff', 'edgeLabelBackground': '#333', 'tertiaryBorderColor': '#fff', 'fontFamily': 'arial'}}}%%
+graph TD
+    A[Criar Evento no Projeto Nos] --> B[Salvar no Calendario Interno]
+    B --> C{Sincronizacao Ativa?}
+    C -->|Nao| D[Evento Apenas Interno]
+    C -->|Sim| E[Verificar Provedor: Google / Apple]
+    E --> F[Confirmar Consentimento Especifico]
+    F --> G[Exportar Evento para Calendario Externo]
+    H[Eventos Externos Privados] --> I[Bloquear Importacao para o Nos]
+    style A fill:#4F7E2C,stroke:#fff,color:#fff
+    style B fill:#6A3FD1,stroke:#fff,color:#fff
+    style C fill:#E2A52C,stroke:#fff,color:#fff
+    style D fill:#EC6F9E,stroke:#fff,color:#fff
+    style E fill:#4F7E2C,stroke:#fff,color:#fff
+    style F fill:#6A3FD1,stroke:#fff,color:#fff
+    style G fill:#EC6F9E,stroke:#fff,color:#fff
+    style H fill:#E2A52C,stroke:#fff,color:#fff
+    style I fill:#EC6F9E,stroke:#fff,color:#fff
+```

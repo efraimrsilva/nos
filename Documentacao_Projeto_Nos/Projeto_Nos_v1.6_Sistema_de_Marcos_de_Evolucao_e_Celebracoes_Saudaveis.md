@@ -1,4 +1,4 @@
-# Projeto Nós - Sistema de Marcos de Evolução e Celebrações Saudáveis (Versão 1.6)
+﻿# Projeto Nós - Sistema de Marcos de Evolução e Celebrações Saudáveis (Versão 1.6)
 
 ## Categoria
 **1.x - Visão e Regras de Negócio**
@@ -711,3 +711,25 @@ Esse registro pode alimentar memórias, progresso do acordo, impacto percebido e
 ## Regra M11
 
 Momentos registrados a partir de acordos ou experiências podem alimentar a árvore, as memórias e os marcos do Núcleo, desde que não sejam usados para punir interrupções ou comparar membros.
+
+
+---
+
+# Diagrama de Fluxo da Versao
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#fff', 'primaryBorderColor': '#fff', 'lineColor': '#fff', 'secondaryColor': '#fff', 'tertiaryColor': '#fff', 'background': '#000', 'mainBkg': '#333', 'nodeBorder': '#fff', 'clusterBkg': '#333', 'clusterBorder': '#fff', 'titleColor': '#fff', 'edgeLabelBackground': '#333', 'tertiaryBorderColor': '#fff', 'fontFamily': 'arial'}}}%%
+graph TD
+    A[Praticas do Nucleo] --> B{Marco Atingido?}
+    B -->|Nao| A
+    B -->|Sim: Dias Ativos / Gratidoes / Acordos| C[Notificar o Nucleo]
+    C --> D[Desbloquear Sugestao de Celebracao]
+    D --> E[Membros Escolhem Atividade Coletiva]
+    E --> F[Registro da Celebracao nas Memorias]
+    style A fill:#4F7E2C,stroke:#fff,color:#fff
+    style B fill:#E2A52C,stroke:#fff,color:#fff
+    style C fill:#EC6F9E,stroke:#fff,color:#fff
+    style D fill:#4F7E2C,stroke:#fff,color:#fff
+    style E fill:#6A3FD1,stroke:#fff,color:#fff
+    style F fill:#EC6F9E,stroke:#fff,color:#fff
+```

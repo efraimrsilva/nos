@@ -1,4 +1,4 @@
-# Projeto Nós - Evolução para Núcleos (Versão 1.3)
+﻿# Projeto Nós - Evolução para Núcleos (Versão 1.3)
 
 ## Categoria
 **1.x - Visão e Regras de Negócio**
@@ -456,3 +456,28 @@ Antes de aceitar um convite, o usuário deve visualizar:
 - membros já presentes;
 - aviso de privacidade;
 - ações de aceitar ou recusar.
+
+
+---
+
+# Diagrama de Fluxo da Versao
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#fff', 'primaryBorderColor': '#fff', 'lineColor': '#fff', 'secondaryColor': '#fff', 'tertiaryColor': '#fff', 'background': '#000', 'mainBkg': '#333', 'nodeBorder': '#fff', 'clusterBkg': '#333', 'clusterBorder': '#fff', 'titleColor': '#fff', 'edgeLabelBackground': '#333', 'tertiaryBorderColor': '#fff', 'fontFamily': 'arial'}}}%%
+graph TD
+    A[Usuario Solitario] --> B[Criar Nucleo]
+    B --> C[Gerar Convite de Acesso]
+    C --> D[Convidado Aceita Convite]
+    D --> E[Nucleo Ativo e Inicializado]
+    E --> F[Configurar Perfis Afetivos]
+    E --> G[Definir Administradores]
+    F & G --> H[Evolucao do Vinculo / Arvore do Nucleo]
+    style A fill:#4F7E2C,stroke:#fff,color:#fff
+    style B fill:#6A3FD1,stroke:#fff,color:#fff
+    style C fill:#E2A52C,stroke:#fff,color:#fff
+    style D fill:#EC6F9E,stroke:#fff,color:#fff
+    style E fill:#4F7E2C,stroke:#fff,color:#fff
+    style F fill:#6A3FD1,stroke:#fff,color:#fff
+    style G fill:#E2A52C,stroke:#fff,color:#fff
+    style H fill:#EC6F9E,stroke:#fff,color:#fff
+```

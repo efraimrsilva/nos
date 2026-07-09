@@ -1,4 +1,4 @@
-# Projeto Nós - Catálogo Completo das Interfaces (Versão 2.1)
+﻿# Projeto Nós - Catálogo Completo das Interfaces (Versão 2.1)
 
 ## Categoria
 **2.x - Interface e Implementação**
@@ -2048,3 +2048,32 @@ Toda entidade sensível deve conter:
 # 8. Observação Sobre Textos do Protótipo
 
 O arquivo HTML analisado apresenta alguns textos com mojibake por problema de codificação, como `NÃ³s` em vez de `Nós`. Nesta documentação, os textos foram normalizados para português correto, preservando o sentido original do protótipo.
+
+
+---
+
+# Diagrama de Fluxo da Versao
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#fff', 'primaryBorderColor': '#fff', 'lineColor': '#fff', 'secondaryColor': '#fff', 'tertiaryColor': '#fff', 'background': '#000', 'mainBkg': '#333', 'nodeBorder': '#fff', 'clusterBkg': '#333', 'clusterBorder': '#fff', 'titleColor': '#fff', 'edgeLabelBackground': '#333', 'tertiaryBorderColor': '#fff', 'fontFamily': 'arial'}}}%%
+graph LR
+    A[Splash] --> B[Onboarding]
+    B --> C[Login / Registro]
+    C --> D{Tem Nucleo?}
+    D -->|Nao| E[Criar / Entrar in Nucleo]
+    D -->|Sim| F[Dashboard Home]
+    F --> G[Acordos]
+    F --> H[Memorias]
+    F --> I[Perfil]
+    F --> J[Notificacoes]
+    style A fill:#4F7E2C,stroke:#fff,color:#fff
+    style B fill:#6A3FD1,stroke:#fff,color:#fff
+    style C fill:#E2A52C,stroke:#fff,color:#fff
+    style D fill:#EC6F9E,stroke:#fff,color:#fff
+    style E fill:#4F7E2C,stroke:#fff,color:#fff
+    style F fill:#6A3FD1,stroke:#fff,color:#fff
+    style G fill:#E2A52C,stroke:#fff,color:#fff
+    style H fill:#EC6F9E,stroke:#fff,color:#fff
+    style I fill:#4F7E2C,stroke:#fff,color:#fff
+    style J fill:#6A3FD1,stroke:#fff,color:#fff
+```

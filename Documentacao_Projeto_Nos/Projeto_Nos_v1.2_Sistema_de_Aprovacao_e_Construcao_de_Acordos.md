@@ -1,4 +1,4 @@
-# Projeto Nós - Sistema de Aprovação e Construção de Acordos (Versão 1.2)
+﻿# Projeto Nós - Sistema de Aprovação e Construção de Acordos (Versão 1.2)
 
 ## Categoria
 **1.x - Visão e Regras de Negócio**
@@ -431,3 +431,27 @@ Encaminha para preparação com Ponte do Nós e Conversa ao vivo presencial, nã
 ## Regra A2
 
 Conversas Guiadas preparam diálogo presencial; não substituem aprovação, consenso ou construção de acordos definidos neste documento.
+
+
+---
+
+# Diagrama de Fluxo da Versao
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#fff', 'primaryBorderColor': '#fff', 'lineColor': '#fff', 'secondaryColor': '#fff', 'tertiaryColor': '#fff', 'background': '#000', 'mainBkg': '#333', 'nodeBorder': '#fff', 'clusterBkg': '#333', 'clusterBorder': '#fff', 'titleColor': '#fff', 'edgeLabelBackground': '#333', 'tertiaryBorderColor': '#fff', 'fontFamily': 'arial'}}}%%
+stateDiagram-v2
+    [*] --> Rascunho
+    Rascunho --> EmAprovacao: Enviar Proposta
+    EmAprovacao --> Ativo: Aprovacao Unanime
+    EmAprovacao --> Recusado: Recusa de Algum Membro
+    Recusado --> Rascunho: Ajustar Proposta
+    Ativo --> EmRevisao: Ciclo de Revisao Atingido
+    EmRevisao --> Ativo: Manter
+    EmRevisao --> EmAprovacao: Propor Ajuste
+    EmRevisao --> Encerrado: Encerrar de Comum Acordo
+    Ativo --> Essencia: 6 Meses de Sucesso + Consenso
+    Essencia --> [*]
+    classDef default fill:#4F7E2C,stroke:#fff,color:#fff
+    classDef state fill:#6A3FD1,stroke:#fff,color:#fff
+    classDef transition fill:#E2A52C,stroke:#fff,color:#fff
+```

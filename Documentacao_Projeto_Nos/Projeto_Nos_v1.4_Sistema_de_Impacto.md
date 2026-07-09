@@ -1,4 +1,4 @@
-# Projeto Nós - Sistema de Impacto dos Compromissos (Versão 1.4)
+﻿# Projeto Nós - Sistema de Impacto dos Compromissos (Versão 1.4)
 
 ## Categoria
 **1.x - Visão e Regras de Negócio**
@@ -601,3 +601,26 @@ Esses indicadores devem ser agregados do Núcleo, não rankings de membros.
 ## Regra I10
 
 Percentuais, experiência, níveis e estágios devem ser apresentados como sinais de amadurecimento coletivo, nunca como pontuação individual de afeto, valor ou desempenho.
+
+
+---
+
+# Diagrama de Fluxo da Versao
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#fff', 'primaryBorderColor': '#fff', 'lineColor': '#fff', 'secondaryColor': '#fff', 'tertiaryColor': '#fff', 'background': '#000', 'mainBkg': '#333', 'nodeBorder': '#fff', 'clusterBkg': '#333', 'clusterBorder': '#fff', 'titleColor': '#fff', 'edgeLabelBackground': '#333', 'tertiaryBorderColor': '#fff', 'fontFamily': 'arial'}}}%%
+graph LR
+    A[Acoes Diarias] --> B(Enviar Gratidao)
+    A --> C(Cumprir Acordo)
+    A --> D(Registrar Momento)
+    B & C & D --> E[Registro no Sistema de Impacto]
+    E --> F[Evolucao Visual da Arvore do Nucleo]
+    F --> G[Florescer de Folhas e Cores]
+    style A fill:#4F7E2C,stroke:#fff,color:#fff
+    style B fill:#6A3FD1,stroke:#fff,color:#fff
+    style C fill:#E2A52C,stroke:#fff,color:#fff
+    style D fill:#EC6F9E,stroke:#fff,color:#fff
+    style E fill:#4F7E2C,stroke:#fff,color:#fff
+    style F fill:#6A3FD1,stroke:#fff,color:#fff
+    style G fill:#EC6F9E,stroke:#fff,color:#fff
+```

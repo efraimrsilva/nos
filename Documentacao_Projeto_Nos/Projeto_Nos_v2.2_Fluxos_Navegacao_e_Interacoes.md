@@ -1,4 +1,4 @@
-# Projeto Nós - Fluxos, Navegação e Interações (Versão 2.2)
+﻿# Projeto Nós - Fluxos, Navegação e Interações (Versão 2.2)
 
 ## Categoria
 **2.x - Interface e Implementação**
@@ -992,3 +992,30 @@ Mensagem recomendada:
 8. Privacidade deve aparecer em momentos de entrada, convite, memória e sincronização.
 9. Métricas devem ser usadas para cuidado, não comparação.
 10. O app deve sempre favorecer reparação, conversa e clareza antes de encerramento ou conflito.
+
+
+---
+
+# Diagrama de Fluxo da Versao
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#fff', 'primaryBorderColor': '#fff', 'lineColor': '#fff', 'secondaryColor': '#fff', 'tertiaryColor': '#fff', 'background': '#000', 'mainBkg': '#333', 'nodeBorder': '#fff', 'clusterBkg': '#333', 'clusterBorder': '#fff', 'titleColor': '#fff', 'edgeLabelBackground': '#333', 'tertiaryBorderColor': '#fff', 'fontFamily': 'arial'}}}%%
+graph TD
+    A[Usuario Deslogado] --> B[Splash]
+    B --> C[Fluxo Onboarding]
+    C --> D[Login/Cadastro]
+    D --> E[Fluxo Selecao de Nucleo]
+    E --> F[Home / Dashboard]
+    F --> G[Fluxo Propor Acordo]
+    F --> H[Fluxo Enviar Gratidao]
+    F --> I[Fluxo Registrar Momento]
+    style A fill:#4F7E2C,stroke:#fff,color:#fff
+    style B fill:#6A3FD1,stroke:#fff,color:#fff
+    style C fill:#E2A52C,stroke:#fff,color:#fff
+    style D fill:#EC6F9E,stroke:#fff,color:#fff
+    style E fill:#4F7E2C,stroke:#fff,color:#fff
+    style F fill:#6A3FD1,stroke:#fff,color:#fff
+    style G fill:#E2A52C,stroke:#fff,color:#fff
+    style H fill:#EC6F9E,stroke:#fff,color:#fff
+    style I fill:#4F7E2C,stroke:#fff,color:#fff
+```
