@@ -1,0 +1,37 @@
+import Image from "next/image";
+import { Heart, Sprout } from "lucide-react";
+import type { ReactNode } from "react";
+
+export function OnboardingShell({ children }: { children: ReactNode }) {
+  return (
+    // Reutilizado pelas etapas iniciais para preservar marca, acessibilidade e áreas seguras.
+    <div className="app-shell flex flex-col">
+      <a href="#conteudo" className="skip-link">Pular para o conteúdo</a>
+      <header className="mx-auto flex w-full max-w-6xl items-center justify-between">
+        <div className="flex items-center gap-2.5" aria-label="Nós">
+          <Sprout size={30} strokeWidth={1.6} aria-hidden="true" className="text-leaf" />
+          <span className="brand-word">nós<span className="text-lilac">.</span></span>
+        </div>
+        <span className="rounded-full border border-line px-3.5 py-2 text-[10px] font-semibold tracking-wide text-muted sm:text-xs">UM COMEÇO, MUITAS POSSIBILIDADES</span>
+      </header>
+
+      <div className="welcome-grid grid flex-1 items-center gap-7 py-8 md:grid-cols-[.95fr_1.05fr] md:gap-16 md:py-16 lg:gap-24">
+        <aside className="text-center">
+          <div className="garden-art mx-auto w-40 md:w-full md:max-w-96">
+            <Image src="/brand/nos-tree.png" alt="Árvore com troncos entrelaçados, símbolo dos vínculos que cultivamos" width={877} height={875} sizes="(max-width: 767px) 160px, 384px" priority />
+          </div>
+          <p className="mt-5 hidden font-display text-[32px] font-medium leading-tight md:block">Toda relação é uma semente.</p>
+          <p className="mx-auto mt-3 hidden max-w-72 text-sm leading-7 text-muted md:block">Com presença e pequenos gestos,<br />a gente cresce junto.</p>
+          <div className="mt-7 hidden items-center justify-center gap-2 md:flex" aria-hidden="true"><span className="h-1 w-7 rounded-full bg-leaf/40" /><span className="h-1 w-1 rounded-full bg-leaf/20" /><span className="h-1 w-1 rounded-full bg-leaf/20" /></div>
+        </aside>
+
+        <main id="conteudo" tabIndex={-1} className="min-w-0 scroll-mt-6 focus:outline-none">{children}</main>
+      </div>
+
+      <footer className="mx-auto flex max-w-lg items-center justify-center gap-2 text-center text-[11px] leading-5 text-muted">
+        <Heart size={13} aria-hidden="true" className="shrink-0 text-lilac" />
+        <p>Vínculos reais. Pequenos cuidados. No tempo de vocês.</p>
+      </footer>
+    </div>
+  );
+}

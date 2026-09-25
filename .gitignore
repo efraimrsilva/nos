@@ -3,3 +3,12 @@ Telas/desktop.ini
 Documentacao_Projeto_Nos/desktop.ini
 tmp/pdfs/extract.json
 Projeto Nós - Atalho.lnk
+node_modules/
+.next/
+next-env.d.ts
+out/
+test-results/
+playwright-report/
+*.tsbuildinfo
+.env*
+!.env.example

@@ -2,6 +2,39 @@
 
 Um espaço privado para cultivar vínculos saudáveis.
 
+## Executar o aplicativo
+
+Na raiz de um clone deste repositório, instale as dependências e inicie o aplicativo:
+
+```powershell
+npm ci
+npm run dev
+```
+
+Neste workspace local, as dependências já estão instaladas e há um lançador na pasta principal `Projeto Nós`; você pode iniciar dali com o mesmo comando:
+
+```powershell
+cd "G:\Efraim\Dev\PROJETOS\Projeto Nós"
+npm run dev
+```
+
+O `package.json` da pasta principal encaminha o comando para o aplicativo em `nos` e fica fora deste repositório Git. Mantenha o terminal aberto para acompanhar as alterações em tempo real; `Ctrl+C` encerra o servidor. Se aparecer aviso de que já existe um servidor Next.js, use o que está em `http://127.0.0.1:3000` ou encerre a instância anterior no terminal em que ela foi aberta antes de iniciar outra.
+
+Abra http://127.0.0.1:3000. A primeira tela é **Escolher caminho** (`/comecar`). Os cartões navegam para os espaços reservados de Tipo de Núcleo e Convite; essas etapas ainda não criam dados. Autenticação e Supabase não estão integrados nesta entrega.
+
+Para as verificações, use a pasta `nos`, que é a raiz deste repositório Git. Neste workspace, se estiver na pasta principal `Projeto Nós`, execute `cd .\nos`; em um clone do GitHub, permaneça na raiz do clone. Depois:
+
+```powershell
+npx playwright install chromium
+npm test
+npm run typecheck
+npm run build
+```
+
+No ambiente Windows em que ocorrer `UNABLE_TO_VERIFY_LEAF_SIGNATURE`, o uso dos certificados confiáveis do sistema foi verificado com `$env:NODE_USE_SYSTEM_CA='1'` antes de instalar. Não desabilite a validação TLS.
+
+Código: `src/app` (rotas), `src/features/onboarding` (componentes do fluxo) e `src/shared` (navegação). Testes de comportamento em `tests`. Fontes e imagem da árvore servidas localmente. Consulte [frontend](Documentacao_Projeto_Nos/_andamento/tecnologias/frontend.md) e [primeira tela](Documentacao_Projeto_Nos/_andamento/funcionalidades/escolher-caminho.md) para limites e próximos passos.
+
 ---
 
 ## Estrutura de Documentação
@@ -33,11 +66,18 @@ Documentos que definem as telas, fluxos, design system e regras de implementaç�
 - [v2.5 - Matriz de Permissões, Privacidade e Visibilidade](Documentacao_Projeto_Nos/Projeto_Nos_v2.5_Matriz_de_Permissoes_Privacidade_Visibilidade.md)
 - [v2.6 - Estados Vazios, Erros e Carregamento](Documentacao_Projeto_Nos/Projeto_Nos_v2.6_Estados_Vazios_Erros_e_Carregamento.md)
 - [v2.7 - Notificações e Eventos do Sistema](Documentacao_Projeto_Nos/Projeto_Nos_v2.7_Notificacoes_e_Eventos_do_Sistema.md)
+- [v2.8 - Autenticação e Segurança](Documentacao_Projeto_Nos/Projeto_Nos_v2.8_Autenticacao_e_Seguranca.md)
 
 ### 3.x - Técnica e Arquitetura
 Documentos técnicos sobre arquitetura, infraestrutura e implementação.
 
 *(Ainda não há documentos nesta categoria)*
+
+### Andamento
+Registro persistente das decisões, do estado atual e das próximas ações do projeto.
+
+- [Índice de andamento](Documentacao_Projeto_Nos/_andamento/README.md)
+- [Estado atual](Documentacao_Projeto_Nos/_andamento/estado.md)
 
 ---
 

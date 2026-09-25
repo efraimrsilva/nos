@@ -1,0 +1,47 @@
+@import "tailwindcss";
+@import "@fontsource/fredoka/latin-500.css";
+@import "@fontsource/fredoka/latin-600.css";
+@import "@fontsource/plus-jakarta-sans/latin-400.css";
+@import "@fontsource/plus-jakarta-sans/latin-500.css";
+@import "@fontsource/plus-jakarta-sans/latin-600.css";
+@import "@fontsource/plus-jakarta-sans/latin-700.css";
+
+@theme {
+  --color-canvas: #f6f3eb;
+  --color-forest: #2e4a20;
+  --color-leaf: #4f7e2c;
+  --color-muted: #69725e;
+  --color-line: #e6e3d8;
+  --color-lilac: #6a3fd1;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-display: "Fredoka", sans-serif;
+}
+
+:root { color-scheme: light; }
+body { margin: 0; background: var(--color-canvas); color: var(--color-forest); }
+a { -webkit-tap-highlight-color: transparent; }
+::selection { background: #e4dbf7; color: #2e4a20; }
+:focus-visible { outline: 3px solid var(--color-lilac); outline-offset: 5px; }
+.skip-link { position: fixed; top: -100px; left: 16px; z-index: 50; padding: 12px 18px; background: white; border-radius: 12px; }
+.skip-link:focus { top: 16px; }
+.app-shell { min-height: 100svh; padding: max(24px, env(safe-area-inset-top)) max(22px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(22px, env(safe-area-inset-left)); }
+.brand-word { font-family: var(--font-display); font-size: 36px; letter-spacing: -2px; line-height: 1; }
+.welcome-grid { width: 100%; max-width: 1056px; margin-inline: auto; }
+.garden-art { position: relative; isolation: isolate; }
+.garden-art::before { content: ""; position: absolute; z-index: -1; inset: 12% 3% 0; border-radius: 50%; background: radial-gradient(ellipse, #e8eddc 20%, #f0f0e4 55%, transparent 72%); }
+.path-card { display: flex; align-items: center; gap: 18px; min-height: 112px; padding: 24px; border: 1px solid var(--color-line); border-radius: 22px; background: #fff; box-shadow: 0 5px 18px #52403805; transition: border-color 180ms, transform 180ms, box-shadow 180ms; }
+.path-card:hover { border-color: #9ab980; transform: translateY(-2px); box-shadow: 0 8px 24px #3c582510; }
+.path-card:active { transform: translateY(0); }
+.path-icon { display: grid; place-items: center; flex-shrink: 0; width: 54px; height: 54px; border-radius: 17px; background: #edf3e5; color: #4f7e2c; }
+.path-card.invite .path-icon { background: #f0ebfa; color: #7753af; }
+.step-label { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+@media (max-width: 767px) {
+  .app-shell { padding-top: max(22px, env(safe-area-inset-top)); }
+  .welcome-grid { max-width: 460px; }
+  .path-card { min-height: 112px; gap: 14px; padding: 19px 17px; }
+  .path-icon { width: 49px; height: 49px; border-radius: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  /* Mantém a interface utilizável sem movimento para quem solicita essa preferência no sistema. */
+  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+}
