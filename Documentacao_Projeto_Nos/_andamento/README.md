@@ -1,5 +1,7 @@
 # Andamento do Projeto Nós
 
+**Versão vigente do projeto:** 0.2.0
+
 Este diretório preserva o contexto operacional entre sessões e retomadas do projeto.
 
 ## Estrutura
@@ -9,6 +11,8 @@ Este diretório preserva o contexto operacional entre sessões e retomadas do pr
 - [Brag document](../brag/BRAG.md): contribuições do projeto com evidências.
 - [Estado da primeira sessão](estado-atual.md): referência histórica.
 - [Escolher caminho](funcionalidades/escolher-caminho.md): escopo e continuidade da primeira tela.
+- [v0.2.0 — Tipo de Núcleo](<registros/registro-v0.2.0-2026-09-25-imp-tela-tipo-nucleo-fun-selecao-vinculo-01.md>): seleção de tipo e continuidade para Propósito.
+- [v0.2.0 — Versionamento e rastreabilidade](registros/registro-v0.2.0-2026-09-25-imp-documentacao-versionada-fun-rastreabilidade-02.md): adequação documental e entrega GitHub.
 - [Frontend web](tecnologias/frontend.md): organização técnica, segurança e verificações.
 - [Registro de 2026-09-24](registro-2026-09-24.md): decisões e alterações desta sessão.
 - `registro-AAAA-MM-DD.md`: histórico por data, com novas entradas acrescentadas sem apagar decisões anteriores.
@@ -23,10 +27,14 @@ Este diretório preserva o contexto operacional entre sessões e retomadas do pr
 4. Nunca registrar segredos, tokens, dados pessoais reais ou conteúdo íntimo de Núcleos.
 5. Em cada interação de trabalho, consultar o estado atual e atualizar os arquivos afetados antes da entrega. Revisar a coerência dos demais; não alterar documentos sem mudança relevante apenas para atualizar datas.
 6. Separar claramente o que foi aprovado, proposto, implementado, verificado e o que continua pendente. Aprovação da direção não equivale a aprovação de toda a arquitetura.
-7. Ao criar um arquivo temático, incluir objetivo, status, decisões, dependências, verificações e próxima ação; adicioná-lo a este índice.
+7. Para cada tela, implementação, funcionalidade ou mudança, criar novo registro em `registros/` com título `Registro — v<versão> — AAAA-MM-DD — Imp. de <implementação> com Fun. <funcionalidade>` e arquivo `registro-v<versao>-AAAA-MM-DD-imp-<implementacao>-fun-<funcionalidade>.md`. Para mesma versão e data, usar sufixos `-01`, `-02`, etc. Incluir versão, status, objetivo, contexto, requisitos, decisões técnicas, arquivos alterados, integrações, validações, resultado, limitações e próximos passos. Indexar cada registro em `estado.md`. Durante desenvolvimento usar versão vigente e `Em andamento`; ao concluir, revisar e validar, classificar PATCH/MINOR/MAJOR, sincronizar manifestos e renomear título/arquivo. Documentação isolada não incrementa a versão. Esta regra substitui a máscara anterior sem versão; registros históricos anteriores à entrega atual são preservados.
 8. Manter detalhes em um único documento responsável pelo tema e usar links nos resumos para evitar versões contraditórias.
 9. Ao retomar após troca de sessão ou compactação, ler este índice, o estado atual e os registros/temas relevantes; confirmar a situação dos arquivos e do Git antes de agir.
 10. O monitor automático foi cancelado a pedido do usuário. Atualizações ocorrem durante as interações; novas mudanças externas serão informadas manualmente.
+
+## Versão do aplicativo e edições documentais
+
+A versão central do aplicativo é a indicada em `estado.md`, `package.json` e `package-lock.json`. Arquivos conceituais `Projeto_Nos_v1.x` e `Projeto_Nos_v2.x` usam numeração de edição documental; ela não representa a versão do aplicativo e não deve ser renomeada a cada entrega. Documentos de acompanhamento atualizados identificam a versão vigente; registros de entregas anteriores preservam sua versão histórica.
 
 ## Indicador de contexto
 

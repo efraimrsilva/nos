@@ -2,5 +2,6 @@
 export const routes = {
   start: "/comecar",
   nucleusType: "/comecar/tipo",
+  nucleusPurpose: "/comecar/proposito",
   invitation: "/comecar/convite",
 } as const;

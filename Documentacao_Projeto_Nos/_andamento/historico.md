@@ -1,5 +1,7 @@
 # Histórico de andamento
 
+**Versão vigente do projeto:** 0.2.0
+
 ## 2026-09-24 — Primeira tela do app
 
 - **Mudança:** base Next.js, tela Escolher caminho, rotas preparatórias e documentação de frontend.
@@ -36,3 +38,21 @@
 - **Verificações:** oito testes Playwright passaram; `npm run build` e `npm run typecheck` passaram. Após corrigir a configuração de Playwright, testes e tipos passaram novamente.
 - **Revisão:** revisão independente sem problema crítico; corrigidas instruções de verificação no README e a invocação de `npm.cmd` no servidor de testes, conforme documentação Context7 do Playwright 1.63.
 - **Destino solicitado:** commit atômico e push para `origin/main` em `github.com/efraimrsilva/nos`. O Git registra o resultado efetivo da publicação.
+
+## 2026-09-25 — Implementação da tela Tipo de Núcleo
+
+- **Mudança:** catálogo com nove tipos, seleção única obrigatória e acessível, passagem validada para Propósito preparatório e retorno preservando a escolha.
+- **Resultado:** 16 testes Playwright desktop/mobile, build, tipos e revisão do diff aprovados; inspeção visual e revisão independente estática sem achados bloqueantes. Sem persistência real, commit, push ou deploy.
+- **Evidência e continuidade:** [v0.2.0 — Tipo de Núcleo](<registros/registro-v0.2.0-2026-09-25-imp-tela-tipo-nucleo-fun-selecao-vinculo-01.md>).
+
+## 2026-09-25 — Convenção de documentação por implementação
+
+- **Orientação do usuário:** criar um novo documento para cada tela/implementação, preservando o histórico, com data e assunto no título e no nome do arquivo.
+- **Aplicação:** protocolo atualizado no README de andamento; novo registro datado criado para Tipo de Núcleo. Os registros antigos foram preservados.
+
+## 2026-09-25 — Adequação versionada da entrega v0.2.0
+
+- **Mudança:** máscara anterior sem versão substituída pela regra atual de `AGENTS.md`: registros em `registros/`, título com versão/data/Imp./Fun., arquivos padronizados e sequência por versão/data.
+- **Versão:** 0.1.0 → 0.2.0 (MINOR pela tela Tipo de Núcleo concluída); manifestos sincronizados. A documentação conceitual mantém suas edições históricas.
+- **Publicação autorizada:** commit atômico contendo a tela, integração, testes e documentação, seguido de push para `origin/main`; o Git confirma o resultado efetivo. Sem deploy.
+- **Evidência:** [registro da adequação](registros/registro-v0.2.0-2026-09-25-imp-documentacao-versionada-fun-rastreabilidade-02.md).

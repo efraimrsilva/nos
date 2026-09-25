@@ -38,7 +38,7 @@ test("acomoda telas de 320px e mantém cabeçalhos defensivos", async ({ page })
 });
 
 test("destinos abrem diretamente sem criar dados nem simular autenticação", async ({ page }) => {
-  for (const route of ["/comecar/tipo", "/comecar/convite"]) {
+  for (const route of ["/comecar/convite"]) {
     await page.goto(route);
     await expect(page.getByRole("heading", { name: "Esta etapa está sendo preparada" })).toBeVisible();
     await expect(page.getByText(/nenhum Núcleo foi criado e nenhum convite foi aceito/)).toBeVisible();

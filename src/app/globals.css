@@ -35,6 +35,19 @@ a { -webkit-tap-highlight-color: transparent; }
 .path-icon { display: grid; place-items: center; flex-shrink: 0; width: 54px; height: 54px; border-radius: 17px; background: #edf3e5; color: #4f7e2c; }
 .path-card.invite .path-icon { background: #f0ebfa; color: #7753af; }
 .step-label { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.type-option { display: flex; align-items: center; gap: 14px; padding: 15px; border: 2px solid var(--color-line); border-radius: 18px; background: white; cursor: pointer; transition: border-color 160ms, background-color 160ms, transform 160ms; }
+.type-option:hover { border-color: #9ab980; transform: translateY(-1px); }
+.type-option:has(input:checked) { border-color: var(--color-leaf); background: #f5f9ef; }
+.type-option:has(input:focus-visible) { outline: 3px solid var(--color-lilac); outline-offset: 3px; }
+.type-icon { display: grid; place-items: center; flex-shrink: 0; width: 44px; height: 44px; border-radius: 14px; background: #edf3e5; color: var(--color-leaf); }
+.type-casal .type-icon { background: #fce9f1; color: #b63c70; }
+.type-irmaos .type-icon, .type-equipes .type-icon { background: #e7f0fa; color: #427caf; }
+.type-pais .type-icon { background: #fbe7e0; color: #af5833; }
+.type-amigos .type-icon { background: #fbf0d8; color: #96670c; }
+.type-mentorias .type-icon, .type-grupos-religiosos .type-icon { background: #f0ebfa; color: #7753af; }
+.continue-button { cursor: pointer; transition: background-color 160ms, transform 160ms; }
+.continue-button:hover { background: #3b5e28; }
+.continue-button:active { transform: scale(.99); }
 @media (max-width: 767px) {
   .app-shell { padding-top: max(22px, env(safe-area-inset-top)); }
   .welcome-grid { max-width: 460px; }
