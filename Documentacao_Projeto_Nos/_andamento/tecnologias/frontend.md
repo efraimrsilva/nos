@@ -1,6 +1,6 @@
 # Frontend web
 
-**Versão vigente do projeto:** 0.4.0
+**Versão vigente do projeto:** 0.5.0
 
 ## Decisões implementadas nesta fatia
 
@@ -25,8 +25,12 @@ Verificado Node 24.15.0 e npm 11.11.1. A instalação encontrou `UNABLE_TO_VERIF
 
 Testes Playwright cobrem a intenção do usuário (criar ou entrar por convite e voltar), navegação por teclado e largura da página em desktop/mobile. Build e TypeScript são verificações separadas. Resultados finais ficam no diário.
 
-## Próxima ação
+## Evolução e próxima ação
 
 Catálogo extensível e tela Tipo de Núcleo implementados em 2026-09-25, em `src/features/nuclei` e `src/features/onboarding`, com formulário Next.js e validação do identificador nas páginas de servidor. Consulte o [registro próprio](<../registros/registro-v0.2.0-2026-09-25-01-imp-tela-tipo-nucleo-fun-selecao-vinculo.md>).
 
-Propósito foi implementado em 2026-09-27 como [rascunho apenas em memória](../registros/registro-v0.3.0-2026-09-27-imp-tela-proposito-nucleo-fun-rascunho-local.md). A [entrega v0.4.0](../registros/registro-v0.4.0-2026-09-27-imp-integracao-supabase-fun-criacao-convite.md) acrescentou criação protegida, conta e convite real. A próxima evolução de tela é a Home do Núcleo, partindo do resumo atual. Definir a fronteira web/Capacitor antes de empacotar Android: SSR/rotas de servidor não são executados dentro do pacote nativo. iOS permanece por último.
+Propósito foi implementado em 2026-09-27 como [rascunho apenas em memória](../registros/registro-v0.3.0-2026-09-27-imp-tela-proposito-nucleo-fun-rascunho-local.md). A [entrega v0.4.0](../registros/registro-v0.4.0-2026-09-27-imp-integracao-supabase-fun-criacao-convite.md) acrescentou criação protegida, conta e convite real.
+
+A [Home v0.5.0](../registros/registro-v0.5.0-2026-09-27-imp-home-nucleo-fun-resumo-protegido.md) usa apenas `nuclei` e o vínculo próprio em `nucleus_members`, protegidos por RLS, com estados de carregamento e falha. Agenda, árvore e gratidão aguardam dados e permissões próprios. Definir a fronteira web/Capacitor antes de empacotar Android: SSR/rotas de servidor não são executados dentro do pacote nativo. iOS permanece por último.
+
+O próximo desenho técnico é a agenda interna por Núcleo: contrato de evento e participante, autorização e políticas RLS, estados vazios e testes de isolamento. A [continuidade](../estado.md) indica as fontes de produto e o recorte inicial; sincronização com calendários externos fica para outra entrega.

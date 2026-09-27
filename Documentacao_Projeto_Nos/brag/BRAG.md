@@ -1,6 +1,14 @@
 # Brag document — Projeto Nós
 
-**Versão vigente do projeto:** 0.4.0
+**Versão vigente do projeto:** 0.5.0
+
+## 2026-09-27 — Primeira Home protegida do Núcleo
+
+- **Problema:** após criar ou aceitar um convite, a pessoa via apenas um resumo provisório sem contexto do próprio vínculo.
+- **Contribuição:** a Home passou a mostrar nome, tipo, propósito e participação reais; convite permanece disponível só para o criador. Estados de carregamento, falha e início foram incluídos sem dados afetivos simulados.
+- **Resultado verificado:** 52 testes Playwright em desktop/mobile, checagem de tipos e build passaram localmente. Uma falha de classificação do erro de autenticação foi corrigida após revisão independente. O novo layout não foi testado com sessão Supabase real nesta interação.
+- **Benefício esperado:** permitir a evolução da Home por áreas com dados e permissões próprios, preservando o isolamento por Núcleo.
+- **Evidência:** `src/app/nucleos/[id]/`, `tests/nucleus-home.spec.ts` e [registro v0.5.0](../_andamento/registros/registro-v0.5.0-2026-09-27-imp-home-nucleo-fun-resumo-protegido.md).
 
 Registro factual de contribuições; resultados medidos são separados de benefícios esperados.
 

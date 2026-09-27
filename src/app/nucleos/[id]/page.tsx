@@ -1,31 +1,57 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
+import { ArrowRight, LockKeyhole, Sprout } from "lucide-react";
+import { isNucleusAuthUnavailable } from "@/features/nuclei/nucleus-access";
+import { getNucleusHomeDetails } from "@/features/nuclei/nucleus-home-details";
 import { OnboardingShell } from "@/features/onboarding/components/onboarding-shell";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { routes } from "@/shared/routes";
 
-export const metadata: Metadata = { title: "Seu Núcleo" };
+export const metadata: Metadata = { title: "Início do Núcleo" };
 
 export default async function NucleusPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(id)) notFound();
   const supabase = await createSupabaseServerClient();
   if (!supabase) redirect(routes.account);
-  const { data: { user } } = await supabase.auth.getUser();
+  const { data: { user }, error: authError } = await supabase.auth.getUser();
+  // Sessão ausente pede entrada; falha operacional do Auth oferece nova tentativa na própria Home.
+  if (isNucleusAuthUnavailable(authError)) throw new Error("Não foi possível conferir a sessão agora.");
   if (!user) redirect(routes.account);
-  const { data: nucleus } = await supabase.from("nuclei").select("id,name,purpose,created_by").eq("id", id).single();
+  // A participação é lida com a sessão da requisição; a política RLS expõe só o vínculo da própria pessoa.
+  const { data: membership, error: membershipError } = await supabase.from("nucleus_members")
+    .select("role").eq("nucleus_id", id).eq("user_id", user.id).maybeSingle();
+  if (membershipError) throw new Error("Não foi possível consultar a participação no Núcleo.");
+  if (!membership) notFound();
+  const { data: nucleus, error: nucleusError } = await supabase.from("nuclei")
+    .select("id,name,type,purpose").eq("id", id).maybeSingle();
+  if (nucleusError) throw new Error("Não foi possível consultar o Núcleo.");
   if (!nucleus) notFound();
+  const details = getNucleusHomeDetails(nucleus.type, membership.role, id);
 
   return <OnboardingShell>
-    <p className="step-label mb-3 text-lilac">Seu Núcleo</p>
-    <h1 className="font-display text-[30px] font-medium leading-tight md:text-[38px]">{nucleus.name}</h1>
-    <section className="mt-6 rounded-[22px] border border-line bg-white p-5 sm:p-7">
-      <h2 className="font-display text-xl">Nosso propósito</h2>
-      <p className="mt-3 whitespace-pre-wrap break-words text-sm leading-7 text-muted">{nucleus.purpose}</p>
+    <div className="mb-4 flex flex-wrap items-center gap-2 text-xs font-semibold text-muted">
+      <span className="rounded-full bg-[#edf3e5] px-3 py-1.5 text-leaf">{details.typeLabel}</span>
+      <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white px-3 py-1.5"><LockKeyhole size={13} aria-hidden="true" />Espaço privado</span>
+    </div>
+    <p className="step-label mb-3 text-lilac">Início do Núcleo</p>
+    <h1 className="break-words font-display text-[32px] font-medium leading-tight md:text-[42px]">{nucleus.name}</h1>
+    <p className="mt-3 text-sm leading-7 text-muted">Um lugar para cultivar os vínculos no tempo de vocês.</p>
+
+    <section className="mt-7 rounded-[22px] border border-line bg-white p-5 shadow-[0_5px_18px_#52403805] sm:p-7" aria-labelledby="purpose-heading">
+      <div className="flex items-center gap-2.5"><Sprout size={20} className="text-leaf" aria-hidden="true" /><h2 id="purpose-heading" className="font-display text-xl">Nosso propósito</h2></div>
+      <p className="mt-4 whitespace-pre-wrap break-words text-sm leading-7 text-muted">{nucleus.purpose}</p>
     </section>
-    {nucleus.created_by === user.id && <Link href={`${routes.initialInvitation}/${encodeURIComponent(id)}`} className="mt-6 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Convidar alguém</Link>}
-    <p className="mt-5 text-xs leading-6 text-muted">Este é o início do seu Núcleo. As demais áreas serão adicionadas nas próximas etapas.</p>
-    <Link href={routes.account} className="mt-5 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Minha conta e sair</Link>
+    <section className="mt-4 rounded-[22px] border border-line bg-[#f0f3e8] p-5 sm:p-6" aria-labelledby="participation-heading">
+      <h2 id="participation-heading" className="font-display text-lg">Seu lugar aqui</h2>
+      <p className="mt-2 text-sm leading-7 text-muted">{details.participation}. Apenas participantes podem abrir esta página.</p>
+      {details.invitationHref && <Link href={details.invitationHref} className="continue-button mt-4 inline-flex min-h-11 items-center gap-2 rounded-xl bg-forest px-5 text-sm font-semibold text-white">Convidar alguém<ArrowRight size={17} aria-hidden="true" /></Link>}
+    </section>
+    <section className="mt-4 rounded-[22px] border border-dashed border-line p-5 sm:p-6" aria-labelledby="next-heading">
+      <h2 id="next-heading" className="font-display text-lg">Por enquanto, só o essencial</h2>
+      <p className="mt-2 text-sm leading-7 text-muted">Este espaço ainda mostra apenas o propósito e o seu vínculo. Novas formas de cuidar dos vínculos serão adicionadas quando estiverem disponíveis.</p>
+    </section>
+    <Link href={routes.account} className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Minha conta e sair</Link>
   </OnboardingShell>;
 }

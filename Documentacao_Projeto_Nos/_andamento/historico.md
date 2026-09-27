@@ -1,6 +1,6 @@
 # Histórico de andamento
 
-**Versão vigente do projeto:** 0.4.0
+**Versão vigente do projeto:** 0.5.0
 
 ## 2026-09-24 — Primeira tela do app
 
@@ -184,3 +184,10 @@
 - **Fluxo real:** após repetir o aceite na sessão convidada, consulta agregada no Supabase mostrou um `creator` e um `member`. O usuário confirmou que o resumo permaneceu visível após F5 nas duas contas; antes do vínculo, a conta convidada recebia página não encontrada. Nenhum código, e-mail ou dado afetivo foi incluído nos registros.
 - **Correções de UX e revisão:** aviso de cadastro limitado a usuários sem sessão; prévia de convite ocultada quando o código digitado muda; texto do convite alinhado ao aceite direto. A revisão independente apontou a prévia e documentação defasada, corrigidas. `.next-playwright/` entrou no `.gitignore`.
 - **Validação e entrega Git:** 46 testes Playwright em desktop/mobile, `npm.cmd run typecheck`, `npm.cmd run build` e `git diff --check` passaram após as correções e na conferência final. Foram conferidos 71 links locais sem alvo ausente; manifestos e registro refletem v0.4.0 MINOR. A revisão independente de confirmação não encontrou achados remanescentes. A integração foi registrada em commit atômico com código, testes e documentação; o usuário autorizou push para `origin/main`. Consultar o Git para o hash e a situação remota atuais.
+
+## 2026-09-27 — Primeira Home do Núcleo v0.5.0
+
+- **Mudança de produto:** `/nucleos/[id]` passou a mostrar nome, tipo, propósito e vínculo real da pessoa autenticada. O convite aparece apenas para o criador. O estado inicial, carregamento e erro comunicam o alcance atual da Home sem simular áreas futuras.
+- **Segurança e validação:** consulta da participação própria sob RLS antes da leitura do Núcleo; ausência de vínculo retorna 404 e erro do serviço é tratado separadamente. A revisão independente encontrou falha do Auth tratada como sessão ausente e token expirado tratado como indisponibilidade; ambos foram corrigidos com teste de regressão. TDD da derivação de tipo/papel/convite e da classificação de erro; 52 testes Playwright em desktop/mobile, tipos e build aprovados. A nova interface ainda não foi testada em sessão Supabase real.
+- **Versão e continuidade:** 0.4.0 → 0.5.0 (MINOR); [registro próprio](registros/registro-v0.5.0-2026-09-27-imp-home-nucleo-fun-resumo-protegido.md). Próxima etapa: contrato e RLS da agenda interna; as fontes e o recorte inicial estão no estado canônico. Commit e push para `origin/main` autorizados posteriormente; deploy não autorizado.
+- **Entrega Git:** commit atômico com Home, tratamento de acesso, testes, versão e documentação inspecionado antes do envio. O hash final e a situação de `origin/main` devem ser confirmados no Git; o aplicativo não foi publicado por deploy.

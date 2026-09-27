@@ -1,6 +1,6 @@
 # Projeto Nós
 
-**Versão vigente do projeto:** 0.4.0
+**Versão vigente do projeto:** 0.5.0
 
 Um espaço privado para cultivar vínculos saudáveis.
 
@@ -25,7 +25,7 @@ Mantenha o terminal aberto para acompanhar as alterações em tempo real; `Ctrl+
 
 Abra http://127.0.0.1:3000. A primeira tela é **Escolher caminho** (`/comecar`). Criar um Núcleo abre **Tipo de Núcleo** (`/comecar/tipo`), com nove tipos e escolha obrigatória. **Propósito** (`/comecar/proposito`) permite preencher nome, usar uma sugestão editável e conferir um rascunho local. A escolha do tipo é preservada ao voltar. O rascunho não é salvo antes da ação explícita **Criar Núcleo**; sair da página ou recarregar o descarta.
 
-As rotas de conta, criação protegida, convite e resumo protegido estão implementadas. Sem Supabase configurado, mostram indisponibilidade sem simular cadastro, Núcleo ou convite. O fluxo foi validado com contas reais no projeto de desenvolvimento `nos-dev`; o aplicativo não foi publicado.
+As rotas de conta, criação protegida, convite e a primeira Home protegida estão implementadas. A Home mostra apenas dados já existentes do Núcleo e do vínculo próprio. Sem Supabase configurado, as rotas protegidas não simulam cadastro, Núcleo ou convite. O fluxo de conta e associação foi validado com contas reais no projeto de desenvolvimento `nos-dev`; a nova Home foi verificada localmente, sem sessão real nesta entrega. O aplicativo não foi publicado.
 
 ## Configurar Supabase
 
@@ -98,6 +98,7 @@ Registro persistente das decisões, do estado atual e das próximas ações do p
 - [v0.2.0 — Tipo de Núcleo](<Documentacao_Projeto_Nos/_andamento/registros/registro-v0.2.0-2026-09-25-01-imp-tela-tipo-nucleo-fun-selecao-vinculo.md>)
 - [v0.3.0 — Propósito do Núcleo](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.3.0-2026-09-27-imp-tela-proposito-nucleo-fun-rascunho-local.md)
 - [v0.4.0 — Autenticação, criação e convite](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.4.0-2026-09-27-imp-integracao-supabase-fun-criacao-convite.md)
+- [v0.5.0 — Home do Núcleo](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.5.0-2026-09-27-imp-home-nucleo-fun-resumo-protegido.md)
 
 ---
 
