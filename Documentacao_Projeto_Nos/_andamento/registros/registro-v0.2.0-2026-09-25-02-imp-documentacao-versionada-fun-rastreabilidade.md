@@ -11,7 +11,7 @@ Adequar a entrega concluída da tela Tipo de Núcleo às novas instruções do u
 
 - Versão final 0.2.0: MINOR pela nova tela e seleção de nove tipos, já concluídas, revisadas e validadas na entrega precedente. Esta adequação de documentação integra a mesma entrega e não gera incremento adicional.
 - Novo diretório `_andamento/registros/`; registro da tela migrado, preservando conteúdo, e novo registro específico desta adequação. Sufixos `-01` e `-02` identificam registros da mesma versão/data.
-- Registros históricos anteriores permanecem intactos. A numeração conceitual 1.x/2.x corresponde à edição dos documentos, não à versão do aplicativo.
+- Na entrega v0.2.0, registros anteriores permaneceram intactos. A migração posterior do diário v0.1.0 ficou documentada em [registro próprio](registro-v0.2.0-2026-09-25-03-imp-padronizacao-registro-historico-fun-rastreabilidade.md). A numeração conceitual 1.x/2.x corresponde à edição dos documentos, não à versão do aplicativo.
 - Orientações locais de `AGENTS.md` complementadas com as regras atualizadas, preservando as instruções geradas pelo Next.js.
 - Sem dependências novas, alteração de stack, configuração de serviços ou deploy.
 
@@ -20,7 +20,7 @@ Adequar a entrega concluída da tela Tipo de Núcleo às novas instruções do u
 - `package.json`, `package-lock.json`: versão da aplicação e do pacote raiz, sem alterar versões de dependências.
 - `AGENTS.md`: protocolo persistente de registros e versionamento.
 - `README.md`, `_andamento/README.md`, `estado.md`, `historico.md`, `funcionalidades/escolher-caminho.md`, `tecnologias/frontend.md`, `brag/BRAG.md`: versão vigente, referências e continuidade.
-- Registro da tela movido para `registros/registro-v0.2.0-2026-09-25-imp-tela-tipo-nucleo-fun-selecao-vinculo-01.md`.
+- Registro da tela movido para `registros/registro-v0.2.0-2026-09-25-01-imp-tela-tipo-nucleo-fun-selecao-vinculo.md`.
 - GitHub: destino autorizado `origin/main` em `github.com/efraimrsilva/nos`; base verificada `32f208c`. Nenhum PR ou deploy solicitado.
 
 ## Validações realizadas

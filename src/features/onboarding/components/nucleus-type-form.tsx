@@ -10,7 +10,7 @@ const typeIcons: Record<NucleusTypeId, LucideIcon> = {
 
 export function NucleusTypeForm({ selectedType }: { selectedType?: NucleusTypeId }) {
   return (
-    // Apenas o identificador do catálogo segue na URL; nome e propósito futuros exigem outro contrato.
+    // Apenas o identificador do catálogo segue na URL; nome e propósito ficam no formulário local da próxima tela.
     <Form action={routes.nucleusPurpose} className="mt-6" key={selectedType ?? "unselected"}>
       <fieldset aria-describedby="type-help">
         <legend className="sr-only">Tipo de Núcleo</legend>

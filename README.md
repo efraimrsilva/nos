@@ -1,6 +1,6 @@
 # Projeto Nós
 
-**Versão vigente do projeto:** 0.2.0
+**Versão vigente do projeto:** 0.3.0
 
 Um espaço privado para cultivar vínculos saudáveis.
 
@@ -13,16 +13,17 @@ npm ci
 npm run dev
 ```
 
-Neste workspace local, as dependências já estão instaladas e há um lançador na pasta principal `Projeto Nós`; você pode iniciar dali com o mesmo comando:
+Neste workspace local, entre primeiro na pasta do aplicativo:
 
 ```powershell
 cd "G:\Efraim\Dev\PROJETOS\Projeto Nós"
+cd .\nos
 npm run dev
 ```
 
-O `package.json` da pasta principal encaminha o comando para o aplicativo em `nos` e fica fora deste repositório Git. Mantenha o terminal aberto para acompanhar as alterações em tempo real; `Ctrl+C` encerra o servidor. Se aparecer aviso de que já existe um servidor Next.js, use o que está em `http://127.0.0.1:3000` ou encerre a instância anterior no terminal em que ela foi aberta antes de iniciar outra.
+Mantenha o terminal aberto para acompanhar as alterações em tempo real; `Ctrl+C` encerra o servidor. Se aparecer aviso de que já existe um servidor Next.js, use o que está em `http://127.0.0.1:3000` ou encerre a instância anterior no terminal em que ela foi aberta antes de iniciar outra.
 
-Abra http://127.0.0.1:3000. A primeira tela é **Escolher caminho** (`/comecar`). Criar um Núcleo abre **Tipo de Núcleo** (`/comecar/tipo`), com nove tipos, escolha obrigatória e continuidade para o espaço reservado de Propósito. A escolha é preservada ao voltar de Propósito. Convite permanece preparatório; nenhum Núcleo é criado. Autenticação e Supabase não estão integrados nesta entrega.
+Abra http://127.0.0.1:3000. A primeira tela é **Escolher caminho** (`/comecar`). Criar um Núcleo abre **Tipo de Núcleo** (`/comecar/tipo`), com nove tipos e escolha obrigatória. **Propósito** (`/comecar/proposito`) permite preencher nome, usar uma sugestão editável e conferir um rascunho local. A escolha do tipo é preservada ao voltar. Nome e propósito não são salvos; recarregar descarta o rascunho. Convite permanece preparatório; nenhum Núcleo é criado. Autenticação e Supabase não estão integrados nesta entrega.
 
 Para as verificações, use a pasta `nos`, que é a raiz deste repositório Git. Neste workspace, se estiver na pasta principal `Projeto Nós`, execute `cd .\nos`; em um clone do GitHub, permaneça na raiz do clone. Depois:
 
@@ -80,7 +81,9 @@ Registro persistente das decisões, do estado atual e das próximas ações do p
 
 - [Índice de andamento](Documentacao_Projeto_Nos/_andamento/README.md)
 - [Estado atual](Documentacao_Projeto_Nos/_andamento/estado.md)
-- [v0.2.0 — Tipo de Núcleo](<Documentacao_Projeto_Nos/_andamento/registros/registro-v0.2.0-2026-09-25-imp-tela-tipo-nucleo-fun-selecao-vinculo-01.md>)
+- [v0.1.0 — Escolher caminho](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.1.0-2026-09-24-imp-tela-escolher-caminho-fun-entrada-nucleo.md)
+- [v0.2.0 — Tipo de Núcleo](<Documentacao_Projeto_Nos/_andamento/registros/registro-v0.2.0-2026-09-25-01-imp-tela-tipo-nucleo-fun-selecao-vinculo.md>)
+- [v0.3.0 — Propósito do Núcleo](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.3.0-2026-09-27-imp-tela-proposito-nucleo-fun-rascunho-local.md)
 
 ---
 

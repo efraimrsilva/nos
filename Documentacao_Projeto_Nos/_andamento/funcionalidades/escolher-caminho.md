@@ -1,6 +1,6 @@
 # Escolher caminho
 
-**Versão vigente do projeto:** 0.2.0
+**Versão vigente do projeto:** 0.3.0
 
 ## Escopo autorizado
 
@@ -12,7 +12,7 @@ Primeira tela implementável aprovada pelo usuário em 2026-09-24. Reproduzir a 
 - `/comecar`: escolher criar um Núcleo ou entrar por convite.
 - `/comecar/tipo`: tela Tipo de Núcleo implementada na entrega de 2026-09-25; veja o registro abaixo.
 - `/comecar/convite`: destino reservado para o fluxo de convite.
-- O destino de convite continua preparatório e permite voltar. A seleção de tipo segue para o destino preparatório de Propósito.
+- O destino de convite continua preparatório e permite voltar. A seleção de tipo segue para Propósito, que oferece formulário e conferência local sem criação real.
 
 ## Sequência de trabalho
 
@@ -30,4 +30,4 @@ Esta fatia é pública e não coleta nem persiste dados. A autenticação, assoc
 
 Status da entrega: tela e navegação implementadas. Oito testes passaram nos dois perfis (desktop/mobile), incluindo viewport 320px; build e tipos verificados. Destinos são espaços reservados, não telas concluídas de criação/aceite.
 
-Continuidade realizada em 2026-09-25: [registro da implementação de Tipo de Núcleo](<../registros/registro-v0.2.0-2026-09-25-imp-tela-tipo-nucleo-fun-selecao-vinculo-01.md>). O catálogo agora existe; a descrição anterior de destinos reservados e oito testes corresponde à entrega inicial. Próxima tela: Propósito, sem armazenar dados afetivos reais antes da proteção de backend.
+Continuidade realizada em 2026-09-25: [registro da implementação de Tipo de Núcleo](<../registros/registro-v0.2.0-2026-09-25-01-imp-tela-tipo-nucleo-fun-selecao-vinculo.md>). Em 2026-09-27, [Propósito](../registros/registro-v0.3.0-2026-09-27-imp-tela-proposito-nucleo-fun-rascunho-local.md) ganhou formulário e conferência local. A descrição anterior de destinos reservados e oito testes corresponde à entrega inicial. A próxima integração exige criação protegida antes de convite inicial.

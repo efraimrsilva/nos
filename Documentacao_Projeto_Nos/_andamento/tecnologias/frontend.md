@@ -1,6 +1,6 @@
 # Frontend web
 
-**Versão vigente do projeto:** 0.2.0
+**Versão vigente do projeto:** 0.3.0
 
 ## Decisões implementadas nesta fatia
 
@@ -27,6 +27,6 @@ Testes Playwright cobrem a intenção do usuário (criar ou entrar por convite e
 
 ## Próxima ação
 
-Catálogo extensível e tela Tipo de Núcleo implementados em 2026-09-25, em `src/features/nuclei` e `src/features/onboarding`, com formulário Next.js e validação do identificador nas páginas de servidor. Consulte o [registro próprio](<../registros/registro-v0.2.0-2026-09-25-imp-tela-tipo-nucleo-fun-selecao-vinculo-01.md>).
+Catálogo extensível e tela Tipo de Núcleo implementados em 2026-09-25, em `src/features/nuclei` e `src/features/onboarding`, com formulário Next.js e validação do identificador nas páginas de servidor. Consulte o [registro próprio](<../registros/registro-v0.2.0-2026-09-25-01-imp-tela-tipo-nucleo-fun-selecao-vinculo.md>).
 
-Próxima tela: Propósito; definir contrato de rascunho e proteção de conteúdo antes de persistência. Definir a fronteira web/Capacitor antes de empacotar Android: SSR/rotas de servidor não são executados dentro do pacote nativo. iOS permanece por último.
+Propósito foi implementado em 2026-09-27 como [rascunho apenas em memória](../registros/registro-v0.3.0-2026-09-27-imp-tela-proposito-nucleo-fun-rascunho-local.md), sem tráfego ou armazenamento do nome e propósito. Próxima integração: autenticação e criação protegida, depois convite inicial. Definir a fronteira web/Capacitor antes de empacotar Android: SSR/rotas de servidor não são executados dentro do pacote nativo. iOS permanece por último.

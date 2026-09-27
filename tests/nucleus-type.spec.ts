@@ -23,7 +23,7 @@ test("todos os tipos chegam ao propósito e preservam a escolha ao voltar", asyn
     await page.getByRole("button", { name: "Continuar" }).click();
     await expect(page).toHaveURL(`/comecar/proposito?tipo=${id}`);
     await expect(page.getByText(`Tipo escolhido: ${name}`, { exact: true })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Esta etapa está sendo preparada" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Qual o propósito de vocês?" })).toBeVisible();
     await page.reload();
     await page.getByRole("link", { name: /Voltar/ }).click();
     await expect(page.getByRole("radio", { name, exact: true })).toBeChecked();

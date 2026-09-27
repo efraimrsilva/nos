@@ -1,4 +1,27 @@
-# Registro de Andamento - 2026-09-24
+# Registro — v0.1.0 — 2026-09-24 — Imp. de tela Escolher caminho com Fun. entrada no Núcleo
+
+**Versão histórica do aplicativo:** 0.1.0, confirmada no `package.json` do commit `32f208c` da primeira entrega. A versão vigente está em [`estado.md`](../estado.md).
+**Status:** concluído e validado na entrega original; registro histórico reformatado posteriormente, sem alterar o produto.
+
+## Objetivo, contexto e requisitos
+
+Este diário reúne as decisões de fundação tomadas em 2026-09-24 e a implementação da primeira tela. O projeto partiu de documentação conceitual e protótipo de 28 telas. A primeira entrega precisava tornar navegável a escolha entre criar um Núcleo e entrar por convite, preservar acessibilidade e responsividade, e deixar claro que autenticação, convites e persistência ainda não existiam. As orientações posteriores sobre distribuição e Context7 permanecem abaixo em ordem cronológica; não representam novas funcionalidades da v0.1.0.
+
+## Decisões técnicas, integrações e limites
+
+- Frontend Next.js/React/TypeScript/Tailwind com layout de onboarding compartilhado, fontes e imagem local.
+- `/` redireciona para `/comecar`; cartões levam aos destinos preparatórios `/comecar/tipo` e `/comecar/convite` e oferecem retorno. Essas rotas eram preparatórias nesta versão histórica; Tipo de Núcleo foi implementada na v0.2.0.
+- Sem criação de Núcleo, aceite de convite, autenticação simulada ou persistência. Backend Supabase, RLS e fluxos completos permaneciam planejados.
+
+## Arquivos alterados na entrega original
+
+`src/app/comecar/page.tsx`, `src/app/comecar/layout.tsx`, `src/features/onboarding/`, `src/shared/routes.ts`, `src/app/globals.css`, `public/brand/nos-tree.png`, `tests/onboarding.spec.ts`, `README.md` e documentação de acompanhamento. A instalação global do Context7 e o lançador na pasta principal do workspace ficaram fora deste repositório.
+
+## Validações, resultado e próximos passos históricos
+
+O registro original informa oito testes Playwright aprovados em desktop/mobile, build e checagem de tipos aprovados e inspeção visual. O commit `32f208c` contém a aplicação inicial; não há reexecução dessas verificações nesta revisão documental. A tela Escolher caminho ficou navegável. O próximo passo então registrado era Tipo de Núcleo, concluído na v0.2.0. O próximo passo vigente é a tela Propósito, conforme [`estado.md`](../estado.md).
+
+## Cronologia original preservada
 
 ## Decisões confirmadas
 
