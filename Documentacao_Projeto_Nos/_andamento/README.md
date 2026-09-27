@@ -1,6 +1,6 @@
 # Andamento do Projeto Nós
 
-**Versão vigente do projeto:** 0.3.0
+**Versão vigente do projeto:** 0.4.0
 
 Este diretório preserva o contexto operacional entre sessões e retomadas do projeto.
 
@@ -16,6 +16,7 @@ Este diretório preserva o contexto operacional entre sessões e retomadas do pr
 - [v0.2.0 — Versionamento e rastreabilidade](registros/registro-v0.2.0-2026-09-25-02-imp-documentacao-versionada-fun-rastreabilidade.md): adequação documental e entrega GitHub.
 - [v0.2.0 — Registro histórico](registros/registro-v0.2.0-2026-09-25-03-imp-padronizacao-registro-historico-fun-rastreabilidade.md): padronização retrospectiva e correção da máscara sequencial.
 - [v0.3.0 — Propósito do Núcleo](registros/registro-v0.3.0-2026-09-27-imp-tela-proposito-nucleo-fun-rascunho-local.md): campos, sugestão e conferência local.
+- [v0.4.0 — Autenticação, criação e convite](registros/registro-v0.4.0-2026-09-27-imp-integracao-supabase-fun-criacao-convite.md): integração Supabase validada com contas reais no desenvolvimento.
 - [Frontend web](tecnologias/frontend.md): organização técnica, segurança e verificações.
 - `registros/`: arquivos por versão, data e finalidade, preservando a cronologia e as decisões anteriores.
 - `tecnologias/<nome>.md`: criar quando uma tecnologia tiver decisões, configuração ou pendências que justifiquem acompanhamento próprio.

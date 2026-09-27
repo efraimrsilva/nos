@@ -9,7 +9,7 @@ test("escolher caminho leva às próximas etapas e permite voltar", async ({ pag
   await page.getByRole("link", { name: /Voltar/ }).click();
   await page.getByRole("link", { name: /Entrar com um convite/ }).click();
   await expect(page).toHaveURL(/\/comecar\/convite$/);
-  await expect(page.getByRole("heading", { name: "Um convite para cultivar juntos" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Você recebeu um convite?" })).toBeVisible();
   await page.getByRole("link", { name: /Voltar/ }).click();
   await expect(page.getByRole("heading", { name: "Como você quer começar?" })).toBeVisible();
 });
@@ -37,11 +37,11 @@ test("acomoda telas de 320px e mantém cabeçalhos defensivos", async ({ page })
   expect(errors).toEqual([]);
 });
 
-test("destinos abrem diretamente sem criar dados nem simular autenticação", async ({ page }) => {
+test("convite abre diretamente sem criar dados nem simular autenticação", async ({ page }) => {
   for (const route of ["/comecar/convite"]) {
     await page.goto(route);
-    await expect(page.getByRole("heading", { name: "Esta etapa está sendo preparada" })).toBeVisible();
-    await expect(page.getByText(/nenhum Núcleo foi criado e nenhum convite foi aceito/)).toBeVisible();
+    await expect(page.getByRole("textbox", { name: "Código de convite" })).toBeVisible();
+    await expect(page.getByRole("button", { name: "Aceitar convite" })).toHaveCount(0);
     await expect(page.getByRole("link", { name: /Voltar/ })).toHaveAttribute("href", "/comecar");
   }
 });

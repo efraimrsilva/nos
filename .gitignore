@@ -5,6 +5,7 @@ tmp/pdfs/extract.json
 Projeto Nós - Atalho.lnk
 node_modules/
 .next/
+.next-playwright/
 next-env.d.ts
 out/
 test-results/

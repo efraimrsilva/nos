@@ -1,21 +1,21 @@
 # Frontend web
 
-**Versão vigente do projeto:** 0.3.0
+**Versão vigente do projeto:** 0.4.0
 
 ## Decisões implementadas nesta fatia
 
 - Next.js App Router, TypeScript estrito, React e Tailwind CSS.
 - Componentes próprios seguindo o protótipo; fontes Fredoka e Plus Jakarta Sans hospedadas pelo próprio app, sem requisição a Google Fonts.
-- `src/app`: rotas e metadados; `src/features/onboarding`: interface do fluxo inicial; `src/shared`: contratos compartilhados de navegação.
-- Componentes de servidor por padrão. Nenhum estado global, sessão fictícia ou armazenamento local de dados pessoais.
+- `src/app`: rotas e metadados; `src/features/onboarding`: interface do fluxo inicial; `src/features/auth`, `src/features/invitations` e `src/lib/supabase`: conta e integração; `src/shared`: contratos compartilhados de navegação.
+- Componentes de servidor por padrão. Nenhum estado global, sessão fictícia ou armazenamento local de dados pessoais; a sessão real usa cookies protegidos.
 - Layout de onboarding compartilhado para incorporar as próximas telas sem duplicação de identidade visual.
 - Dependências reproduzíveis pelo `package-lock.json`; usar `npm.cmd ci` no Windows.
 
 ## Segurança: implementado versus pendente
 
-Implementado: sem chaves/segredos, sem coleta de dados nesta tela, cabeçalhos `nosniff`, anti-iframe, política de referenciador e restrição de câmera/microfone/geolocalização. Esses recursos poderão exigir permissões específicas no futuro; não liberar indiscriminadamente.
+Implementado: sem chaves secretas no app ou Git, cabeçalhos `nosniff`, anti-iframe, política de referenciador e restrição de câmera/microfone/geolocalização. Esses recursos poderão exigir permissões específicas no futuro; não liberar indiscriminadamente.
 
-Pendente: Supabase/Auth/RLS, validação de entrada no servidor, autorização por associação ao Núcleo, rate limiting de convites, CSP compatível com Next, auditoria de privacidade e testes de isolamento. Cabeçalhos e remoção de comentários não substituem essas proteções. O aplicativo ainda não está pronto para dados reais ou publicação.
+Validado no desenvolvimento: Supabase Auth/SSR, confirmação e entrada, criação protegida, RPCs de convite/aceite e leitura por RLS. Um Núcleo teve um `creator` e um `member`; antes do aceite a conta convidada recebeu página não encontrada e, depois, ambos mantiveram o resumo após F5. A expiração natural de sete dias não foi observada. Ainda faltam rate limiting operacional de convites, SMTP próprio, recuperação de senha, CSP compatível com Next, auditoria de privacidade e testes operacionais antes da publicação. Cabeçalhos não substituem essas proteções.
 
 ## Ambiente
 
@@ -29,4 +29,4 @@ Testes Playwright cobrem a intenção do usuário (criar ou entrar por convite e
 
 Catálogo extensível e tela Tipo de Núcleo implementados em 2026-09-25, em `src/features/nuclei` e `src/features/onboarding`, com formulário Next.js e validação do identificador nas páginas de servidor. Consulte o [registro próprio](<../registros/registro-v0.2.0-2026-09-25-01-imp-tela-tipo-nucleo-fun-selecao-vinculo.md>).
 
-Propósito foi implementado em 2026-09-27 como [rascunho apenas em memória](../registros/registro-v0.3.0-2026-09-27-imp-tela-proposito-nucleo-fun-rascunho-local.md), sem tráfego ou armazenamento do nome e propósito. Próxima integração: autenticação e criação protegida, depois convite inicial. Definir a fronteira web/Capacitor antes de empacotar Android: SSR/rotas de servidor não são executados dentro do pacote nativo. iOS permanece por último.
+Propósito foi implementado em 2026-09-27 como [rascunho apenas em memória](../registros/registro-v0.3.0-2026-09-27-imp-tela-proposito-nucleo-fun-rascunho-local.md). A [entrega v0.4.0](../registros/registro-v0.4.0-2026-09-27-imp-integracao-supabase-fun-criacao-convite.md) acrescentou criação protegida, conta e convite real. A próxima evolução de tela é a Home do Núcleo, partindo do resumo atual. Definir a fronteira web/Capacitor antes de empacotar Android: SSR/rotas de servidor não são executados dentro do pacote nativo. iOS permanece por último.

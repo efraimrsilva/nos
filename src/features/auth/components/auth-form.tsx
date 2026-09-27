@@ -1,0 +1,37 @@
+"use client";
+
+import { useActionState, useState } from "react";
+import { submitAuth, type AuthFormState } from "@/features/auth/actions";
+
+const initialState: AuthFormState = { message: "", success: false, revision: 0 };
+
+export function AuthForm() {
+  const [mode, setMode] = useState<"signup" | "login">("signup");
+
+  return (
+    <section className="mt-6 rounded-[22px] border border-line bg-white p-5 sm:p-7">
+      <div className="flex gap-2" aria-label="Modo de acesso">
+        <button type="button" onClick={() => setMode("signup")} aria-pressed={mode === "signup"} className="min-h-11 flex-1 rounded-xl border border-line px-3 text-sm font-semibold aria-pressed:bg-[#eff3e6]">Criar conta</button>
+        <button type="button" onClick={() => setMode("login")} aria-pressed={mode === "login"} className="min-h-11 flex-1 rounded-xl border border-line px-3 text-sm font-semibold aria-pressed:bg-[#eff3e6]">Já tenho conta</button>
+      </div>
+      <CredentialsForm key={mode} mode={mode} />
+    </section>
+  );
+}
+
+function CredentialsForm({ mode }: { mode: "signup" | "login" }) {
+  const [state, action, pending] = useActionState(submitAuth, initialState);
+  return (
+      <form action={action} noValidate className="mt-6">
+        <input type="hidden" name="mode" value={mode} />
+        {mode === "signup" && <><label htmlFor="account-name" className="block text-xs font-bold text-muted">Nome</label><input id="account-name" name="name" autoComplete="name" maxLength={80} className="mt-2 mb-5 w-full rounded-[14px] border border-line px-4 py-3.5 text-sm" /></>}
+        <label htmlFor="account-email" className="block text-xs font-bold text-muted">E-mail</label>
+        <input id="account-email" name="email" type="email" autoComplete="email" className="mt-2 mb-5 w-full rounded-[14px] border border-line px-4 py-3.5 text-sm" />
+        <label htmlFor="account-password" className="block text-xs font-bold text-muted">Senha</label>
+        <input key={state.revision} id="account-password" name="password" type="password" autoComplete={mode === "signup" ? "new-password" : "current-password"} className="mt-2 w-full rounded-[14px] border border-line px-4 py-3.5 text-sm" />
+        {mode === "signup" && <p className="mt-2 text-xs leading-5 text-muted">Pelo menos 8 caracteres, com letra, número e símbolo.</p>}
+        {state.message && <p role={state.success ? "status" : "alert"} className={`mt-4 rounded-xl p-3 text-sm ${state.success ? "bg-[#eff3e6]" : "bg-[#fce9f1] text-[#9a3153]"}`}>{state.message}</p>}
+        <button disabled={pending} type="submit" className="continue-button mt-6 min-h-12 w-full rounded-2xl bg-forest px-5 py-3 text-sm font-semibold text-white disabled:opacity-60">{pending ? "Aguarde…" : mode === "signup" ? "Criar conta" : "Entrar"}</button>
+      </form>
+  );
+}

@@ -1,6 +1,6 @@
 # Projeto Nós
 
-**Versão vigente do projeto:** 0.3.0
+**Versão vigente do projeto:** 0.4.0
 
 Um espaço privado para cultivar vínculos saudáveis.
 
@@ -23,7 +23,20 @@ npm run dev
 
 Mantenha o terminal aberto para acompanhar as alterações em tempo real; `Ctrl+C` encerra o servidor. Se aparecer aviso de que já existe um servidor Next.js, use o que está em `http://127.0.0.1:3000` ou encerre a instância anterior no terminal em que ela foi aberta antes de iniciar outra.
 
-Abra http://127.0.0.1:3000. A primeira tela é **Escolher caminho** (`/comecar`). Criar um Núcleo abre **Tipo de Núcleo** (`/comecar/tipo`), com nove tipos e escolha obrigatória. **Propósito** (`/comecar/proposito`) permite preencher nome, usar uma sugestão editável e conferir um rascunho local. A escolha do tipo é preservada ao voltar. Nome e propósito não são salvos; recarregar descarta o rascunho. Convite permanece preparatório; nenhum Núcleo é criado. Autenticação e Supabase não estão integrados nesta entrega.
+Abra http://127.0.0.1:3000. A primeira tela é **Escolher caminho** (`/comecar`). Criar um Núcleo abre **Tipo de Núcleo** (`/comecar/tipo`), com nove tipos e escolha obrigatória. **Propósito** (`/comecar/proposito`) permite preencher nome, usar uma sugestão editável e conferir um rascunho local. A escolha do tipo é preservada ao voltar. O rascunho não é salvo antes da ação explícita **Criar Núcleo**; sair da página ou recarregar o descarta.
+
+As rotas de conta, criação protegida, convite e resumo protegido estão implementadas. Sem Supabase configurado, mostram indisponibilidade sem simular cadastro, Núcleo ou convite. O fluxo foi validado com contas reais no projeto de desenvolvimento `nos-dev`; o aplicativo não foi publicado.
+
+## Configurar Supabase
+
+1. O projeto de desenvolvimento `nos-dev` já foi criado na organização **Projetos Efraim**. Guarde a senha do banco fora do repositório.
+2. A **Project URL** e a **publishable key** já estão em `.env.local` neste ambiente, ignorado pelo Git. Em outro ambiente, copie `.env.example` para `.env.local` e preencha essas variáveis. Não use uma secret key ou `service_role` no app.
+3. Em **Authentication → URL Configuration**, o Site URL local `http://127.0.0.1:3000` e o retorno `/auth/confirm` já foram salvos. O template padrão de confirmação usa `{{ .ConfirmationURL }}`; SMTP próprio será necessário antes de uso público.
+4. A migração `20260927173656_create_nuclei_and_invitations` já foi aplicada e conferida no `nos-dev`. **Não a reaplique nesse projeto.** Em um novo projeto, use a migração versionada em `supabase/migrations/`: autentique a CLI, vincule o projeto correto, revise `npx supabase db push --dry-run` e só então aplique `npx supabase db push`.
+5. O fluxo de cadastro/confirmação, criação, convite, prévia, aceite e leitura condicionada à associação foi validado com duas contas distintas no ambiente de desenvolvimento.
+
+O valor `<id-do-projeto>` aparece na URL `https://supabase.com/dashboard/project/<id-do-projeto>`. A CLI pode pedir a senha do banco no terminal; não a registre em arquivos ou mensagens. Neste ambiente, a CLI 2.118.0 apresentou falha de transporte e a migração foi aplicada pela Management API com verificação no painel. O envio de e-mail padrão do Supabase tem limites de teste, então configure SMTP próprio antes de uso público.
+No PowerShell que bloqueie `npx.ps1`, execute os mesmos comandos com `npx.cmd`.
 
 Para as verificações, use a pasta `nos`, que é a raiz deste repositório Git. Neste workspace, se estiver na pasta principal `Projeto Nós`, execute `cd .\nos`; em um clone do GitHub, permaneça na raiz do clone. Depois:
 
@@ -84,6 +97,7 @@ Registro persistente das decisões, do estado atual e das próximas ações do p
 - [v0.1.0 — Escolher caminho](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.1.0-2026-09-24-imp-tela-escolher-caminho-fun-entrada-nucleo.md)
 - [v0.2.0 — Tipo de Núcleo](<Documentacao_Projeto_Nos/_andamento/registros/registro-v0.2.0-2026-09-25-01-imp-tela-tipo-nucleo-fun-selecao-vinculo.md>)
 - [v0.3.0 — Propósito do Núcleo](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.3.0-2026-09-27-imp-tela-proposito-nucleo-fun-rascunho-local.md)
+- [v0.4.0 — Autenticação, criação e convite](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.4.0-2026-09-27-imp-integracao-supabase-fun-criacao-convite.md)
 
 ---
 

@@ -20,7 +20,7 @@ export default async function NucleusPurposePage({ searchParams }: { searchParam
       <p className="mt-3 text-sm leading-7 text-muted">A bússola que guia as escolhas do Núcleo.</p>
       <p className="mt-3 text-sm font-semibold">Tipo escolhido: {type.label}</p>
       {/* A página valida somente o tipo; os campos afetivos permanecem no cliente até existir uma criação protegida. */}
-      <NucleusPurposeForm suggestion={type.description} />
+      <NucleusPurposeForm suggestion={type.description} type={type.id} />
     </>
   );
 }

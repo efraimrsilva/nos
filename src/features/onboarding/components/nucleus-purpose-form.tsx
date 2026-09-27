@@ -1,13 +1,17 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useActionState, useState, type FormEvent } from "react";
 import { ArrowRight, Lightbulb } from "lucide-react";
+import Link from "next/link";
+import { createNucleus } from "@/features/nuclei/actions";
+import { routes } from "@/shared/routes";
 
-export function NucleusPurposeForm({ suggestion }: { suggestion: string }) {
+export function NucleusPurposeForm({ suggestion, type }: { suggestion: string; type: string }) {
   const [name, setName] = useState("");
   const [purpose, setPurpose] = useState("");
   const [error, setError] = useState("");
   const [preview, setPreview] = useState(false);
+  const [creation, createAction, creating] = useActionState(createNucleus, { error: "" });
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -29,7 +33,15 @@ export function NucleusPurposeForm({ suggestion }: { suggestion: string }) {
         <p className="mt-1 break-words text-lg font-semibold">{name}</p>
         <p className="mt-5 text-xs font-bold uppercase tracking-wide text-muted">Nosso propósito</p>
         <p className="mt-1 whitespace-pre-wrap break-words text-sm leading-7">{purpose}</p>
-        <p className="mt-6 rounded-xl bg-[#eff3e6] p-4 text-xs leading-6 text-muted">Nenhum Núcleo foi criado. Este rascunho não é salvo e será perdido ao recarregar a página. A criação e os convites dependem da próxima etapa protegida.</p>
+        <p className="mt-6 rounded-xl bg-[#eff3e6] p-4 text-xs leading-6 text-muted">Nenhum Núcleo foi criado. Este rascunho não é salvo e será perdido ao recarregar a página. Para criar, você precisa entrar na sua conta e ter o serviço configurado.</p>
+        <p className="mt-4 text-sm leading-6 text-muted">Ainda não tem conta? <Link href={routes.account} className="font-semibold text-leaf underline">Criar conta ou entrar</Link>. Ao sair desta página, será necessário preencher o rascunho novamente.</p>
+        <form action={createAction} className="mt-4">
+          <input type="hidden" name="type" value={type} />
+          <input type="hidden" name="name" value={name} />
+          <input type="hidden" name="purpose" value={purpose} />
+          {creation.error && <p role="alert" className="mb-3 text-sm font-semibold text-[#9a3153]">{creation.error}</p>}
+          <button type="submit" disabled={creating} className="continue-button min-h-12 w-full rounded-2xl bg-forest px-5 py-3 text-sm font-semibold text-white disabled:opacity-60">{creating ? "Criando…" : "Criar Núcleo"}</button>
+        </form>
         <button type="button" onClick={() => setPreview(false)} className="mt-5 min-h-11 rounded-xl border border-line px-5 text-sm font-semibold transition-colors hover:bg-canvas">Editar</button>
       </section>
     );

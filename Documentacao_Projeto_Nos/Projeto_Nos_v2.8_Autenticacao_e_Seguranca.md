@@ -157,7 +157,7 @@ Para as contas tradicionais baseadas em e-mail e senha, o Supabase Auth fornece 
 
 ## 6.1 Tokens de Sessão (Supabase JWT)
 - **Access Token (JWT)**: Vida útil padrão de **1 hora**. É armazenado na memória da aplicação (estado) ou em cookies seguros para requisições web. É passado no header `Authorization: Bearer <token>` em todas as chamadas de API.
-- **Refresh Token**: Vida útil de **30 dias**. Fica gravado de forma persistente e protegida. Na Web, em cookies com flags `HttpOnly`, `Secure` e `SameSite=Strict`. No app mobile (Capacitor), no armazenamento seguro nativo do dispositivo.
+- **Refresh Token**: Deve ficar gravado de forma persistente e protegida. A duração real depende da configuração do Supabase e precisa ser verificada no projeto; 30 dias é uma meta de produto, não um prazo implementado. Na Web, usar cookie `HttpOnly` e `Secure` em produção. O fluxo web inicial usa `SameSite=Lax` para permitir o retorno de links externos de confirmação de e-mail; avaliar `Strict` somente se o fluxo completo continuar funcionando. No app mobile (Capacitor), usar armazenamento seguro nativo do dispositivo.
 
 ## 6.2 Inatividade e Redirecionamento
 - **Timeout Web**: Caso a aplicação web Next.js não registre interação por **15 minutos**, o token expira localmente e transiciona para o estado `sessaoExpirada`.

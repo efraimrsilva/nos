@@ -1,81 +1,61 @@
 # Estado do Projeto Nós
 
-**Versão vigente do projeto:** 0.3.0
+**Versão vigente do projeto:** 0.4.0
 
 **DOCS_DIR:** `Documentacao_Projeto_Nos`
 
 **Atualizado:** 2026-09-27
 
-**Objetivo ativo:** implementar o onboarding do app Nós em etapas, abrangendo todos os tipos de Núcleo desde o início.
+**Git:** `main`; entrega v0.4.0 registrada em commit atômico, com `origin/main` como destino autorizado. Consultar o Git para o hash e a situação remota atuais.
 
-## Situação
+## Objetivo e situação
 
-As telas **Escolher caminho** (`/comecar`), **Tipo de Núcleo** (`/comecar/tipo`) e **Propósito do Núcleo** (`/comecar/proposito`) estão implementadas. Os nove tipos levam ao formulário de nome e propósito, com sugestão editável por tipo, conferência local e retorno com o tipo preservado. O rascunho fica apenas na memória da página; recarregar o descarta. Convite permanece preparatório. Não há criação persistente, autenticação ou Supabase configurado. O app ainda não está publicado.
+O onboarding web contempla **Escolher caminho** (`/comecar`), **Tipo** (`/comecar/tipo`), **Propósito** (`/comecar/proposito`), **Conta** (`/conta`), **Convite inicial** (`/comecar/convite-inicial/[id]`), **Entrada por convite** (`/comecar/convite`) e resumo protegido (`/nucleos/[id]`). A integração Supabase v0.4.0 está implementada e validada no projeto de desenvolvimento `nos-dev`. O app ainda não foi publicado.
 
-**Escopo desta entrega e aceite:** nome e propósito editáveis, sugestão contextual para cada tipo, validação de campos em branco, conferência sem criação fictícia nem exposição dos textos na URL, responsividade, retorno ao tipo e novo registro datado. Critérios verificados; criação protegida e convite inicial são integrações futuras.
+**Critérios de aceite da entrega:** cadastro e entrada reais, confirmação de e-mail, criação atômica de Núcleo com criador associado, convite opcional, prévia antes do aceite, associação explícita de membro e leitura protegida por RLS. Esses fluxos foram testados com contas distintas. O rascunho de nome e propósito permanece só na memória da página até a ação **Criar Núcleo**.
 
-**Arquivos principais:** `src/features/nuclei/nucleus-types.ts`, `src/features/onboarding/components/nucleus-type-form.tsx`, `src/features/onboarding/components/nucleus-purpose-form.tsx`, `src/app/comecar/tipo/page.tsx`, `src/app/comecar/proposito/page.tsx`, `tests/nucleus-type.spec.ts` e `tests/nucleus-purpose.spec.ts`.
+**Arquivos principais:** `src/app/conta/`, `src/app/auth/confirm/`, `src/app/comecar/convite/`, `src/app/comecar/convite-inicial/[id]/`, `src/app/nucleos/[id]/`, `src/features/auth/`, `src/features/invitations/`, `src/features/nuclei/actions.ts`, `src/lib/supabase/`, `src/proxy.ts`, `supabase/migrations/`, `tests/`.
 
 ## Decisões vigentes
 
-- TypeScript, React, Next.js, Tailwind; Supabase para backend futuro; Capacitor depois da web, Android antes de iOS.
-- Suporte a todos os tipos de Núcleo por um modelo extensível.
-- Usar Context7 em consultas de documentação técnica, respeitando a versão instalada e sem enviar dados privados.
-- Manter este diretório atualizado; monitoramento automático permanece cancelado.
-- Cada tela/implementação/funcionalidade/mudança recebe registro em `registros/`, com versão, data, Imp. e Fun. no título e arquivo. Seguir a máscara de `AGENTS.md` e do protocolo; preservar o histórico e indexar todos os registros. A regra anterior sem versão foi substituída.
-- Versão 0.2.0: incremento MINOR pela nova tela concluída. `package.json` e `package-lock.json` sincronizados; edições 1.x/2.x da documentação conceitual não são versões do aplicativo.
-- Versão 0.3.0: incremento MINOR pela conclusão da tela Propósito; manifestos sincronizados.
-- Registros de uma mesma versão/data usam a sequência logo após a data. A primeira tela foi entregue na v0.1.0, comprovada no commit `32f208c`; seu registro foi padronizado retrospectivamente sem alterar o produto.
-- Não assumir Casal como escolha inicial. Transportar somente o identificador do tipo na URL; conteúdo afetivo futuro exige contrato próprio.
-- Nome e propósito desta fatia não são enviados, persistidos nem incluídos na URL. A conferência é local e explícita; a etapa de convite inicial só poderá consumir esses dados após autenticação, autorização e contrato de criação protegida.
+- TypeScript, React, Next.js e Tailwind para a web; Supabase para autenticação e banco. Capacitor será avaliado depois da web, Android antes de iOS.
+- Todos os tipos de Núcleo usam o catálogo existente. Só o identificador validado do tipo viaja na URL; nome e propósito não são colocados na URL nem persistidos antes da criação explícita.
+- O servidor valida a sessão com `auth.getUser()`. Funções SQL usam `auth.uid()`, associam o criador na mesma transação e limitam leitura por RLS. O convite exige código completo, expira em sete dias e só entra em vigor com aceite explícito. A interface oculta uma prévia quando o código digitado deixa de corresponder ao código conferido.
+- O primeiro convite real teve código exposto em captura/chat e foi revogado no painel. O substituto foi gerado e usado sem reproduzir seu código em documentação ou respostas. Não registrar e-mails, senhas, tokens, códigos ou conteúdo afetivo nos documentos de andamento.
+- A v0.4.0 é MINOR pelas novas rotas e integração. A v0.3.0 de Propósito e as versões anteriores permanecem registradas historicamente. A edição v2.8 da especificação de segurança é versão documental, independente da versão do aplicativo.
+- Cada mudança tem registro datado em `registros/`, com versão, Imp. e Fun. no título e arquivo. O monitoramento automático continua cancelado.
 
-## Verificações recentes
+## Evidências e limites
 
-Entrega Propósito em 2026-09-27: TDD confirmou falha pela ausência dos campos; `npm.cmd test` aprovou 22 testes desktop/mobile, `npm.cmd run typecheck`, `npm.cmd run build` e `git diff --check` passaram. Inspeção visual em 390px, teste de largura em 320px e 13 documentos verificados sem links locais ausentes. Revisão própria sem achados bloqueantes; não houve revisão independente.
+- Supabase `nos-dev`: migração remota `20260927173656_create_nuclei_and_invitations`, três tabelas, quatro funções e RLS verificados no painel. O SQL local tem o mesmo número de versão.
+- Fluxo real: uma conta confirmada criou Núcleo e vínculo `creator`; outro convite ativo substituiu o revogado; conta diferente conferiu e aceitou. Consulta agregada no banco confirmou **um `creator` e um `member`**. Antes do aceite efetivo, o navegador convidado recebeu página não encontrada após F5; depois, ambos os navegadores mantiveram o resumo visível após F5. Isso valida o acesso positivo e a negativa anterior para a conta ainda não associada.
+- Houve uma primeira tentativa que redirecionou para o resumo sem criar `member`; a recarga da conta convidada mostrou página não encontrada. A segunda tentativa, com sessão convidada confirmada, criou o vínculo. A causa exata da primeira tentativa não foi reproduzida; a função de aceite já tratava de forma idempotente quem pertencia ao Núcleo. O registro conserva a investigação sem atribuir causa não demonstrada.
+- Verificações locais após os ajustes finais: `npm.cmd run typecheck`, 46 testes Playwright desktop/mobile, `npm.cmd run build` e `git diff --check` passaram. Foram conferidos 71 links locais sem alvo ausente; `package.json` e lockfile coincidem na v0.4.0.
+- A revisão independente estática apontou uma prévia que permanecia visível após editar o código e documentação defasada. A prévia foi vinculada ao código exibido, os registros foram atualizados e a revisão de confirmação não encontrou achados remanescentes. A autorrevisão do diff não encontrou outro problema no escopo.
+- A CLI Supabase 2.118.0 falhou no transporte à Management API; a migração foi aplicada pela API autenticada com intervenção do usuário e conferida no painel. Docker inativo impediu teste local do SQL. Expiração real de sete dias, limites de envio de e-mail, SMTP próprio, rate limiting operacional, recuperação de senha, Home completa e empacotamento nativo permanecem fora desta entrega. Não tratar o app como pronto para publicação pública.
 
-Padronização documental em 2026-09-25: versão 0.1.0 da primeira entrega confirmada no Git; registro histórico movido para `registros/`, links e máscara sequencial atualizados. A revisão atual é documental; testes de aplicação não foram reexecutados por não haver mudança no produto. Veja o registro específico desta adequação.
+## Continuidade e commit
 
-Preparação da entrega v0.2.0: reexecutados os 16 testes, build e checagem de tipos, todos aprovados. Versões de manifestos e 55 links locais conferidos; revisão documental e do diff sem problemas. Evidência adicional no registro de rastreabilidade.
-
-Entrega Tipo de Núcleo em 2026-09-25: `npm.cmd test` aprovou 16 testes desktop/mobile; `npm.cmd run build`, `npm.cmd run typecheck` e `git diff --check` aprovados. Inspeção visual em 1440px e 390px, teste em 320px, revisão própria e revisão independente estática sem achados bloqueantes. Detalhes no novo registro datado.
-
-Na entrega inicial: oito testes Playwright passaram; build e verificação de tipos passaram. Na alteração de comentários de 2026-09-25, não foram adicionados nem executados testes.
-
-Em 2026-09-25, o comando de desenvolvimento foi reproduzido: `ENOENT` na pasta pai sem `package.json`; inicialização `Ready` em `nos`; navegador exibiu `/comecar` sem sobreposição de erro. O servidor temporário foi encerrado e a porta 3000 ficou livre para o terminal do usuário.
-
-Em 2026-09-25, houve um lançador local em `G:\Efraim\Dev\PROJETOS\Projeto Nós\package.json` fora do repositório Git. Na verificação de 2026-09-27, esse arquivo não está presente; executar `npm run dev` dentro de `nos`.
-
-Para a entrega GitHub de 2026-09-25, oito testes Playwright, build de produção e checagem de tipos passaram. A revisão independente encontrou uma instrução de verificação incorreta no README (corrigida) e um comando de teste específico do Windows (substituído por `npm run dev` conforme documentação do Playwright 1.63). Testes e tipos passaram novamente após o ajuste.
-
-## Trabalho local e commit
-
-Git verificado: branch `main`; a entrega v0.2.0 está em `4feb165` e a primeira entrega em `32f208c`. O commit atômico da v0.3.0 foi inspecionado e contém a tela Propósito, testes, versionamento, documentação e a padronização pendente dos registros v0.1.0/v0.2.0. Push para `origin/main` autorizado em 2026-09-27; o hash final e o envio são confirmados diretamente pelo Git. Configurações globais de Context7/Octocode ficam fora do repositório.
-
-**Unidades prontas para commit:** nenhuma pendente. O commit atômico da v0.3.0 foi inspecionado e contém todo o conjunto autorizado, inclusive a pendência documental anterior. A entrega de produto v0.2.0 permanece no commit `4feb165`.
+- **Próximo passo executável:** evoluir `/nucleos/[id]` para a primeira etapa da Home do Núcleo: manter nome e propósito reais, consultar apenas dados já existentes para o participante e oferecer estados vazios honestos. Planejar árvore, agenda e gratidão com seus próprios contratos e permissões antes de exibi-los; preservar RLS, acessibilidade e estados de acesso.
+- **Bloqueio da entrega atual:** nenhum para o fluxo de desenvolvimento validado. Publicação requer decisões operacionais sobre SMTP, limites e privacidade; não está autorizada nesta tarefa.
+- **Unidades prontas para commit:** nenhuma pendência conhecida após o commit atômico da integração Supabase v0.4.0 (conta, criação protegida, convite, aceite, RLS, testes e documentação). O push para `origin/main` foi autorizado; deploy não autorizado.
+- **Contador de interações:** começou em 2026-09-25, sem histórico anterior verificável; 36 interações concluídas até esta atualização. Próxima auditoria de over-engineering: interação 100. Último marco auditado: nenhum (0).
 
 ## Estado das ferramentas
 
-Superpowers disponível e aplicado. Context7 ativo e consultado; a versão exata Next.js 16.3.6 foi complementada pelos guias locais porque o Context7 não a lista. Octocode 19.1.0 foi executado via CLI com `npx` e busca local validada após configurar `ALLOWED_PATHS`; MCP global `octocode` registrado e habilitado, mas ainda não exposto como ferramenta nesta sessão (pode exigir reabertura). Playwright disponível e usado para testes e inspeção visual. Nenhuma dependência nova foi adicionada ao app.
-
-Na entrega v0.2.0, Git sem identidade configurada recusou a primeira tentativa de commit. Reutilizou-se a identidade consistente dos commits anteriores somente na invocação de commit, sem modificar configurações globais; aquele commit foi criado e verificado.
-
-## Continuidade, contagem e auditoria
-
-- A contagem começa em 2026-09-25, por não haver contagem histórica verificável: 8 interações concluídas desde esse marco, incluindo esta entrega; próxima auditoria na interação 100.
-- Última revisão de over-engineering: nenhuma (0).
-- Próximo passo executável, quando solicitado: definir autenticação, contrato de criação protegida e persistência do Núcleo; então conectar a etapa de convite inicial sem simular código ou criação.
-- Bloqueio: nenhum para a interface atual. Backend, autorização e contas de serviços ainda não configurados para operações reais.
+Superpowers disponível e aplicado. Context7 ativo, consultado para Next.js/Supabase nesta integração; a versão exata Next.js 16.3.6 foi complementada pelos guias locais. Octocode CLI 19.1.0 disponível, mas MCP não exposto nesta sessão; buscas locais precisas foram usadas. Supabase CLI 2.118.0 inicializada; falha de transporte investigada. Playwright disponível. Docker daemon inativo.
 
 ## Índice
 
-- [Histórico](historico.md): eventos e resultados em ordem cronológica.
+- [Histórico](historico.md): eventos relevantes em ordem cronológica.
 - [Brag document](../brag/BRAG.md): contribuições verificáveis.
 - [Primeira tela](funcionalidades/escolher-caminho.md): escopo e continuidade.
-- [v0.1.0 — Escolher caminho](registros/registro-v0.1.0-2026-09-24-imp-tela-escolher-caminho-fun-entrada-nucleo.md): contexto, primeira tela e decisões históricas.
-- [v0.2.0 — Tipo de Núcleo](<registros/registro-v0.2.0-2026-09-25-01-imp-tela-tipo-nucleo-fun-selecao-vinculo.md>): escopo, decisões, evidências e continuidade desta entrega.
-- [v0.2.0 — Versionamento e rastreabilidade](registros/registro-v0.2.0-2026-09-25-02-imp-documentacao-versionada-fun-rastreabilidade.md): adequação às instruções atualizadas e preparação da entrega GitHub.
-- [v0.2.0 — Registro histórico](registros/registro-v0.2.0-2026-09-25-03-imp-padronizacao-registro-historico-fun-rastreabilidade.md): alterações documentais locais, pendentes do próximo commit funcional.
-- [v0.3.0 — Propósito do Núcleo](registros/registro-v0.3.0-2026-09-27-imp-tela-proposito-nucleo-fun-rascunho-local.md): formulário, sugestões e conferência local.
-- [Frontend web](tecnologias/frontend.md): stack, segurança e organização.
+- [v0.1.0 — Escolher caminho](registros/registro-v0.1.0-2026-09-24-imp-tela-escolher-caminho-fun-entrada-nucleo.md).
+- [v0.2.0 — Tipo de Núcleo](registros/registro-v0.2.0-2026-09-25-01-imp-tela-tipo-nucleo-fun-selecao-vinculo.md).
+- [v0.2.0 — Versionamento e rastreabilidade](registros/registro-v0.2.0-2026-09-25-02-imp-documentacao-versionada-fun-rastreabilidade.md).
+- [v0.2.0 — Registro histórico](registros/registro-v0.2.0-2026-09-25-03-imp-padronizacao-registro-historico-fun-rastreabilidade.md).
+- [v0.3.0 — Propósito do Núcleo](registros/registro-v0.3.0-2026-09-27-imp-tela-proposito-nucleo-fun-rascunho-local.md).
+- [v0.4.0 — Autenticação, criação e convite](registros/registro-v0.4.0-2026-09-27-imp-integracao-supabase-fun-criacao-convite.md).
+- [Frontend web](tecnologias/frontend.md): stack, segurança e próximos passos.
 - [Estado anterior](estado-atual.md): referência histórica.
 - `README.md`: protocolo do andamento.
