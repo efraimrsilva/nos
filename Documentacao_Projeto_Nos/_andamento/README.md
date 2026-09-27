@@ -1,6 +1,6 @@
 # Andamento do Projeto Nós
 
-**Versão vigente do projeto:** 0.5.0
+**Versão vigente do projeto:** 0.6.0
 
 Este diretório preserva o contexto operacional entre sessões e retomadas do projeto.
 
@@ -18,6 +18,7 @@ Este diretório preserva o contexto operacional entre sessões e retomadas do pr
 - [v0.3.0 — Propósito do Núcleo](registros/registro-v0.3.0-2026-09-27-imp-tela-proposito-nucleo-fun-rascunho-local.md): campos, sugestão e conferência local.
 - [v0.4.0 — Autenticação, criação e convite](registros/registro-v0.4.0-2026-09-27-imp-integracao-supabase-fun-criacao-convite.md): integração Supabase validada com contas reais no desenvolvimento.
 - [v0.5.0 — Home do Núcleo](registros/registro-v0.5.0-2026-09-27-imp-home-nucleo-fun-resumo-protegido.md): primeira Home protegida com dados existentes e estados honestos.
+- [v0.6.0 — Agenda interna](registros/registro-v0.6.0-2026-09-27-01-imp-agenda-interna-fun-eventos-nucleo.md): eventos, respostas e isolamento validados no desenvolvimento.
 - [Frontend web](tecnologias/frontend.md): organização técnica, segurança e verificações.
 - `registros/`: arquivos por versão, data e finalidade, preservando a cronologia e as decisões anteriores.
 - `tecnologias/<nome>.md`: criar quando uma tecnologia tiver decisões, configuração ou pendências que justifiquem acompanhamento próprio.

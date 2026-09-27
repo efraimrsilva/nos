@@ -1,6 +1,6 @@
 # Histórico de andamento
 
-**Versão vigente do projeto:** 0.5.0
+**Versão vigente do projeto:** 0.6.0
 
 ## 2026-09-24 — Primeira tela do app
 
@@ -191,3 +191,30 @@
 - **Segurança e validação:** consulta da participação própria sob RLS antes da leitura do Núcleo; ausência de vínculo retorna 404 e erro do serviço é tratado separadamente. A revisão independente encontrou falha do Auth tratada como sessão ausente e token expirado tratado como indisponibilidade; ambos foram corrigidos com teste de regressão. TDD da derivação de tipo/papel/convite e da classificação de erro; 52 testes Playwright em desktop/mobile, tipos e build aprovados. A nova interface ainda não foi testada em sessão Supabase real.
 - **Versão e continuidade:** 0.4.0 → 0.5.0 (MINOR); [registro próprio](registros/registro-v0.5.0-2026-09-27-imp-home-nucleo-fun-resumo-protegido.md). Próxima etapa: contrato e RLS da agenda interna; as fontes e o recorte inicial estão no estado canônico. Commit e push para `origin/main` autorizados posteriormente; deploy não autorizado.
 - **Entrega Git:** commit atômico com Home, tratamento de acesso, testes, versão e documentação inspecionado antes do envio. O hash final e a situação de `origin/main` devem ser confirmados no Git; o aplicativo não foi publicado por deploy.
+
+## 2026-09-27 — Agenda interna iniciada
+
+- **Mudança em andamento:** criada a rota protegida da agenda, formulário de evento, ações de presença/edição/remoção e migração SQL com eventos, participantes e RLS. A Home ganhou acesso à agenda.
+- **Validação local:** a prova da rota falhou antes da implementação e passou após encerrar um servidor de teste órfão. A suíte final aprovou 60 testes desktop/mobile; tipos, build e `git diff --check` passaram. A migração remota e os testes com contas distintas continuam pendentes.
+- **Versão naquele marco:** 0.5.0 enquanto a integração não estava concluída. [Registro da entrega, concluído depois na v0.6.0](registros/registro-v0.6.0-2026-09-27-01-imp-agenda-interna-fun-eventos-nucleo.md).
+
+## 2026-09-27 — Migração da agenda aplicada no desenvolvimento
+
+- **Integração:** o usuário aplicou a migração pela Management API no projeto `nos-dev`; o painel confirmou `20260927221149_create_nucleus_calendar`. O arquivo local recebeu o mesmo número de versão, sem alteração do SQL.
+- **Continuidade:** validar a agenda pela aplicação com contas distintas e dois Núcleos antes de concluir a funcionalidade e atualizar a versão do projeto.
+
+## 2026-09-27 — Agenda testada com duas contas no mesmo Núcleo
+
+- **Fluxo real:** conta criadora criou, respondeu, editou e removeu um evento temporário. A conta participante viu o convite sem controles de edição, respondeu e recebeu confirmação. O evento de teste foi removido.
+- **Revisão e validação:** revisão independente encontrou ausência de navegação após 50 eventos e possível fuso aceito pelo banco mas rejeitado pelo `Intl`; ambas as falhas foram corrigidas com testes. 64 testes desktop/mobile, tipos e build passaram. Resta conferir acesso entre Núcleos distintos antes de concluir a entrega.
+
+## 2026-09-27 — Isolamento validado e agenda v0.6.0
+
+- **Teste real:** a conta participante abriu a agenda do Núcleo original e recebeu 404 ao tentar a agenda de um segundo Núcleo temporário, criado sem convite pela conta criadora. O Supabase retornou exatamente o registro esperado ao removê-lo por identificador e nome; o evento temporário anterior já havia sido excluído.
+- **Versão:** 0.5.0 → 0.6.0 (MINOR) pela nova rota e funcionalidade. [Registro da entrega](registros/registro-v0.6.0-2026-09-27-01-imp-agenda-interna-fun-eventos-nucleo.md). Código, migração, testes e documentação formam uma unidade local pronta para commit, sem autorização de publicação.
+
+## 2026-09-27 — Preparação da entrega Git v0.6.0
+
+- **Documentação:** a continuidade da Tela 04 — Acordos foi ligada ao catálogo, fluxo, modelo, permissões e regra de aprovação. Proposta não equivale a acordo ativo; os percentuais do protótipo não são dados reais. O README passou a listar as duas migrações já aplicadas em `nos-dev`.
+- **Verificação:** a execução paralela dos testes encontrou timeouts ao encerrar contextos mobile em disco lento; uma execução completa com um worker aprovou 64 testes. Tipos, build e revisão do diff passaram.
+- **Git:** commit atômico da agenda v0.6.0 com código, migração, testes, versão e documentação inspecionado localmente. Push para `origin/main` autorizado; confirmar a situação remota no Git.

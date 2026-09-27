@@ -6,4 +6,5 @@ export const routes = {
   invitation: "/comecar/convite",
   account: "/conta",
   initialInvitation: "/comecar/convite-inicial",
+  nucleus: "/nucleos",
 } as const;

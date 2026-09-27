@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
-import { ArrowRight, LockKeyhole, Sprout } from "lucide-react";
+import { ArrowRight, CalendarDays, LockKeyhole, Sprout } from "lucide-react";
 import { isNucleusAuthUnavailable } from "@/features/nuclei/nucleus-access";
 import { getNucleusHomeDetails } from "@/features/nuclei/nucleus-home-details";
 import { OnboardingShell } from "@/features/onboarding/components/onboarding-shell";
@@ -48,9 +48,10 @@ export default async function NucleusPage({ params }: { params: Promise<{ id: st
       <p className="mt-2 text-sm leading-7 text-muted">{details.participation}. Apenas participantes podem abrir esta página.</p>
       {details.invitationHref && <Link href={details.invitationHref} className="continue-button mt-4 inline-flex min-h-11 items-center gap-2 rounded-xl bg-forest px-5 text-sm font-semibold text-white">Convidar alguém<ArrowRight size={17} aria-hidden="true" /></Link>}
     </section>
-    <section className="mt-4 rounded-[22px] border border-dashed border-line p-5 sm:p-6" aria-labelledby="next-heading">
-      <h2 id="next-heading" className="font-display text-lg">Por enquanto, só o essencial</h2>
-      <p className="mt-2 text-sm leading-7 text-muted">Este espaço ainda mostra apenas o propósito e o seu vínculo. Novas formas de cuidar dos vínculos serão adicionadas quando estiverem disponíveis.</p>
+    <section className="mt-4 rounded-[22px] border border-line bg-white p-5 sm:p-6" aria-labelledby="agenda-heading">
+      <div className="flex items-center gap-2.5"><CalendarDays size={20} className="text-leaf" aria-hidden="true" /><h2 id="agenda-heading" className="font-display text-lg">Agenda do Núcleo</h2></div>
+      <p className="mt-2 text-sm leading-7 text-muted">Planejem momentos juntos e respondam no tempo de cada pessoa.</p>
+      <Link href={`${routes.nucleus}/${id}/agenda`} className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-leaf underline">Abrir agenda<ArrowRight size={16} aria-hidden="true" /></Link>
     </section>
     <Link href={routes.account} className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Minha conta e sair</Link>
   </OnboardingShell>;

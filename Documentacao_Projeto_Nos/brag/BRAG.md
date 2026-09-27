@@ -1,6 +1,14 @@
 # Brag document — Projeto Nós
 
-**Versão vigente do projeto:** 0.5.0
+**Versão vigente do projeto:** 0.6.0
+
+## 2026-09-27 — Agenda interna do Núcleo
+
+- **Problema:** participantes não tinham como combinar um momento e registrar presença dentro do Núcleo.
+- **Contribuição:** agenda privada com criação, resposta individual, edição e remoção autorizadas; migração com RLS e operações autenticadas, navegação por páginas e datas com fallback de fuso.
+- **Resultado verificado:** migração aplicada no `nos-dev`; duas contas testaram o fluxo e a negativa de acesso a outro Núcleo. Dados temporários foram removidos. 64 testes desktop/mobile, tipos e build passaram; dois achados da revisão independente foram corrigidos.
+- **Benefício esperado:** apoiar a organização de encontros sem expor eventos fora do Núcleo.
+- **Evidência:** [registro v0.6.0](../_andamento/registros/registro-v0.6.0-2026-09-27-01-imp-agenda-interna-fun-eventos-nucleo.md), `src/app/nucleos/[id]/agenda/`, `supabase/migrations/20260927221149_create_nucleus_calendar.sql` e `tests/calendar-event.spec.ts`.
 
 ## 2026-09-27 — Primeira Home protegida do Núcleo
 
