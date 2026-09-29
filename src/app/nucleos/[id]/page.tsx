@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
-import { ArrowRight, CalendarDays, LockKeyhole, Sprout } from "lucide-react";
+import { ArrowRight, CalendarDays, Handshake, LockKeyhole, Sprout } from "lucide-react";
 import { isNucleusAuthUnavailable } from "@/features/nuclei/nucleus-access";
 import { getNucleusHomeDetails } from "@/features/nuclei/nucleus-home-details";
 import { OnboardingShell } from "@/features/onboarding/components/onboarding-shell";
@@ -52,6 +52,11 @@ export default async function NucleusPage({ params }: { params: Promise<{ id: st
       <div className="flex items-center gap-2.5"><CalendarDays size={20} className="text-leaf" aria-hidden="true" /><h2 id="agenda-heading" className="font-display text-lg">Agenda do Núcleo</h2></div>
       <p className="mt-2 text-sm leading-7 text-muted">Planejem momentos juntos e respondam no tempo de cada pessoa.</p>
       <Link href={`${routes.nucleus}/${id}/agenda`} className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-leaf underline">Abrir agenda<ArrowRight size={16} aria-hidden="true" /></Link>
+    </section>
+    <section className="mt-4 rounded-[22px] border border-line bg-white p-5 sm:p-6" aria-labelledby="agreements-heading">
+      <div className="flex items-center gap-2.5"><Handshake size={20} className="text-leaf" aria-hidden="true" /><h2 id="agreements-heading" className="font-display text-lg">Acordos do Núcleo</h2></div>
+      <p className="mt-2 text-sm leading-7 text-muted">Construam propostas juntos. Cada pessoa decide se aceita participar.</p>
+      <Link href={`${routes.nucleus}/${id}/acordos`} className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-leaf underline">Abrir acordos<ArrowRight size={16} aria-hidden="true" /></Link>
     </section>
     <Link href={routes.account} className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Minha conta e sair</Link>
   </OnboardingShell>;

@@ -52,3 +52,11 @@ Registro factual de contribuições; resultados medidos são separados de benef�
 - **Resultado verificado:** 46 testes Playwright, tipos e build passaram; no `nos-dev`, um Núcleo real ficou associado a um `creator` e um `member`. Antes do aceite, a conta convidada recebeu página não encontrada; depois, os dois participantes mantiveram acesso ao resumo após F5. O primeiro convite exposto foi revogado.
 - **Benefício esperado:** permitir a evolução da Home do Núcleo sobre contratos de conta e associação já validados, mantendo o acesso restrito aos participantes.
 - **Evidência:** migração `supabase/migrations/20260927173656_create_nuclei_and_invitations.sql`, `src/features/auth/`, `src/features/invitations/`, `tests/` e [registro v0.4.0](../_andamento/registros/registro-v0.4.0-2026-09-27-imp-integracao-supabase-fun-criacao-convite.md).
+
+## 2026-09-29 — Acordos com consentimento explícito
+
+- **Problema:** integrantes não tinham um espaço real para propor hábitos e experiências nem registrar concordância individual antes de iniciar a prática.
+- **Contribuição:** criada a Tela 04 com propostas, filtros, respostas próprias e estado vazio honesto para Essência; migração com RLS e funções autenticadas que exigem unanimidade para entrar em teste e serializam respostas simultâneas.
+- **Resultado verificado:** migração aplicada no `nos-dev`; três contas temporárias confirmaram aceite, recusa e isolamento entre Núcleos. Dados temporários removidos com contagens finais zero. O teste pgTAP local passou e 68 testes Playwright desktop/mobile passaram na validação final; a revisão independente não encontrou defeito material no código.
+- **Benefício esperado:** sustentar a futura tela de detalhe do hábito com propostas reais em teste, sem tratar proposta como acordo ativo ou simular progresso.
+- **Evidência:** `supabase/migrations/20260928120000_create_nucleus_agreements.sql`, `supabase/tests/nucleus_agreements.sql`, `tests/agreement-input.spec.ts` e [registro v0.7.0](../_andamento/registros/registro-v0.7.0-2026-09-28-imp-hub-acordos-fun-propostas-consentimento.md).

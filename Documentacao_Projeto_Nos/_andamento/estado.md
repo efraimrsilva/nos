@@ -1,12 +1,24 @@
 # Estado do Projeto Nós
 
-**Versão vigente do projeto:** 0.6.0
+**Versão vigente do projeto:** 0.7.0
 
 **DOCS_DIR:** `Documentacao_Projeto_Nos`
 
-**Atualizado:** 2026-09-27
+**Atualizado:** 2026-09-29
 
-**Git:** `main`; base anterior `e83e81a`. A agenda v0.6.0 foi incluída em um commit atômico; usar `git log -1` para o hash final e `git status -sb` para verificar `origin/main` após o push autorizado.
+**Git:** `main`; base anterior `7b175de` (agenda v0.6.0). A Tela 04 e as duas análises documentais foram incluídas no commit da v0.7.0; consultar `git log -1` para o hash atual.
+
+## Entrega concluída — Tela 04 Acordos
+
+O hub privado em `/nucleos/[id]/acordos` está concluído na v0.7.0. O recorte inclui propostas de Hábitos e Experiências com descrição, momento e frequência, respostas individuais, aceite unânime para entrada em teste, recusa explícita, filtros e estado vazio de Essência. Nenhum progresso ou acordo exemplar é simulado. Há link na Home. A migração `supabase/migrations/20260928120000_create_nucleus_agreements.sql` foi aplicada e conferida no `nos-dev`.
+
+**Critérios de conclusão:** revisar o SQL/RLS e o diff, aprovar testes/tipos/build, aplicar a migração em ambiente de desenvolvimento identificado, verificar o fluxo com duas contas e isolamento entre Núcleos, atualizar a versão e os registros após essas evidências.
+
+**Arquivos principais:** `src/app/nucleos/[id]/acordos/`, `src/features/agreements/`, migração acima, `supabase/tests/nucleus_agreements.sql` e `tests/agreement-input.spec.ts`. [Registro da entrega](registros/registro-v0.7.0-2026-09-28-imp-hub-acordos-fun-propostas-consentimento.md).
+
+**Validações recentes:** 68 testes Playwright desktop/mobile, `npm.cmd run typecheck` e `npm.cmd run build` passaram na v0.7.0 em 2026-09-29; o build reconheceu a rota dinâmica de Acordos. Na preparação do envio, uma execução adicional perdeu o servidor após o primeiro teste; a página e o caso isolados funcionaram, e uma nova execução completa aprovou 68/68 testes, seguida de tipos e build aprovados. Docker 29.8.1 iniciou o Supabase local; as três migrações foram aplicadas e `supabase test db` aprovou o teste pgTAP de RLS/consentimento. A aplicação local confirmou criação, aceite, recusa e página 404 para outra conta; respostas simultâneas levaram a proposta ao estado de teste. No `nos-dev`, `db push --dry-run` indicou só a nova migração, `migration list` confirmou as três versões e nova simulação confirmou banco atualizado. Três contas temporárias validaram criação do Núcleo, aceite unânime, recusa e isolamento; a limpeza terminou com zero Núcleos, propostas e contas de teste. A revisão independente final não encontrou defeito material de código e apontou documentação defasada, corrigida nesta entrega. A primeira tentativa de Playwright não iniciou o servidor em 120 segundos; a inicialização isolada respondeu HTTP 200 e a repetição completa passou.
+
+**Próximo passo executável:** especificar e implementar a Tela 05 — Detalhe do Hábito conforme o catálogo v2.1 e os contratos v2.4/v2.5. Partir de uma proposta real de Hábito em `testing`, acessível somente aos integrantes do Núcleo, com retorno para Acordos e descrição, frequência, data e respostas já persistidas. Antes de mostrar abas de histórico/reflexões, progresso, revisão, impacto, linguagem de cuidado ou próxima conversa, definir o contrato de dados e a integração reais de cada item; ocultar ou explicar estados ainda indisponíveis, sem copiar os exemplos e o percentual do protótipo. Verificar acesso entre Núcleos, estados de carregamento/erro/vazio e navegação em móvel e desktop. A agenda atual não vincula eventos a propostas. Publicação pública continua fora de escopo.
 
 ## Entrega concluída — agenda interna
 
@@ -16,15 +28,15 @@ Agenda por Núcleo concluída na **v0.6.0**: eventos pontuais com título, inten
 
 **Decisão:** eventos e respostas são visíveis apenas aos integrantes; operações de escrita passam por RPCs que conferem `auth.uid()` e associação no banco. O calendário interno é a fonte oficial. Integrantes que entrarem depois da criação poderão ler o evento, mas não recebem convite retroativo nesta fatia.
 
-**Validação nesta interação:** migração SQL aplicada ao `nos-dev` e confirmada no painel como `20260927221149_create_nucleus_calendar`. Em sessão real, a conta criadora criou, respondeu, editou e removeu um evento; a participante viu o convite sem controles de edição, respondeu e recebeu confirmação. Um segundo Núcleo temporário sem convite foi criado; a participante abriu a agenda original e recebeu 404 na agenda temporária. O segundo Núcleo foi excluído por identificador e nome; o banco retornou exatamente um registro removido e voltou a contar um Núcleo. Revisão independente encontrou dois casos de borda, corrigidos com fallback de fuso e paginação. Na conferência de entrega, a primeira execução paralela teve nove timeouts ao encerrar contextos mobile em disco lento; `npm.cmd test -- --workers=1` aprovou os 64 testes desktop/mobile. `npm.cmd run typecheck` e build de produção passaram. Sem sessão, a rota redireciona para `/conta`.
+**Validação da entrega v0.6.0:** migração SQL aplicada ao `nos-dev` e confirmada no painel como `20260927221149_create_nucleus_calendar`. Em sessão real, a conta criadora criou, respondeu, editou e removeu um evento; a participante viu o convite sem controles de edição, respondeu e recebeu confirmação. Um segundo Núcleo temporário sem convite foi criado; a participante abriu a agenda original e recebeu 404 na agenda temporária. O segundo Núcleo foi excluído por identificador e nome; o banco retornou exatamente um registro removido e voltou a contar um Núcleo. Revisão independente encontrou dois casos de borda, corrigidos com fallback de fuso e paginação. Na conferência de entrega, a primeira execução paralela teve nove timeouts ao encerrar contextos mobile em disco lento; `npm.cmd test -- --workers=1` aprovou os 64 testes desktop/mobile. `npm.cmd run typecheck` e build de produção passaram. Sem sessão, a rota redireciona para `/conta`.
 
-**Próximo passo executável:** iniciar a [Tela 04 — Acordos](../Projeto_Nos_v2.1_Catalogo_Completo_das_Interfaces.md) pelo hub de Hábitos, Experiências e Essência. Antes de implementar, confrontar [fluxo](../Projeto_Nos_v2.2_Fluxos_Navegacao_e_Interacoes.md), [modelo e estados](../Projeto_Nos_v2.4_Modelo_Funcional_Dados_Estados_e_Regras.md), [permissões](../Projeto_Nos_v2.5_Matriz_de_Permissoes_Privacidade_Visibilidade.md) e [estados vazios](../Projeto_Nos_v2.6_Estados_Vazios_Erros_e_Carregamento.md) com a regra de [aprovação](../Projeto_Nos_v1.2_Sistema_de_Aprovacao_e_Construcao_de_Acordos.md). Definir contrato, RLS e primeira fatia verificável: proposta não equivale a acordo ativo; aceite dos participantes é explícito; percentuais e itens exemplificativos do protótipo não são dados reais. Registrar o recorte da Tela 04 antes de criar a rota. A credencial de acesso permaneceu fora do repositório. Publicação pública exige revisão própria de privacidade e operação.
+**Continuidade após a agenda:** a Tela 04 — Acordos foi concluída na v0.7.0; evidência e limites constam em [Entrega concluída — Tela 04 Acordos](#entrega-concluída--tela-04-acordos). A credencial de acesso permanece fora do repositório. Publicação pública exige revisão própria de privacidade e operação.
 
-**Unidades pendentes de commit:** nenhuma; o commit da agenda v0.6.0 contém código, SQL, testes e documentação. **Contador de interações:** 48 respostas concluídas com esta entrega; começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
+**Unidades pendentes de commit:** nenhuma; Tela 04 — Acordos v0.7.0 e as duas análises documentais concluídas antes dela integram o commit desta entrega, autorizado em 2026-09-29. Conferir a igualdade entre HEAD local e `origin/main` após o push. **Contador de interações:** 59 respostas concluídas incluindo esta interação; começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
 
 ## Objetivo e situação
 
-O onboarding web contempla **Escolher caminho** (`/comecar`), **Tipo** (`/comecar/tipo`), **Propósito** (`/comecar/proposito`), **Conta** (`/conta`), **Convite inicial** (`/comecar/convite-inicial/[id]`), **Entrada por convite** (`/comecar/convite`), Home protegida (`/nucleos/[id]`) e agenda interna (`/nucleos/[id]/agenda`). A integração Supabase foi validada no projeto de desenvolvimento `nos-dev`; o app ainda não foi publicado.
+O onboarding web contempla **Escolher caminho** (`/comecar`), **Tipo** (`/comecar/tipo`), **Propósito** (`/comecar/proposito`), **Conta** (`/conta`), **Convite inicial** (`/comecar/convite-inicial/[id]`) e **Entrada por convite** (`/comecar/convite`). A área protegida inclui Home (`/nucleos/[id]`), agenda (`/nucleos/[id]/agenda`) e Acordos (`/nucleos/[id]/acordos`). A integração Supabase foi validada no projeto de desenvolvimento `nos-dev`; o app ainda não foi publicado.
 
 **Critérios de aceite da entrega v0.5.0:** exibir nome, tipo, propósito e vínculo reais para participante autorizado; oferecer convite apenas ao criador; manter autenticação e RLS; distinguir ausência de acesso de falha de consulta; informar carregamento, erro e alcance inicial sem simular árvore, agenda ou gratidão. Os fluxos de conta e associação foram testados com contas distintas na v0.4.0.
 
@@ -39,6 +51,7 @@ O onboarding web contempla **Escolher caminho** (`/comecar`), **Tipo** (`/comeca
 - A v0.4.0 é MINOR pelas novas rotas e integração. A v0.3.0 de Propósito e as versões anteriores permanecem registradas historicamente. A edição v2.8 da especificação de segurança é versão documental, independente da versão do aplicativo.
 - A v0.5.0 é MINOR pela primeira Home do Núcleo. A página consulta apenas o vínculo próprio e o Núcleo sob RLS; tipo, nome e propósito vêm do banco. A ação de convite deriva do papel `creator`.
 - A v0.6.0 é MINOR pela agenda interna. Eventos e respostas pertencem ao Núcleo; leitura exige vínculo sob RLS e alterações passam por RPCs autenticadas. Árvore e gratidão ainda exigem contratos e permissões próprios.
+- A v0.7.0 é MINOR pela Tela 04 Acordos. Propostas pertencem ao Núcleo, respostas são individuais e a unanimidade é necessária para iniciar teste; uma proposta não equivale a acordo ativo. Essência e progresso não são simulados.
 - Cada mudança tem registro datado em `registros/`, com versão, Imp. e Fun. no título e arquivo. O monitoramento automático continua cancelado.
 
 ## Evidências e limites
@@ -49,15 +62,17 @@ O onboarding web contempla **Escolher caminho** (`/comecar`), **Tipo** (`/comeca
 - Verificações locais após os ajustes finais: `npm.cmd run typecheck`, 46 testes Playwright desktop/mobile, `npm.cmd run build` e `git diff --check` passaram. Foram conferidos 71 links locais sem alvo ausente; `package.json` e lockfile coincidem na v0.4.0.
 - A revisão independente estática apontou uma prévia que permanecia visível após editar o código e documentação defasada. A prévia foi vinculada ao código exibido, os registros foram atualizados e a revisão de confirmação não encontrou achados remanescentes. A autorrevisão do diff não encontrou outro problema no escopo.
 - Na v0.5.0, 52 testes Playwright desktop/mobile, `npm.cmd run typecheck` e `npm.cmd run build` passaram. Os testes novos cobrem tipo, papel, convite e distinção entre sessão ausente/expirada e falha do Auth; a suíte confirma que a rota continua exigindo conta. O novo layout não foi revalidado com sessão real do Supabase nesta interação. A revisão independente apontou a classificação de erro do Auth, corrigida com teste de regressão. Revisão do diff e `git diff --check` constam no [registro](registros/registro-v0.5.0-2026-09-27-imp-home-nucleo-fun-resumo-protegido.md).
-- A CLI Supabase 2.118.0 falhou no transporte à Management API; a migração foi aplicada pela API autenticada com intervenção do usuário e conferida no painel. Docker inativo impediu teste local do SQL. Expiração real de sete dias, limites de envio de e-mail, SMTP próprio, rate limiting operacional, recuperação de senha, Home completa e empacotamento nativo permanecem fora desta entrega. Não tratar o app como pronto para publicação pública.
+- Na entrega v0.4.0, a CLI falhou no transporte à Management API e a migração foi aplicada pela API autenticada; naquela etapa, Docker inativo impediu teste local do SQL. Esses impedimentos de ambiente foram resolvidos para a v0.7.0. Expiração real de sete dias, limites de envio de e-mail, SMTP próprio, rate limiting operacional, recuperação de senha, Home completa e empacotamento nativo permanecem fora das entregas atuais. Não tratar o app como pronto para publicação pública.
 
 ## Continuidade e commit
 
-- A Home v0.5.0 e a agenda v0.6.0 estão registradas no Git. Conferir o envio da agenda em `origin/main` após o push autorizado. A Tela 04 está delimitada acima, sem implementação iniciada. Publicação pública segue condicionada a SMTP, limites operacionais e privacidade.
+- A Home v0.5.0 e a agenda v0.6.0 estão registradas no Git. A Tela 04 foi validada em `nos-dev` na v0.7.0 e incluída no commit desta entrega com os registros documentais pendentes. Confirmar o push pelo hash remoto; publicação pública segue condicionada a SMTP, limites operacionais e privacidade.
 
 ## Estado das ferramentas
 
-Superpowers disponível e aplicado. Context7 ativo, consultado para Next.js/Supabase; a versão instalada Next.js 16.3.6 foi conferida nos guias locais. Octocode MCP não está exposto; a CLI via `npx` e a consulta ao registro npm não retornaram neste ambiente, então a ativação não foi confirmada e foram usadas buscas locais precisas. Playwright disponível. Docker daemon inativo.
+Superpowers disponível e aplicado. Context7 ativo, consultado para Next.js/Supabase; a versão instalada Next.js 16.3.6 foi conferida nos guias locais. Octocode MCP não está exposto; a CLI 19.1.0 em cache foi executada com `ALLOWED_PATHS` limitado ao repositório e validou busca local. Playwright disponível. Docker 29.8.1 funcional; Supabase local foi encerrado com backup após os testes. CLI Supabase 2.118.0 autenticada e vinculada ao `nos-dev`; a exceção específica para `api.supabase.com` no Avast eliminou a interceptação HTTPS. Não guardar token no repositório.
+
+Pesquisa externa de ferramentas em 2026-09-29 consultou projetos e documentação oficiais. Candidatos priorizados: Supabase CLI + pgTAP para contratos/RLS; Renovate ou Dependabot para atualizações controladas; Sentry para observabilidade após lançamento; axe-core integrado ao Playwright para acessibilidade. Lighthouse CI, Gitleaks e CodeQL são opções condicionais de CI/segurança; nenhum foi instalado ou configurado. Não adicionar essas ferramentas até a etapa funcional apropriada.
 
 ## Índice
 
@@ -72,6 +87,9 @@ Superpowers disponível e aplicado. Context7 ativo, consultado para Next.js/Supa
 - [v0.4.0 — Autenticação, criação e convite](registros/registro-v0.4.0-2026-09-27-imp-integracao-supabase-fun-criacao-convite.md).
 - [v0.5.0 — Home do Núcleo](registros/registro-v0.5.0-2026-09-27-imp-home-nucleo-fun-resumo-protegido.md).
 - [v0.6.0 — Agenda interna do Núcleo](registros/registro-v0.6.0-2026-09-27-01-imp-agenda-interna-fun-eventos-nucleo.md).
+- [v0.7.0 — Tela 04 Acordos](registros/registro-v0.7.0-2026-09-28-imp-hub-acordos-fun-propostas-consentimento.md).
+- [v0.6.0 — Análise de Genkit, AI SDK e Mastra](registros/registro-v0.6.0-2026-09-29-imp-analise-frameworks-ia-fun-apoio-conversas.md).
+- [v0.6.0 — Pesquisa de ferramentas para a stack](registros/registro-v0.6.0-2026-09-29-imp-pesquisa-ferramentas-stack-fun-qualidade-operacao.md).
 - [Frontend web](tecnologias/frontend.md): stack, segurança e próximos passos.
 - [Estado anterior](estado-atual.md): referência histórica.
 - `README.md`: protocolo do andamento.

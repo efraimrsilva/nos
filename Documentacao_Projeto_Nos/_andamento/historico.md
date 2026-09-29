@@ -1,6 +1,6 @@
 # Histórico de andamento
 
-**Versão vigente do projeto:** 0.6.0
+**Versão vigente do projeto:** 0.7.0
 
 ## 2026-09-24 — Primeira tela do app
 
@@ -218,3 +218,60 @@
 - **Documentação:** a continuidade da Tela 04 — Acordos foi ligada ao catálogo, fluxo, modelo, permissões e regra de aprovação. Proposta não equivale a acordo ativo; os percentuais do protótipo não são dados reais. O README passou a listar as duas migrações já aplicadas em `nos-dev`.
 - **Verificação:** a execução paralela dos testes encontrou timeouts ao encerrar contextos mobile em disco lento; uma execução completa com um worker aprovou 64 testes. Tipos, build e revisão do diff passaram.
 - **Git:** commit atômico da agenda v0.6.0 com código, migração, testes, versão e documentação inspecionado localmente. Push para `origin/main` autorizado; confirmar a situação remota no Git.
+
+## 2026-09-28 — Tela 04 Acordos em implementação
+
+- **Mudança em preparação:** hub protegido, propostas de Hábitos e Experiências, respostas de aceite/recusa e migração RLS; Essência permanece sem dados simulados.
+- **Resultado local:** 68 testes Playwright desktop/mobile, checagem de tipos e build passaram. Revisão independente apontou três ajustes de fluxo, corrigidos.
+- **Limite naquele marco:** migração ainda não aplicada ao `nos-dev` e fluxo real não verificado. [Registro da implementação, concluída depois na v0.7.0](registros/registro-v0.7.0-2026-09-28-imp-hub-acordos-fun-propostas-consentimento.md).
+
+## 2026-09-29 — Análise documental de frameworks de IA
+
+- **Pesquisa:** Genkit, Vercel AI SDK e Mastra comparados com a stack, a RLS e as regras do Ponte do Nós; [registro](registros/registro-v0.6.0-2026-09-29-imp-analise-frameworks-ia-fun-apoio-conversas.md).
+- **Resultado:** AI SDK Core é a opção mais simples para eventual sugestão pontual; nenhuma dependência ou funcionalidade de IA foi adicionada. Acordos permanece em desenvolvimento e com validação remota pendente.
+
+## 2026-09-29 — Pesquisa de projetos de apoio à stack
+
+- **Pesquisa:** projetos para Next.js, TypeScript, Playwright e Supabase com foco em RLS, manutenção de dependências, observabilidade e acessibilidade; [registro](registros/registro-v0.6.0-2026-09-29-imp-pesquisa-ferramentas-stack-fun-qualidade-operacao.md).
+- **Resultado:** pgTAP/Supabase CLI é a lacuna mais próxima para testar políticas e RPCs; Renovate ou Dependabot após CI; Sentry apenas com aplicação publicada e regras de minimização; axe-core pode complementar Playwright. Nenhuma ferramenta foi instalada. Ferramentas externas condicionais e exclusões estão detalhadas no registro.
+- **Validação documental:** fontes oficiais consultadas na web; compatibilidade e custo não foram testados no projeto.
+- **Próximo passo:** priorizar a integração real da migração de Acordos; avaliar pgTAP após Docker/local Supabase estar disponível.
+
+## 2026-09-29 — Migração de Acordos validada localmente
+
+- **Integração local:** Docker 29.8.1 iniciou o Supabase; a migração de Acordos foi aplicada após as duas anteriores. `supabase test db` aprovou o novo teste pgTAP de RLS, votos e estados.
+- **Fluxo real local:** contas temporárias criaram, aceitaram e recusaram propostas pela aplicação; outra conta recebeu a página 404. Duas respostas simultâneas em um Núcleo de três pessoas levaram a proposta para teste. Os dados temporários foram removidos e as contagens finais foram zero.
+- **Limite naquele marco:** a CLI ainda não dispunha de token para o `nos-dev`; a migração remota estava pendente. [Registro da Tela 04, concluída depois na v0.7.0](registros/registro-v0.7.0-2026-09-28-imp-hub-acordos-fun-propostas-consentimento.md).
+- **Ambiente:** o Supabase local foi encerrado com backup após os testes; o Docker permaneceu disponível.
+
+## 2026-09-29 — Diagnóstico do login remoto do Supabase
+
+- **Falha:** a CLI 2.118.0 recebeu o código de verificação, mas o GET de confirmação retornou `Transport error`; com credencial fictícia, a listagem de projetos também falhou no transporte.
+- **Evidência:** HTTP do Windows chegou à API (401 esperado sem credencial); Node sem certificados do sistema falhou com `UNABLE_TO_VERIFY_LEAF_SIGNATURE` e com `NODE_USE_SYSTEM_CA=1` alcançou a API. O usuário relatou bloqueio pelo antivírus e criou exceção.
+- **Continuidade:** o usuário reiniciará o computador para efetivar a exceção. Após isso, testar novamente o transporte da CLI antes de repetir o login. Nenhuma migração foi aplicada ao `nos-dev` nesta etapa.
+
+## 2026-09-29 — Transporte da CLI ainda bloqueado após reinício
+
+- **Diagnóstico:** a exceção do executável no Avast Free Antivirus e o reinício não resolveram `Transport error`. O certificado de `api.supabase.com` foi emitido por `Avast Web/Mail Shield Root`, confirmando a inspeção HTTPS local; a documentação oficial do Supabase descreve esse padrão.
+- **Ferramenta:** executável completo da CLI 2.118.0 restaurado do cache npm e conferido; a falha persistiu também no caminho original.
+- **Próximo teste:** usuário orientado a criar exceção de Site/Domínio apenas para `api.supabase.com` no Avast; verificar o certificado e o transporte antes de novo login. Migração remota permanece pendente.
+
+## 2026-09-29 — Transporte da CLI restaurado
+
+- **Ajuste de ambiente:** o usuário salvou a exceção de Site/Domínio para `api.supabase.com` no Avast Free Antivirus.
+- **Evidência:** o emissor do certificado passou de `Avast Web/Mail Shield Root` para `WE1`; a CLI 2.118.0 passou a receber `Unauthorized` com credencial fictícia, comprovando comunicação HTTP com a API sem expor credenciais reais.
+- **Continuidade:** janela de login real aberta em PowerShell; autorização ainda não confirmada. Migração de Acordos no `nos-dev` segue pendente.
+
+## 2026-09-29 — Tela 04 Acordos validada no `nos-dev` e v0.7.0
+
+- **Migração:** login da CLI confirmado; `nos-dev` identificado e vinculado. A simulação indicou somente `20260928120000_create_nucleus_agreements.sql`; `db push --skip-vault` aplicou a migração. `migration list` mostrou três versões alinhadas e uma nova simulação informou banco atualizado. Uma tentativa intermediária de simulação encontrou falha transitória de autenticação do papel `cli_login_postgres`; a repetição passou sem reaplicar SQL.
+- **Fluxo remoto:** três contas temporárias verificaram convite, proposta pendente, aceite unânime para `testing`, recusa para `declined` e negativa de leitura/resposta por pessoa fora do Núcleo. A limpeza pela API foi restringida por `DELETE`; a consulta administrativa removeu o Núcleo e a conta restantes, com contagens finais zero de Núcleo, propostas e contas de teste.
+- **Verificação:** 68 testes Playwright desktop/mobile, checagem de tipos, build de produção e `git diff --check` aprovados na v0.7.0. Manifestos alinhados e links do registro renomeado conferidos. A primeira tentativa não iniciou o servidor de testes dentro de 120 segundos, mas a inicialização isolada respondeu HTTP 200 e a repetição passou. Revisão independente final não encontrou defeito material de código e solicitou atualização da documentação, realizada nesta entrega.
+- **Versão e continuidade:** incremento MINOR de 0.6.0 para 0.7.0 pela nova tela/funcionalidade. Próxima etapa do catálogo: Tela 05 — Detalhe do Hábito, começando pelo contrato de dados reais e sem percentuais simulados. [Registro v0.7.0](registros/registro-v0.7.0-2026-09-28-imp-hub-acordos-fun-propostas-consentimento.md).
+
+## 2026-09-29 — Preparação da publicação Git da v0.7.0
+
+- **Continuidade:** conferida a Tela 05 no catálogo; o estado canônico agora distingue dados já disponíveis na proposta em teste dos dados que exigem contrato e integração próprios. Os registros das pesquisas de IA e ferramentas receberam notas posteriores sem apagar o contexto em que foram escritos.
+- **Entrega:** usuário autorizou commit e push para `origin/main`, com descrição que abranja Acordos, validação do banco, testes, versão e as duas pesquisas documentais locais concluídas antes da funcionalidade. Verificações finais e confirmação do hash remoto devem preceder o encerramento.
+- **Verificação desta preparação:** uma execução de 68 testes perdeu o servidor de desenvolvimento após o primeiro caso (44 falhas de navegação por conexão recusada); iniciar a página isoladamente retornou HTTP 200 e o caso isolado passou. A nova execução completa aprovou 68/68 testes, seguida de checagem de tipos e build aprovados, sem alteração no código do aplicativo.
+- **Commit:** a Tela 04, a migração, os testes, a versão e os registros das duas pesquisas foram reunidos em um commit descritivo da v0.7.0. O hash final deve ser consultado no Git após o ajuste deste andamento e comparado com `origin/main` após o push.
