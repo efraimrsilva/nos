@@ -1,12 +1,20 @@
 # Estado do Projeto Nós
 
-**Versão vigente do projeto:** 0.7.0
+**Versão vigente do projeto:** 0.8.0
 
 **DOCS_DIR:** `Documentacao_Projeto_Nos`
 
 **Atualizado:** 2026-09-29
 
-**Git:** `main`; base anterior `7b175de` (agenda v0.6.0). A Tela 04 e as duas análises documentais foram incluídas no commit da v0.7.0; consultar `git log -1` para o hash atual.
+**Git:** `main`; o recorte inicial da Tela 05 v0.8.0 integra o commit atual. Confirmar a situação remota comparando `HEAD` e `origin/main`; a referência anterior é `5c375b3` (Acordos v0.7.0).
+
+## Recorte concluído — Tela 05 Detalhe do Hábito
+
+O recorte inicial da Tela 05 está concluído na v0.8.0: a rota `/nucleos/[id]/acordos/[agreementId]` lê apenas propostas de Hábito em `testing` pertencentes ao Núcleo autenticado. O hub liga esses itens ao detalhe, que apresenta descrição, momento, frequência, data UTC e resposta própria. Abas de histórico e reflexões, calendário de prática, progresso, próxima revisão, impacto esperado, linguagem de cuidado e próximo evento associado ainda não possuem dados reais nem interface operacional; a tela comunica o limite sem simular conteúdo. [Registro v0.8.0](registros/registro-v0.8.0-2026-09-29-imp-detalhe-habito-fun-consulta-proposta-teste.md).
+
+**Validação:** teste da rota sem sessão passou em desktop e móvel após falhar antes da implementação; 70 testes Playwright, tipos e build passaram. Revisão independente apontou indicação do fuso, corrigida. Supabase local e três contas temporárias verificaram acesso autorizado, link do hub, isolamento entre Núcleos, categoria/estado e leitura apenas da resposta própria. Dados temporários removidos. A nova tela não foi testada no `nos-dev`.
+
+**Próximo passo executável:** especificar a Tela 06 — ações de **Registrar momento** e **Revisar** no Detalhe do Hábito. Para registrar, definir dado persistido, autoria, visibilidade no Núcleo e retorno ao histórico da Tela 05; para revisar, definir estados, mudanças permitidas e novo consentimento quando o compromisso mudar. Conferir permissões da matriz v2.5, regras dos fluxos v2.2 e contratos v2.4 antes de expor botões ativos. Validar o percurso com duas contas e isolamento entre Núcleos. Completar os itens restantes da Tela 05 conforme os dados correspondentes existirem; progresso, árvore e evento associado dependem de contratos próprios. A publicação pública permanece fora de escopo.
 
 ## Entrega concluída — Tela 04 Acordos
 
@@ -18,7 +26,7 @@ O hub privado em `/nucleos/[id]/acordos` está concluído na v0.7.0. O recorte i
 
 **Validações recentes:** 68 testes Playwright desktop/mobile, `npm.cmd run typecheck` e `npm.cmd run build` passaram na v0.7.0 em 2026-09-29; o build reconheceu a rota dinâmica de Acordos. Na preparação do envio, uma execução adicional perdeu o servidor após o primeiro teste; a página e o caso isolados funcionaram, e uma nova execução completa aprovou 68/68 testes, seguida de tipos e build aprovados. Docker 29.8.1 iniciou o Supabase local; as três migrações foram aplicadas e `supabase test db` aprovou o teste pgTAP de RLS/consentimento. A aplicação local confirmou criação, aceite, recusa e página 404 para outra conta; respostas simultâneas levaram a proposta ao estado de teste. No `nos-dev`, `db push --dry-run` indicou só a nova migração, `migration list` confirmou as três versões e nova simulação confirmou banco atualizado. Três contas temporárias validaram criação do Núcleo, aceite unânime, recusa e isolamento; a limpeza terminou com zero Núcleos, propostas e contas de teste. A revisão independente final não encontrou defeito material de código e apontou documentação defasada, corrigida nesta entrega. A primeira tentativa de Playwright não iniciou o servidor em 120 segundos; a inicialização isolada respondeu HTTP 200 e a repetição completa passou.
 
-**Próximo passo executável:** especificar e implementar a Tela 05 — Detalhe do Hábito conforme o catálogo v2.1 e os contratos v2.4/v2.5. Partir de uma proposta real de Hábito em `testing`, acessível somente aos integrantes do Núcleo, com retorno para Acordos e descrição, frequência, data e respostas já persistidas. Antes de mostrar abas de histórico/reflexões, progresso, revisão, impacto, linguagem de cuidado ou próxima conversa, definir o contrato de dados e a integração reais de cada item; ocultar ou explicar estados ainda indisponíveis, sem copiar os exemplos e o percentual do protótipo. Verificar acesso entre Núcleos, estados de carregamento/erro/vazio e navegação em móvel e desktop. A agenda atual não vincula eventos a propostas. Publicação pública continua fora de escopo.
+**Continuidade:** a Tela 05 foi entregue na v0.8.0; o próximo recorte é a Tela 06. Consulte o registro atual acima. Publicação pública continua fora de escopo.
 
 ## Entrega concluída — agenda interna
 
@@ -32,11 +40,11 @@ Agenda por Núcleo concluída na **v0.6.0**: eventos pontuais com título, inten
 
 **Continuidade após a agenda:** a Tela 04 — Acordos foi concluída na v0.7.0; evidência e limites constam em [Entrega concluída — Tela 04 Acordos](#entrega-concluída--tela-04-acordos). A credencial de acesso permanece fora do repositório. Publicação pública exige revisão própria de privacidade e operação.
 
-**Unidades pendentes de commit:** nenhuma; Tela 04 — Acordos v0.7.0 e as duas análises documentais concluídas antes dela integram o commit desta entrega, autorizado em 2026-09-29. Conferir a igualdade entre HEAD local e `origin/main` após o push. **Contador de interações:** 59 respostas concluídas incluindo esta interação; começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
+**Unidades pendentes de commit:** nenhuma; o recorte inicial da Tela 05 v0.8.0, com rota, link, teste, versão e documentação, foi conferido no commit desta entrega. **Contador de interações:** 61 respostas concluídas incluindo esta interação; começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
 
 ## Objetivo e situação
 
-O onboarding web contempla **Escolher caminho** (`/comecar`), **Tipo** (`/comecar/tipo`), **Propósito** (`/comecar/proposito`), **Conta** (`/conta`), **Convite inicial** (`/comecar/convite-inicial/[id]`) e **Entrada por convite** (`/comecar/convite`). A área protegida inclui Home (`/nucleos/[id]`), agenda (`/nucleos/[id]/agenda`) e Acordos (`/nucleos/[id]/acordos`). A integração Supabase foi validada no projeto de desenvolvimento `nos-dev`; o app ainda não foi publicado.
+O onboarding web contempla **Escolher caminho** (`/comecar`), **Tipo** (`/comecar/tipo`), **Propósito** (`/comecar/proposito`), **Conta** (`/conta`), **Convite inicial** (`/comecar/convite-inicial/[id]`) e **Entrada por convite** (`/comecar/convite`). A área protegida inclui Home (`/nucleos/[id]`), agenda (`/nucleos/[id]/agenda`), Acordos (`/nucleos/[id]/acordos`) e Detalhe do Hábito (`/nucleos/[id]/acordos/[agreementId]`). A integração Supabase das telas anteriores foi validada no projeto de desenvolvimento `nos-dev`; a Tela 05 foi validada no Supabase local. O app ainda não foi publicado.
 
 **Critérios de aceite da entrega v0.5.0:** exibir nome, tipo, propósito e vínculo reais para participante autorizado; oferecer convite apenas ao criador; manter autenticação e RLS; distinguir ausência de acesso de falha de consulta; informar carregamento, erro e alcance inicial sem simular árvore, agenda ou gratidão. Os fluxos de conta e associação foram testados com contas distintas na v0.4.0.
 
@@ -52,6 +60,7 @@ O onboarding web contempla **Escolher caminho** (`/comecar`), **Tipo** (`/comeca
 - A v0.5.0 é MINOR pela primeira Home do Núcleo. A página consulta apenas o vínculo próprio e o Núcleo sob RLS; tipo, nome e propósito vêm do banco. A ação de convite deriva do papel `creator`.
 - A v0.6.0 é MINOR pela agenda interna. Eventos e respostas pertencem ao Núcleo; leitura exige vínculo sob RLS e alterações passam por RPCs autenticadas. Árvore e gratidão ainda exigem contratos e permissões próprios.
 - A v0.7.0 é MINOR pela Tela 04 Acordos. Propostas pertencem ao Núcleo, respostas são individuais e a unanimidade é necessária para iniciar teste; uma proposta não equivale a acordo ativo. Essência e progresso não são simulados.
+- A v0.8.0 é MINOR pelo recorte inicial da Tela 05 e sua nova rota. O detalhe lê exclusivamente Hábito em teste e a resposta própria; dados de acompanhamento ainda indisponíveis são explicados sem simulação.
 - Cada mudança tem registro datado em `registros/`, com versão, Imp. e Fun. no título e arquivo. O monitoramento automático continua cancelado.
 
 ## Evidências e limites
@@ -66,7 +75,7 @@ O onboarding web contempla **Escolher caminho** (`/comecar`), **Tipo** (`/comeca
 
 ## Continuidade e commit
 
-- A Home v0.5.0 e a agenda v0.6.0 estão registradas no Git. A Tela 04 foi validada em `nos-dev` na v0.7.0 e incluída no commit desta entrega com os registros documentais pendentes. Confirmar o push pelo hash remoto; publicação pública segue condicionada a SMTP, limites operacionais e privacidade.
+- A Home v0.5.0, a agenda v0.6.0 e a Tela 04 v0.7.0 estão registradas no Git. A Tela 05 v0.8.0 usa o contrato existente de Acordos e foi validada com contas no Supabase local. Publicação pública segue condicionada a SMTP, limites operacionais e privacidade.
 
 ## Estado das ferramentas
 
@@ -88,6 +97,7 @@ Pesquisa externa de ferramentas em 2026-09-29 consultou projetos e documentaçã
 - [v0.5.0 — Home do Núcleo](registros/registro-v0.5.0-2026-09-27-imp-home-nucleo-fun-resumo-protegido.md).
 - [v0.6.0 — Agenda interna do Núcleo](registros/registro-v0.6.0-2026-09-27-01-imp-agenda-interna-fun-eventos-nucleo.md).
 - [v0.7.0 — Tela 04 Acordos](registros/registro-v0.7.0-2026-09-28-imp-hub-acordos-fun-propostas-consentimento.md).
+- [v0.8.0 — Tela 05 Detalhe do Hábito](registros/registro-v0.8.0-2026-09-29-imp-detalhe-habito-fun-consulta-proposta-teste.md).
 - [v0.6.0 — Análise de Genkit, AI SDK e Mastra](registros/registro-v0.6.0-2026-09-29-imp-analise-frameworks-ia-fun-apoio-conversas.md).
 - [v0.6.0 — Pesquisa de ferramentas para a stack](registros/registro-v0.6.0-2026-09-29-imp-pesquisa-ferramentas-stack-fun-qualidade-operacao.md).
 - [Frontend web](tecnologias/frontend.md): stack, segurança e próximos passos.

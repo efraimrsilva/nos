@@ -1,6 +1,6 @@
 # Brag document — Projeto Nós
 
-**Versão vigente do projeto:** 0.6.0
+**Versão vigente do projeto:** 0.8.0
 
 ## 2026-09-27 — Agenda interna do Núcleo
 
@@ -60,3 +60,11 @@ Registro factual de contribuições; resultados medidos são separados de benef�
 - **Resultado verificado:** migração aplicada no `nos-dev`; três contas temporárias confirmaram aceite, recusa e isolamento entre Núcleos. Dados temporários removidos com contagens finais zero. O teste pgTAP local passou e 68 testes Playwright desktop/mobile passaram na validação final; a revisão independente não encontrou defeito material no código.
 - **Benefício esperado:** sustentar a futura tela de detalhe do hábito com propostas reais em teste, sem tratar proposta como acordo ativo ou simular progresso.
 - **Evidência:** `supabase/migrations/20260928120000_create_nucleus_agreements.sql`, `supabase/tests/nucleus_agreements.sql`, `tests/agreement-input.spec.ts` e [registro v0.7.0](../_andamento/registros/registro-v0.7.0-2026-09-28-imp-hub-acordos-fun-propostas-consentimento.md).
+
+## 2026-09-29 — Detalhe protegido do Hábito
+
+- **Problema:** a proposta aceita aparecia somente na lista, sem contexto próprio para consultar o que o Núcleo concordou em experimentar.
+- **Contribuição:** criada a Tela 05 com acesso restrito a Hábito em teste, dados reais, resposta própria e retorno para Acordos; limites de acompanhamento são comunicados sem simulação.
+- **Resultado verificado:** 70 testes Playwright, tipos e build passaram. Três contas locais em dois Núcleos confirmaram navegação, acesso, isolamento, categoria/estado e leitura da resposta própria sob RLS. Os dados temporários foram removidos.
+- **Benefício esperado:** permitir que revisão e registro de momento sejam integrados posteriormente sobre uma consulta protegida já existente.
+- **Evidência:** `src/app/nucleos/[id]/acordos/[agreementId]/page.tsx`, `tests/habit-detail.spec.ts` e [registro v0.8.0](../_andamento/registros/registro-v0.8.0-2026-09-29-imp-detalhe-habito-fun-consulta-proposta-teste.md).

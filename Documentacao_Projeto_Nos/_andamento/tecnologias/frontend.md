@@ -1,6 +1,6 @@
 # Frontend web
 
-**Versão vigente do projeto:** 0.7.0
+**Versão vigente do projeto:** 0.8.0
 
 ## Decisões implementadas nesta fatia
 
@@ -36,3 +36,5 @@ A [Home v0.5.0](../registros/registro-v0.5.0-2026-09-27-imp-home-nucleo-fun-resu
 A [agenda interna v0.6.0](../registros/registro-v0.6.0-2026-09-27-01-imp-agenda-interna-fun-eventos-nucleo.md) tem contrato de evento e participante, autorização, RLS e interface. A migração foi aplicada ao `nos-dev` como `20260927221149_create_nucleus_calendar`; criação, resposta, edição, remoção e negativa de acesso a outro Núcleo foram testadas com duas contas. Sincronização com calendários externos fica para outra entrega. A [continuidade](../estado.md) traz o próximo passo executável.
 
 A [Tela 04 Acordos v0.7.0](../registros/registro-v0.7.0-2026-09-28-imp-hub-acordos-fun-propostas-consentimento.md) apresenta propostas de Hábitos e Experiências, voto individual e transição para teste por unanimidade. A migração SQL, a RLS e o fluxo de consentimento foram validados no Supabase local e no `nos-dev` com contas temporárias; Essência e progresso permanecem sem dados simulados.
+
+A [Tela 05 Detalhe do Hábito v0.8.0](../registros/registro-v0.8.0-2026-09-29-imp-detalhe-habito-fun-consulta-proposta-teste.md) usa a mesma sessão e RLS para mostrar apenas uma proposta de Hábito em teste. A navegação foi validada com contas no Supabase local. Histórico, revisão e métricas aguardam contratos próprios.

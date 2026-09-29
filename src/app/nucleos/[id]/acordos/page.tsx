@@ -100,6 +100,9 @@ export default async function AgreementsPage({ params, searchParams }: {
               <p className="mt-1 text-xs font-semibold text-leaf">{statusLabel[agreement.status] ?? "Estado indisponível"}</p>
               <p className="mt-3 whitespace-pre-wrap break-words text-sm text-muted">{agreement.description}</p>
               <p className="mt-2 text-sm text-muted">Quando: {agreement.timing} · Frequência: {agreement.frequency}</p>
+              {category === "habit" && agreement.status === "testing" && <Link
+                href={`${routes.nucleus}/${id}/acordos/${agreement.id}`}
+                className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Ver detalhe do hábito<ArrowRight size={15} className="ml-1" aria-hidden="true" /></Link>}
               {agreement.status === "pending" && ownResponse === "pending" && <div className="mt-4 flex flex-wrap gap-2">
                 <form action={respondAgreementProposal.bind(null, id, agreement.id, "accepted", category)}><button className="min-h-11 rounded-xl bg-forest px-4 text-sm font-semibold text-white">Aceitar proposta</button></form>
                 <form action={respondAgreementProposal.bind(null, id, agreement.id, "declined", category)}><DeclineButton /></form>

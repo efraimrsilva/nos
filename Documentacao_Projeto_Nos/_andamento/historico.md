@@ -1,6 +1,6 @@
 # Histórico de andamento
 
-**Versão vigente do projeto:** 0.7.0
+**Versão vigente do projeto:** 0.8.0
 
 ## 2026-09-24 — Primeira tela do app
 
@@ -275,3 +275,9 @@
 - **Entrega:** usuário autorizou commit e push para `origin/main`, com descrição que abranja Acordos, validação do banco, testes, versão e as duas pesquisas documentais locais concluídas antes da funcionalidade. Verificações finais e confirmação do hash remoto devem preceder o encerramento.
 - **Verificação desta preparação:** uma execução de 68 testes perdeu o servidor de desenvolvimento após o primeiro caso (44 falhas de navegação por conexão recusada); iniciar a página isoladamente retornou HTTP 200 e o caso isolado passou. A nova execução completa aprovou 68/68 testes, seguida de checagem de tipos e build aprovados, sem alteração no código do aplicativo.
 - **Commit:** a Tela 04, a migração, os testes, a versão e os registros das duas pesquisas foram reunidos em um commit descritivo da v0.7.0. O hash final deve ser consultado no Git após o ajuste deste andamento e comparado com `origin/main` após o push.
+
+## 2026-09-29 — Tela 05 Detalhe do Hábito v0.8.0
+
+- **Produto:** propostas de Hábito em teste ganharam link para detalhe protegido com descrição, momento, frequência, data identificada em UTC e resposta própria. A interface explica a ausência de histórico, progresso, revisão e evento associado, sem simular dados.
+- **Verificação:** teste de acesso sem sessão falhou antes da rota e passou depois; 70 testes desktop/mobile, tipos e build passaram. Revisão independente apontou fuso não indicado, corrigido. Com Supabase local, três contas e dois Núcleos temporários validaram o link, acesso dos integrantes, isolamento, rejeição de categoria/estado inadequados e RLS da resposta própria. Dados temporários removidos. A nova rota não foi testada no `nos-dev`.
+- **Versão e continuidade:** 0.7.0 → 0.8.0 (MINOR) pelo recorte inicial da Tela 05, com nova rota de consulta protegida. A Tela 06 deve definir persistência e permissões de revisão e registro de momento; os itens restantes da Tela 05 serão integrados quando houver dados reais. [Registro](registros/registro-v0.8.0-2026-09-29-imp-detalhe-habito-fun-consulta-proposta-teste.md). Commit atômico conferido com código, teste, versão e documentação; push para `origin/main` autorizado em 2026-09-29. Confirmar o estado remoto pelo Git.

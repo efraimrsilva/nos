@@ -1,6 +1,6 @@
 # Projeto Nós
 
-**Versão vigente do projeto:** 0.7.0
+**Versão vigente do projeto:** 0.8.0
 
 Um espaço privado para cultivar vínculos saudáveis.
 
@@ -30,6 +30,8 @@ As rotas de conta, criação protegida, convite e a primeira Home protegida est�
 A agenda interna em `/nucleos/[id]/agenda` está concluída na v0.6.0. A migração `20260927221149_create_nucleus_calendar` foi aplicada e conferida no `nos-dev`; criação, resposta, edição, remoção e negativa de acesso a outro Núcleo foram validadas com duas contas. O Núcleo e o evento temporários usados nos testes foram removidos.
 
 A Tela 04 de Acordos em `/nucleos/[id]/acordos` está concluída na v0.7.0. Há propostas reais de Hábitos e Experiências, respostas individuais e entrada em teste somente por aceite unânime; recusa encerra a proposta. Essência apresenta estado vazio, sem progresso simulado. A migração `20260928120000_create_nucleus_agreements` foi aplicada ao `nos-dev`; três contas temporárias validaram aceite, recusa e isolamento, e os dados de teste foram removidos. O aplicativo ainda não foi publicado.
+
+O recorte inicial da Tela 05 em `/nucleos/[id]/acordos/[agreementId]` apresenta o detalhe de um Hábito em teste na v0.8.0. Ele usa os dados reais da proposta e exige participação no Núcleo. Histórico, progresso, reflexões, revisão, impacto, linguagem de cuidado e próximo evento ainda não estão disponíveis; a agenda é aberta separadamente porque eventos não têm vínculo com a proposta. O fluxo foi conferido com contas no Supabase local; esta rota ainda não foi revalidada no `nos-dev`. A Tela 06 deverá definir registro de momento e revisão antes de integrar os itens restantes da Tela 05.
 
 ## Configurar Supabase
 
@@ -105,6 +107,7 @@ Registro persistente das decisões, do estado atual e das próximas ações do p
 - [v0.5.0 — Home do Núcleo](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.5.0-2026-09-27-imp-home-nucleo-fun-resumo-protegido.md)
 - [v0.6.0 — Agenda interna](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.6.0-2026-09-27-01-imp-agenda-interna-fun-eventos-nucleo.md)
 - [v0.7.0 — Acordos](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.7.0-2026-09-28-imp-hub-acordos-fun-propostas-consentimento.md)
+- [v0.8.0 — Detalhe do Hábito](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.8.0-2026-09-29-imp-detalhe-habito-fun-consulta-proposta-teste.md)
 
 ---
 
