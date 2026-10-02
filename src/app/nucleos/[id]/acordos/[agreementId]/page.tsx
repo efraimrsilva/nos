@@ -1,43 +1,35 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
 import { ChevronLeft, LockKeyhole } from "lucide-react";
-import { isNucleusAuthUnavailable } from "@/features/nuclei/nucleus-access";
+import { loadHabitContext } from "@/features/agreements/habit-access";
+import { habitMoodLabels, parseHabitMomentCursor } from "@/features/agreements/habit-moment-input";
 import { OnboardingShell } from "@/features/onboarding/components/onboarding-shell";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { routes } from "@/shared/routes";
 
 export const metadata: Metadata = { title: "Detalhe do hábito" };
-const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
-
-export default async function HabitDetailPage({ params }: {
+export default async function HabitDetailPage({ params, searchParams }: {
   params: Promise<{ id: string; agreementId: string }>;
+  searchParams: Promise<{ resultado?: string | string[]; antes?: string | string[] }>;
 }) {
   const { id, agreementId } = await params;
-  if (!uuid.test(id) || !uuid.test(agreementId)) notFound();
-  const supabase = await createSupabaseServerClient();
-  if (!supabase) redirect(routes.account);
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
-  if (isNucleusAuthUnavailable(authError)) throw new Error("Não foi possível conferir a sessão agora.");
-  if (!user) redirect(routes.account);
-
-  const { data: membership, error: membershipError } = await supabase.from("nucleus_members")
-    .select("role").eq("nucleus_id", id).eq("user_id", user.id).maybeSingle();
-  if (membershipError) throw new Error("Não foi possível consultar a participação no Núcleo.");
-  if (!membership) notFound();
-  const { data: nucleus, error: nucleusError } = await supabase.from("nuclei")
-    .select("name").eq("id", id).maybeSingle();
-  if (nucleusError) throw new Error("Não foi possível consultar o Núcleo.");
-  if (!nucleus) notFound();
-
-  // O filtro de Núcleo complementa a RLS e impede que o identificador da URL selecione outra proposta.
-  const { data: habit, error: habitError } = await supabase.from("nucleus_agreements")
-    .select("title,description,timing,frequency,status,created_at,nucleus_agreement_participants(response)")
-    .eq("id", agreementId).eq("nucleus_id", id).eq("category", "habit").eq("status", "testing").maybeSingle();
-  if (habitError) throw new Error("Não foi possível consultar o hábito agora.");
-  if (!habit) notFound();
+  const { supabase, user, nucleus, habit } = await loadHabitContext(id, agreementId);
+  const query = await searchParams;
+  const cursor = parseHabitMomentCursor(query.antes);
+  let request = supabase.from("nucleus_habit_moments")
+    .select("id,author_id,mood,note,created_at").eq("agreement_id", agreementId);
+  if (cursor) {
+    // O par data/ID fixa a travessia mesmo quando outra pessoa registra um momento novo.
+    request = request.or(`created_at.lt."${cursor.createdAt}",and(created_at.eq."${cursor.createdAt}",id.lt.${cursor.id})`);
+  }
+  const { data: moments, error: momentsError } = await request
+    .order("created_at", { ascending: false }).order("id", { ascending: false }).limit(21);
+  if (momentsError) throw new Error("Não foi possível consultar o histórico do hábito.");
+  const visibleMoments = (moments ?? []).slice(0, 20);
+  const hasNextPage = (moments ?? []).length > 20;
   const createdAt = `${new Intl.DateTimeFormat("pt-BR", { dateStyle: "long", timeStyle: "short", timeZone: "UTC" })
     .format(new Date(habit.created_at))} UTC`;
+  const formatMomentDate = (date: string) => `${new Intl.DateTimeFormat("pt-BR", { dateStyle: "medium", timeStyle: "short", timeZone: "UTC" })
+    .format(new Date(date))} UTC`;
 
   return <OnboardingShell>
     <Link href={`${routes.nucleus}/${id}/acordos?categoria=habit`} className="mb-5 inline-flex min-h-11 items-center gap-1 text-sm font-semibold text-leaf underline">
@@ -47,6 +39,7 @@ export default async function HabitDetailPage({ params }: {
     <h1 className="mt-3 break-words font-display text-[32px] leading-tight md:text-[42px]">{habit.title}</h1>
     <p className="mt-3 inline-flex rounded-full bg-[#edf3e5] px-3 py-1.5 text-xs font-semibold text-forest">Em teste com consentimento</p>
     <p className="mt-4 text-sm leading-7 text-muted">Todas as pessoas participantes aceitaram experimentar esta proposta. Ela ainda não é um acordo ativo; a revisão será disponibilizada em outra etapa.</p>
+    {query.resultado === "momento" && <p role="status" className="mt-4 rounded-xl bg-[#edf3e5] p-3 text-sm text-forest">Momento registrado no histórico do hábito.</p>}
 
     <section aria-labelledby="habit-agreement-heading" className="mt-6 rounded-[22px] border border-line bg-white p-5 shadow-[0_5px_18px_#52403805] sm:p-7">
       <h2 id="habit-agreement-heading" className="font-display text-xl">O que vamos experimentar</h2>
@@ -59,11 +52,31 @@ export default async function HabitDetailPage({ params }: {
       </dl>
     </section>
 
+    <section aria-labelledby="habit-history-heading" className="mt-4 rounded-[22px] border border-line bg-white p-5 sm:p-7">
+      <h2 id="habit-history-heading" className="font-display text-xl">Momentos registrados</h2>
+      <p className="mt-2 text-sm leading-7 text-muted">Os registros são visíveis para integrantes do Núcleo. Eles contam vivências sem medir desempenho.</p>
+      {visibleMoments.length ? <ol className="mt-4 grid gap-3">{visibleMoments.map((moment) => <li key={moment.id} className="rounded-xl border border-line bg-[#fbfaf7] p-4">
+        <p className="text-xs font-semibold text-leaf">{moment.author_id === user.id ? "Seu registro" : "Registro de outra pessoa"} · {formatMomentDate(moment.created_at)}</p>
+        <p className="mt-2 text-sm font-semibold">{habitMoodLabels[moment.mood] ?? "Humor indisponível"}</p>
+        {moment.note && <p className="mt-2 whitespace-pre-wrap break-words text-sm text-muted">{moment.note}</p>}
+      </li>)}</ol> : <p className="mt-4 text-sm text-muted">{cursor ? "Não há registros mais antigos." : "Ainda não há momentos registrados para este hábito."}</p>}
+      {(cursor || hasNextPage) && <nav aria-label="Páginas do histórico" className="mt-4 flex justify-between gap-3 text-sm font-semibold text-leaf">
+        {cursor ? <Link href="?" className="min-h-11 content-center underline">Voltar ao início</Link> : <span />}
+        {hasNextPage && <Link href={`?antes=${encodeURIComponent(`${visibleMoments[visibleMoments.length - 1].created_at}|${visibleMoments[visibleMoments.length - 1].id}`)}`}
+          className="min-h-11 content-center underline">Mais antigos</Link>}
+      </nav>}
+    </section>
+
     <section aria-labelledby="habit-next-heading" className="mt-4 rounded-[22px] border border-line bg-white p-5 sm:p-7">
-      <h2 id="habit-next-heading" className="font-display text-xl">Próximos registros</h2>
-      <p className="mt-2 text-sm leading-7 text-muted">Registrar práticas, reflexões e revisões ainda não está disponível. O acompanhamento será exibido quando essas ações tiverem dados reais.</p>
+      <h2 id="habit-next-heading" className="font-display text-xl">Outros acompanhamentos</h2>
+      <p className="mt-2 text-sm leading-7 text-muted">Revisão, reflexões e progresso ainda não estão disponíveis. Esses recursos precisam de regras próprias de consentimento e dados reais.</p>
       <p className="mt-3 text-sm leading-7 text-muted">A agenda do Núcleo ainda não associa eventos a propostas. Você pode consultá-la separadamente.</p>
       <Link href={`${routes.nucleus}/${id}/agenda`} className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Abrir agenda do Núcleo</Link>
     </section>
+    <nav aria-label="Ações do hábito" className="sticky bottom-3 mt-5 flex gap-3 rounded-2xl border border-line bg-white/95 p-3 shadow-lg backdrop-blur-sm">
+      <span aria-disabled="true" className="flex min-h-11 items-center justify-center rounded-xl border border-line px-4 text-sm font-semibold text-muted">Revisar · em breve</span>
+      {habit.nucleus_agreement_participants?.[0]?.response === "accepted" && <Link href={`${routes.nucleus}/${id}/acordos/${agreementId}/registrar`}
+        className="flex min-h-11 flex-1 items-center justify-center rounded-xl bg-forest px-4 text-center text-sm font-semibold text-white">Registrar momento</Link>}
+    </nav>
   </OnboardingShell>;
 }

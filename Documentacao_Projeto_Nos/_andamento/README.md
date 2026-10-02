@@ -1,6 +1,6 @@
 # Andamento do Projeto Nós
 
-**Versão vigente do projeto:** 0.8.0
+**Versão vigente do projeto:** 0.9.0
 
 Este diretório preserva o contexto operacional entre sessões e retomadas do projeto.
 
@@ -21,6 +21,7 @@ Este diretório preserva o contexto operacional entre sessões e retomadas do pr
 - [v0.6.0 — Agenda interna](registros/registro-v0.6.0-2026-09-27-01-imp-agenda-interna-fun-eventos-nucleo.md): eventos, respostas e isolamento validados no desenvolvimento.
 - [v0.7.0 — Tela 04 Acordos](registros/registro-v0.7.0-2026-09-28-imp-hub-acordos-fun-propostas-consentimento.md): propostas e consentimento com migração e três contas verificadas no `nos-dev`.
 - [v0.8.0 — Tela 05 Detalhe do Hábito](registros/registro-v0.8.0-2026-09-29-imp-detalhe-habito-fun-consulta-proposta-teste.md): leitura protegida da proposta em teste, validada com contas locais.
+- [v0.9.0 — Registro de momento](registros/registro-v0.9.0-2026-09-29-imp-registro-momento-habito-fun-historico-real.md): ação real da Tela 06 e histórico protegido, validados localmente com contas.
 - [v0.6.0 — Análise de frameworks de IA](registros/registro-v0.6.0-2026-09-29-imp-analise-frameworks-ia-fun-apoio-conversas.md): comparação documental de opções para eventual apoio a conversas, sem implementação de IA.
 - [v0.6.0 — Pesquisa de ferramentas para a stack](registros/registro-v0.6.0-2026-09-29-imp-pesquisa-ferramentas-stack-fun-qualidade-operacao.md): recomendações de qualidade, segurança e operação sem novas dependências.
 - [Frontend web](tecnologias/frontend.md): organização técnica, segurança e verificações.

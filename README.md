@@ -1,6 +1,6 @@
 # Projeto Nós
 
-**Versão vigente do projeto:** 0.8.0
+**Versão vigente do projeto:** 0.9.0
 
 Um espaço privado para cultivar vínculos saudáveis.
 
@@ -31,14 +31,14 @@ A agenda interna em `/nucleos/[id]/agenda` está concluída na v0.6.0. A migraç
 
 A Tela 04 de Acordos em `/nucleos/[id]/acordos` está concluída na v0.7.0. Há propostas reais de Hábitos e Experiências, respostas individuais e entrada em teste somente por aceite unânime; recusa encerra a proposta. Essência apresenta estado vazio, sem progresso simulado. A migração `20260928120000_create_nucleus_agreements` foi aplicada ao `nos-dev`; três contas temporárias validaram aceite, recusa e isolamento, e os dados de teste foram removidos. O aplicativo ainda não foi publicado.
 
-O recorte inicial da Tela 05 em `/nucleos/[id]/acordos/[agreementId]` apresenta o detalhe de um Hábito em teste na v0.8.0. Ele usa os dados reais da proposta e exige participação no Núcleo. Histórico, progresso, reflexões, revisão, impacto, linguagem de cuidado e próximo evento ainda não estão disponíveis; a agenda é aberta separadamente porque eventos não têm vínculo com a proposta. O fluxo foi conferido com contas no Supabase local; esta rota ainda não foi revalidada no `nos-dev`. A Tela 06 deverá definir registro de momento e revisão antes de integrar os itens restantes da Tela 05.
+O detalhe de um Hábito em teste em `/nucleos/[id]/acordos/[agreementId]` começou na v0.8.0 com os dados reais da proposta e acesso protegido. Na v0.9.0, pessoas que aceitaram participar podem abrir `/registrar`, guardar humor e nota opcional, e consultar o histórico visível ao Núcleo. A migração de momentos foi aplicada ao `nos-dev`; o percurso autenticado foi validado no Supabase local com três contas, sem revalidação remota da interface. Revisão, progresso, reflexões, impacto, linguagem de cuidado e evento associado ainda exigem contratos próprios. A agenda pode ser aberta separadamente.
 
 ## Configurar Supabase
 
 1. O projeto de desenvolvimento `nos-dev` já foi criado na organização **Projetos Efraim**. Guarde a senha do banco fora do repositório.
 2. A **Project URL** e a **publishable key** já estão em `.env.local` neste ambiente, ignorado pelo Git. Em outro ambiente, copie `.env.example` para `.env.local` e preencha essas variáveis. Não use uma secret key ou `service_role` no app.
 3. Em **Authentication → URL Configuration**, o Site URL local `http://127.0.0.1:3000` e o retorno `/auth/confirm` já foram salvos. O template padrão de confirmação usa `{{ .ConfirmationURL }}`; SMTP próprio será necessário antes de uso público.
-4. As migrações `20260927173656_create_nuclei_and_invitations`, `20260927221149_create_nucleus_calendar` e `20260928120000_create_nucleus_agreements` já foram aplicadas e conferidas no `nos-dev`. **Não as reaplique nesse projeto.** Em um novo projeto, use as migrações versionadas em `supabase/migrations/`: autentique a CLI, vincule o projeto correto, revise `npx supabase db push --dry-run` e só então aplique `npx supabase db push`.
+4. As migrações `20260927173656_create_nuclei_and_invitations`, `20260927221149_create_nucleus_calendar`, `20260928120000_create_nucleus_agreements` e `20260929220000_create_nucleus_habit_moments` já foram aplicadas e conferidas no `nos-dev`. **Não as reaplique nesse projeto.** Em um novo projeto, use as migrações versionadas em `supabase/migrations/`: autentique a CLI, vincule o projeto correto, revise `npx supabase db push --dry-run` e só então aplique `npx supabase db push`.
 5. O fluxo de cadastro/confirmação, criação, convite, prévia, aceite e leitura condicionada à associação foi validado com duas contas distintas no ambiente de desenvolvimento.
 
 O valor `<id-do-projeto>` aparece na URL `https://supabase.com/dashboard/project/<id-do-projeto>`. A CLI pode pedir a senha do banco no terminal; não a registre em arquivos ou mensagens. Neste ambiente, a inspeção HTTPS do Avast exigiu uma exceção de domínio para `api.supabase.com`; após a correção, a CLI 2.118.0 aplicou a migração de Acordos e confirmou o histórico remoto. O envio de e-mail padrão do Supabase tem limites de teste, então configure SMTP próprio antes de uso público.
@@ -108,6 +108,7 @@ Registro persistente das decisões, do estado atual e das próximas ações do p
 - [v0.6.0 — Agenda interna](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.6.0-2026-09-27-01-imp-agenda-interna-fun-eventos-nucleo.md)
 - [v0.7.0 — Acordos](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.7.0-2026-09-28-imp-hub-acordos-fun-propostas-consentimento.md)
 - [v0.8.0 — Detalhe do Hábito](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.8.0-2026-09-29-imp-detalhe-habito-fun-consulta-proposta-teste.md)
+- [v0.9.0 — Registrar momento](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.9.0-2026-09-29-imp-registro-momento-habito-fun-historico-real.md)
 
 ---
 
