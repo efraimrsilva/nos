@@ -1,10 +1,10 @@
 # Andamento do Projeto Nós
 
-**Versão vigente do projeto:** 0.10.0
+**Versão vigente do projeto:** 0.11.0
 
 Este diretório preserva o contexto operacional entre sessões e retomadas do projeto.
 
-Entrega mais recente: [v0.10.0 — Revisar Hábito com consentimento e reflexão](registros/registro-v0.10.0-2026-10-02-imp-revisao-habito-fun-consentimento-reflexao.md). [Plano executado](planos/revisao-habito.md).
+Entrega mais recente: [v0.11.0 — Confirmação do Hábito após teste](registros/registro-v0.11.0-2026-10-03-imp-confirmacao-habito-fun-teste-votacao-proporcional.md). [Plano executado](planos/confirmacao-habito.md).
 
 ## Estrutura
 
@@ -55,3 +55,5 @@ Em 2026-09-24, o usuário dispensou qualquer informação sobre percentual ou in
 ## Próxima implementação
 
 [Confirmação do Hábito após teste](funcionalidades/confirmacao-habito.md): fontes, prazo entre 7 e 30 dias, dados existentes, decisões pendentes e critérios de aceitação. [Publicação Git v0.10.0](registros/registro-v0.10.0-2026-10-03-imp-publicacao-git-fun-continuidade-confirmacao.md).
+
+- [Próximo recorte — Nossa Árvore](funcionalidades/nossa-arvore.md): fontes, base real, lacunas e critérios de aceite.

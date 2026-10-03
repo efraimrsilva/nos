@@ -14,13 +14,13 @@ export const metadata: Metadata = { title: "Acordos do Núcleo" };
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 type Agreement = {
   id: string; category: string; title: string; description: string; timing: string;
-  frequency: string; status: string; created_at: string;
+  frequency: string; trial_days: number | null; status: string; created_at: string;
   nucleus_agreement_participants: { response: string }[];
 };
 const categories = [{ key: "habit", label: "Hábitos" }, { key: "experience", label: "Experiências" }, { key: "essence", label: "Essência" }] as const;
 const filters = [{ key: "all", label: "Todos" }, { key: "pending", label: "Aguardando" },
-  { key: "testing", label: "Em teste" }, { key: "declined", label: "Recusados" }, { key: "ended", label: "Encerrados" }] as const;
-const statusLabel: Record<string, string> = { pending: "Aguardando aceite", testing: "Em teste com consentimento", declined: "Proposta recusada", ended: "Encerrado de comum acordo" };
+  { key: "testing", label: "Em teste" }, { key: "active", label: "Ativos" }, { key: "declined", label: "Recusados" }, { key: "ended", label: "Encerrados" }] as const;
+const statusLabel: Record<string, string> = { active: "Acordo ativo", pending: "Aguardando aceite", testing: "Em teste com consentimento", declined: "Proposta recusada", ended: "Encerrado de comum acordo" };
 
 export default async function AgreementsPage({ params, searchParams }: {
   params: Promise<{ id: string }>;
@@ -53,7 +53,7 @@ export default async function AgreementsPage({ params, searchParams }: {
   if (category !== "essence") {
     // RLS filtra por Núcleo e a tabela de respostas expõe apenas a resposta da própria pessoa.
     let request = supabase.from("nucleus_agreements")
-      .select("id,category,title,description,timing,frequency,status,created_at,nucleus_agreement_participants(response)")
+      .select("id,category,title,description,timing,frequency,status,trial_days,created_at,nucleus_agreement_participants(response)")
       .eq("nucleus_id", id).eq("category", category);
     if (filter !== "all") request = request.eq("status", filter);
     const { data, error } = await request.order("created_at", { ascending: false }).order("id")
@@ -100,9 +100,10 @@ export default async function AgreementsPage({ params, searchParams }: {
               <p className="mt-1 text-xs font-semibold text-leaf">{statusLabel[agreement.status] ?? "Estado indisponível"}</p>
               <p className="mt-3 whitespace-pre-wrap break-words text-sm text-muted">{agreement.description}</p>
               <p className="mt-2 text-sm text-muted">Quando: {agreement.timing} · Frequência: {agreement.frequency}</p>
-              {category === "habit" && ["testing", "ended"].includes(agreement.status) && <Link
+              {category === "habit" && ["testing", "active", "ended"].includes(agreement.status) && <Link
                 href={`${routes.nucleus}/${id}/acordos/${agreement.id}`}
                 className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Ver detalhe do hábito<ArrowRight size={15} className="ml-1" aria-hidden="true" /></Link>}
+              {category === "habit" && agreement.trial_days && <p className="mt-2 text-sm text-muted">Teste: {agreement.trial_days} dias após o aceite de todos. Confirmação após prazo: maioria absoluta até 150 participantes; um terço acima de 150.</p>}
               {agreement.status === "pending" && ownResponse === "pending" && <div className="mt-4 flex flex-wrap gap-2">
                 <form action={respondAgreementProposal.bind(null, id, agreement.id, "accepted", category)}><button className="min-h-11 rounded-xl bg-forest px-4 text-sm font-semibold text-white">Aceitar proposta</button></form>
                 <form action={respondAgreementProposal.bind(null, id, agreement.id, "declined", category)}><DeclineButton /></form>
@@ -119,7 +120,7 @@ export default async function AgreementsPage({ params, searchParams }: {
     {category !== "essence" && <section className="mt-4 rounded-[22px] border border-line bg-white p-5 sm:p-7" aria-labelledby="new-agreement-heading">
       <h2 id="new-agreement-heading" className="font-display text-xl">Nova proposta</h2>
       <p className="mt-2 text-sm leading-7 text-muted">Conversem sobre a necessidade antes de enviar. Todas as pessoas que já fazem parte do Núcleo poderão responder. É preciso ter ao menos duas pessoas.</p>
-      <ProposalForm nucleusId={id} category={category} />
+      <ProposalForm key={category} nucleusId={id} category={category} />
     </section>}
   </OnboardingShell>;
 }

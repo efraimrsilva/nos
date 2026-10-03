@@ -1,0 +1,17 @@
+# Confirmação do Hábito — plano de implementação
+
+**Versão vigente:** 0.11.0. **Status:** concluído e validado. **Escopo aprovado:** 2026-10-03, com maioria absoluta até 150 e um terço arredondado para cima acima de 150, somente para confirmação pós-teste.
+
+Objetivo: confirmar Hábito após teste real de 7 a 30 dias com floor(N/2)+1 votos Sim até 150 envolvidos originais; acima de 150, ceil(N/3). Aceite inicial, configuração de legado, ajuste e encerramento permanecem unânimes. Autorização inclui implementação e validação; sem commit, push ou deploy. Executar no checkout atual preservando a preparação documental.
+
+Arquitetura: ciclos imutáveis de teste com respostas individuais, leitura por RLS e escrita por funções transacionais autenticadas. Todas as mutações bloqueiam primeiro o Hábito. O último Sim necessário efetiva active; relógio sozinho não ativa. Datas/votos antigos ficam preservados quando uma revisão aplicada abre novo ciclo.
+
+Fonte: ../funcionalidades/confirmacao-habito.md, proposta aprovada com ressalva da maioria absoluta. A aprovação nesta conversa substitui a unanimidade de confirmação do texto anterior. Não ampliar essa exceção às revisões ou Experiências.
+
+- [x] **Banco:** criar supabase/tests/nucleus_habit_trials.sql. Reproduzir ausência do contrato antes da implementação; testar 2/3 e 3/4, prazo, legado, escrita direta, isolamento, revisão e histórico. Criar 20261003120000_create_nucleus_habit_trials.sql com ciclos/respostas, create_nucleus_agreement de sete argumentos, início no último aceite, proposta/resposta de período legado, confirmação e consulta agregada. Adequar funções de momentos e revisão para active e novo teste após ajuste. Atualizar fixtures anteriores para duração explícita de Hábito.
+- [x] **Interface:** testes em tests/habit-trial.spec.ts para duração e acesso sem sessão. Campo obrigatório de duração em proposal-form.tsx e validação na ação; habit-trial-actions.ts e habit-trial-form.tsx para proposta/resposta/Sim. Rota /confirmar com prazo real, regra de maioria, respostas próprias, alternativas e histórico. Integrar estados testing/active/ended no hub, detalhe, registro e revisão.
+- [x] **Jornada autenticada:** scripts/verify-habit-trial-local.mjs cria quatro participantes e visitante temporários, verifica formulário, consenso inicial, prazo, maioria, isolamento, legado, ajuste e preservação. Apenas backend local; relógio antecipado só em fixtures locais; limpeza em finally.
+- [x] **Revisão e validação:** testes SQL, jornada autenticada, suíte Playwright com um worker, tipos e build. Revisão independente pela skill requesting-code-review, autorrevisão e diff --check. Context7 para contratos tecnológicos; Octocode para dependências. Corrigir achados e repetir verificações afetadas.
+- [x] **Documentação:** substituir regra vigente da confirmação nas fontes v1.2/v2.4, preservando contexto histórico; atualizar estado/histórico/registro/README/Brag/frontend e contador. Incrementar MINOR para 0.11.0 somente com conclusão revisada e validada. Documentar eventual migração remota pendente sem declarar integração remota concluída.
+
+**Resultado:** 84 testes, tipos, build, cinco arquivos SQL e jornada local com cinco contas aprovados; revisão independente e autorrevisão concluídas. Migração aplicada no nos-dev, 13 funções equivalentes às locais. Interface autenticada validada somente localmente. [Registro](../registros/registro-v0.11.0-2026-10-03-imp-confirmacao-habito-fun-teste-votacao-proporcional.md).

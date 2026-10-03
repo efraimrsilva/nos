@@ -1019,3 +1019,12 @@ graph TD
     style H fill:#EC6F9E,stroke:#fff,color:#fff
     style I fill:#4F7E2C,stroke:#fff,color:#fff
 ```
+
+
+## Fluxo complementar — confirmação do Hábito — decisão de 2026-10-03
+
+**Versão de implementação vigente: 0.11.0; confirmação implementada e validada.**
+
+Propor duração de 7 a 30 dias → aceite inicial unânime → início do teste no último aceite → prazo completo → confirmações individuais → atingir o limiar → ativo. Legado sem datas exige novo período unânime. Revisão pendente impede ativação; ajuste aplicado abre novo teste com votos novos; recusa preserva o combinado. Encerrar preserva histórico. Hábitos ativos mantêm registro de momentos e revisão.
+
+Regra canônica: [v1.2 — confirmação pós-teste](Projeto_Nos_v1.2_Sistema_de_Aprovacao_e_Construcao_de_Acordos.md#regra-de-confirmação-do-hábito--decisão-de-2026-10-03).

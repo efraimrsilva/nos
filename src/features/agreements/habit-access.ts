@@ -24,9 +24,9 @@ export async function loadHabitContext(id: string, agreementId: string, includeE
 
   // O filtro da URL complementa a RLS; a resposta aninhada expõe somente a da pessoa autenticada.
   const { data: habit, error: habitError } = await supabase.from("nucleus_agreements")
-    .select("title,description,timing,frequency,status,created_at,nucleus_agreement_participants(response)")
+    .select("title,description,timing,frequency,status,trial_days,created_at,nucleus_agreement_participants(response)")
     .eq("id", agreementId).eq("nucleus_id", id).eq("category", "habit")
-    .in("status", includeEnded ? ["testing", "ended"] : ["testing"]).maybeSingle();
+    .in("status", includeEnded ? ["testing", "active", "ended"] : ["testing", "active"]).maybeSingle();
   if (habitError) throw new Error("Não foi possível consultar o hábito agora.");
   if (!habit) notFound();
   return { supabase, user, nucleus, habit };

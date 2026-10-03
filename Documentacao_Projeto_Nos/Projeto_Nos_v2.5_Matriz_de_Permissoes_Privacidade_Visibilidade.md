@@ -76,6 +76,8 @@ Nenhuma entidade sensível deve ser acessível fora de seu contexto de privacida
 | Excluir               | ✅       | ✅             | ❌      | ❌                  | Requer consenso dos participantes. |
 | Aprovar/Recusar       | ✅       | ✅             | ✅ (se for participante) | ❌ | Apenas participantes do acordo podem votar. |
 
+| Confirmar Hábito pós-teste | ✅ (se participante) | ✅ (se participante) | ✅ (se participante) | ❌ | Prazo completo e limiar do ciclo; cada pessoa registra apenas seu próprio Sim. |
+
 ## 3.2 Memória
 
 | Ação                  | Criador | Administrador | Membro | Convidado Pendente | Regras Adicionais |
@@ -218,3 +220,12 @@ graph TD
     style I fill:#EC6F9E,stroke:#fff,color:#fff
     style J fill:#4F7E2C,stroke:#fff,color:#fff
 ```
+
+
+## Permissões da confirmação pós-teste — decisão de 2026-10-03
+
+**Versão de implementação vigente: 0.11.0; confirmação implementada e validada.**
+
+Somente participantes originais ainda integrantes podem registrar seu próprio Sim, após o prazo e sem revisão pendente. Integrantes posteriores podem consultar ciclos e contagem agregada, mas não votar automaticamente. A leitura de respostas individuais expõe apenas a própria pessoa; integrantes veem N, votos registrados e limiar exigido. Saída de participante não diminui o limiar e bloqueia a operação até regularização. Confirmar difere de alterar/encerrar: somente a primeira ação usa o limiar reduzido. Sem escrita direta nas tabelas; conferir sessão, pertencimento ao Núcleo e relação Hábito/ciclo no servidor e banco.
+
+Regra canônica: [v1.2 — confirmação pós-teste](Projeto_Nos_v1.2_Sistema_de_Aprovacao_e_Construcao_de_Acordos.md#regra-de-confirmação-do-hábito--decisão-de-2026-10-03).

@@ -295,3 +295,15 @@ Ajustes e encerramento de Hábitos em teste exigem unanimidade, reflexão de set
 Usuário autorizou publicação Git abrangente. Fetch encontrou 264f483 (remoção de AGENTS.md), incorporado por avanço direto sem sobrescrever o remoto. Revisão final independente confirmou o próximo passo; documentação agora diferencia teste de 7 a 30 dias e reflexão de sete dias, com decisões pendentes explícitas. Testes de banco repetidos com sucesso; verificações finais e hash publicado serão conferidos antes de encerrar. [Registro](registros/registro-v0.10.0-2026-10-03-imp-publicacao-git-fun-continuidade-confirmacao.md).
 
 - **Commit conferido:** unidade da v0.10.0 contém os 22 arquivos previstos, incluindo a continuidade da confirmação. Pendência de commit removida por inspeção do objeto Git, não somente pela limpeza do diretório. Ajustes deste registro incorporados ao mesmo commit antes do envio. Hash final consultável em HEAD; publicação confirmada pela comparação com refs/heads/main ao concluir o push.
+
+## 2026-10-03 — Retomada do contrato de confirmação pós-teste
+
+HEAD e main no GitHub conferidos em e315b12; diretório inicialmente limpo. Documentação e código confrontados com as regras v1.2/v2.4. Proposta para duração, início, legado, confirmação e compatibilidade de active registrada, aguardando aprovação antes de implementação. Sem alteração de produto ou versão; preparação documental acompanha a próxima entrega funcional. [Registro](registros/registro-v0.10.0-2026-10-03-imp-retomada-confirmacao-fun-proposta-contrato.md).
+
+## 2026-10-03 — v0.11.0: confirmação do Hábito após teste
+
+Duração explícita, ciclos reais, maioria até 150 e um terço acima de 150; orientações visíveis e active integrado. Legado exige novo prazo aceito; ajustes preservam história e reiniciam teste. 84 testes, tipos, build, cinco arquivos SQL e jornada local com cinco contas passaram. Migração aplicada no nos-dev; 13 funções equivalentes. Revisão independente corrigida; interface autenticada validada localmente. Unidade local pronta para commit. [Registro](registros/registro-v0.11.0-2026-10-03-imp-confirmacao-habito-fun-teste-votacao-proporcional.md).
+
+## 2026-10-03 — Publicação Git abrangente da v0.11.0
+
+Usuário autorizou commit e push. Continuidade de Nossa Árvore detalhada com fontes, lacunas e critérios; 84 testes, cinco arquivos SQL, tipos, build e 498 links aprovados novamente. Conferência do objeto Git e do hash remoto ao concluir o envio. [Registro](registros/registro-v0.11.0-2026-10-03-02-imp-publicacao-git-fun-continuidade-arvore.md).

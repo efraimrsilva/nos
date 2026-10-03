@@ -222,3 +222,12 @@ graph TD
     I[Acesso a APIs do Nos] --> J[Middleware Supabase RLS no Postgres]
     J --> K[Autorizacao via Contexto nucleoId & usuarioId]
 ```
+
+
+## Segurança das decisões de teste do Hábito — decisão de 2026-10-03
+
+**Versão de implementação vigente: 0.11.0; confirmação implementada e validada.**
+
+A contagem do navegador não autoriza ativação. O banco verifica sessão, integrante, participante do ciclo, prazo e revisão pendente; calcula o limiar sobre a fotografia persistida e serializa decisões bloqueando primeiro o Hábito. Proibir escrita direta e execução pública dos helpers; usar SECURITY DEFINER com search_path vazio e nomes qualificados. Respostas simultâneas não podem ativar antes do limiar, reutilizar votos de ciclo anterior nem competir com revisão. A leitura de votos de terceiros permanece restrita, inclusive após ativação.
+
+Regra canônica: [v1.2 — confirmação pós-teste](Projeto_Nos_v1.2_Sistema_de_Aprovacao_e_Construcao_de_Acordos.md#regra-de-confirmação-do-hábito--decisão-de-2026-10-03).

@@ -1,20 +1,32 @@
 # Estado do Projeto Nós
 
-**Versão vigente do projeto:** 0.10.0
+**Versão vigente do projeto:** 0.11.0
 
 **DOCS_DIR:** `Documentacao_Projeto_Nos`
 
 **Atualizado:** 2026-10-03
 
-**Git:** `main`; fetch e avanço direto incorporaram `264f483` de origin/main (remoção remota de AGENTS.md). Entrega v0.10.0 registrada no commit de assunto feat(habitos): entregar revisão consensual com reflexão na v0.10.0; referência de retomada: HEAD. Push à origin/main autorizado em 2026-10-03; confirmação final exige comparar o hash de HEAD com refs/heads/main no GitHub. Instruções fornecidas na conversa continuam aplicáveis.
+**Git:** `main`; entrega v0.10.0 no commit `e315b12f37b6c94718c1d56d4b73c7d4b722b14a`, de assunto feat(habitos): entregar revisão consensual com reflexão na v0.10.0. HEAD e refs/heads/main no GitHub conferidos e iguais em 2026-10-03 nesta retomada. O commit anterior `264f483` removeu AGENTS.md; instruções fornecidas na conversa continuam aplicáveis. A v0.11.0 está registrada no commit desta publicação (consultar HEAD), incluindo a preparação documental. Objeto Git inspecionado: 54 arquivos, sem .env ou artifacts; envio ao GitHub autorizado pelo usuário, com hash remoto conferido ao encerrar.
 
-## Entrega atual — Revisar Hábito
+## Entrega atual — Confirmação do Hábito após teste
+
+A v0.11.0 conclui o ciclo de teste e confirmação. Novas propostas de Hábito exigem duração inteira de 7 a 30 dias, informada antes do aceite; o último aceite unânime inicia o teste no banco. Após o prazo, o Sim que alcança floor(N/2)+1 até 150 participantes, ou ceil(N/3) acima de 150, ativa o Hábito em transação. N é o conjunto fixo dos participantes originais da proposta, fotografado no ciclo. Ausências não contam como votos; membros posteriores consultam sem entrar na votação. Saída de participante original bloqueia a operação sem reduzir N.
+
+Hábitos legados precisam de duração explicitamente aprovada por todos, sem retroatividade. Revisão pendente bloqueia confirmação. Ajuste ou encerramento continuam exigindo unanimidade, sete dias de reflexão e aplicação explícita. Ajustar testing ou active inicia novo teste com a mesma duração e votos novos; momentos, ciclos e respostas anteriores permanecem no histórico. O hub distingue Ativos; registro e revisão funcionam também em active. As orientações estão visíveis na proposta, no detalhe, na confirmação e antes do ajuste.
+
+**Validação:** 84/84 testes Playwright desktop/mobile; tipos e build aprovados. Cinco arquivos de banco passaram, incluindo fixtures reais de 150/151 participantes (76/51 votos). Jornada local com cinco contas verificou criação pela interface, prazo, maioria 3/4, simultaneidade, isolamento, entrada posterior, legado, active, ajuste e layout móvel; dados temporários removidos e servidor de teste encerrado. Migração 20261003120000 aplicada localmente e no nos-dev em transação com histórico; 13 assinaturas/corpos normalizados conferidos sem divergência, duas políticas de leitura e helper sem execução direta por authenticated. CLI remota parou na inicialização do papel; editor SQL foi a alternativa. Interface autenticada validada localmente, sem repetição remota. Autorrevisão e revisão independente corrigiram orientação sobre novo teste, âncora documental e limpeza do script.
+
+**Objetivo/critério atendido:** prazo persistido, confirmação explícita proporcional, orientações visíveis, privacidade e histórico preservados. **Bloqueios:** nenhum para este recorte. Publicação pública, progresso, reflexões e Essência continuam fora dele.
+
+**Próximo passo executável:** definir o contrato de dados reais da Tela 07 — Nossa Árvore, confrontando catálogo v2.1 com impacto v1.4 e marcos v1.6. Escolher o recorte sustentado pelos dados existentes antes de implementar níveis, experiência ou indicadores; não usar os números de exemplo do protótipo como integração. A conferência autenticada no nos-dev permanece uma validação complementar da interface. [Registro v0.11.0](registros/registro-v0.11.0-2026-10-03-imp-confirmacao-habito-fun-teste-votacao-proporcional.md); [contrato](funcionalidades/confirmacao-habito.md); [plano executado](planos/confirmacao-habito.md).
+
+## Marco anterior — Revisar Hábito
 
 A v0.10.0 implementa revisão de Hábito em teste: ajuste do combinado ou encerramento consensual. Solicitações não alteram o combinado até unanimidade dos envolvidos originais, sete dias completos desde a criação e aplicação explícita por participante. Recusa preserva o combinado; encerramento conserva momentos e impede novas gravações. Apenas uma revisão pendente por Hábito. A interface consulta prontidão agregada sem revelar votos individuais.
 
 **Validação:** 80/80 testes Playwright desktop/mobile, tipos e build aprovados; três arquivos de teste de banco passaram. Script local com três contas verificou ajuste, prazo, falta de consenso após prazo, recusa, isolamento, histórico, encerramento, concorrência e layout móvel. Dados temporários removidos. Migração 20261002230000 aplicada localmente e no nos-dev; corpos normalizados das quatro funções coincidem. CLI remota parou na inicialização do papel de conexão; aplicação e histórico realizados em transação pelo editor SQL. Interface autenticada testada localmente, sem repetição remota. Revisão independente encontrou ação prematura de aplicação, corrigida com RPC agregada e teste; segunda revisão sem novos achados.
 
-**Próximo passo:** especificar confirmação do Hábito após teste, com duração de 7 a 30 dias conforme v1.2/v2.4. Definir início/duração, tratamento dos Hábitos existentes sem prazo, consentimento e compatibilidade de acordo ativo. Os sete dias de reflexão da revisão são independentes. [Continuidade detalhada](funcionalidades/confirmacao-habito.md). Essência, progresso e conversa de cuidado continuam dependências próprias. [Registro v0.10.0](registros/registro-v0.10.0-2026-10-02-imp-revisao-habito-fun-consentimento-reflexao.md).
+**Próximo passo daquele marco, concluído na v0.11.0:** especificar confirmação do Hábito após teste, com duração de 7 a 30 dias conforme v1.2/v2.4. Definir início/duração, tratamento dos Hábitos existentes sem prazo, consentimento e compatibilidade de acordo ativo. Os sete dias de reflexão da revisão são independentes. [Continuidade detalhada](funcionalidades/confirmacao-habito.md). Essência, progresso e conversa de cuidado continuam dependências próprias. [Registro v0.10.0](registros/registro-v0.10.0-2026-10-02-imp-revisao-habito-fun-consentimento-reflexao.md).
 
 ## Marco anterior — registro de momento do Hábito
 
@@ -54,11 +66,11 @@ Agenda por Núcleo concluída na **v0.6.0**: eventos pontuais com título, inten
 
 **Continuidade após a agenda:** a Tela 04 — Acordos foi concluída na v0.7.0; evidência e limites constam em [Entrega concluída — Tela 04 Acordos](#entrega-concluída--tela-04-acordos). A credencial de acesso permanece fora do repositório. Publicação pública exige revisão própria de privacidade e operação.
 
-**Unidades pendentes de commit:** nenhuma; conteúdo da v0.10.0 conferido no objeto do commit, incluindo código, migração, testes, versão e documentação. Ajustes finais deste andamento integram a mesma unidade antes do push. **Contador de interações:** 67 respostas concluídas incluindo esta interação; começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
+**Unidades pendentes de commit:** nenhuma. A unidade v0.11.0 foi conferida no objeto Git com código, migração, testes, documentação e manifestos; registro de publicação integrado ao mesmo commit. A entrega funcional v0.10.0 já está no commit e315b12, confirmado em refs/heads/main em 2026-10-03. **Contador de interações:** 70 respostas concluídas incluindo esta interação; começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
 
 ## Objetivo e situação
 
-O onboarding web contempla **Escolher caminho** (`/comecar`), **Tipo** (`/comecar/tipo`), **Propósito** (`/comecar/proposito`), **Conta** (`/conta`), **Convite inicial** (`/comecar/convite-inicial/[id]`) e **Entrada por convite** (`/comecar/convite`). A área protegida inclui Home (`/nucleos/[id]`), agenda (`/nucleos/[id]/agenda`), Acordos (`/nucleos/[id]/acordos`), Detalhe do Hábito (`/nucleos/[id]/acordos/[agreementId]`) , Registrar momento (`/nucleos/[id]/acordos/[agreementId]/registrar`) e Revisar (`/nucleos/[id]/acordos/[agreementId]/revisar`). A migração atual chegou ao `nos-dev`; a interface desta rota foi validada com Supabase local. O app ainda não foi publicado.
+O onboarding web contempla **Escolher caminho** (`/comecar`), **Tipo** (`/comecar/tipo`), **Propósito** (`/comecar/proposito`), **Conta** (`/conta`), **Convite inicial** (`/comecar/convite-inicial/[id]`) e **Entrada por convite** (`/comecar/convite`). A área protegida inclui Home (`/nucleos/[id]`), agenda (`/nucleos/[id]/agenda`), Acordos (`/nucleos/[id]/acordos`), Detalhe do Hábito (`/nucleos/[id]/acordos/[agreementId]`) , Registrar momento (`/nucleos/[id]/acordos/[agreementId]/registrar`) Revisar (`/nucleos/[id]/acordos/[agreementId]/revisar`) e Confirmar (`/nucleos/[id]/acordos/[agreementId]/confirmar`). A migração atual chegou ao `nos-dev`; a interface desta rota foi validada com Supabase local. O app ainda não foi publicado.
 
 **Critérios de aceite da entrega v0.5.0:** exibir nome, tipo, propósito e vínculo reais para participante autorizado; oferecer convite apenas ao criador; manter autenticação e RLS; distinguir ausência de acesso de falha de consulta; informar carregamento, erro e alcance inicial sem simular árvore, agenda ou gratidão. Os fluxos de conta e associação foram testados com contas distintas na v0.4.0.
 
@@ -139,3 +151,22 @@ Superpowers: planejamento, TDD, depuração, revisão e verificação aplicados.
 Usuário autorizou commit e push com descrição abrangente. [Registro desta preparação](registros/registro-v0.10.0-2026-10-03-imp-publicacao-git-fun-continuidade-confirmacao.md). Próximo passo documentado com fontes, decisões pendentes e critérios observáveis; sem nova funcionalidade iniciada.
 
 **Validação para publicação em 2026-10-03:** 80/80 testes Playwright, três arquivos de teste do banco, checagem de tipos e build aprovados novamente; 121 links locais sem alvo ausente e diff sem erro de formatação. Revisão independente final sem novos achados de implementação.
+
+## Retomada da confirmação — 2026-10-03
+
+Objetivo ativo: definir o contrato da confirmação do Hábito após teste, próximo passo da v0.10.0. HEAD e main remoto conferidos diretamente em e315b12f37b6c94718c1d56d4b73c7d4b722b14a; diretório inicialmente limpo. Instruções AGENTS.md fornecidas na conversa aplicadas; o arquivo permanece removido pelo commit remoto anterior.
+
+Proposta concreta em [confirmação do Hábito](funcionalidades/confirmacao-habito.md#proposta-de-recorte--retomada-em-2026-10-03): duração escolhida de 7 a 30 dias, início no último aceite, novo ciclo consensual para legado sem datas, confirmação unânime após prazo, reutilização da revisão e compatibilidade de active. **Aguarda aprovação; escolhas ainda não são decisões vigentes.** Próximo passo executável: confirmar o recorte, planejar esquema/migração e implementar com testes dos contratos. Sem código, migração ou mudança de versão nesta retomada.
+
+Superpowers using-superpowers, brainstorming e verification-before-completion lidos. Octocode CLI 19.1.0 operacional para consulta local, grafo parcial complementado por leitura precisa. Context7 exposto, sem consulta nesta etapa de regras de negócio. Validação documental e autorrevisão do diff; resultados funcionais acima pertencem à entrega anterior.
+
+- [Registro desta retomada](registros/registro-v0.10.0-2026-10-03-imp-retomada-confirmacao-fun-proposta-contrato.md).
+
+- [v0.11.0 — Confirmação com votação proporcional](registros/registro-v0.11.0-2026-10-03-imp-confirmacao-habito-fun-teste-votacao-proporcional.md).
+- [Plano de confirmação executado](planos/confirmacao-habito.md).
+
+**Conferência final da v0.11.0:** tipos e build repetidos após manifestos; git diff --check aprovado na configuração real do repositório; 491 links locais e suas âncoras sem alvo ausente. Revisão independente de confirmação aprovou as correções e indicou cabeçalho documental P3, corrigido e conferido. Sem achados materiais remanescentes.
+
+- [Próximo recorte — Nossa Árvore](funcionalidades/nossa-arvore.md): fontes, base real, lacunas e critérios de aceite.
+
+- [Publicação Git e continuidade da v0.11.0](registros/registro-v0.11.0-2026-10-03-02-imp-publicacao-git-fun-continuidade-arvore.md).

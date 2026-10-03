@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   // Isola o servidor de testes do servidor de desenvolvimento para evitar disputa pelo lock de build.
-  distDir: process.env.PLAYWRIGHT_TEST === "1" ? ".next-playwright" : ".next",
+  distDir: process.env.PLAYWRIGHT_TEST === "1" ? ".next-playwright" : process.env.NOS_LOCAL_VERIFY === "1" ? ".next-verify" : ".next",
   poweredByHeader: false,
   async headers() {
     // Aplica proteções comuns a todas as rotas antes de adicionar regras específicas por tela.

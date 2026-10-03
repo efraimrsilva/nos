@@ -10,7 +10,7 @@ do $$
 declare h uuid; r uuid;
 begin
  perform set_config('request.jwt.claim.sub','aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',true);
- h := public.create_nucleus_agreement('11111111-1111-4111-8111-111111111111','habit','Original','Descrição','Noite','Semanal');
+ h := public.create_nucleus_agreement('11111111-1111-4111-8111-111111111111','habit','Original','Descrição','Noite','Semanal',7);
  perform set_config('request.jwt.claim.sub','bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb',true);
  perform public.respond_nucleus_agreement(h,'accepted');
  perform public.record_nucleus_habit_moment('11111111-1111-4111-8111-111111111111',h,'good','Preservar este momento');

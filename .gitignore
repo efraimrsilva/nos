@@ -6,6 +6,8 @@ Projeto Nós - Atalho.lnk
 node_modules/
 .next/
 .next-playwright/
+.next-verify/
+artifacts/
 next-env.d.ts
 out/
 test-results/

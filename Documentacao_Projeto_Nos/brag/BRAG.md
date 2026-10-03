@@ -1,6 +1,6 @@
 # Brag document — Projeto Nós
 
-**Versão vigente do projeto:** 0.10.0
+**Versão vigente do projeto:** 0.11.0
 
 ## 2026-09-27 — Agenda interna do Núcleo
 
@@ -76,3 +76,11 @@ Registro factual de contribuições; resultados medidos são separados de benef�
 - **Resultado verificado:** três contas locais confirmaram fluxo, isolamento, concorrência e interface móvel; testes de banco, 80 testes Playwright, tipos e build aprovados. Migração aplicada no nos-dev, quatro funções equivalentes às locais. Interface remota não revalidada.
 - **Benefício esperado:** permitir renegociar compromissos sem alteração unilateral ou perda de registros.
 - **Evidência:** [registro](../_andamento/registros/registro-v0.10.0-2026-10-02-imp-revisao-habito-fun-consentimento-reflexao.md), supabase/tests/nucleus_habit_revisions.sql e scripts/verify-habit-revision-local.mjs.
+
+## 2026-10-03 — Confirmação proporcional do Hábito
+
+- **Problema:** não havia prazo real nem caminho para active; unanimidade pós-teste poderia prolongar espera por respostas esquecidas.
+- **Contribuição:** duração consentida, ciclos preservados e ativação proporcional após prazo; regras visíveis antes das ações e proteção transacional/RLS.
+- **Resultado verificado:** 84 testes, tipos, build, cinco arquivos de banco e fluxo local com cinco contas aprovados; 150/151 exigem 76/51. Migração no nos-dev e 13 funções equivalentes conferidas.
+- **Benefício esperado:** permitir efetivação com votos suficientes e tornar o critério compreensível; tempo de aprovação em uso real não medido.
+- **Evidência:** [registro v0.11.0](../_andamento/registros/registro-v0.11.0-2026-10-03-imp-confirmacao-habito-fun-teste-votacao-proporcional.md), migração 20261003120000 e scripts/verify-habit-trial-local.mjs.

@@ -1,6 +1,6 @@
 # Projeto Nós
 
-**Versão vigente do projeto:** 0.10.0
+**Versão vigente do projeto:** 0.11.0
 
 Um espaço privado para cultivar vínculos saudáveis.
 
@@ -38,7 +38,7 @@ O detalhe de um Hábito em teste em `/nucleos/[id]/acordos/[agreementId]` começ
 1. O projeto de desenvolvimento `nos-dev` já foi criado na organização **Projetos Efraim**. Guarde a senha do banco fora do repositório.
 2. A **Project URL** e a **publishable key** já estão em `.env.local` neste ambiente, ignorado pelo Git. Em outro ambiente, copie `.env.example` para `.env.local` e preencha essas variáveis. Não use uma secret key ou `service_role` no app.
 3. Em **Authentication → URL Configuration**, o Site URL local `http://127.0.0.1:3000` e o retorno `/auth/confirm` já foram salvos. O template padrão de confirmação usa `{{ .ConfirmationURL }}`; SMTP próprio será necessário antes de uso público.
-4. As migrações `20260927173656_create_nuclei_and_invitations`, `20260927221149_create_nucleus_calendar`, `20260928120000_create_nucleus_agreements`, `20260929220000_create_nucleus_habit_moments` e `20261002230000_create_nucleus_habit_revisions` já foram aplicadas e conferidas no `nos-dev`. **Não as reaplique nesse projeto.** Em um novo projeto, use as migrações versionadas em `supabase/migrations/`: autentique a CLI, vincule o projeto correto, revise `npx supabase db push --dry-run` e só então aplique `npx supabase db push`.
+4. As migrações `20260927173656_create_nuclei_and_invitations`, `20260927221149_create_nucleus_calendar`, `20260928120000_create_nucleus_agreements`, `20260929220000_create_nucleus_habit_moments` `20261002230000_create_nucleus_habit_revisions` e `20261003120000_create_nucleus_habit_trials` já foram aplicadas e conferidas no `nos-dev`. **Não as reaplique nesse projeto.** Em um novo projeto, use as migrações versionadas em `supabase/migrations/`: autentique a CLI, vincule o projeto correto, revise `npx supabase db push --dry-run` e só então aplique `npx supabase db push`.
 5. O fluxo de cadastro/confirmação, criação, convite, prévia, aceite e leitura condicionada à associação foi validado com duas contas distintas no ambiente de desenvolvimento.
 
 O valor `<id-do-projeto>` aparece na URL `https://supabase.com/dashboard/project/<id-do-projeto>`. A CLI pode pedir a senha do banco no terminal; não a registre em arquivos ou mensagens. Neste ambiente, a inspeção HTTPS do Avast exigiu uma exceção de domínio para `api.supabase.com`; após a correção, a CLI 2.118.0 aplicou a migração de Acordos e confirmou o histórico remoto. O envio de e-mail padrão do Supabase tem limites de teste, então configure SMTP próprio antes de uso público.
@@ -118,10 +118,16 @@ Registro persistente das decisões, do estado atual e das próximas ações do p
 
 A migração de revisão foi aplicada ao nos-dev pelo editor SQL em transação com o registro de versão; a CLI parou ao inicializar o papel de conexão. As quatro funções remotas foram comparadas com as locais. A interface autenticada foi validada no Supabase local, sem repetição remota.
 
-Com Docker e Supabase local disponíveis, execute `supabase test db`. Para repetir a jornada autenticada, defina `SUPABASE_CLI_PATH` com o executável da CLI e execute `node scripts/verify-habit-revision-local.mjs`. O script aceita somente backend local, cria e remove dados temporários e usa a porta 3200 e o diretório `.next`; encerre previamente outro servidor que use esse diretório. Não registra credenciais. O teste antecipa o relógio somente para solicitações temporárias locais.
+Com Docker e Supabase local disponíveis, execute `supabase test db`. Para repetir a jornada autenticada, defina `SUPABASE_CLI_PATH` com o executável da CLI e execute `node scripts/verify-habit-revision-local.mjs`. O script aceita somente backend local, cria e remove dados temporários e usa a porta 3200 e o diretório isolado `.next-verify`; não precisa encerrar o servidor de desenvolvimento na porta 3000. Não registra credenciais. O teste antecipa o relógio somente para solicitações temporárias locais.
 
 [Registro de revisão](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.10.0-2026-10-02-imp-revisao-habito-fun-consentimento-reflexao.md).
 
-## Próximo passo após v0.10.0
+## Confirmação do Hábito — v0.11.0
 
-[Confirmação do Hábito após o teste](Documentacao_Projeto_Nos/_andamento/funcionalidades/confirmacao-habito.md). A duração do teste entre 7 e 30 dias e o consentimento para virar acordo ativo ainda precisam de contrato persistido. Esse prazo não substitui os sete dias de reflexão das revisões.
+Novos Hábitos exigem teste de 7 a 30 dias. O último aceite unânime inicia o prazo real. Depois do prazo, a confirmação ativa o Hábito com mais da metade dos participantes originais até 150 pessoas (floor(N/2)+1), ou um terço arredondado para cima acima de 150 (ceil(N/3)). Exemplos: 76 de 150; 51 de 151. A interface explica as regras antes das ações e mostra contagem e prazo reais em `/confirmar`. Ajustes e encerramentos mantêm unanimidade, sete dias de reflexão e aplicação explícita; ajuste abre novo teste e novas confirmações. Hábitos sem prazo precisam de novo período explicitamente aceito, sem inferir datas antigas.
+
+Com Supabase local iniciado e SUPABASE_CLI_PATH configurado, execute `supabase test db` e `node scripts/verify-habit-trial-local.mjs`. O script usa cinco contas temporárias, porta 3200 e `.next-verify`, aceita somente backend local e limpa os dados/servidor ao terminar. A antecipação de prazo acontece somente nas fixtures locais. 84 testes, tipos, build, banco e jornada autenticada passaram. Migração aplicada no nos-dev; 13 funções conferidas, interface autenticada testada localmente. [Registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.11.0-2026-10-03-imp-confirmacao-habito-fun-teste-votacao-proporcional.md).
+
+## Próximo passo após v0.11.0
+
+Definir os dados reais da Tela 07 — Nossa Árvore a partir do catálogo v2.1, impacto v1.4 e marcos v1.6. Níveis, experiência e indicadores do protótipo exigem contrato próprio antes da implementação. Progresso, reflexões e publicação pública permanecem fora da entrega atual.

@@ -253,3 +253,12 @@ graph TD
     style F fill:#6A3FD1,stroke:#fff,color:#fff
     style G fill:#EC6F9E,stroke:#fff,color:#fff
 ```
+
+
+## Estados da confirmação pós-teste — decisão de 2026-10-03
+
+**Versão de implementação vigente: 0.11.0; confirmação implementada e validada.**
+
+Cobrir: legado sem datas; período aguardando aceites; teste em curso com término real; prazo concluído sem votos suficientes; confirmação própria registrada; limiar atingido e acordo ativo; revisão pendente; participante indisponível; período recusado; ciclo substituído; encerrado; carregamento; erro de consulta e erro de escrita. Falha de consulta não deve ser apresentada como histórico vazio. Desabilitar novas submissões enquanto pendentes; fornecer feedback acessível. Aguardar prazo não ativa automaticamente. Não simular dias concluídos ou votos.
+
+Regra canônica: [v1.2 — confirmação pós-teste](Projeto_Nos_v1.2_Sistema_de_Aprovacao_e_Construcao_de_Acordos.md#regra-de-confirmação-do-hábito--decisão-de-2026-10-03).

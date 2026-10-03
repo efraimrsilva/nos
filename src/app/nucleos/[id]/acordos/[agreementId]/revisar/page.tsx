@@ -35,7 +35,7 @@ export default async function HabitRevisionPage({ params, searchParams }: {
       <p className="mt-3 whitespace-pre-wrap break-words text-sm">{habit.description}</p>
       <p className="mt-3 break-words text-sm text-muted">Quando: {habit.timing} · Frequência: {habit.frequency}</p>
     </section>
-    {!pendingRevision && habit.status === "testing" && ownAccepted && <section className="mt-5 rounded-2xl border border-line bg-white p-5">
+    {!pendingRevision && ["testing", "active"].includes(habit.status) && ownAccepted && <section className="mt-5 rounded-2xl border border-line bg-white p-5">
       <h2 className="font-display text-xl">Nova solicitação</h2>
       <HabitRevisionForm nucleusId={id} agreementId={agreementId} habit={habit} />
     </section>}
@@ -50,6 +50,7 @@ export default async function HabitRevisionPage({ params, searchParams }: {
           <p className="mt-2 text-xs text-muted">Solicitada em {date(r.created_at)} · Reflexão até {date(r.reflect_until)}</p>
           {r.applied_at && <p className="mt-2 text-xs text-muted">Aplicada em {date(r.applied_at)}</p>}
           {r.kind === "adjust" && <div className="mt-3 grid gap-2 text-sm">
+            <p className="leading-7 text-muted">Aplicar este ajuste coloca o Hábito em teste novamente. {habit.trial_days ? `O novo prazo será de ${habit.trial_days} dias, contado da aplicação, e precisará de novas confirmações.` : "Depois, os envolvidos precisarão acordar um período de teste de 7 a 30 dias."} O histórico permanece preservado, mas os votos anteriores não serão reutilizados.</p>
             <p className="break-words font-semibold">{r.title}</p><p className="whitespace-pre-wrap break-words">{r.description}</p>
             <p className="break-words">Quando: {r.timing} · Frequência: {r.frequency}</p>
           </div>}

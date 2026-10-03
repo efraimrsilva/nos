@@ -13,7 +13,7 @@ const admin = createClient(config.API_URL, config.SERVICE_ROLE_KEY, { auth: { pe
 const users = [], contexts = [];
 let nucleusId, browser;
 const server = spawn(process.execPath, ["node_modules/next/dist/bin/next", "dev", "--hostname", "127.0.0.1", "--port", "3200"], {
-  env: { ...process.env, NEXT_PUBLIC_SUPABASE_URL: config.API_URL, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: config.ANON_KEY, APP_ORIGIN: "http://127.0.0.1:3200" },
+  env: { ...process.env, NOS_LOCAL_VERIFY: "1", NEXT_PUBLIC_SUPABASE_URL: config.API_URL, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: config.ANON_KEY, APP_ORIGIN: "http://127.0.0.1:3200" },
   stdio: "ignore",
 });
 const checked = (result) => { if (result.error) throw new Error(result.error.message); return result.data; };
@@ -45,7 +45,7 @@ try {
   sql(`insert into public.nuclei(id,type,name,purpose,created_by) values('${nucleusId}','casal','Validação da revisão','Teste local temporário','${users[0]}');
     insert into public.nucleus_members(nucleus_id,user_id,role) values('${nucleusId}','${users[0]}','creator'),('${nucleusId}','${users[1]}','member');`);
   const [a, b, outsider] = contexts;
-  const h = checked(await a.client.rpc("create_nucleus_agreement", { target_nucleus: nucleusId, agreement_category: "habit", agreement_title: "Conversar", agreement_description: "Sem telas", agreement_timing: "Noite", agreement_frequency: "Semanal" }));
+  const h = checked(await a.client.rpc("create_nucleus_agreement", { target_nucleus: nucleusId, agreement_category: "habit", agreement_title: "Conversar", agreement_description: "Sem telas", agreement_timing: "Noite", agreement_frequency: "Semanal", agreement_trial_days: 7 }));
   checked(await b.client.rpc("respond_nucleus_agreement", { target_agreement: h, agreement_response: "accepted" }));
   checked(await a.client.rpc("record_nucleus_habit_moment", { target_nucleus: nucleusId, target_agreement: h, moment_mood: "good", moment_note: "Registro preservado" }));
   const url = `http://127.0.0.1:3200/nucleos/${nucleusId}/acordos/${h}/revisar`;

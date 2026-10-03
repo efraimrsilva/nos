@@ -2077,3 +2077,12 @@ graph LR
     style I fill:#4F7E2C,stroke:#fff,color:#fff
     style J fill:#6A3FD1,stroke:#fff,color:#fff
 ```
+
+
+## Complemento das Telas 05 e 06 — confirmação pós-teste — decisão de 2026-10-03
+
+**Versão de implementação vigente: 0.11.0; confirmação implementada e validada.**
+
+Rota protegida /nucleos/[id]/acordos/[agreementId]/confirmar: período atual, datas de início/fim, contagem de Sim, participantes fixados, limiar exigido, resposta própria e histórico paginado de ciclos. Hábitos legados sem datas oferecem proposta de duração de 7 a 30 dias com aceite unânime. Após o prazo, oferecer Sim e acesso a Ajustar/Encerrar pela revisão existente. Ao alcançar os votos necessários, apresentar Acordo ativo; o hub oferece filtro Ativos. Orientações são visíveis na proposta, detalhe e confirmação. Ajuste informa previamente que reinicia o teste e exige novas confirmações.
+
+Regra canônica: [v1.2 — confirmação pós-teste](Projeto_Nos_v1.2_Sistema_de_Aprovacao_e_Construcao_de_Acordos.md#regra-de-confirmação-do-hábito--decisão-de-2026-10-03).

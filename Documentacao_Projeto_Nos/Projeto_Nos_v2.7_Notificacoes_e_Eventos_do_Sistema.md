@@ -421,3 +421,12 @@ graph TD
     style G fill:#4F7E2C,stroke:#fff,color:#fff
     style H fill:#6A3FD1,stroke:#fff,color:#fff
 ```
+
+
+## Evento planejado — Hábito confirmado após teste — decisão de 2026-10-03
+
+**Versão de implementação vigente: 0.11.0; confirmação implementada e validada.**
+
+Quando implementadas notificações, a confirmação efetivada após o prazo deve ser um evento distinto do aceite inicial da proposta. O gatilho é alcançar o limiar de Sim e persistir active, sem revisão pendente; não é a primeira resposta nem o decurso do prazo. Texto sugerido: “Hábito confirmado após o teste”. Direcionar para o detalhe; não afirmar unanimidade nem expor votos individuais. Notificações continuam fora desta entrega; somente feedback local na interface está no escopo.
+
+Regra canônica: [v1.2 — confirmação pós-teste](Projeto_Nos_v1.2_Sistema_de_Aprovacao_e_Construcao_de_Acordos.md#regra-de-confirmação-do-hábito--decisão-de-2026-10-03).

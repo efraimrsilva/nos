@@ -1,6 +1,6 @@
 # Frontend web
 
-**Versão vigente do projeto:** 0.9.0
+**Versão vigente do projeto:** 0.11.0
 
 ## Decisões implementadas nesta fatia
 
@@ -38,3 +38,9 @@ A [agenda interna v0.6.0](../registros/registro-v0.6.0-2026-09-27-01-imp-agenda-
 A [Tela 04 Acordos v0.7.0](../registros/registro-v0.7.0-2026-09-28-imp-hub-acordos-fun-propostas-consentimento.md) apresenta propostas de Hábitos e Experiências, voto individual e transição para teste por unanimidade. A migração SQL, a RLS e o fluxo de consentimento foram validados no Supabase local e no `nos-dev` com contas temporárias; Essência e progresso permanecem sem dados simulados.
 
 A [Tela 05 Detalhe do Hábito v0.8.0](../registros/registro-v0.8.0-2026-09-29-imp-detalhe-habito-fun-consulta-proposta-teste.md) usa a mesma sessão e RLS para mostrar apenas uma proposta de Hábito em teste. A [v0.9.0](../registros/registro-v0.9.0-2026-09-29-imp-registro-momento-habito-fun-historico-real.md) acrescentou registro e histórico reais de momentos, com escrita por função autenticada e leitura protegida. Revisão e métricas continuam sem contratos próprios.
+
+## v0.11.0 — Teste e confirmação do Hábito
+
+Rota /confirmar protegida por sessão, vínculo e relação Hábito/Núcleo. Duração inteira validada na fronteira; ações checam ciclo antes da RPC (chamada de procedimento remoto). Banco calcula prontidão e confirma sob bloqueio transacional. Votos próprios e agregados mantêm privacidade. Orientações compartilhadas explicam unanimidade inicial e limiar posterior; ajuste avisa reinício. Active habilita registro/revisão e filtro. Legado não recebe datas inventadas.
+
+84 testes, tipos e build aprovados; cinco arquivos SQL e jornada autenticada local com cinco contas. Next usa .next-verify para scripts locais (NOS_LOCAL_VERIFY=1), separado de .next do usuário e .next-playwright dos testes. Migração e 13 funções conferidas no nos-dev; interface autenticada somente local. Próximo: contrato real da Tela 07 — Nossa Árvore.

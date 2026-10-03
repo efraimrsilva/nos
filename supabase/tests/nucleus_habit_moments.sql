@@ -24,7 +24,7 @@ declare
   moment_id uuid;
 begin
   perform set_config('request.jwt.claim.sub', actor_a, true);
-  habit_id := public.create_nucleus_agreement(nucleus_a, 'habit', 'Conversar', 'Sem telas', 'Depois do jantar', 'Semanal');
+  habit_id := public.create_nucleus_agreement(nucleus_a, 'habit', 'Conversar', 'Sem telas', 'Depois do jantar', 'Semanal',7);
   begin
     perform public.record_nucleus_habit_moment(nucleus_a, habit_id, 'good', 'Ainda pendente');
     raise exception 'registro em proposta pendente foi permitido';

@@ -743,3 +743,12 @@ graph TD
     style G fill:#E2A52C,stroke:#fff,color:#fff
     style H fill:#EC6F9E,stroke:#fff,color:#fff
 ```
+
+
+## Alinhamento da confirmação do Hábito — decisão de 2026-10-03
+
+**Versão de implementação vigente: 0.11.0; confirmação implementada e validada.**
+
+O detalhe do Hábito deve conduzir à confirmação pós-teste em /nucleos/[id]/acordos/[agreementId]/confirmar. Exibir datas reais e regras de voto, distinguir Em teste, Ativo e Encerrado, manter registro e revisão para ativos. Prazo completo não equivale a ativação; votos suficientes são necessários. O recorte não implementa progresso, Essência ou notificações.
+
+Regra canônica: [v1.2 — confirmação pós-teste](Projeto_Nos_v1.2_Sistema_de_Aprovacao_e_Construcao_de_Acordos.md#regra-de-confirmação-do-hábito--decisão-de-2026-10-03).

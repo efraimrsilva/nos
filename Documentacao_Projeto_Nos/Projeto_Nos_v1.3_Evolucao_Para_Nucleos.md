@@ -481,3 +481,12 @@ graph TD
     style G fill:#E2A52C,stroke:#fff,color:#fff
     style H fill:#EC6F9E,stroke:#fff,color:#fff
 ```
+
+
+## Confirmação em Núcleos de diferentes tamanhos — decisão de 2026-10-03
+
+**Versão de implementação vigente: 0.11.0; confirmação implementada e validada.**
+
+A confirmação do Hábito após o teste usa o tamanho da fotografia dos integrantes participantes: até 150, mais da metade; acima de 150, um terço arredondado para cima. Novos integrantes não são incorporados a votações existentes. A proposta inicial, o novo período do legado, ajustes e encerramento continuam unânimes. Propósito, Essência e Manifesto mantêm seus contratos próprios.
+
+Regra canônica: [v1.2 — confirmação pós-teste](Projeto_Nos_v1.2_Sistema_de_Aprovacao_e_Construcao_de_Acordos.md#regra-de-confirmação-do-hábito--decisão-de-2026-10-03).

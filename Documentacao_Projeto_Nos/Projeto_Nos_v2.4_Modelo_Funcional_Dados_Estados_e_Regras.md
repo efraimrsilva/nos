@@ -326,7 +326,7 @@ Compromisso construído a partir de necessidade, conversa e consentimento.
 ### Regras
 
 - proposta não é acordo;
-- acordo ativo exige aceite dos participantes;
+- proposta inicial exige aceite unânime; Hábito ativo exige prazo de teste completo e limiar de confirmações do ciclo (maioria absoluta até 150; um terço arredondado para cima acima de 150);
 - mudanças estruturais exigem aprovação;
 - encerramento deve ser de comum acordo;
 - promoção para Essência exige consenso.
@@ -1234,3 +1234,12 @@ stateDiagram-v2
     classDef state fill:#6A3FD1,stroke:#fff,color:#fff
     classDef transition fill:#E2A52C,stroke:#fff,color:#fff
 ```
+
+
+## Contrato implementável de ciclos e confirmações — decisão de 2026-10-03
+
+**Versão de implementação vigente: 0.11.0; confirmação implementada e validada.**
+
+Persistir duração inteira de 7 a 30 dias, início/fim reais, fotografia dos participantes, número exigido de votos e respostas/data de confirmação por ciclo. O ciclo guarda o combinado; ajustes preservam o ciclo anterior e abrem outro sem votos reaproveitados. Até 150 participantes, requiredVotes=floor(N/2)+1; acima de 150, requiredVotes=ceil(N/3). Ativar somente na última confirmação necessária após prazo, sem revisão pendente. Estado active é compatível com detalhe, momentos e revisão. Dados legados sem datas permanecem sem término inferido até novo período unânime. Escritas usam transação com bloqueio do Hábito antes de ciclo/revisão.
+
+Regra canônica: [v1.2 — confirmação pós-teste](Projeto_Nos_v1.2_Sistema_de_Aprovacao_e_Construcao_de_Acordos.md#regra-de-confirmação-do-hábito--decisão-de-2026-10-03).

@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { parseAgreementProposal } from "@/features/agreements/proposal-input";
+import { parseTrialDays } from "@/features/agreements/habit-trial-input";
 import { isNucleusAuthUnavailable } from "@/features/nuclei/nucleus-access";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { routes } from "@/shared/routes";
@@ -28,13 +29,15 @@ export async function createAgreementProposal(nucleusId: string, _previous: Agre
     frequency: String(formData.get("frequency") ?? ""),
   });
   if (!input) return { error: "Preencha categoria, compromisso, descrição, momento e frequência." };
+  const trialDays = input.category === "habit" ? parseTrialDays(formData.get("trialDays")) : null;
+  if (input.category === "habit" && trialDays === null) return { error: "Escolha um período de teste inteiro entre 7 e 30 dias." };
   const { client: supabase, authUnavailable } = await authenticatedClient();
   if (!supabase) return { error: authUnavailable ? "Não foi possível conferir a sessão agora." : "Entre na sua conta novamente." };
   // A RPC confere participação e registra o aceite do autor junto às respostas pendentes.
   const { error } = await supabase.rpc("create_nucleus_agreement", {
     target_nucleus: nucleusId, agreement_category: input.category, agreement_title: input.title,
     agreement_description: input.description, agreement_timing: input.timing,
-    agreement_frequency: input.frequency,
+    agreement_frequency: input.frequency, agreement_trial_days: trialDays,
   });
   if (error) return { error: "Não foi possível criar a proposta. Confira se há ao menos duas pessoas no Núcleo e tente novamente." };
   revalidatePath(`${routes.nucleus}/${nucleusId}/acordos`);

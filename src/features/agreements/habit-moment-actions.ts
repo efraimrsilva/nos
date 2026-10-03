@@ -23,7 +23,7 @@ export async function recordHabitMoment(nucleusId: string, agreementId: string,
   const { error } = await supabase.rpc("record_nucleus_habit_moment", {
     target_nucleus: nucleusId, target_agreement: agreementId, moment_mood: input.mood, moment_note: input.note,
   });
-  if (error) return { error: "Não foi possível registrar o momento. Atualize a página e confira se o hábito continua em teste." };
+  if (error) return { error: "Não foi possível registrar o momento. Atualize a página e confira se o hábito continua em teste ou ativo." };
   const detailPath = `${routes.nucleus}/${nucleusId}/acordos/${agreementId}`;
   revalidatePath(detailPath);
   redirect(`${detailPath}?resultado=momento`);

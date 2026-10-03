@@ -28,7 +28,7 @@ declare
   declined_id uuid;
 begin
   perform set_config('request.jwt.claim.sub', actor_a, true);
-  accepted_id := public.create_nucleus_agreement(nucleus_a, 'habit', 'Conversar', 'Sem telas', 'Depois do jantar', 'Semanal');
+  accepted_id := public.create_nucleus_agreement(nucleus_a, 'habit', 'Conversar', 'Sem telas', 'Depois do jantar', 'Semanal',7);
   if (select status from public.nucleus_agreements where id = accepted_id) <> 'pending' then
     raise exception 'a proposta não iniciou pendente';
   end if;
@@ -48,7 +48,7 @@ begin
   exception when insufficient_privilege then null;
   end;
   begin
-    perform public.create_nucleus_agreement(nucleus_b, 'habit', 'Sozinho', 'Sem parceiro', 'Hoje', 'Semanal');
+    perform public.create_nucleus_agreement(nucleus_b, 'habit', 'Sozinho', 'Sem parceiro', 'Hoje', 'Semanal',7);
     raise exception 'proposta sem segunda pessoa foi criada';
   exception when invalid_parameter_value then null;
   end;

@@ -1016,3 +1016,12 @@ graph TD
     style D fill:#EC6F9E,stroke:#fff,color:#fff
     style E fill:#4F7E2C,stroke:#fff,color:#fff
 ```
+
+
+## Orientações de consentimento na interface — decisão de 2026-10-03
+
+**Versão de implementação vigente: 0.11.0; confirmação implementada e validada.**
+
+Antes de aceitar e confirmar, mostrar texto visível explicando: iniciar teste, ajustar e encerrar exigem unanimidade; somente confirmação pós-teste usa maioria absoluta até 150 participantes ou um terço acima de 150. Mostrar exemplos 2/2, 2/3, 76/150 e 51/151, além da contagem real do ciclo. Não usar “todos concordaram” quando apenas o limiar foi alcançado. Ausência de resposta não é Sim. A ação em andamento deve bloquear reenvio e informar resultado ou erro; respeitar movimento reduzido. Ajustes devem explicar o novo prazo e a invalidação de confirmações anteriores antes do consentimento.
+
+Regra canônica: [v1.2 — confirmação pós-teste](Projeto_Nos_v1.2_Sistema_de_Aprovacao_e_Construcao_de_Acordos.md#regra-de-confirmação-do-hábito--decisão-de-2026-10-03).

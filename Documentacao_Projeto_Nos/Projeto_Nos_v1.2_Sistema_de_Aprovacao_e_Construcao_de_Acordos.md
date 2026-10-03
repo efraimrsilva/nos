@@ -195,7 +195,7 @@ Esta etapa complementa a Regra 5 da plataforma.
 
 Ao término do período de teste.
 
-### Pergunta para ambos
+### Pergunta para cada participante
 
 > Este acordo funcionou para nós?
 
@@ -207,9 +207,26 @@ Ao término do período de teste.
 
 ### Resultado
 
-Se ambos responderem "Sim":
+Quando os votos Sim atingirem o limiar do ciclo, após o prazo completo:
 
 🟢 Acordo Ativo
+
+---
+
+### Regra de confirmação do Hábito — decisão de 2026-10-03
+
+**Versão de implementação vigente: 0.11.0; confirmação implementada e validada.** Esta decisão substitui a exigência anterior de confirmação unânime pós-teste somente para Hábitos.
+
+- Até 150 participantes: maioria absoluta, `floor(N/2)+1`.
+- Acima de 150 participantes: pelo menos um terço, `ceil(N/3)`, arredondado para cima.
+- Exemplos: 2/2, 2/3, 3/4, 76/150, 51/151 e 100/300.
+- N é a fotografia dos integrantes participantes da proposta, preservada no ciclo. Entrada posterior não concede voto; saída não reduz o denominador e bloqueia a operação até regularização.
+- Quem não responde não conta como Sim, mas deixa de bloquear sozinho a confirmação quando o limiar já foi alcançado. A confirmação que completa o limiar efetiva o estado ativo em transação; registrar autoria, data e respostas do ciclo. Não há ativação somente por passagem do tempo.
+- O prazo escolhido de 7 a 30 dias é apresentado antes do aceite inicial; o último aceite unânime inicia a contagem real. Hábitos existentes sem datas precisam de um período acordado unanimemente, sem inferência retroativa.
+- Ajustar e Encerrar usam revisão unânime, sete dias de reflexão desde a solicitação e aplicação explícita. Revisão pendente bloqueia confirmação. Ajuste aplicado reabre teste com a duração acordada e votos novos, preservando ciclos e momentos anteriores.
+- Interface deve explicar essas diferenças antes das decisões e mostrar N, o limiar e a contagem real de Sim. Não revelar votos individuais das outras pessoas.
+
+Aceite inicial, ajustes, encerramento, promoção para Essência, confirmação do Manifesto e respostas de eventos mantêm seus próprios contratos; esta exceção não os modifica.
 
 ---
 
@@ -442,12 +459,14 @@ Conversas Guiadas preparam diálogo presencial; não substituem aprovação, con
 stateDiagram-v2
     [*] --> Rascunho
     Rascunho --> EmAprovacao: Enviar Proposta
-    EmAprovacao --> Ativo: Aprovacao Unanime
+    EmAprovacao --> EmTeste: Aceite inicial unanime
+    EmTeste --> Ativo: Prazo completo e limiar de confirmacoes
+    EmTeste --> EmRevisao: Solicitar ajuste ou encerramento
     EmAprovacao --> Recusado: Recusa de Algum Membro
     Recusado --> Rascunho: Ajustar Proposta
     Ativo --> EmRevisao: Ciclo de Revisao Atingido
     EmRevisao --> Ativo: Manter
-    EmRevisao --> EmAprovacao: Propor Ajuste
+    EmRevisao --> EmTeste: Aplicar ajuste unanime apos reflexao
     EmRevisao --> Encerrado: Encerrar de Comum Acordo
     Ativo --> Essencia: 6 Meses de Sucesso + Consenso
     Essencia --> [*]

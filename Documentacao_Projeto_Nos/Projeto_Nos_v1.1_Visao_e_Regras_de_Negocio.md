@@ -178,7 +178,7 @@ Se uma pessoa deseja inserir algo no sistema, presume-se que aquela necessidade 
 
 Nenhuma sugestão é uma ordem.
 
-Todo item deve passar por conversa e consenso entre as partes.
+A proposta inicial, os ajustes e o encerramento exigem conversa e consenso entre os envolvidos. A confirmação do Hábito após teste segue o limiar de votos explícitos definido na v1.2: maioria absoluta até 150 participantes; um terço, arredondado para cima, acima de 150. Essa exceção não transforma silêncio em concordância nem altera os critérios de Essência ou Manifesto.
 
 ## Regra 3
 
@@ -192,7 +192,7 @@ Os acordos devem ser realistas, alcançáveis e compatíveis com a rotina do Nú
 
 ## Regra 5
 
-Após a aprovação de um novo acordo, existe um período de reflexão de até 7 dias para possíveis ajustes ou cancelamento consensual.
+O Hábito inicia um teste de 7 a 30 dias no último aceite unânime da proposta. Ajustes e encerramento têm um prazo independente de sete dias completos de reflexão desde a solicitação, além de unanimidade e aplicação explícita. O término do teste sozinho não ativa o acordo.
 
 ## Regra 6
 

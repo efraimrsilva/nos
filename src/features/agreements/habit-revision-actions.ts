@@ -11,7 +11,7 @@ export async function submitHabitRevision(nucleusId: string, agreementId: string
   _previous: RevisionState, form: FormData): Promise<RevisionState> {
   const { supabase, habit } = await loadHabitContext(nucleusId, agreementId);
   const kind = String(form.get("kind") ?? "");
-  if (habit.status !== "testing" || !["adjust", "end"].includes(kind)) return { error: "Revisão indisponível." };
+  if (!["testing", "active"].includes(habit.status) || !["adjust", "end"].includes(kind)) return { error: "Revisão indisponível." };
   const input = parseAgreementProposal({ category: "habit", title: String(form.get("title") ?? ""),
     description: String(form.get("description") ?? ""), timing: String(form.get("timing") ?? ""),
     frequency: String(form.get("frequency") ?? "") });
