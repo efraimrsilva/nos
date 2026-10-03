@@ -1,26 +1,34 @@
 # Estado do Projeto Nós
 
-**Versão vigente do projeto:** 0.9.0
+**Versão vigente do projeto:** 0.10.0
 
 **DOCS_DIR:** `Documentacao_Projeto_Nos`
 
-**Atualizado:** 2026-09-29
+**Atualizado:** 2026-10-03
 
-**Git:** `main`, `HEAD` e `origin/main` em `aa6315a` antes desta entrega; a v0.9.0 está local e ainda não foi commitada.
+**Git:** `main`; fetch e avanço direto incorporaram `264f483` de origin/main (remoção remota de AGENTS.md). Entrega v0.10.0 registrada no commit de assunto feat(habitos): entregar revisão consensual com reflexão na v0.10.0; referência de retomada: HEAD. Push à origin/main autorizado em 2026-10-03; confirmação final exige comparar o hash de HEAD com refs/heads/main no GitHub. Instruções fornecidas na conversa continuam aplicáveis.
 
-## Entrega atual — registro de momento do Hábito
+## Entrega atual — Revisar Hábito
 
-A v0.9.0 implementa **Registrar momento** com humor, nota opcional, autoria e histórico real no detalhe. A migração cria leitura protegida por RLS e uma função autenticada que exige vínculo, aceite individual e Hábito em teste. **Revisar** ainda depende de contrato de consentimento e permanece sem ação ativa. [Registro v0.9.0](registros/registro-v0.9.0-2026-09-29-imp-registro-momento-habito-fun-historico-real.md).
+A v0.10.0 implementa revisão de Hábito em teste: ajuste do combinado ou encerramento consensual. Solicitações não alteram o combinado até unanimidade dos envolvidos originais, sete dias completos desde a criação e aplicação explícita por participante. Recusa preserva o combinado; encerramento conserva momentos e impede novas gravações. Apenas uma revisão pendente por Hábito. A interface consulta prontidão agregada sem revelar votos individuais.
 
-**Situação:** migração `20260929220000` aplicada no Supabase local e no `nos-dev`, com quatro versões alinhadas. `supabase test db` passou; três contas locais verificaram gravação, leitura, isolamento e interface em desktop/celular. A navegação do histórico foi testada com inserção entre páginas. A revisão independente encontrou e permitiu corrigir cursor instável e parâmetro repetido; a conferência final não encontrou achados materiais. Após a instalação dos navegadores, a verificação final aprovou 78/78 testes Playwright, além do sucesso de tipos e build na v0.9.0. **Próximo passo executável:** unidade validada e pronta para commit; próxima funcionalidade será Revisar com consenso para qualquer mudança.
+**Validação:** 80/80 testes Playwright desktop/mobile, tipos e build aprovados; três arquivos de teste de banco passaram. Script local com três contas verificou ajuste, prazo, falta de consenso após prazo, recusa, isolamento, histórico, encerramento, concorrência e layout móvel. Dados temporários removidos. Migração 20261002230000 aplicada localmente e no nos-dev; corpos normalizados das quatro funções coincidem. CLI remota parou na inicialização do papel de conexão; aplicação e histórico realizados em transação pelo editor SQL. Interface autenticada testada localmente, sem repetição remota. Revisão independente encontrou ação prematura de aplicação, corrigida com RPC agregada e teste; segunda revisão sem novos achados.
+
+**Próximo passo:** especificar confirmação do Hábito após teste, com duração de 7 a 30 dias conforme v1.2/v2.4. Definir início/duração, tratamento dos Hábitos existentes sem prazo, consentimento e compatibilidade de acordo ativo. Os sete dias de reflexão da revisão são independentes. [Continuidade detalhada](funcionalidades/confirmacao-habito.md). Essência, progresso e conversa de cuidado continuam dependências próprias. [Registro v0.10.0](registros/registro-v0.10.0-2026-10-02-imp-revisao-habito-fun-consentimento-reflexao.md).
+
+## Marco anterior — registro de momento do Hábito
+
+A v0.9.0 implementa **Registrar momento** com humor, nota opcional, autoria e histórico real no detalhe. A migração cria leitura protegida por RLS e uma função autenticada que exige vínculo, aceite individual e Hábito em teste. Naquele marco, Revisar permanecia sem ação ativa; o recorte foi entregue na v0.10.0. [Registro v0.9.0](registros/registro-v0.9.0-2026-09-29-imp-registro-momento-habito-fun-historico-real.md).
+
+**Situação:** migração `20260929220000` aplicada no Supabase local e no `nos-dev`, com quatro versões alinhadas. `supabase test db` passou; três contas locais verificaram gravação, leitura, isolamento e interface em desktop/celular. A navegação do histórico foi testada com inserção entre páginas. A revisão independente encontrou e permitiu corrigir cursor instável e parâmetro repetido; a conferência final não encontrou achados materiais. Após a instalação dos navegadores, a verificação final aprovou 78/78 testes Playwright, além do sucesso de tipos e build na v0.9.0. **Continuidade desse marco:** recorte de Revisar aprovado em 2026-10-02 e entregue na v0.10.0; a v0.9.0 consta no commit `381a308`.
 
 ## Marco anterior — Tela 05 Detalhe do Hábito na v0.8.0
 
 O recorte inicial da Tela 05 foi concluído na v0.8.0: a rota `/nucleos/[id]/acordos/[agreementId]` lê apenas propostas de Hábito em `testing` pertencentes ao Núcleo autenticado. O hub liga esses itens ao detalhe, que apresenta descrição, momento, frequência, data UTC e resposta própria. Naquele marco, histórico e reflexões, calendário de prática, progresso, revisão, impacto, linguagem de cuidado e evento associado não tinham dados reais. O histórico de momentos chegou na v0.9.0. [Registro v0.8.0](registros/registro-v0.8.0-2026-09-29-imp-detalhe-habito-fun-consulta-proposta-teste.md).
 
-**Validação:** teste da rota sem sessão passou em desktop e móvel após falhar antes da implementação; 78 testes Playwright, tipos e build passaram hoje. Revisão independente apontou indicação do fuso, corrigida. Supabase local e três contas temporárias verificaram acesso autorizado, link do hub, isolamento entre Núcleos, categoria/estado e leitura apenas da resposta própria. Dados temporários removidos. A nova tela não foi testada no `nos-dev`.
+**Validação:** teste da rota sem sessão passou em desktop e móvel após falhar antes da implementação; 78 testes Playwright, tipos e build passaram na conferência de 2026-10-01. Revisão independente apontou indicação do fuso, corrigida. Supabase local e três contas temporárias verificaram acesso autorizado, link do hub, isolamento entre Núcleos, categoria/estado e leitura apenas da resposta própria. Dados temporários removidos. A nova tela não foi testada no `nos-dev`.
 
-**Continuidade daquele marco:** a ação de registro e o histórico foram entregues na v0.9.0. Para **Revisar**, definir estados, mudanças permitidas e novo consentimento quando o compromisso mudar. Conferir permissões da matriz v2.5, regras dos fluxos v2.2 e contratos v2.4 antes de expor ação ativa. Progresso, árvore e evento associado dependem de contratos próprios. A publicação pública permanece fora de escopo.
+**Continuidade daquele marco:** a ação de registro e o histórico foram entregues na v0.9.0. Revisar Hábito em teste foi entregue na v0.10.0 com consenso e reflexão; acordo ativo ainda exige confirmação após teste. Conferir permissões da matriz v2.5, regras dos fluxos v2.2 e contratos v2.4 antes de expor ação ativa. Progresso, árvore e evento associado dependem de contratos próprios. A publicação pública permanece fora de escopo.
 
 ## Entrega concluída — Tela 04 Acordos
 
@@ -32,7 +40,7 @@ O hub privado em `/nucleos/[id]/acordos` está concluído na v0.7.0. O recorte i
 
 **Validações recentes:** 78 testes Playwright desktop/mobile, `npm.cmd run typecheck` e `npm.cmd run build` passaram na v0.9.0 em 2026-10-01.
 
-**Continuidade:** a Tela 05 foi entregue inicialmente na v0.8.0 e recebeu histórico na v0.9.0; a próxima ação da Tela 06 é Revisar. Publicação pública continua fora de escopo.
+**Continuidade:** a Tela 05 foi entregue inicialmente na v0.8.0 e recebeu histórico na v0.9.0; a ação Revisar da Tela 06 foi integrada na v0.10.0. Publicação pública continua fora de escopo.
 
 ## Entrega concluída — agenda interna
 
@@ -46,11 +54,11 @@ Agenda por Núcleo concluída na **v0.6.0**: eventos pontuais com título, inten
 
 **Continuidade após a agenda:** a Tela 04 — Acordos foi concluída na v0.7.0; evidência e limites constam em [Entrega concluída — Tela 04 Acordos](#entrega-concluída--tela-04-acordos). A credencial de acesso permanece fora do repositório. Publicação pública exige revisão própria de privacidade e operação.
 
-**Unidades pendentes de commit:** v0.9.0 — registro e histórico reais de momentos do Hábito, com migração, testes, versão e documentação validados (testes/tipos/build conferidos); pronta para commit. **Contador de interações:** 63 respostas concluídas incluindo esta interação; começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
+**Unidades pendentes de commit:** nenhuma; conteúdo da v0.10.0 conferido no objeto do commit, incluindo código, migração, testes, versão e documentação. Ajustes finais deste andamento integram a mesma unidade antes do push. **Contador de interações:** 67 respostas concluídas incluindo esta interação; começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
 
 ## Objetivo e situação
 
-O onboarding web contempla **Escolher caminho** (`/comecar`), **Tipo** (`/comecar/tipo`), **Propósito** (`/comecar/proposito`), **Conta** (`/conta`), **Convite inicial** (`/comecar/convite-inicial/[id]`) e **Entrada por convite** (`/comecar/convite`). A área protegida inclui Home (`/nucleos/[id]`), agenda (`/nucleos/[id]/agenda`), Acordos (`/nucleos/[id]/acordos`), Detalhe do Hábito (`/nucleos/[id]/acordos/[agreementId]`) e Registrar momento (`/nucleos/[id]/acordos/[agreementId]/registrar`). A migração atual chegou ao `nos-dev`; a interface desta rota foi validada com Supabase local. O app ainda não foi publicado.
+O onboarding web contempla **Escolher caminho** (`/comecar`), **Tipo** (`/comecar/tipo`), **Propósito** (`/comecar/proposito`), **Conta** (`/conta`), **Convite inicial** (`/comecar/convite-inicial/[id]`) e **Entrada por convite** (`/comecar/convite`). A área protegida inclui Home (`/nucleos/[id]`), agenda (`/nucleos/[id]/agenda`), Acordos (`/nucleos/[id]/acordos`), Detalhe do Hábito (`/nucleos/[id]/acordos/[agreementId]`) , Registrar momento (`/nucleos/[id]/acordos/[agreementId]/registrar`) e Revisar (`/nucleos/[id]/acordos/[agreementId]/revisar`). A migração atual chegou ao `nos-dev`; a interface desta rota foi validada com Supabase local. O app ainda não foi publicado.
 
 **Critérios de aceite da entrega v0.5.0:** exibir nome, tipo, propósito e vínculo reais para participante autorizado; oferecer convite apenas ao criador; manter autenticação e RLS; distinguir ausência de acesso de falha de consulta; informar carregamento, erro e alcance inicial sem simular árvore, agenda ou gratidão. Os fluxos de conta e associação foram testados com contas distintas na v0.4.0.
 
@@ -67,7 +75,7 @@ O onboarding web contempla **Escolher caminho** (`/comecar`), **Tipo** (`/comeca
 - A v0.6.0 é MINOR pela agenda interna. Eventos e respostas pertencem ao Núcleo; leitura exige vínculo sob RLS e alterações passam por RPCs autenticadas. Árvore e gratidão ainda exigem contratos e permissões próprios.
 - A v0.7.0 é MINOR pela Tela 04 Acordos. Propostas pertencem ao Núcleo, respostas são individuais e a unanimidade é necessária para iniciar teste; uma proposta não equivale a acordo ativo. Essência e progresso não são simulados.
 - A v0.8.0 é MINOR pelo recorte inicial da Tela 05 e sua nova rota. O detalhe lê exclusivamente Hábito em teste e a resposta própria; dados de acompanhamento ainda indisponíveis são explicados sem simulação.
-- A v0.9.0 é MINOR pela ação real de Registrar momento, nova rota, histórico e contrato persistido. Notas são visíveis ao Núcleo; somente participante que aceitou pode gravar. Revisão continua pendente de consenso explícito.
+- A v0.9.0 é MINOR pela ação real de Registrar momento, nova rota, histórico e contrato persistido. Notas são visíveis ao Núcleo; somente participante que aceitou pode gravar. Revisão foi integrada na v0.10.0; este é o limite histórico da v0.9.0.
 - Cada mudança tem registro datado em `registros/`, com versão, Imp. e Fun. no título e arquivo. O monitoramento automático continua cancelado.
 
 ## Evidências e limites
@@ -82,11 +90,11 @@ O onboarding web contempla **Escolher caminho** (`/comecar`), **Tipo** (`/comeca
 
 ## Continuidade e commit
 
-- A Home v0.5.0, a agenda v0.6.0, Acordos v0.7.0 e a Tela 05 v0.8.0 estão registradas no Git. O registro de momento v0.9.0 está local, validado com contas no Supabase local e migração aplicada ao `nos-dev`. Publicação pública segue condicionada a SMTP, limites operacionais e privacidade.
+- A Home v0.5.0, a agenda v0.6.0, Acordos v0.7.0, a Tela 05 v0.8.0 e o registro de momento v0.9.0 estão registrados no Git. O ambiente local foi validado com contas no Supabase local e migração aplicada ao `nos-dev`. Publicação pública segue condicionada a SMTP, limites operacionais e privacidade.
 
 ## Estado das ferramentas
 
-Superpowers disponível e aplicado. Context7 ativo, consultado nesta entrega para Next.js/Supabase; a versão instalada Next.js 16.3.6 foi conferida nos guias locais. Octocode MCP não está exposto; a CLI 19.1.0 em cache foi conferida, mas a consulta de grafo nesta sessão falhou ao interpretar JSON no PowerShell; buscas locais precisas complementaram a investigação. Playwright disponível. Docker 29.8.1 funcional; Supabase local iniciado nesta entrega. CLI Supabase 2.118.0 autenticada e vinculada ao `nos-dev`; a exceção específica para `api.supabase.com` no Avast eliminou a interceptação HTTPS. Não guardar token no repositório.
+Superpowers disponível e aplicado. Context7 ativo, consultado nesta entrega para Next.js/Supabase; a versão instalada Next.js 16.3.6 foi conferida nos guias locais. No marco v0.9.0, Octocode MCP não estava exposto; a CLI 19.1.0 em cache foi conferida, mas a consulta de grafo naquela sessão falhou ao interpretar JSON no PowerShell; buscas locais precisas complementaram a investigação. Playwright disponível. Docker 29.8.1 funcional; Supabase local iniciado nesta entrega. CLI Supabase 2.118.0 autenticada e vinculada ao `nos-dev`; a exceção específica para `api.supabase.com` no Avast eliminou a interceptação HTTPS. Não guardar token no repositório.
 
 Pesquisa externa de ferramentas em 2026-09-29 consultou projetos e documentação oficiais. Candidatos priorizados: Supabase CLI + pgTAP para contratos/RLS; Renovate ou Dependabot para atualizações controladas; Sentry para observabilidade após lançamento; axe-core integrado ao Playwright para acessibilidade. Lighthouse CI, Gitleaks e CodeQL são opções condicionais de CI/segurança; nenhum foi instalado ou configurado. Não adicionar essas ferramentas até a etapa funcional apropriada.
 
@@ -111,3 +119,23 @@ Pesquisa externa de ferramentas em 2026-09-29 consultou projetos e documentaçã
 - [Frontend web](tecnologias/frontend.md): stack, segurança e próximos passos.
 - [Estado anterior](estado-atual.md): referência histórica.
 - `README.md`: protocolo do andamento.
+
+## Retomada — 2026-10-02
+
+Código, documentação e Git conferidos: HEAD e referência local origin/main coincidem em 381a308; não houve fetch. Alteração preexistente deste documento preservada. Próxima entrega proposta: revisão do Hábito em teste com ajustes ou encerramento consensual, histórico preservado e reflexão de sete dias. Recorte aprovado na interação seguinte e implementado na v0.10.0; consulte a entrega atual.
+
+- [Registro de retomada](registros/registro-v0.9.0-2026-10-02-imp-retomada-projeto-fun-escopo-revisao.md).
+
+## Ferramentas e execução — v0.10.0
+
+Superpowers: planejamento, TDD, depuração, revisão e verificação aplicados. Context7 consultado para Next.js/Supabase; guias locais do Next.js 16.3.6 complementaram a consulta, pois essa versão não apareceu no catálogo versionado. Octocode CLI 19.1.0 disponível e usado para dependentes de habit-access.ts; ALLOWED_PATHS foi definido somente no processo de consulta. Grafo sintático parcial por imports não resolvidos, complementado com leitura local. Docker reiniciado e Supabase local disponível. CLI Supabase em cache foi usada diretamente; invocação npx não retornou prontamente. Aplicação remota concluída via painel autenticado, sem alteração de credenciais.
+
+- [Plano executado da revisão](planos/revisao-habito.md).
+
+**Conferência final v0.10.0:** tipos e build repetidos após versionamento, manifestos alinhados, 90 links locais sem alvo ausente e diff sem erros de formatação. Consulta local confirmou zero Núcleos temporários do verificador. Este era o estado anterior à autorização Git de 2026-10-03; não houve deploy.
+
+## Publicação Git — 2026-10-03 — v0.10.0
+
+Usuário autorizou commit e push com descrição abrangente. [Registro desta preparação](registros/registro-v0.10.0-2026-10-03-imp-publicacao-git-fun-continuidade-confirmacao.md). Próximo passo documentado com fontes, decisões pendentes e critérios observáveis; sem nova funcionalidade iniciada.
+
+**Validação para publicação em 2026-10-03:** 80/80 testes Playwright, três arquivos de teste do banco, checagem de tipos e build aprovados novamente; 121 links locais sem alvo ausente e diff sem erro de formatação. Revisão independente final sem novos achados de implementação.

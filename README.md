@@ -1,6 +1,6 @@
 # Projeto Nós
 
-**Versão vigente do projeto:** 0.9.0
+**Versão vigente do projeto:** 0.10.0
 
 Um espaço privado para cultivar vínculos saudáveis.
 
@@ -31,14 +31,14 @@ A agenda interna em `/nucleos/[id]/agenda` está concluída na v0.6.0. A migraç
 
 A Tela 04 de Acordos em `/nucleos/[id]/acordos` está concluída na v0.7.0. Há propostas reais de Hábitos e Experiências, respostas individuais e entrada em teste somente por aceite unânime; recusa encerra a proposta. Essência apresenta estado vazio, sem progresso simulado. A migração `20260928120000_create_nucleus_agreements` foi aplicada ao `nos-dev`; três contas temporárias validaram aceite, recusa e isolamento, e os dados de teste foram removidos. O aplicativo ainda não foi publicado.
 
-O detalhe de um Hábito em teste em `/nucleos/[id]/acordos/[agreementId]` começou na v0.8.0 com os dados reais da proposta e acesso protegido. Na v0.9.0, pessoas que aceitaram participar podem abrir `/registrar`, guardar humor e nota opcional, e consultar o histórico visível ao Núcleo. A migração de momentos foi aplicada ao `nos-dev`; o percurso autenticado foi validado no Supabase local com três contas, sem revalidação remota da interface. Revisão, progresso, reflexões, impacto, linguagem de cuidado e evento associado ainda exigem contratos próprios. A agenda pode ser aberta separadamente.
+O detalhe de um Hábito em teste em `/nucleos/[id]/acordos/[agreementId]` começou na v0.8.0 com os dados reais da proposta e acesso protegido. Na v0.9.0, pessoas que aceitaram participar podem abrir `/registrar`, guardar humor e nota opcional, e consultar o histórico visível ao Núcleo. A migração de momentos foi aplicada ao `nos-dev`; o percurso autenticado foi validado no Supabase local com três contas, sem revalidação remota da interface. Na v0.10.0, `/revisar` permite propor ajuste ou encerramento consensual do Hábito em teste. A aplicação exige unanimidade, sete dias desde a solicitação e confirmação explícita. Encerrar preserva os momentos e impede novas gravações; o hub inclui o filtro Encerrados. Progresso, reflexões, impacto, linguagem de cuidado e evento associado ainda exigem contratos próprios. A agenda pode ser aberta separadamente.
 
 ## Configurar Supabase
 
 1. O projeto de desenvolvimento `nos-dev` já foi criado na organização **Projetos Efraim**. Guarde a senha do banco fora do repositório.
 2. A **Project URL** e a **publishable key** já estão em `.env.local` neste ambiente, ignorado pelo Git. Em outro ambiente, copie `.env.example` para `.env.local` e preencha essas variáveis. Não use uma secret key ou `service_role` no app.
 3. Em **Authentication → URL Configuration**, o Site URL local `http://127.0.0.1:3000` e o retorno `/auth/confirm` já foram salvos. O template padrão de confirmação usa `{{ .ConfirmationURL }}`; SMTP próprio será necessário antes de uso público.
-4. As migrações `20260927173656_create_nuclei_and_invitations`, `20260927221149_create_nucleus_calendar`, `20260928120000_create_nucleus_agreements` e `20260929220000_create_nucleus_habit_moments` já foram aplicadas e conferidas no `nos-dev`. **Não as reaplique nesse projeto.** Em um novo projeto, use as migrações versionadas em `supabase/migrations/`: autentique a CLI, vincule o projeto correto, revise `npx supabase db push --dry-run` e só então aplique `npx supabase db push`.
+4. As migrações `20260927173656_create_nuclei_and_invitations`, `20260927221149_create_nucleus_calendar`, `20260928120000_create_nucleus_agreements`, `20260929220000_create_nucleus_habit_moments` e `20261002230000_create_nucleus_habit_revisions` já foram aplicadas e conferidas no `nos-dev`. **Não as reaplique nesse projeto.** Em um novo projeto, use as migrações versionadas em `supabase/migrations/`: autentique a CLI, vincule o projeto correto, revise `npx supabase db push --dry-run` e só então aplique `npx supabase db push`.
 5. O fluxo de cadastro/confirmação, criação, convite, prévia, aceite e leitura condicionada à associação foi validado com duas contas distintas no ambiente de desenvolvimento.
 
 O valor `<id-do-projeto>` aparece na URL `https://supabase.com/dashboard/project/<id-do-projeto>`. A CLI pode pedir a senha do banco no terminal; não a registre em arquivos ou mensagens. Neste ambiente, a inspeção HTTPS do Avast exigiu uma exceção de domínio para `api.supabase.com`; após a correção, a CLI 2.118.0 aplicou a migração de Acordos e confirmou o histórico remoto. O envio de e-mail padrão do Supabase tem limites de teste, então configure SMTP próprio antes de uso público.
@@ -113,3 +113,15 @@ Registro persistente das decisões, do estado atual e das próximas ações do p
 ---
 
 ## Licença
+
+## Verificar Revisar Hábito — v0.10.0
+
+A migração de revisão foi aplicada ao nos-dev pelo editor SQL em transação com o registro de versão; a CLI parou ao inicializar o papel de conexão. As quatro funções remotas foram comparadas com as locais. A interface autenticada foi validada no Supabase local, sem repetição remota.
+
+Com Docker e Supabase local disponíveis, execute `supabase test db`. Para repetir a jornada autenticada, defina `SUPABASE_CLI_PATH` com o executável da CLI e execute `node scripts/verify-habit-revision-local.mjs`. O script aceita somente backend local, cria e remove dados temporários e usa a porta 3200 e o diretório `.next`; encerre previamente outro servidor que use esse diretório. Não registra credenciais. O teste antecipa o relógio somente para solicitações temporárias locais.
+
+[Registro de revisão](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.10.0-2026-10-02-imp-revisao-habito-fun-consentimento-reflexao.md).
+
+## Próximo passo após v0.10.0
+
+[Confirmação do Hábito após o teste](Documentacao_Projeto_Nos/_andamento/funcionalidades/confirmacao-habito.md). A duração do teste entre 7 e 30 dias e o consentimento para virar acordo ativo ainda precisam de contrato persistido. Esse prazo não substitui os sete dias de reflexão das revisões.

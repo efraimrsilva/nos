@@ -1,6 +1,6 @@
 # Brag document — Projeto Nós
 
-**Versão vigente do projeto:** 0.8.0
+**Versão vigente do projeto:** 0.10.0
 
 ## 2026-09-27 — Agenda interna do Núcleo
 
@@ -68,3 +68,11 @@ Registro factual de contribuições; resultados medidos são separados de benef�
 - **Resultado verificado:** 70 testes Playwright, tipos e build passaram. Três contas locais em dois Núcleos confirmaram navegação, acesso, isolamento, categoria/estado e leitura da resposta própria sob RLS. Os dados temporários foram removidos.
 - **Benefício esperado:** permitir que revisão e registro de momento sejam integrados posteriormente sobre uma consulta protegida já existente.
 - **Evidência:** `src/app/nucleos/[id]/acordos/[agreementId]/page.tsx`, `tests/habit-detail.spec.ts` e [registro v0.8.0](../_andamento/registros/registro-v0.8.0-2026-09-29-imp-detalhe-habito-fun-consulta-proposta-teste.md).
+
+## 2026-10-02 — Revisão do Hábito com consentimento — v0.10.0
+
+- **Problema:** o Hábito em teste não podia receber ajustes ou encerramento consensual.
+- **Contribuição:** revisão persistida com respostas individuais, reflexão de sete dias, prontidão agregada e aplicação transacional; histórico de momentos preservado.
+- **Resultado verificado:** três contas locais confirmaram fluxo, isolamento, concorrência e interface móvel; testes de banco, 80 testes Playwright, tipos e build aprovados. Migração aplicada no nos-dev, quatro funções equivalentes às locais. Interface remota não revalidada.
+- **Benefício esperado:** permitir renegociar compromissos sem alteração unilateral ou perda de registros.
+- **Evidência:** [registro](../_andamento/registros/registro-v0.10.0-2026-10-02-imp-revisao-habito-fun-consentimento-reflexao.md), supabase/tests/nucleus_habit_revisions.sql e scripts/verify-habit-revision-local.mjs.

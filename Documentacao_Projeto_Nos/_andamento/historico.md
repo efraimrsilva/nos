@@ -281,3 +281,17 @@
 - **Produto:** propostas de Hábito em teste ganharam link para detalhe protegido com descrição, momento, frequência, data identificada em UTC e resposta própria. A interface explica a ausência de histórico, progresso, revisão e evento associado, sem simular dados.
 - **Verificação:** teste de acesso sem sessão falhou antes da rota e passou depois; 70 testes desktop/mobile, tipos e build passaram. Revisão independente apontou fuso não indicado, corrigido. Com Supabase local, três contas e dois Núcleos temporários validaram o link, acesso dos integrantes, isolamento, rejeição de categoria/estado inadequados e RLS da resposta própria. Dados temporários removidos. A nova rota não foi testada no `nos-dev`.
 - **Versão e continuidade:** 0.7.0 → 0.8.0 (MINOR) pelo recorte inicial da Tela 05, com nova rota de consulta protegida. A Tela 06 deve definir persistência e permissões de revisão e registro de momento; os itens restantes da Tela 05 serão integrados quando houver dados reais. [Registro](registros/registro-v0.8.0-2026-09-29-imp-detalhe-habito-fun-consulta-proposta-teste.md). Commit atômico conferido com código, teste, versão e documentação; push para `origin/main` autorizado em 2026-09-29. Confirmar o estado remoto pelo Git.
+
+## 2026-10-02 — Retomada documental após v0.9.0
+
+Código e Git conferidos em 381a308. Próxima entrega proposta: Revisar Hábito em teste com consenso e reflexão. Recorte aguarda aprovação; nenhuma alteração de produto. Registro: registros/registro-v0.9.0-2026-10-02-imp-retomada-projeto-fun-escopo-revisao.md.
+
+## 2026-10-02 — Revisão consensual do Hábito v0.10.0
+
+Ajustes e encerramento de Hábitos em teste exigem unanimidade, reflexão de sete dias e aplicação explícita. Histórico preservado. Banco local, fluxo de três contas, concorrência, 80 testes, tipos e build aprovados. Achado independente de prontidão corrigido. Migração aplicada ao nos-dev pelo editor SQL em transação com histórico, após bloqueio da CLI; quatro corpos de função equivalentes aos locais. Interface autenticada validada localmente. Unidade pronta para commit, não autorizado nesta interação. [Registro](registros/registro-v0.10.0-2026-10-02-imp-revisao-habito-fun-consentimento-reflexao.md).
+
+## 2026-10-03 — Preparação de commit e push da v0.10.0
+
+Usuário autorizou publicação Git abrangente. Fetch encontrou 264f483 (remoção de AGENTS.md), incorporado por avanço direto sem sobrescrever o remoto. Revisão final independente confirmou o próximo passo; documentação agora diferencia teste de 7 a 30 dias e reflexão de sete dias, com decisões pendentes explícitas. Testes de banco repetidos com sucesso; verificações finais e hash publicado serão conferidos antes de encerrar. [Registro](registros/registro-v0.10.0-2026-10-03-imp-publicacao-git-fun-continuidade-confirmacao.md).
+
+- **Commit conferido:** unidade da v0.10.0 contém os 22 arquivos previstos, incluindo a continuidade da confirmação. Pendência de commit removida por inspeção do objeto Git, não somente pela limpeza do diretório. Ajustes deste registro incorporados ao mesmo commit antes do envio. Hash final consultável em HEAD; publicação confirmada pela comparação com refs/heads/main ao concluir o push.

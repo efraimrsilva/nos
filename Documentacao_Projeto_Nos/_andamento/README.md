@@ -1,8 +1,10 @@
 # Andamento do Projeto Nós
 
-**Versão vigente do projeto:** 0.9.0
+**Versão vigente do projeto:** 0.10.0
 
 Este diretório preserva o contexto operacional entre sessões e retomadas do projeto.
+
+Entrega mais recente: [v0.10.0 — Revisar Hábito com consentimento e reflexão](registros/registro-v0.10.0-2026-10-02-imp-revisao-habito-fun-consentimento-reflexao.md). [Plano executado](planos/revisao-habito.md).
 
 ## Estrutura
 
@@ -49,3 +51,7 @@ A versão central do aplicativo é a indicada em `estado.md`, `package.json` e `
 ## Indicador de contexto
 
 Em 2026-09-24, o usuário dispensou qualquer informação sobre percentual ou indicador de contexto nas respostas. A continuidade permanece protegida por estes arquivos.
+
+## Próxima implementação
+
+[Confirmação do Hábito após teste](funcionalidades/confirmacao-habito.md): fontes, prazo entre 7 e 30 dias, dados existentes, decisões pendentes e critérios de aceitação. [Publicação Git v0.10.0](registros/registro-v0.10.0-2026-10-03-imp-publicacao-git-fun-continuidade-confirmacao.md).

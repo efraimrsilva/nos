@@ -12,7 +12,7 @@ export default async function HabitDetailPage({ params, searchParams }: {
   searchParams: Promise<{ resultado?: string | string[]; antes?: string | string[] }>;
 }) {
   const { id, agreementId } = await params;
-  const { supabase, user, nucleus, habit } = await loadHabitContext(id, agreementId);
+  const { supabase, user, nucleus, habit } = await loadHabitContext(id, agreementId, true);
   const query = await searchParams;
   const cursor = parseHabitMomentCursor(query.antes);
   let request = supabase.from("nucleus_habit_moments")
@@ -37,12 +37,12 @@ export default async function HabitDetailPage({ params, searchParams }: {
     </Link>
     <p className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted"><LockKeyhole size={14} aria-hidden="true" />Espaço privado · {nucleus.name}</p>
     <h1 className="mt-3 break-words font-display text-[32px] leading-tight md:text-[42px]">{habit.title}</h1>
-    <p className="mt-3 inline-flex rounded-full bg-[#edf3e5] px-3 py-1.5 text-xs font-semibold text-forest">Em teste com consentimento</p>
-    <p className="mt-4 text-sm leading-7 text-muted">Todas as pessoas participantes aceitaram experimentar esta proposta. Ela ainda não é um acordo ativo; a revisão será disponibilizada em outra etapa.</p>
+    <p className="mt-3 inline-flex rounded-full bg-[#edf3e5] px-3 py-1.5 text-xs font-semibold text-forest">{habit.status === "ended" ? "Encerrado de comum acordo" : "Em teste com consentimento"}</p>
+    <p className="mt-4 text-sm leading-7 text-muted">{habit.status === "ended" ? "O histórico permanece disponível. Este Hábito não recebe novos momentos." : "Todas as pessoas participantes aceitaram experimentar esta proposta. Ela ainda não é um acordo ativo. Ajustes e encerramento exigem nova decisão conjunta."}</p>
     {query.resultado === "momento" && <p role="status" className="mt-4 rounded-xl bg-[#edf3e5] p-3 text-sm text-forest">Momento registrado no histórico do hábito.</p>}
 
     <section aria-labelledby="habit-agreement-heading" className="mt-6 rounded-[22px] border border-line bg-white p-5 shadow-[0_5px_18px_#52403805] sm:p-7">
-      <h2 id="habit-agreement-heading" className="font-display text-xl">O que vamos experimentar</h2>
+      <h2 id="habit-agreement-heading" className="font-display text-xl">{habit.status === "ended" ? "O combinado encerrado" : "O que vamos experimentar"}</h2>
       <p className="mt-3 whitespace-pre-wrap break-words text-sm leading-7 text-muted">{habit.description}</p>
       <dl className="mt-5 grid gap-3 border-t border-line pt-5 text-sm sm:grid-cols-2">
         <div><dt className="font-semibold text-leaf">Momento combinado</dt><dd className="mt-1 break-words text-muted">{habit.timing}</dd></div>
@@ -69,13 +69,13 @@ export default async function HabitDetailPage({ params, searchParams }: {
 
     <section aria-labelledby="habit-next-heading" className="mt-4 rounded-[22px] border border-line bg-white p-5 sm:p-7">
       <h2 id="habit-next-heading" className="font-display text-xl">Outros acompanhamentos</h2>
-      <p className="mt-2 text-sm leading-7 text-muted">Revisão, reflexões e progresso ainda não estão disponíveis. Esses recursos precisam de regras próprias de consentimento e dados reais.</p>
+      <p className="mt-2 text-sm leading-7 text-muted">Reflexões e progresso ainda não estão disponíveis. Esses recursos precisam de regras próprias e dados reais.</p>
       <p className="mt-3 text-sm leading-7 text-muted">A agenda do Núcleo ainda não associa eventos a propostas. Você pode consultá-la separadamente.</p>
       <Link href={`${routes.nucleus}/${id}/agenda`} className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Abrir agenda do Núcleo</Link>
     </section>
     <nav aria-label="Ações do hábito" className="sticky bottom-3 mt-5 flex gap-3 rounded-2xl border border-line bg-white/95 p-3 shadow-lg backdrop-blur-sm">
-      <span aria-disabled="true" className="flex min-h-11 items-center justify-center rounded-xl border border-line px-4 text-sm font-semibold text-muted">Revisar · em breve</span>
-      {habit.nucleus_agreement_participants?.[0]?.response === "accepted" && <Link href={`${routes.nucleus}/${id}/acordos/${agreementId}/registrar`}
+      <Link href={`${routes.nucleus}/${id}/acordos/${agreementId}/revisar`} className="flex min-h-11 items-center justify-center rounded-xl border border-line px-4 text-sm font-semibold text-leaf">{habit.status === "ended" ? "Ver revisões" : "Revisar"}</Link>
+      {habit.status === "testing" && habit.nucleus_agreement_participants?.[0]?.response === "accepted" && <Link href={`${routes.nucleus}/${id}/acordos/${agreementId}/registrar`}
         className="flex min-h-11 flex-1 items-center justify-center rounded-xl bg-forest px-4 text-center text-sm font-semibold text-white">Registrar momento</Link>}
     </nav>
   </OnboardingShell>;
