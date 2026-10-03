@@ -11,7 +11,7 @@
 - O lançamento já suportará todos os tipos de Núcleo desde o início.
 - A modelagem será genérica: tipo do Núcleo configura linguagem, sugestões e regras aplicáveis, sem criar bancos, permissões ou fluxos paralelos por tipo.
 - A stack aprovada é TypeScript, React, Next.js, Tailwind CSS e componentes próprios/shadcn-ui no frontend; Supabase (Postgres, Auth, RLS, Storage e Realtime quando justificado) no backend; API Routes do Next.js para operações sensíveis; e Capacitor como empacotamento nativo após a experiência web.
-- O protótipo em `Telas/Nós App.dc.html` é a referência visual e de navegação; os documentos 1.x e 2.x são a fonte de regras de domínio, privacidade e segurança.
+- O protótipo em `Documentacao_Projeto_Nos/Telas/Nós App.dc.html` é a referência visual e de navegação; os documentos 1.x e 2.x são a fonte de regras de domínio, privacidade e segurança.
 - A primeira fatia visível é: autenticação -> escolher criar Núcleo ou entrar por convite -> tipo -> propósito -> convite/aceite -> Home.
 - A primeira tela implementada é **Escolher caminho**. Nesta fatia visual, é pública e não opera dados; a autenticação deve protegê-la antes de habilitar criação ou aceite reais.
 

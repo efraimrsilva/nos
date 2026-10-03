@@ -84,3 +84,11 @@ Registro factual de contribuições; resultados medidos são separados de benef�
 - **Resultado verificado:** 84 testes, tipos, build, cinco arquivos de banco e fluxo local com cinco contas aprovados; 150/151 exigem 76/51. Migração no nos-dev e 13 funções equivalentes conferidas.
 - **Benefício esperado:** permitir efetivação com votos suficientes e tornar o critério compreensível; tempo de aprovação em uso real não medido.
 - **Evidência:** [registro v0.11.0](../_andamento/registros/registro-v0.11.0-2026-10-03-imp-confirmacao-habito-fun-teste-votacao-proporcional.md), migração 20261003120000 e scripts/verify-habit-trial-local.mjs.
+
+## 2026-10-03 — Guia visual completo de desenvolvimento
+
+- **Problema:** o protótipo e as regras estavam distribuídos entre imagens, HTML, documentação e recortes implementados; faltava uma sequência visual com Conta primeiro e indicação de pendências.
+- **Contribuição:** atlas navegável de 72 telas/estados, com fichas de contratos, permissões e saídas, 12 percursos e mapa das 37 interfaces de origem. Planejadas e recortes existentes distinguem intenção de implementação.
+- **Resultado verificado:** 37 origens cobertas, IDs/destinos íntegros, 72 prévias e 360 estados renderizados sem erro JavaScript. Verificações de filtros, teclado, móvel e impressão CSS; revisão independente com dois achados corrigidos e conferidos. Versão funcional preservada.
+- **Benefício esperado:** reduzir ambiguidades e orientar a ordem das próximas entregas; redução de retrabalho ainda não medida.
+- **Evidência:** [guia](../wireframes/GUIA.md), [cobertura e pendências](../wireframes/COBERTURA.md) e [registro de planejamento](../_andamento/registros/planejamento-2026-10-03-wireframe-completo.md).

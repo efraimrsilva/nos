@@ -52,8 +52,14 @@ A versão central do aplicativo é a indicada em `estado.md`, `package.json` e `
 
 Em 2026-09-24, o usuário dispensou qualquer informação sobre percentual ou indicador de contexto nas respostas. A continuidade permanece protegida por estes arquivos.
 
+## Wireframe vivo e materiais de origem
+
+Decisão de 2026-10-03: manter o [wireframe](../wireframes/atlas/index.html) atualizado para refletir todo o desenvolvimento atual e futuro. Cada entrega que alterar a experiência deve atualizar desenhos, fichas, fluxos e [pendências](../wireframes/COBERTURA.md) correspondentes, com situação fiel ao código e validações. Detalhes no [guia](../wireframes/GUIA.md) e em [estado.md](estado.md).
+
+Os materiais de origem foram movidos pelo usuário para [Telas](../Telas/N%C3%B3s%20App.dc.html), dentro de **Documentacao_Projeto_Nos**. Preservar essa organização; o protótipo antigo é fonte histórica, enquanto o atlas é mantido continuamente.
+
 ## Próxima implementação
 
-[Confirmação do Hábito após teste](funcionalidades/confirmacao-habito.md): fontes, prazo entre 7 e 30 dias, dados existentes, decisões pendentes e critérios de aceitação. [Publicação Git v0.10.0](registros/registro-v0.10.0-2026-10-03-imp-publicacao-git-fun-continuidade-confirmacao.md).
+A confirmação do Hábito após teste foi concluída na v0.11.0. Retomar o contrato de Nossa Árvore e manter o wireframe sincronizado com o recorte aprovado.
 
 - [Próximo recorte — Nossa Árvore](funcionalidades/nossa-arvore.md): fontes, base real, lacunas e critérios de aceite.

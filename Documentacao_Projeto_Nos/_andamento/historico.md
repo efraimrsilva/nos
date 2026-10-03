@@ -307,3 +307,15 @@ Duração explícita, ciclos reais, maioria até 150 e um terço acima de 150; o
 ## 2026-10-03 — Publicação Git abrangente da v0.11.0
 
 Usuário autorizou commit e push. Continuidade de Nossa Árvore detalhada com fontes, lacunas e critérios; 84 testes, cinco arquivos SQL, tipos, build e 498 links aprovados novamente. Conferência do objeto Git e do hash remoto ao concluir o envio. [Registro](registros/registro-v0.11.0-2026-10-03-02-imp-publicacao-git-fun-continuidade-arvore.md).
+
+## 2026-10-03 — Planejamento visual completo, sem nova versão de desenvolvimento
+
+Atlas offline com Conta primeiro, 72 telas/estados, oito áreas, 12 percursos e cobertura das 37 interfaces. 45 telas planejadas e 27 recortes existentes com limites, contratos e permissões. Prévia, estados, destinos, filtros, teclado, layout móvel e impressão CSS verificados; zero erros JavaScript. Dois achados independentes corrigidos e reconferidos. Aplicativo, banco e versão 0.11.0 preservados; nenhum commit/push/deploy. Revisar o material antes de retomar Nossa Árvore. [Guia](../wireframes/GUIA.md), [pendências](../wireframes/COBERTURA.md) e [registro](registros/planejamento-2026-10-03-wireframe-completo.md).
+
+## 2026-10-03 — Wireframe vivo e organização dos materiais de origem
+
+Usuário determinou manutenção contínua do wireframe para refletir o desenvolvimento atual e futuro. Regra permanente registrada em estado, protocolo de andamento e guia: atualizar desenhos, contratos, permissões, situação e pendências junto a cada entrega afetada. Pasta Telas movida pelo usuário para Documentacao_Projeto_Nos/Telas; links e referências ajustados, sem refazer a movimentação. Versão funcional 0.11.0 preservada. [Registro](registros/planejamento-2026-10-03-manutencao-wireframe-organizacao-telas.md).
+
+## 2026-10-03 — Publicação autorizada do atlas vivo no GitHub
+
+Commit e push autorizados pelo usuário com descrição abrangente do trabalho: 72 telas/estados, 12 percursos, contratos/pendências, manutenção contínua e 35 materiais movidos para a documentação. Fetch sem divergência; 84 testes, tipos, build, atlas, 617 links e diff aprovados. Revisão independente sem achado bloqueante no atlas ou escopo. Objeto Git e hash remoto conferidos ao encerrar o envio; sem deploy ou alteração de versão funcional. [Registro](registros/planejamento-2026-10-03-publicacao-wireframe-github.md).

@@ -14,7 +14,7 @@ Implementar a próxima tela após Escolher caminho: `/comecar/tipo`. Esta entreg
 
 ## Decisões e referências
 
-- Referência visual: etapa `obTipoStep` em `Telas/Nós App.dc.html`; conteúdo da tela 30 no catálogo v2.1.
+- Referência visual: etapa `obTipoStep` em `Documentacao_Projeto_Nos/Telas/Nós App.dc.html`; conteúdo da tela 30 no catálogo v2.1.
 - A decisão vigente de suportar todos os tipos desde o início prevalece sobre a divisão histórica da v1.3 entre tipos iniciais e expansões futuras. Incluídos Casal, Família, Irmãos, Pais e Filhos, Amigos, Equipes, Comunidades, Mentorias e Grupos Religiosos. Os primeiros cinco preservam ordem e descrições do protótipo; os demais recebem descrições curtas compatíveis com o domínio.
 - Catálogo tipado em `src/features/nuclei/nucleus-types.ts`, compartilhado pelas etapas. Nenhuma regra de permissão, limite de participantes ou estrutura de backend específica por tipo.
 - Nenhuma opção inicialmente selecionada. Rádios nativos oferecem seleção única, validação obrigatória e navegação por setas; feedback de seleção e foco não depende apenas de cor.

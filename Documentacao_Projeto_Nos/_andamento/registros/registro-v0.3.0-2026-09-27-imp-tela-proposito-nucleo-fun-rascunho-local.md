@@ -6,7 +6,7 @@
 
 ## Objetivo e contexto
 
-Substituir o espaço reservado em `/comecar/proposito` pela próxima tela prevista após Tipo de Núcleo. O protótipo (`Telas/Nós App.dc.html`, etapa `obProposito`) e o catálogo de interfaces v2.1 pedem nome, propósito editável, sugestão conforme tipo e ação Continuar. A autenticação e a persistência seguem pendentes; a interface não pode sugerir que um Núcleo foi criado.
+Substituir o espaço reservado em `/comecar/proposito` pela próxima tela prevista após Tipo de Núcleo. O protótipo (`Documentacao_Projeto_Nos/Telas/Nós App.dc.html`, etapa `obProposito`) e o catálogo de interfaces v2.1 pedem nome, propósito editável, sugestão conforme tipo e ação Continuar. A autenticação e a persistência seguem pendentes; a interface não pode sugerir que um Núcleo foi criado.
 
 ## Requisitos e decisões técnicas
 

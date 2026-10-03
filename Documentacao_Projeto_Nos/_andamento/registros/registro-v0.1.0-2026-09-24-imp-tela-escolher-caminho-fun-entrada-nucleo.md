@@ -28,7 +28,7 @@ O registro original informa oito testes Playwright aprovados em desktop/mobile, 
 - O produto suportará todos os tipos de Núcleo desde a primeira versão.
 - A arquitetura será única e orientada a configuração, preservando `nucleoId` como limite de privacidade.
 - O fluxo inicial priorizado é autenticação, escolha de entrada, criação/aceite de Núcleo e somente então a Home.
-- O arquivo `Telas/Nós App.dc.html` será usado como referência de design e fluxo, não como base de código de produção.
+- O arquivo `Documentacao_Projeto_Nos/Telas/Nós App.dc.html` será usado como referência de design e fluxo, não como base de código de produção.
 
 ## Stack aprovada
 

@@ -6,9 +6,41 @@
 
 **Atualizado:** 2026-10-03
 
-**Git:** `main`; entrega v0.10.0 no commit `e315b12f37b6c94718c1d56d4b73c7d4b722b14a`, de assunto feat(habitos): entregar revisão consensual com reflexão na v0.10.0. HEAD e refs/heads/main no GitHub conferidos e iguais em 2026-10-03 nesta retomada. O commit anterior `264f483` removeu AGENTS.md; instruções fornecidas na conversa continuam aplicáveis. A v0.11.0 está registrada no commit desta publicação (consultar HEAD), incluindo a preparação documental. Objeto Git inspecionado: 54 arquivos, sem .env ou artifacts; envio ao GitHub autorizado pelo usuário, com hash remoto conferido ao encerrar.
+**Git:** main; última entrega funcional v0.11.0 em e3643b69dd323b78ac348e4033f3e936a8a1fca0. Atlas vivo e reorganização registrados no commit desta publicação (consultar HEAD), com objeto Git inspecionado: 60 arquivos, incluindo 35 renomes R100, sem credenciais ou artifacts. Push autorizado; confirmação do hash remoto realizada ao encerrar o envio. A v0.10.0 está preservada no histórico.
 
-## Entrega atual — Confirmação do Hábito após teste
+## Publicação autorizada do atlas — 2026-10-03
+
+Usuário autorizou commit e push abrangendo o atlas, sua manutenção contínua e a reorganização dos materiais. Branch main; fetch confirmou ausência de divergência a partir de e3643b6. [Registro de publicação](registros/planejamento-2026-10-03-publicacao-wireframe-github.md).
+
+**Validação final desta publicação:** 84/84 testes Playwright desktop/mobile, tipos e build aprovados novamente; atlas verificado com 72 prévias/saídas, 360 estados e 12 percursos sem erro JavaScript; 617 links locais de toda a documentação e README sem alvo ausente. Os 35 renomes têm conteúdo idêntico (R100); manifestos e código de aplicação preservados. Revisão independente final sem achado bloqueante no atlas ou escopo; autorrevisão e diff preparados conferidos. Objeto Git inspecionado: 60 arquivos, incluindo 35 renomes R100, atlas e registros; nenhum arquivo de credenciais ou execução temporária. A comparação de HEAD com o hash remoto será feita após o envio. Esta publicação Git não é deploy do aplicativo.
+
+**Continuidade vigente:** fechar contrato de Nossa Árvore e atualizar a Tela 38 junto à implementação. Regra permanente do atlas vivo continua em vigor; versão funcional permanece 0.11.0.
+
+## Planejamento atual — wireframe completo — 2026-10-03
+
+Antes da próxima implementação, foi produzido um guia visual com Conta como Tela 01: 72 desenhos, oito áreas, 12 percursos e as 37 interfaces do catálogo cobertas. **45 telas planejadas** e **27 recortes existentes**, com limites e pendências individuais. [Abrir atlas](../wireframes/atlas/index.html), [guia de uso e decisões](../wireframes/GUIA.md), [inventário e pendências](../wireframes/COBERTURA.md), [registro de planejamento](registros/planejamento-2026-10-03-wireframe-completo.md), [decisão de manutenção contínua](registros/planejamento-2026-10-03-manutencao-wireframe-organizacao-telas.md).
+
+**Versão funcional preservada em 0.11.0.** Usuário determinou que esta tarefa não registra versão de desenvolvimento. Nenhuma mudança nas rotas, contratos persistidos ou manifestos. A entrada Conta primeiro pertence ao planejamento; o app atual mantém / → /comecar. Na criação inicial, Git conferido em main, HEAD e3643b6, sem envio remoto. A publicação posterior está registrada acima.
+
+**Critérios e validação:** primeira tela Conta; cobertura integral; permissões e decisões abertas sinalizadas; destinos íntegros. Playwright verificou 72 prévias, saídas, 360 estados, busca, filtros, teclado, 12 percursos, modo web, impressão CSS e ausência de transbordamento horizontal a 375 px; zero erros JavaScript. Capturas inspecionadas. Revisão independente identificou navegação principal em fluxos focados e autoria incorreta no caminho de desejos alheios; ambos corrigidos e reconferidos pelo revisor. Verificação do atlas repetida após correções. Não houve nova validação funcional do app nem exportação de PDF.
+
+**Ferramentas desta tarefa:** Superpowers de entendimento, revisão e verificação; Playwright local. Context7 disponível, sem consulta necessária para desenho offline em tecnologias nativas. Octocode MCP não exposto; sem pesquisa avançada de dependências nesta tarefa, buscas locais delimitadas suficientes. Nenhuma instalação ou dependência nova.
+
+**Próximo passo executável:** wireframe aprovado como referência viva; incorporar ajustes futuros junto às entregas e fechar fontes/contrato da Tela 38 — Nossa Árvore, conforme documento de continuidade já existente, antes de implementar. Bloqueio de implementação: indicadores de crescimento ainda sem contrato; não bloqueia o material de planejamento.
+
+## Regra permanente — wireframe vivo — decisão de 2026-10-03
+
+O usuário determinou que o wireframe será mantido continuamente para refletir **todo o desenvolvimento atual e futuro**. Ele passa a ser a referência visual viva do produto; a criação inicial não encerra sua manutenção. Esta decisão amplia o uso anterior como planejamento das próximas telas, sem criar uma nova versão de desenvolvimento nesta atualização documental.
+
+- Ao planejar ou alterar telas, rotas, navegação, regras, permissões, dados ou estados de interface, consultar o atlas e atualizar os desenhos e fichas afetados no mesmo conjunto lógico da entrega.
+- Ao concluir cada recorte, confrontar o wireframe com o comportamento real: atualizar situação, ações, destinos, contratos, permissões, limitações e pendências. Elementos futuros continuam identificados como planejados; não marcar uma tela inteira como concluída quando só um recorte existe.
+- Manter coerentes [atlas e fichas](../wireframes/atlas/index.html), [guia](../wireframes/GUIA.md), [cobertura e pendências](../wireframes/COBERTURA.md) e o registro da entrega. Atualizar a referência funcional do atlas quando a versão real do aplicativo mudar; isso não significa incrementar a versão apenas para editar o wireframe.
+- Preservar os IDs existentes sempre que possível; acrescentar telas e registrar substituições ou consolidações sem perder a referência às interfaces antigas. Conferir destinos, links, estados e apresentação das partes alteradas; ampliar a verificação se a mudança afetar renderização ou navegação compartilhada.
+- Em retomadas, conferir as fichas relevantes contra o código e as evidências atuais. Diferenças devem ser corrigidas ou sinalizadas explicitamente antes de considerar a entrega concluída.
+
+**Protótipo e materiais de origem:** pasta movida pelo usuário para [Documentacao_Projeto_Nos/Telas](../Telas/N%C3%B3s%20App.dc.html). HTML, PDF, imagens e extrações permanecem como fontes históricas; o atlas vivo acompanha a evolução. Não recriar a pasta antiga na raiz.
+
+## Última entrega funcional — Confirmação do Hábito após teste
 
 A v0.11.0 conclui o ciclo de teste e confirmação. Novas propostas de Hábito exigem duração inteira de 7 a 30 dias, informada antes do aceite; o último aceite unânime inicia o teste no banco. Após o prazo, o Sim que alcança floor(N/2)+1 até 150 participantes, ou ceil(N/3) acima de 150, ativa o Hábito em transação. N é o conjunto fixo dos participantes originais da proposta, fotografado no ciclo. Ausências não contam como votos; membros posteriores consultam sem entrar na votação. Saída de participante original bloqueia a operação sem reduzir N.
 
@@ -66,7 +98,7 @@ Agenda por Núcleo concluída na **v0.6.0**: eventos pontuais com título, inten
 
 **Continuidade após a agenda:** a Tela 04 — Acordos foi concluída na v0.7.0; evidência e limites constam em [Entrega concluída — Tela 04 Acordos](#entrega-concluída--tela-04-acordos). A credencial de acesso permanece fora do repositório. Publicação pública exige revisão própria de privacidade e operação.
 
-**Unidades pendentes de commit:** nenhuma. A unidade v0.11.0 foi conferida no objeto Git com código, migração, testes, documentação e manifestos; registro de publicação integrado ao mesmo commit. A entrega funcional v0.10.0 já está no commit e315b12, confirmado em refs/heads/main em 2026-10-03. **Contador de interações:** 70 respostas concluídas incluindo esta interação; começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
+**Unidades pendentes de commit:** nenhuma. O atlas completo, sua manutenção contínua, a documentação e a reorganização de Telas foram confirmados no objeto Git desta publicação, com 60 arquivos e 35 renomes R100; registro de publicação integrado ao mesmo commit lógico antes do envio. A unidade v0.11.0 foi conferida no objeto Git com código, migração, testes, documentação e manifestos; registro de publicação integrado ao mesmo commit. A entrega funcional v0.10.0 já está no commit e315b12, confirmado em refs/heads/main em 2026-10-03. **Contador de interações:** 73 respostas concluídas incluindo esta interação; começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
 
 ## Objetivo e situação
 

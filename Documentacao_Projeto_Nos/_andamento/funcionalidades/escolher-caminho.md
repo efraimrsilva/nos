@@ -4,7 +4,7 @@
 
 ## Escopo autorizado
 
-Primeira tela implementável aprovada pelo usuário em 2026-09-24. Reproduzir a intenção visual do passo `obCaminho` de `Telas/Nós App.dc.html`, com adaptação responsiva. Não implementar autenticação fictícia nem simular aceite de convite.
+Primeira tela implementável aprovada pelo usuário em 2026-09-24. Reproduzir a intenção visual do passo `obCaminho` de `Documentacao_Projeto_Nos/Telas/Nós App.dc.html`, com adaptação responsiva. Não implementar autenticação fictícia nem simular aceite de convite.
 
 ## Contrato de navegação
 

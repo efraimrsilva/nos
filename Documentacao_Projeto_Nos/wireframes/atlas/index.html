@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Nós — Atlas de wireframes</title>
+  <link rel="stylesheet" href="atlas.css">
+  <script defer src="screens.js"></script>
+  <script defer src="atlas.js"></script>
+</head>
+<body>
+  <a class="skip" href="#workspace">Ir para o conteúdo</a>
+  <aside class="sidebar" aria-label="Navegação do atlas">
+    <a class="brand" href="#tela-01"><span class="brand-mark">nós<span>✳</span></span><small>ATLAS DE PRODUTO</small></a>
+    <p class="side-caption">Um mapa para cultivar<br>cada parte da experiência.</p>
+    <nav id="chapter-nav" aria-label="Áreas do produto"></nav>
+    <div class="side-footer"><span class="edition">PLANEJAMENTO · 03 OUT 2026</span><p>Referência do app: v0.11.0<br>Sem versão de desenvolvimento nova.</p><a href="../GUIA.md">Guia e decisões do wireframe ↗</a></div>
+  </aside>
+  <main id="workspace" tabindex="-1">
+    <header class="masthead">
+      <div><p class="eyebrow">PROJETO NÓS / GUIA DE DESENVOLVIMENTO</p><h1>Do primeiro acesso<br>ao cuidado que permanece<span>.</span></h1><p class="intro">Todas as telas. Um contexto de cada vez.<br>Conta é o início; consentimento acompanha todo o caminho.</p></div>
+      <div class="cover-art" aria-hidden="true"><img src="assets/tree.png" alt=""><span>Um jardim de possibilidades</span></div>
+    </header>
+    <section class="overview" aria-label="Escopo e legenda">
+      <div><strong id="total-count">72</strong><span>telas e estados de fluxo</span></div><div><strong>37</strong><span>interfaces de origem mapeadas</span></div><div><strong id="planned-count"></strong><span>telas planejadas · pendentes</span></div><div><strong id="existing-count"></strong><span>recortes existentes · com limites</span></div>
+    </section>
+    <p class="planning-note"><span class="dot"></span>Material de planejamento. Conteúdo ilustrativo; botões navegam entre desenhos. Nenhuma conta, votação, gravação ou mensagem é executada.</p>
+    <div class="toolbar">
+      <div class="view-tabs" role="group" aria-label="Modo de visualização"><button data-view="atlas" aria-pressed="true">Atlas</button><button data-view="prototype" aria-pressed="false">Tela a tela</button><button data-view="flows" aria-pressed="false">Percursos</button></div>
+      <label class="search"><span class="sr-only">Buscar telas</span><input id="search" type="search" placeholder="Buscar tela, rota ou pendência…"></label>
+      <label><span class="sr-only">Filtrar implementação</span><select id="status-filter"><option value="all">Todas as situações</option><option value="Planejada">Planejadas · pendentes</option><option value="Recorte existente">Recortes existentes</option></select></label>
+      <button id="print" class="quiet">Imprimir atlas</button>
+    </div>
+    <div class="atlas-heading"><p id="result-count" aria-live="polite"></p><p><span class="badge planned">Planejada</span> contrato/implementação pendente <span class="badge existing">Recorte existente</span> consultar limites</p></div>
+    <section id="atlas-view" aria-label="Todas as telas"></section>
+    <section id="prototype-view" hidden aria-label="Inspeção da tela selecionada">
+      <div class="prototype-top"><button id="previous" class="quiet">← Anterior</button><div class="preview-width" role="group" aria-label="Largura da prévia"><button data-width="mobile" aria-pressed="true">Celular</button><button data-width="desktop" aria-pressed="false">Web</button></div><button id="next" class="quiet">Próxima →</button></div>
+      <div class="inspection"><div><div class="state-tabs" role="group" aria-label="Estado de interface"><button data-state="content" aria-pressed="true">Conteúdo</button><button data-state="empty" aria-pressed="false">Vazio</button><button data-state="loading" aria-pressed="false">Carregando</button><button data-state="error" aria-pressed="false">Erro</button><button data-state="blocked" aria-pressed="false">Sem permissão</button><button data-state="success" aria-pressed="false">Sucesso</button></div><div id="screen-preview"></div></div><aside id="screen-spec" class="spec-panel" aria-label="Ficha de implementação"></aside></div>
+    </section>
+    <section id="flows-view" hidden aria-label="Percursos do produto"></section>
+    <footer class="main-footer"><span>PROJETO NÓS</span><p>O cuidado não é um placar. A proposta não é um acordo ativo.<br>O espaço privado existe em cada tela, em cada decisão.</p><a href="../COBERTURA.md">Consultar cobertura e pendências ↗</a></footer>
+  </main>
+  <div id="toast" role="status" class="toast" hidden></div>
+</body>
+</html>

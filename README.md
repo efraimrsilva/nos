@@ -4,6 +4,8 @@
 
 Um espaço privado para cultivar vínculos saudáveis.
 
+**Referência visual viva do desenvolvimento atual e futuro:** [wireframe completo](Documentacao_Projeto_Nos/wireframes/atlas/index.html), com Conta como Tela 01, 72 telas/estados, percursos e fichas de implementação. Consulte [uso e decisões](Documentacao_Projeto_Nos/wireframes/GUIA.md) e [cobertura e telas pendentes](Documentacao_Projeto_Nos/wireframes/COBERTURA.md). Manter desenhos, contratos, fluxos e pendências sincronizados a cada entrega, conforme decisão de 2026-10-03. Atualizações documentais isoladas não alteram a versão de desenvolvimento. [Protótipo e materiais de origem](Documentacao_Projeto_Nos/Telas/N%C3%B3s%20App.dc.html) estão dentro da pasta de documentação.
+
 ## Executar o aplicativo
 
 Na raiz de um clone deste repositório, instale as dependências e inicie o aplicativo:
