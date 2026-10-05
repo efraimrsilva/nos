@@ -4,7 +4,27 @@
 
 Abra [o atlas navegável](atlas/index.html). Ele funciona localmente, sem servidor, conta, rede ou conexão com Supabase. Para transportar o material, mantenha a pasta `atlas/` completa: página, estilos, scripts e recursos locais.
 
+## Fidelidade às telas aprovadas — correção de 2026-10-04
+
+O modelo inicial simplificava a interface em cartões genéricos e não preservava a hierarquia aprovada. A correção incorpora as **28 telas do documento Nos_App.dc.html**, com **52 composições e variações** de abas/vínculos, e reproduz as telas implementadas de Conta e onboarding. /comecar, /comecar/tipo e /comecar/convite foram comparadas ao aplicativo em execução, incluindo títulos, paleta e SVG dos nove tipos.
+
+As cores de identidade são exatamente #F6F3EB (canvas), #2E4A20 (floresta), #4F7E2C (folha), #69725E (texto secundário), #E6E3D8 (contorno) e #6A3FD1 (lilás). As cores contextuais e os ícones do documento também foram preservados. Fredoka e Plus Jakarta Sans usam pesos locais correspondentes; não há carregamento remoto.
+
+**Atlas vivo** mostra o layout vigente das telas de entrada e adapta as regras históricas ao contrato atual. **Ver desenho aprovado do documento** recupera a composição original, identificando exemplos e regras antigas. Essa separação preserva a direção visual sem transformar níveis, métricas, assinatura ou promoção ilustrativos em resultados reais. A procedência e os limites de cada composição estão em [Fidelidade e manutenção](FIDELIDADE.md).
+
 ## Manutenção contínua — decisão de 2026-10-03
+
+### Prioridade alta do atlas vivo — decisão de 2026-10-05
+
+**Consultar obrigatoriamente o atlas vivo antes de criar, implementar, alterar ou revisar qualquer tela. O modo Atlas vivo é a referência visual de prioridade alta do projeto.** Conferir o aspecto da tela: hierarquia, disposição, paleta, tipografia, ícones, abas, navegação, linguagem de cuidado e estados. A consulta apenas à ficha textual não substitui a inspeção do desenho.
+
+1. **Antes de implementar:** localizar o ID e o percurso no atlas, abrir o modo Atlas vivo e ler situação, rota, permissões, contrato e pendências. Registrar no plano/registro a tela usada como referência e as decisões ainda abertas.
+2. **Durante a implementação:** seguir a composição viva e sua identidade, reutilizando padrões aprovados. O desenho anterior serve à comparação e à origem das decisões; não substituir o atlas vivo por ele ou por uma nova composição sem registrar a mudança de direção.
+3. **Ao resolver divergências:** confrontar atlas, comportamento real e regras vigentes. Prioridade visual não autoriza dados simulados, permissões indevidas ou regras históricas; corrigir e documentar a divergência no mesmo recorte. Mudança visual necessária deve ter motivo explícito e atualizar o atlas junto à implementação.
+4. **Antes de concluir:** comparar a interface real com o desenho vivo, em celular e web quando definidos, incluindo abas, destinos, acessibilidade e estados. Se a composição web ou um contrato estiver pendente, registrar e resolver no recorte; não apresentá-lo como aprovado ou implementado.
+5. **Na entrega:** sincronizar desenho, ficha, percursos, cobertura, limitações e registro. Marcar somente o recorte efetivamente implementado e validado. O atlas continua sendo a referência prioritária para o desenvolvimento atual e futuro.
+
+**Interpretação dos sinais:** Planejada exige implementação/contrato; Recorte existente confirma uma base funcional com limites. Origem visual aprovada não significa funcionalidade concluída. O modo histórico é uma referência comparativa. As pendências da ficha e de COBERTURA.md precisam ser lidas antes de ativar ações reais.
 
 Este wireframe é uma **referência viva**: deve acompanhar todo o desenvolvimento atual e futuro. Consultá-lo no início de cada recorte e atualizar os desenhos, fichas, percursos, permissões e pendências afetados junto da implementação e sua documentação. Ao concluir, verificar a correspondência com o comportamento real; manter separados os recortes existentes e os elementos ainda planejados.
 
@@ -21,13 +41,13 @@ As telas adicionais explicitam passos que o catálogo menciona sem uma composiç
 ## Como usar
 
 1. **Atlas:** compare as telas lado a lado. Selecione uma área, busque um nome ou filtre por situação. Clique em uma tela para abrir sua ficha.
-2. **Tela a tela:** consulte o desenho ampliado, o contrato, as pessoas autorizadas, a rota existente ou proposta, a origem no catálogo e as pendências. Os botões navegam entre desenhos; campos e escolhas são descartados ao mudar de tela.
-3. **Celular / Web:** examine a composição estreita ou larga. A prévia Web demonstra distribuição de blocos; não é uma segunda especificação final de layout para cada módulo.
+2. **Tela a tela:** consulte o desenho ampliado, o contrato, as pessoas autorizadas, a rota existente ou proposta, a origem no catálogo e as pendências. Abas de Acordos, detalhe do Hábito, Memórias e tipos de vínculo mudam a composição. Os campos são locais; a escolha do tipo é preservada ao voltar, como no app.
+3. **Celular / Web:** o onboarding reproduz a árvore acima no celular e ao lado no web. O documento aprova composições móveis: o atlas não inventa uma aprovação de layout web para os demais módulos; essa adaptação permanece sinalizada.
 4. **Estados:** compare conteúdo, vazio, carregamento, erro, falta de permissão e sucesso. São padrões para revisão; mensagens definitivas devem respeitar a operação da tela. Sucesso visual do atlas nunca representa gravação real.
 5. **Percursos:** siga as etapas dos 12 fluxos e consulte suas regras de transição. A numeração identifica telas; não implica que todas sejam um único caminho linear.
 6. **Imprimir atlas:** imprime todas as áreas, removendo filtros. A ficha detalhada e as regras continuam disponíveis no material digital. Não foi exportado PDF nesta tarefa.
 
-O [inventário de cobertura e pendências](COBERTURA.md) relaciona cada tela à interface antiga e descreve sua situação. As fichas em `atlas/screens.js` são a fonte dos desenhos e contratos; alterações futuras devem manter o inventário coerente.
+O [inventário de cobertura e pendências](COBERTURA.md) relaciona cada tela à interface antiga e descreve sua situação. As fichas em `atlas/screens.js` contêm contratos, saídas e blocos das extensões. `product-ui.js` representa a entrada implementada e adapta layouts aprovados; `approved-layouts.js` é gerado a partir do documento. Alterações futuras devem atualizar o desenho, sua origem e o inventário juntos.
 
 ## Ordem e composição
 
@@ -48,7 +68,7 @@ A antiga entrada afetiva está preservada como composição opcional na Tela 72,
 
 ## Situação e pendências
 
-**Planejada** significa que a tela ainda requer implementação ou contrato próprio. **Recorte existente** significa que a base funcional existe, mas o desenho pode conter extensões futuras. A ficha declara esses limites; esse rótulo não promete fidelidade integral entre wireframe e interface atual.
+**Planejada** significa que a tela ainda requer implementação ou contrato próprio. **Recorte existente** significa que a base funcional existe, mas a composição afetiva aprovada pode conter extensões futuras. A ficha declara esses limites. Os rótulos de procedência distinguem layout implementado, base do documento e extensão; a presença de um recorte funcional não confirma todos os elementos do desenho.
 
 Há 45 telas planejadas e 27 recortes existentes. Os principais conjuntos pendentes são:
 
@@ -80,7 +100,7 @@ Seleção de participantes, visibilidade por campo, motivo de encerramento e can
 
 ## Direção visual e acessibilidade
 
-O material utiliza fundos claros, verde de cuidado, tipografia local e a árvore existente da marca. Blocos, campos e contornos priorizam hierarquia, ritmo de leitura e relação entre ações. Fotos pessoais, QR válidos, identidades reais e números inventados de crescimento não são utilizados.
+O material utiliza a paleta exata da identidade aprovada, tipografia local e a árvore existente da marca. Blocos, campos, ilustrações e abas preservam hierarquia e ritmo de leitura. Fotos pessoais, QR válidos e identidades reais não são utilizados. O modo histórico conserva números ilustrativos do documento com aviso explícito; o modo vivo neutraliza crescimento, força e promoção sem contrato.
 
 A barra principal aparece nos hubs. Fluxos focados usam saídas contextuais para reduzir distrações. Controles têm rótulos, foco visível e navegação por teclado; filtros comunicam quantidade; estados não dependem só de cor. Movimento é breve e respeita `prefers-reduced-motion`. A implementação final deve conferir contraste, alvos de toque, leitura assistiva e mensagens específicas de cada jornada; os cartões reduzidos do atlas são miniaturas de planejamento.
 
@@ -94,7 +114,7 @@ As fontes Fredoka e Plus Jakarta Sans foram copiadas das dependências já insta
 - [Modelo funcional v2.4](../Projeto_Nos_v2.4_Modelo_Funcional_Dados_Estados_e_Regras.md) e [permissões v2.5](../Projeto_Nos_v2.5_Matriz_de_Permissoes_Privacidade_Visibilidade.md).
 - [Estados v2.6](../Projeto_Nos_v2.6_Estados_Vazios_Erros_e_Carregamento.md), [eventos v2.7](../Projeto_Nos_v2.7_Notificacoes_e_Eventos_do_Sistema.md) e [segurança v2.8](../Projeto_Nos_v2.8_Autenticacao_e_Seguranca.md).
 - [Acordos v1.2](../Projeto_Nos_v1.2_Sistema_de_Aprovacao_e_Construcao_de_Acordos.md), [impacto v1.4](../Projeto_Nos_v1.4_Sistema_de_Impacto.md), [marcos v1.6](../Projeto_Nos_v1.6_Sistema_de_Marcos_de_Evolucao_e_Celebracoes_Saudaveis.md), [conversas v1.10](../Projeto_Nos_v1.10_Sistema_de_Conversas_Guiadas_e_Mediacao_Afetiva.md).
-- [Protótipo original](../Telas/N%C3%B3s%20App.dc.html), [estado vigente](../_andamento/estado.md) e código local das rotas, catálogos e contratos de acesso.
+- [Protótipo original](../Telas/Nos_App.dc.html), [estado vigente](../_andamento/estado.md) e código local das rotas, catálogos e contratos de acesso.
 
 Quando houver divergência, decisões explícitas do usuário e contratos implementados mais recentes prevalecem sobre exemplos antigos. O wireframe propõe composição e explicita decisões abertas; não substitui regras ou permissões persistidas.
 

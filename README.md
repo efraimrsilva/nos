@@ -4,9 +4,11 @@
 
 Um espaço privado para cultivar vínculos saudáveis.
 
-**Referência visual viva do desenvolvimento atual e futuro:** [wireframe completo](Documentacao_Projeto_Nos/wireframes/atlas/index.html), com Conta como Tela 01, 72 telas/estados, percursos e fichas de implementação. Consulte [uso e decisões](Documentacao_Projeto_Nos/wireframes/GUIA.md) e [cobertura e telas pendentes](Documentacao_Projeto_Nos/wireframes/COBERTURA.md). Manter desenhos, contratos, fluxos e pendências sincronizados a cada entrega, conforme decisão de 2026-10-03. Atualizações documentais isoladas não alteram a versão de desenvolvimento. [Protótipo e materiais de origem](Documentacao_Projeto_Nos/Telas/N%C3%B3s%20App.dc.html) estão dentro da pasta de documentação.
+**Referência visual viva do desenvolvimento atual e futuro:** [wireframe completo](Documentacao_Projeto_Nos/wireframes/atlas/index.html), com Conta como Tela 01, 72 telas/estados, percursos e fichas de implementação. Consulte [uso e decisões](Documentacao_Projeto_Nos/wireframes/GUIA.md) e [cobertura e telas pendentes](Documentacao_Projeto_Nos/wireframes/COBERTURA.md). Manter desenhos, contratos, fluxos e pendências sincronizados a cada entrega, conforme decisão de 2026-10-03. Atualizações documentais isoladas não alteram a versão de desenvolvimento. [Protótipo e materiais de origem](Documentacao_Projeto_Nos/Telas/Nos_App.dc.html) estão dentro da pasta de documentação.
 
 ## Executar o aplicativo
+
+**Regra de desenvolvimento — prioridade alta:** antes de criar, implementar, alterar ou revisar uma tela, abrir o **Atlas vivo** e conferir seu aspecto visual, abas, ícones, hierarquia, navegação e estados. A implementação deve se guiar prioritariamente por esse desenho; a composição histórica serve à comparação. Confrontar a interface real com o atlas antes de concluir e atualizar ambos na mesma entrega, respeitando contratos e permissões. Procedimento obrigatório no [guia do atlas](Documentacao_Projeto_Nos/wireframes/GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05).
 
 Na raiz de um clone deste repositório, instale as dependências e inicie o aplicativo:
 

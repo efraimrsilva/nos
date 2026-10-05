@@ -92,3 +92,19 @@ Registro factual de contribuições; resultados medidos são separados de benef�
 - **Resultado verificado:** 37 origens cobertas, IDs/destinos íntegros, 72 prévias e 360 estados renderizados sem erro JavaScript. Verificações de filtros, teclado, móvel e impressão CSS; revisão independente com dois achados corrigidos e conferidos. Versão funcional preservada.
 - **Benefício esperado:** reduzir ambiguidades e orientar a ordem das próximas entregas; redução de retrabalho ainda não medida.
 - **Evidência:** [guia](../wireframes/GUIA.md), [cobertura e pendências](../wireframes/COBERTURA.md) e [registro de planejamento](../_andamento/registros/planejamento-2026-10-03-wireframe-completo.md).
+
+## 2026-10-04 — Atlas fiel à identidade e às composições aprovadas
+
+- **Problema:** o wireframe simplificado divergia das telas implementadas e da estrutura aprovada, aumentando o risco de decisões de UX inconsistentes.
+- **Contribuição:** incorporadas 28 telas em 52 composições/variações, entrada baseada no código, fontes/SVG locais, abas e procedência explícita; exemplos históricos separados de contratos atuais.
+- **Resultado verificado:** paleta e títulos de três rotas e SVG/textos dos nove tipos comparados ao app; 72 telas, 173 saídas e 360 estados aprovados, sem erros de execução ou chamadas externas. Revisão independente resolveu regras e destinos inconsistentes.
+- **Benefício esperado:** reduzir divergências e retrabalho de interface; esse efeito ainda não foi medido.
+- **Evidência:** [procedência e manutenção](../wireframes/FIDELIDADE.md), [verificação](../wireframes/tools/verify-fidelity.mjs) e [registro](../_andamento/registros/registro-v0.11.0-2026-10-04-imp-fidelidade-visual-atlas-fun-referencia-ux-aprovada.md).
+
+## 2026-10-05 — Referência visual prioritária para as próximas implementações
+
+- **Problema:** a manutenção do atlas precisava explicitar sua prioridade visual e como conferir fidelidade na execução de cada tela.
+- **Contribuição:** procedimento central de consulta obrigatória, prioridade alta do modo vivo, comparação com a interface real e atualização conjunta, referenciado nos pontos de entrada e retomada.
+- **Resultado verificado:** sinais e pendências das 72 fichas coincidem com inventário e navegador; os 27 recortes existentes apontam para rotas do código. Verificação completa do atlas passou novamente.
+- **Benefício esperado:** orientar consistentemente o desenvolvimento e reduzir divergências visuais; efeito sobre retrabalho ainda não medido.
+- **Evidência:** [procedimento](../wireframes/GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05) e [registro](../_andamento/registros/registro-v0.11.0-2026-10-05-imp-prioridade-atlas-vivo-fun-orientacao-visual-implementacao.md).

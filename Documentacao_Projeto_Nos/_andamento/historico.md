@@ -319,3 +319,15 @@ Usuário determinou manutenção contínua do wireframe para refletir o desenvol
 ## 2026-10-03 — Publicação autorizada do atlas vivo no GitHub
 
 Commit e push autorizados pelo usuário com descrição abrangente do trabalho: 72 telas/estados, 12 percursos, contratos/pendências, manutenção contínua e 35 materiais movidos para a documentação. Fetch sem divergência; 84 testes, tipos, build, atlas, 617 links e diff aprovados. Revisão independente sem achado bloqueante no atlas ou escopo. Objeto Git e hash remoto conferidos ao encerrar o envio; sem deploy ou alteração de versão funcional. [Registro](registros/planejamento-2026-10-03-publicacao-wireframe-github.md).
+
+## 2026-10-04 — Fidelidade visual e UX do atlas, sem nova versão funcional
+
+Corrigida a simplificação do atlas: 28 telas aprovadas importadas em 52 layouts/variações, oito composições de entrada conforme código, paleta e nove ícones comparados ao app local. Abas, rascunho e convite locais; modo histórico separado de regras atuais. 72 prévias, 173 saídas, 360 estados e 41 referências passaram, sem JavaScript/rede externa; revisão independente corrigida e reconferida. Nome Nos_App.dc.html preservado, links ajustados. Versão 0.11.0, app e banco preservados; unidade pronta para commit, sem publicação. [Registro](registros/registro-v0.11.0-2026-10-04-imp-fidelidade-visual-atlas-fun-referencia-ux-aprovada.md).
+
+## 2026-10-05 — Conferência da sinalização e prioridade alta do atlas vivo
+
+Conferidas as 72 fichas, situações e pendências no inventário e navegador: 45 Planejadas e 27 Recortes existentes, com rotas presentes no código. Definida consulta visual obrigatória ao modo Atlas vivo antes de criar/implementar/alterar/revisar telas, prioridade alta da composição e comparação com a interface real antes da entrega. Regra propagada ao guia, READMEs, frontend, procedência e continuidade; regras de segurança/consentimento preservadas. Verificação completa do atlas aprovada novamente; versão 0.11.0 mantida, sem publicação. [Registro](registros/registro-v0.11.0-2026-10-05-imp-prioridade-atlas-vivo-fun-orientacao-visual-implementacao.md).
+
+## 2026-10-05 — Publicação autorizada de fidelidade e prioridade visual do atlas
+
+Usuário autorizou commit e push com descrição abrangente da correção visual, layouts aprovados, comparação viva/histórica, recursos locais, importação/verificação, sinais e orientação de prioridade alta. Main inicialmente sem divergência; 84 testes, tipos, build, atlas completo e sinalização aprovados novamente. Revisão independente de publicação sem achados materiais; fonte renomeada R100 preservada, sem alteração funcional ou versão nova. Inspeção do commit e igualdade com main remoto são os controles finais de envio. [Registro](registros/registro-v0.11.0-2026-10-05-02-imp-publicacao-atlas-fun-fidelidade-prioridade-visual.md).

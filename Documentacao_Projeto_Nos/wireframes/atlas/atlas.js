@@ -23,7 +23,7 @@ function blockHtml(block,interactive,index,screenId){
     case 'hero':return `<div class="block block-hero"><span class="block-title">${t}</span><p class="block-text">${text}</p></div>`;
     case 'note':return `<p class="block block-note">${text}</p>`;
     case 'pick':return `<div class="block"><span class="wire-label">${t}</span><div class="wire-picks" role="group" aria-label="${t}">${block.text.split('|').map(option=>interactive?`<button class="wire-chip" data-pick aria-pressed="false">${escapeHtml(option)}</button>`:`<span class="wire-chip">${escapeHtml(option)}</span>`).join('')}</div></div>`;
-    case 'tabs':return `<div class="block wire-tabs">${block.text.split('|').map(option=>`<span>${escapeHtml(option)}</span>`).join('')}</div>`;
+    case 'tabs':return `<div class="block wire-tabs" role="group" aria-label="Opções da tela">${block.text.split('|').map((option,i)=>`<button data-local-tab aria-pressed="${i===0}">${escapeHtml(option)}</button>`).join('')}</div>`;
     case 'media':return `<div class="block media-slot"><div><span class="block-title">${t}</span><p class="block-text">${text}</p></div></div>`;
     case 'avatar':return `<div class="block avatar-block"><div class="wire-avatar" aria-hidden="true">${t[0]}</div><span class="block-title">${t}</span><p class="block-text">${text}</p></div>`;
     case 'tree':return `<div class="block tree-slot"><img src="assets/tree.png" alt="Árvore simbólica do Nós, sem indicadores de crescimento"><span class="block-title">${t}</span><p class="block-text">${text}</p></div>`;
@@ -45,29 +45,36 @@ function stateHtml(screen){
   return `<div class="state-message"><h4>${title}</h4><p>${text}</p>${previewState==='error'?'<button class="quiet" data-retry>Voltar ao conteúdo de exemplo</button>':''}</div><p class="state-warning">Padrão de estado para revisão. A mensagem final deve respeitar a operação e o contrato da tela.</p>`;
 }
 function phoneHtml(screen,interactive=false){
-  // Barra principal apenas nos hubs: fluxos focados preservam saídas contextuais.
-  const nav=[13,18,40,44,49,50].includes(screen.id);
-  const hasNucleus=screen.chapter>=2||[9,11,12,58,59].includes(screen.id);
-  const actions=interactive&&previewState!=='content'?[]:screen.actions;
-  return `<div class="phone" ${interactive?'':`data-open="${screen.id}" role="button" tabindex="0" aria-label="Inspecionar tela ${pad(screen.id)} ${escapeHtml(screen.title)}"`}>
-    <div class="phone-status"><span>9:41</span><span aria-hidden="true">••• ▰</span></div><div class="phone-top"><span>${nav?'Núcleo de exemplo':'Espaço privado'}</span><strong>nós</strong><span>Prévia</span></div>
-    ${hasNucleus?'<div class="phone-context">NOSSO JARDIM · CONTEÚDO ILUSTRATIVO</div>':''}
-    <div class="phone-scroll"><h3>${escapeHtml(screen.title)}</h3><p class="phone-subtitle">${escapeHtml(screen.subtitle)}</p>${interactive&&previewState!=='content'?stateHtml(screen):screen.blocks.map((block,index)=>blockHtml(block,interactive,index,screen.id)).join('')}</div>
-    ${actions.length?`<div class="phone-actions">${actions.map(action=>interactive?`<button class="wire-action" data-go="${action.to}">${escapeHtml(action.label)}</button>`:`<span class="wire-action">${escapeHtml(action.label)}</span>`).join('')}</div>`:''}
-    ${nav?`<nav class="phone-nav" aria-label="Navegação principal ${interactive?'da prévia':'ilustrativa'}">${[['Início',13],['Acordos',18],['Memórias',40],['Conexões',44],['Perfil',49]].map(([label,id])=>interactive?`<button data-go="${id}" class="${screen.id===id?'active':''}">${label}</button>`:`<span class="${screen.id===id?'active':''}">${label}</span>`).join('')}</nav>`:''}
-  </div>`;
+  return productPhoneHtml(screen,interactive);
 }
 function filteredScreens(){const query=$('#search').value.trim().toLocaleLowerCase('pt-BR');const status=$('#status-filter').value;return screens.filter(screen=>(chapterFilter<0||screen.chapter===chapterFilter)&&(status==='all'||screen.status===status)&&(!query||`${pad(screen.id)} ${screen.title} ${screen.route} ${screen.source} ${screen.rule} ${screen.dependency}`.toLocaleLowerCase('pt-BR').includes(query)));}
 function renderAtlas(){
+  const savedReference=referenceMode,savedLayout=documentLayoutKey;referenceMode=false;documentLayoutKey='';
   const filtered=filteredScreens();$('#result-count').textContent=`${filtered.length} de ${screens.length} telas · selecione uma para inspecionar`;
   $('#atlas-view').innerHTML=chapters.map((chapter,index)=>{
     const list=filtered.filter(screen=>screen.chapter===index);if(!list.length)return '';
     return `<section class="chapter" id="chapter-${index}"><div class="chapter-header"><h2><span>${pad(index+1)}</span>${escapeHtml(chapter)}</h2><p>${list.length} telas · ordem por percurso</p></div><div class="screen-grid">${list.map(screen=>`<article class="tile" id="tile-${pad(screen.id)}"><div class="tile-header"><span class="screen-number">${pad(screen.id)}</span>${badge(screen)}</div>${phoneHtml(screen)}<div class="tile-caption"><h3>${escapeHtml(screen.title)}</h3><p>${screen.status==='Planejada'?'Pendente:':'Limites:'} ${escapeHtml(screen.dependency)}</p><button class="tile-open" data-open="${screen.id}">Inspecionar tela e contrato →</button></div></article>`).join('')}</div></section>`;
   }).join('')||'<p class="no-results">Nenhuma tela corresponde aos filtros. Ajuste a busca ou selecione Todas as áreas.</p>';
+  referenceMode=savedReference;documentLayoutKey=savedLayout;
+  // Miniaturas são uma única parada de teclado; controles internos só funcionam na inspeção.
+  document.querySelectorAll('.tile .phone').forEach(phone=>{for(const child of phone.children)child.inert=true;});
+  scaleThumbnails();
 }
+function scaleThumbnails(){
+  document.querySelectorAll('.tile .phone').forEach(phone=>{
+    const scale=phone.clientWidth/384;let body=phone.querySelector(':scope>[data-thumbnail]');
+    if(!body){body=document.createElement('div');body.dataset.thumbnail='';while(phone.firstChild)body.append(phone.firstChild);phone.append(body);body.inert=true;}
+    phone.style.height=`${858*scale}px`;
+    body.style.cssText=`width:384px;height:858px;position:absolute;display:flex;flex-direction:column;overflow:hidden;transform:scale(${scale});transform-origin:top left`;
+  });
+}
+window.addEventListener('resize',scaleThumbnails);
+window.addEventListener('beforeprint',scaleThumbnails);window.addEventListener('afterprint',scaleThumbnails);
 function renderPrototype(){
   const screen=byId(selectedId);
-  $('#screen-preview').innerHTML=`<div class="preview-wrap ${width}">${phoneHtml(screen,true)}</div>`;
+  const source=approvedKey(screen.id);
+  const origin=referenceMode?'Documento aprovado · composição original': [1,2,6,7,8,9,10,11].includes(screen.id)?'Aplicativo implementado · estrutura atual':approvedLayouts[documentLayoutKey||screen.id]?'Documento aprovado · estrutura preservada, regras atuais sinalizadas':'Extensão do atlas · identidade aprovada, contrato a conferir';
+  $('#screen-preview').innerHTML=`<div class="preview-origin"><strong>${origin}</strong><br>${referenceMode?'Dados, níveis e textos históricos são exemplos do documento; consulte a ficha para o contrato vigente.': 'Prévia local. Conteúdo afetivo de exemplo; nenhuma informação é enviada ou salva.'}${source?`<div class="reference-controls"><button data-reference="current" aria-pressed="${!referenceMode}">Atlas vivo</button><button data-reference="approved" aria-pressed="${referenceMode}">Ver desenho aprovado do documento</button></div>`:''}${width==='desktop'&&approvedLayouts[documentLayoutKey||screen.id]?'O documento aprova composição móvel; sua adaptação web ainda precisa ser definida.':''}</div><div class="preview-wrap ${width}">${phoneHtml(screen,true)}</div>${previewState==='content'?`<div class="contract-outlets"><p>Destinos do contrato atual · navegação de planejamento</p>${screen.actions.map(action=>`<button data-go="${action.to}">${escapeHtml(action.label)}</button>`).join('')}</div>`:''}`;
   $('#screen-spec').innerHTML=`<span class="screen-number">TELA ${pad(screen.id)}</span> ${badge(screen)}<h2>${escapeHtml(screen.title)}</h2><p>${escapeHtml(chapters[screen.chapter])}</p><h3>Rota e localização</h3><code class="route">${escapeHtml(screen.route)}</code><h3>Origem no catálogo v2.1</h3><p>${escapeHtml(screen.source)}. Nova numeração independente.</p><h3>Contrato e comportamento</h3><p>${escapeHtml(screen.rule)}</p><h3>Quem pode agir</h3><p>${escapeHtml(screen.permission)}</p><h3>${screen.status==='Planejada'?'Pendente antes de implementar':'Limites do recorte existente'}</h3><div class="pending-box"><p>${escapeHtml(screen.dependency)}</p></div><h3>Saídas deste desenho</h3><div class="spec-actions">${screen.actions.map(action=>`<button class="quiet" data-go="${action.to}">${pad(action.to)} · ${escapeHtml(byId(action.to).title)}</button>`).join('')}</div><p>Ações desta prévia não persistem dados. Seleções e campos são descartados ao trocar de tela.</p><button class="quiet screen-back" data-view="atlas">← Voltar ao atlas</button>`;
   $('#previous').disabled=selectedId===1;$('#next').disabled=selectedId===screens.length;
 }
@@ -84,7 +91,7 @@ function setView(nextView){
   $('#result-count').textContent=view==='atlas'?`${filteredScreens().length} de ${screens.length} telas · selecione uma para inspecionar`:view==='prototype'?`Tela ${pad(selectedId)} · ${byId(selectedId).title}`:`${journeys.length} percursos · selecione uma etapa para abrir sua tela`;
 }
 function openScreen(id,updateHash=true){
-  if(!byId(id))return;selectedId=Number(id);previewState='content';document.querySelectorAll('[data-state]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.state===previewState)));setView('prototype');
+  if(!byId(id))return;selectedId=Number(id);previewState='content';referenceMode=false;documentLayoutKey='';document.querySelectorAll('[data-state]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.state===previewState)));setView('prototype');
   if(updateHash)history.replaceState(null,'',`#tela-${pad(selectedId)}`);
   $('#prototype-view').scrollIntoView({block:'start'});
   $('#screen-spec').setAttribute('tabindex','-1');$('#screen-spec').focus({preventScroll:true});
@@ -96,12 +103,28 @@ document.addEventListener('click',event=>{
   const target=event.target.closest('button,[data-open]');if(!target)return;
   if(target.dataset.open){openScreen(target.dataset.open);return;}
   if(target.dataset.go){openScreen(target.dataset.go);showToast('Navegação de exemplo. Nenhuma ação foi enviada.');return;}
+  if(target.dataset.reference){referenceMode=target.dataset.reference==='approved';documentLayoutKey='';previewState='content';renderPrototype();return;}
+  if(target.dataset.layout){documentLayoutKey=target.dataset.layout;renderPrototype();return;}
+  if(target.dataset.auth){const section=target.closest('.product-panel');const signup=target.dataset.auth==='signup';section.querySelectorAll('[data-auth]').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));section.querySelectorAll('[data-signup-field]').forEach(el=>el.hidden=!signup);section.querySelector('form').reset();section.querySelector('[data-auth-submit]').textContent=signup?'Criar conta':'Entrar';return;}
+  if(target.hasAttribute('data-suggestion')){const content=target.closest('.product-content');content.querySelector('[name="purpose"]').value=(nucleusOptions.find(option=>option[0]===onboardingType)||nucleusOptions[0])[2];return;}
+  if(target.hasAttribute('data-edit-draft')){const content=target.closest('.product-content');content.querySelector('form').hidden=false;content.querySelector('.purpose-draft').hidden=true;return;}
+  if(target.hasAttribute('data-local-tab')||target.dataset.localChoice){const group=target.parentElement;group.querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));showToast('Seleção local para revisão do desenho. Sem persistência.');return;}
+  if(target.dataset.demo){showToast('Ação ilustrativa do documento. O contrato e a implementação estão descritos na ficha.');return;}
   if(target.dataset.view){setView(target.dataset.view);return;}
   if(target.dataset.chapter!==undefined){chapterFilter=Number(target.dataset.chapter);document.querySelectorAll('[data-chapter]').forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.chapter)===chapterFilter)));renderAtlas();setView('atlas');$('#atlas-view').scrollIntoView({block:'start'});return;}
   if(target.dataset.state){previewState=target.dataset.state;document.querySelectorAll('[data-state]').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));renderPrototype();return;}
   if(target.dataset.width){width=target.dataset.width;document.querySelectorAll('[data-width]').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));renderPrototype();return;}
   if(target.hasAttribute('data-pick')){const group=target.closest('.wire-picks');group.querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));return;}
   if(target.hasAttribute('data-retry')){previewState='content';document.querySelectorAll('[data-state]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.state==='content')));renderPrototype();}
+});
+document.addEventListener('change',event=>{if(event.target.name==='nucleus-type')onboardingType=event.target.value;});
+document.addEventListener('input',event=>{if(event.target.name==='invitation-code'){const panel=event.target.closest('.product-content');panel.querySelector('.invitation-preview').hidden=true;}});
+document.addEventListener('submit',event=>{
+  const form=event.target.closest('[data-local-form]');if(!form)return;event.preventDefault();
+  if(form.dataset.localForm==='type'){onboardingType=form.elements['nucleus-type'].value;if(onboardingType)openScreen(8);}
+  if(form.dataset.localForm==='purpose'){const name=form.elements['nucleus-name'].value.trim(),purpose=form.elements.purpose.value.trim();if(!name||!purpose){showToast('Preencha o nome e o propósito para conferir o rascunho.');return;}const content=form.closest('.product-content');content.querySelector('[data-draft-name]').textContent=name;content.querySelector('[data-draft-purpose]').textContent=purpose;form.hidden=true;content.querySelector('.purpose-draft').hidden=false;}
+  if(form.dataset.localForm==='invitation'){if(!form.elements['invitation-code'].value.trim()){showToast('Cole um código para conferir a composição da prévia.');return;}form.closest('.product-content').querySelector('.invitation-preview').hidden=false;showToast('Convite de exemplo. Nenhum código foi consultado.');}
+  if(form.dataset.localForm==='account')showToast('Demonstração de formulário. Nenhuma conta foi criada e nenhum dado foi enviado.');
 });
 document.addEventListener('keydown',event=>{const target=event.target.closest('[data-open]');if(target&&(event.key==='Enter'||event.key===' ')){event.preventDefault();openScreen(target.dataset.open);}});
 $('#search').addEventListener('input',renderAtlas);$('#status-filter').addEventListener('change',renderAtlas);

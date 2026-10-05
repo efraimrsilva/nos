@@ -4,6 +4,8 @@
 
 ## Decisões implementadas nesta fatia
 
+**Referência visual prioritária para todas as próximas telas:** consultar obrigatoriamente o modo Atlas vivo antes de implementar ou alterar interfaces. Seguir seu aspecto, hierarquia, paleta, fontes, ícones, abas e navegação; comparar a interface real antes da conclusão e atualizar desenho/ficha no mesmo recorte. O desenho histórico é comparação. Ver [procedimento de prioridade alta](../../wireframes/GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05); pendências e contratos precisam ser respeitados.
+
 - Next.js App Router, TypeScript estrito, React e Tailwind CSS.
 - Componentes próprios seguindo o protótipo; fontes Fredoka e Plus Jakarta Sans hospedadas pelo próprio app, sem requisição a Google Fonts.
 - `src/app`: rotas e metadados; `src/features/onboarding`: interface do fluxo inicial; `src/features/auth`, `src/features/invitations` e `src/lib/supabase`: conta e integração; `src/shared`: contratos compartilhados de navegação.

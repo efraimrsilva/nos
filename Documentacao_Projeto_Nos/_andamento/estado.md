@@ -4,9 +4,41 @@
 
 **DOCS_DIR:** `Documentacao_Projeto_Nos`
 
-**Atualizado:** 2026-10-03
+**Atualizado:** 2026-10-05
 
-**Git:** main; última entrega funcional v0.11.0 em e3643b69dd323b78ac348e4033f3e936a8a1fca0. Atlas vivo e reorganização registrados no commit desta publicação (consultar HEAD), com objeto Git inspecionado: 60 arquivos, incluindo 35 renomes R100, sem credenciais ou artifacts. Push autorizado; confirmação do hash remoto realizada ao encerrar o envio. A v0.10.0 está preservada no histórico.
+**Git:** main; correção visual e prioridade alta incluídas no commit desta publicação (consultar HEAD), com conteúdo inspecionado. Base b853bbaafc2b87aeca7324246f96ce391de55b24; última entrega funcional v0.11.0 em e3643b69dd323b78ac348e4033f3e936a8a1fca0. Push autorizado para origin/main; conferência remota realizada ao encerrar o envio.
+
+## Publicação atual — fidelidade e prioridade visual do atlas — 2026-10-05
+
+**Autorização e escopo:** usuário solicitou commit e push de toda a correção visual e sua orientação documental, com descrição abrangente. Fetch confirmou main sem divergência. Publicar layouts aprovados, identidade, comparação viva/histórica, recursos locais, importação/verificação, sinalização e prioridade alta. [Registro de publicação](registros/registro-v0.11.0-2026-10-05-02-imp-publicacao-atlas-fun-fidelidade-prioridade-visual.md).
+
+**Validação final:** 84/84 testes desktop/mobile, tipos e build aprovados novamente. Atlas: 72 prévias, 173 saídas, 360 estados, 41 referências e 52 layouts/28 telas, sem erro JavaScript ou chamadas externas. Sinais de 72 fichas e rotas dos 27 recortes reconferidos; fonte renomeada R100 idêntica. Revisão independente de publicação sem achados materiais; recursos temporários/credenciais fora do conjunto. Código funcional, banco e versão 0.11.0 preservados.
+
+**Controle de publicação:** objeto do commit inspecionado, com árvore idêntica ao conjunto preparado e 33 arquivos, incluindo renomeação R100. Nenhum arquivo de execução temporária ou credencial incluído; pendência de commit removida após essa confirmação. Conferir HEAD contra main remoto após o push e reportar o identificador na conclusão; publicação Git não comprova deploy. 714 links locais e diff aprovados na consolidação final.
+
+**Retomada:** consultar Tela 38 no Atlas vivo, fechar contrato de Nossa Árvore e manter desenho/ficha/pendências sincronizados com a próxima implementação.
+
+## Marco — sinalização e prioridade alta do atlas vivo — 2026-10-05
+
+**Objetivo atendido:** conferidas as 72 telas; situações e pendências coincidem entre fichas, inventário, miniaturas e inspeção. As 27 bases funcionais apontam para rotas presentes no código; 45 telas continuam Planejadas. Origem aprovada e Recorte existente não confirmam todas as ampliações do desenho. [Registro](registros/registro-v0.11.0-2026-10-05-imp-prioridade-atlas-vivo-fun-orientacao-visual-implementacao.md).
+
+**Decisão permanente — prioridade alta:** antes de criar, implementar, alterar ou revisar qualquer tela, abrir o modo Atlas vivo e conferir obrigatoriamente seu aspecto, hierarquia, paleta, fontes, ícones, abas, navegação e estados, além da ficha. Guiar a interface prioritariamente por ele; o desenho histórico é comparação. Comparar resultado real e atlas antes de concluir, registrar divergências necessárias e atualizar desenho/contratos/pendências no mesmo recorte. Seguir o [procedimento obrigatório](../wireframes/GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05). Essa prioridade visual preserva regras vigentes, segurança e consentimento.
+
+**Validações:** cruzamento no navegador das 72 fichas/miniaturas com COBERTURA.md e presença das rotas existentes; verificação completa do atlas aprovada novamente (72 prévias, 173 saídas, 360 estados, 52 layouts, 41 referências), sem erro JavaScript ou chamadas externas. 709 links locais e git diff --check aprovados; autorrevisão e revisão documental independente sem achados materiais. Alteração atual somente documental, sem nova versão funcional. Continuidade, README, frontend, guia e procedência atualizados.
+
+**Próximo passo:** abrir Tela 38 no Atlas vivo e sua ficha, fechar contrato de Nossa Árvore e implementar somente o recorte aprovado com dados reais. Correção visual anterior e sua orientação documental continuam pendentes do mesmo conjunto lógico de commit; nenhum push/deploy realizado.
+
+## Marco — fidelidade visual e UX do atlas — 2026-10-04
+
+**Objetivo atendido:** corrigida a simplificação excessiva, incorporando as 28 telas aprovadas de Nos_App.dc.html em 52 layouts/variações e as oito composições de Conta/onboarding baseadas no código. As três rotas solicitadas foram comparadas ao app local, incluindo paleta exata, títulos, nove tipos, descrições e SVG. Conta permanece primeira; 72 telas, 45 planejadas e 27 recortes existentes. [Registro da entrega](registros/registro-v0.11.0-2026-10-04-imp-fidelidade-visual-atlas-fun-referencia-ux-aprovada.md), [atlas](../wireframes/atlas/index.html), [procedência e manutenção](../wireframes/FIDELIDADE.md).
+
+**Decisões:** aplicação como referência da entrada; documento como base visual dos demais módulos. Modo vivo atualiza contratos; modo histórico preserva composição com aviso de exemplo. Regras atuais prevalecem sobre níveis, força, assinaturas e promoção antigos. Ponte permanece privada, sem chat; destinos e autoria respeitados. Importação gera HTML/SVG local, sem support.js ou dependência nova. Renomeação preexistente para Nos_App.dc.html preservada, com links atualizados.
+
+**Validações recentes:** 72 prévias, 173 saídas, 360 estados, 41 referências, 52 layouts/28 telas, três rotas e nove ícones; rascunho, convite, abas, teclado, filtros, 12 percursos, mobile/web, movimento reduzido e impressão CSS. Zero erros JavaScript/rede externa. Capturas inspecionadas; revisão independente e reconferência sem achados materiais remanescentes. Scripts em wireframes/tools. Tipos/build/suíte funcional não repetidos: app, banco e manifestos preservados.
+
+**Situação Git:** HEAD b853bbaafc2b87aeca7324246f96ce391de55b24, main; correção atual ainda não commitada ou publicada. A autorização e o envio de 2026-10-03 pertencem ao marco anterior. Versão funcional continua 0.11.0; esta edição não cria versão de desenvolvimento.
+
+**Bloqueios e próximo passo:** nenhuma pendência para o artefato corrigido. Permanecem contratos das telas planejadas e composição web dos módulos aprovados só em móvel. Continuar manutenção do atlas junto às entregas e fechar o contrato da Tela38 — Nossa Árvore antes de implementar indicadores.
 
 ## Publicação autorizada do atlas — 2026-10-03
 
@@ -38,7 +70,7 @@ O usuário determinou que o wireframe será mantido continuamente para refletir 
 - Preservar os IDs existentes sempre que possível; acrescentar telas e registrar substituições ou consolidações sem perder a referência às interfaces antigas. Conferir destinos, links, estados e apresentação das partes alteradas; ampliar a verificação se a mudança afetar renderização ou navegação compartilhada.
 - Em retomadas, conferir as fichas relevantes contra o código e as evidências atuais. Diferenças devem ser corrigidas ou sinalizadas explicitamente antes de considerar a entrega concluída.
 
-**Protótipo e materiais de origem:** pasta movida pelo usuário para [Documentacao_Projeto_Nos/Telas](../Telas/N%C3%B3s%20App.dc.html). HTML, PDF, imagens e extrações permanecem como fontes históricas; o atlas vivo acompanha a evolução. Não recriar a pasta antiga na raiz.
+**Protótipo e materiais de origem:** pasta movida pelo usuário para [Documentacao_Projeto_Nos/Telas](../Telas/Nos_App.dc.html). HTML, PDF, imagens e extrações permanecem como fontes históricas; o atlas vivo acompanha a evolução. Não recriar a pasta antiga na raiz.
 
 ## Última entrega funcional — Confirmação do Hábito após teste
 
@@ -98,7 +130,7 @@ Agenda por Núcleo concluída na **v0.6.0**: eventos pontuais com título, inten
 
 **Continuidade após a agenda:** a Tela 04 — Acordos foi concluída na v0.7.0; evidência e limites constam em [Entrega concluída — Tela 04 Acordos](#entrega-concluída--tela-04-acordos). A credencial de acesso permanece fora do repositório. Publicação pública exige revisão própria de privacidade e operação.
 
-**Unidades pendentes de commit:** nenhuma. O atlas completo, sua manutenção contínua, a documentação e a reorganização de Telas foram confirmados no objeto Git desta publicação, com 60 arquivos e 35 renomes R100; registro de publicação integrado ao mesmo commit lógico antes do envio. A unidade v0.11.0 foi conferida no objeto Git com código, migração, testes, documentação e manifestos; registro de publicação integrado ao mesmo commit. A entrega funcional v0.10.0 já está no commit e315b12, confirmado em refs/heads/main em 2026-10-03. **Contador de interações:** 73 respostas concluídas incluindo esta interação; começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
+**Unidades pendentes de commit:** nenhuma para a correção visual e orientação de prioridade alta; inclusão no commit confirmada por inspeção do objeto e comparação da árvore. Mensagem: `docs(wireframe): alinhar atlas ao app e consolidar prioridade visual`. **Contador de interações:** 76 respostas concluídas incluindo esta interação; começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
 
 ## Objetivo e situação
 
@@ -143,6 +175,10 @@ Superpowers disponível e aplicado. Context7 ativo, consultado nesta entrega par
 Pesquisa externa de ferramentas em 2026-09-29 consultou projetos e documentação oficiais. Candidatos priorizados: Supabase CLI + pgTAP para contratos/RLS; Renovate ou Dependabot para atualizações controladas; Sentry para observabilidade após lançamento; axe-core integrado ao Playwright para acessibilidade. Lighthouse CI, Gitleaks e CodeQL são opções condicionais de CI/segurança; nenhum foi instalado ou configurado. Não adicionar essas ferramentas até a etapa funcional apropriada.
 
 ## Índice
+
+- [v0.11.0 — Fidelidade visual do atlas](registros/registro-v0.11.0-2026-10-04-imp-fidelidade-visual-atlas-fun-referencia-ux-aprovada.md).
+- [v0.11.0 — Prioridade alta do Atlas vivo](registros/registro-v0.11.0-2026-10-05-imp-prioridade-atlas-vivo-fun-orientacao-visual-implementacao.md).
+- [v0.11.0 — Publicação de fidelidade e prioridade visual](registros/registro-v0.11.0-2026-10-05-02-imp-publicacao-atlas-fun-fidelidade-prioridade-visual.md).
 
 - [Histórico](historico.md): eventos relevantes em ordem cronológica.
 - [Brag document](../brag/BRAG.md): contribuições verificáveis.

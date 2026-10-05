@@ -1,8 +1,10 @@
 # Cobertura e pendências do wireframe
 
-Material de planejamento de 2026-10-03. Referência funcional: v0.11.0; nenhuma nova versão de desenvolvimento.
+Material de planejamento criado em 2026-10-03 e corrigido visualmente em 2026-10-04. Referência funcional: v0.11.0; nenhuma nova versão de desenvolvimento.
 
 ## Situação verificada
+
+Conferência de 2026-10-05: as 72 fichas, situações e pendências coincidem com este inventário e com os rótulos visíveis nas miniaturas e na inspeção. Todos os 27 recortes existentes apontam para rotas presentes no código; isso não confirma as ampliações ilustradas. Os 45 desenhos planejados continuam identificados. **Antes de implementar qualquer tela, consultar seu aspecto no modo Atlas vivo com prioridade alta**, conforme o [procedimento obrigatório](GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05).
 
 - 72 telas/estados; 8 áreas; 12 percursos.
 - 45 telas planejadas e pendentes de implementação.
@@ -21,7 +23,7 @@ Material de planejamento de 2026-10-03. Referência funcional: v0.11.0; nenhuma 
 | 06 | Criar e entrar no Núcleo | [Escolher caminho](atlas/index.html#tela-06) | Recorte existente | 29 | /comecar | Tela existente; entrada Conta primeiro é planejamento. |
 | 07 | Criar e entrar no Núcleo | [Tipo de Núcleo](atlas/index.html#tela-07) | Recorte existente | 30 | /comecar/tipo | Catálogo atual de nove tipos; manter identificador validado na URL. |
 | 08 | Criar e entrar no Núcleo | [Propósito do Núcleo](atlas/index.html#tela-08) | Recorte existente | 31 | /comecar/proposito | Criação existente; sem persistência de rascunho no atlas. |
-| 09 | Criar e entrar no Núcleo | [Convite inicial](atlas/index.html#tela-09) | Recorte existente | 32 | /comecar/convite-inicial/[id] | Código real existente; QR, gestão e compartilhamento ampliado dependem de contrato. |
+| 09 | Criar e entrar no Núcleo | [Convite inicial](atlas/index.html#tela-09) | Recorte existente | 32 | /comecar/convite-inicial/[id] | Código e compartilhamento nativo existentes; QR e gestão ampliada dependem de contrato. |
 | 10 | Criar e entrar no Núcleo | [Inserir convite](atlas/index.html#tela-10) | Recorte existente | 18 · entrada complementar | /comecar/convite | Consulta existente, sem expor token ou dados privados antes da associação. |
 | 11 | Criar e entrar no Núcleo | [Aceitar convite](atlas/index.html#tela-11) | Recorte existente | 18 | /comecar/convite · prévia | Aceite existente; fluxo idempotente no banco. |
 | 12 | Criar e entrar no Núcleo | [Seus Núcleos](atlas/index.html#tela-12) | Planejada | 13 | Proposta: /nucleos | Listagem e seleção multínucleo pendentes; criação e acesso individual já existem. |
@@ -128,8 +130,12 @@ Material de planejamento de 2026-10-03. Referência funcional: v0.11.0; nenhuma 
 | 36 | 23 — Aprovações |
 | 37 | 62 — Ponte do Nós; 63 — Cartão de Intenção; 64 — Marcar conversa ao vivo; 65 — Depois da conversa |
 
+## Fidelidade às fontes aprovadas
+
+28 telas do documento importadas em 52 composições e variações; 41 pontos de acesso ao desenho histórico. As telas implementadas de entrada têm layout próprio. Paleta, textos e ícones das três rotas públicas comparados ao app; extensões e limites de web sinalizados. Consultar [origens e manutenção](FIDELIDADE.md).
+
 ## Verificação do artefato
 
-Inventário sem IDs duplicados ou destinos ausentes; 37 origens cobertas; 72 prévias, todos os botões de saída e 360 estados visuais verificados com Playwright. Busca, filtros, teclado, 12 percursos, modo web, impressão CSS e ausência de transbordamento horizontal a 375 px conferidos. Nenhum erro JavaScript detectado. A impressão foi verificada por CSS, sem exportação ou inspeção de PDF.
+Inventário sem IDs duplicados ou destinos ausentes; 37 origens cobertas; 72 prévias, 173 saídas do contrato e 360 estados visuais verificados com Playwright; 52 composições aprovadas também renderizadas. Busca, filtros, teclado, 12 percursos, modo web, impressão CSS e ausência de transbordamento horizontal a 375 px conferidos. Nenhum erro JavaScript detectado. A impressão foi verificada por CSS, sem exportação ou inspeção de PDF.
 
 Esta validação comprova o funcionamento do atlas. Não valida novamente funcionalidades do aplicativo, integrações Supabase nem regras futuras ainda sem implementação.
