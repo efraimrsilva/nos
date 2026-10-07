@@ -33,6 +33,7 @@ function blockHtml(block,interactive,index,screenId){
   }
 }
 function stateHtml(screen){
+  if(screen.id<=5)return accountStateHtml(screen);
   const isAuth=screen.chapter===0;
   const states={
     empty: [isAuth?'Vamos começar pelo primeiro campo':'Este espaço ainda não tem registros',isAuth?'Informe os dados solicitados para seguir. Campos obrigatórios precisam de indicação clara.':'Quando houver dados autorizados, eles aparecerão aqui. Não preenchemos ausência com números ou histórias fictícias.'],
@@ -43,6 +44,20 @@ function stateHtml(screen){
   if(previewState==='loading')return '<div class="state-message" role="status"><h4>Carregando este espaço</h4><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div><p>Estrutura sem conteúdo íntimo. Evitar mudança brusca de layout.</p></div>';
   const [title,text]=states[previewState];
   return `<div class="state-message"><h4>${title}</h4><p>${text}</p>${previewState==='error'?'<button class="quiet" data-retry>Voltar ao conteúdo de exemplo</button>':''}</div><p class="state-warning">Padrão de estado para revisão. A mensagem final deve respeitar a operação e o contrato da tela.</p>`;
+}
+function accountStateHtml(screen){
+  const content=screen.id<=2?onboardingContent(screen):accountAccessContent(screen);
+  const blocked='Abra um link de recuperação válido. O link pode ter expirado, já ter sido usado ou precisar ser aberto no navegador em que você o solicitou.';
+  if(previewState==='blocked'&&screen.id===5){return content.replace(/<form[\s\S]*?<\/form>/,'<p class="state-message access-error" role="alert">'+blocked+'</p>');}
+  if(previewState==='loading')return content.replace(/(<button[^>]*type="submit"[^>]*>)[^<]+/,'$1'+(screen.id===5?'Salvando…':screen.id<=2?'Aguarde…':'Solicitando…'))+'<p class="state-message" role="status">Aguardando resposta do servidor.</p>';
+  const messages={
+    empty:screen.id<=2?'Informe seu nome, e-mail e uma senha.':screen.id===5?'Pelo menos 8 caracteres, com letra, número e símbolo. Use até 128 caracteres.':'Informe um e-mail válido.',
+    error:screen.id===5?'Não foi possível salvar a senha. Use uma senha diferente da anterior ou solicite outro link.':'A autenticação ainda não está configurada neste ambiente.',
+    blocked:screen.id<=2?'Não foi possível entrar. Confira o e-mail e a senha.':'Aguarde o intervalo de 60 segundos antes de solicitar outro link.',
+    success:screen.id===4?'Se houver uma conta para este e-mail, enviaremos as instruções de recuperação. Confira também o spam.':screen.id===3?'Se este e-mail precisar de confirmação, enviaremos um novo link. Confira também o spam.':'Senha atualizada. Entre com sua nova senha.'
+  };
+  const success=previewState==='success';
+  return content+'<p class="state-message '+(success?'access-note':'access-error')+'" role="'+(success?'status':'alert')+'">'+messages[previewState]+'</p>';
 }
 function phoneHtml(screen,interactive=false){
   return productPhoneHtml(screen,interactive);
@@ -102,7 +117,7 @@ renderAtlas();renderFlows();
 document.addEventListener('click',event=>{
   const target=event.target.closest('button,[data-open]');if(!target)return;
   if(target.dataset.open){openScreen(target.dataset.open);return;}
-  if(target.dataset.go){openScreen(target.dataset.go);showToast('Navegação de exemplo. Nenhuma ação foi enviada.');return;}
+  if(target.dataset.go){const login=target.hasAttribute('data-entry-login');openScreen(target.dataset.go);if(login)$('#screen-preview [data-auth="login"]').click();showToast('Navegação de exemplo. Nenhuma ação foi enviada.');return;}
   if(target.dataset.reference){referenceMode=target.dataset.reference==='approved';documentLayoutKey='';previewState='content';renderPrototype();return;}
   if(target.dataset.layout){documentLayoutKey=target.dataset.layout;renderPrototype();return;}
   if(target.dataset.auth){const section=target.closest('.product-panel');const signup=target.dataset.auth==='signup';section.querySelectorAll('[data-auth]').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));section.querySelectorAll('[data-signup-field]').forEach(el=>el.hidden=!signup);section.querySelector('form').reset();section.querySelector('[data-auth-submit]').textContent=signup?'Criar conta':'Entrar';return;}
@@ -125,6 +140,20 @@ document.addEventListener('submit',event=>{
   if(form.dataset.localForm==='purpose'){const name=form.elements['nucleus-name'].value.trim(),purpose=form.elements.purpose.value.trim();if(!name||!purpose){showToast('Preencha o nome e o propósito para conferir o rascunho.');return;}const content=form.closest('.product-content');content.querySelector('[data-draft-name]').textContent=name;content.querySelector('[data-draft-purpose]').textContent=purpose;form.hidden=true;content.querySelector('.purpose-draft').hidden=false;}
   if(form.dataset.localForm==='invitation'){if(!form.elements['invitation-code'].value.trim()){showToast('Cole um código para conferir a composição da prévia.');return;}form.closest('.product-content').querySelector('.invitation-preview').hidden=false;showToast('Convite de exemplo. Nenhum código foi consultado.');}
   if(form.dataset.localForm==='account')showToast('Demonstração de formulário. Nenhuma conta foi criada e nenhum dado foi enviado.');
+  if(form.dataset.localForm==='access'){
+    const feedback=form.querySelector('.local-feedback');
+    const kind=form.dataset.kind;
+    if(kind==='password'){
+      const password=form.elements['new-password'].value,confirmation=form.elements.confirmation.value;
+      if(password.length<8||password.length>128||!/[A-Za-z]/.test(password)||!/[0-9]/.test(password)||!(/[^A-Za-z0-9]/.test(password))){feedback.textContent='Pelo menos 8 caracteres, com letra, número e símbolo. Use até 128 caracteres.';feedback.setAttribute('role','alert');return;}
+      if(password!==confirmation){feedback.textContent='As senhas precisam ser iguais.';feedback.setAttribute('role','alert');return;}
+      feedback.textContent='Senha atualizada. Entre com sua nova senha. · exemplo';
+    }else{
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.elements['access-email'].value.trim())){feedback.textContent='Informe um e-mail válido.';feedback.setAttribute('role','alert');return;}
+      feedback.textContent=kind==='recovery'?'Se houver uma conta para este e-mail, enviaremos as instruções de recuperação. Confira também o spam.':'Se este e-mail precisar de confirmação, enviaremos um novo link. Confira também o spam.';
+    }
+    feedback.setAttribute('role','status');showToast('Prévia local. Nenhum e-mail foi enviado, nenhuma senha ou sessão foi alterada.');
+  }
 });
 document.addEventListener('keydown',event=>{const target=event.target.closest('[data-open]');if(target&&(event.key==='Enter'||event.key===' ')){event.preventDefault();openScreen(target.dataset.open);}});
 $('#search').addEventListener('input',renderAtlas);$('#status-filter').addEventListener('change',renderAtlas);

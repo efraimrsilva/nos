@@ -1,18 +1,18 @@
 # Fidelidade visual e manutenção do atlas
 
-Referência funcional: **v0.11.0**, sem incremento por esta correção. Atualização: 2026-10-04.
+Referência funcional: **v0.12.0**. Conta e entrada sincronizadas em 2026-10-07; base histórica preservada.
 
 ## Procedência e precedência
 
 **Prioridade alta do Atlas vivo:** sua composição é a referência visual obrigatória de todas as implementações e alterações de tela. Inspecionar o aspecto antes de codificar, confrontar o resultado real antes de entregar e manter o desenho sincronizado. O modo histórico preserva a comparação; não substitui a direção viva. Seguir o [procedimento](GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05), incluindo contratos e pendências.
 
-O atlas incorpora as 28 telas de Nos_App.dc.html em 52 layouts/variações estáticos. São 41 pontos de acesso à composição histórica, além de abas e nove escolhas de vínculo. A entrada do aplicativo tem oito composições próprias; /comecar, /comecar/tipo e /comecar/convite foram comparadas ao servidor local. A ordem continua Conta primeiro.
+O atlas incorpora as 28 telas de Nos_App.dc.html em 52 layouts/variações estáticos. São 41 pontos de acesso à composição histórica, além de abas e nove escolhas de vínculo. A entrada do aplicativo tem 12 composições próprias; /comecar, /comecar/tipo e /comecar/convite foram comparadas ao servidor local. A ordem continua Conta primeiro.
 
 | Base da composição viva | Quantidade | Regra |
 |---|---:|---|
-| Aplicativo: Conta e onboarding | 8 | Reproduzir código e interação local da entrada; não redesenhar por preferência. |
-| Documento aprovado, com adaptação de contratos | 33 | Preservar hierarquia, ícones, cores e abas; atualizar regras, dados e permissões. |
-| Extensões do inventário | 31 | Seguir identidade e contexto aprovados; verificar decisões pendentes antes de implementar. |
+| Aplicativo: Conta e onboarding | 12 | Reproduzir código e interação local da entrada; não redesenhar por preferência. |
+| Documento aprovado, com adaptação de contratos | 32 | Preservar hierarquia, ícones, cores e abas; atualizar regras, dados e permissões. |
+| Extensões do inventário | 28 | Seguir identidade e contexto aprovados; verificar decisões pendentes antes de implementar. |
 
 As três categorias totalizam 72 desenhos. Não equivalem a 72 rotas ou funcionalidades concluídas. A composição web de Conta/onboarding existe; o documento aprova telas móveis e a adaptação web dos demais módulos continua pendente.
 
@@ -35,9 +35,9 @@ Cores contextuais rosa, azul, pêssego, amarelo e lavanda permanecem nos ícones
 |---|---|---|
 | [01 — Conta](atlas/index.html#tela-01) | Aplicativo implementado | Disponível na inspeção |
 | [02 — Criar conta](atlas/index.html#tela-02) | Aplicativo implementado | Disponível na inspeção |
-| [03 — Confirmar e-mail](atlas/index.html#tela-03) | Extensão coerente com identidade | Consultar módulo de origem e ficha |
-| [04 — Recuperar acesso](atlas/index.html#tela-04) | Extensão coerente com identidade | Consultar módulo de origem e ficha |
-| [05 — Redefinir senha](atlas/index.html#tela-05) | Extensão coerente com identidade | Consultar módulo de origem e ficha |
+| [03 — Confirmar e-mail](atlas/index.html#tela-03) | Aplicativo implementado | Comparação antes/depois disponível |
+| [04 — Recuperar acesso](atlas/index.html#tela-04) | Aplicativo implementado | Comparação antes/depois disponível |
+| [05 — Redefinir senha](atlas/index.html#tela-05) | Aplicativo implementado | Comparação antes/depois disponível |
 | [06 — Escolher caminho](atlas/index.html#tela-06) | Aplicativo implementado | Disponível na inspeção |
 | [07 — Tipo de Núcleo](atlas/index.html#tela-07) | Aplicativo implementado | Disponível na inspeção |
 | [08 — Propósito do Núcleo](atlas/index.html#tela-08) | Aplicativo implementado | Disponível na inspeção |
@@ -104,7 +104,7 @@ Cores contextuais rosa, azul, pêssego, amarelo e lavanda permanecem nos ícones
 | [69 — Conta e segurança](atlas/index.html#tela-69) | Extensão coerente com identidade | Consultar módulo de origem e ficha |
 | [70 — Ajuda e suporte](atlas/index.html#tela-70) | Extensão coerente com identidade | Consultar módulo de origem e ficha |
 | [71 — Sair de um Núcleo](atlas/index.html#tela-71) | Extensão coerente com identidade | Consultar módulo de origem e ficha |
-| [72 — Entrada afetiva · opcional](atlas/index.html#tela-72) | Documento com contratos atualizados | Disponível na inspeção |
+| [72 — Entrada afetiva opcional](atlas/index.html#tela-72) | Aplicativo implementado, apresentação opcional | Desenho histórico preservado |
 
 ## Atualização reproduzível
 
@@ -124,3 +124,10 @@ Atualizar product-ui.js/product.css quando a implementação mudar; atualizar sc
 72 telas, 173 saídas, 360 estados, 41 referências, 52 layouts de 28 telas; três paletas/títulos reais e nove tipos/descrições/SVG conferidos. Rascunho, convite, abas, vínculos, teclado, filtros, 12 percursos, 375px, composição web, movimento reduzido e impressão CSS verificados. Zero erros de execução e zero chamadas HTTP externas no atlas. Revisão independente e reconferência dos achados concluídas.
 
 Não houve alteração ou nova validação funcional de banco, autenticação ou produto; o wireframe não executa persistência. Nenhuma exportação de PDF. As 45 telas planejadas e extensões dos 27 recortes existentes permanecem sinalizadas no [inventário de pendências](COBERTURA.md).
+
+A área Conta e entrada inclui também ID72. A versão viva apresenta somente botões implementados de cadastro/login; login social e consentimento jurídico históricos não foram ativados. [Comparação](comparacoes/2026-10-07-conta-entrada/index.html).
+
+
+## Validação vigente — 2026-10-07 — v0.12.0
+
+72 telas, 178 saídas, 360 estados, 41 referências e 13 percursos aprovados; zero erros de execução e chamadas externas no atlas. As seis telas de Conta e entrada foram comparadas ao aplicativo em duas larguras. Jornada funcional real validada separadamente no Supabase local, além dos 108 testes, tipos e build. Inventário atual: 42 telas planejadas e 30 recortes existentes. A validação de 2026-10-04 acima permanece como evidência histórica.

@@ -1,6 +1,6 @@
 # Brag document — Projeto Nós
 
-**Versão vigente do projeto:** 0.11.0
+**Versão vigente do projeto:** 0.12.0
 
 ## 2026-09-27 — Agenda interna do Núcleo
 
@@ -108,3 +108,11 @@ Registro factual de contribuições; resultados medidos são separados de benef�
 - **Resultado verificado:** sinais e pendências das 72 fichas coincidem com inventário e navegador; os 27 recortes existentes apontam para rotas do código. Verificação completa do atlas passou novamente.
 - **Benefício esperado:** orientar consistentemente o desenvolvimento e reduzir divergências visuais; efeito sobre retrabalho ainda não medido.
 - **Evidência:** [procedimento](../wireframes/GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05) e [registro](../_andamento/registros/registro-v0.11.0-2026-10-05-imp-prioridade-atlas-vivo-fun-orientacao-visual-implementacao.md).
+
+## 2026-10-07 — Recuperação segura e continuidade de entrada
+
+- **Problema:** recuperação/redefinição ausentes, confirmação sem reenvio e atlas com composições planejadas divergentes da aplicação.
+- **Contribuição:** conclusão da área de entrada, prova de recuperação assinada e vinculada à sessão, mensagens neutras inclusive em falha SMTP, revogação e retorno de convite. Seis composições sincronizadas com comparação visual.
+- **Resultado verificado:** 108 testes desktop/mobile; jornada real local confirmou troca de senha e revogação de outra sessão. Atlas com 72 prévias/178 saídas/360 estados, sem erro/rede externa; revisão independente com achados corrigidos. Configuração nos-dev reconferida.
+- **Benefício esperado:** permitir retomar o acesso sem suporte manual e reduzir divergência entre planejamento e produto. Não medida taxa de recuperação/conversão nem entrega remota.
+- **Evidência:** [registro](../_andamento/registros/registro-v0.12.0-2026-10-07-imp-conta-entrada-fun-recuperacao-integrada.md) e [comparação](../wireframes/comparacoes/2026-10-07-conta-entrada/index.html).

@@ -1,10 +1,10 @@
 # Andamento do Projeto Nós
 
-**Versão vigente do projeto:** 0.11.0
+**Versão vigente do projeto:** 0.12.0
 
 Este diretório preserva o contexto operacional entre sessões e retomadas do projeto.
 
-Entrega mais recente: [v0.11.0 — Confirmação do Hábito após teste](registros/registro-v0.11.0-2026-10-03-imp-confirmacao-habito-fun-teste-votacao-proporcional.md). [Plano executado](planos/confirmacao-habito.md).
+Entrega mais recente: [v0.12.0 — Conta e entrada](registros/registro-v0.12.0-2026-10-07-imp-conta-entrada-fun-recuperacao-integrada.md). [Contrato](funcionalidades/conta-entrada.md), [plano](planos/conta-entrada.md) e [diferenças visuais](../wireframes/comparacoes/2026-10-07-conta-entrada/index.html).
 
 ## Estrutura
 

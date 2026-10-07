@@ -1,6 +1,6 @@
 # Frontend web
 
-**Versão vigente do projeto:** 0.11.0
+**Versão vigente do projeto:** 0.12.0
 
 ## Decisões implementadas nesta fatia
 
@@ -46,3 +46,8 @@ A [Tela 05 Detalhe do Hábito v0.8.0](../registros/registro-v0.8.0-2026-09-29-im
 Rota /confirmar protegida por sessão, vínculo e relação Hábito/Núcleo. Duração inteira validada na fronteira; ações checam ciclo antes da RPC (chamada de procedimento remoto). Banco calcula prontidão e confirma sob bloqueio transacional. Votos próprios e agregados mantêm privacidade. Orientações compartilhadas explicam unanimidade inicial e limiar posterior; ajuste avisa reinício. Active habilita registro/revisão e filtro. Legado não recebe datas inventadas.
 
 84 testes, tipos e build aprovados; cinco arquivos SQL e jornada autenticada local com cinco contas. Next usa .next-verify para scripts locais (NOS_LOCAL_VERIFY=1), separado de .next do usuário e .next-playwright dos testes. Migração e 13 funções conferidas no nos-dev; interface autenticada somente local. Próximo: contrato real da Tela 07 — Nossa Árvore.
+
+
+## v0.12.0 — Conta e entrada
+
+A raiz agora abre `/conta`; `/comecar` continua acessível após autenticação. Recuperação, confirmação com reenvio e apresentação opcional integradas. Consulte o [contrato vigente de Conta e entrada](../funcionalidades/conta-entrada.md).

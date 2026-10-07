@@ -42,6 +42,7 @@ test("trocar o modo remove mensagens da tentativa anterior", async ({ page }) =>
 test("link de confirmação inválido explica o erro sem expor o token", async ({ page }) => {
   await page.goto("/auth/confirm?token_hash=segredo&type=email");
   await expect(page).toHaveURL(/\/conta\?erro=confirmacao$/);
-  await expect(page.getByText("Não foi possível confirmar o e-mail. Solicite um novo cadastro ou tente entrar.")).toBeVisible();
+  await expect(page.getByRole("main").getByRole("alert")).toContainText("Não foi possível confirmar o e-mail");
+  await expect(page.getByRole("link", { name: "Solicite outro link de confirmação" })).toBeVisible();
   expect(page.url()).not.toContain("segredo");
 });

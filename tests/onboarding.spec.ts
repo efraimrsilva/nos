@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 test("escolher caminho leva às próximas etapas e permite voltar", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/comecar");
   await expect(page.getByRole("heading", { name: "Como você quer começar?" })).toBeVisible();
   await page.getByRole("link", { name: /Criar um núcleo/ }).click();
   await expect(page).toHaveURL(/\/comecar\/tipo$/);

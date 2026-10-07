@@ -1,6 +1,6 @@
 # Histórico de andamento
 
-**Versão vigente do projeto:** 0.8.0
+**Versão vigente do projeto:** 0.12.0
 
 ## 2026-09-24 — Primeira tela do app
 
@@ -331,3 +331,20 @@ Conferidas as 72 fichas, situações e pendências no inventário e navegador: 4
 ## 2026-10-05 — Publicação autorizada de fidelidade e prioridade visual do atlas
 
 Usuário autorizou commit e push com descrição abrangente da correção visual, layouts aprovados, comparação viva/histórica, recursos locais, importação/verificação, sinais e orientação de prioridade alta. Main inicialmente sem divergência; 84 testes, tipos, build, atlas completo e sinalização aprovados novamente. Revisão independente de publicação sem achados materiais; fonte renomeada R100 preservada, sem alteração funcional ou versão nova. Inspeção do commit e igualdade com main remoto são os controles finais de envio. [Registro](registros/registro-v0.11.0-2026-10-05-02-imp-publicacao-atlas-fun-fidelidade-prioridade-visual.md).
+
+## 2026-10-06 — Incremento documental de autenticação e segurança v2.8
+
+Revisão solicitada pelo usuário incorporada à especificação: oito requisitos originais, status real, arquitetura web/mobile, login social, biometria, recuperação, sessão/revogação, RLS e tratamento de dados. Propostas de senha e retenção distinguidas da implementação; fontes oficiais e critérios de aceite incluídos. Código e migrações consultados; links e diff conferidos. Sem nova versão funcional, alteração de interface, configuração de serviço ou publicação. [Registro](registros/registro-v0.11.0-2026-10-06-imp-revisao-autenticacao-fun-contratos-seguranca.md).
+
+## 2026-10-07 — Conta e entrada completa — v0.12.0
+
+- **Entrega:** telas 01–05 e 72 integradas: Conta como raiz, confirmação/reenvio, recuperação/redefinição segura, retorno de convite e apresentação opcional. Atlas atualizado e diferenças apresentadas em galeria.
+- **Resultado:** 108 testes, tipos/build, jornada local real e revisão independente. Dados temporários removidos. Configuração nos-dev aplicada somente para URLs e senha mínima; outros 11 campos preservados.
+- **Evidência:** [registro v0.12.0](registros/registro-v0.12.0-2026-10-07-imp-conta-entrada-fun-recuperacao-integrada.md), [contrato](funcionalidades/conta-entrada.md) e [comparação](../wireframes/comparacoes/2026-10-07-conta-entrada/index.html). Sem commit, push Git ou deploy. SMTP de lançamento ainda exige validação operacional.
+
+
+## 2026-10-07 — Publicação Git da v0.12.0
+
+Commit/push autorizados para Conta e entrada completa, Atlas vivo sincronizado, galeria, testes/configuração e revisão documental de segurança pendente. [Registro de publicação](registros/registro-v0.12.0-2026-10-07-02-imp-publicacao-git-fun-rastreabilidade-conta-entrada.md). Conferência de conteúdo e hash remoto exigida; publicação Git não equivale a deploy.
+
+Conferência desta publicação: 108/108 testes repetidos; objeto Git inspecionado; 74 arquivos incluindo a revisão v2.8. Captura histórica 72 corrigida no mesmo commit. Credenciais/artefatos excluídos e pendência de commit removida por evidência do objeto.

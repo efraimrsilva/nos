@@ -58,3 +58,6 @@ a { -webkit-tap-highlight-color: transparent; }
   /* Mantém a interface utilizável sem movimento para quem solicita essa preferência no sistema. */
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
 }
+
+/* Apresentação opcional usa os tokens existentes; não introduz espera nem splash obrigatório. */
+.welcome-entry { background: linear-gradient(180deg, #f6f3eb 62%, #edf3e5 100%); }

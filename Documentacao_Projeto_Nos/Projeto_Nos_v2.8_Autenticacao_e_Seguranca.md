@@ -1,4 +1,4 @@
-﻿# Projeto Nós - Autenticação e Segurança (Versão 2.8)
+# Projeto Nós - Autenticação e Segurança (Versão 2.8)
 
 ## Categoria
 **2.x - Interface e Implementação**
@@ -32,197 +32,382 @@
 
 ## Status
 
-Documento de especificação completa de autenticação, segurança de dados e gerenciamento de sessões, alinhado com a stack tecnológica definida para o projeto.
+Especificação de autenticação, autorização, sessões e proteção de dados, com requisitos e pendências explícitos. A presença de um requisito neste documento não comprova implementação, configuração no serviço nem conformidade jurídica.
+
+**Revisão documental:** 2026-10-06. **Versão do aplicativo consultada:** 0.11.0. A edição documental permanece v2.8.
+
+### Situação dos requisitos originais
+
+| Requisito | Situação em 2026-10-06 | Condição para concluir |
+|---|---|---|
+| Login com Google | Especificado; implementação pendente | Fluxo por plataforma, callback seguro e validação com conta de teste |
+| Login com Apple | Especificado; implementação pendente | Nome ausente, e-mail privado, configuração e credenciais operacionais validados |
+| Touch ID, Face ID e impressão digital | Planejados para mobile | Plugin e armazenamento seguro comprovados em dispositivo real |
+| Recuperação de senha | Implementada na v0.12.0; operação de lançamento pendente | Jornada local com e-mail/PKCE, senha nova e revogação validadas; SMTP remoto de lançamento a conferir |
+| Sessões e expiração | Sessão web e renovação pelo servidor existentes; limites propostos | Configurações efetivas, bloqueio, escopo de logout e revogação verificados |
+| Criptografia e LGPD/GDPR | Requisitos documentados; auditoria e fluxos de direitos pendentes | Evidências de infraestrutura, bases legais e política de retenção registradas |
+| Autorização e tokens | RLS/RPCs existentes nos recortes entregues | Cobertura por recurso/operação, incluindo módulos futuros |
+| Recomendações de stack | Supabase escolhido; comparação na seção 2.5 | Reavaliar somente diante de necessidade concreta |
+
+Evidências do estado atual: [frontend e limites de segurança](_andamento/tecnologias/frontend.md), [estado do projeto](_andamento/estado.md), `src/features/auth/actions.ts`, `src/lib/supabase/server.ts`, `src/lib/supabase/cookie-options.ts`, `src/proxy.ts` e migrações em `supabase/migrations`. O cadastro, a confirmação por e-mail, a entrada e a saída já existem; isso não conclui os demais fluxos deste documento.
 
 ## Relação com as versões anteriores
 
-- **v1.9**: Consolida a regra de que o login social (Google/Apple) não se confunde e nem concede permissão automática para sincronização de calendário externo.
-- **v2.0**: Detalha a Fase 1 da implementação da arquitetura base (Autenticação).
-- **v2.1 e v2.2**: Padroniza os botões e os fluxos da interface de Splash e Onboarding de Login.
-- **v2.4**: Mapeia os estados de UI relacionados à sessão e o campo `lastLoginAt` na entidade Usuário.
-- **v2.5**: Define o contexto de privacidade (`usuarioId` e `nucleoId`) que o sistema de autorização deve validar em cada requisição.
-- **v2.6**: Detalha os estados de erro de autenticação e a transição para `sessaoExpirada`.
+- **v1.9**: Login social não concede acesso automático ao calendário externo.
+- **v2.0**: Detalha os requisitos da arquitetura base de autenticação.
+- **v2.1 e v2.2**: Orienta entrada, retorno de autenticação e recuperação; alterações visuais futuras devem consultar o Atlas vivo e atualizar a ficha correspondente.
+- **v2.4**: Distingue estados de UI, sessão e campos de auditoria, como `lastLoginAt`.
+- **v2.5**: É a referência de papéis, visibilidade e permissões por operação.
+- **v2.6**: Orienta mensagens e distingue expiração, bloqueio local e indisponibilidade do serviço.
+- **v2.7**: Orienta notificações sem exposição de conteúdo íntimo.
 
 ## Objetivo
 
-Especificar a arquitetura de autenticação, integração e segurança de dados do Projeto Nós baseada na stack de desenvolvimento unificada (Web-first com Next.js, Supabase e Capacitor), garantindo a proteção da privacidade afetiva e dos fluxos do aplicativo.
+Definir os contratos de autenticação e proteção da privacidade afetiva na stack web-first (Next.js e Supabase), com evolução mobile via Capacitor. Separar decisões vigentes, propostas e validações necessárias antes da publicação.
 
 ---
 
 # 1. Princípios da Autenticação Afetiva
 
-A autenticação no Projeto Nós deve ser segura sem se tornar fria ou puramente burocrática. Os princípios abaixo norteiam a implementação:
-
-1. **Facilidade e Redução de Atrito**: O uso de logins sociais e biometria reduz barreiras de entrada para manter o usuário conectado com seus entes queridos.
-2. **Consentimento Explícito e Modular**: O usuário deve saber exatamente o que está compartilhando. Autorizar o login não autoriza o acesso ao calendário pessoal (Google Calendar ou Apple Calendar).
-3. **Privacidade Proativa**: Informações afetivas e notificações confidenciais nunca devem ser exibidas em telas bloqueadas ou sem a devida identificação do usuário.
-4. **Desconexão Saudável**: O fluxo de logout ou expiração de sessão deve ser claro, preservando os dados locais do dispositivo sem corromper o histórico do Núcleo.
-
----
-
-# 2. Definição da Stack Tecnológica (Web-first)
-
-O Projeto Nós adota uma abordagem de desenvolvimento **Web-first**, em que o aplicativo responsivo construído para a web moderna é empacotado para distribuição nativa nos dispositivos móveis (Android e iOS) através de uma runtime que preserva a experiência visual única e dá acesso direto a APIs nativas do hardware quando necessário.
-
-### 2.1 Frontend Web
-- **React + Next.js + TypeScript**: Base estrutural do aplicativo para uma navegação ágil, otimização de renderização e forte tipagem estática de dados afetivos.
-- **Tailwind CSS**: Utilitários para criação de interfaces flexíveis, responsivas e alinhadas com o tom de cuidado visual.
-- **shadcn/ui / Componentes Próprios**: Componentes acessíveis e polidos com base no catálogo visual e no tom de interface descritos na **v2.3**.
-
-### 2.2 Backend e Dados
-- **Supabase Cloud**: Backend-as-a-Service (BaaS) principal, provendo:
-  - **Postgres**: Banco de dados relacional que gerencia as entidades do sistema.
-  - **Supabase Auth**: Sistema de autenticação integrado (com suporte a login social, e-mail/senha e tokens JWT/Refresh).
-  - **Row Level Security (RLS)**: Regras de banco de dados que validam se o usuário conectado pertence ao `nucleoId` da linha requisitada, impedindo acessos não autorizados.
-  - **Supabase Storage**: Armazenamento seguro de imagens do Núcleo (fotos de perfil, memórias registradas).
-  - **Realtime**: Sincronização em tempo real para notificações e atualizações de estados de conversas guiadas ou novos marcos.
-- **Node.js/Next.js API Routes**: Usadas para orquestração de fluxos complexos, integração segura com o envio de convites e funções administrativas sensíveis que exigem isolamento do lado do cliente.
-
-### 2.3 Mobile Wrap
-- **Capacitor**: Runtime que envolve a aplicação Next.js compilada em aplicativos nativos (inicialmente direcionado para **Android** e, em segunda fase, para **iOS**).
-  - Permite o uso de plugins nativos da comunidade para acesso a hardware de biometria, armazenamento persistente seguro (*secure storage*), notificações push e deep linking.
-
-### 2.4 Infraestrutura e Deploy
-- **Vercel**: Deploy automatizado e hospedagem da aplicação Next.js para acesso web.
-- **Supabase Cloud**: Gerenciamento de nuvem do Postgres, Auth, RLS e Storage.
-- **Google Play Console**: Distribuição do aplicativo nativo compilado via Capacitor para dispositivos Android.
-- **Apple Developer (TestFlight & App Store Connect)**: Homologação e distribuição para dispositivos iOS.
+1. **Facilidade com proteção**: Login social e desbloqueio biométrico devem reduzir atrito sem remover validações de identidade e autorização.
+2. **Consentimento modular**: Entrada na conta, calendário externo e outras integrações são finalidades distintas.
+3. **Privacidade por padrão**: Dados íntimos não aparecem antes da validação de acesso; notificações em tela bloqueada não revelam conteúdo afetivo por padrão.
+4. **Desconexão segura**: Logout limpa credenciais e caches pessoais do dispositivo sem apagar o histórico persistido do Núcleo. Retenção de rascunhos após logout exige contrato próprio; atualmente os rascunhos são mantidos apenas em memória.
+5. **Autorização no servidor e banco**: Ocultar controles na interface não concede nem revoga permissões.
+6. **Estado honesto**: Falha de rede ou indisponibilidade do Auth não deve ser apresentada como credencial inválida ou conta inexistente.
 
 ---
 
-# 3. Provedores de Identidade Social (Google & Apple)
+# 2. Stack Tecnológica e Fronteiras de Execução
 
-O login social é realizado integrando os SDKs nativos obtidos pelo Capacitor e enviando o token de identificação resultante para validação final na API do Supabase Auth.
+## 2.1 Frontend Web
+
+- **React + Next.js + TypeScript**: App Router e componentes de servidor, com interações no cliente quando necessárias.
+- **Tailwind CSS e componentes próprios**: Seguem v2.3 e a prioridade visual do Atlas vivo. shadcn/ui é opção de composição, sem adoção presumida de dependências.
+- **Modelo atual de autenticação**: Operações no servidor; cookies `HttpOnly`, `Secure` em produção e `SameSite=Lax`. O navegador não recebe os tokens para uso por um cliente Supabase de autenticação.
+
+## 2.2 Backend e Dados
+
+- **Supabase Auth**: Identidade, confirmação e emissão/renovação de tokens.
+- **Postgres + RLS + RPCs**: Autorização por recurso e regras transacionais dos Núcleos.
+- **Supabase Storage e Realtime**: Uso condicionado a contratos e políticas próprios; sua presença na stack não comprova que todos os módulos os utilizem.
+- **Servidor Next.js**: Server Actions e Route Handlers para operações protegidas e integrações. A sessão do usuário deve acompanhar operações sujeitas a RLS.
+- **Segredos administrativos**: `service_role`, chaves secretas e credenciais dos provedores ficam exclusivamente em ambiente de servidor. Operações privilegiadas precisam validar ator, finalidade e recurso, pois podem contornar RLS.
+
+## 2.3 Mobile com Capacitor — fronteira pendente
+
+A ordem vigente é web, Android e depois iOS. Capacitor fornece a ponte para APIs nativas; não executa o servidor Next.js dentro do pacote do aplicativo.
+
+O projeto utiliza cookies, Server Actions e renderização dinâmica. Portanto, não assumir que sua compilação atual pode ser exportada diretamente para um pacote estático. A [documentação do Next.js sobre exportação estática](https://nextjs.org/docs/app/guides/static-exports) descreve restrições para recursos dependentes de servidor.
+
+Antes de empacotar Android, registrar uma decisão de arquitetura que escolha e valide:
+
+| Alternativa | Consequência a avaliar |
+|---|---|
+| Interface web hospedada carregada pelo shell | Dependência de rede, cookies na WebView, políticas de distribuição e integração com plugins |
+| Interface estática local com API remota | Adaptação dos recursos de servidor, autenticação por tokens e política de origens/CORS |
+
+O contrato deverá identificar hospedagem do servidor, origem web/nativa, endpoints, armazenamento, atualização do aplicativo e retorno de login/recuperação por deep link. Reutilizar componentes não significa reutilizar automaticamente o transporte de sessão.
+
+Plugins nativos são **candidatos**, não dependências aprovadas: verificar manutenção, licença, compatibilidade com a versão de Capacitor, Android/iOS suportados e acesso ao segredo condicionado à autenticação do sistema. A escolha exige prova em dispositivo real.
+
+## 2.4 Infraestrutura
+
+Vercel hospeda o Next.js; Supabase Cloud fornece Auth e dados. Google Play Console e Apple Developer/TestFlight/App Store Connect pertencem às etapas mobile. Registrar configurações efetivas por ambiente sem incluir credenciais.
+
+## 2.5 Justificativa e alternativas de autenticação
+
+| Opção | Adequação ao Projeto Nós | Custo de adoção a avaliar |
+|---|---|---|
+| **Supabase Auth — escolha vigente** | Integração já existente com Postgres, `auth.uid()`, RLS e RPCs | Limites do plano, SMTP, controles de sessão e operação |
+| **Firebase Authentication** | Alternativa com SDKs e provedores de identidade | Integração com autorização do Postgres e migração de identidades/sessões |
+| **Auth0** | Alternativa a considerar se surgirem requisitos específicos de identidade/federação | Integração de tokens, configuração, custos e migração |
+
+Não há necessidade demonstrada de migração. Comparação funcional baseada na [documentação do Firebase Authentication](https://firebase.google.com/docs/auth) e nos [fluxos de autenticação do Auth0](https://auth0.com/docs/get-started/authentication-and-authorization-flow). Preços, limites e disponibilidade de recursos devem ser conferidos quando houver avaliação de contratação.
+
+---
+
+# 3. Login Social com Google e Apple
+
+**Status:** planejado. O Supabase Auth valida a identidade externa e emite a sessão do Nós. Tokens de Google/Apple não substituem tokens da sessão Supabase nem autorizam acesso ao Núcleo.
+
+## 3.1 Contratos por plataforma
+
+| Plataforma | Fluxo previsto | Retorno e armazenamento |
+|---|---|---|
+| Web | OAuth pelo Supabase com PKCE e callback no servidor | Troca de código no servidor; cookies protegidos |
+| Android | SDK nativo compatível ou navegador do sistema, conforme decisão mobile | ID token validado ou código trocado; armazenamento seguro nativo |
+| iOS | Google conforme SDK compatível; Apple preferencialmente pelo fluxo nativo | Captura dos dados disponibilizados e sessão protegida |
+
+Callbacks e nomes de rotas futuros devem ser fechados na implementação, sem confundir o callback do Supabase cadastrado no provedor com o retorno final ao aplicativo.
 
 ```mermaid
 sequenceDiagram
     actor Usuario as Usuário
-    participant App as Aplicativo Next.js + Capacitor
-    participant OAuth as SDK Nativo (Google/Apple via Plugin)
-    participant Backend as Supabase Auth (DB Postgres)
-
-    Usuario->>App: Clica em "Continuar com Google/Apple"
-    App->>OAuth: Solicita autenticação / ID Token nativo
-    OAuth->>Usuario: Exibe modal nativo do sistema (Face ID / Google Prompt)
-    Usuario->>OAuth: Concede permissão
-    OAuth->>App: Retorna ID Token + Dados de Perfil
-    App->>Backend: Envia ID Token para login (Supabase API)
-    Backend->>Backend: Valida assinatura com o provedor e atualiza lastLoginAt
-    Backend->>App: Retorna Sessão (JWT Access Token + Refresh Token)
-    App->>Usuario: Exibe Home do aplicativo (autenticado)
+    participant App as Interface web ou nativa
+    participant Provedor as Google ou Apple
+    participant Auth as Supabase Auth
+    participant Servidor as Servidor do Nós
+    Usuario->>App: Continuar com provedor
+    App->>Provedor: Fluxo de identidade por plataforma
+    Provedor-->>Auth: Código OAuth ou ID token via integração
+    Auth->>Auth: Validar identidade e proteções do fluxo
+    Auth-->>App: Retorno de autenticação
+    App->>Servidor: Validar sessão e destino permitido
+    Servidor-->>App: Onboarding ou recurso autorizado
 ```
 
-## 3.1 Login com Google (Sign in with Google)
-- **Implementação**: Uso do plugin do Capacitor (ex: `@codetrix-studio/capacitor-google-auth`) para acionar o fluxo nativo no Android/iOS, obtendo o `idToken` que é repassado ao método `signInWithIdToken` do cliente do Supabase. No web-only, o fluxo é feito via SDK oficial do Supabase OAuth.
-- **Regra de Escopo**: Solicitar apenas e-mail e dados de perfil básico. A integração com o Google Calendar descrita na **v1.9** deve exigir um consentimento modular separado dentro das configurações do aplicativo, sem qualquer dependência direta do login básico.
+O diagrama resume as alternativas; no fluxo nativo o aplicativo entrega o ID token ao Auth, enquanto na web o servidor conclui a troca do código de sessão retornado.
 
-## 3.2 Login com Apple (Sign in with Apple)
-- **Implementação**: Integração usando o plugin do Capacitor (ex: `capacitor-signin-with-apple`). No iOS, o plugin aciona o fluxo nativo seguro do sistema; na Web, ele abre um redirecionamento seguro da Apple.
-- **Captura de Dados no Primeiro Login**: O nome completo do usuário é retornado pela Apple apenas na **primeira autenticação**. O aplicativo Next.js deve capturar esse nome imediatamente e persistir no banco de dados Supabase antes de concluir a interface de onboarding.
-- **E-mails Privados**: O sistema aceita o cadastro de e-mails mascarados criados pela funcionalidade *"Ocultar Meu E-mail"* da Apple.
+## 3.2 Google
 
----
+Solicitar apenas identidade, e-mail e perfil básico. Configurar clientes e origens por plataforma e ambiente. A permissão do Google Calendar é solicitada separadamente, conforme v1.9. Ver [integração Google no Supabase](https://supabase.com/docs/guides/auth/social-login/auth-google).
 
-# 4. Autenticação Biométrica
+## 3.3 Apple
 
-No contexto de aplicativos móveis compilados com o Capacitor, a biometria nativa é utilizada como mecanismo de acesso rápido e seguro, impedindo que o dispositivo precise recarregar senhas ou login social a cada abertura.
+Aceitar e-mail privado (*Ocultar Meu E-mail*). O nome pode ser disponibilizado apenas na primeira autorização pelos métodos compatíveis; capturá-lo quando presente. No OAuth, em retornos posteriores ou quando o dado não vier, oferecer preenchimento posterior no onboarding sem bloquear indevidamente a autenticação.
 
-## 4.1 Armazenamento Seguro e Ativação
-1. **Ativação Opcional**: O usuário opta pela biometria no menu de configurações do aplicativo.
-2. **Uso de Plugin do Capacitor**: Integração de plugins de biometria nativa (ex: `@capacitor-community/native-biometric`).
-3. **Criptografia local**:
-   - Ao ativar, as credenciais de sessão segura (Refresh Token do Supabase) são salvas em chaves protegidas no hardware (*Keychain* do iOS ou *Keystore* do Android).
-   - O aplicativo configura as chaves para que a leitura exija autenticação biométrica com sucesso.
-4. **Desbloqueio de Sessão**:
-   - Se o aplicativo for reaberto após um período de inatividade superior a **10 minutos**, um modal biométrico nativo é exibido.
-   - O sucesso na leitura biométrica libera o Refresh Token armazenado, enviando-o à API do Supabase para obter um novo JWT e restabelecer a interface sem atrito.
+Configurar identificadores web/nativos e callback. Quando o fluxo depender de segredo Apple com validade limitada, registrar responsável, prazo de renovação e verificação operacional. Ver [integração Apple no Supabase](https://supabase.com/docs/guides/auth/social-login/auth-apple).
 
-## 4.2 Fallback de Segurança
-- Caso o usuário mude as biometrias cadastradas no sistema ou o hardware falhe, o aplicativo solicita a reautenticação pelo provedor Supabase (E-mail/Senha ou Login Social).
+## 3.4 Proteções e identidades vinculadas
+
+- Usar SDKs oficiais/compatíveis e PKCE no fluxo por código; conferir `state` e `nonce` quando aplicáveis, conforme o contrato do provedor. Não desabilitar verificações para contornar falhas de integração.
+- Permitir apenas retornos cadastrados e destinos internos validados; rejeitar redirecionamento aberto e deep link inesperado.
+- Cancelamento retorna à entrada sem criar sessão parcial. Callback inválido não revela tokens ou detalhes internos; falha do provedor permite nova tentativa.
+- Vincular/desvincular identidade requer sessão validada e reautenticação recente. Não implementar fusão de contas apenas por coincidência de e-mail; usar o mecanismo documentado do Auth e verificar seu comportamento.
+- Impedir remoção do último método de entrada sem alternativa comprovada. Conta exclusivamente social recupera acesso pelo provedor; criação de senha exige fluxo autenticado próprio.
+- `lastLoginAt` é campo de auditoria, não prova de sessão válida. Mapear o atributo do Auth ou atualização própria; não presumir atualização automática de campo da aplicação.
 
 ---
 
-# 5. Recuperação de Senha
+# 4. Biometria e Desbloqueio Local
 
-Para as contas tradicionais baseadas em e-mail e senha, o Supabase Auth fornece a infraestrutura de envio de e-mails de redefinição de forma automática.
+**Status:** planejado para mobile. Touch ID, Face ID e impressão digital desbloqueiam uma sessão existente; não substituem validação remota nem constituem automaticamente MFA da conta.
 
-## 5.1 Regras de Fluxo Seguro
-1. **Prevenção de Enumeração de Usuários**: A resposta da rota de solicitação de recuperação de senha no Next.js deve ocultar se o e-mail inserido existe no banco de dados, mostrando sempre uma mensagem genérica de sucesso.
-2. **Magic Links e Tokens de Uso Único**: O Supabase envia um e-mail contendo um link temporário (validade de **1 hora**) que realiza o login automático do usuário na interface e o redireciona diretamente para a tela de redefinição de senha (`/reset-password`).
-3. **Complexidade da Senha**: O frontend Next.js e o backend validam a força da nova senha para garantir que tenha ao menos 8 caracteres contendo caracteres alfanuméricos e especiais.
+## 4.1 Ativação e segredo protegido
+
+1. Ativação opcional em configurações, após sessão validada e verificação de capacidade do dispositivo.
+2. O aplicativo recebe somente o resultado da autenticação do sistema; não coleta, transmite ou armazena amostras faciais/digitais.
+3. No iOS, usar Keychain com controle de acesso adequado. No Android, proteger o segredo em armazenamento criptografado com chave no Keystore. Não presumir suporte de hardware em todos os aparelhos.
+4. Exigir autenticação do sistema para liberar o segredo: mostrar um prompt e depois ler token desprotegido não atende ao requisito. Rotação de tokens e retomada de sessão devem respeitar esse bloqueio.
+5. Após desbloquear, renovar/validar a sessão antes de buscar conteúdo. Token inválido exige nova entrada.
+
+## 4.2 Bloqueio e fallback
+
+A proposta existente de bloqueio após **10 minutos** permanece uma meta não implementada. Ao ir para segundo plano, ocultar conteúdo em prévias do sistema; ao retornar, comparar o tempo decorrido antes de renderizar dados íntimos. Não depender apenas de um timer suspenso pelo sistema operacional.
+
+| Situação | Comportamento exigido |
+|---|---|
+| Cancelamento ou tentativa malsucedida | Manter bloqueado e oferecer nova tentativa/entrada |
+| Sem sensor ou sem biometria cadastrada | Oferecer entrada convencional; não anunciar opção indisponível |
+| Alteração de biometria ou chave invalidada | Reautenticar e reconfigurar armazenamento quando necessário |
+| Bloqueio pelo sistema ou falha do plugin | Usar entrada convencional; não liberar conteúdo automaticamente |
+| Biometria desativada | Após o limite local, exigir entrada recente pelo método disponível |
+| Sessão revogada | Biometria não restaura autorização; exigir nova entrada |
+
+Não introduzir PIN próprio como fallback sem contrato específico. Na web, biometria não está incluída nesta entrega; eventual uso de passkeys/WebAuthn exige especificação separada.
 
 ---
 
-# 6. Gerenciamento de Sessões e Expiração
+# 5. Recuperação e Política de Senha
 
-## 6.1 Tokens de Sessão (Supabase JWT)
-- **Access Token (JWT)**: Vida útil padrão de **1 hora**. É armazenado na memória da aplicação (estado) ou em cookies seguros para requisições web. É passado no header `Authorization: Bearer <token>` em todas as chamadas de API.
-- **Refresh Token**: Deve ficar gravado de forma persistente e protegida. A duração real depende da configuração do Supabase e precisa ser verificada no projeto; 30 dias é uma meta de produto, não um prazo implementado. Na Web, usar cookie `HttpOnly` e `Secure` em produção. O fluxo web inicial usa `SameSite=Lax` para permitir o retorno de links externos de confirmação de e-mail; avaliar `Strict` somente se o fluxo completo continuar funcionando. No app mobile (Capacitor), usar armazenamento seguro nativo do dispositivo.
+**Status em 2026-10-07:** recuperação implementada na v0.12.0 e validada em jornada real local. Configurações de retorno e mínimo de senha do nos-dev aplicadas; SMTP/remetente/domínio de lançamento não certificados. [Contrato executável](_andamento/funcionalidades/conta-entrada.md).
 
-## 6.2 Inatividade e Redirecionamento
-- **Timeout Web**: Caso a aplicação web Next.js não registre interação por **15 minutos**, o token expira localmente e transiciona para o estado `sessaoExpirada`.
-- **Interrupção de Acesso (Mobile)**: Ao reabrir o aplicativo após o tempo limite de inatividade (10 minutos), o aplicativo solicita biometria nativa antes de renderizar os dados afetivos salvos localmente.
-- **Tratamento do Estado `sessaoExpirada`**: Caso a validação do Refresh Token falhe no backend do Supabase, o fluxo de UI do Next.js deve limpar os dados afetivos cacheados e redirecionar o usuário à tela de Splash com a mensagem:
-  > *"Sua sessão expirou por segurança. Vamos entrar novamente?"*
+## 5.1 Fluxo de recuperação
+
+1. Solicitar e-mail e responder genericamente: “Se houver uma conta com esse e-mail, enviaremos as orientações.” Aplicar limites por origem e destino sem expor existência da conta.
+2. Enviar link de **recuperação**, distinto de login por magic link. A meta inicial é validade de uma hora, a configurar e verificar no ambiente; tratar uso único, expiração e rejeição.
+3. Validar o retorno e a evidência de recuperação no servidor antes de permitir alteração. Rotas implementadas: `/conta/recuperar`, `/auth/recovery` e `/conta/nova-senha`; prova assinada vinculada à sessão por 15 minutos após validar o link.
+4. Ao abrir em outro navegador/dispositivo, considerar a dependência do verificador PKCE; se a prova estiver ausente, orientar reinício seguro da recuperação.
+5. Na tela de recuperação, não redirecionar automaticamente à Home apenas porque o Auth criou uma sessão. Concluir a senha, aplicar a política de sessões e então orientar nova entrada.
+6. Após sucesso, a política implementada é revogar globalmente a renovação das sessões anteriores e exigir nova autenticação. Validar o comportamento real do Auth e a janela residual dos JWTs, conforme seção 6.3.
+
+Configurar SMTP próprio, remetente e domínio, entrega e limites antes da publicação. Falha de envio pode depender da existência da conta: manter resposta pública neutra inclusive nesse caso e diagnóstico operacional sem dados pessoais. Link inválido/reutilizado e falha ao salvar têm estados próprios. Ver [autenticação por senha no Supabase](https://supabase.com/docs/guides/auth/passwords).
+
+## 5.2 Política de senha — proposta de evolução
+
+**Implementação atual v0.12.0:** cadastro e redefinição compartilham mínimo oito/máximo 128 caracteres, letra, número e símbolo em `src/features/auth/input.ts`; Auth local e nos-dev exigem mínimo oito. A recomendação abaixo é proposta documental; o código e a configuração do Auth ainda não foram alterados.
+
+Adotar mínimo de **15 caracteres** quando a senha for fator único, permitir ao menos 64 caracteres e frases com espaços, sem exigir mistura de classes. Bloquear senhas comuns/comprometidas, permitir colar e usar gerenciadores; não impor troca periódica sem motivo de segurança. Referência: [NIST SP 800-63B-4](https://pages.nist.gov/800-63-4/sp800-63b.html), seção 3.1.1. A recomendação é técnica, não obrigação legal universal.
+
+Na entrega correspondente, sincronizar cadastro, recuperação, mensagens e configuração do backend. Não invalidar contas existentes só pela mudança de política; definir aplicação às próximas definições de senha. Senhas permanecem sob responsabilidade do Auth e nunca entram em tabelas de perfil, logs ou relatórios do Nós.
 
 ---
 
-# 7. Autorização e Controle de Acesso
+# 6. Sessões, Tokens e Expiração
 
-O controle de acesso no Projeto Nós é garantido através do modelo de **Row Level Security (RLS)** do PostgreSQL do Supabase, em conjunto com validações no Next.js.
+## 6.1 Transporte e validação
 
-## 7.1 Row Level Security (RLS) no Supabase
-Cada tabela de conteúdo afetivo (Acordos, Memórias, Gratidões, Eventos) possui políticas de RLS ativas para garantir que nenhum dado saia do contexto correto:
+Na web atual, o servidor lê/renova a sessão por `@supabase/ssr`; o navegador envia cookies ao Nós e não manipula refresh tokens. `HttpOnly` depende dessa arquitetura: acesso direto futuro pelo SDK no navegador exigirá reavaliar o contrato. Não expor tokens para habilitar Realtime sem definir autorização e transporte. Ver [guia SSR do Supabase](https://supabase.com/docs/guides/auth/server-side/advanced-guide).
+
+Nas chamadas do servidor ao Supabase, usar a sessão validada. No futuro cliente nativo por tokens, enviar access token no header apropriado sobre HTTPS. Não afirmar que todas as requisições do navegador enviam `Authorization: Bearer`.
+
+Validar identidade no servidor, assinatura/validade dos tokens pelos mecanismos do Auth e autorização por recurso. Cookies presentes ou dados de `getSession()` isolados não bastam para autorizar operação. A implementação atual consulta `getUser()`; uma futura validação apenas criptográfica não comprova ausência de revogação.
+
+## 6.2 Prazos e estados distintos
+
+| Mecanismo | Meta/configuração | Efeito |
+|---|---|---|
+| Access token | Referência inicial de uma hora; conferir ambiente | Limita validade do JWT |
+| Duração máxima da sessão | Meta de produto de 30 dias, pendente | Exige política efetiva no Auth/servidor |
+| Bloqueio web | Proposta de 15 minutos sem interação | Oculta conteúdo e exige retomada autenticada |
+| Bloqueio mobile | Proposta de 10 minutos | Exige desbloqueio/entrada antes do conteúdo |
+
+**Bloqueio local não expira o JWT no servidor.** A inatividade de interface também não é equivalente à inatividade de renovação medida pelo Auth. Confirmar plano e configuração suportados antes de prometer limites. `sessaoBloqueada` é estado de UI proposto; `sessaoExpirada` representa a impossibilidade confirmada de continuar a sessão. Ver [sessões no Supabase](https://supabase.com/docs/guides/auth/sessions).
+
+Falha transitória de rede deve manter acesso bloqueado e permitir tentativa; limpar a sessão por revogação/expiração comprovada, sem tratar toda falha como logout. A mensagem de expiração é: “Sua sessão expirou por segurança. Vamos entrar novamente?”.
+
+## 6.3 Logout e revogação
+
+| Ação | Política proposta |
+|---|---|
+| Sair deste dispositivo | Escopo `local`, remoção de credenciais e caches locais |
+| Sair de todos os dispositivos | Escopo `global`, reautenticação recente e revogação das sessões |
+| Recuperar senha/excluir conta | Revogar sessões afetadas e impedir renovação |
+
+A ação atual chama `signOut()` sem escopo explícito; não presumir saída apenas local. Os controles separados acima ainda serão implementados. Ver [escopos de saída do Supabase](https://supabase.com/docs/guides/auth/signout).
+
+Revogar refresh tokens não invalida instantaneamente todo JWT emitido. Definir uma janela residual aceitável; ações críticas devem consultar a validade da sessão no backend, além de verificar JWT. Se houver acesso direto ao banco, a garantia imediata também precisará existir na fronteira correspondente, não só no Next.js.
+
+Limpar dados pessoais em memória, caches de consultas, armazenamento nativo e inscrições de canais; impedir reaparecimento por voltar no navegador ou trocar de conta. Respostas autenticadas não podem ir para cache compartilhado. A indisponibilidade ao revogar deve ser sinalizada, sem prometer encerramento remoto concluído.
+
+---
+
+# 7. Autorização por Recurso e Operação
+
+RLS, permissões SQL e funções de escrita devem aplicar a matriz v2.5. As tabelas existentes usam nomes como `nucleus_members` e `nucleus_agreements`; nomes conceituais em português não são esquema executável.
+
+## 7.1 Exemplo de leitura existente
+
+Trecho ilustrativo correspondente ao recorte de acordos, não uma migração nova:
 
 ```sql
--- Exemplo de política de RLS para leitura de acordos
-CREATE POLICY "Membros do Núcleo podem ler acordos" ON acordos
-  FOR SELECT
-  USING (
-    auth.uid() IN (
-      SELECT usuario_id FROM membros_nucleo WHERE nucleo_id = acordos.nucleo_id
-    )
-  );
+CREATE POLICY "members read nucleus agreements"
+ON public.nucleus_agreements
+FOR SELECT TO authenticated
+USING (
+  EXISTS (
+    SELECT 1 FROM public.nucleus_members AS m
+    WHERE m.nucleus_id = nucleus_agreements.nucleus_id
+      AND m.user_id = (SELECT auth.uid())
+  )
+);
 ```
 
-As políticas de RLS realizam as seguintes checagens automáticas:
-1. **Identidade**: O ID do usuário na sessão ativa (`auth.uid()`) é validado.
-2. **Contexto de Pertença (`nucleoId`)**: O banco verifica se o usuário conectado é um membro ativo associado ao `nucleoId` da tabela consultada.
-3. **Papel**: O banco valida o papel (Criador, Administrador ou Membro regular) no relacionamento do Núcleo para permitir ações de escrita ou exclusão, seguindo a matriz da **v2.5**.
+Esse trecho verifica pertencimento para leitura do acordo. Não demonstra escrita, papel administrativo, revogação de sessão ou visibilidade individual. No esquema consultado, o vínculo representa pertencimento e os papéis são `creator` e `member`; não há estado `active` de membro nem papel `administrator` implementado. Se houver suspensão/saída lógica ou novos papéis, atualizar esquema e políticas antes de prometer essa proteção.
+
+## 7.2 Contratos obrigatórios
+
+| Operação/recurso | Validação necessária |
+|---|---|
+| Leitura | Identidade, pertencimento e visibilidade específica do conteúdo |
+| Criação | Núcleo autorizado, autoria vinculada à sessão e campos válidos |
+| Alteração/exclusão | Recurso real, regra de negócio, autoria/papel quando aplicável |
+| Conteúdo privado e votos individuais | Somente autor/participante permitido; administrador não ganha acesso íntimo |
+| Escrita direta futura | `USING`/`WITH CHECK` conforme operação, sem permitir troca indevida de Núcleo/autor |
+| RPCs | Validar identidade, recurso, participação, prazo e estado na transação |
+| Storage | Bucket privado, políticas de objetos e URLs assinadas de curta duração |
+| Realtime | Assinatura e payload autorizados; não divulgar votos ou conteúdo íntimo por canal amplo |
+
+A aplicação atual restringe escritas dos recortes sensíveis a RPCs. Usar `SECURITY DEFINER` apenas quando necessário, `search_path` restrito, nomes qualificados e grants mínimos; não deixar helpers executáveis pelo público. Não usar metadados editáveis pelo usuário como autoridade para papéis.
+
+Não confiar em `usuarioId`/`nucleoId` enviados pelo cliente. Após saída/remoção do Núcleo, novos acessos devem ser negados; invalidar caches e canais correspondentes. URLs assinadas já emitidas podem permanecer válidas até expirar, exigindo janela documentada.
 
 ---
 
-# 8. Segurança e Conformidade (LGPD/GDPR)
+# 8. Proteção de Dados e LGPD/GDPR
 
-## 8.1 Criptografia
-- **Dados em Trânsito**: Todas as conexões entre o frontend Next.js/Capacitor e o Supabase/API Routes ocorrem estritamente sob protocolo HTTPS com TLS 1.3.
-- **Dados em Repouso**: Banco de dados relacional e arquivos de mídia do Storage são criptografados em repouso no Supabase (AES-256).
+## 8.1 Criptografia e limites da proteção
 
-## 8.2 Direitos dos Titulares de Dados (LGPD/GDPR)
-1. **Consentimento Explícito**: Os fluxos de onboarding do Next.js devem obter consentimento claro de privacidade e termos.
-2. **Direito de Portabilidade**: Disponibilização de rota em `/api/user/export` no Next.js que gera um dump formatado dos dados do usuário (JSON) a partir do banco Postgres, disponibilizando-o para download.
-3. **Direito ao Esquecimento e Anonimização**:
-   - Ao excluir a conta, os dados pessoais identificáveis (e-mail, biometria local, chaves de autenticação no Supabase) são permanentemente apagados.
-   - **Anonimização de Histórico**: Para evitar a remoção abrupta de memórias ou gratidões que afetam outros membros ativos do Núcleo, os registros textuais são mantidos, mas a associação do autor é convertida para um usuário anônimo genérico (*"Ex-membro"*), apagando-se permanentemente o vínculo com o usuário original.
+Exigir HTTPS em produção, TLS moderno compatível com os serviços e sem exceções de validação de certificado. TLS 1.3 é preferência técnica; não afirmar exclusividade sem evidência de todas as conexões.
 
+Registrar garantias do provedor para banco, objetos, backups, região e gestão de chaves. AES-256 só deve ser declarado para componentes cuja documentação/configuração o comprove. Criptografia em repouso protege a infraestrutura e não equivale a criptografia ponta a ponta. Esta última não está definida para o Nós e exigiria contrato de chaves, recuperação e compatibilidade com consultas/funcionalidades.
+
+## 8.2 Finalidades e bases legais
+
+Antes da publicação, inventariar categorias de dados, finalidade, base legal, destinatários, prazo e responsáveis. O produto pode conter dados sensíveis em textos/fotos; não assumir que todo dado afetivo tem a mesma classificação.
+
+Separar aceite de termos, ciência do aviso de privacidade e consentimentos específicos revogáveis. LGPD admite bases legais distintas; a base aplicável e o tratamento de dados sensíveis exigem avaliação própria. Se houver menores, definir regras de idade/responsável antes de liberar o fluxo. Não declarar conformidade apenas por usar Supabase.
+
+Registrar controlador, operadores, canal de atendimento, integrações, região e transferências internacionais. Avaliar o âmbito de aplicação do GDPR conforme público e operação. Referências: [LGPD](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm) e [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng).
+
+## 8.3 Exportação e atendimento de direitos
+
+`/api/user/export` é endpoint proposto. Exigir sessão validada e reautenticação recente; exportar somente dados acessíveis ao titular, sem dump indiscriminado de votos, rascunhos ou conteúdos privados de terceiros. Definir JSON legível, mídia pertinente e explicação de campos.
+
+Download privado, temporário, sem cache compartilhado; excluir o artefato após o prazo documentado. Solicitações de acesso, correção, exclusão e revogação precisam de canal, acompanhamento e prazos aplicáveis. Esses fluxos ainda não estão implementados.
+
+## 8.4 Exclusão, conteúdo compartilhado e retenção
+
+Trocar autoria por “Ex-membro” não garante anonimização: texto, imagem e contexto podem reidentificar a pessoa. Tratar a operação como desvinculação de autoria até demonstrar anonimização efetiva. A manutenção do histórico compartilhado exige análise de conteúdo e fundamento de retenção, não preservação automática de todo texto.
+
+| Categoria | Política a fechar antes de implementar exclusão |
+|---|---|
+| Conta, identidade e sessões | Revogação, remoção no Auth e tratamento de vínculos/constraints no banco |
+| Perfil e conteúdo privado | Eliminação conforme solicitação e hipóteses aplicáveis |
+| Conteúdo compartilhado | Avaliar exclusão, redação e retenção justificada considerando outras pessoas |
+| Fotos/anexos | Remover objetos e derivados pertinentes; controlar caches e links |
+| Logs de segurança | Retenção mínima justificada, acesso restrito e descarte |
+| Backups | Prazo de expiração e procedimento para não reintroduzir dados excluídos após restauração |
+| Dispositivos | Invalidar sessões e apagar segredos/caches do app ao processar o estado; prever dispositivos offline |
+
+Definir prazos, responsáveis e execução idempotente com retomada de falhas; verificar referências de autoria antes de apagar `auth.users`. Não prometer remoção imediata de todas as cópias/backups ou apagar biometria do sistema operacional: o Nós elimina seus segredos locais, não os cadastros biométricos do aparelho. Prazos concretos permanecem pendentes, sem duração arbitrária presumida.
+
+## 8.5 Controles operacionais
+
+- Rate limiting de entrada, recuperação e convites, com proteção contra abuso e respostas sem enumeração.
+- Reautenticação recente para exportar/excluir conta, trocar credenciais e vincular identidades.
+- Proteção CSRF em operações por cookie, validação de origem e CSP compatível com Next.js; `HttpOnly` não substitui prevenção de XSS.
+- Logs mínimos de eventos de segurança, sem senha, token, código, URL de recuperação ou conteúdo íntimo.
+- Segregação de ambientes, rotação de segredos e acesso administrativo restrito; backups e restauração verificados.
+- Procedimento de incidente com responsável, contenção, investigação e comunicação conforme regras aplicáveis.
 
 ---
 
-# Diagrama de Fluxo da Versao
+# 9. Critérios de Aceite e Próximas Entregas
+
+Os cenários abaixo são critérios de implementação futura; não são resultados de testes já executados nesta revisão.
+
+| Área | Evidência necessária |
+|---|---|
+| Login social | Sucesso, cancelamento, callback inválido, token rejeitado, destino indevido e retorno por plataforma |
+| Apple e identidades | Nome ausente, e-mail privado, vinculação segura e proteção do último método |
+| Recuperação | Resposta genérica, limite de solicitações, link expirado/reutilizado, outro dispositivo e senha redefinida |
+| Senha | Mesmas regras no cadastro/recuperação/backend; gerenciador e colagem funcionais |
+| Sessões | Renovação, expiração efetiva, bloqueio por inatividade, múltiplas abas e falha de rede |
+| Logout | Escopos local/global, tentativa remota com JWT residual, voltar no navegador e troca de usuário |
+| Biometria | Dispositivo real, cancelamento, mudança de cadastro, segredo inacessível e sessão revogada |
+| Autorização | Negativas entre Núcleos, conteúdo privado, autoria/papel, RPCs, Storage e Realtime quando usados |
+| Direitos | Exportação sem dados privados de terceiros, exclusão retomável e tratamento de backups |
+| Operação | SMTP, limites, cabeçalhos/CSP, logs sem segredos e evidência de criptografia |
+
+Sequência recomendada: completar recuperação/SMTP e política web de sessão; validar autorização e operação antes de publicação; implementar login social web; fechar arquitetura Android e prova de armazenamento/biometria; depois realizar a etapa iOS. Políticas propostas de senha, prazos e retenção deverão virar contratos executáveis nas entregas correspondentes.
+
+---
+
+# 10. Diagrama Geral de Acesso
 
 ```mermaid
-graph TD
-    A[App Capacitor Mobile/Web] --> B[Login Social Google/Apple ou Senha]
-    B --> C[Supabase Auth API]
-    C --> D[Geracao de Tokens JWT & Refresh Token]
-    D --> E[Armazenamento Seguro: Keychain/Keystore via Capacitor]
-    E --> F{Ativou Biometria local?}
-    F -->|Sim| G[Armazenar credenciais sob bloqueio biometrico]
-    F -->|Nao| H[Sessao Padrao via Refresh Token]
-    I[Acesso a APIs do Nos] --> J[Middleware Supabase RLS no Postgres]
-    J --> K[Autorizacao via Contexto nucleoId & usuarioId]
+flowchart TD
+    A[Entrada na conta] --> B[Supabase Auth valida identidade]
+    B --> C{Plataforma}
+    C -->|Web| D[Servidor e cookies protegidos]
+    C -->|Mobile futuro| E[Armazenamento seguro nativo]
+    D --> F{Bloqueio local exigido?}
+    E --> F
+    F -->|Sim| G[Desbloqueio ou nova entrada]
+    F -->|Não| H[Validar sessão]
+    G --> H
+    H --> I{Sessão válida?}
+    I -->|Sim| J[Autorizar recurso e operação]
+    I -->|Não| K[Limpar credenciais e solicitar entrada]
+    J --> L[RLS e RPCs no Postgres]
+    L --> M[Conteúdo permitido]
 ```
 
+O bloqueio local protege a interface; a autorização de cada operação continua obrigatória no servidor e banco. Storage e Realtime devem aplicar os contratos da seção 7.2 quando incorporados.
+
+---
 
 ## Segurança das decisões de teste do Hábito — decisão de 2026-10-03
 

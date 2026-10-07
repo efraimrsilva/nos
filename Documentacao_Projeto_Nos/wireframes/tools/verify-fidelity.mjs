@@ -111,9 +111,9 @@ try {
   for(const screen of inventory){await page.evaluate(id=>openScreen(id),screen.id);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Sem transbordamento da página ${screen.id}`);}
   await page.evaluate(()=>openScreen(7));await page.emulateMedia({reducedMotion:'reduce'});assert.equal(await page.locator('#screen-preview .product-primary').first().evaluate(el=>getComputedStyle(el).transitionDuration),'0s');
   await page.locator('.view-tabs [data-view="atlas"]').click();assert.equal(await page.locator('.tile').count(),72);
-  await page.locator('#status-filter').selectOption('Planejada');assert.equal(await page.locator('.tile').count(),45);await page.locator('#status-filter').selectOption('all');
+  await page.locator('#status-filter').selectOption('Planejada');assert.equal(await page.locator('.tile').count(),42);await page.locator('#status-filter').selectOption('all');
   await page.locator('#search').fill('recuperar');assert.ok(await page.locator('.tile').count()>0);await page.locator('#search').fill('');
-  await page.locator('.view-tabs [data-view="flows"]').click();assert.equal(await page.locator('.flow-card').count(),12);
+  await page.locator('.view-tabs [data-view="flows"]').click();assert.equal(await page.locator('.flow-card').count(),13);
   await page.locator('.view-tabs [data-view="atlas"]').click();await page.emulateMedia({media:'print'});assert.equal(await page.locator('#atlas-view').isVisible(),true);
   assert.deepEqual(errors,[],'Nenhum erro de execução');assert.deepEqual(external,[],'Atlas funciona sem chamadas HTTP externas');
   const result={screens:inventory.length,actions,states,references,approvedLayouts:Object.keys(layoutDefinitions).length,documentScreens:new Set(Object.values(layoutDefinitions).map(d=>d.screen)).size,paletteRoutes:3,nucleusTypes:9,errors,external};

@@ -1,6 +1,15 @@
 import { expect, test } from "@playwright/test";
 import { confirmEmailSession } from "@/features/auth/confirm-email-session";
 
+test("retorno com credenciais repetidas ou misturadas é rejeitado", async () => {
+  for (const query of ["code=a&code=b", "token_hash=a&token_hash=b&type=email", "token_hash=a&type=email&type=recovery", "code=a&token_hash=b&type=email"]) {
+    expect(await confirmEmailSession(new URLSearchParams(query), {
+      exchangeCodeForSession: async () => { throw new Error("Não deve autenticar entrada ambígua"); },
+      verifyOtp: async () => { throw new Error("Não deve autenticar entrada ambígua"); },
+    })).toBe(false);
+  }
+});
+
 test("retorno padrão troca o código por sessão", async () => {
   let exchanged = "";
   const result = await confirmEmailSession(new URLSearchParams("code=codigo-temporario"), {

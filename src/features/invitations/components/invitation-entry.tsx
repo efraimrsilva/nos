@@ -32,6 +32,6 @@ export function InvitationEntry({ isAuthenticated }: { isAuthenticated: boolean 
         <button type="submit" disabled={accepting} className="continue-button min-h-12 w-full rounded-2xl bg-forest px-5 py-3 text-sm font-semibold text-white disabled:opacity-60">{accepting ? "Aceitando…" : "Aceitar convite"}</button>
       </form>
     </section>}
-    {!isAuthenticated && <p className="mt-5 text-xs leading-6 text-muted">Você precisa de uma conta para conferir e aceitar um convite. <Link href={routes.account} className="font-semibold text-leaf underline">Criar conta ou entrar</Link>.</p>}
+    {!isAuthenticated && <p className="mt-5 text-xs leading-6 text-muted">Você precisa de uma conta para conferir e aceitar um convite. <Link href={`${routes.account}?next=%2Fcomecar%2Fconvite`} className="font-semibold text-leaf underline">Criar conta ou entrar</Link>.</p>}
   </>;
 }

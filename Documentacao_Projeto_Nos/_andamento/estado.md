@@ -1,12 +1,35 @@
 # Estado do Projeto Nós
 
-**Versão vigente do projeto:** 0.11.0
+**Versão vigente do projeto:** 0.12.0
 
 **DOCS_DIR:** `Documentacao_Projeto_Nos`
 
-**Atualizado:** 2026-10-05
+**Atualizado:** 2026-10-07
 
-**Git:** main; correção visual e prioridade alta incluídas no commit desta publicação (consultar HEAD), com conteúdo inspecionado. Base b853bbaafc2b87aeca7324246f96ce391de55b24; última entrega funcional v0.11.0 em e3643b69dd323b78ac348e4033f3e936a8a1fca0. Push autorizado para origin/main; conferência remota realizada ao encerrar o envio.
+**Git:** main; publicação autorizada da v0.12.0 a partir da base 45e2f69ca297254de9dde7b02d55cd8717390a3d. Commit da entrega identificado pela mensagem `feat(auth): concluir Conta e entrada e sincronizar Atlas vivo (v0.12.0)`; hash definitivo conferido no encerramento contra origin/main.
+
+
+## Entrega vigente — Conta e entrada — v0.12.0 — 2026-10-07
+
+**Objetivo atendido:** toda a área Conta e entrada do Atlas vivo, incluindo as telas 01–05 e a Entrada afetiva opcional 72. Conferência inicial localizou duas telas planejadas e ações pendentes; a auditoria completa identificou também a tela 72 no fim do inventário. Todas agora têm rotas/ações integradas, sem login social ou aceites jurídicos fictícios.
+
+**Escopo e resultado:** raiz abre Conta; cadastro segue para confirmação visual com reenvio; recuperação e redefinição de senha reais; prova assinada vinculada a sessão validada por 15 minutos; revogação global após senha nova e novo login; retorno de convite preservado. /boas-vindas é opcional, sem espera. Atlas/aplicativo compartilham identidade, composição, textos, campos e ações. Decisão permanente do usuário em 2026-10-07: qualquer mudança visual ou funcional em um lado deve atualizar o outro e apresentar as diferenças.
+
+**Evidência:** 108 testes desktop/mobile; tipos/build; jornada local com e-mails, PKCE e token direto, senha antiga negada, nova aceita, refresh token de outra sessão revogado, link reutilizado/cookie adulterado rejeitados e limpeza de fixtures. Atlas: 72 prévias, 178 saídas, 360 estados, 13 percursos, 41 referências; seis telas em duas larguras comparadas. Sem erro JavaScript/rede externa. Autorrevisão e revisão independente; três P2 corrigidos e leitura final sem achados materiais.
+
+**Configuração:** Supabase CLI 2.118.0 atualizou somente dois campos no nos-dev: retornos de confirmação/recuperação (incluindo next) e mínimo de senha oito. Diff remoto posterior: zero mudanças nessas propriedades; 11 campos não declarados preservados. AUTH_RECOVERY_SECRET criado somente em .env.local ignorado pelo Git. Não certificado SMTP/domínio/remetente de produção, nem executada jornada autenticada remota. Não houve commit, push Git ou deploy do app.
+
+**Arquivos e continuidade:** [contrato da área](funcionalidades/conta-entrada.md), [plano executado](planos/conta-entrada.md), [registro v0.12.0](registros/registro-v0.12.0-2026-10-07-imp-conta-entrada-fun-recuperacao-integrada.md), [comparação antes/atlas/aplicação](../wireframes/comparacoes/2026-10-07-conta-entrada/index.html). Configuração e roteiro operacional no contrato. Atlas passa a 42 telas planejadas e 30 recortes existentes.
+
+**Próximo passo executável:** conferir SMTP/remetente e segredo/URLs HTTPS no ambiente destinado ao lançamento. Telas e integração da área implementadas; dependências operacionais não equivalem a telas ausentes. Próximo módulo planejado permanece Nossa Árvore: fechar fontes/contrato antes dos indicadores. Esta entrega substitui a continuidade que priorizava Árvore como tarefa ativa; marcos abaixo são históricos.
+
+**Unidades pendentes de commit:** nenhuma desta entrega. Objeto do commit inspecionado e árvore comparada ao índice preparado; inclui implementação, atlas, galeria, testes, registros e revisão documental de segurança anteriormente pendente. Credenciais/artefatos de execução excluídos.
+
+## Revisão documental — autenticação e segurança v2.8 — 2026-10-06
+
+Incremento solicitado pelo usuário concluído na [especificação v2.8](../Projeto_Nos_v2.8_Autenticacao_e_Seguranca.md). Requisitos originais mapeados para status e critérios de aceite; corrigidas distinções de sessão/bloqueio, arquitetura mobile e anonimização. Recuperação, login social, biometria, direitos dos titulares e controles operacionais permanecem pendentes de implementação. Política de senha de 15 caracteres e prazos são propostas, sem alteração do código ou da configuração do Auth.
+
+[Registro da revisão](registros/registro-v0.11.0-2026-10-06-imp-revisao-autenticacao-fun-contratos-seguranca.md). Edição v2.8 e versão funcional 0.11.0 mantidas. Validação documental por confronto com código/migrações, fontes oficiais, links e diff; sem testes funcionais novos. Alterações locais sem commit, push ou deploy nesta interação. A próxima implementação de Nossa Árvore permanece como continuidade; futuros recortes de autenticação devem seguir os contratos e critérios da v2.8.
 
 ## Publicação atual — fidelidade e prioridade visual do atlas — 2026-10-05
 
@@ -130,7 +153,7 @@ Agenda por Núcleo concluída na **v0.6.0**: eventos pontuais com título, inten
 
 **Continuidade após a agenda:** a Tela 04 — Acordos foi concluída na v0.7.0; evidência e limites constam em [Entrega concluída — Tela 04 Acordos](#entrega-concluída--tela-04-acordos). A credencial de acesso permanece fora do repositório. Publicação pública exige revisão própria de privacidade e operação.
 
-**Unidades pendentes de commit:** nenhuma para a correção visual e orientação de prioridade alta; inclusão no commit confirmada por inspeção do objeto e comparação da árvore. Mensagem: `docs(wireframe): alinhar atlas ao app e consolidar prioridade visual`. **Contador de interações:** 76 respostas concluídas incluindo esta interação; começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
+**Unidades pendentes de commit neste marco histórico:** nenhuma para a correção visual e orientação de prioridade alta; inclusão no commit confirmada por inspeção do objeto e comparação da árvore. Mensagem: `docs(wireframe): alinhar atlas ao app e consolidar prioridade visual`. **Contador de interações:** 78 respostas concluídas, incluindo a publicação autorizada, a partir da última contagem persistida 77; eventuais interações sem registro não foram inventadas. Começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
 
 ## Objetivo e situação
 
@@ -238,3 +261,14 @@ Superpowers using-superpowers, brainstorming e verification-before-completion li
 - [Próximo recorte — Nossa Árvore](funcionalidades/nossa-arvore.md): fontes, base real, lacunas e critérios de aceite.
 
 - [Publicação Git e continuidade da v0.11.0](registros/registro-v0.11.0-2026-10-03-02-imp-publicacao-git-fun-continuidade-arvore.md).
+
+
+**Conferência final da v0.12.0 — 2026-10-07:** tipos e build aprovados após proteção dos logs de callbacks; revisão independente desse ajuste sem achados. Seis telas em duas larguras reconferidas sem diferenças de rótulos/títulos/subtítulos/cor/fonte e sem transbordamento. 428 links nos 46 documentos locais modificados/novos e 171 links do atlas sem destino ausente; `git diff --check` aprovado. Aplicativo compilado disponível em http://127.0.0.1:3000; galeria/atlas em http://127.0.0.1:3400, processos locais desta sessão, sem publicação.
+
+
+## Publicação autorizada — v0.12.0 — 2026-10-07
+
+Usuário autorizou commit/push abrangentes para main, incluindo a revisão documental de segurança anteriormente pendente. Base e origin/main iguais após fetch; segredo e artefatos ignorados. [Registro de publicação](registros/registro-v0.12.0-2026-10-07-02-imp-publicacao-git-fun-rastreabilidade-conta-entrada.md). Conferir objeto do commit e hash remoto antes de concluir. Sem deploy incluído na autorização.
+
+
+**Controle da publicação:** suíte repetida com 108/108 aprovados. Objeto inicial e árvore preparada conferidos; captura histórica da tela 72 corrigida após inspeção visual e incorporada ao mesmo commit. Conjunto final: 74 arquivos. Push normal autorizado para origin/main; comparar hash remoto ao HEAD no encerramento e reportar resultado. Removida pendência de commit após comprovar inclusão dos arquivos, sem novo desenvolvimento ou deploy.

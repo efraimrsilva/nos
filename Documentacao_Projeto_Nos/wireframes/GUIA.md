@@ -1,6 +1,6 @@
 # Wireframe completo do Projeto Nós
 
-**Natureza:** material de planejamento e revisão de produto, criado em 2026-10-03. **Referência do aplicativo:** v0.11.0.
+**Natureza:** material de planejamento e revisão de produto, criado em 2026-10-03. **Referência do aplicativo:** v0.12.0.
 
 Abra [o atlas navegável](atlas/index.html). Ele funciona localmente, sem servidor, conta, rede ou conexão com Supabase. Para transportar o material, mantenha a pasta `atlas/` completa: página, estilos, scripts e recursos locais.
 
@@ -34,7 +34,7 @@ O protótipo e suas extrações estão agora em **Documentacao_Projeto_Nos/Telas
 
 ## Resultado esperado e escopo
 
-Orientar o desenvolvimento de todo o produto documentado, começando em **01 — Conta**, com estrutura visual consistente, percursos, permissões, estados e pendências explícitos. O atlas tem 72 telas/estados, oito áreas e 12 percursos. As 37 interfaces do catálogo v2.1 estão cobertas; as 28 imagens antigas são parte desse catálogo, não seu limite.
+Orientar o desenvolvimento de todo o produto documentado, começando em **01 — Conta**, com estrutura visual consistente, percursos, permissões, estados e pendências explícitos. O atlas tem 72 telas/estados, oito áreas e 13 percursos. As 37 interfaces do catálogo v2.1 estão cobertas; as 28 imagens antigas são parte desse catálogo, não seu limite.
 
 As telas adicionais explicitam passos que o catálogo menciona sem uma composição própria: recuperação de acesso, confirmação pós-teste, acompanhamento de revisão, edição, privacidade, gestão e desfecho de conversas. Elas não significam 72 novas rotas, nem autorização para implementar todos os módulos simultaneamente. Continuações, abas e formulários podem compartilhar a mesma página.
 
@@ -62,7 +62,7 @@ O [inventário de cobertura e pendências](COBERTURA.md) relaciona cada tela à 
 | Manifesto e cuidado      | Identidade coletiva e preparação de encontros | 55–57; 60–65                            |
 | Preferências e segurança | Controle pessoal e consequências claras       | 66–71                                   |
 
-**Conta primeiro** é a ordem desejada deste material. O aplicativo atual ainda redireciona `/` para `/comecar`; seu formulário de Conta começa no modo cadastro. Nenhuma rota ou preferência do aplicativo foi alterada nesta tarefa. Futuramente, uma sessão válida poderá ir diretamente ao contexto autorizado, sem impor novo login. Convites precisam preservar retorno durante autenticação.
+**Conta primeiro** é a entrada implementada desde v0.12.0. /boas-vindas é apresentação opcional, sem atraso; convites preservam retorno interno durante a autenticação.
 
 A antiga entrada afetiva está preservada como composição opcional na Tela 72, fora do percurso obrigatório. As antigas Telas 05/06 são integradas ao detalhe 24. Continuações de perfil e outras áreas mantêm referências explícitas no inventário.
 
@@ -70,9 +70,9 @@ A antiga entrada afetiva está preservada como composição opcional na Tela 72,
 
 **Planejada** significa que a tela ainda requer implementação ou contrato próprio. **Recorte existente** significa que a base funcional existe, mas a composição afetiva aprovada pode conter extensões futuras. A ficha declara esses limites. Os rótulos de procedência distinguem layout implementado, base do documento e extensão; a presença de um recorte funcional não confirma todos os elementos do desenho.
 
-Há 45 telas planejadas e 27 recortes existentes. Os principais conjuntos pendentes são:
+Há 42 telas planejadas e 30 recortes existentes. Os principais conjuntos pendentes são:
 
-- **Conta:** recuperação/redefinição de senha; reenvio operacional de confirmação; SMTP (protocolo de envio de e-mail) e limites para lançamento. A entrada por Conta ainda é uma proposta de alteração do fluxo atual.
+- **Conta:** telas 01–05 e 72 implementadas e comparadas. SMTP, remetente, domínio e limites do ambiente de lançamento ainda precisam de conferência; funcionalidades de login social e gestão de dados são módulos próprios.
 - **Núcleos:** listagem multínucleo, gestão de convites, QR (código de resposta rápida), compartilhamento ampliado e saída com tratamento das dependências. Administrador é papel documental futuro; o recorte atual usa criador e membro.
 - **Home e agenda:** resumo afetivo completo, composição mensal, vínculo com experiências e eventos restritos de cuidado. O banco atual permite autor ou criador editar/remover evento; a ficha respeita isso.
 - **Acordos:** fluxo guiado de necessidade/proposta/compreensão/conferência, reflexões, detalhe e registro de experiência, fotos, Essência e promoção. O hub já possui criação e respostas; não confundir esse recorte com o fluxo guiado completo.
@@ -123,3 +123,7 @@ Quando houver divergência, decisões explícitas do usuário e contratos implem
 Manter este guia e o atlas sincronizados a cada entrega. O usuário aprovou sua continuidade como referência viva. Retomar a definição de [Nossa Árvore](../_andamento/funcionalidades/nossa-arvore.md), usando a Tela 38 como composição, fechando fontes de dados e critérios antes de implementar. Não iniciar nova funcionalidade apenas porque seu desenho está pronto.
 
 Critérios para esta entrega: Conta em primeiro; 37 origens cobertas; telas planejadas sinalizadas; fichas com contratos e permissões; destinos íntegros; navegação local; estados e apresentação responsiva verificados; versão funcional preservada; continuidade atualizada.
+
+## Sincronização e apresentação de diferenças — decisão de 2026-10-07
+
+Usuário determinou que atlas vivo e aplicativo devem ter os mesmos aspectos. Ao alterar qualquer lado, atualizar o outro na mesma entrega, incluindo campos, textos, botões, navegação, estados e regras. Apresentar sempre o que mudou; para mudanças visuais, registrar capturas antes/depois e comparação atlas/aplicação. Desenho histórico permanece como evidência de origem, sem sugerir integração não existente. [Comparação desta entrega](comparacoes/2026-10-07-conta-entrada/index.html).

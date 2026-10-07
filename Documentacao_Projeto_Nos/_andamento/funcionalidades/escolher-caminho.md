@@ -1,6 +1,6 @@
 # Escolher caminho
 
-**Versão vigente do projeto:** 0.9.0
+**Versão vigente do projeto:** 0.12.0
 
 ## Escopo autorizado
 
@@ -31,3 +31,8 @@ Esta fatia é pública e não coleta nem persiste dados. A autenticação, assoc
 Status da entrega: tela e navegação implementadas. Oito testes passaram nos dois perfis (desktop/mobile), incluindo viewport 320px; build e tipos verificados. Destinos são espaços reservados, não telas concluídas de criação/aceite.
 
 Continuidade realizada em 2026-09-25: [registro da implementação de Tipo de Núcleo](<../registros/registro-v0.2.0-2026-09-25-01-imp-tela-tipo-nucleo-fun-selecao-vinculo.md>). Em 2026-09-27, [Propósito](../registros/registro-v0.3.0-2026-09-27-imp-tela-proposito-nucleo-fun-rascunho-local.md) ganhou formulário e conferência local; depois, a [v0.4.0](../registros/registro-v0.4.0-2026-09-27-imp-integracao-supabase-fun-criacao-convite.md) acrescentou criação protegida, convite e entrada real. A descrição anterior de destinos reservados e oito testes corresponde à entrega inicial.
+
+
+## v0.12.0 — Conta e entrada
+
+A raiz agora abre `/conta`; `/comecar` continua acessível após autenticação. Recuperação, confirmação com reenvio e apresentação opcional integradas. Consulte o [contrato vigente de Conta e entrada](conta-entrada.md).

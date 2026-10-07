@@ -135,3 +135,11 @@ Com Supabase local iniciado e SUPABASE_CLI_PATH configurado, execute `supabase t
 ## Próximo passo após v0.11.0
 
 Definir os dados reais da Tela 07 — Nossa Árvore a partir do catálogo v2.1, impacto v1.4 e marcos v1.6. Níveis, experiência e indicadores do protótipo exigem contrato próprio antes da implementação. Progresso, reflexões e publicação pública permanecem fora da entrega atual.
+
+## Conta e entrada — v0.12.0
+
+Área completa (01–05 e 72) implementada. A raiz abre Conta; /boas-vindas é apresentação opcional. Cadastro, confirmação/reenvio e recuperação/redefinição usam Supabase Auth com retorno de convite e prova de recuperação validada no servidor. Configure AUTH_RECOVERY_SECRET somente no servidor, além das variáveis existentes.
+
+[Contrato e configuração](Documentacao_Projeto_Nos/_andamento/funcionalidades/conta-entrada.md), [registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.12.0-2026-10-07-imp-conta-entrada-fun-recuperacao-integrada.md) e [diferenças antes/atlas/aplicação](Documentacao_Projeto_Nos/wireframes/comparacoes/2026-10-07-conta-entrada/index.html). A decisão do usuário exige atualizar os dois lados e mostrar sempre a diferença.
+
+Para reproduzir a jornada de e-mails no Supabase local, configure SUPABASE_CLI_PATH e execute `node scripts/verify-account-local.mjs`. O script aceita somente backend local, usa porta 3200/.next-verify, cria/remove conta e e-mails temporários e encerra o servidor isolado. Não executa envio remoto ou deploy. Verificação visual: `node Documentacao_Projeto_Nos/wireframes/tools/verify-account-fidelity.mjs` com app na porta 3000.

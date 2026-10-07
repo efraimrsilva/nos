@@ -1,26 +1,26 @@
 # Cobertura e pendências do wireframe
 
-Material de planejamento criado em 2026-10-03 e corrigido visualmente em 2026-10-04. Referência funcional: v0.11.0; nenhuma nova versão de desenvolvimento.
+Material de planejamento criado em 2026-10-03 e corrigido visualmente em 2026-10-04. Referência funcional: v0.12.0. Atualização da área Conta e entrada em 2026-10-07.
 
 ## Situação verificada
 
-Conferência de 2026-10-05: as 72 fichas, situações e pendências coincidem com este inventário e com os rótulos visíveis nas miniaturas e na inspeção. Todos os 27 recortes existentes apontam para rotas presentes no código; isso não confirma as ampliações ilustradas. Os 45 desenhos planejados continuam identificados. **Antes de implementar qualquer tela, consultar seu aspecto no modo Atlas vivo com prioridade alta**, conforme o [procedimento obrigatório](GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05).
+Conferência atualizada em 2026-10-07: as 72 fichas, situações e pendências coincidem com este inventário e com os rótulos visíveis nas miniaturas e na inspeção. Todos os 30 recortes existentes apontam para rotas presentes no código; isso não confirma as ampliações ilustradas. Os 42 desenhos planejados continuam identificados. **Antes de implementar qualquer tela, consultar seu aspecto no modo Atlas vivo com prioridade alta**, conforme o [procedimento obrigatório](GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05).
 
-- 72 telas/estados; 8 áreas; 12 percursos.
-- 45 telas planejadas e pendentes de implementação.
-- 27 recortes existentes: o desenho pode incluir ampliações ainda pendentes, descritas individualmente.
+- 72 telas/estados; 8 áreas; 13 percursos.
+- 42 telas planejadas e pendentes de implementação.
+- 30 recortes existentes: o desenho pode incluir ampliações ainda pendentes, descritas individualmente.
 - As 37 interfaces do catálogo v2.1 estão mapeadas. Continuação de página, aba e estado podem compartilhar rota; 72 desenhos não significam 72 rotas novas.
 
 ## Inventário completo
 
 | Tela | Área | Nome | Situação | Origem v2.1 | Localização / rota | Pendência ou limite |
 |---|---|---|---|---|---|---|
-| 01 | Conta e entrada | [Conta](atlas/index.html#tela-01) | Recorte existente | 01, 12 | /conta | Autenticação já existe; nova ordem de entrada depende de implementação posterior. |
-| 02 | Conta e entrada | [Criar conta](atlas/index.html#tela-02) | Recorte existente | 12 | /conta · modo cadastro | Cadastro Supabase existente; textos jurídicos e limites de envio precisam de fechamento antes do lançamento. |
-| 03 | Conta e entrada | [Confirmar e-mail](atlas/index.html#tela-03) | Recorte existente | Complemento de segurança | /auth/confirm · retorno para /conta | Retorno de confirmação existente; reenvio, SMTP e limites operacionais pendentes. |
-| 04 | Conta e entrada | [Recuperar acesso](atlas/index.html#tela-04) | Planejada | Complemento de segurança | Proposta: /conta/recuperar | Recuperação de senha, templates e proteção contra abuso ainda não implementados. |
-| 05 | Conta e entrada | [Redefinir senha](atlas/index.html#tela-05) | Planejada | Complemento de segurança | Proposta: /conta/nova-senha | Integração de recuperação pendente. |
-| 06 | Criar e entrar no Núcleo | [Escolher caminho](atlas/index.html#tela-06) | Recorte existente | 29 | /comecar | Tela existente; entrada Conta primeiro é planejamento. |
+| 01 | Conta e entrada | [Conta](atlas/index.html#tela-01) | Recorte existente | 01, 12 | /conta · entrada / | Fluxo implementado; configuração SMTP, URLs autorizadas e limites remotos exigem validação no ambiente de publicação. |
+| 02 | Conta e entrada | [Criar conta](atlas/index.html#tela-02) | Recorte existente | 12 | /conta · modo cadastro | Cadastro integrado e validado localmente; textos jurídicos e operação de e-mail de produção continuam fora desta seção. |
+| 03 | Conta e entrada | [Confirmar e-mail](atlas/index.html#tela-03) | Recorte existente | Complemento de segurança | /conta/confirmar-email · /auth/confirm | Cadastro, reenvio e confirmação implementados; entrega local comprovada. SMTP e limites da hospedagem ainda exigem conferência. |
+| 04 | Conta e entrada | [Recuperar acesso](atlas/index.html#tela-04) | Recorte existente | Complemento de segurança | /conta/recuperar · /auth/recovery | Recuperação integrada; AUTH_RECOVERY_SECRET, origem, URLs autorizadas e serviço de e-mail devem estar configurados no ambiente. |
+| 05 | Conta e entrada | [Redefinir senha](atlas/index.html#tela-05) | Recorte existente | Complemento de segurança | /conta/nova-senha | Redefinição integrada; chave de assinatura somente no servidor. Link inválido, usado ou aberto sem verificador oferece reinício seguro. |
+| 06 | Criar e entrar no Núcleo | [Escolher caminho](atlas/index.html#tela-06) | Recorte existente | 29 | /comecar | Tela existente; Conta é a entrada da raiz, seguida de escolha explícita ou retorno de convite. |
 | 07 | Criar e entrar no Núcleo | [Tipo de Núcleo](atlas/index.html#tela-07) | Recorte existente | 30 | /comecar/tipo | Catálogo atual de nove tipos; manter identificador validado na URL. |
 | 08 | Criar e entrar no Núcleo | [Propósito do Núcleo](atlas/index.html#tela-08) | Recorte existente | 31 | /comecar/proposito | Criação existente; sem persistência de rascunho no atlas. |
 | 09 | Criar e entrar no Núcleo | [Convite inicial](atlas/index.html#tela-09) | Recorte existente | 32 | /comecar/convite-inicial/[id] | Código e compartilhamento nativo existentes; QR e gestão ampliada dependem de contrato. |
@@ -86,7 +86,7 @@ Conferência de 2026-10-05: as 72 fichas, situações e pendências coincidem co
 | 69 | Preferências e segurança | [Conta e segurança](atlas/index.html#tela-69) | Planejada | 26 · v2.8 | Proposta: /configuracoes/conta | Logout existente; administração de segurança e dados pendente. |
 | 70 | Preferências e segurança | [Ajuda e suporte](atlas/index.html#tela-70) | Planejada | 26 · complemento | Proposta: /ajuda | Conteúdo de ajuda, canal e termos pendentes. |
 | 71 | Preferências e segurança | [Sair de um Núcleo](atlas/index.html#tela-71) | Planejada | Complemento de privacidade | Proposta: /nucleos/[id]/sair | Saída, transferência de criador e retenção pendentes. |
-| 72 | Conta e entrada | [Entrada afetiva · opcional](atlas/index.html#tela-72) | Planejada | 01 | Proposta: entrada de marca opcional | Tela opcional, sem mudar a entrada atual do aplicativo nesta tarefa. |
+| 72 | Conta e entrada | [Entrada afetiva · opcional](atlas/index.html#tela-72) | Recorte existente | 01 | /boas-vindas | Apresentação opcional implementada. Cadastro/login diretos, sem login social nem aceite jurídico fictício. |
 
 ## Mapeamento das interfaces de origem
 
@@ -136,6 +136,6 @@ Conferência de 2026-10-05: as 72 fichas, situações e pendências coincidem co
 
 ## Verificação do artefato
 
-Inventário sem IDs duplicados ou destinos ausentes; 37 origens cobertas; 72 prévias, 173 saídas do contrato e 360 estados visuais verificados com Playwright; 52 composições aprovadas também renderizadas. Busca, filtros, teclado, 12 percursos, modo web, impressão CSS e ausência de transbordamento horizontal a 375 px conferidos. Nenhum erro JavaScript detectado. A impressão foi verificada por CSS, sem exportação ou inspeção de PDF.
+Inventário sem IDs duplicados ou destinos ausentes; 37 origens cobertas; 72 prévias, 178 saídas do contrato e 360 estados visuais verificados com Playwright; 52 composições aprovadas também renderizadas. Busca, filtros, teclado, 13 percursos, modo web, impressão CSS e ausência de transbordamento horizontal a 375 px conferidos. Nenhum erro JavaScript detectado. A impressão foi verificada por CSS, sem exportação ou inspeção de PDF.
 
 Esta validação comprova o funcionamento do atlas. Não valida novamente funcionalidades do aplicativo, integrações Supabase nem regras futuras ainda sem implementação.

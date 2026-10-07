@@ -5,7 +5,7 @@ auto_expose_new_tables = false
 
 [auth]
 site_url = "http://127.0.0.1:3000"
-additional_redirect_urls = ["http://127.0.0.1:3000/auth/confirm"]
+additional_redirect_urls = ["http://127.0.0.1:3000/auth/confirm", "http://127.0.0.1:3000/auth/confirm?next=**", "http://127.0.0.1:3000/auth/recovery", "http://127.0.0.1:3000/auth/recovery?next=**", "http://127.0.0.1:3200/auth/**"]
 minimum_password_length = 8
 
 [auth.email]
