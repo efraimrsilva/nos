@@ -1,6 +1,6 @@
 # Brag document — Projeto Nós
 
-**Versão vigente do projeto:** 0.12.0
+**Versão vigente do projeto:** 0.13.0
 
 ## 2026-09-27 — Agenda interna do Núcleo
 
@@ -124,3 +124,12 @@ Registro factual de contribuições; resultados medidos são separados de benef�
 - **Resultado verificado:** teste conferiu igualdade das 72 composições, propagação de título/dependência/ação e inclusão de tela nova, navegação, filtros e celular. Revisão independente identificou e reconferiu a correção de um P2. Seis capturas antes/depois preservadas; fidelidade das seis telas reais de Conta reconferida em duas larguras.
 - **Benefício esperado:** facilitar decisões de navegação e evitar divergência entre visões. Redução de retrabalho futuro ainda não medida; sincronização com o app continua exigindo conferência por entrega.
 - **Evidência:** [teste](../wireframes/tools/verify-global-view.mjs), [galeria](../wireframes/comparacoes/2026-10-07-visao-global/index.html) e [registro](../_andamento/registros/registro-v0.12.0-2026-10-07-03-imp-visao-global-atlas-fun-sequencia-sincronizacao-comparacoes.md).
+
+
+## 2026-10-07 — Navegação privada e entrada pelos vínculos existentes
+
+- Problema: onboarding abria sem sessão e login reenviava integrantes ao fluxo inicial; Tela12 ainda planejada.
+- Contribuição: validação no proxy, retorno seguro, listagem real sob RLS e protocolo de login para formulário expirado; Atlas e galeria sincronizados.
+- Resultado verificado: 132 testes desktop/celular, tipos/build e Atlas aprovados; acesso a outro Núcleo negado, renovação válida mantida e envio expirado sem criação. Revisão independente sem achados materiais restantes. Integração desta entrega somente local.
+- Benefício esperado: reduzir confusão ao entrar e impedir renderização privada sem identidade válida.
+- Evidência: [registro v0.13.0](../_andamento/registros/registro-v0.13.0-2026-10-07-05-imp-navegacao-protegida-fun-sessao-seus-nucleos.md), src/proxy.ts, src/app/nucleos/page.tsx e tests/authenticated/session-navigation.spec.ts.

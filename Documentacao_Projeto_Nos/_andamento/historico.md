@@ -1,6 +1,6 @@
 # Histórico de andamento
 
-**Versão vigente do projeto:** 0.12.0
+**Versão vigente do projeto:** 0.13.0
 
 ## 2026-09-24 — Primeira tela do app
 
@@ -361,3 +361,15 @@ Conferência desta publicação: 108/108 testes repetidos; objeto Git inspeciona
 Usuário autorizou commit e push abrangentes da Visão global, reuso de composições/contratos, sequência e ramificações, correção de filtros, teste, galeria e procedimentos de manutenção. Fetch confirmou main sem divergência a partir de 7a1fedc. [Registro da publicação](registros/registro-v0.12.0-2026-10-07-04-imp-publicacao-atlas-fun-visao-global-procedimentos.md). Verificar conteúdo do objeto e hash remoto; excluir artefatos/credenciais. Sem deploy ou incremento de versão funcional.
 
 Conferência da publicação: 108/108 testes repetidos, verificações global/fidelidade/Conta aprovadas, 781 alvos de links locais e diff conferidos. Objeto inicial inclui os 24 arquivos e coincide com a árvore preparada; pendência removida por evidência de inclusão, com atualização do controle no mesmo commit lógico. Hash final reportado após conferência remota no encerramento.
+
+
+## 2026-10-07 — v0.13.0 — Navegação autenticada e Seus Núcleos
+
+- Mudança: proteger etapas antes públicas e organizar Conta → lista real → Início, com retorno privado permitido. Sessão expirada renovável continua; não renovável pede login inclusive durante envio.
+- Resultado: 88 testes sem backend e 44 autenticados, tipos/build, Atlas72/180/360 e Visão global aprovados; revisão independente sem achados materiais restantes.
+- Evidência: [registro](registros/registro-v0.13.0-2026-10-07-05-imp-navegacao-protegida-fun-sessao-seus-nucleos.md), [contrato](funcionalidades/navegacao-sessao.md) e [comparações](../wireframes/comparacoes/2026-10-07-sessao-navegacao/index.html). Ambiente/fixtures locais limpos e config restaurado. Sem migração remota, commit/push ou deploy.
+
+
+## 2026-10-07 — Publicação autorizada da v0.13.0
+
+Usuário autorizou commit/push abrangentes. Fetch confirmou main sem divergência. Implementação, testes, Atlas/galeria e documentação compõem uma unidade lógica; [registro de publicação](registros/registro-v0.13.0-2026-10-07-06-imp-publicacao-git-fun-rastreabilidade-navegacao.md). Conferir objeto e hash remoto no encerramento; sem deploy.

@@ -1,6 +1,6 @@
 # Fidelidade visual e manutenção do atlas
 
-Referência funcional: **v0.12.0**. Conta e entrada sincronizadas em 2026-10-07; base histórica preservada.
+Referência funcional: **v0.13.0**. Conta e entrada sincronizadas em 2026-10-07; base histórica preservada.
 
 ## Procedência e precedência
 
@@ -117,7 +117,7 @@ node Documentacao_Projeto_Nos/wireframes/tools/import-approved.mjs
 node Documentacao_Projeto_Nos/wireframes/tools/verify-fidelity.mjs
 ```
 
-O primeiro comando lê o HTML aprovado, resolve suas condições/listas, gera approved-layouts.js e SVG locais e copia os pesos/licenças das fontes instaladas. Não editar esse arquivo gerado à mão. A fonte é registrada por SHA-256; mudança da fonte exige reimportação e inspeção. O segundo comando usa o aplicativo local em http://127.0.0.1:3000 para comparar as três rotas públicas; abrir esse servidor antes de executar. Capturas e resultado ficam em artifacts/, fora do commit.
+O primeiro comando lê o HTML aprovado, resolve suas condições/listas, gera approved-layouts.js e SVG locais e copia os pesos/licenças das fontes instaladas. Não editar esse arquivo gerado à mão. A fonte é registrada por SHA-256; mudança da fonte exige reimportação e inspeção. O segundo comando usa o aplicativo local em http://127.0.0.1:3000 para comparar as três rotas de onboarding com sessão validada (usar a suíte autenticada local descrita abaixo); abrir esse servidor antes de executar. Capturas e resultado ficam em artifacts/, fora do commit.
 
 Atualizar product-ui.js/product.css quando a implementação mudar; atualizar screens.js, fichas, cobertura e jornadas junto ao contrato. O documento original preserva sua origem; o modo vivo adapta regras sem adulterar a fonte. Não promover indicadores históricos a regra de produto.
 
@@ -130,6 +130,11 @@ Não houve alteração ou nova validação funcional de banco, autenticação ou
 A área Conta e entrada inclui também ID72. A versão viva apresenta somente botões implementados de cadastro/login; login social e consentimento jurídico históricos não foram ativados. [Comparação](comparacoes/2026-10-07-conta-entrada/index.html).
 
 
-## Validação vigente — 2026-10-07 — v0.12.0
+## Validação histórica — 2026-10-07 — v0.12.0
 
 72 telas, 178 saídas, 360 estados, 41 referências e 13 percursos aprovados; zero erros de execução e chamadas externas no atlas. As seis telas de Conta e entrada foram comparadas ao aplicativo em duas larguras. Jornada funcional real validada separadamente no Supabase local, além dos 108 testes, tipos e build. Inventário atual: 42 telas planejadas e 30 recortes existentes. A validação de 2026-10-04 acima permanece como evidência histórica.
+
+
+## Validação vigente — 2026-10-07 — v0.13.0
+
+72 prévias, 180 saídas, 360 estados, 41 referências, 52 layouts e 14 percursos; zero erros JavaScript ou chamadas externas no atlas. Inventário: 41 planejadas e 31 recortes existentes. Sessão temporária em memória permite comparar as três rotas agora privadas. Executar node scripts/test-authenticated-local.mjs com SUPABASE_CLI_PATH local; verify-fidelity recebe NOS_VERIFY_ORIGIN e NOS_VERIFY_COOKIES somente do processo de teste. Galeria inclui Conta, Escolher caminho, Seus Núcleos e Início; dados de exemplo da listagem foram criados/removidos no backend local. Visão global certifica composição compartilhada e sincronização das 72 telas. [Contrato](../_andamento/funcionalidades/navegacao-sessao.md).

@@ -7,7 +7,7 @@ import { submitAuth, type AuthFormState } from "@/features/auth/actions";
 
 const initialState: AuthFormState = { message: "", success: false, revision: 0 };
 
-export function AuthForm({ next = "/comecar", initialMode = "signup" }: { next?: string; initialMode?: "signup" | "login" }) {
+export function AuthForm({ next = "/nucleos", initialMode = "signup" }: { next?: string; initialMode?: "signup" | "login" }) {
   const [mode, setMode] = useState<"signup" | "login">(initialMode);
 
   return (

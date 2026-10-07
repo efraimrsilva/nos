@@ -26,7 +26,11 @@ try {
   page.on('pageerror',error=>errors.push(error.message));
   page.on('request',request=>{if(/^https?:/.test(request.url()))external.push(request.url());});
   const app = await browser.newPage({ viewport: { width: 390, height: 844 } });
-  await app.goto('http://127.0.0.1:3000/comecar');
+  const origin=process.env.NOS_VERIFY_ORIGIN||'http://127.0.0.1:3000';
+  if(!/^http:\/\/(?:127\.0\.0\.1|localhost):\d+$/.test(origin))throw new Error('A comparação exige aplicativo local.');
+  // Cookies temporários chegam apenas pela memória do processo; a proteção das telas também vale para o verificador.
+  if(process.env.NOS_VERIFY_COOKIES)await app.context().addCookies(JSON.parse(process.env.NOS_VERIFY_COOKIES));
+  await app.goto(`${origin}/comecar`);
   await app.screenshot({ path: 'artifacts/app-comecar-approved.png', fullPage: true });
   const appCanvas = await app.evaluate(() => getComputedStyle(document.body).backgroundColor);
   await page.goto(pathToFileURL(path.resolve('Documentacao_Projeto_Nos/wireframes/atlas/index.html')).href);
@@ -36,7 +40,7 @@ try {
   assert.equal(await page.locator('#screen-preview').getByText('Como você quer começar?', { exact: true }).count(), 1);
   assert.equal(await page.locator('#screen-preview .path-card svg').count(), 4, 'Dois ícones e duas setas como no app');
   for(const [id,route] of [[6,'/comecar'],[7,'/comecar/tipo'],[10,'/comecar/convite']]){
-    await app.goto(`http://127.0.0.1:3000${route}`);
+    await app.goto(`${origin}${route}`);
     await page.evaluate(id=>openScreen(id),id);
     assert.equal(await page.locator('#screen-preview .product-content>h3').innerText(),await app.locator('h1').innerText(),`Título real ${route}`);
     const realColors=await app.evaluate(()=>({canvas:getComputedStyle(document.body).backgroundColor,forest:getComputedStyle(document.querySelector('h1')).color,muted:getComputedStyle(document.querySelector('h1+p')).color,step:getComputedStyle(document.querySelector('.step-label')).color}));
@@ -45,7 +49,7 @@ try {
     await app.screenshot({path:`artifacts/app-fidelity-${id}.png`,fullPage:true});
     await page.locator('#screen-preview .preview-wrap').screenshot({path:`artifacts/atlas-fidelity-${id}.png`});
   }
-  await page.evaluate(()=>openScreen(7));await app.goto('http://127.0.0.1:3000/comecar/tipo');
+  await page.evaluate(()=>openScreen(7));await app.goto(`${origin}/comecar/tipo`);
   assert.equal(await page.locator('#screen-preview .type-option').count(),9);
   assert.deepEqual(await page.locator('#screen-preview .type-option strong').allTextContents(),await app.locator('.type-option [id^="label-"]').allTextContents());
   assert.deepEqual(await page.locator('#screen-preview .type-option small').allTextContents(),await app.locator('.type-option [id^="description-"]').allTextContents());
@@ -111,9 +115,9 @@ try {
   for(const screen of inventory){await page.evaluate(id=>openScreen(id),screen.id);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Sem transbordamento da página ${screen.id}`);}
   await page.evaluate(()=>openScreen(7));await page.emulateMedia({reducedMotion:'reduce'});assert.equal(await page.locator('#screen-preview .product-primary').first().evaluate(el=>getComputedStyle(el).transitionDuration),'0s');
   await page.locator('.view-tabs [data-view="atlas"]').click();assert.equal(await page.locator('.tile').count(),72);
-  await page.locator('#status-filter').selectOption('Planejada');assert.equal(await page.locator('.tile').count(),42);await page.locator('#status-filter').selectOption('all');
+  await page.locator('#status-filter').selectOption('Planejada');assert.equal(await page.locator('.tile').count(),41);await page.locator('#status-filter').selectOption('all');
   await page.locator('#search').fill('recuperar');assert.ok(await page.locator('.tile').count()>0);await page.locator('#search').fill('');
-  await page.locator('.view-tabs [data-view="flows"]').click();assert.equal(await page.locator('.flow-card').count(),13);
+  await page.locator('.view-tabs [data-view="flows"]').click();assert.equal(await page.locator('.flow-card').count(),14);
   await page.locator('.view-tabs [data-view="atlas"]').click();await page.emulateMedia({media:'print'});assert.equal(await page.locator('#atlas-view').isVisible(),true);
   assert.deepEqual(errors,[],'Nenhum erro de execução');assert.deepEqual(external,[],'Atlas funciona sem chamadas HTTP externas');
   const result={screens:inventory.length,actions,states,references,approvedLayouts:Object.keys(layoutDefinitions).length,documentScreens:new Set(Object.values(layoutDefinitions).map(d=>d.screen)).size,paletteRoutes:3,nucleusTypes:9,errors,external};

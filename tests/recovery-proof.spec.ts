@@ -18,7 +18,7 @@ test("erro SMTP exclusivo de conta existente não revela cadastro", async () => 
 
 test("retornos externos, repetidos e ambiguos não atravessam a autenticação", () => {
   for (const value of ["https://example.com", "//example.com", "/\\example.com", ["/comecar/convite"], "/comecar/convite?next=//example.com", "/conta/nova-senha"]) {
-    expect(safeAuthNext(value)).toBe("/comecar");
+    expect(safeAuthNext(value)).toBe("/nucleos");
   }
   expect(safeAuthNext("/comecar/convite")).toBe("/comecar/convite");
   expect(safeAuthNext("/comecar/proposito?tipo=familia")).toBe("/comecar/proposito?tipo=familia");

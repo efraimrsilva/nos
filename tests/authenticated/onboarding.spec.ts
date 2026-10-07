@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures";
 
 test("escolher caminho leva às próximas etapas e permite voltar", async ({ page }) => {
   await page.goto("/comecar");
@@ -20,7 +20,7 @@ test("primeira tela acessível por teclado e sem rolagem horizontal", async ({ p
   await expect(page.getByRole("link", { name: "Pular para o conteúdo" })).toBeFocused();
   await page.keyboard.press("Enter");
   await page.keyboard.press("Tab");
-  await expect(page.getByRole("link", { name: /Criar um núcleo/ })).toBeFocused();
+  await expect(page.getByRole("link", { name: "Voltar a Seus Núcleos" })).toBeFocused();
   await expect(page.locator("html")).toHaveAttribute("lang", "pt-BR");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });

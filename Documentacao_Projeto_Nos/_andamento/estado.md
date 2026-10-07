@@ -1,12 +1,34 @@
 # Estado do Projeto Nós
 
-**Versão vigente do projeto:** 0.12.0
+**Versão vigente do projeto:** 0.13.0
 
 **DOCS_DIR:** `Documentacao_Projeto_Nos`
 
 **Atualizado:** 2026-10-07
 
-**Git:** main; publicação autorizada de Visão global e procedimentos a partir de 7a1fedc21c90e62b2e644bf80e85c7929fce42f5, igual a origin/main após fetch. Conjunto commitado e objeto inspecionado; commit identificado pela mensagem `docs(atlas): adicionar visão global e padronizar sincronização e comparações`. Hash definitivo e main remoto conferidos no encerramento. Versão 0.12.0 preservada; sem deploy.
+## Publicação autorizada — v0.13.0 — 2026-10-07
+
+Usuário solicitou commit e push abrangendo toda a entrega. Main e origin/main iguais após fetch; base 71310978b56fb1b425b163bba04b89a5f18d270a. Conjunto: navegação/sessão, Seus Núcleos, testes, atlas/galeria, contratos e continuidade. [Registro da publicação](registros/registro-v0.13.0-2026-10-07-06-imp-publicacao-git-fun-rastreabilidade-navegacao.md). Suíte sem backend repetida: 88/88 aprovados; 44 testes autenticados da entrega preservados, 813 links e diff conferidos; Objeto do commit inspecionado: 82 alterações com renomes reconhecidos, árvore inicial 86556e8d92ac93a10e5dd9823a9c37132413b078 idêntica ao conjunto preparado. Pendência removida após essa prova; controle incorporado ao mesmo commit. Envio autorizado; comparar HEAD com main remoto após push no encerramento. Sem deploy.
+
+## Entrega vigente — navegação protegida e Seus Núcleos — v0.13.0 — 2026-10-07
+
+**Objetivo atendido:** todo /comecar e /nucleos exige sessão validada; visitante vai ao login e retoma somente destino interno permitido. Raiz/login sem destino específico abre Seus Núcleos para pessoa autenticada. Tela 12 real consulta vínculos sob RLS, com páginas de 20, vazio/carregamento/erro e seleção explícita. Remove rascunho pré-login conforme aprovação do usuário.
+
+**Decisões:** expiração com renovação válida mantém sessão; inválida/não renovável pede login; falha do Auth bloqueia com 503 sem afirmar logout. Proteção de ações/consultas e RLS preservada. POST expirado usa protocolo de redirecionamento do App Router, sem executar criação. Atlas/Visão global/fichas/percursos/comparações sincronizados: 72 telas, 41 planejadas, 31 recortes, 14 percursos.
+
+**Validação:** 88 testes sem backend e 44 autenticados (desktop/celular), tipos/build de produção aprovados; Atlas: 72 prévias, 180 saídas e 360 estados e Visão global aprovados. Autorrevisão e revisão independente sem achados materiais restantes. Testes de token/cookies, renovação, retorno, isolamento, paginação e envio após expiração. [Registro](registros/registro-v0.13.0-2026-10-07-05-imp-navegacao-protegida-fun-sessao-seus-nucleos.md), [contrato](funcionalidades/navegacao-sessao.md), [galeria](../wireframes/comparacoes/2026-10-07-sessao-navegacao/index.html).
+
+**Ambiente:** Supabase local temporário encerrado sem reset e config original restaurado; fixtures/cópias de teste removidas. Portas alternativas resolveram faixa reservada do Windows; cópia C: por SHA-256 resolveu disco/caminhos entre volumes. Sem credenciais persistidas, alteração remota de banco ou migração. Publicação Git tratada no marco acima. Código revisado em main sobre 71310978b56fb1b425b163bba04b89a5f18d270a.
+
+**Próximo passo executável:** testar manualmente na aplicação local o acesso sem login, login com destino e seleção de Núcleo. Para lançamento, conferir SMTP/remetente, segredo e retornos HTTPS no ambiente escolhido. Próxima implementação planejada: fontes/contrato da Tela 38 Nossa Árvore. Nenhum bloqueio desta entrega.
+
+**Unidades pendentes de commit:** nenhuma desta entrega. Inclusão de implementação, testes, atlas, galeria e registros comprovada por inspeção do objeto Git e igualdade com a árvore preparada. Publicação autorizada no marco acima; controle incluído no mesmo commit lógico. Marcas anteriores abaixo são históricas.
+
+**Ferramentas:** Superpowers de depuração, entendimento, testes, revisão e verificação aplicados. Context7 consultado para Supabase SSR e Next; versão instalada 16.3.6 complementada pela documentação/código locais. Octocode CLI 19.1.0 consultado para dependentes do retorno de autenticação; grafo parcial por aliases complementado com buscas locais delimitadas. Playwright, Supabase CLI 2.118.0 e Docker usados somente na integração local.
+
+**Conferência de encerramento:** 809 links locais, dez imagens da galeria em 1440/375 pixels, diff e tipos na v0.13.0 aprovados. Último P3 documental da Tela 72 corrigido e Visão global reconferida. Galeria/atlas servidos localmente em http://127.0.0.1:3400/comparacoes/2026-10-07-sessao-navegacao/index.html; processo de prévia local, sem publicação.
+
+**Git — marco histórico de Visão global:** main; publicação autorizada de Visão global e procedimentos a partir de 7a1fedc21c90e62b2e644bf80e85c7929fce42f5, igual a origin/main após fetch. Conjunto commitado e objeto inspecionado; commit identificado pela mensagem `docs(atlas): adicionar visão global e padronizar sincronização e comparações`. Hash definitivo e main remoto conferidos no encerramento. Versão 0.12.0 preservada; sem deploy.
 
 ## Publicação autorizada — Visão global — 2026-10-07
 
@@ -81,7 +103,7 @@ Incremento solicitado pelo usuário concluído na [especificação v2.8](../Proj
 
 **Situação Git:** HEAD b853bbaafc2b87aeca7324246f96ce391de55b24, main; correção atual ainda não commitada ou publicada. A autorização e o envio de 2026-10-03 pertencem ao marco anterior. Versão funcional continua 0.11.0; esta edição não cria versão de desenvolvimento.
 
-**Bloqueios e próximo passo:** nenhuma pendência para o artefato corrigido. Permanecem contratos das telas planejadas e composição web dos módulos aprovados só em móvel. Continuar manutenção do atlas junto às entregas e fechar o contrato da Tela38 — Nossa Árvore antes de implementar indicadores.
+**Bloqueios e próximo passo:** nenhuma pendência para o artefato corrigido. Permanecem contratos das telas planejadas e composição web dos módulos aprovados só em móvel. Continuar manutenção do atlas junto às entregas e fechar o contrato da Tela 38 — Nossa Árvore antes de implementar indicadores.
 
 ## Publicação autorizada do atlas — 2026-10-03
 
@@ -175,9 +197,9 @@ Agenda por Núcleo concluída na **v0.6.0**: eventos pontuais com título, inten
 
 **Unidades pendentes de commit neste marco histórico:** nenhuma para a correção visual e orientação de prioridade alta; inclusão no commit confirmada por inspeção do objeto e comparação da árvore. Mensagem: `docs(wireframe): alinhar atlas ao app e consolidar prioridade visual`.
 
-**Contador de interações:** 80, incluindo a publicação autorizada da Visão global, a partir da última contagem persistida 79; eventuais interações sem registro não foram inventadas. Começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
+**Contador de interações:** 82, incluindo esta publicação autorizada, a partir da última contagem persistida 81; eventuais interações sem registro não foram inventadas. Começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
 
-## Objetivo e situação
+## Objetivo e situação histórica — v0.11.0
 
 O onboarding web contempla **Escolher caminho** (`/comecar`), **Tipo** (`/comecar/tipo`), **Propósito** (`/comecar/proposito`), **Conta** (`/conta`), **Convite inicial** (`/comecar/convite-inicial/[id]`) e **Entrada por convite** (`/comecar/convite`). A área protegida inclui Home (`/nucleos/[id]`), agenda (`/nucleos/[id]/agenda`), Acordos (`/nucleos/[id]/acordos`), Detalhe do Hábito (`/nucleos/[id]/acordos/[agreementId]`) , Registrar momento (`/nucleos/[id]/acordos/[agreementId]/registrar`) Revisar (`/nucleos/[id]/acordos/[agreementId]/revisar`) e Confirmar (`/nucleos/[id]/acordos/[agreementId]/confirmar`). A migração atual chegou ao `nos-dev`; a interface desta rota foi validada com Supabase local. O app ainda não foi publicado.
 
@@ -221,6 +243,9 @@ Pesquisa externa de ferramentas em 2026-09-29 consultou projetos e documentaçã
 
 ## Índice
 
+- [v0.13.0 — Publicação da navegação](registros/registro-v0.13.0-2026-10-07-06-imp-publicacao-git-fun-rastreabilidade-navegacao.md).
+- [v0.13.0 — Navegação e sessão](registros/registro-v0.13.0-2026-10-07-05-imp-navegacao-protegida-fun-sessao-seus-nucleos.md).
+- [Contrato de navegação e sessão](funcionalidades/navegacao-sessao.md).
 - [v0.12.0 — Publicação de Visão global e procedimentos](registros/registro-v0.12.0-2026-10-07-04-imp-publicacao-atlas-fun-visao-global-procedimentos.md).
 - [v0.12.0 — Visão global, sincronização e comparações](registros/registro-v0.12.0-2026-10-07-03-imp-visao-global-atlas-fun-sequencia-sincronizacao-comparacoes.md).
 - [Procedimento permanente de comparações](../wireframes/comparacoes/README.md).

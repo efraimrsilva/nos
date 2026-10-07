@@ -1,16 +1,16 @@
 # Cobertura e pendências do wireframe
 
-Material de planejamento criado em 2026-10-03 e corrigido visualmente em 2026-10-04. Referência funcional: v0.12.0. Atualização da área Conta e entrada em 2026-10-07.
+Material de planejamento criado em 2026-10-03 e corrigido visualmente em 2026-10-04. Referência funcional: v0.13.0. Atualização da área Conta e entrada em 2026-10-07.
 
 ## Situação verificada
 
 **Visão global:** reutiliza os 72 desenhos e suas situações/pendências; o mapa não altera a classificação de implementação. Percursos e destinos vêm do inventário; ligações de contexto estão distinguidas de saídas previstas nas fichas. [Abrir mapa](atlas/index.html#visao-global) e seguir o [padrão de sincronização/comparações](GUIA.md#visão-global-sincronização-e-comparações--procedimento-permanente).
 
-Conferência atualizada em 2026-10-07: as 72 fichas, situações e pendências coincidem com este inventário e com os rótulos visíveis nas miniaturas e na inspeção. Todos os 30 recortes existentes apontam para rotas presentes no código; isso não confirma as ampliações ilustradas. Os 42 desenhos planejados continuam identificados. **Antes de implementar qualquer tela, consultar seu aspecto no modo Atlas vivo com prioridade alta**, conforme o [procedimento obrigatório](GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05).
+Conferência atualizada em 2026-10-07: as 72 fichas, situações e pendências coincidem com este inventário e com os rótulos visíveis nas miniaturas e na inspeção. Todos os 31 recortes existentes apontam para rotas presentes no código; isso não confirma as ampliações ilustradas. Os 41 desenhos planejados continuam identificados. **Antes de implementar qualquer tela, consultar seu aspecto no modo Atlas vivo com prioridade alta**, conforme o [procedimento obrigatório](GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05).
 
-- 72 telas/estados; 8 áreas; 13 percursos.
-- 42 telas planejadas e pendentes de implementação.
-- 30 recortes existentes: o desenho pode incluir ampliações ainda pendentes, descritas individualmente.
+- 72 telas/estados; 8 áreas; 14 percursos.
+- 41 telas planejadas e pendentes de implementação.
+- 31 recortes existentes: o desenho pode incluir ampliações ainda pendentes, descritas individualmente.
 - As 37 interfaces do catálogo v2.1 estão mapeadas. Continuação de página, aba e estado podem compartilhar rota; 72 desenhos não significam 72 rotas novas.
 
 ## Inventário completo
@@ -22,13 +22,13 @@ Conferência atualizada em 2026-10-07: as 72 fichas, situações e pendências c
 | 03 | Conta e entrada | [Confirmar e-mail](atlas/index.html#tela-03) | Recorte existente | Complemento de segurança | /conta/confirmar-email · /auth/confirm | Cadastro, reenvio e confirmação implementados; entrega local comprovada. SMTP e limites da hospedagem ainda exigem conferência. |
 | 04 | Conta e entrada | [Recuperar acesso](atlas/index.html#tela-04) | Recorte existente | Complemento de segurança | /conta/recuperar · /auth/recovery | Recuperação integrada; AUTH_RECOVERY_SECRET, origem, URLs autorizadas e serviço de e-mail devem estar configurados no ambiente. |
 | 05 | Conta e entrada | [Redefinir senha](atlas/index.html#tela-05) | Recorte existente | Complemento de segurança | /conta/nova-senha | Redefinição integrada; chave de assinatura somente no servidor. Link inválido, usado ou aberto sem verificador oferece reinício seguro. |
-| 06 | Criar e entrar no Núcleo | [Escolher caminho](atlas/index.html#tela-06) | Recorte existente | 29 | /comecar | Tela existente; Conta é a entrada da raiz, seguida de escolha explícita ou retorno de convite. |
+| 06 | Criar e entrar no Núcleo | [Escolher caminho](atlas/index.html#tela-06) | Recorte existente | 29 | /comecar | Tela protegida existente; Seus Núcleos é a entrada padrão após login. |
 | 07 | Criar e entrar no Núcleo | [Tipo de Núcleo](atlas/index.html#tela-07) | Recorte existente | 30 | /comecar/tipo | Catálogo atual de nove tipos; manter identificador validado na URL. |
 | 08 | Criar e entrar no Núcleo | [Propósito do Núcleo](atlas/index.html#tela-08) | Recorte existente | 31 | /comecar/proposito | Criação existente; sem persistência de rascunho no atlas. |
 | 09 | Criar e entrar no Núcleo | [Convite inicial](atlas/index.html#tela-09) | Recorte existente | 32 | /comecar/convite-inicial/[id] | Código e compartilhamento nativo existentes; QR e gestão ampliada dependem de contrato. |
 | 10 | Criar e entrar no Núcleo | [Inserir convite](atlas/index.html#tela-10) | Recorte existente | 18 · entrada complementar | /comecar/convite | Consulta existente, sem expor token ou dados privados antes da associação. |
 | 11 | Criar e entrar no Núcleo | [Aceitar convite](atlas/index.html#tela-11) | Recorte existente | 18 | /comecar/convite · prévia | Aceite existente; fluxo idempotente no banco. |
-| 12 | Criar e entrar no Núcleo | [Seus Núcleos](atlas/index.html#tela-12) | Planejada | 13 | Proposta: /nucleos | Listagem e seleção multínucleo pendentes; criação e acesso individual já existem. |
+| 12 | Criar e entrar no Núcleo | [Seus Núcleos](atlas/index.html#tela-12) | Recorte existente | 13 | /nucleos | Listagem, seleção, paginação, vazio, carregamento e erro implementados; cartões do atlas são exemplos identificados. |
 | 13 | Início e agenda | [Início do Núcleo](atlas/index.html#tela-13) | Recorte existente | 02 | /nucleos/[id] | Home protegida existente; resumo afetivo completo depende de módulos futuros. |
 | 14 | Início e agenda | [Agenda do Núcleo](atlas/index.html#tela-14) | Recorte existente | 03 | /nucleos/[id]/agenda | Agenda real existente; visão mensal e integração com experiências são planejadas. |
 | 15 | Início e agenda | [Detalhe do evento](atlas/index.html#tela-15) | Recorte existente | Complemento da 03 | /nucleos/[id]/agenda · item existente | Operações existentes no hub da agenda; rota individual é evolução proposta. |
@@ -134,10 +134,15 @@ Conferência atualizada em 2026-10-07: as 72 fichas, situações e pendências c
 
 ## Fidelidade às fontes aprovadas
 
-28 telas do documento importadas em 52 composições e variações; 41 pontos de acesso ao desenho histórico. As telas implementadas de entrada têm layout próprio. Paleta, textos e ícones das três rotas públicas comparados ao app; extensões e limites de web sinalizados. Consultar [origens e manutenção](FIDELIDADE.md).
+28 telas do documento importadas em 52 composições e variações; 41 pontos de acesso ao desenho histórico. As telas implementadas de entrada têm layout próprio. Paleta, textos e ícones das três rotas de onboarding comparados ao app com sessão validada; extensões e limites de web sinalizados. Consultar [origens e manutenção](FIDELIDADE.md).
 
-## Verificação do artefato
+## Verificação histórica do artefato — v0.12.0
 
 Inventário sem IDs duplicados ou destinos ausentes; 37 origens cobertas; 72 prévias, 178 saídas do contrato e 360 estados visuais verificados com Playwright; 52 composições aprovadas também renderizadas. Busca, filtros, teclado, 13 percursos, modo web, impressão CSS e ausência de transbordamento horizontal a 375 px conferidos. Nenhum erro JavaScript detectado. A impressão foi verificada por CSS, sem exportação ou inspeção de PDF.
 
 Esta validação comprova o funcionamento do atlas. Não valida novamente funcionalidades do aplicativo, integrações Supabase nem regras futuras ainda sem implementação.
+
+
+## Navegação e sessão — v0.13.0
+
+Conta → Seus Núcleos → Início escolhido. Sem associação, criar ou conferir convite; destino específico tem prioridade após login. Todo /comecar e /nucleos exige sessão validada antes de renderizar; token expirado com renovação válida mantém a sessão. Tela 12 tem listagem real protegida por RLS; nenhuma alteração em permissões do banco. Validação atual: 72 prévias, 180 saídas, 360 estados, 14 percursos e Visão global sincronizada; 132 testes do aplicativo, tipos/build e revisão independente aprovados. Métricas da seção histórica acima pertencem à entrega anterior.

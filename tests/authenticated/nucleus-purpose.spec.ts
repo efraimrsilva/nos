@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures";
 
 test("oferece uma sugestão do tipo que pode ser editada", async ({ page }) => {
   await page.goto("/comecar/proposito?tipo=mentorias");

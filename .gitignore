@@ -7,10 +7,12 @@ node_modules/
 .next/
 .next-playwright/
 .next-verify/
+.next-authenticated/
 artifacts/
 next-env.d.ts
 out/
 test-results/
+test-results-authenticated/
 playwright-report/
 *.tsbuildinfo
 .env*

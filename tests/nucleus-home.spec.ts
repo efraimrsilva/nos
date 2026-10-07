@@ -21,7 +21,7 @@ test("um membro recebe seu vínculo sem ação de convite", () => {
 
 test("a Home distingue sessão ausente de falha do serviço de autenticação", () => {
   expect(isNucleusAuthUnavailable(new AuthSessionMissingError())).toBe(false);
-  for (const code of ["session_expired", "refresh_token_not_found", "refresh_token_already_used"]) {
+  for (const code of ["session_expired", "refresh_token_not_found", "refresh_token_already_used", "bad_jwt", "user_not_found", "user_banned", "validation_failed"]) {
     expect(isNucleusAuthUnavailable(new AuthApiError("Sessão expirada", 401, code))).toBe(false);
   }
   expect(isNucleusAuthUnavailable(new AuthRetryableFetchError("Serviço indisponível", 503))).toBe(true);

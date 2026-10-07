@@ -1,4 +1,4 @@
-# Conta e entrada — v0.12.0
+# Conta e entrada — v0.13.0
 
 Atualizado em 2026-10-07. Escopo: telas 01–05 e 72 do Atlas vivo, funcionais e integradas ao Supabase Auth.
 
@@ -6,7 +6,7 @@ Atualizado em 2026-10-07. Escopo: telas 01–05 e 72 do Atlas vivo, funcionais e
 
 - `/boas-vindas` entrega a Entrada afetiva opcional 72: árvore, marca, acolhimento e botões diretos de cadastro/login, sem espera. Conta oferece Conheça o Nós. Elementos históricos de login social/aceite jurídico não são integrações existentes.
 
-- `/` abre `/conta`. Cadastro e login compartilham as abas existentes; sessão validada oferece continuar e sair.
+- `/` abre `/conta` sem sessão e `/nucleos` autenticada. Login sem destino específico abre Seus Núcleos. Cadastro e login compartilham as abas existentes; sessão validada oferece continuar e sair.
 - Cadastro valida nome, e-mail e senha no servidor e segue para `/conta/confirmar-email`. Criar conta não cria Núcleo.
 - Confirmação aceita código PKCE (Proof Key for Code Exchange) no navegador de origem ou template direto `token_hash&type=email`. Rejeita parâmetros repetidos/misturados. `/auth/confirm` preserva retorno interno seguro. Link inválido oferece reenvio.
 - `/conta/confirmar-email` reenvia confirmação; `/conta/recuperar` solicita recuperação. Ambas usam mensagem neutra, inclusive quando SMTP (Simple Mail Transfer Protocol) falha somente para conta existente. Diagnóstico operacional não inclui e-mail, URL ou token.
@@ -43,3 +43,7 @@ Próximo passo desta área: verificar entrega de e-mail com remetente aprovado n
 
 
 O Next.js omite os callbacks de confirmação/recuperação dos logs de requisição em desenvolvimento para não registrar credenciais da URL. Em publicação, o provedor/proxy deve redigir esses parâmetros nos próprios logs de acesso; a configuração local não controla logs externos.
+
+## v0.13.0 — Navegação e sessão
+
+Raiz sem sessão abre Conta; autenticada abre Seus Núcleos. Login/confirmação sem retorno específico segue para /nucleos. Todo /comecar e /nucleos exige sessão validada, inclusive rascunho e convite. Lista real sob RLS, seleção explícita e retorno do Início à lista. Token expirado com renovação válida mantém acesso; sessão não renovável pede login preservando destino. Esta decisão substitui o retorno padrão ao onboarding e o rascunho pré-login dos marcos anteriores. [Contrato vigente](navegacao-sessao.md).

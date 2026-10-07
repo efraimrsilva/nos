@@ -1243,3 +1243,10 @@ stateDiagram-v2
 Persistir duração inteira de 7 a 30 dias, início/fim reais, fotografia dos participantes, número exigido de votos e respostas/data de confirmação por ciclo. O ciclo guarda o combinado; ajustes preservam o ciclo anterior e abrem outro sem votos reaproveitados. Até 150 participantes, requiredVotes=floor(N/2)+1; acima de 150, requiredVotes=ceil(N/3). Ativar somente na última confirmação necessária após prazo, sem revisão pendente. Estado active é compatível com detalhe, momentos e revisão. Dados legados sem datas permanecem sem término inferido até novo período unânime. Escritas usam transação com bloqueio do Hábito antes de ciclo/revisão.
 
 Regra canônica: [v1.2 — confirmação pós-teste](Projeto_Nos_v1.2_Sistema_de_Aprovacao_e_Construcao_de_Acordos.md#regra-de-confirmação-do-hábito--decisão-de-2026-10-03).
+
+
+## Ajuste aprovado de navegação e sessão — 2026-10-07
+
+O fluxo vigente implementado na v0.13.0 é Conta → Seus Núcleos (/nucleos) → Início do Núcleo escolhido. Sem associações, a lista oferece criação ou convite; retorno específico permitido tem prioridade após autenticar. Todo /comecar e /nucleos exige sessão validada antes da renderização, inclusive rascunho e prévia de convite. Esta decisão substitui a abertura de rascunho antes do login e a listagem multínucleo apenas planejada.
+
+Token expirado com renovação válida mantém a sessão. Sessão ausente, inválida ou não renovável pede login; falha operacional bloqueia sem afirmar logout. Ações/consultas continuam verificando identidade e autorização, com RLS por associação. Listagem não usa chave administrativa e não aceita convite automaticamente. [Contrato e validação](./_andamento/funcionalidades/navegacao-sessao.md).

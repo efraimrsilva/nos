@@ -16,7 +16,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
   const supabase = await createSupabaseServerClient();
   const user = supabase ? (await supabase.auth.getUser()).data.user : null;
   return <>
-    <Link href={routes.start} className="mb-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-muted"><ArrowLeft size={17} aria-hidden="true" />Voltar</Link>
+    <Link href={user ? routes.nucleus : "/boas-vindas"} className="mb-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-muted"><ArrowLeft size={17} aria-hidden="true" />{user ? "Seus Núcleos" : "Voltar às boas-vindas"}</Link>
     <p className="step-label mb-3 text-lilac">Um lugar seguro para seus vínculos</p>
     <h1 className="font-display text-[30px] font-medium leading-tight md:text-[38px]">Sua conta no Nós</h1>
     <p className="mt-3 text-sm leading-7 text-muted">Crie uma conta ou entre para cuidar dos seus Núcleos com privacidade.</p>

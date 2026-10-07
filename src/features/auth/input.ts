@@ -9,11 +9,23 @@ export function isValidEmail(email: string) {
 }
 // Só destinos do fluxo existente podem atravessar o Auth; URLs externas nunca são retornos.
 export function safeAuthNext(value: unknown): string {
-  if (typeof value !== "string" || value.length > 500 || /[\\\r\n]/.test(value)) return routes.start;
-  if (/^\/comecar(?:\/(?:convite|tipo|proposito)(?:\?tipo=[a-z-]+)?)?$/.test(value)) return value;
-  if (/^\/nucleos\/[a-f0-9-]{36}(?:\/(?:agenda|acordos))?$/.test(value)) return value;
-  return routes.start;
+  const fallback = routes.nucleus;
+  if (typeof value !== "string" || value.length > 500 || /[\\\r\n#%]/.test(value.split("?")[0]) || !value.startsWith("/") || value.startsWith("//")) return fallback;
+  const [path, query = "", extra] = value.split("?");
+  if (extra !== undefined || /[\\\r\n#]/.test(value)) return fallback;
+  const uuid = "[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}";
+  const onboarding = /^\/comecar(?:\/(?:convite|tipo|proposito))?$/.test(path);
+  const invitation = new RegExp(`^/comecar/convite-inicial/${uuid}$`, "i").test(path);
+  const nucleus = new RegExp(`^/nucleos(?:/${uuid}(?:/(?:agenda|acordos(?:/${uuid}(?:/(?:registrar|confirmar|revisar))?)?))?)?$`, "i").test(path);
+  if (!onboarding && !invitation && !nucleus) return fallback;
+  // Cada rota conserva apenas parâmetros de navegação, sem tokens, URLs ou valores repetidos.
+  const allowed = path === routes.nucleus ? ["pagina"] : /\/(?:tipo|proposito)$/.test(path) ? ["tipo"] : path.endsWith("/agenda") ? ["pagina"] : path.endsWith("/acordos") ? ["categoria", "filtro", "pagina"] : /\/acordos\//.test(path) ? ["antes"] : [];
+  const params = new URLSearchParams(query);
+  for (const [key, item] of params) {
+    if (!allowed.includes(key) || params.getAll(key).length !== 1 || !/^[a-zA-Z0-9_.:|+-]{1,160}$/.test(item)) return fallback;
+  }
+  return value;
 }
 export function withAuthNext(path: string, next: string) {
-  return next === routes.start ? path : `${path}${path.includes("?") ? "&" : "?"}next=${encodeURIComponent(next)}`;
+  return next === routes.nucleus ? path : `${path}${path.includes("?") ? "&" : "?"}next=${encodeURIComponent(next)}`;
 }

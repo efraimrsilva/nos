@@ -1,10 +1,12 @@
 # Comparações de telas — procedimento permanente
 
-Referência funcional atual: **v0.12.0**. Procedimento definido em 2026-10-07.
+Referência funcional atual: **v0.13.0**. Procedimento definido em 2026-10-07.
 
 Toda criação ou alteração de tela, navegação, dados, regra ou estado deve acrescentar evidências nesta pasta no mesmo conjunto lógico da entrega. Preservar galerias anteriores; não sobrescrever suas imagens para simular continuidade. Consultar o [procedimento completo](../GUIA.md#visão-global-sincronização-e-comparações--procedimento-permanente).
 
 ## Galerias
+
+- [2026-10-07 — Sessão e sequência](2026-10-07-sessao-navegacao/index.html): bloqueio antes/depois, Tela12 planejada/viva/real, Conta autenticada, Escolher caminho e retorno do Início.
 
 - [2026-10-07 — Conta e entrada](2026-10-07-conta-entrada/index.html): composição anterior, Atlas vivo e aplicativo das telas 01–05 e 72.
 - [2026-10-07 — Visão global](2026-10-07-visao-global/index.html): navegação antes/depois e nova visão em web/celular. Alteração exclusiva da ferramenta de documentação; não existe uma rota equivalente no produto.

@@ -12,5 +12,5 @@ test("duração de teste exige inteiro explícito entre 7 e 30 dias", () => {
 test("confirmação do hábito exige sessão", async ({ page }) => {
   test.setTimeout(90_000);
   await page.goto("/nucleos/11111111-1111-4111-8111-111111111111/acordos/22222222-2222-4222-8222-222222222222/confirmar", { waitUntil: "commit" });
-  await expect(page).toHaveURL(/\/conta$/);
+  await expect(page).toHaveURL(/\/conta\?modo=login&next=/);
 });

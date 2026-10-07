@@ -13,5 +13,5 @@ test("proposta exige categoria, compromisso e momento claros", () => {
 test("acordos não expõem propostas sem sessão", async ({ page }) => {
   test.setTimeout(90_000);
   await page.goto("/nucleos/11111111-1111-4111-8111-111111111111/acordos", { waitUntil: "commit" });
-  await expect(page).toHaveURL(/\/conta$/);
+  await expect(page).toHaveURL(/\/conta\?modo=login&next=/);
 });

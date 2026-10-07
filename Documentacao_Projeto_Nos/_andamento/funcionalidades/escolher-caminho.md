@@ -1,6 +1,6 @@
 # Escolher caminho
 
-**Versão vigente do projeto:** 0.12.0
+**Versão vigente do projeto:** 0.13.0
 
 ## Escopo autorizado
 
@@ -36,3 +36,7 @@ Continuidade realizada em 2026-09-25: [registro da implementação de Tipo de N�
 ## v0.12.0 — Conta e entrada
 
 A raiz agora abre `/conta`; `/comecar` continua acessível após autenticação. Recuperação, confirmação com reenvio e apresentação opcional integradas. Consulte o [contrato vigente de Conta e entrada](conta-entrada.md).
+
+## v0.13.0 — Navegação e sessão
+
+Raiz sem sessão abre Conta; autenticada abre Seus Núcleos. Login/confirmação sem retorno específico segue para /nucleos. Todo /comecar e /nucleos exige sessão validada, inclusive rascunho e convite. Lista real sob RLS, seleção explícita e retorno do Início à lista. Token expirado com renovação válida mantém acesso; sessão não renovável pede login preservando destino. Esta decisão substitui o retorno padrão ao onboarding e o rascunho pré-login dos marcos anteriores. [Contrato vigente](navegacao-sessao.md).

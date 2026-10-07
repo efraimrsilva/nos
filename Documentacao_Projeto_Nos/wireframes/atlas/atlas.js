@@ -34,6 +34,7 @@ function blockHtml(block,interactive,index,screenId){
   }
 }
 function stateHtml(screen){
+  if(screen.id===12&&previewState==='empty')return '<div class="state-message product-panel product-help" role="status"><h4>Seus Núcleos</h4><p>Você ainda não participa de um Núcleo. Crie um espaço ou entre com um convite quando fizer sentido.</p><button class="product-primary forest" data-go="7">Criar um núcleo</button><button class="product-text-link access-link" data-go="10">Entrar com um convite</button></div>';
   if(screen.id<=5)return accountStateHtml(screen);
   const isAuth=screen.chapter===0;
   const states={

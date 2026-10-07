@@ -1,6 +1,6 @@
 # Projeto Nós
 
-**Versão vigente do projeto:** 0.11.0
+**Versão vigente do projeto:** 0.13.0
 
 Um espaço privado para cultivar vínculos saudáveis.
 
@@ -29,7 +29,7 @@ npm run dev
 
 Mantenha o terminal aberto para acompanhar as alterações em tempo real; `Ctrl+C` encerra o servidor. Se aparecer aviso de que já existe um servidor Next.js, use o que está em `http://127.0.0.1:3000` ou encerre a instância anterior no terminal em que ela foi aberta antes de iniciar outra.
 
-Abra http://127.0.0.1:3000. A primeira tela é **Escolher caminho** (`/comecar`). Criar um Núcleo abre **Tipo de Núcleo** (`/comecar/tipo`), com nove tipos e escolha obrigatória. **Propósito** (`/comecar/proposito`) permite preencher nome, usar uma sugestão editável e conferir um rascunho local. A escolha do tipo é preservada ao voltar. O rascunho não é salvo antes da ação explícita **Criar Núcleo**; sair da página ou recarregar o descarta.
+Abra http://127.0.0.1:3000. Sem sessão, a raiz abre **Conta**; após login, abre **Seus Núcleos** (`/nucleos`) ou o destino privado solicitado. A lista contém somente associações reais da pessoa e permite escolher o Início de cada Núcleo. Quem ainda não participa recebe opções de criar ou entrar com convite. **Escolher caminho** (`/comecar`) continua como alternativa protegida. Criar segue Tipo → Propósito → conferir rascunho → criação explícita. Todo `/comecar` e `/nucleos` exige sessão validada, inclusive o rascunho local. Recarregar descarta o rascunho; nome e propósito só são persistidos ao criar.
 
 As rotas de conta, criação protegida, convite e a primeira Home protegida estão implementadas. A Home mostra dados reais do Núcleo e do vínculo próprio. Sem Supabase configurado, as rotas protegidas não simulam cadastro, Núcleo ou convite. O fluxo de conta e associação foi validado com contas reais no projeto de desenvolvimento `nos-dev`; a Home também foi acessada nas sessões usadas para testar a agenda. O aplicativo não foi publicado.
 
@@ -145,3 +145,8 @@ Definir os dados reais da Tela 07 — Nossa Árvore a partir do catálogo v2.1, 
 [Contrato e configuração](Documentacao_Projeto_Nos/_andamento/funcionalidades/conta-entrada.md), [registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.12.0-2026-10-07-imp-conta-entrada-fun-recuperacao-integrada.md) e [diferenças antes/atlas/aplicação](Documentacao_Projeto_Nos/wireframes/comparacoes/2026-10-07-conta-entrada/index.html). A decisão do usuário exige atualizar os dois lados e mostrar sempre a diferença.
 
 Para reproduzir a jornada de e-mails no Supabase local, configure SUPABASE_CLI_PATH e execute `node scripts/verify-account-local.mjs`. O script aceita somente backend local, usa porta 3200/.next-verify, cria/remove conta e e-mails temporários e encerra o servidor isolado. Não executa envio remoto ou deploy. Verificação visual: `node Documentacao_Projeto_Nos/wireframes/tools/verify-account-fidelity.mjs` com app na porta 3000.
+
+
+## v0.13.0 — Sequência e sessão
+
+O proxy valida identidade antes de renderizar páginas privadas. Sessão ausente, adulterada ou não renovável pede login e preserva somente um destino interno permitido; token de acesso expirado com renovação válida mantém a sessão. Falha operacional bloqueia o acesso temporariamente. Ações e RLS continuam conferindo autorização. [Contrato e roteiro de teste](Documentacao_Projeto_Nos/_andamento/funcionalidades/navegacao-sessao.md) e [comparações visuais](Documentacao_Projeto_Nos/wireframes/comparacoes/2026-10-07-sessao-navegacao/index.html).

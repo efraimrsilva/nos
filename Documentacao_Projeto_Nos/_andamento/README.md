@@ -1,10 +1,12 @@
 # Andamento do Projeto Nós
 
-**Versão vigente do projeto:** 0.12.0
+**Versão vigente do projeto:** 0.13.0
 
 Este diretório preserva o contexto operacional entre sessões e retomadas do projeto.
 
-Entrega mais recente: [v0.12.0 — Conta e entrada](registros/registro-v0.12.0-2026-10-07-imp-conta-entrada-fun-recuperacao-integrada.md). [Contrato](funcionalidades/conta-entrada.md), [plano](planos/conta-entrada.md) e [diferenças visuais](../wireframes/comparacoes/2026-10-07-conta-entrada/index.html).
+Entrega mais recente: [v0.13.0 — Navegação e sessão](registros/registro-v0.13.0-2026-10-07-05-imp-navegacao-protegida-fun-sessao-seus-nucleos.md); [contrato](funcionalidades/navegacao-sessao.md) e [galeria](../wireframes/comparacoes/2026-10-07-sessao-navegacao/index.html).
+
+Entrega anterior: [v0.12.0 — Conta e entrada](registros/registro-v0.12.0-2026-10-07-imp-conta-entrada-fun-recuperacao-integrada.md). [Contrato](funcionalidades/conta-entrada.md), [plano](planos/conta-entrada.md) e [diferenças visuais](../wireframes/comparacoes/2026-10-07-conta-entrada/index.html).
 
 ## Estrutura
 

@@ -1,6 +1,6 @@
 # Frontend web
 
-**Versão vigente do projeto:** 0.12.0
+**Versão vigente do projeto:** 0.13.0
 
 ## Decisões implementadas nesta fatia
 
@@ -19,7 +19,7 @@
 
 Implementado: sem chaves secretas no app ou Git, cabeçalhos `nosniff`, anti-iframe, política de referenciador e restrição de câmera/microfone/geolocalização. Esses recursos poderão exigir permissões específicas no futuro; não liberar indiscriminadamente.
 
-Validado no desenvolvimento: Supabase Auth/SSR, confirmação e entrada, criação protegida, RPCs de convite/aceite e leitura por RLS. Um Núcleo teve um `creator` e um `member`; antes do aceite a conta convidada recebeu página não encontrada e, depois, ambos mantiveram o resumo após F5. A expiração natural de sete dias não foi observada. Ainda faltam rate limiting operacional de convites, SMTP próprio, recuperação de senha, CSP compatível com Next, auditoria de privacidade e testes operacionais antes da publicação. Cabeçalhos não substituem essas proteções.
+Validado no desenvolvimento: Supabase Auth/SSR, confirmação e entrada, criação protegida, RPCs de convite/aceite e leitura por RLS. Um Núcleo teve um `creator` e um `member`; antes do aceite a conta convidada recebeu página não encontrada e, depois, ambos mantiveram o resumo após F5. A expiração natural de sete dias não foi observada. Recuperação de senha foi integrada na v0.12.0. Ainda faltam rate limiting operacional de convites, SMTP próprio, CSP compatível com Next, auditoria de privacidade e testes operacionais antes da publicação. Cabeçalhos não substituem essas proteções.
 
 ## Ambiente
 
@@ -53,3 +53,7 @@ Rota /confirmar protegida por sessão, vínculo e relação Hábito/Núcleo. Dur
 ## v0.12.0 — Conta e entrada
 
 A raiz agora abre `/conta`; `/comecar` continua acessível após autenticação. Recuperação, confirmação com reenvio e apresentação opcional integradas. Consulte o [contrato vigente de Conta e entrada](../funcionalidades/conta-entrada.md).
+
+## v0.13.0 — Navegação e sessão
+
+Raiz sem sessão abre Conta; autenticada abre Seus Núcleos. Login/confirmação sem retorno específico segue para /nucleos. Todo /comecar e /nucleos exige sessão validada, inclusive rascunho e convite. Lista real sob RLS, seleção explícita e retorno do Início à lista. Token expirado com renovação válida mantém acesso; sessão não renovável pede login preservando destino. Esta decisão substitui o retorno padrão ao onboarding e o rascunho pré-login dos marcos anteriores. [Contrato vigente](../funcionalidades/navegacao-sessao.md).

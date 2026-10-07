@@ -31,6 +31,7 @@ export default async function NucleusPage({ params }: { params: Promise<{ id: st
   const details = getNucleusHomeDetails(nucleus.type, membership.role, id);
 
   return <OnboardingShell>
+    <Link href={routes.nucleus} className="mb-4 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Voltar a Seus Núcleos</Link>
     <div className="mb-4 flex flex-wrap items-center gap-2 text-xs font-semibold text-muted">
       <span className="rounded-full bg-[#edf3e5] px-3 py-1.5 text-leaf">{details.typeLabel}</span>
       <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white px-3 py-1.5"><LockKeyhole size={13} aria-hidden="true" />Espaço privado</span>

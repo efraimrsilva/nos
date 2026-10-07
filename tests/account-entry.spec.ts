@@ -1,12 +1,16 @@
 import { expect, test } from "@playwright/test";
 
 test("entrada raiz apresenta Conta primeiro", async ({ page }) => {
+  // A primeira navegação compila Conta no servidor dev; o volume local pode demorar mais que 30s.
+  test.setTimeout(90_000);
   await page.goto("/");
   await expect(page).toHaveURL(/\/conta$/);
   await expect(page.getByRole("heading", { name: "Sua conta no Nós" })).toBeVisible();
 });
 
 test("entrada afetiva opcional conduz a cadastro e login sem esperar", async ({ page }) => {
+  // Boas-vindas também é compilada na primeira abertura; conserva o orçamento da entrada em Conta.
+  test.setTimeout(90_000);
   await page.goto("/boas-vindas");
   await expect(page.getByRole("heading", { name: "nós." })).toBeVisible();
   await page.getByRole("link", { name: "Entrar na minha conta" }).click();
