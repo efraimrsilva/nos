@@ -4,6 +4,8 @@ Referência funcional: **v0.12.0**. Conta e entrada sincronizadas em 2026-10-07;
 
 ## Procedência e precedência
 
+**Visão global compartilha a fonte:** index.html carrega global-view.js/global-view.css; tileHtml e productPhoneHtml desenham as mesmas telas nas visões por áreas e global. screens.js fornece títulos, situação, dependências, ações e percursos. A ordem de leitura só referencia IDs e preserva caminhos alternativos; não mantém uma segunda versão da interface. Qualquer alteração confere impacto e sincroniza atlas/produto, acrescentando galeria conforme o [procedimento permanente](GUIA.md#visão-global-sincronização-e-comparações--procedimento-permanente). [Comparação da nova visão](comparacoes/2026-10-07-visao-global/index.html).
+
 **Prioridade alta do Atlas vivo:** sua composição é a referência visual obrigatória de todas as implementações e alterações de tela. Inspecionar o aspecto antes de codificar, confrontar o resultado real antes de entregar e manter o desenho sincronizado. O modo histórico preserva a comparação; não substitui a direção viva. Seguir o [procedimento](GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05), incluindo contratos e pendências.
 
 O atlas incorpora as 28 telas de Nos_App.dc.html em 52 layouts/variações estáticos. São 41 pontos de acesso à composição histórica, além de abas e nove escolhas de vínculo. A entrada do aplicativo tem 12 composições próprias; /comecar, /comecar/tipo e /comecar/convite foram comparadas ao servidor local. A ordem continua Conta primeiro.

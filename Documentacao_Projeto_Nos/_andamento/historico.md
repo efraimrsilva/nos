@@ -348,3 +348,16 @@ Revisão solicitada pelo usuário incorporada à especificação: oito requisito
 Commit/push autorizados para Conta e entrada completa, Atlas vivo sincronizado, galeria, testes/configuração e revisão documental de segurança pendente. [Registro de publicação](registros/registro-v0.12.0-2026-10-07-02-imp-publicacao-git-fun-rastreabilidade-conta-entrada.md). Conferência de conteúdo e hash remoto exigida; publicação Git não equivale a deploy.
 
 Conferência desta publicação: 108/108 testes repetidos; objeto Git inspecionado; 74 arquivos incluindo a revisão v2.8. Captura histórica 72 corrigida no mesmo commit. Credenciais/artefatos excluídos e pendência de commit removida por evidência do objeto.
+
+## 2026-10-07 — Visão global e padrão de sincronização — documentação v0.12.0
+
+- **Entrega:** nova aba acima de Todas as áreas, todas as 72 telas e os 13 percursos reutilizados; sequência inicia em Conta e distingue alternativas, saídas e contexto. Renderização única das prévias e contratos entre as visões.
+- **Procedimento:** toda alteração avalia impacto nas telas e sincroniza aplicativo/atlas; toda criação ou modificação acrescenta galeria datada de comparações, preservando as anteriores. Procedimento central referenciado na documentação de entrada e continuidade.
+- **Resultado:** teste de igualdade das 72 composições e atualização dinâmica, navegação, filtros, celular e impressão CSS; fidelidade geral e seis telas de Conta em duas larguras aprovadas. P2 de filtro obsoleto reproduzido e corrigido; revisão independente de reconferência sem achados materiais no escopo revisado. Galeria com seis capturas antes/depois inspecionada.
+- **Evidência e limite:** [registro](registros/registro-v0.12.0-2026-10-07-03-imp-visao-global-atlas-fun-sequencia-sincronizacao-comparacoes.md), [comparações](../wireframes/comparacoes/2026-10-07-visao-global/index.html) e [padrão](../wireframes/comparacoes/README.md). Versão funcional preservada, sem alteração no aplicativo, commit, push ou deploy. Unidade pronta para commit autorizado.
+
+## 2026-10-07 — Publicação autorizada de Visão global — v0.12.0
+
+Usuário autorizou commit e push abrangentes da Visão global, reuso de composições/contratos, sequência e ramificações, correção de filtros, teste, galeria e procedimentos de manutenção. Fetch confirmou main sem divergência a partir de 7a1fedc. [Registro da publicação](registros/registro-v0.12.0-2026-10-07-04-imp-publicacao-atlas-fun-visao-global-procedimentos.md). Verificar conteúdo do objeto e hash remoto; excluir artefatos/credenciais. Sem deploy ou incremento de versão funcional.
+
+Conferência da publicação: 108/108 testes repetidos, verificações global/fidelidade/Conta aprovadas, 781 alvos de links locais e diff conferidos. Objeto inicial inclui os 24 arquivos e coincide com a árvore preparada; pendência removida por evidência de inclusão, com atualização do controle no mesmo commit lógico. Hash final reportado após conferência remota no encerramento.

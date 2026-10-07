@@ -6,7 +6,27 @@
 
 **Atualizado:** 2026-10-07
 
-**Git:** main; publicação autorizada da v0.12.0 a partir da base 45e2f69ca297254de9dde7b02d55cd8717390a3d. Commit da entrega identificado pela mensagem `feat(auth): concluir Conta e entrada e sincronizar Atlas vivo (v0.12.0)`; hash definitivo conferido no encerramento contra origin/main.
+**Git:** main; publicação autorizada de Visão global e procedimentos a partir de 7a1fedc21c90e62b2e644bf80e85c7929fce42f5, igual a origin/main após fetch. Conjunto commitado e objeto inspecionado; commit identificado pela mensagem `docs(atlas): adicionar visão global e padronizar sincronização e comparações`. Hash definitivo e main remoto conferidos no encerramento. Versão 0.12.0 preservada; sem deploy.
+
+## Publicação autorizada — Visão global — 2026-10-07
+
+**Escopo:** publicar um commit lógico com a aba, renderização compartilhada, sequência e ramificações, navegação/filtros, teste permanente, galeria com seis capturas e procedimento de sincronização/comparações. Inclui guia, cobertura, procedência, README, frontend, andamento, histórico e Brag. [Registro de publicação](registros/registro-v0.12.0-2026-10-07-04-imp-publicacao-atlas-fun-visao-global-procedimentos.md).
+
+**Controle:** fetch confirmou ausência de divergência (0/0). Objeto do commit inspecionado: os 24 arquivos da entrega estão incluídos e a árvore inicial coincide com o índice preparado (965eace6228b75ebaae0b3f321bb2541e5f55f1a). Pendência removida após essa confirmação; atualização deste controle incorporada ao mesmo commit lógico. Conferir objeto final e HEAD contra main remoto após o push. Artefatos locais, credenciais, dependências e resultados de execução excluídos. Publicação Git não equivale a deploy.
+
+**Validação desta publicação:** 108/108 testes desktop/mobile repetidos; Visão global, fidelidade geral (72 prévias/178 saídas/360 estados) e seis telas de Conta em duas larguras aprovadas novamente. Sem erro JavaScript/rede externa no atlas. Tipos/build do aplicativo não repetidos, pois código funcional e manifestos estão intactos.
+
+## Entrega vigente — Visão global do atlas — 2026-10-07
+
+**Objetivo atendido:** aba Visão global acima de Todas as áreas; leitura começa em Conta e reúne todas as 72 telas em oito áreas, com os 13 percursos existentes e suas alternativas/condições. Desenhos, textos, situações, pendências e saídas reutilizam as mesmas fontes e componentes do atlas por áreas. São 30 recortes existentes e 42 telas planejadas; nenhum status funcional foi promovido nesta entrega.
+
+**Decisão permanente:** consultar o Atlas vivo com prioridade alta antes de toda mudança; avaliar o impacto em todas as telas e sincronizar aplicativo, atlas, fichas, percursos, cobertura e pendências no mesmo conjunto lógico. Toda criação ou alteração deve acrescentar uma galeria datada em comparacoes/, preservando evidências anteriores. Reuso sincroniza automaticamente as visões do atlas; a correspondência com o aplicativo exige alteração e conferência explícitas. [Procedimento obrigatório](../wireframes/GUIA.md#visão-global-sincronização-e-comparações--procedimento-permanente), [índice de comparações](../wireframes/comparacoes/README.md).
+
+**Arquivos principais e evidência:** [mapa vivo](../wireframes/atlas/index.html#visao-global), global-view.js/global-view.css e renderização compartilhada em atlas.js; [teste permanente](../wireframes/tools/verify-global-view.mjs), [galeria antes/depois](../wireframes/comparacoes/2026-10-07-visao-global/index.html) e [registro v0.12.0](registros/registro-v0.12.0-2026-10-07-03-imp-visao-global-atlas-fun-sequencia-sincronizacao-comparacoes.md). Teste demonstrou igualdade das 72 composições, atualização de dados e tela nova, filtros, teclado, celular, hash e impressão por CSS. Fidelidade e seis telas reais de Conta em duas larguras reconferidas. Capturas inspecionadas; revisão independente reconferiu o P2 corrigido de alternância com filtros, sem achados materiais restantes no escopo revisado. Sem erros JavaScript ou chamadas externas no atlas.
+
+**Limites e retomada:** v0.12.0 preservada; src/, banco e manifestos intactos. Suíte funcional, tipos e build do aplicativo não repetidos nesta alteração exclusiva de atlas/documentação. Sem bloqueio para este artefato. Próximo passo funcional: fechar fontes e contrato de Nossa Árvore antes dos indicadores; dependências operacionais de autenticação permanecem registradas na entrega de Conta abaixo. Usar Visão global para localizar o contexto e conferir a ficha e o desenho vivo antes de implementar.
+
+**Unidades pendentes de commit:** nenhuma desta entrega. Inclusão de Visão global, renderização compartilhada, teste, comparações e procedimento documental comprovada pela inspeção do objeto Git. Publicação autorizada nesta interação; resumo no marco acima.
 
 
 ## Entrega vigente — Conta e entrada — v0.12.0 — 2026-10-07
@@ -153,7 +173,9 @@ Agenda por Núcleo concluída na **v0.6.0**: eventos pontuais com título, inten
 
 **Continuidade após a agenda:** a Tela 04 — Acordos foi concluída na v0.7.0; evidência e limites constam em [Entrega concluída — Tela 04 Acordos](#entrega-concluída--tela-04-acordos). A credencial de acesso permanece fora do repositório. Publicação pública exige revisão própria de privacidade e operação.
 
-**Unidades pendentes de commit neste marco histórico:** nenhuma para a correção visual e orientação de prioridade alta; inclusão no commit confirmada por inspeção do objeto e comparação da árvore. Mensagem: `docs(wireframe): alinhar atlas ao app e consolidar prioridade visual`. **Contador de interações:** 78 respostas concluídas, incluindo a publicação autorizada, a partir da última contagem persistida 77; eventuais interações sem registro não foram inventadas. Começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
+**Unidades pendentes de commit neste marco histórico:** nenhuma para a correção visual e orientação de prioridade alta; inclusão no commit confirmada por inspeção do objeto e comparação da árvore. Mensagem: `docs(wireframe): alinhar atlas ao app e consolidar prioridade visual`.
+
+**Contador de interações:** 80, incluindo a publicação autorizada da Visão global, a partir da última contagem persistida 79; eventuais interações sem registro não foram inventadas. Começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
 
 ## Objetivo e situação
 
@@ -199,6 +221,9 @@ Pesquisa externa de ferramentas em 2026-09-29 consultou projetos e documentaçã
 
 ## Índice
 
+- [v0.12.0 — Publicação de Visão global e procedimentos](registros/registro-v0.12.0-2026-10-07-04-imp-publicacao-atlas-fun-visao-global-procedimentos.md).
+- [v0.12.0 — Visão global, sincronização e comparações](registros/registro-v0.12.0-2026-10-07-03-imp-visao-global-atlas-fun-sequencia-sincronizacao-comparacoes.md).
+- [Procedimento permanente de comparações](../wireframes/comparacoes/README.md).
 - [v0.11.0 — Fidelidade visual do atlas](registros/registro-v0.11.0-2026-10-04-imp-fidelidade-visual-atlas-fun-referencia-ux-aprovada.md).
 - [v0.11.0 — Prioridade alta do Atlas vivo](registros/registro-v0.11.0-2026-10-05-imp-prioridade-atlas-vivo-fun-orientacao-visual-implementacao.md).
 - [v0.11.0 — Publicação de fidelidade e prioridade visual](registros/registro-v0.11.0-2026-10-05-02-imp-publicacao-atlas-fun-fidelidade-prioridade-visual.md).

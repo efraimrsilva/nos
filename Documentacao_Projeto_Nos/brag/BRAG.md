@@ -116,3 +116,11 @@ Registro factual de contribuições; resultados medidos são separados de benef�
 - **Resultado verificado:** 108 testes desktop/mobile; jornada real local confirmou troca de senha e revogação de outra sessão. Atlas com 72 prévias/178 saídas/360 estados, sem erro/rede externa; revisão independente com achados corrigidos. Configuração nos-dev reconferida.
 - **Benefício esperado:** permitir retomar o acesso sem suporte manual e reduzir divergência entre planejamento e produto. Não medida taxa de recuperação/conversão nem entrega remota.
 - **Evidência:** [registro](../_andamento/registros/registro-v0.12.0-2026-10-07-imp-conta-entrada-fun-recuperacao-integrada.md) e [comparação](../wireframes/comparacoes/2026-10-07-conta-entrada/index.html).
+
+## 2026-10-07 — Visão global com conteúdo compartilhado
+
+- **Problema:** faltava uma leitura conjunta da sequência e das ramificações, e criar outra coleção de desenhos exigiria manutenção duplicada.
+- **Contribuição:** visão iniciada em Conta reutiliza as 72 composições e os 13 percursos; diferencia saídas previstas e contexto. Procedimento permanente exige atualização conjunta do app/atlas e galeria de comparação em cada criação ou alteração.
+- **Resultado verificado:** teste conferiu igualdade das 72 composições, propagação de título/dependência/ação e inclusão de tela nova, navegação, filtros e celular. Revisão independente identificou e reconferiu a correção de um P2. Seis capturas antes/depois preservadas; fidelidade das seis telas reais de Conta reconferida em duas larguras.
+- **Benefício esperado:** facilitar decisões de navegação e evitar divergência entre visões. Redução de retrabalho futuro ainda não medida; sincronização com o app continua exigindo conferência por entrega.
+- **Evidência:** [teste](../wireframes/tools/verify-global-view.mjs), [galeria](../wireframes/comparacoes/2026-10-07-visao-global/index.html) e [registro](../_andamento/registros/registro-v0.12.0-2026-10-07-03-imp-visao-global-atlas-fun-sequencia-sincronizacao-comparacoes.md).

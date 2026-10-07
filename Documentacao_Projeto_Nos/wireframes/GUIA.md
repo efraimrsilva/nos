@@ -127,3 +127,26 @@ Critérios para esta entrega: Conta em primeiro; 37 origens cobertas; telas plan
 ## Sincronização e apresentação de diferenças — decisão de 2026-10-07
 
 Usuário determinou que atlas vivo e aplicativo devem ter os mesmos aspectos. Ao alterar qualquer lado, atualizar o outro na mesma entrega, incluindo campos, textos, botões, navegação, estados e regras. Apresentar sempre o que mudou; para mudanças visuais, registrar capturas antes/depois e comparação atlas/aplicação. Desenho histórico permanece como evidência de origem, sem sugerir integração não existente. [Comparação desta entrega](comparacoes/2026-10-07-conta-entrada/index.html).
+
+## Visão global, sincronização e comparações — procedimento permanente
+
+Decisão de 2026-10-07: **qualquer alteração deve conferir o impacto em todas as telas do projeto e sincronizar aplicativo, Atlas vivo, Visão global, fichas, percursos e cobertura no mesmo conjunto lógico. Toda tela criada ou alterada deve acrescentar comparação em wireframes/comparacoes/.** O Atlas vivo mantém prioridade visual alta.
+
+**Visão global**, acima de Todas as áreas, organiza a leitura desde Conta, com cadastro/recuperação opcionais, criação/convite alternativos e retorno ao Início do Núcleo. Os módulos seguintes são acessos contextuais, não uma fila obrigatória. “Saída” deriva de uma ação da ficha; “Contexto” é ligação conceitual de um percurso e não afirma botão direto. Consultar as condições e permissões antes de implementar. Busca/situação filtram as miniaturas; percursos permanecem completos para não ocultar etapas necessárias.
+
+### Uma fonte para os desenhos e contratos
+
+- screens.js contém telas, situações, rotas, regras, permissões, dependências, ações e percursos. global-view.js referencia esses dados; não copiar títulos, contratos ou imagens de uma tela para criar uma segunda versão no mapa.
+- tileHtml e productPhoneHtml renderizam as mesmas composições nas duas visões. product-ui.js/product.css continuam representando a interface viva; approved-layouts.js preserva o documento histórico gerado.
+- Uma tela acrescentada ao inventário aparece automaticamente na área correspondente da Visão global. Conferir sua posição contextual, atualizar os percursos/ações atingidos e revisar a ordem de leitura quando necessário. A organização não substitui a validação da jornada.
+- O reuso sincroniza as visões do atlas automaticamente; a sincronização com o aplicativo exige atualizar o código/contrato afetado e conferir a interface real. Não alegar equivalência visual ou integração protegida somente porque a rota existe.
+
+### Procedimento de cada alteração
+
+1. **Impacto:** consultar estado, Visão global e fichas; identificar IDs/rotas, estados, dados, permissões, módulos compartilhados e caminhos atingidos. Ler a composição viva com prioridade alta. Antes de editar, preservar a aparência anterior e seu contexto de versão/commit.
+2. **Implementação sincronizada:** alterar aplicativo e referência viva juntos, quando houver tela real; atualizar fonte, composição, fichas, ações, percursos, pendências e cobertura. Mudança funcional sem diferença estética também exige conferir as regras/estados das telas afetadas.
+3. **Comparação obrigatória:** acrescentar pasta datada e galeria em comparacoes/, preservando entregas anteriores. Tela alterada apresenta antes/depois, Atlas vivo e aplicativo real; tela nova explicita que não havia versão anterior. Capturar estados atingidos, celular/web quando definidos, diferenças e limites. Se só houver planejamento ou ferramenta do atlas, declarar a ausência de rota correspondente; não fabricar captura do produto. Ver [padrão de comparações](comparacoes/README.md).
+4. **Verificação:** conferir todas as telas atingidas e seus caminhos, alternância de visões com filtros, títulos/campos/ações, responsividade, teclado, estados e imagens. Executar verify-global-view.mjs para o mapa; verify-fidelity.mjs para inventário/percursos e verify-account-fidelity.mjs para a área de Conta, com o app local disponível. Fluxos protegidos exigem verificação autorizada específica; esses scripts não certificam todos os módulos futuros.
+5. **Entrega:** indexar a nova galeria em comparacoes/README.md e no registro, atualizar andamento/histórico/Brag quando relevante e informar diferenças, validações e pendências. Atualizar referência de versão somente quando o produto mudar; trabalho isolado no atlas/documentação não incrementa a versão funcional.
+
+[Abrir Visão global](atlas/index.html#visao-global) · [Comparação da nova visão](comparacoes/2026-10-07-visao-global/index.html).

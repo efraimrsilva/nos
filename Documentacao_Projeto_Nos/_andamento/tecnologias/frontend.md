@@ -4,6 +4,8 @@
 
 ## Decisões implementadas nesta fatia
 
+**Sincronização em qualquer alteração:** conferir todas as telas/caminhos atingidos e atualizar aplicativo, Atlas vivo, Visão global, fichas e comparações no mesmo conjunto. Reusar os renderizadores e inventário do atlas, sem copiar composições para o mapa. Toda tela criada ou alterada acrescenta evidência em [comparacoes](../../wireframes/comparacoes/README.md); seguir o [procedimento](../../wireframes/GUIA.md#visão-global-sincronização-e-comparações--procedimento-permanente). O reuso automatiza as visões do atlas; a interface real e os contratos protegidos continuam exigindo conferência específica.
+
 **Referência visual prioritária para todas as próximas telas:** consultar obrigatoriamente o modo Atlas vivo antes de implementar ou alterar interfaces. Seguir seu aspecto, hierarquia, paleta, fontes, ícones, abas e navegação; comparar a interface real antes da conclusão e atualizar desenho/ficha no mesmo recorte. O desenho histórico é comparação. Ver [procedimento de prioridade alta](../../wireframes/GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05); pendências e contratos precisam ser respeitados.
 
 - Next.js App Router, TypeScript estrito, React e Tailwind CSS.

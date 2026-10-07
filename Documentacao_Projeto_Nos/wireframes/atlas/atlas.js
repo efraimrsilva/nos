@@ -9,6 +9,7 @@ let view = 'atlas';
 let chapterFilter = -1;
 let previewState = 'content';
 let width = 'mobile';
+let inspectionOrigin = 'atlas';
 let toastTimer;
 const badge = screen => `<span class="badge ${screen.status==='Planejada'?'planned':'existing'}">${screen.status}</span>`;
 function showToast(message){const toast=$('#toast');toast.textContent=message;toast.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.hidden=true,3000);}
@@ -63,12 +64,17 @@ function phoneHtml(screen,interactive=false){
   return productPhoneHtml(screen,interactive);
 }
 function filteredScreens(){const query=$('#search').value.trim().toLocaleLowerCase('pt-BR');const status=$('#status-filter').value;return screens.filter(screen=>(chapterFilter<0||screen.chapter===chapterFilter)&&(status==='all'||screen.status===status)&&(!query||`${pad(screen.id)} ${screen.title} ${screen.route} ${screen.source} ${screen.rule} ${screen.dependency}`.toLocaleLowerCase('pt-BR').includes(query)));}
+// A visão por áreas e o mapa global usam a mesma composição, ficha e estado de implementação.
+function tileHtml(screen, global=false){
+  const prefix=global?'global-tile':'tile';
+  return `<article class="tile" id="${prefix}-${pad(screen.id)}" data-screen-id="${screen.id}"><div class="tile-header"><span class="screen-number">${pad(screen.id)}</span>${badge(screen)}</div>${phoneHtml(screen)}<div class="tile-caption"><h3>${escapeHtml(screen.title)}</h3><p>${screen.status==='Planejada'?'Pendente:':'Limites:'} ${escapeHtml(screen.dependency)}</p><button class="tile-open" data-open="${screen.id}">Inspecionar tela e contrato →</button>${global?`<details class="global-destinations"><summary>${screen.actions.length} saídas desta tela</summary><ul>${screen.actions.map(action=>`<li><button data-go="${action.to}" data-destination="${action.to}">${escapeHtml(action.label)} <span>→ ${pad(action.to)} · ${escapeHtml(byId(action.to).title)}</span></button></li>`).join('')}</ul></details>`:''}</div></article>`;
+}
 function renderAtlas(){
   const savedReference=referenceMode,savedLayout=documentLayoutKey;referenceMode=false;documentLayoutKey='';
   const filtered=filteredScreens();$('#result-count').textContent=`${filtered.length} de ${screens.length} telas · selecione uma para inspecionar`;
   $('#atlas-view').innerHTML=chapters.map((chapter,index)=>{
     const list=filtered.filter(screen=>screen.chapter===index);if(!list.length)return '';
-    return `<section class="chapter" id="chapter-${index}"><div class="chapter-header"><h2><span>${pad(index+1)}</span>${escapeHtml(chapter)}</h2><p>${list.length} telas · ordem por percurso</p></div><div class="screen-grid">${list.map(screen=>`<article class="tile" id="tile-${pad(screen.id)}"><div class="tile-header"><span class="screen-number">${pad(screen.id)}</span>${badge(screen)}</div>${phoneHtml(screen)}<div class="tile-caption"><h3>${escapeHtml(screen.title)}</h3><p>${screen.status==='Planejada'?'Pendente:':'Limites:'} ${escapeHtml(screen.dependency)}</p><button class="tile-open" data-open="${screen.id}">Inspecionar tela e contrato →</button></div></article>`).join('')}</div></section>`;
+    return `<section class="chapter" id="chapter-${index}"><div class="chapter-header"><h2><span>${pad(index+1)}</span>${escapeHtml(chapter)}</h2><p>${list.length} telas · ordem por percurso</p></div><div class="screen-grid">${list.map(screen=>tileHtml(screen)).join('')}</div></section>`;
   }).join('')||'<p class="no-results">Nenhuma tela corresponde aos filtros. Ajuste a busca ou selecione Todas as áreas.</p>';
   referenceMode=savedReference;documentLayoutKey=savedLayout;
   // Miniaturas são uma única parada de teclado; controles internos só funcionam na inspeção.
@@ -77,6 +83,7 @@ function renderAtlas(){
 }
 function scaleThumbnails(){
   document.querySelectorAll('.tile .phone').forEach(phone=>{
+    if(!phone.clientWidth)return;
     const scale=phone.clientWidth/384;let body=phone.querySelector(':scope>[data-thumbnail]');
     if(!body){body=document.createElement('div');body.dataset.thumbnail='';while(phone.firstChild)body.append(phone.firstChild);phone.append(body);body.inert=true;}
     phone.style.height=`${858*scale}px`;
@@ -91,6 +98,9 @@ function renderPrototype(){
   const origin=referenceMode?'Documento aprovado · composição original': [1,2,6,7,8,9,10,11].includes(screen.id)?'Aplicativo implementado · estrutura atual':approvedLayouts[documentLayoutKey||screen.id]?'Documento aprovado · estrutura preservada, regras atuais sinalizadas':'Extensão do atlas · identidade aprovada, contrato a conferir';
   $('#screen-preview').innerHTML=`<div class="preview-origin"><strong>${origin}</strong><br>${referenceMode?'Dados, níveis e textos históricos são exemplos do documento; consulte a ficha para o contrato vigente.': 'Prévia local. Conteúdo afetivo de exemplo; nenhuma informação é enviada ou salva.'}${source?`<div class="reference-controls"><button data-reference="current" aria-pressed="${!referenceMode}">Atlas vivo</button><button data-reference="approved" aria-pressed="${referenceMode}">Ver desenho aprovado do documento</button></div>`:''}${width==='desktop'&&approvedLayouts[documentLayoutKey||screen.id]?'O documento aprova composição móvel; sua adaptação web ainda precisa ser definida.':''}</div><div class="preview-wrap ${width}">${phoneHtml(screen,true)}</div>${previewState==='content'?`<div class="contract-outlets"><p>Destinos do contrato atual · navegação de planejamento</p>${screen.actions.map(action=>`<button data-go="${action.to}">${escapeHtml(action.label)}</button>`).join('')}</div>`:''}`;
   $('#screen-spec').innerHTML=`<span class="screen-number">TELA ${pad(screen.id)}</span> ${badge(screen)}<h2>${escapeHtml(screen.title)}</h2><p>${escapeHtml(chapters[screen.chapter])}</p><h3>Rota e localização</h3><code class="route">${escapeHtml(screen.route)}</code><h3>Origem no catálogo v2.1</h3><p>${escapeHtml(screen.source)}. Nova numeração independente.</p><h3>Contrato e comportamento</h3><p>${escapeHtml(screen.rule)}</p><h3>Quem pode agir</h3><p>${escapeHtml(screen.permission)}</p><h3>${screen.status==='Planejada'?'Pendente antes de implementar':'Limites do recorte existente'}</h3><div class="pending-box"><p>${escapeHtml(screen.dependency)}</p></div><h3>Saídas deste desenho</h3><div class="spec-actions">${screen.actions.map(action=>`<button class="quiet" data-go="${action.to}">${pad(action.to)} · ${escapeHtml(byId(action.to).title)}</button>`).join('')}</div><p>Ações desta prévia não persistem dados. Seleções e campos são descartados ao trocar de tela.</p><button class="quiet screen-back" data-view="atlas">← Voltar ao atlas</button>`;
+  if(inspectionOrigin==='global'){
+    const back=$('#screen-spec .screen-back');back.dataset.view='global';back.textContent='← Voltar à Visão global';
+  }
   $('#previous').disabled=selectedId===1;$('#next').disabled=selectedId===screens.length;
 }
 function renderFlows(){
@@ -98,20 +108,26 @@ function renderFlows(){
 }
 function setView(nextView){
   view=nextView;
-  for(const mode of ['atlas','prototype','flows'])$(`#${mode}-view`).hidden=mode!==view;
+  for(const mode of ['atlas','prototype','flows','global'])$(`#${mode}-view`).hidden=mode!==view;
+  document.body.dataset.view=view;
+  document.querySelectorAll('#chapter-nav button').forEach(button=>button.setAttribute('aria-pressed',String(view==='global'?button.dataset.view==='global':view==='atlas'&&Number(button.dataset.chapter)===chapterFilter)));
   document.querySelectorAll('.view-tabs [data-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.view===view)));
-  // Os filtros só se aplicam ao atlas. A prévia sempre permite percorrer todas as telas.
-  $('#search').disabled=view!=='atlas';$('#status-filter').disabled=view!=='atlas';
+  // Ambas as visões do inventário filtram a mesma fonte; a inspeção percorre todas as telas.
+  $('#search').disabled=!['atlas','global'].includes(view);$('#status-filter').disabled=!['atlas','global'].includes(view);
+  if(view==='global')renderGlobal();
+  if(view==='atlas')renderAtlas();
+  if(!['global','prototype'].includes(view)&&location.hash==='#visao-global')history.replaceState(null,'',location.pathname+location.search);
   if(view==='prototype')renderPrototype();
-  $('#result-count').textContent=view==='atlas'?`${filteredScreens().length} de ${screens.length} telas · selecione uma para inspecionar`:view==='prototype'?`Tela ${pad(selectedId)} · ${byId(selectedId).title}`:`${journeys.length} percursos · selecione uma etapa para abrir sua tela`;
+  $('#result-count').textContent=view==='global'?`${filteredScreens().length} de ${screens.length} telas · sequência e ramificações do projeto`:view==='atlas'?`${filteredScreens().length} de ${screens.length} telas · selecione uma para inspecionar`:view==='prototype'?`Tela ${pad(selectedId)} · ${byId(selectedId).title}`:`${journeys.length} percursos · selecione uma etapa para abrir sua tela`;
 }
 function openScreen(id,updateHash=true){
+  if(view!=='prototype')inspectionOrigin=view==='global'?'global':'atlas';
   if(!byId(id))return;selectedId=Number(id);previewState='content';referenceMode=false;documentLayoutKey='';document.querySelectorAll('[data-state]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.state===previewState)));setView('prototype');
   if(updateHash)history.replaceState(null,'',`#tela-${pad(selectedId)}`);
   $('#prototype-view').scrollIntoView({block:'start'});
   $('#screen-spec').setAttribute('tabindex','-1');$('#screen-spec').focus({preventScroll:true});
 }
-$('#chapter-nav').innerHTML=`<button class="chapter-button" data-chapter="-1" aria-pressed="true"><span>✳</span>Todas as áreas</button>${chapters.map((chapter,index)=>`<button class="chapter-button" data-chapter="${index}" aria-pressed="false"><span>${pad(index+1)}</span>${escapeHtml(chapter)}</button>`).join('')}`;
+$('#chapter-nav').innerHTML=`<button class="chapter-button global-button" data-view="global" aria-pressed="false"><span>✳</span>Visão global</button><button class="chapter-button" data-chapter="-1" aria-pressed="true"><span>✳</span>Todas as áreas</button>${chapters.map((chapter,index)=>`<button class="chapter-button" data-chapter="${index}" aria-pressed="false"><span>${pad(index+1)}</span>${escapeHtml(chapter)}</button>`).join('')}`;
 $('#total-count').textContent=screens.length;$('#planned-count').textContent=screens.filter(screen=>screen.status==='Planejada').length;$('#existing-count').textContent=screens.filter(screen=>screen.status==='Recorte existente').length;
 renderAtlas();renderFlows();
 document.addEventListener('click',event=>{
@@ -125,7 +141,8 @@ document.addEventListener('click',event=>{
   if(target.hasAttribute('data-edit-draft')){const content=target.closest('.product-content');content.querySelector('form').hidden=false;content.querySelector('.purpose-draft').hidden=true;return;}
   if(target.hasAttribute('data-local-tab')||target.dataset.localChoice){const group=target.parentElement;group.querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));showToast('Seleção local para revisão do desenho. Sem persistência.');return;}
   if(target.dataset.demo){showToast('Ação ilustrativa do documento. O contrato e a implementação estão descritos na ficha.');return;}
-  if(target.dataset.view){setView(target.dataset.view);return;}
+  if(target.dataset.globalArea){const heading=$(`#global-area-${target.dataset.globalArea} h2`);heading.scrollIntoView({block:'start'});heading.focus({preventScroll:true});return;}
+  if(target.dataset.view){if(target.dataset.view==='global'){chapterFilter=-1;setView('global');history.replaceState(null,'','#visao-global');$('#global-view').scrollIntoView({block:'start'});}else setView(target.dataset.view);return;}
   if(target.dataset.chapter!==undefined){chapterFilter=Number(target.dataset.chapter);document.querySelectorAll('[data-chapter]').forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.chapter)===chapterFilter)));renderAtlas();setView('atlas');$('#atlas-view').scrollIntoView({block:'start'});return;}
   if(target.dataset.state){previewState=target.dataset.state;document.querySelectorAll('[data-state]').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));renderPrototype();return;}
   if(target.dataset.width){width=target.dataset.width;document.querySelectorAll('[data-width]').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));renderPrototype();return;}
@@ -156,8 +173,9 @@ document.addEventListener('submit',event=>{
   }
 });
 document.addEventListener('keydown',event=>{const target=event.target.closest('[data-open]');if(target&&(event.key==='Enter'||event.key===' ')){event.preventDefault();openScreen(target.dataset.open);}});
-$('#search').addEventListener('input',renderAtlas);$('#status-filter').addEventListener('change',renderAtlas);
+function renderFilteredView(){if(view==='global')renderGlobal();else renderAtlas();$('#result-count').textContent=`${filteredScreens().length} de ${screens.length} telas · ${view==='global'?'sequência e ramificações do projeto':'selecione uma para inspecionar'}`;}
+$('#search').addEventListener('input',renderFilteredView);$('#status-filter').addEventListener('change',renderFilteredView);
 $('#previous').addEventListener('click',()=>openScreen(selectedId-1));$('#next').addEventListener('click',()=>openScreen(selectedId+1));
-$('#print').addEventListener('click',()=>{chapterFilter=-1;$('#search').value='';$('#status-filter').value='all';document.querySelectorAll('[data-chapter]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.chapter==='-1')));renderAtlas();setView('atlas');window.print();});
-function readHash(){const match=location.hash.match(/^#tela-(\d+)$/);if(match&&byId(match[1]))openScreen(match[1],false);}
+$('#print').addEventListener('click',()=>{const printingGlobal=view==='global';chapterFilter=-1;$('#search').value='';$('#status-filter').value='all';renderAtlas();setView(printingGlobal?'global':'atlas');window.print();});
+function readHash(){if(location.hash==='#visao-global'){chapterFilter=-1;setView('global');return;}const match=location.hash.match(/^#tela-(\d+)$/);if(match&&byId(match[1]))openScreen(match[1],false);}
 window.addEventListener('hashchange',readHash);readHash();

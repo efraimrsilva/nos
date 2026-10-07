@@ -54,6 +54,8 @@ Em 2026-09-24, o usuário dispensou qualquer informação sobre percentual ou in
 
 ## Wireframe vivo e materiais de origem
 
+**Padrão obrigatório de 2026-10-07:** consultar [Visão global](../wireframes/atlas/index.html#visao-global) e Atlas vivo; em qualquer alteração conferir impacto em todas as telas e sincronizar produto, desenhos, fichas, percursos e pendências. Toda tela criada/alterada acrescenta galeria em [comparacoes](../wireframes/comparacoes/README.md), sem sobrescrever evidências anteriores. A visão por áreas e a global reutilizam os mesmos desenhos e dados. Aplicar o [procedimento central](../wireframes/GUIA.md#visão-global-sincronização-e-comparações--procedimento-permanente).
+
 **Prioridade alta, definida em 2026-10-05:** toda criação, implementação, alteração ou revisão de tela começa pela inspeção visual do modo **Atlas vivo**, incluindo aspecto, identidade, abas, ícones, navegação e estados. Esse desenho orienta prioritariamente a interface; o desenho anterior é comparação. Conferir fidelidade antes de entregar e atualizar o atlas junto ao recorte. Seguir o [procedimento obrigatório](../wireframes/GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05), lendo também as pendências e permissões da ficha.
 
 Decisão de 2026-10-03: manter o [wireframe](../wireframes/atlas/index.html) atualizado para refletir todo o desenvolvimento atual e futuro. Cada entrega que alterar a experiência deve atualizar desenhos, fichas, fluxos e [pendências](../wireframes/COBERTURA.md) correspondentes, com situação fiel ao código e validações. Detalhes no [guia](../wireframes/GUIA.md) e em [estado.md](estado.md).

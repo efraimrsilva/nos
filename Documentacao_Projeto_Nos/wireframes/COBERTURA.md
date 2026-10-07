@@ -4,6 +4,8 @@ Material de planejamento criado em 2026-10-03 e corrigido visualmente em 2026-10
 
 ## Situação verificada
 
+**Visão global:** reutiliza os 72 desenhos e suas situações/pendências; o mapa não altera a classificação de implementação. Percursos e destinos vêm do inventário; ligações de contexto estão distinguidas de saídas previstas nas fichas. [Abrir mapa](atlas/index.html#visao-global) e seguir o [padrão de sincronização/comparações](GUIA.md#visão-global-sincronização-e-comparações--procedimento-permanente).
+
 Conferência atualizada em 2026-10-07: as 72 fichas, situações e pendências coincidem com este inventário e com os rótulos visíveis nas miniaturas e na inspeção. Todos os 30 recortes existentes apontam para rotas presentes no código; isso não confirma as ampliações ilustradas. Os 42 desenhos planejados continuam identificados. **Antes de implementar qualquer tela, consultar seu aspecto no modo Atlas vivo com prioridade alta**, conforme o [procedimento obrigatório](GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05).
 
 - 72 telas/estados; 8 áreas; 13 percursos.

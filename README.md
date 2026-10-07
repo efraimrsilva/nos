@@ -8,6 +8,8 @@ Um espaço privado para cultivar vínculos saudáveis.
 
 ## Executar o aplicativo
 
+**Visão global e sincronização obrigatória:** a aba [Visão global](Documentacao_Projeto_Nos/wireframes/atlas/index.html#visao-global), acima de Todas as áreas, reaproveita as mesmas telas, fichas e percursos. Em qualquer alteração, conferir impacto no projeto inteiro e sincronizar aplicativo/Atlas vivo/Visão global/contratos no mesmo recorte. Toda tela criada ou alterada deve acrescentar evidência em [comparacoes](Documentacao_Projeto_Nos/wireframes/comparacoes/README.md), preservando galerias anteriores. Seguir o [procedimento permanente](Documentacao_Projeto_Nos/wireframes/GUIA.md#visão-global-sincronização-e-comparações--procedimento-permanente).
+
 **Regra de desenvolvimento — prioridade alta:** antes de criar, implementar, alterar ou revisar uma tela, abrir o **Atlas vivo** e conferir seu aspecto visual, abas, ícones, hierarquia, navegação e estados. A implementação deve se guiar prioritariamente por esse desenho; a composição histórica serve à comparação. Confrontar a interface real com o atlas antes de concluir e atualizar ambos na mesma entrega, respeitando contratos e permissões. Procedimento obrigatório no [guia do atlas](Documentacao_Projeto_Nos/wireframes/GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05).
 
 Na raiz de um clone deste repositório, instale as dependências e inicie o aplicativo:

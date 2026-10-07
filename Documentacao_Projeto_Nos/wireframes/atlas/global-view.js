@@ -1,0 +1,40 @@
+/* O mapa referencia IDs; conteúdo, desenhos, ações e percursos continuam nas fontes do atlas. */
+'use strict';
+const globalAreaNotes=[
+  'Conta é a entrada. Cadastro, confirmação e recuperação são caminhos alternativos; a Tela 72 é acolhimento opcional.',
+  'Escolher caminho abre criação ou convite. Seus Núcleos é uma ampliação planejada, sem impor nova criação a quem já participa.',
+  'O Início é o ponto de retorno do Núcleo. A agenda é acessada conforme a intenção de organizar um encontro.',
+  'Propor, consentir, testar, registrar e confirmar têm condições próprias. Revisão, encerramento e experiências são ramificações.',
+  'Explorar árvore, marcos, memórias e gratidão é opcional. Indicadores e Essência exigem seus contratos; não avançam automaticamente.',
+  'Conexões e perfis dependem de autorização e compartilhamento voluntário. Consultar outra pessoa não permite editar seus dados.',
+  'Manifesto, convites, notificações e cuidado partem de contextos distintos. Preparação privada, cartão e encontro não formam um chat.',
+  'Preferências e segurança são acessos contextuais. Sair da conta, sair do Núcleo e tratar dados têm consequências diferentes.'
+];
+// Ajustes de leitura: criação antes do detalhe, registro antes do histórico e legado antes da confirmação.
+const globalReadingOrder={2:[13,14,16,15,17],3:[18,19,20,21,22,23,24,27,25,26,29,28,30,31,32,33,34,35,36,37],4:[38,39,40,42,41,43]};
+function orderedGlobalScreens(list,chapter){
+  const order=globalReadingOrder[chapter];
+  const rank=screen=>order?.includes(screen.id)?order.indexOf(screen.id):1000+screen.id;
+  return [...list].sort((a,b)=>rank(a)-rank(b));
+}
+function globalJourneyHtml(journey,index){
+  return `<details class="global-journey" ${index<3?'open':''}><summary><span>Percurso ${pad(index+1)}</span>${escapeHtml(journey.name)}</summary><div class="flow-path">${journey.ids.map((id,i)=>{
+    const direct=i&&byId(journey.ids[i-1]).actions.some(action=>action.to===id);
+    const transition=i?`<span class="global-transition ${direct?'direct':'context'}" data-from="${journey.ids[i-1]}" data-to="${id}" title="${direct?'Saída prevista na ficha':'Etapa de contexto; não implica botão direto'}"><span aria-hidden="true">${direct?'→':'↝'}</span><small>${direct?'Saída':'Contexto'}</small></span>`:'';
+    return `${transition}<button class="flow-node" data-go="${id}"><strong>${pad(id)}</strong>${escapeHtml(byId(id).title)}<small>${escapeHtml(byId(id).status)}</small></button>`;
+  }).join('')}</div><p>${escapeHtml(journey.rule)}</p></details>`;
+}
+function renderGlobal(){
+  const savedReference=referenceMode,savedLayout=documentLayoutKey;referenceMode=false;documentLayoutKey='';
+  const filtered=filteredScreens();
+  try{
+    const visible=new Set(filtered.map(screen=>screen.id));
+    const paths=journeys.filter(journey=>journey.ids.some(id=>visible.has(id)));
+    $('#global-view').innerHTML=`<header class="global-intro"><p class="eyebrow">VISÃO GLOBAL / ATLAS VIVO</p><h2>Do acesso ao cuidado diário</h2><p>Comece por Conta, escolha criar ou entrar com convite e chegue ao Início do Núcleo. A partir daí, explore os módulos conforme a intenção de vocês.</p><div class="global-facts"><span>${screens.length} telas na mesma fonte</span><span>${screens.filter(s=>s.status==='Recorte existente').length} recortes existentes</span><span>${screens.filter(s=>s.status==='Planejada').length} planejadas</span></div><p class="global-notice">Ordem de leitura e caminhos com condições. Todas as áreas abaixo não são etapas obrigatórias. As imagens, fichas e saídas são as mesmas do atlas; o conteúdo afetivo é ilustrativo.</p><nav class="global-jumps" aria-label="Ir para um módulo">${chapters.map((chapter,index)=>filtered.some(screen=>screen.chapter===index)?`<button data-global-area="${index}">${pad(index+1)} · ${escapeHtml(chapter)}</button>`:'').join('')}</nav></header>${filtered.length?`<section class="global-paths" aria-label="Sequências e alternativas"><h2>Os caminhos entre as telas</h2><p>Os ${journeys.length} percursos vêm do mesmo inventário usado em Percursos. Ao filtrar, cada caminho permanece completo para preservar seu contexto.</p><p class="global-legend">→ Saída: destino previsto na ficha. ↝ Contexto: etapa conceitual, sem sugerir navegação direta. Consultar situação e condições em cada tela.</p>${paths.map(journey=>globalJourneyHtml(journey,journeys.indexOf(journey))).join('')}</section>${chapters.map((chapter,index)=>{
+      const list=orderedGlobalScreens(filtered.filter(screen=>screen.chapter===index),index);if(!list.length)return '';
+      return `<section class="chapter global-area" id="global-area-${index}"><div class="chapter-header"><h2 tabindex="-1"><span>${pad(index+1)}</span>${escapeHtml(chapter)}</h2><p>${list.length} telas · mesma fonte visual</p></div><p class="global-area-note">${escapeHtml(globalAreaNotes[index]||'Área acrescentada ao inventário. Conferir seu contexto e as saídas das fichas.')}</p><div class="screen-grid">${list.map(screen=>tileHtml(screen,true)).join('')}</div></section>`;
+    }).join('')}`:'<p class="no-results">Nenhuma tela corresponde aos filtros. Ajuste a busca ou selecione Todas as situações.</p>'}`;
+  }finally{referenceMode=savedReference;documentLayoutKey=savedLayout;}
+  document.querySelectorAll('#global-view .phone').forEach(phone=>{for(const child of phone.children)child.inert=true;});
+  scaleThumbnails();
+}
