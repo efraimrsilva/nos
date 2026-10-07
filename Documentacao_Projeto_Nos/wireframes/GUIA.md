@@ -1,6 +1,6 @@
 # Wireframe completo do Projeto Nós
 
-**Natureza:** material de planejamento e revisão de produto, criado em 2026-10-03. **Referência do aplicativo:** v0.13.0.
+**Natureza:** material de planejamento e revisão de produto, criado em 2026-10-03. **Referência do aplicativo:** v0.13.1.
 
 Abra [o atlas navegável](atlas/index.html). Ele funciona localmente, sem servidor, conta, rede ou conexão com Supabase. Para transportar o material, mantenha a pasta `atlas/` completa: página, estilos, scripts e recursos locais.
 

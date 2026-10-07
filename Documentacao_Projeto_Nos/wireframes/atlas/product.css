@@ -12,6 +12,9 @@
 .product-phone{position:relative;background:#f6f3eb;font-family:'Plus Jakarta Sans',sans-serif;line-height:1.5;container-type:inline-size;border-color:#e6e3d8;border-radius:26px;isolation:isolate}
 .product-phone svg{flex-shrink:0;vertical-align:middle}.product-phone button{font:inherit;color:inherit}.product-phone button:focus-visible,.product-phone input:focus-visible,.product-phone textarea:focus-visible{outline:3px solid #6a3fd1;outline-offset:5px}
 .product-onboarding{display:flex;flex-direction:column;min-height:100%;padding:24px 22px;background:#f6f3eb;overflow:auto;scrollbar-width:thin}
+.account-layout{scrollbar-gutter:stable}
+.account-layout .product-content{padding-bottom:60px}
+@container (min-width:600px){.account-layout .product-garden{align-self:start;margin-top:var(--account-brand-offset,0px)}}
 .product-brand{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;margin:auto;max-width:1152px;flex-shrink:0}
 .product-brand>span{display:flex;align-items:center;gap:10px;color:#4f7e2c}.product-brand b{font:500 36px/1 Fredoka,sans-serif;letter-spacing:-2px;color:#2e4a20}.product-brand i{font-style:normal;color:#6a3fd1}.product-brand>small{border:1px solid #e6e3d8;border-radius:99px;padding:8px 14px;font-size:10px;font-weight:600;letter-spacing:.025em;color:#69725e}
 .product-welcome{display:grid;align-items:center;gap:28px;padding:32px 0;flex:1;width:100%;max-width:1056px;margin:auto}

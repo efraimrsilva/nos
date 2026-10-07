@@ -1,10 +1,30 @@
 # Estado do Projeto Nós
 
-**Versão vigente do projeto:** 0.13.0
+**Versão vigente do projeto:** 0.13.1
 
 **DOCS_DIR:** `Documentacao_Projeto_Nos`
 
 **Atualizado:** 2026-10-07
+
+## Entrega atual — alinhamento visual de Conta — v0.13.1 — 2026-10-07
+
+**Publicação autorizada nesta interação:** commit e push de toda a entrega em main, com descrição abrangente. Fetch confirmou HEAD/origin/main sem divergência sobre cfcd57f02af87540b746bf3b0bfce87caf165d53. Suíte sem backend repetida: 88/88 aprovados. [Registro da publicação](registros/registro-v0.13.1-2026-10-07-02-imp-publicacao-git-fun-rastreabilidade-conta-visual.md). Objeto Git inspecionado: 33 arquivos e árvore inicial fe98a545957ca6bd6e51d47380bce4e52ccd5e46 idêntica ao conjunto preparado. Pendência retirada após essa prova; atualização incorporada ao mesmo commit lógico. Conferir hash remoto após push no encerramento. Sem deploy.
+
+**Objetivo atendido:** alternar cadastro/login sem deslocar horizontalmente a composição nem baixar a árvore/frases no cadastro; remover Conheça o Nós e preservar o link superior. PATCH visual; contratos de autenticação preservados.
+
+**Escopo/arquivos:** page.tsx de Conta, globals.css, AuthForm, teste existente de entrada, representação/ficha do Atlas e galeria. Referência vertical derivada da altura do login; reserva da barra de rolagem restrita a Conta; respiro inferior de 60px preserva a composição. Conta autenticada conserva centralização. Sem dependência nova.
+
+**Validação:** 24/24 testes de Conta desktop/celular, tipos e build aprovados; medição em seis tamanhos de 320 a 1440px confirmou mesma posição nas duas abas e ausência de transbordamento horizontal. Atlas de Conta, seis telas em duas larguras, e Visão global de 72 composições aprovados. Autorrevisão e revisão independente; achado P2 de escopo CSS corrigido, sem achados materiais restantes. Capturas inspecionadas. Limitação preexistente: verify-fidelity.mjs espera /comecar público, incompatível com proteção da v0.13.0; não corrigido fora do escopo.
+
+**Ferramentas:** Superpowers depuração/revisão/verificação aplicados. Context7 consultado para useLayoutEffect no React; versão exata 19.3 não indexada, complementada pela referência oficial compatível e compilação local. Busca avançada com Octocode dispensada neste ajuste delimitado. Sem migração ou deploy; commit/push autorizados nesta interação, conforme controle acima.
+
+**Git:** main, base cfcd57f. Unidade commitada e objeto inspecionado: aplicativo, teste, versão, Atlas, galeria e documentação completos. **Unidades pendentes de commit:** nenhuma desta entrega. Controle incluído no mesmo commit lógico; envio autorizado nesta interação e hash remoto conferido no encerramento. Título: `fix(conta): estabilizar abas e remover link duplicado`.
+
+**Próximo passo executável:** conferir /conta no navegador habitual alternando as abas e redimensionando a janela; conferir retorno pelo link superior. Próxima evolução funcional continua o contrato de dados de Nossa Árvore. Nenhum bloqueio do recorte visual.
+
+**Índice desta entrega:** [registro v0.13.1](registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md), [contrato de Conta](funcionalidades/conta-entrada.md), [galeria antes/depois/Atlas](../wireframes/comparacoes/2026-10-07-conta-alinhamento/index.html).
+
+Os marcos abaixo são históricos; a publicação autorizada da v0.13.0 não autoriza publicar esta nova entrega.
 
 ## Publicação autorizada — v0.13.0 — 2026-10-07
 
@@ -197,7 +217,7 @@ Agenda por Núcleo concluída na **v0.6.0**: eventos pontuais com título, inten
 
 **Unidades pendentes de commit neste marco histórico:** nenhuma para a correção visual e orientação de prioridade alta; inclusão no commit confirmada por inspeção do objeto e comparação da árvore. Mensagem: `docs(wireframe): alinhar atlas ao app e consolidar prioridade visual`.
 
-**Contador de interações:** 82, incluindo esta publicação autorizada, a partir da última contagem persistida 81; eventuais interações sem registro não foram inventadas. Começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
+**Contador de interações:** 84, incluindo esta publicação autorizada, a partir da última contagem persistida 83; eventuais interações sem registro não foram inventadas. Começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
 
 ## Objetivo e situação histórica — v0.11.0
 

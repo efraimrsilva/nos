@@ -1,6 +1,8 @@
 # Projeto Nós
 
-**Versão vigente do projeto:** 0.13.0
+**Versão vigente do projeto:** 0.13.1
+
+Na v0.13.1, as abas de Conta mantêm a largura e a altura da árvore/frases; o link inferior duplicado foi removido. [Registro visual](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md) e [comparação antes/depois](Documentacao_Projeto_Nos/wireframes/comparacoes/2026-10-07-conta-alinhamento/index.html).
 
 Um espaço privado para cultivar vínculos saudáveis.
 

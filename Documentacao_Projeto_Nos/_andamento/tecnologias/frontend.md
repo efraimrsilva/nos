@@ -1,6 +1,8 @@
 # Frontend web
 
-**Versão vigente do projeto:** 0.13.0
+**Versão vigente do projeto:** 0.13.1
+
+Conta v0.13.1 reserva a barra de rolagem e calcula a referência vertical do login com useLayoutEffect/ResizeObserver, restrita ao painel de autenticação. [Registro visual](../registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md).
 
 ## Decisões implementadas nesta fatia
 

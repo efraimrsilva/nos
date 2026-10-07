@@ -15,7 +15,8 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
   const next = safeAuthNext(params.next);
   const supabase = await createSupabaseServerClient();
   const user = supabase ? (await supabase.auth.getUser()).data.user : null;
-  return <>
+  // Mantém o respiro do rodapé para preservar a composição após remover o link duplicado.
+  return <div className="account-page pb-15">
     <Link href={user ? routes.nucleus : "/boas-vindas"} className="mb-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-muted"><ArrowLeft size={17} aria-hidden="true" />{user ? "Seus Núcleos" : "Voltar às boas-vindas"}</Link>
     <p className="step-label mb-3 text-lilac">Um lugar seguro para seus vínculos</p>
     <h1 className="font-display text-[30px] font-medium leading-tight md:text-[38px]">Sua conta no Nós</h1>
@@ -29,6 +30,5 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
       <Link href={next} className="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Continuar para o Nós</Link>
       <form action={signOut} className="mt-4"><button type="submit" className="min-h-11 rounded-xl border border-line px-5 text-sm font-semibold">Sair da conta</button></form>
     </section> : <AuthForm next={next} initialMode={params.resultado === "senha" || params.modo === "login" ? "login" : "signup"} />}
-    <Link href="/boas-vindas" className="mt-4 inline-flex min-h-11 items-center text-xs font-semibold text-leaf underline">Conheça o Nós</Link>
-  </>;
+  </div>;
 }

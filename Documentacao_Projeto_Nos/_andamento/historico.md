@@ -1,6 +1,12 @@
 # Histórico de andamento
 
-**Versão vigente do projeto:** 0.13.0
+**Versão vigente do projeto:** 0.13.1
+
+## 2026-10-07 — v0.13.1 — Alinhamento visual de Conta
+
+- **Mudança de produto:** largura e árvore/frases estáveis entre cadastro/login; link inferior duplicado removido, mantendo retorno superior e composição de login. Atlas/ficha/galeria sincronizados.
+- **Resultado:** 24 testes de Conta, tipos/build e medição em seis tamanhos aprovados; comparação específica de Conta e Visão global aprovadas. Revisão independente sem achados materiais restantes após corrigir escopo da regra CSS. Script geral de fidelidade limitado pela expectativa anterior de /comecar público.
+- **Evidência:** [registro v0.13.1](registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md) e [galeria](../wireframes/comparacoes/2026-10-07-conta-alinhamento/index.html). Alterações locais, sem commit/push/deploy.
 
 ## 2026-09-24 — Primeira tela do app
 
@@ -373,3 +379,9 @@ Conferência da publicação: 108/108 testes repetidos, verificações global/fi
 ## 2026-10-07 — Publicação autorizada da v0.13.0
 
 Usuário autorizou commit/push abrangentes. Fetch confirmou main sem divergência. Implementação, testes, Atlas/galeria e documentação compõem uma unidade lógica; [registro de publicação](registros/registro-v0.13.0-2026-10-07-06-imp-publicacao-git-fun-rastreabilidade-navegacao.md). Conferir objeto e hash remoto no encerramento; sem deploy.
+
+## 2026-10-07 — Publicação autorizada de Conta visual — v0.13.1
+
+- **Evento Git:** usuário autorizou commit e push abrangendo a entrega inteira. Main/origin/main sem divergência após fetch, base cfcd57f. Suíte sem backend repetida: 88/88 aprovados. Objeto Git inspecionado: 33 arquivos e árvore inicial idêntica ao índice preparado. Pendência retirada e controle incorporado ao mesmo commit lógico; hash remoto conferido no encerramento.
+- **Conjunto:** aplicativo, teste, versão, Atlas/ficha, galeria e documentação do alinhamento de Conta e remoção de link duplicado. Sem deploy ou migração.
+- **Evidência:** [registro da publicação](registros/registro-v0.13.1-2026-10-07-02-imp-publicacao-git-fun-rastreabilidade-conta-visual.md).

@@ -1,8 +1,10 @@
 # Cobertura e pendências do wireframe
 
-Material de planejamento criado em 2026-10-03 e corrigido visualmente em 2026-10-04. Referência funcional: v0.13.0. Atualização da área Conta e entrada em 2026-10-07.
+Material de planejamento criado em 2026-10-03 e corrigido visualmente em 2026-10-04. Referência funcional: v0.13.1. Atualização da área Conta e entrada em 2026-10-07.
 
 ## Situação verificada
+
+v0.13.1: Telas 01/02 mantêm árvore/frases e largura ao alternar cadastro/login; link inferior duplicado removido. Classificações, destinos dos percursos e pendências funcionais preservados. [Comparação](comparacoes/2026-10-07-conta-alinhamento/index.html).
 
 **Visão global:** reutiliza os 72 desenhos e suas situações/pendências; o mapa não altera a classificação de implementação. Percursos e destinos vêm do inventário; ligações de contexto estão distinguidas de saídas previstas nas fichas. [Abrir mapa](atlas/index.html#visao-global) e seguir o [padrão de sincronização/comparações](GUIA.md#visão-global-sincronização-e-comparações--procedimento-permanente).
 

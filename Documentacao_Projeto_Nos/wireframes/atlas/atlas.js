@@ -103,6 +103,7 @@ function renderPrototype(){
     const back=$('#screen-spec .screen-back');back.dataset.view='global';back.textContent='← Voltar à Visão global';
   }
   $('#previous').disabled=selectedId===1;$('#next').disabled=selectedId===screens.length;
+  requestAnimationFrame(alignAccountPreview);
 }
 function renderFlows(){
   $('#flows-view').innerHTML=journeys.map((journey,index)=>`<article class="flow-card"><p class="eyebrow">PERCURSO ${pad(index+1)}</p><h2>${escapeHtml(journey.name)}</h2><div class="flow-path">${journey.ids.map((id,i)=>`${i?'<span class="flow-arrow" aria-hidden="true">→</span>':''}<button class="flow-node" data-go="${id}"><strong>${pad(id)}</strong>${escapeHtml(byId(id).title)}</button>`).join('')}</div><p>${escapeHtml(journey.rule)}</p></article>`).join('');
@@ -137,7 +138,7 @@ document.addEventListener('click',event=>{
   if(target.dataset.go){const login=target.hasAttribute('data-entry-login');openScreen(target.dataset.go);if(login)$('#screen-preview [data-auth="login"]').click();showToast('Navegação de exemplo. Nenhuma ação foi enviada.');return;}
   if(target.dataset.reference){referenceMode=target.dataset.reference==='approved';documentLayoutKey='';previewState='content';renderPrototype();return;}
   if(target.dataset.layout){documentLayoutKey=target.dataset.layout;renderPrototype();return;}
-  if(target.dataset.auth){const section=target.closest('.product-panel');const signup=target.dataset.auth==='signup';section.querySelectorAll('[data-auth]').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));section.querySelectorAll('[data-signup-field]').forEach(el=>el.hidden=!signup);section.querySelector('form').reset();section.querySelector('[data-auth-submit]').textContent=signup?'Criar conta':'Entrar';return;}
+  if(target.dataset.auth){const section=target.closest('.product-panel');const signup=target.dataset.auth==='signup';section.querySelectorAll('[data-auth]').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));section.querySelectorAll('[data-signup-field]').forEach(el=>el.hidden=!signup);section.querySelector('form').reset();section.querySelector('[data-auth-submit]').textContent=signup?'Criar conta':'Entrar';alignAccountPreview();return;}
   if(target.hasAttribute('data-suggestion')){const content=target.closest('.product-content');content.querySelector('[name="purpose"]').value=(nucleusOptions.find(option=>option[0]===onboardingType)||nucleusOptions[0])[2];return;}
   if(target.hasAttribute('data-edit-draft')){const content=target.closest('.product-content');content.querySelector('form').hidden=false;content.querySelector('.purpose-draft').hidden=true;return;}
   if(target.hasAttribute('data-local-tab')||target.dataset.localChoice){const group=target.parentElement;group.querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));showToast('Seleção local para revisão do desenho. Sem persistência.');return;}

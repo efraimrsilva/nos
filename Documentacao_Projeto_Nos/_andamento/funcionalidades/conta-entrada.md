@@ -1,4 +1,6 @@
-# Conta e entrada — v0.13.0
+# Conta e entrada — v0.13.1
+
+Na v0.13.1, cadastro e login mantêm a largura e a posição da árvore/frases. Link inferior Conheça o Nós removido; Voltar às boas-vindas permanece. Respiro inferior preserva a composição do login. Alinhamento especial exige painel de autenticação; Conta autenticada mantém centralização. [Registro](../registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md) e [comparação](../../wireframes/comparacoes/2026-10-07-conta-alinhamento/index.html).
 
 Atualizado em 2026-10-07. Escopo: telas 01–05 e 72 do Atlas vivo, funcionais e integradas ao Supabase Auth.
 

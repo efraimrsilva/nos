@@ -6,6 +6,8 @@ Toda criação ou alteração de tela, navegação, dados, regra ou estado deve 
 
 ## Galerias
 
+- [2026-10-07 — Alinhamento visual de Conta — v0.13.1](2026-10-07-conta-alinhamento/index.html): antes/depois das abas, árvore/frases estáveis, link inferior removido e Atlas sincronizado.
+
 - [2026-10-07 — Sessão e sequência](2026-10-07-sessao-navegacao/index.html): bloqueio antes/depois, Tela12 planejada/viva/real, Conta autenticada, Escolher caminho e retorno do Início.
 
 - [2026-10-07 — Conta e entrada](2026-10-07-conta-entrada/index.html): composição anterior, Atlas vivo e aplicativo das telas 01–05 e 72.

@@ -1,6 +1,8 @@
 # Andamento do Projeto Nós
 
-**Versão vigente do projeto:** 0.13.0
+**Versão vigente do projeto:** 0.13.1
+
+Entrega atual: [v0.13.1 — Alinhamento visual de Conta](registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md). Mudança visual local, ainda pendente de commit.
 
 Este diretório preserva o contexto operacional entre sessões e retomadas do projeto.
 

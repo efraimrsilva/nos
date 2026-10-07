@@ -1,6 +1,13 @@
 # Brag document — Projeto Nós
 
-**Versão vigente do projeto:** 0.13.0
+**Versão vigente do projeto:** 0.13.1
+
+## 2026-10-07 — Estabilidade visual em Conta
+
+- **Problema:** cadastro deslocava a árvore/frases 61px em desktop e a barra de rolagem podia mudar a largura da composição.
+- **Contribuição:** referência de altura do login, reserva da barra e remoção de link duplicado; Atlas e evidência visual sincronizados.
+- **Resultado verificado:** mesma posição entre abas em seis tamanhos; 24 testes de Conta, tipos/build e comparação específica do Atlas aprovados. Benefício esperado: alternância de acesso mais confortável.
+- **Evidência:** [registro v0.13.1](../_andamento/registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md), com [galeria](../wireframes/comparacoes/2026-10-07-conta-alinhamento/index.html).
 
 ## 2026-09-27 — Agenda interna do Núcleo
 

@@ -1,6 +1,6 @@
 # Escolher caminho
 
-**Versão vigente do projeto:** 0.13.0
+**Versão vigente do projeto:** 0.13.1
 
 ## Escopo autorizado
 

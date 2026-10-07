@@ -27,6 +27,14 @@ a { -webkit-tap-highlight-color: transparent; }
 .app-shell { min-height: 100svh; padding: max(24px, env(safe-area-inset-top)) max(22px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(22px, env(safe-area-inset-left)); }
 .brand-word { font-family: var(--font-display); font-size: 36px; letter-spacing: -2px; line-height: 1; }
 .welcome-grid { width: 100%; max-width: 1056px; margin-inline: auto; }
+/* Somente Conta reserva a barra para não mudar de largura ao alternar abas. */
+html:has(.account-page) { scrollbar-gutter: stable; }
+@media (min-width: 768px) {
+  .welcome-grid:has(.account-page [data-auth-panel]) > aside {
+    align-self: start;
+    margin-top: var(--account-brand-offset, 0px);
+  }
+}
 .garden-art { position: relative; isolation: isolate; }
 .garden-art::before { content: ""; position: absolute; z-index: -1; inset: 12% 3% 0; border-radius: 50%; background: radial-gradient(ellipse, #e8eddc 20%, #f0f0e4 55%, transparent 72%); }
 .path-card { display: flex; align-items: center; gap: 18px; min-height: 112px; padding: 24px; border: 1px solid var(--color-line); border-radius: 22px; background: #fff; box-shadow: 0 5px 18px #52403805; transition: border-color 180ms, transform 180ms, box-shadow 180ms; }
