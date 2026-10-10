@@ -1,10 +1,34 @@
 # Estado do Projeto Nós
 
-**Versão vigente do projeto:** 0.13.2
+**Versão vigente do projeto:** 0.13.3
 
 **DOCS_DIR:** `Documentacao_Projeto_Nos`
 
 **Atualizado:** 2026-10-10
+
+## Publicação autorizada — v0.13.3 — 2026-10-10
+
+Usuário autorizou commit e push abrangentes da entrega do Percurso 04 em main. Fetch confirmou main/origin/main sem divergência sobre 446d3ee. Conjunto inclui código, testes, Atlas, galeria, versão e documentação; título `fix(invitations): concluir percurso de entrada por convite e sincronizar Atlas`. [Registro de publicação](registros/registro-v0.13.3-2026-10-10-02-imp-publicacao-git-fun-rastreabilidade-entrada-convite.md). Reconferência: 92/92 testes gerais, tipos/build, Percurso 04 e Visão global aprovados; 463 referências locais e diff conferidos. Objeto inicial inspecionado: 34 arquivos, árvore 8166532172f56c9427d51541bc8cde156d963c6a igual ao índice preparado. Pendência retirada por evidência de inclusão; controle incorporado ao mesmo commit lógico antes do envio. Identificador final e igualdade remota conferidos após push no encerramento. Sem deploy.
+
+## Entrega atual — Percurso 04 Entrar por convite — v0.13.3 — 2026-10-10
+
+**Status:** fluxo central concluído, revisado e validado localmente; PATCH 0.13.2 → 0.13.3. Git main, base 446d3ee, inicialmente limpo. DOCS_DIR permanece Documentacao_Projeto_Nos. QR/link/gestão e certificação pública continuam pendentes.
+
+**Escopo e aceite:** conferir entrada autenticada, prévia restrita, decisão de adiar, aceite explícito, associação e acesso ao Início/lista; organizar caminhos no Atlas e reservar QR/gestão como planejados. Consulta não deve criar associação; convite inválido, expirado ou revogado não deve permitir entrada; repetição não duplica vínculo nem muda papel.
+
+**Decisões:** manter código fora de URLs/galerias/registros, sem novo contrato de convite; usar tipo já retornado pela consulta. Agora não volta a Seus Núcleos sem escrever no banco. Sem migração ou operação remota.
+
+**Arquivos principais:** features/invitations, tests/authenticated/invitation-flow.spec.ts, wireframes/atlas e comparacoes/2026-10-10-entrar-convite.
+
+**Validação:** 92 testes gerais e 16 testes autenticados de convite aprovados desktop/celular; comparação geral autenticada adicional aprovada (uma repetição mobile dispensada porque o próprio comparador percorre ambas as larguras). 20 testes de navegação aprovados na execução combinada. Tipos/build, sintaxe, Percurso 04 e Visão global aprovados. Fidelidade: 72 prévias, 181 saídas, 360 estados, 41 referências, 52 layouts; zero erros/chamadas externas no Atlas. Autorrevisão e revisão independente somente leitura sem P1–P3. Falhas iniciais de seletor incluindo alerta interno do Next corrigidas e repetidas. Comparador sem sessão foi rejeitado por retornar à Conta; executado corretamente depois com sessão local em memória. Capturas anteriores preservadas e códigos temporários mascarados.
+
+**Ferramentas:** Superpowers entendimento/depuração/TDD/revisão/verificação; Context7 consultado (16.2.9 compatível, versão instalada 16.3.6); Octocode CLI 19.1.0, grafo parcial complementado por leitura local; Supabase CLI 2.118.0/Docker 29.8.1 somente locais. Sem nova dependência, migração, configuração remota ou envio externo.
+
+**Próximo passo executável:** para evoluir esta área, definir contrato de gestão/revogação/status da Tela 59 e implementar com RPC (Remote Procedure Call, chamada de função no banco) autorizada e testes. Para operação pública, retomar preparação Gmail após liberação da senha de aplicativo e certificar recebimento/origem HTTPS. **Unidades pendentes de commit:** nenhuma desta entrega; objeto Git inspecionado e árvore comparada ao índice preparado, incluindo código, testes, Atlas/galeria, versão e documentação. Publicação autorizada no marco acima; sem deploy.
+
+**Índice desta entrega:** [registro v0.13.3](registros/registro-v0.13.3-2026-10-10-imp-entrada-convite-fun-percurso-04.md), [contrato de entrada por convite](funcionalidades/entrada-convite.md), [comparação](../wireframes/comparacoes/2026-10-10-entrar-convite/index.html), [verificador](../wireframes/tools/verify-invitation-journey.mjs).
+
+**Conferência final:** tipos e build aprovados novamente na v0.13.3; links locais/imagens e diff conferidos. Capturas antigas permanecem sem alteração. Consulta local confirmou zero contas das fixtures de convite/navegação/Atlas; Supabase encerrado com backup, sem reset. Servidores de teste encerrados. Nenhuma operação remota ou publicação.
 
 ## Publicação autorizada e retomada — v0.13.2 — 2026-10-10
 
@@ -243,7 +267,7 @@ Agenda por Núcleo concluída na **v0.6.0**: eventos pontuais com título, inten
 
 **Unidades pendentes de commit neste marco histórico:** nenhuma para a correção visual e orientação de prioridade alta; inclusão no commit confirmada por inspeção do objeto e comparação da árvore. Mensagem: `docs(wireframe): alinhar atlas ao app e consolidar prioridade visual`.
 
-**Contador de interações:** 86, incluindo a entrega de recuperação e sua publicação autorizada, a partir da última contagem persistida 84; eventuais interações sem registro não foram inventadas. Começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
+**Contador de interações:** 88, incluindo a entrega do Percurso 04 e sua publicação autorizada a partir da última contagem persistida 87; eventuais interações sem registro não foram inventadas. Começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
 
 ## Objetivo e situação histórica — v0.11.0
 

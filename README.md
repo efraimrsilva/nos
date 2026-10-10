@@ -1,6 +1,8 @@
 # Projeto Nós
 
-**Versão vigente do projeto:** 0.13.2
+**Versão vigente do projeto:** 0.13.3
+
+Na v0.13.3, o Percurso 04 mostra tipo na prévia, permite adiar sem associação e organiza chegada direta/entrada pela lista no Atlas. Convites inválidos, expirados, revogados e repetidos foram conferidos com duas identidades no backend local. QR/link/gestão continuam planejados. [Contrato](Documentacao_Projeto_Nos/_andamento/funcionalidades/entrada-convite.md), [registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.13.3-2026-10-10-imp-entrada-convite-fun-percurso-04.md) e [comparação](Documentacao_Projeto_Nos/wireframes/comparacoes/2026-10-10-entrar-convite/index.html).
 
 Na v0.13.2, o Percurso 03 Recuperar acesso retorna à Conta em modo login e rejeita credenciais ambíguas antes do Auth. Recuperação local e Atlas validados; Gmail SMTP preparado com comando de prompt oculto, aguardando senha de app após liberação do Google e teste externo. [Registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.13.2-2026-10-09-imp-recuperacao-acesso-fun-percurso-03.md), [comparação](Documentacao_Projeto_Nos/wireframes/comparacoes/2026-10-09-recuperar-acesso/index.html) e [configuração SMTP Gmail](Documentacao_Projeto_Nos/_andamento/funcionalidades/recuperacao-smtp-gmail.md).
 

@@ -1,6 +1,14 @@
 # Brag document — Projeto Nós
 
-**Versão vigente do projeto:** 0.13.2
+**Versão vigente do projeto:** 0.13.3
+
+## 2026-10-10 — Entrada por convite e sequência do Percurso 04
+
+- **Problema:** prévia omitia tipo já disponível, ação de adiamento não existia no aplicativo e percurso tratava passagem pela lista como obrigatória.
+- **Contribuição:** tipo pelo catálogo existente, navegação de adiamento sem escrita, erro vinculado ao código e sincronização de estados/sequência/reservas no Atlas.
+- **Resultado verificado:** 92 testes gerais, 16 casos autenticados de convite e um verificador completo autenticado aprovados; tipos/build e Atlas/Visão global aprovados. Consulta/adiamento não criam vínculo; repetição mantém associação única e papel. Autorrevisão e revisão independente sem P1–P3. Benefício esperado: decisão mais clara e retomada previsível.
+- **Limite:** QR, link, gestão e certificação pública permanecem pendentes; evidência funcional exclusivamente local. Nenhuma métrica de conversão foi medida.
+- **Evidência:** [registro](../_andamento/registros/registro-v0.13.3-2026-10-10-imp-entrada-convite-fun-percurso-04.md), [contrato](../_andamento/funcionalidades/entrada-convite.md) e [comparação](../wireframes/comparacoes/2026-10-10-entrar-convite/index.html).
 
 ## 2026-10-09 — Recuperação de acesso e sequência do Percurso 03
 

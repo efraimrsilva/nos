@@ -1,6 +1,8 @@
 # Cobertura e pendências do wireframe
 
-Material de planejamento criado em 2026-10-03 e corrigido visualmente em 2026-10-04. Referência funcional: v0.13.2. Atualização do Percurso 03 em 2026-10-09.
+Material de planejamento criado em 2026-10-03 e corrigido visualmente em 2026-10-04. Referência funcional: v0.13.3. Atualização do Percurso 04 em 2026-10-10.
+
+Percurso 04: chegada direta 01 → 10 → 11 → 13 → 12; entrada comum 01 → 12 → 10. Cadastro/confirmação/recuperação preservam o destino. Tipo, adiamento sem associação, edição e estados de convite indisponível sincronizados. QR/leitura e transporte por link reservados na Tela 10; QR de geração na Tela 58 e gestão na Tela 59 continuam planejados. Inventário preservado: 72 telas, 14 percursos, 31 recortes e 41 planejadas. [Contrato](../_andamento/funcionalidades/entrada-convite.md) e [comparação](comparacoes/2026-10-10-entrar-convite/index.html).
 
 Percurso 03 validado localmente: 01 (login) → 04 → callback validado → 05 → 01 (novo login) → 12, com destino interno específico preservado. Voltar para Conta abre login; parâmetros repetidos/misturados são rejeitados antes do Auth. Remetente Gmail escolhido; configuração e recebimento externo permanecem pendentes. Inventário preservado: 72 telas, 14 percursos, 31 recortes e 41 planejadas. [Comparação](comparacoes/2026-10-09-recuperar-acesso/index.html).
 
@@ -30,8 +32,8 @@ Conferência atualizada em 2026-10-07: as 72 fichas, situações e pendências c
 | 07 | Criar e entrar no Núcleo | [Tipo de Núcleo](atlas/index.html#tela-07) | Recorte existente | 30 | /comecar/tipo | Catálogo atual de nove tipos; manter identificador validado na URL. |
 | 08 | Criar e entrar no Núcleo | [Propósito do Núcleo](atlas/index.html#tela-08) | Recorte existente | 31 | /comecar/proposito | Criação existente; sem persistência de rascunho no atlas. |
 | 09 | Criar e entrar no Núcleo | [Convite inicial](atlas/index.html#tela-09) | Recorte existente | 32 | /comecar/convite-inicial/[id] | Código e compartilhamento nativo existentes; QR e gestão ampliada dependem de contrato. |
-| 10 | Criar e entrar no Núcleo | [Inserir convite](atlas/index.html#tela-10) | Recorte existente | 18 · entrada complementar | /comecar/convite | Consulta existente, sem expor token ou dados privados antes da associação. |
-| 11 | Criar e entrar no Núcleo | [Aceitar convite](atlas/index.html#tela-11) | Recorte existente | 18 | /comecar/convite · prévia | Aceite existente; fluxo idempotente no banco. |
+| 10 | Criar e entrar no Núcleo | [Inserir convite](atlas/index.html#tela-10) | Recorte existente | 18 · entrada complementar | /comecar/convite | Consulta restrita e retorno à lista existentes. QR/câmera e transporte por link têm espaço reservado, sem integração. |
+| 11 | Criar e entrar no Núcleo | [Aceitar convite](atlas/index.html#tela-11) | Recorte existente | 18 | /comecar/convite · prévia | Tipo, aceite explícito e adiamento sem associação existentes; idempotência e revalidação no banco. Gestão na Tela 59 permanece planejada. |
 | 12 | Criar e entrar no Núcleo | [Seus Núcleos](atlas/index.html#tela-12) | Recorte existente | 13 | /nucleos | Listagem, seleção, paginação, vazio, carregamento e erro implementados; cartões do atlas são exemplos identificados. |
 | 13 | Início e agenda | [Início do Núcleo](atlas/index.html#tela-13) | Recorte existente | 02 | /nucleos/[id] | Home protegida existente; resumo afetivo completo depende de módulos futuros. |
 | 14 | Início e agenda | [Agenda do Núcleo](atlas/index.html#tela-14) | Recorte existente | 03 | /nucleos/[id]/agenda | Agenda real existente; visão mensal e integração com experiências são planejadas. |

@@ -36,11 +36,11 @@ export async function acceptInvitation(_previous: InvitationState, formData: For
   const code = String(formData.get("code") ?? "").trim().toLowerCase();
   if (!/^[0-9a-f]{32}$/.test(code)) return { error: "Código inválido.", code: "", preview: null };
   const supabase = await createSupabaseServerClient();
-  if (!supabase) return { error: "O serviço ainda não está configurado.", code: "", preview: null };
+  if (!supabase) return { error: "O serviço ainda não está configurado.", code, preview: null };
   const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return { error: "Entre na sua conta para aceitar o convite.", code: "", preview: null };
+  if (!user) return { error: "Entre na sua conta para aceitar o convite.", code, preview: null };
   // O banco valida expiração e revogação outra vez no momento do aceite.
   const { data, error } = await supabase.rpc("accept_invitation", { invitation_code: code });
-  if (error || typeof data !== "string") return { error: "Este convite não está mais disponível.", code: "", preview: null };
+  if (error || typeof data !== "string") return { error: "Este convite não está mais disponível.", code, preview: null };
   redirect(`/nucleos/${encodeURIComponent(data)}`);
 }

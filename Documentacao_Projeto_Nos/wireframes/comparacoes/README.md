@@ -1,10 +1,12 @@
 # Comparações de telas — procedimento permanente
 
-Referência funcional atual: **v0.13.2**. Procedimento definido em 2026-10-07.
+Referência funcional atual: **v0.13.3**. Procedimento definido em 2026-10-07.
 
 Toda criação ou alteração de tela, navegação, dados, regra ou estado deve acrescentar evidências nesta pasta no mesmo conjunto lógico da entrega. Preservar galerias anteriores; não sobrescrever suas imagens para simular continuidade. Consultar o [procedimento completo](../GUIA.md#visão-global-sincronização-e-comparações--procedimento-permanente).
 
 ## Galerias
+
+- [2026-10-10 — Percurso 04 Entrar por convite — v0.13.3](2026-10-10-entrar-convite/index.html): tipo, adiamento e retorno sem associação, composição real desktop/celular, sequência e reservas futuras; códigos mascarados.
 
 - [2026-10-09 — Percurso 03 Recuperar acesso — v0.13.2](2026-10-09-recuperar-acesso/index.html): etapas de login, retorno ao estado correto de Conta, callback validado, telas reais e dependência Gmail SMTP explícita.
 

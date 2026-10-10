@@ -398,3 +398,16 @@ Usuário autorizou commit/push abrangentes. Fetch confirmou main sem divergênci
 - **Evento Git:** commit e push para main autorizados pelo usuário, abrangendo código, testes, Atlas/comparações, versão, preparação Gmail e documentação. Fetch sem divergência sobre e7ff9c1; 92/92 testes, tipos, build, percurso Atlas e galeria/links reconferidos. Objeto Git inspecionado: 40 arquivos e árvore inicial idêntica ao conjunto preparado; pendência retirada, controle incorporado ao mesmo commit lógico. Conferir hash remoto no encerramento.
 - **Continuidade:** usuário solicitou retomar neste chat a ativação após liberação da senha de aplicativo; prompt oculto preparado, recebimento externo pendente. Senha comum criptografada não substitui autorização do Google. Sem aplicação SMTP remota ou deploy.
 - **Evidência:** [registro de publicação](registros/registro-v0.13.2-2026-10-10-imp-publicacao-git-fun-rastreabilidade-recuperacao-acesso.md).
+
+## 2026-10-10 — Percurso 04 Entrar por convite — v0.13.3
+
+- **Produto:** tipo na prévia, adiamento/retorno à lista sem vínculo e erro de aceite associado ao código. Consulta, validade/revogação, associação e repetição conferidas com duas identidades locais.
+- **Atlas:** chegada direta 01 → 10 → 11 → 13 → 12, entrada comum pela lista como alternativa, estados específicos e reservas QR/link/gestão. Telas 10/11 são estados da mesma rota; nenhuma tela futura declarada concluída.
+- **Evidência:** 92 testes gerais, 16 testes autenticados de convite e fidelidade geral adicional aprovados; tipos/build, Percurso 04 e Visão global aprovados. 20 testes de navegação aprovados na execução combinada. Falhas de seletor dos testes novos corrigidas e repetidas; comparação sem sessão rejeitada e depois executada autenticada. Autorrevisão e revisão independente sem P1–P3. Capturas históricas preservadas, códigos mascarados e fixtures locais removidas.
+- **Limites:** SMTP externo, QR/câmera, link e gestão da Tela 59 permanecem pendentes. Sem migração, alteração remota, commit/push ou deploy. [Registro](registros/registro-v0.13.3-2026-10-10-imp-entrada-convite-fun-percurso-04.md), [contrato](funcionalidades/entrada-convite.md) e [comparação](../wireframes/comparacoes/2026-10-10-entrar-convite/index.html).
+
+## 2026-10-10 — Publicação autorizada do Percurso 04 — v0.13.3
+
+Usuário autorizou commit e push de toda a entrega, com descrição abrangente. Fetch confirmou main sem divergência sobre 446d3ee. Código, testes, Atlas/galeria, versão e documentação compõem uma unidade lógica; publicação exige reconferência das verificações, inspeção do objeto Git e igualdade de hash remoto. [Registro](registros/registro-v0.13.3-2026-10-10-02-imp-publicacao-git-fun-rastreabilidade-entrada-convite.md). Sem deploy ou alteração remota de banco/configuração.
+
+Conferência do objeto desta publicação: 34 arquivos incluídos e árvore inicial 8166532172f56c9427d51541bc8cde156d963c6a idêntica ao índice preparado. Pendência removida após prova de inclusão, com atualização de controle incorporada ao mesmo commit lógico. Credenciais/artefatos excluídos; identificador final e igualdade remota conferidos após envio no encerramento.

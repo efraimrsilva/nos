@@ -1,4 +1,8 @@
-# Conta e entrada — v0.13.2
+# Conta e entrada — v0.13.3
+
+## v0.13.3 — Percurso 04 Entrar por convite — 2026-10-10
+
+Chegada direta exige conta e retorna a Inserir convite, sem impor a lista antes da prévia. Cadastro/confirmação/recuperação preservam o destino; código fica fora das URLs atuais e precisa ser colado depois da autenticação. Prévia mostra tipo; Agora não retorna à lista sem vínculo. [Contrato](entrada-convite.md) e [registro](../registros/registro-v0.13.3-2026-10-10-imp-entrada-convite-fun-percurso-04.md). Sem alteração no contrato de autenticação ou aplicação SMTP remota.
 
 ## v0.13.2 — Percurso 03 Recuperar acesso — 2026-10-09
 

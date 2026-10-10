@@ -1,6 +1,8 @@
 # Fidelidade visual e manutenção do atlas
 
-Referência funcional: **v0.13.2**. Percurso 03 sincronizado em 2026-10-09; base histórica preservada.
+Referência funcional: **v0.13.3**. Percurso 04 sincronizado em 2026-10-10; base histórica preservada.
+
+Entrada de convite mantém composição de onboarding, acrescenta retorno à lista, tipo na prévia e Agora não. [Comparação vigente](comparacoes/2026-10-10-entrar-convite/index.html) apresenta antes/depois e aplicativo real desktop/celular, com códigos mascarados. [Verificador do Percurso 04](tools/verify-invitation-journey.mjs) confere sequência, decisão, edição, estados e reservas. Fidelidade autenticada: 72 prévias, 181 saídas, 360 estados, 41 referências e 52 layouts; zero erros/chamadas externas no Atlas. Integração real testada separadamente no Supabase local.
 
 Recuperação mantém composição de Conta, com retorno ao login e passos explícitos no percurso. [Comparação atual](comparacoes/2026-10-09-recuperar-acesso/index.html): antes/depois do Atlas e telas reais autorizada/bloqueada em celular e computador. [Verificador específico](tools/verify-recovery-journey.mjs) confere sequência, retorno ao login e estados; integrações reais comprovadas separadamente no Supabase local. Gmail SMTP e entrega externa não certificados.
 
