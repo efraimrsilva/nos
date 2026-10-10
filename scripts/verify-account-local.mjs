@@ -3,7 +3,10 @@ import { execFileSync, spawn } from "node:child_process";
 import { randomBytes, randomUUID } from "node:crypto";
 import { mkdirSync } from "node:fs";
 import { createClient } from "@supabase/supabase-js";
-import { chromium, expect } from "@playwright/test";
+import { chromium, expect as baseExpect } from "@playwright/test";
+
+// O primeiro acesso compila rotas no Next dev; a espera cobre essa etapa sem repetir ações de escrita.
+const expect = baseExpect.configure({ timeout: 90_000 });
 
 const cli = process.env.SUPABASE_CLI_PATH;
 if (!cli) throw new Error("Defina SUPABASE_CLI_PATH.");
@@ -118,11 +121,36 @@ try {
   // Link direto personalizado funciona em outro navegador; confirmação não serve para recuperação.
   const direct = checked(await admin.auth.admin.generateLink({ type: "recovery", email }));
   const fresh = await browser.newContext(); const freshPage = await fresh.newPage();
+  for (const query of [
+    `code=incorreto&token_hash=${direct.properties.hashed_token}&token_hash=outro&type=recovery`,
+    `code=&token_hash=${direct.properties.hashed_token}&type=recovery`,
+    `token_hash=${direct.properties.hashed_token}&type=recovery&type=recovery`,
+  ]) {
+    await freshPage.goto(`${origin}/auth/recovery?${query}`);
+    await expect(freshPage).toHaveURL(`${origin}/conta/nova-senha?erro=link`);
+    await expect(freshPage.getByLabel("Nova senha", { exact: true })).toHaveCount(0);
+  }
+  // O link continua válido: entradas ambíguas não devem consumir sua credencial no Auth.
   await freshPage.goto(`${origin}/auth/recovery?token_hash=${direct.properties.hashed_token}&type=recovery`);
   await expect(freshPage.getByLabel("Nova senha", { exact: true })).toBeVisible();
   const proof = (await fresh.cookies()).find(cookie => cookie.name === "nos-recovery");
   expect(proof.httpOnly).toBe(true); expect(proof.sameSite).toBe("Lax");
   await fresh.addCookies([{ ...proof, value: `${proof.value}x` }]);
+  await freshPage.goto(`${origin}/conta/nova-senha`);
+  await expect(freshPage.getByLabel("Nova senha", { exact: true })).toHaveCount(0);
+  await fresh.addCookies([proof]);
+  await freshPage.goto(`${origin}/conta/nova-senha`);
+  await expect(freshPage.getByLabel("Nova senha", { exact: true })).toBeVisible();
+  const finalPassword = `Cc3!${randomUUID()}`;
+  await freshPage.getByLabel("Nova senha", { exact: true }).fill(finalPassword);
+  await freshPage.getByLabel("Confirmar nova senha").fill(finalPassword);
+  await freshPage.getByRole("button", { name: "Salvar senha" }).click();
+  await expect(freshPage).toHaveURL(`${origin}/conta?resultado=senha`);
+  await freshPage.getByLabel("E-mail", { exact: true }).fill(email);
+  await freshPage.getByLabel("Senha", { exact: true }).fill(finalPassword);
+  await freshPage.getByRole("button", { name: "Entrar", exact: true }).click();
+  await expect(freshPage).toHaveURL(`${origin}/nucleos`);
+  await expect(freshPage.getByRole("heading", { name: "Seus Núcleos" })).toBeVisible();
   await freshPage.goto(`${origin}/conta/nova-senha`);
   await expect(freshPage.getByLabel("Nova senha", { exact: true })).toHaveCount(0);
   const emptyContext = await browser.newContext(); const emptyPage = await emptyContext.newPage();
@@ -138,7 +166,7 @@ try {
     await emptyPage.setViewportSize({ width: 1440, height: 1000 });
     await emptyPage.screenshot({ path: `artifacts/${slug}-desktop.png`, fullPage: true });
   }
-  console.log("Token direto, prova adulterada rejeitada, resposta neutra para conta inexistente e capturas mobile/web: aprovados.");
+  console.log("Token direto, parâmetros ambíguos rejeitados sem consumir link, prova adulterada rejeitada, login comum sem recuperação, retorno padrão a Seus Núcleos, resposta neutra e capturas mobile/web: aprovados.");
 } finally {
   if (browser) await browser.close();
   if (!userId) userId = (await admin.auth.admin.listUsers()).data?.users.find(user => user.email === email)?.id;

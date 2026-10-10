@@ -1,6 +1,8 @@
 # Cobertura e pendências do wireframe
 
-Material de planejamento criado em 2026-10-03 e corrigido visualmente em 2026-10-04. Referência funcional: v0.13.1. Atualização da área Conta e entrada em 2026-10-07.
+Material de planejamento criado em 2026-10-03 e corrigido visualmente em 2026-10-04. Referência funcional: v0.13.2. Atualização do Percurso 03 em 2026-10-09.
+
+Percurso 03 validado localmente: 01 (login) → 04 → callback validado → 05 → 01 (novo login) → 12, com destino interno específico preservado. Voltar para Conta abre login; parâmetros repetidos/misturados são rejeitados antes do Auth. Remetente Gmail escolhido; configuração e recebimento externo permanecem pendentes. Inventário preservado: 72 telas, 14 percursos, 31 recortes e 41 planejadas. [Comparação](comparacoes/2026-10-09-recuperar-acesso/index.html).
 
 ## Situação verificada
 
@@ -22,7 +24,7 @@ Conferência atualizada em 2026-10-07: as 72 fichas, situações e pendências c
 | 01 | Conta e entrada | [Conta](atlas/index.html#tela-01) | Recorte existente | 01, 12 | /conta · entrada / | Fluxo implementado; configuração SMTP, URLs autorizadas e limites remotos exigem validação no ambiente de publicação. |
 | 02 | Conta e entrada | [Criar conta](atlas/index.html#tela-02) | Recorte existente | 12 | /conta · modo cadastro | Cadastro integrado e validado localmente; textos jurídicos e operação de e-mail de produção continuam fora desta seção. |
 | 03 | Conta e entrada | [Confirmar e-mail](atlas/index.html#tela-03) | Recorte existente | Complemento de segurança | /conta/confirmar-email · /auth/confirm | Cadastro, reenvio e confirmação implementados; entrega local comprovada. SMTP e limites da hospedagem ainda exigem conferência. |
-| 04 | Conta e entrada | [Recuperar acesso](atlas/index.html#tela-04) | Recorte existente | Complemento de segurança | /conta/recuperar · /auth/recovery | Recuperação integrada; AUTH_RECOVERY_SECRET, origem, URLs autorizadas e serviço de e-mail devem estar configurados no ambiente. |
+| 04 | Conta e entrada | [Recuperar acesso](atlas/index.html#tela-04) | Recorte existente | Complemento de segurança | /conta/recuperar · /auth/recovery | Recuperação validada localmente; Gmail SMTP preparado, ativação aguarda senha de app após liberação do Google. Origem, segredo e URLs de publicação exigem conferência. |
 | 05 | Conta e entrada | [Redefinir senha](atlas/index.html#tela-05) | Recorte existente | Complemento de segurança | /conta/nova-senha | Redefinição integrada; chave de assinatura somente no servidor. Link inválido, usado ou aberto sem verificador oferece reinício seguro. |
 | 06 | Criar e entrar no Núcleo | [Escolher caminho](atlas/index.html#tela-06) | Recorte existente | 29 | /comecar | Tela protegida existente; Seus Núcleos é a entrada padrão após login. |
 | 07 | Criar e entrar no Núcleo | [Tipo de Núcleo](atlas/index.html#tela-07) | Recorte existente | 30 | /comecar/tipo | Catálogo atual de nove tipos; manter identificador validado na URL. |

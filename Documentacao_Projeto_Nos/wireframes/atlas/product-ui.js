@@ -179,7 +179,7 @@ function productNavigation(screen){return `<nav class="product-nav" aria-label="
 
 // As telas 03–05 compartilham a mesma composição do OnboardingShell da aplicação.
 function accountAccessContent(screen) {
-  const back='<button class="product-back" data-go="1">'+icon('ArrowLeft',17)+'Voltar para Conta</button>';
+  const back='<button class="product-back" data-go="1" data-entry-login>'+icon('ArrowLeft',17)+'Voltar para Conta</button>';
   const titles={3:['Confirmar e-mail','Um pequeno passo para proteger sua conta.'],4:['Recuperar acesso','Vamos ajudar você a voltar.'],5:['Redefinir senha','Um novo acesso, com segurança.']};
   let content=back+productHeading('Conta e entrada',...titles[screen.id]);
   if(screen.id===5) return content+'<form class="product-panel" data-local-form="access" data-kind="password">'+productField('Nova senha','new-password',{type:'password',max:128})+productField('Confirmar nova senha','confirmation',{type:'password',max:128})+'<p class="product-help">Pelo menos 8 caracteres, com letra, número e símbolo. Use até 128 caracteres.</p><p class="access-note">Ao salvar, encerraremos as sessões da sua conta. Depois, entre com a nova senha.</p><p class="local-feedback" role="status"></p><button class="product-primary forest" type="submit">Salvar senha</button></form><button class="product-text-link access-link" data-go="4">Solicitar outro link</button>';

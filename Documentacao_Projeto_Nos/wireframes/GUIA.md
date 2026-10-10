@@ -1,6 +1,8 @@
 # Wireframe completo do Projeto Nós
 
-**Natureza:** material de planejamento e revisão de produto, criado em 2026-10-03. **Referência do aplicativo:** v0.13.1.
+**Natureza:** material de planejamento e revisão de produto, criado em 2026-10-03. **Referência do aplicativo:** v0.13.2.
+
+Percurso 03 atualizado em 2026-10-09: Conta (login) → Recuperar acesso → link validado pela rota técnica /auth/recovery → Redefinir senha → Conta (nova senha) → Seus Núcleos. Retorno interno específico preservado; link inválido/vencido permite reinício pela solicitação de outro link. As duas passagens por Conta têm indicação explícita nos Percursos e na Visão global. Recuperação validada localmente; Gmail SMTP e recebimento externo ainda pendentes. [Comparação](comparacoes/2026-10-09-recuperar-acesso/index.html) e [configuração Gmail](../_andamento/funcionalidades/recuperacao-smtp-gmail.md).
 
 Abra [o atlas navegável](atlas/index.html). Ele funciona localmente, sem servidor, conta, rede ou conexão com Supabase. Para transportar o material, mantenha a pasta `atlas/` completa: página, estilos, scripts e recursos locais.
 

@@ -21,7 +21,7 @@ function globalJourneyHtml(journey,index){
   return `<details class="global-journey" ${index<3?'open':''}><summary><span>Percurso ${pad(index+1)}</span>${escapeHtml(journey.name)}</summary><div class="flow-path">${journey.ids.map((id,i)=>{
     const direct=i&&byId(journey.ids[i-1]).actions.some(action=>action.to===id);
     const transition=i?`<span class="global-transition ${direct?'direct':'context'}" data-from="${journey.ids[i-1]}" data-to="${id}" title="${direct?'Saída prevista na ficha':'Etapa de contexto; não implica botão direto'}"><span aria-hidden="true">${direct?'→':'↝'}</span><small>${direct?'Saída':'Contexto'}</small></span>`:'';
-    return `${transition}<button class="flow-node" data-go="${id}"><strong>${pad(id)}</strong>${escapeHtml(byId(id).title)}<small>${escapeHtml(byId(id).status)}</small></button>`;
+    return `${transition}<button class="flow-node" data-go="${id}" ${journey.steps&&id===1?'data-entry-login':''}><strong>${pad(id)}</strong>${escapeHtml(byId(id).title)}<small>${escapeHtml(byId(id).status)}</small>${journey.steps?.[i]?`<small>${escapeHtml(journey.steps[i])}</small>`:''}</button>`;
   }).join('')}</div><p>${escapeHtml(journey.rule)}</p></details>`;
 }
 function renderGlobal(){

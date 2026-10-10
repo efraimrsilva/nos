@@ -20,3 +20,5 @@ main{margin-left:244px;padding:40px clamp(22px,4vw,72px) 28px;max-width:2000px}.
 #atlas-view,#prototype-view,#flows-view{scroll-margin-top:100px}
 @media(max-width:850px){#atlas-view,#prototype-view,#flows-view{scroll-margin-top:140px}}
 @media(max-width:530px){#atlas-view,#prototype-view,#flows-view{scroll-margin-top:195px}}
+/* O passo contextual fica separado do nome da tela na leitura dos percursos. */
+.flow-card .flow-node small{display:block;margin-top:5px;line-height:1.6;color:var(--muted)}

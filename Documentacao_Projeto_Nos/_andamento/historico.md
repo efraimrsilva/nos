@@ -385,3 +385,16 @@ Usuário autorizou commit/push abrangentes. Fetch confirmou main sem divergênci
 - **Evento Git:** usuário autorizou commit e push abrangendo a entrega inteira. Main/origin/main sem divergência após fetch, base cfcd57f. Suíte sem backend repetida: 88/88 aprovados. Objeto Git inspecionado: 33 arquivos e árvore inicial idêntica ao índice preparado. Pendência retirada e controle incorporado ao mesmo commit lógico; hash remoto conferido no encerramento.
 - **Conjunto:** aplicativo, teste, versão, Atlas/ficha, galeria e documentação do alinhamento de Conta e remoção de link duplicado. Sem deploy ou migração.
 - **Evidência:** [registro da publicação](registros/registro-v0.13.1-2026-10-07-02-imp-publicacao-git-fun-rastreabilidade-conta-visual.md).
+
+## 2026-10-09 — Percurso 03 Recuperar acesso — v0.13.2
+
+- **Produto:** retorno da confirmação/recuperação à Conta abre login com destino preservado; callback rejeita credenciais repetidas/misturadas antes do Auth, sem consumir token legítimo. Prova e regra de senha vigentes preservadas; PATCH 0.13.1 → 0.13.2.
+- **Atlas/documentação:** sequência 01 → 04 → 05 → 01 → 12 com etapas distintas de Conta, callback técnico sem tela, reinício e retorno específico explícitos; galeria, fichas, cobertura, contrato e roteiro Gmail sincronizados.
+- **Evidência:** 92 testes desktop/celular, tipos/build, integração real local e Atlas/Visão global aprovados; autorrevisão e revisão independente sem P1–P3. Compilação inicial causou esperas insuficientes nas primeiras execuções; repetição completa passou. Fixtures e e-mails locais removidos.
+- **Operação:** usuário criou Gmail sintagmasoftware@gmail.com e informou bloqueio do Google, exigindo fator/dispositivo registrado por pelo menos sete dias. Pediu deixar preparado para somente informar a senha depois. Arquivo SMTP isolado e script com prompt oculto preparados; `-Check` aprovou configuração e acesso remoto, somente leitura. Sem ativação SMTP, envio externo, alteração remota, commit/push ou deploy. [Registro](registros/registro-v0.13.2-2026-10-09-imp-recuperacao-acesso-fun-percurso-03.md), [comparação](../wireframes/comparacoes/2026-10-09-recuperar-acesso/index.html) e [roteiro SMTP](funcionalidades/recuperacao-smtp-gmail.md).
+
+## 2026-10-10 — Publicação autorizada e retomada da recuperação — v0.13.2
+
+- **Evento Git:** commit e push para main autorizados pelo usuário, abrangendo código, testes, Atlas/comparações, versão, preparação Gmail e documentação. Fetch sem divergência sobre e7ff9c1; 92/92 testes, tipos, build, percurso Atlas e galeria/links reconferidos. Objeto Git inspecionado: 40 arquivos e árvore inicial idêntica ao conjunto preparado; pendência retirada, controle incorporado ao mesmo commit lógico. Conferir hash remoto no encerramento.
+- **Continuidade:** usuário solicitou retomar neste chat a ativação após liberação da senha de aplicativo; prompt oculto preparado, recebimento externo pendente. Senha comum criptografada não substitui autorização do Google. Sem aplicação SMTP remota ou deploy.
+- **Evidência:** [registro de publicação](registros/registro-v0.13.2-2026-10-10-imp-publicacao-git-fun-rastreabilidade-recuperacao-acesso.md).

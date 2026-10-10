@@ -41,6 +41,17 @@ test("nova senha exige prova de recuperação e oferece reiniciar", async ({ pag
   await expect(page).toHaveURL(/\/conta\/recuperar/);
 });
 
+test("retorno da recuperação abre login e mantém o destino interno", async ({ page }) => {
+  for (const route of ["/conta/recuperar", "/conta/nova-senha"]) {
+    await page.goto(`${route}?next=%2Fcomecar%2Fconvite`);
+    await page.getByRole("link", { name: "Voltar para Conta" }).click();
+    await expect(page).toHaveURL(/\/conta\?modo=login&next=%2Fcomecar%2Fconvite$/);
+    await expect(page.getByRole("button", { name: "Entrar", exact: true })).toBeVisible();
+    await expect(page.getByLabel("Nome", { exact: true })).toHaveCount(0);
+    await expect(page.locator('input[name="next"]')).toHaveValue("/comecar/convite");
+  }
+});
+
 test("retorno inválido remove credenciais e não autoriza recuperação", async ({ page }) => {
   await page.goto("/auth/recovery?token_hash=segredo&type=recovery&next=https://example.com");
   await expect(page).toHaveURL(/\/conta\/nova-senha\?erro=link$/);
@@ -54,7 +65,7 @@ test("confirmação visual oferece reenvio validado e retorno para Conta", async
   await page.getByRole("button", { name: "Reenviar confirmação" }).click();
   await expect(page.getByRole("main").getByRole("alert")).toContainText("e-mail válido");
   await page.getByRole("link", { name: "Voltar para Conta" }).click();
-  await expect(page).toHaveURL(/\/conta$/);
+  await expect(page).toHaveURL(/\/conta\?modo=login$/);
 });
 
 test("retorno de convite acompanha acesso e recuperação sem aceitar automaticamente", async ({ page }) => {

@@ -1,10 +1,36 @@
 # Estado do Projeto Nós
 
-**Versão vigente do projeto:** 0.13.1
+**Versão vigente do projeto:** 0.13.2
 
 **DOCS_DIR:** `Documentacao_Projeto_Nos`
 
-**Atualizado:** 2026-10-07
+**Atualizado:** 2026-10-10
+
+## Publicação autorizada e retomada — v0.13.2 — 2026-10-10
+
+Usuário autorizou commit e push abrangentes para main e solicitou retomar neste chat a ativação externa posteriormente. Fetch confirmou main/origin/main sem divergência sobre e7ff9c1. Suíte repetida: 92/92 aprovados; tipos, build, verificador do Percurso 03 e galeria/links reconferidos. [Registro de publicação](registros/registro-v0.13.2-2026-10-10-imp-publicacao-git-fun-rastreabilidade-recuperacao-acesso.md). Objeto Git inspecionado: 40 arquivos, árvore inicial 0573e1e34e0751ad0d17c78c1e893860528ffdd3 igual ao conjunto preparado, incluindo implementação, testes, versão, Atlas, comparações, preparação SMTP e documentação. Pendência retirada após essa prova; controle incorporado ao mesmo commit lógico. Comparar hash remoto após push no encerramento. Sem deploy.
+
+**Retomada neste chat:** gerar a senha de aplicativo após liberação do Google, executar o comando com prompt oculto indicado no [roteiro Gmail](funcionalidades/recuperacao-smtp-gmail.md), certificar recebimento e recuperação externos. Senha comum do Gmail, mesmo criptografada, não substitui a autorização de SMTP. Não foi aplicada configuração SMTP remota.
+
+## Entrega atual — Percurso 03 Recuperar acesso — v0.13.2 — 2026-10-09
+
+**Status:** correções e integração local concluídas, revisadas e validadas; operação pública parcialmente concluída, com Gmail SMTP/recebimento pendentes. PATCH de 0.13.1 para 0.13.2 após as verificações. Objetivo atendido no aplicativo/Atlas: sequência lógica e recuperação funcional, com dependências externas explícitas.
+
+**Escopo/decisões:** rejeitar callback ambíguo antes do Auth; retornar à Conta em modo login com next preservado; explicitar 01 → 04 → 05 → 01 → 12 e callback sem tela própria. Retorno específico de convite continua independente do aceite. Sem dependência, migração ou nova rota.
+
+**Validação:** 92 testes desktop/celular, tipos/build, cinco testes unitários no ciclo de regressão, integração real local e Atlas/Visão global aprovados; autorrevisão e revisão independente do código sem P1–P3. Primeiro servidor de testes excedeu a espera de inicialização e uma execução teve espera insuficiente de Boas-vindas; repetição completa aprovada. Integrador recebeu margem para compilar rotas, passou e limpou contas/e-mails temporários, encerrando servidor. Capturas inspecionadas. Inventário permanece 72 telas/14 percursos/31 recortes/41 planejadas.
+
+**Bloqueio operacional:** usuário criou Gmail sintagmasoftware@gmail.com em 2026-10-09; Google exige fator/dispositivo registrado há pelo menos sete dias para confirmar identidade e liberar senha de app. Preparação concluída: arquivo isolado SMTP e comando com prompt oculto; `-Check` aprovou TOML e acesso remoto, somente leitura. Falta liberação do Google, senha de app no prompt/painel e recebimento externo comprovado. Não registrar senha em documentos ou código. Produção ainda exige origem/segredo e URLs HTTPS corretos.
+
+**Próximo passo executável:** após liberação do Google, gerar senha de app e executar `scripts/configure-gmail-smtp.ps1` na raiz nos, informando-a no prompt oculto; depois validar recebimento e recuperação externos com conta autorizada. **Git:** main, base e7ff9c1; publicação autorizada e objeto inspecionado no marco de 2026-10-10 acima. **Unidades pendentes de commit:** nenhuma desta entrega. Título: `fix(auth): concluir recuperação de acesso e preparar SMTP Gmail`. Sem deploy.
+
+**Ferramentas:** Superpowers entendimento/depuração/TDD/revisão/verificação ativos; Context7 consultado para Supabase, versões do projeto mantidas; Octocode CLI 19.1.0 consultada, grafo sintático parcial complementado com busca local; Supabase CLI 2.118.0 e Docker na integração local, mais `config diff` remoto somente leitura para conferir a preparação SMTP. Sem alteração remota de configuração ou banco. Revisão independente final do script/Atlas e sintaxe PowerShell sem P1–P3.
+
+**Conferência final:** build reconferido na v0.13.2; 419 links locais dos documentos alterados e todas as imagens da galeria aprovados. `.env.local` confere projeto nos-dev, origem, chave pública e segredo de recuperação com tamanho suficiente, sem expor valores. Cache operacional da CLI ignorado por supabase/.gitignore. Supabase local encerrado com backup, sem reset; servidor de prévia da galeria na porta 3400, apenas local.
+
+**Índice:** [registro v0.13.2](registros/registro-v0.13.2-2026-10-09-imp-recuperacao-acesso-fun-percurso-03.md), [contrato Conta e entrada](funcionalidades/conta-entrada.md), [configuração Gmail](funcionalidades/recuperacao-smtp-gmail.md), [comparação](../wireframes/comparacoes/2026-10-09-recuperar-acesso/index.html), [verificador Atlas](../wireframes/tools/verify-recovery-journey.mjs).
+
+Os marcos abaixo são históricos e não autorizam publicação da entrega atual.
 
 ## Entrega atual — alinhamento visual de Conta — v0.13.1 — 2026-10-07
 
@@ -217,7 +243,7 @@ Agenda por Núcleo concluída na **v0.6.0**: eventos pontuais com título, inten
 
 **Unidades pendentes de commit neste marco histórico:** nenhuma para a correção visual e orientação de prioridade alta; inclusão no commit confirmada por inspeção do objeto e comparação da árvore. Mensagem: `docs(wireframe): alinhar atlas ao app e consolidar prioridade visual`.
 
-**Contador de interações:** 84, incluindo esta publicação autorizada, a partir da última contagem persistida 83; eventuais interações sem registro não foram inventadas. Começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
+**Contador de interações:** 86, incluindo a entrega de recuperação e sua publicação autorizada, a partir da última contagem persistida 84; eventuais interações sem registro não foram inventadas. Começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
 
 ## Objetivo e situação histórica — v0.11.0
 

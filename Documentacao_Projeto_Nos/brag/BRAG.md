@@ -1,6 +1,14 @@
 # Brag document — Projeto Nós
 
-**Versão vigente do projeto:** 0.13.1
+**Versão vigente do projeto:** 0.13.2
+
+## 2026-10-09 — Recuperação de acesso e sequência do Percurso 03
+
+- **Problema:** retorno da recuperação abria cadastro, e callback aceitava alguns parâmetros ambíguos para processamento no Auth.
+- **Contribuição:** retorno ao login com destino interno preservado; rejeição de credenciais repetidas/misturadas antes do serviço; etapas do percurso e dependência SMTP sincronizadas no Atlas; configuração Gmail isolada e comando com prompt oculto, sem persistir credenciais.
+- **Resultado verificado:** 92 testes desktop/celular, tipos/build e Atlas aprovados; recuperação real local recusou senha antiga, aceitou nova, revogou renovação de outra sessão, rejeitou link reutilizado/prova adulterada e manteve link válido após entradas ambíguas. Revisão independente sem P1–P3. Benefício esperado: menos confusão na retomada e contrato de recuperação mais rigoroso.
+- **Limite:** preparação SMTP conferida com diff remoto somente leitura; ativação aguarda senha de app após liberação do Google e teste externo. Resultado local não certifica operação pública.
+- **Evidência:** [registro v0.13.2](../_andamento/registros/registro-v0.13.2-2026-10-09-imp-recuperacao-acesso-fun-percurso-03.md) e [comparação](../wireframes/comparacoes/2026-10-09-recuperar-acesso/index.html).
 
 ## 2026-10-07 — Estabilidade visual em Conta
 

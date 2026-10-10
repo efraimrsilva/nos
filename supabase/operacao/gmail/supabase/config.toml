@@ -1,0 +1,12 @@
+# Configuração isolada de operação remota. Não substituir o config.toml do ambiente local.
+# A CLI 2.118.0 altera somente os campos declarados; senha recebida apenas pelo ambiente do processo.
+project_id = "nos-dev-gmail"
+
+[auth.email.smtp]
+enabled = true
+host = "smtp.gmail.com"
+port = 587
+user = "sintagmasoftware@gmail.com"
+pass = "env(NOS_GMAIL_SMTP_PASSWORD)"
+admin_email = "sintagmasoftware@gmail.com"
+sender_name = "Nós"

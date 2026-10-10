@@ -1,4 +1,12 @@
-# Conta e entrada — v0.13.1
+# Conta e entrada — v0.13.2
+
+## v0.13.2 — Percurso 03 Recuperar acesso — 2026-10-09
+
+Sequência vigente: Conta (Já tenho conta) → Recuperar acesso → callback `/auth/recovery` validado, sem tela própria → Redefinir senha → Conta (novo login) → Seus Núcleos. Retorno interno específico é preservado e substitui a lista, sem aceitar convite automaticamente. Voltar para Conta nas telas 03–05 abre login. Callback rejeita parâmetros repetidos/misturados, inclusive vazios, antes de consultar Auth; JWT de PKCE ainda exige método recovery.
+
+Validação desta versão: 92 testes desktop/celular; tipos e build; recuperação real com e-mails locais, PKCE e token direto, senha antiga recusada, nova aceita, revogação de refresh token de outra sessão, link reutilizado/prova adulterada negados, link não consumido por entradas ambíguas, retorno específico e padrão; Atlas/Visão global e revisão independente sem P1–P3. Primeiras execuções tiveram espera insuficiente de compilação inicial; integrador passou após margem explícita e suíte completa passou na repetição. Não houve mudança em Boas-vindas.
+
+Remetente escolhido pelo usuário: `sintagmasoftware@gmail.com`. Conta criada em 2026-10-09; Google bloqueou geração de senha de app até confirmação com fator registrado por pelo menos sete dias. Configuração SMTP e comando de aplicação com prompt oculto preparados e conferidos em modo somente leitura. Falta a credencial após liberação, recebimento externo e ambiente HTTPS de publicação. [Roteiro](recuperacao-smtp-gmail.md), [registro](../registros/registro-v0.13.2-2026-10-09-imp-recuperacao-acesso-fun-percurso-03.md) e [comparação](../../wireframes/comparacoes/2026-10-09-recuperar-acesso/index.html). A versão PATCH conclui as correções locais e preparação, sem afirmar conclusão da operação pública.
 
 Na v0.13.1, cadastro e login mantêm a largura e a posição da árvore/frases. Link inferior Conheça o Nós removido; Voltar às boas-vindas permanece. Respiro inferior preserva a composição do login. Alinhamento especial exige painel de autenticação; Conta autenticada mantém centralização. [Registro](../registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md) e [comparação](../../wireframes/comparacoes/2026-10-07-conta-alinhamento/index.html).
 
@@ -6,7 +14,7 @@ Atualizado em 2026-10-07. Escopo: telas 01–05 e 72 do Atlas vivo, funcionais e
 
 ## Fluxos entregues
 
-- `/boas-vindas` entrega a Entrada afetiva opcional 72: árvore, marca, acolhimento e botões diretos de cadastro/login, sem espera. Conta oferece Conheça o Nós. Elementos históricos de login social/aceite jurídico não são integrações existentes.
+- `/boas-vindas` entrega a Entrada afetiva opcional 72: árvore, marca, acolhimento e botões diretos de cadastro/login, sem espera. Conta mantém Voltar às boas-vindas no link superior; Conheça o Nós foi removido na v0.13.1. Elementos históricos de login social/aceite jurídico não são integrações existentes.
 
 - `/` abre `/conta` sem sessão e `/nucleos` autenticada. Login sem destino específico abre Seus Núcleos. Cadastro e login compartilham as abas existentes; sessão validada oferece continuar e sair.
 - Cadastro valida nome, e-mail e senha no servidor e segue para `/conta/confirmar-email`. Criar conta não cria Núcleo.
@@ -35,7 +43,7 @@ Paleta, tipografia, árvore, formulário em cartão, hierarquia e ações seguem
 
 [Comparação visual antes/atlas/aplicação](../../wireframes/comparacoes/2026-10-07-conta-entrada/index.html). Conforme decisão do usuário, qualquer mudança futura de um lado exige atualizar o outro e apresentar a diferença, incluindo capturas quando houver mudança visual.
 
-## Validação e retomada
+## Validação histórica da v0.12.0 e retomada
 
 108 testes Playwright desktop/mobile aprovados, análise de tipos e build. Jornada real local reproduzível em `scripts/verify-account-local.mjs`: cadastro, reenvio, confirmação, retorno de convite, recuperação PKCE/direta, validação, revogação de outra sessão, rejeição da senha antiga, novo login, link usado, prova adulterada e resposta neutra para e-mail inexistente. Contas/e-mails temporários removidos.
 

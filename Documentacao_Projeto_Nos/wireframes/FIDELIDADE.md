@@ -1,6 +1,8 @@
 # Fidelidade visual e manutenção do atlas
 
-Referência funcional: **v0.13.0**. Conta e entrada sincronizadas em 2026-10-07; base histórica preservada.
+Referência funcional: **v0.13.2**. Percurso 03 sincronizado em 2026-10-09; base histórica preservada.
+
+Recuperação mantém composição de Conta, com retorno ao login e passos explícitos no percurso. [Comparação atual](comparacoes/2026-10-09-recuperar-acesso/index.html): antes/depois do Atlas e telas reais autorizada/bloqueada em celular e computador. [Verificador específico](tools/verify-recovery-journey.mjs) confere sequência, retorno ao login e estados; integrações reais comprovadas separadamente no Supabase local. Gmail SMTP e entrega externa não certificados.
 
 ## Procedência e precedência
 

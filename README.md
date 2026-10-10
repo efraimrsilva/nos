@@ -1,6 +1,8 @@
 # Projeto Nós
 
-**Versão vigente do projeto:** 0.13.1
+**Versão vigente do projeto:** 0.13.2
+
+Na v0.13.2, o Percurso 03 Recuperar acesso retorna à Conta em modo login e rejeita credenciais ambíguas antes do Auth. Recuperação local e Atlas validados; Gmail SMTP preparado com comando de prompt oculto, aguardando senha de app após liberação do Google e teste externo. [Registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.13.2-2026-10-09-imp-recuperacao-acesso-fun-percurso-03.md), [comparação](Documentacao_Projeto_Nos/wireframes/comparacoes/2026-10-09-recuperar-acesso/index.html) e [configuração SMTP Gmail](Documentacao_Projeto_Nos/_andamento/funcionalidades/recuperacao-smtp-gmail.md).
 
 Na v0.13.1, as abas de Conta mantêm a largura e a altura da árvore/frases; o link inferior duplicado foi removido. [Registro visual](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md) e [comparação antes/depois](Documentacao_Projeto_Nos/wireframes/comparacoes/2026-10-07-conta-alinhamento/index.html).
 

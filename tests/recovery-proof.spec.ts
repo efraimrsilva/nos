@@ -2,6 +2,18 @@ import { expect, test } from "@playwright/test";
 import { safeAuthNext, isValidPassword } from "@/features/auth/input";
 import { signRecoveryProof, verifyRecoveryProof } from "@/features/auth/recovery-proof";
 import { sendAccessEmail } from "@/features/auth/access-email";
+import { parseRecoveryCredentials } from "@/features/auth/recovery-credentials";
+
+test("recuperação rejeita parâmetros repetidos, misturados ou de outro tipo antes de consultar Auth", () => {
+  for (const query of [
+    "code=a&code=b", "token_hash=a&token_hash=b&type=recovery",
+    "code=a&token_hash=b&token_hash=c&type=recovery", "code=a&token_hash=",
+    "code=&token_hash=a&type=recovery", "code=a&type=recovery&type=recovery",
+    "code=a&type=email", "token_hash=a&type=email", "token_hash=a", "type=recovery",
+  ]) expect(parseRecoveryCredentials(new URLSearchParams(query))).toBeNull();
+  expect(parseRecoveryCredentials(new URLSearchParams("code=a"))).toEqual({ code: "a" });
+  expect(parseRecoveryCredentials(new URLSearchParams("token_hash=a&type=recovery"))).toEqual({ tokenHash: "a" });
+});
 
 test("erro SMTP exclusivo de conta existente não revela cadastro", async () => {
   for (const kind of ["recovery", "confirmation"] as const) {
