@@ -6,7 +6,7 @@
 
 - **Mudança de produto:** largura e árvore/frases estáveis entre cadastro/login; link inferior duplicado removido, mantendo retorno superior e composição de login. Atlas/ficha/galeria sincronizados.
 - **Resultado:** 24 testes de Conta, tipos/build e medição em seis tamanhos aprovados; comparação específica de Conta e Visão global aprovadas. Revisão independente sem achados materiais restantes após corrigir escopo da regra CSS. Script geral de fidelidade limitado pela expectativa anterior de /comecar público.
-- **Evidência:** [registro v0.13.1](registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md) e [galeria](../wireframes/comparacoes/2026-10-07-conta-alinhamento/index.html). Alterações locais, sem commit/push/deploy.
+- **Evidência:** [registro v0.13.1](registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md) e [galeria](../wireframes/comparacoes/v0.13.1-2026-10-07-conta-alinhamento-tela_01-tela_02/index.html). Alterações locais, sem commit/push/deploy.
 
 ## 2026-09-24 — Primeira tela do app
 
@@ -346,7 +346,7 @@ Revisão solicitada pelo usuário incorporada à especificação: oito requisito
 
 - **Entrega:** telas 01–05 e 72 integradas: Conta como raiz, confirmação/reenvio, recuperação/redefinição segura, retorno de convite e apresentação opcional. Atlas atualizado e diferenças apresentadas em galeria.
 - **Resultado:** 108 testes, tipos/build, jornada local real e revisão independente. Dados temporários removidos. Configuração nos-dev aplicada somente para URLs e senha mínima; outros 11 campos preservados.
-- **Evidência:** [registro v0.12.0](registros/registro-v0.12.0-2026-10-07-imp-conta-entrada-fun-recuperacao-integrada.md), [contrato](funcionalidades/conta-entrada.md) e [comparação](../wireframes/comparacoes/2026-10-07-conta-entrada/index.html). Sem commit, push Git ou deploy. SMTP de lançamento ainda exige validação operacional.
+- **Evidência:** [registro v0.12.0](registros/registro-v0.12.0-2026-10-07-imp-conta-entrada-fun-recuperacao-integrada.md), [contrato](funcionalidades/conta-entrada.md) e [comparação](../wireframes/comparacoes/v0.12.0-2026-10-07-conta-entrada-tela_01-tela_02-tela_03-tela_04-tela_05-tela_72/index.html). Sem commit, push Git ou deploy. SMTP de lançamento ainda exige validação operacional.
 
 
 ## 2026-10-07 — Publicação Git da v0.12.0
@@ -360,7 +360,7 @@ Conferência desta publicação: 108/108 testes repetidos; objeto Git inspeciona
 - **Entrega:** nova aba acima de Todas as áreas, todas as 72 telas e os 13 percursos reutilizados; sequência inicia em Conta e distingue alternativas, saídas e contexto. Renderização única das prévias e contratos entre as visões.
 - **Procedimento:** toda alteração avalia impacto nas telas e sincroniza aplicativo/atlas; toda criação ou modificação acrescenta galeria datada de comparações, preservando as anteriores. Procedimento central referenciado na documentação de entrada e continuidade.
 - **Resultado:** teste de igualdade das 72 composições e atualização dinâmica, navegação, filtros, celular e impressão CSS; fidelidade geral e seis telas de Conta em duas larguras aprovadas. P2 de filtro obsoleto reproduzido e corrigido; revisão independente de reconferência sem achados materiais no escopo revisado. Galeria com seis capturas antes/depois inspecionada.
-- **Evidência e limite:** [registro](registros/registro-v0.12.0-2026-10-07-03-imp-visao-global-atlas-fun-sequencia-sincronizacao-comparacoes.md), [comparações](../wireframes/comparacoes/2026-10-07-visao-global/index.html) e [padrão](../wireframes/comparacoes/README.md). Versão funcional preservada, sem alteração no aplicativo, commit, push ou deploy. Unidade pronta para commit autorizado.
+- **Evidência e limite:** [registro](registros/registro-v0.12.0-2026-10-07-03-imp-visao-global-atlas-fun-sequencia-sincronizacao-comparacoes.md), [comparações](../wireframes/comparacoes/v0.12.0-2026-10-07-visao-global-tela_01-a-tela_72/index.html) e [padrão](../wireframes/comparacoes/README.md). Versão funcional preservada, sem alteração no aplicativo, commit, push ou deploy. Unidade pronta para commit autorizado.
 
 ## 2026-10-07 — Publicação autorizada de Visão global — v0.12.0
 
@@ -373,7 +373,7 @@ Conferência da publicação: 108/108 testes repetidos, verificações global/fi
 
 - Mudança: proteger etapas antes públicas e organizar Conta → lista real → Início, com retorno privado permitido. Sessão expirada renovável continua; não renovável pede login inclusive durante envio.
 - Resultado: 88 testes sem backend e 44 autenticados, tipos/build, Atlas72/180/360 e Visão global aprovados; revisão independente sem achados materiais restantes.
-- Evidência: [registro](registros/registro-v0.13.0-2026-10-07-05-imp-navegacao-protegida-fun-sessao-seus-nucleos.md), [contrato](funcionalidades/navegacao-sessao.md) e [comparações](../wireframes/comparacoes/2026-10-07-sessao-navegacao/index.html). Ambiente/fixtures locais limpos e config restaurado. Sem migração remota, commit/push ou deploy.
+- Evidência: [registro](registros/registro-v0.13.0-2026-10-07-05-imp-navegacao-protegida-fun-sessao-seus-nucleos.md), [contrato](funcionalidades/navegacao-sessao.md) e [comparações](../wireframes/comparacoes/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/index.html). Ambiente/fixtures locais limpos e config restaurado. Sem migração remota, commit/push ou deploy.
 
 
 ## 2026-10-07 — Publicação autorizada da v0.13.0
@@ -391,7 +391,7 @@ Usuário autorizou commit/push abrangentes. Fetch confirmou main sem divergênci
 - **Produto:** retorno da confirmação/recuperação à Conta abre login com destino preservado; callback rejeita credenciais repetidas/misturadas antes do Auth, sem consumir token legítimo. Prova e regra de senha vigentes preservadas; PATCH 0.13.1 → 0.13.2.
 - **Atlas/documentação:** sequência 01 → 04 → 05 → 01 → 12 com etapas distintas de Conta, callback técnico sem tela, reinício e retorno específico explícitos; galeria, fichas, cobertura, contrato e roteiro Gmail sincronizados.
 - **Evidência:** 92 testes desktop/celular, tipos/build, integração real local e Atlas/Visão global aprovados; autorrevisão e revisão independente sem P1–P3. Compilação inicial causou esperas insuficientes nas primeiras execuções; repetição completa passou. Fixtures e e-mails locais removidos.
-- **Operação:** usuário criou Gmail sintagmasoftware@gmail.com e informou bloqueio do Google, exigindo fator/dispositivo registrado por pelo menos sete dias. Pediu deixar preparado para somente informar a senha depois. Arquivo SMTP isolado e script com prompt oculto preparados; `-Check` aprovou configuração e acesso remoto, somente leitura. Sem ativação SMTP, envio externo, alteração remota, commit/push ou deploy. [Registro](registros/registro-v0.13.2-2026-10-09-imp-recuperacao-acesso-fun-percurso-03.md), [comparação](../wireframes/comparacoes/2026-10-09-recuperar-acesso/index.html) e [roteiro SMTP](funcionalidades/recuperacao-smtp-gmail.md).
+- **Operação:** usuário criou Gmail sintagmasoftware@gmail.com e informou bloqueio do Google, exigindo fator/dispositivo registrado por pelo menos sete dias. Pediu deixar preparado para somente informar a senha depois. Arquivo SMTP isolado e script com prompt oculto preparados; `-Check` aprovou configuração e acesso remoto, somente leitura. Sem ativação SMTP, envio externo, alteração remota, commit/push ou deploy. [Registro](registros/registro-v0.13.2-2026-10-09-imp-recuperacao-acesso-fun-percurso-03.md), [comparação](../wireframes/comparacoes/v0.13.2-2026-10-09-recuperar-acesso-tela_04-tela_05/index.html) e [roteiro SMTP](funcionalidades/recuperacao-smtp-gmail.md).
 
 ## 2026-10-10 — Publicação autorizada e retomada da recuperação — v0.13.2
 
@@ -404,10 +404,30 @@ Usuário autorizou commit/push abrangentes. Fetch confirmou main sem divergênci
 - **Produto:** tipo na prévia, adiamento/retorno à lista sem vínculo e erro de aceite associado ao código. Consulta, validade/revogação, associação e repetição conferidas com duas identidades locais.
 - **Atlas:** chegada direta 01 → 10 → 11 → 13 → 12, entrada comum pela lista como alternativa, estados específicos e reservas QR/link/gestão. Telas 10/11 são estados da mesma rota; nenhuma tela futura declarada concluída.
 - **Evidência:** 92 testes gerais, 16 testes autenticados de convite e fidelidade geral adicional aprovados; tipos/build, Percurso 04 e Visão global aprovados. 20 testes de navegação aprovados na execução combinada. Falhas de seletor dos testes novos corrigidas e repetidas; comparação sem sessão rejeitada e depois executada autenticada. Autorrevisão e revisão independente sem P1–P3. Capturas históricas preservadas, códigos mascarados e fixtures locais removidas.
-- **Limites:** SMTP externo, QR/câmera, link e gestão da Tela 59 permanecem pendentes. Sem migração, alteração remota, commit/push ou deploy. [Registro](registros/registro-v0.13.3-2026-10-10-imp-entrada-convite-fun-percurso-04.md), [contrato](funcionalidades/entrada-convite.md) e [comparação](../wireframes/comparacoes/2026-10-10-entrar-convite/index.html).
+- **Limites:** SMTP externo, QR/câmera, link e gestão da Tela 59 permanecem pendentes. Sem migração, alteração remota, commit/push ou deploy. [Registro](registros/registro-v0.13.3-2026-10-10-imp-entrada-convite-fun-percurso-04.md), [contrato](funcionalidades/entrada-convite.md) e [comparação](../wireframes/comparacoes/v0.13.3-2026-10-10-entrar-convite-tela_10-tela_11/index.html).
 
 ## 2026-10-10 — Publicação autorizada do Percurso 04 — v0.13.3
 
 Usuário autorizou commit e push de toda a entrega, com descrição abrangente. Fetch confirmou main sem divergência sobre 446d3ee. Código, testes, Atlas/galeria, versão e documentação compõem uma unidade lógica; publicação exige reconferência das verificações, inspeção do objeto Git e igualdade de hash remoto. [Registro](registros/registro-v0.13.3-2026-10-10-02-imp-publicacao-git-fun-rastreabilidade-entrada-convite.md). Sem deploy ou alteração remota de banco/configuração.
 
 Conferência do objeto desta publicação: 34 arquivos incluídos e árvore inicial 8166532172f56c9427d51541bc8cde156d963c6a idêntica ao índice preparado. Pendência removida após prova de inclusão, com atualização de controle incorporada ao mesmo commit lógico. Credenciais/artefatos excluídos; identificador final e igualdade remota conferidos após envio no encerramento.
+
+## 2026-10-10 — Nomes versionados das pastas de comparações — documentação v0.13.3
+
+Diretriz solicitada: novas galerias usam v<versão>-AAAA-MM-DD-assunto, como v0.13.3-2026-10-10-entrada-convite. Versão vem do estado vigente; ajustar nome/referências se a entrega finalizar com incremento funcional. Pastas históricas preservadas. Padrão e guia sincronizados; autorrevisão, links locais e diff conferidos. Sem alteração visual/funcional, incremento de versão, commit, push ou deploy. [Registro](registros/registro-v0.13.3-2026-10-10-03-imp-diretriz-comparacoes-fun-nomes-versionados.md).
+
+## 2026-10-10 — Identificação da tela nas pastas de comparações — documentação v0.13.3
+
+Padrão ampliado por solicitação do usuário para v<versão>-AAAA-MM-DD-assunto-tela_<número>, com prefixo literal tela_, como v0.13.3-2026-10-10-entrada-convite-tela_10. IDs reais do atlas; múltiplas telas identificadas individualmente no final. Em nomes repetidos, revisão fica no assunto para manter tela no final. Decisão anterior preservada e sinalizada como substituída. Autorrevisão, links locais e diff conferidos; sem incremento funcional, renomeação histórica, commit, push ou deploy. [Registro](registros/registro-v0.13.3-2026-10-10-04-imp-diretriz-comparacoes-fun-identificacao-tela.md).
+
+## 2026-10-10 — Migração das galerias para nomes com versão e tela — documentação v0.13.3
+
+Usuário autorizou aplicar o padrão às seis pastas existentes e corrigir seus caminhos. Versões históricas e imagens preservadas; links documentais, página de comparação e destinos de captura dos testes/auxiliares atualizados. Visão global identifica cobertura contínua como tela_01-a-tela_72, sem inventar ID do produto. Esta autorização substitui a manutenção dos nomes antigos registrada nas diretrizes anteriores. [Registro](registros/registro-v0.13.3-2026-10-10-05-imp-migracao-comparacoes-fun-caminhos-versionados-telas.md). Sem incremento funcional, commit, push ou deploy.
+
+Conferência da migração: 77 arquivos em seis pastas; 71 imagens com hash idêntico e somente um HTML com link entre galerias alterado. Todas as galerias, oito opções de seletores e 18 links HTML locais carregados/conferidos sem erro/rede externa. Referências ativas antigas ausentes; configuração de testes autenticados carregada com --list (60 testes), sem execução dos fluxos ou regeneração de capturas.
+
+## 2026-10-10 — Publicação autorizada das diretrizes e migração de comparações — v0.13.3
+
+Usuário autorizou commit/push abrangentes do padrão versão/data/assunto/tela, da migração das seis galerias e da atualização de referências. Fetch confirmou main/origin/main sem divergência sobre dbefcd3. Verificação repetida das galerias/hashes/seletores/links, ausência de caminhos antigos ativos e carregamento dos testes com --list aprovada. [Registro da publicação](registros/registro-v0.13.3-2026-10-10-06-imp-publicacao-comparacoes-fun-rastreabilidade-migracao.md). Inspecionar objeto e igualdade remota; sem incremento funcional ou deploy.
+
+Objeto desta publicação inspecionado: 101 arquivos, 76 renomes idênticos e um HTML com ajuste de link; árvore inicial 4973af998eaf908dcad8d664e40e32473e746a40 coincide com índice preparado. Pendência removida após comprovar inclusão e controle incorporado ao mesmo commit lógico. 917 alvos de links documentais e diff aprovados; identificador definitivo reportado após conferência remota no encerramento.

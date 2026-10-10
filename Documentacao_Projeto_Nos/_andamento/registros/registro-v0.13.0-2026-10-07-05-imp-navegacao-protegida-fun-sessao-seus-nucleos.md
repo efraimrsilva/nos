@@ -26,7 +26,7 @@ Entrada padrão: Conta → Seus Núcleos → Início selecionado. Lista vazia of
 
 src/proxy.ts; features/auth/input.ts; features/nuclei/nucleus-access.ts; Conta, raiz, /comecar e novas páginas de /nucleos; globals.css; testes, fixture e configuração autenticada; script test-authenticated-local.mjs. Atlas: screens.js, product-ui.js/product.css, atlas.js, global-view.js, cobertura e verificador de fidelidade.
 
-[Galeria antes/atlas/aplicativo](../../wireframes/comparacoes/2026-10-07-sessao-navegacao/index.html). Capturas anteriores preservadas; aplicação autenticada real em desktop/celular e lista vazia comparadas ao Atlas vivo.
+[Galeria antes/atlas/aplicativo](../../wireframes/comparacoes/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/index.html). Capturas anteriores preservadas; aplicação autenticada real em desktop/celular e lista vazia comparadas ao Atlas vivo.
 
 ## Validações e revisão final
 

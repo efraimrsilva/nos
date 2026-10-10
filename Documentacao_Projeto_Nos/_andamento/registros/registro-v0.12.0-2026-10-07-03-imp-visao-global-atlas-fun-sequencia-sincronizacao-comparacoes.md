@@ -20,7 +20,7 @@ Reuso sincroniza as visões do atlas automaticamente; o aplicativo real permanec
 
 - atlas/index.html, atlas.js e novos global-view.js/global-view.css: aba, mapa, reuso de tiles, navegação de retorno, hash, filtros e impressão por modo.
 - tools/verify-global-view.mjs: verificação de posições, 72 composições compartilhadas, dados alterados e tela nova, destinos, teclado, filtros, responsividade, endereço direto e impressão.
-- comparacoes/README.md e comparacoes/2026-10-07-visao-global/: padrão, índice, galeria e capturas antes/depois da ferramenta em duas larguras.
+- comparacoes/README.md e comparacoes/v0.12.0-2026-10-07-visao-global-tela_01-a-tela_72/: padrão, índice, galeria e capturas antes/depois da ferramenta em duas larguras.
 - GUIA, FIDELIDADE, COBERTURA, README, andamento/README, frontend, estado, histórico e Brag: procedimento permanente e continuidade.
 
 Sem mudança em src/, serviços, Supabase, dependências ou manifestos. Context7 consultado para Playwright 1.63.0; nenhuma instalação. Superpowers de entendimento, testes, revisão, depuração e verificação aplicados proporcionalmente. Buscas locais delimitadas; sem pesquisa avançada de dependências que exigisse Octocode.

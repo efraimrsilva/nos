@@ -2,13 +2,13 @@
 
 Material de planejamento criado em 2026-10-03 e corrigido visualmente em 2026-10-04. Referência funcional: v0.13.3. Atualização do Percurso 04 em 2026-10-10.
 
-Percurso 04: chegada direta 01 → 10 → 11 → 13 → 12; entrada comum 01 → 12 → 10. Cadastro/confirmação/recuperação preservam o destino. Tipo, adiamento sem associação, edição e estados de convite indisponível sincronizados. QR/leitura e transporte por link reservados na Tela 10; QR de geração na Tela 58 e gestão na Tela 59 continuam planejados. Inventário preservado: 72 telas, 14 percursos, 31 recortes e 41 planejadas. [Contrato](../_andamento/funcionalidades/entrada-convite.md) e [comparação](comparacoes/2026-10-10-entrar-convite/index.html).
+Percurso 04: chegada direta 01 → 10 → 11 → 13 → 12; entrada comum 01 → 12 → 10. Cadastro/confirmação/recuperação preservam o destino. Tipo, adiamento sem associação, edição e estados de convite indisponível sincronizados. QR/leitura e transporte por link reservados na Tela 10; QR de geração na Tela 58 e gestão na Tela 59 continuam planejados. Inventário preservado: 72 telas, 14 percursos, 31 recortes e 41 planejadas. [Contrato](../_andamento/funcionalidades/entrada-convite.md) e [comparação](comparacoes/v0.13.3-2026-10-10-entrar-convite-tela_10-tela_11/index.html).
 
-Percurso 03 validado localmente: 01 (login) → 04 → callback validado → 05 → 01 (novo login) → 12, com destino interno específico preservado. Voltar para Conta abre login; parâmetros repetidos/misturados são rejeitados antes do Auth. Remetente Gmail escolhido; configuração e recebimento externo permanecem pendentes. Inventário preservado: 72 telas, 14 percursos, 31 recortes e 41 planejadas. [Comparação](comparacoes/2026-10-09-recuperar-acesso/index.html).
+Percurso 03 validado localmente: 01 (login) → 04 → callback validado → 05 → 01 (novo login) → 12, com destino interno específico preservado. Voltar para Conta abre login; parâmetros repetidos/misturados são rejeitados antes do Auth. Remetente Gmail escolhido; configuração e recebimento externo permanecem pendentes. Inventário preservado: 72 telas, 14 percursos, 31 recortes e 41 planejadas. [Comparação](comparacoes/v0.13.2-2026-10-09-recuperar-acesso-tela_04-tela_05/index.html).
 
 ## Situação verificada
 
-v0.13.1: Telas 01/02 mantêm árvore/frases e largura ao alternar cadastro/login; link inferior duplicado removido. Classificações, destinos dos percursos e pendências funcionais preservados. [Comparação](comparacoes/2026-10-07-conta-alinhamento/index.html).
+v0.13.1: Telas 01/02 mantêm árvore/frases e largura ao alternar cadastro/login; link inferior duplicado removido. Classificações, destinos dos percursos e pendências funcionais preservados. [Comparação](comparacoes/v0.13.1-2026-10-07-conta-alinhamento-tela_01-tela_02/index.html).
 
 **Visão global:** reutiliza os 72 desenhos e suas situações/pendências; o mapa não altera a classificação de implementação. Percursos e destinos vêm do inventário; ligações de contexto estão distinguidas de saídas previstas nas fichas. [Abrir mapa](atlas/index.html#visao-global) e seguir o [padrão de sincronização/comparações](GUIA.md#visão-global-sincronização-e-comparações--procedimento-permanente).
 

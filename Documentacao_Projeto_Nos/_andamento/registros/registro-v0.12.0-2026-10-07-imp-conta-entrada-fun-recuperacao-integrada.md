@@ -34,7 +34,7 @@ Testes escritos antes das telas: cinco falhas por rotas/ações ausentes confirm
 
 Suíte final: 108/108 desktop/mobile. Tipos e build aprovados; validação final de manifestos e diff registrada no estado. Jornada real local: cadastro, reenvio, confirmação, retorno de convite, recuperação PKCE, token direto em outro contexto, validação/política/igualdade, senha antiga negada, nova aceita, sessão de outro dispositivo sem renovação, link reutilizado e prova adulterada rejeitados; resposta neutra para inexistente. Dados temporários limpos.
 
-Atlas completo: 72 telas, 178 saídas, 360 estados, 41 referências, 52 layouts/28 fontes históricas, 13 percursos, nenhum erro JavaScript ou recurso externo. Comparação de seis telas em celular/web confirmou títulos/subtítulos/rótulos/cor/fonte dos títulos, sem transbordamento. [Antes e depois](../../wireframes/comparacoes/2026-10-07-conta-entrada/index.html).
+Atlas completo: 72 telas, 178 saídas, 360 estados, 41 referências, 52 layouts/28 fontes históricas, 13 percursos, nenhum erro JavaScript ou recurso externo. Comparação de seis telas em celular/web confirmou títulos/subtítulos/rótulos/cor/fonte dos títulos, sem transbordamento. [Antes e depois](../../wireframes/comparacoes/v0.12.0-2026-10-07-conta-entrada-tela_01-tela_02-tela_03-tela_04-tela_05-tela_72/index.html).
 
 Autorrevisão e revisão independente da skill requesting-code-review. Três P2 corrigidos: diferença pública em falha SMTP dependente de existência, orientação impossível após falha de revogação, origem vazia inválida. Leitura final do revisor sem novos achados.
 

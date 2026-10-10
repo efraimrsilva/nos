@@ -6,6 +6,22 @@
 
 **Atualizado:** 2026-10-10
 
+## Publicação autorizada — padrão e migração das comparações — 2026-10-10
+
+**Escopo:** usuário autorizou commit/push em main das diretrizes de versão e tela, migração das seis galerias e atualização conjunta de referências em documentação, HTML e destinos de captura dos testes. Base dbefcd3, igual a origin/main após fetch (0/0). Versão funcional 0.13.3 preservada. [Registro de publicação](registros/registro-v0.13.3-2026-10-10-06-imp-publicacao-comparacoes-fun-rastreabilidade-migracao.md).
+
+**Verificação desta publicação:** seis galerias/77 arquivos; 71 imagens com hashes idênticos, 76 arquivos integralmente preservados e um HTML com link corrigido. Oito opções de seletores e 18 links HTML locais conferidos sem erro/rede externa; referências ativas antigas ausentes. Configuração autenticada carregou 60 testes com --list, sem executar fluxos nem regenerar imagens. Links documentais/diff aprovados. Sem testes funcionais/tipos/build novos; código do aplicativo, banco e manifestos preservados.
+
+**Controle:** objeto inicial inspecionado, com 101 arquivos da mesma unidade e árvore 4973af998eaf908dcad8d664e40e32473e746a40 igual ao índice preparado. Git reconheceu 76 renomes idênticos e um com ajuste do link HTML. Pendência retirada por prova de inclusão; este controle incorporado ao mesmo commit lógico. Commit identificado pela mensagem `docs(atlas): padronizar galerias com versão e tela e migrar referências`; hash final e igualdade remota conferidos no encerramento. Auxiliares em artifacts, credenciais, caches e resultados de testes excluídos. Sem deploy.
+
+## Diretriz documental — nomes de pastas de comparações — 2026-10-10
+
+**Decisão vigente:** galerias em wireframes/comparacoes/ devem usar `v<versão>-AAAA-MM-DD-assunto-tela_<número>`, por exemplo `v0.13.3-2026-10-10-entrada-convite-tela_10`. Escrever literalmente `tela_` seguido do ID real no atlas com pelo menos dois dígitos; para várias telas, repetir os identificadores no final em ordem numérica. Faixa completa pode usar tela_01-a-tela_72, conforme o padrão. A versão é a da entrega registrada; novas entregas usam a versão vigente/final. Por autorização posterior, as seis pastas históricas foram migradas, preservando evidências e atualizando todos os caminhos. [Padrão completo](../wireframes/comparacoes/README.md), [registro da migração](registros/registro-v0.13.3-2026-10-10-05-imp-migracao-comparacoes-fun-caminhos-versionados-telas.md), [diretriz de tela](registros/registro-v0.13.3-2026-10-10-04-imp-diretriz-comparacoes-fun-identificacao-tela.md), [decisão anterior](registros/registro-v0.13.3-2026-10-10-03-imp-diretriz-comparacoes-fun-nomes-versionados.md).
+
+**Resultado e validação:** seis pastas/77 arquivos migrados; todas as 71 imagens com hash SHA-256 idêntico. Apenas o HTML de Visão global muda seu link entre galerias. Seis galerias, oito opções de seletores e 18 links HTML locais conferidos no navegador, sem erro/rede externa; busca de referências antigas e alvos de links documentais/diff aprovados. Configuração autenticada do Playwright carregou 60 testes em seis arquivos com --list, sem executar os fluxos ou sobrescrever imagens. Versão 0.13.3, aplicativo e atlas visual preservados; sem testes funcionais/tipos/build novos. Sem commit, push ou deploy nesta interação. Próxima implementação continua conforme a entrega de Entrada por convite abaixo.
+
+**Unidades pendentes de commit:** nenhuma destas diretrizes/migração. Inclusão das seis galerias, referências e registros comprovada pelo objeto Git na publicação autorizada descrita acima.
+
 ## Publicação autorizada — v0.13.3 — 2026-10-10
 
 Usuário autorizou commit e push abrangentes da entrega do Percurso 04 em main. Fetch confirmou main/origin/main sem divergência sobre 446d3ee. Conjunto inclui código, testes, Atlas, galeria, versão e documentação; título `fix(invitations): concluir percurso de entrada por convite e sincronizar Atlas`. [Registro de publicação](registros/registro-v0.13.3-2026-10-10-02-imp-publicacao-git-fun-rastreabilidade-entrada-convite.md). Reconferência: 92/92 testes gerais, tipos/build, Percurso 04 e Visão global aprovados; 463 referências locais e diff conferidos. Objeto inicial inspecionado: 34 arquivos, árvore 8166532172f56c9427d51541bc8cde156d963c6a igual ao índice preparado. Pendência retirada por evidência de inclusão; controle incorporado ao mesmo commit lógico antes do envio. Identificador final e igualdade remota conferidos após push no encerramento. Sem deploy.
@@ -18,7 +34,7 @@ Usuário autorizou commit e push abrangentes da entrega do Percurso 04 em main. 
 
 **Decisões:** manter código fora de URLs/galerias/registros, sem novo contrato de convite; usar tipo já retornado pela consulta. Agora não volta a Seus Núcleos sem escrever no banco. Sem migração ou operação remota.
 
-**Arquivos principais:** features/invitations, tests/authenticated/invitation-flow.spec.ts, wireframes/atlas e comparacoes/2026-10-10-entrar-convite.
+**Arquivos principais:** features/invitations, tests/authenticated/invitation-flow.spec.ts, wireframes/atlas e comparacoes/v0.13.3-2026-10-10-entrar-convite-tela_10-tela_11.
 
 **Validação:** 92 testes gerais e 16 testes autenticados de convite aprovados desktop/celular; comparação geral autenticada adicional aprovada (uma repetição mobile dispensada porque o próprio comparador percorre ambas as larguras). 20 testes de navegação aprovados na execução combinada. Tipos/build, sintaxe, Percurso 04 e Visão global aprovados. Fidelidade: 72 prévias, 181 saídas, 360 estados, 41 referências, 52 layouts; zero erros/chamadas externas no Atlas. Autorrevisão e revisão independente somente leitura sem P1–P3. Falhas iniciais de seletor incluindo alerta interno do Next corrigidas e repetidas. Comparador sem sessão foi rejeitado por retornar à Conta; executado corretamente depois com sessão local em memória. Capturas anteriores preservadas e códigos temporários mascarados.
 
@@ -26,7 +42,7 @@ Usuário autorizou commit e push abrangentes da entrega do Percurso 04 em main. 
 
 **Próximo passo executável:** para evoluir esta área, definir contrato de gestão/revogação/status da Tela 59 e implementar com RPC (Remote Procedure Call, chamada de função no banco) autorizada e testes. Para operação pública, retomar preparação Gmail após liberação da senha de aplicativo e certificar recebimento/origem HTTPS. **Unidades pendentes de commit:** nenhuma desta entrega; objeto Git inspecionado e árvore comparada ao índice preparado, incluindo código, testes, Atlas/galeria, versão e documentação. Publicação autorizada no marco acima; sem deploy.
 
-**Índice desta entrega:** [registro v0.13.3](registros/registro-v0.13.3-2026-10-10-imp-entrada-convite-fun-percurso-04.md), [contrato de entrada por convite](funcionalidades/entrada-convite.md), [comparação](../wireframes/comparacoes/2026-10-10-entrar-convite/index.html), [verificador](../wireframes/tools/verify-invitation-journey.mjs).
+**Índice desta entrega:** [registro v0.13.3](registros/registro-v0.13.3-2026-10-10-imp-entrada-convite-fun-percurso-04.md), [contrato de entrada por convite](funcionalidades/entrada-convite.md), [comparação](../wireframes/comparacoes/v0.13.3-2026-10-10-entrar-convite-tela_10-tela_11/index.html), [verificador](../wireframes/tools/verify-invitation-journey.mjs).
 
 **Conferência final:** tipos e build aprovados novamente na v0.13.3; links locais/imagens e diff conferidos. Capturas antigas permanecem sem alteração. Consulta local confirmou zero contas das fixtures de convite/navegação/Atlas; Supabase encerrado com backup, sem reset. Servidores de teste encerrados. Nenhuma operação remota ou publicação.
 
@@ -52,7 +68,7 @@ Usuário autorizou commit e push abrangentes para main e solicitou retomar neste
 
 **Conferência final:** build reconferido na v0.13.2; 419 links locais dos documentos alterados e todas as imagens da galeria aprovados. `.env.local` confere projeto nos-dev, origem, chave pública e segredo de recuperação com tamanho suficiente, sem expor valores. Cache operacional da CLI ignorado por supabase/.gitignore. Supabase local encerrado com backup, sem reset; servidor de prévia da galeria na porta 3400, apenas local.
 
-**Índice:** [registro v0.13.2](registros/registro-v0.13.2-2026-10-09-imp-recuperacao-acesso-fun-percurso-03.md), [contrato Conta e entrada](funcionalidades/conta-entrada.md), [configuração Gmail](funcionalidades/recuperacao-smtp-gmail.md), [comparação](../wireframes/comparacoes/2026-10-09-recuperar-acesso/index.html), [verificador Atlas](../wireframes/tools/verify-recovery-journey.mjs).
+**Índice:** [registro v0.13.2](registros/registro-v0.13.2-2026-10-09-imp-recuperacao-acesso-fun-percurso-03.md), [contrato Conta e entrada](funcionalidades/conta-entrada.md), [configuração Gmail](funcionalidades/recuperacao-smtp-gmail.md), [comparação](../wireframes/comparacoes/v0.13.2-2026-10-09-recuperar-acesso-tela_04-tela_05/index.html), [verificador Atlas](../wireframes/tools/verify-recovery-journey.mjs).
 
 Os marcos abaixo são históricos e não autorizam publicação da entrega atual.
 
@@ -72,7 +88,7 @@ Os marcos abaixo são históricos e não autorizam publicação da entrega atual
 
 **Próximo passo executável:** conferir /conta no navegador habitual alternando as abas e redimensionando a janela; conferir retorno pelo link superior. Próxima evolução funcional continua o contrato de dados de Nossa Árvore. Nenhum bloqueio do recorte visual.
 
-**Índice desta entrega:** [registro v0.13.1](registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md), [contrato de Conta](funcionalidades/conta-entrada.md), [galeria antes/depois/Atlas](../wireframes/comparacoes/2026-10-07-conta-alinhamento/index.html).
+**Índice desta entrega:** [registro v0.13.1](registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md), [contrato de Conta](funcionalidades/conta-entrada.md), [galeria antes/depois/Atlas](../wireframes/comparacoes/v0.13.1-2026-10-07-conta-alinhamento-tela_01-tela_02/index.html).
 
 Os marcos abaixo são históricos; a publicação autorizada da v0.13.0 não autoriza publicar esta nova entrega.
 
@@ -86,7 +102,7 @@ Usuário solicitou commit e push abrangendo toda a entrega. Main e origin/main i
 
 **Decisões:** expiração com renovação válida mantém sessão; inválida/não renovável pede login; falha do Auth bloqueia com 503 sem afirmar logout. Proteção de ações/consultas e RLS preservada. POST expirado usa protocolo de redirecionamento do App Router, sem executar criação. Atlas/Visão global/fichas/percursos/comparações sincronizados: 72 telas, 41 planejadas, 31 recortes, 14 percursos.
 
-**Validação:** 88 testes sem backend e 44 autenticados (desktop/celular), tipos/build de produção aprovados; Atlas: 72 prévias, 180 saídas e 360 estados e Visão global aprovados. Autorrevisão e revisão independente sem achados materiais restantes. Testes de token/cookies, renovação, retorno, isolamento, paginação e envio após expiração. [Registro](registros/registro-v0.13.0-2026-10-07-05-imp-navegacao-protegida-fun-sessao-seus-nucleos.md), [contrato](funcionalidades/navegacao-sessao.md), [galeria](../wireframes/comparacoes/2026-10-07-sessao-navegacao/index.html).
+**Validação:** 88 testes sem backend e 44 autenticados (desktop/celular), tipos/build de produção aprovados; Atlas: 72 prévias, 180 saídas e 360 estados e Visão global aprovados. Autorrevisão e revisão independente sem achados materiais restantes. Testes de token/cookies, renovação, retorno, isolamento, paginação e envio após expiração. [Registro](registros/registro-v0.13.0-2026-10-07-05-imp-navegacao-protegida-fun-sessao-seus-nucleos.md), [contrato](funcionalidades/navegacao-sessao.md), [galeria](../wireframes/comparacoes/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/index.html).
 
 **Ambiente:** Supabase local temporário encerrado sem reset e config original restaurado; fixtures/cópias de teste removidas. Portas alternativas resolveram faixa reservada do Windows; cópia C: por SHA-256 resolveu disco/caminhos entre volumes. Sem credenciais persistidas, alteração remota de banco ou migração. Publicação Git tratada no marco acima. Código revisado em main sobre 71310978b56fb1b425b163bba04b89a5f18d270a.
 
@@ -96,7 +112,7 @@ Usuário solicitou commit e push abrangendo toda a entrega. Main e origin/main i
 
 **Ferramentas:** Superpowers de depuração, entendimento, testes, revisão e verificação aplicados. Context7 consultado para Supabase SSR e Next; versão instalada 16.3.6 complementada pela documentação/código locais. Octocode CLI 19.1.0 consultado para dependentes do retorno de autenticação; grafo parcial por aliases complementado com buscas locais delimitadas. Playwright, Supabase CLI 2.118.0 e Docker usados somente na integração local.
 
-**Conferência de encerramento:** 809 links locais, dez imagens da galeria em 1440/375 pixels, diff e tipos na v0.13.0 aprovados. Último P3 documental da Tela 72 corrigido e Visão global reconferida. Galeria/atlas servidos localmente em http://127.0.0.1:3400/comparacoes/2026-10-07-sessao-navegacao/index.html; processo de prévia local, sem publicação.
+**Conferência de encerramento:** 809 links locais, dez imagens da galeria em 1440/375 pixels, diff e tipos na v0.13.0 aprovados. Último P3 documental da Tela 72 corrigido e Visão global reconferida. Galeria/atlas servidos localmente em http://127.0.0.1:3400/comparacoes/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/index.html; processo de prévia local, sem publicação.
 
 **Git — marco histórico de Visão global:** main; publicação autorizada de Visão global e procedimentos a partir de 7a1fedc21c90e62b2e644bf80e85c7929fce42f5, igual a origin/main após fetch. Conjunto commitado e objeto inspecionado; commit identificado pela mensagem `docs(atlas): adicionar visão global e padronizar sincronização e comparações`. Hash definitivo e main remoto conferidos no encerramento. Versão 0.12.0 preservada; sem deploy.
 
@@ -114,7 +130,7 @@ Usuário solicitou commit e push abrangendo toda a entrega. Main e origin/main i
 
 **Decisão permanente:** consultar o Atlas vivo com prioridade alta antes de toda mudança; avaliar o impacto em todas as telas e sincronizar aplicativo, atlas, fichas, percursos, cobertura e pendências no mesmo conjunto lógico. Toda criação ou alteração deve acrescentar uma galeria datada em comparacoes/, preservando evidências anteriores. Reuso sincroniza automaticamente as visões do atlas; a correspondência com o aplicativo exige alteração e conferência explícitas. [Procedimento obrigatório](../wireframes/GUIA.md#visão-global-sincronização-e-comparações--procedimento-permanente), [índice de comparações](../wireframes/comparacoes/README.md).
 
-**Arquivos principais e evidência:** [mapa vivo](../wireframes/atlas/index.html#visao-global), global-view.js/global-view.css e renderização compartilhada em atlas.js; [teste permanente](../wireframes/tools/verify-global-view.mjs), [galeria antes/depois](../wireframes/comparacoes/2026-10-07-visao-global/index.html) e [registro v0.12.0](registros/registro-v0.12.0-2026-10-07-03-imp-visao-global-atlas-fun-sequencia-sincronizacao-comparacoes.md). Teste demonstrou igualdade das 72 composições, atualização de dados e tela nova, filtros, teclado, celular, hash e impressão por CSS. Fidelidade e seis telas reais de Conta em duas larguras reconferidas. Capturas inspecionadas; revisão independente reconferiu o P2 corrigido de alternância com filtros, sem achados materiais restantes no escopo revisado. Sem erros JavaScript ou chamadas externas no atlas.
+**Arquivos principais e evidência:** [mapa vivo](../wireframes/atlas/index.html#visao-global), global-view.js/global-view.css e renderização compartilhada em atlas.js; [teste permanente](../wireframes/tools/verify-global-view.mjs), [galeria antes/depois](../wireframes/comparacoes/v0.12.0-2026-10-07-visao-global-tela_01-a-tela_72/index.html) e [registro v0.12.0](registros/registro-v0.12.0-2026-10-07-03-imp-visao-global-atlas-fun-sequencia-sincronizacao-comparacoes.md). Teste demonstrou igualdade das 72 composições, atualização de dados e tela nova, filtros, teclado, celular, hash e impressão por CSS. Fidelidade e seis telas reais de Conta em duas larguras reconferidas. Capturas inspecionadas; revisão independente reconferiu o P2 corrigido de alternância com filtros, sem achados materiais restantes no escopo revisado. Sem erros JavaScript ou chamadas externas no atlas.
 
 **Limites e retomada:** v0.12.0 preservada; src/, banco e manifestos intactos. Suíte funcional, tipos e build do aplicativo não repetidos nesta alteração exclusiva de atlas/documentação. Sem bloqueio para este artefato. Próximo passo funcional: fechar fontes e contrato de Nossa Árvore antes dos indicadores; dependências operacionais de autenticação permanecem registradas na entrega de Conta abaixo. Usar Visão global para localizar o contexto e conferir a ficha e o desenho vivo antes de implementar.
 
@@ -131,7 +147,7 @@ Usuário solicitou commit e push abrangendo toda a entrega. Main e origin/main i
 
 **Configuração:** Supabase CLI 2.118.0 atualizou somente dois campos no nos-dev: retornos de confirmação/recuperação (incluindo next) e mínimo de senha oito. Diff remoto posterior: zero mudanças nessas propriedades; 11 campos não declarados preservados. AUTH_RECOVERY_SECRET criado somente em .env.local ignorado pelo Git. Não certificado SMTP/domínio/remetente de produção, nem executada jornada autenticada remota. Não houve commit, push Git ou deploy do app.
 
-**Arquivos e continuidade:** [contrato da área](funcionalidades/conta-entrada.md), [plano executado](planos/conta-entrada.md), [registro v0.12.0](registros/registro-v0.12.0-2026-10-07-imp-conta-entrada-fun-recuperacao-integrada.md), [comparação antes/atlas/aplicação](../wireframes/comparacoes/2026-10-07-conta-entrada/index.html). Configuração e roteiro operacional no contrato. Atlas passa a 42 telas planejadas e 30 recortes existentes.
+**Arquivos e continuidade:** [contrato da área](funcionalidades/conta-entrada.md), [plano executado](planos/conta-entrada.md), [registro v0.12.0](registros/registro-v0.12.0-2026-10-07-imp-conta-entrada-fun-recuperacao-integrada.md), [comparação antes/atlas/aplicação](../wireframes/comparacoes/v0.12.0-2026-10-07-conta-entrada-tela_01-tela_02-tela_03-tela_04-tela_05-tela_72/index.html). Configuração e roteiro operacional no contrato. Atlas passa a 42 telas planejadas e 30 recortes existentes.
 
 **Próximo passo executável:** conferir SMTP/remetente e segredo/URLs HTTPS no ambiente destinado ao lançamento. Telas e integração da área implementadas; dependências operacionais não equivalem a telas ausentes. Próximo módulo planejado permanece Nossa Árvore: fechar fontes/contrato antes dos indicadores. Esta entrega substitui a continuidade que priorizava Árvore como tarefa ativa; marcos abaixo são históricos.
 
@@ -267,7 +283,7 @@ Agenda por Núcleo concluída na **v0.6.0**: eventos pontuais com título, inten
 
 **Unidades pendentes de commit neste marco histórico:** nenhuma para a correção visual e orientação de prioridade alta; inclusão no commit confirmada por inspeção do objeto e comparação da árvore. Mensagem: `docs(wireframe): alinhar atlas ao app e consolidar prioridade visual`.
 
-**Contador de interações:** 88, incluindo a entrega do Percurso 04 e sua publicação autorizada a partir da última contagem persistida 87; eventuais interações sem registro não foram inventadas. Começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
+**Contador de interações:** 92, incluindo a publicação autorizada das diretrizes e migração de comparações, a partir da última contagem persistida 91; eventuais interações sem registro não foram inventadas. Começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
 
 ## Objetivo e situação histórica — v0.11.0
 
@@ -313,6 +329,10 @@ Pesquisa externa de ferramentas em 2026-09-29 consultou projetos e documentaçã
 
 ## Índice
 
+- [v0.13.3 — Publicação do padrão e migração de comparações](registros/registro-v0.13.3-2026-10-10-06-imp-publicacao-comparacoes-fun-rastreabilidade-migracao.md).
+- [v0.13.3 — Migração de galerias e referências](registros/registro-v0.13.3-2026-10-10-05-imp-migracao-comparacoes-fun-caminhos-versionados-telas.md).
+- [v0.13.3 — Identificação da tela nos nomes das comparações](registros/registro-v0.13.3-2026-10-10-04-imp-diretriz-comparacoes-fun-identificacao-tela.md).
+- [v0.13.3 — Diretriz de nomes versionados de comparações](registros/registro-v0.13.3-2026-10-10-03-imp-diretriz-comparacoes-fun-nomes-versionados.md).
 - [v0.13.0 — Publicação da navegação](registros/registro-v0.13.0-2026-10-07-06-imp-publicacao-git-fun-rastreabilidade-navegacao.md).
 - [v0.13.0 — Navegação e sessão](registros/registro-v0.13.0-2026-10-07-05-imp-navegacao-protegida-fun-sessao-seus-nucleos.md).
 - [Contrato de navegação e sessão](funcionalidades/navegacao-sessao.md).

@@ -48,16 +48,16 @@ test("listagem usa associações reais e não revela Núcleos alheios", async ({
     await page.goto("/nucleos");
     await expect(page.getByRole("heading", { name: "Jardim de teste" })).toBeVisible();
     await expect(page.getByText("Jardim privado de outra pessoa")).toHaveCount(0);
-    await page.screenshot({ path: `Documentacao_Projeto_Nos/wireframes/comparacoes/2026-10-07-sessao-navegacao/app-12-${test.info().project.name}.png`, fullPage: true });
+    await page.screenshot({ path: `Documentacao_Projeto_Nos/wireframes/comparacoes/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/app-12-${test.info().project.name}.png`, fullPage: true });
     await page.getByRole("link", { name: /Jardim de teste/ }).click();
     await expect(page).toHaveURL(new RegExp(`/nucleos/${ownId}$`));
     await expect(page.getByRole("heading", { name: "Jardim de teste" })).toBeVisible();
-    await page.screenshot({ path: `Documentacao_Projeto_Nos/wireframes/comparacoes/2026-10-07-sessao-navegacao/depois-inicio-${test.info().project.name}.png`, fullPage: true });
+    await page.screenshot({ path: `Documentacao_Projeto_Nos/wireframes/comparacoes/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/depois-inicio-${test.info().project.name}.png`, fullPage: true });
     await page.getByRole("link", { name: "Voltar a Seus Núcleos" }).click();
     await expect(page).toHaveURL(/\/nucleos$/);
     await page.goto("/conta");
     await expect(page.getByRole("link", { name: "Seus Núcleos", exact: true })).toBeVisible();
-    await page.screenshot({ path: `Documentacao_Projeto_Nos/wireframes/comparacoes/2026-10-07-sessao-navegacao/depois-conta-autenticada-${test.info().project.name}.png`, fullPage: true });
+    await page.screenshot({ path: `Documentacao_Projeto_Nos/wireframes/comparacoes/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/depois-conta-autenticada-${test.info().project.name}.png`, fullPage: true });
     await page.goto(`/nucleos/${externalId}`);
     await expect(page.getByRole("heading", { name: "Jardim privado de outra pessoa" })).toHaveCount(0);
   } finally {
@@ -75,7 +75,7 @@ test("atlas e aplicativo preservam composição e caminhos protegidos", async ({
   await page.goto("/nucleos");
   await expect(page.getByRole("status")).toContainText("ainda não participa");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  const dir = "Documentacao_Projeto_Nos/wireframes/comparacoes/2026-10-07-sessao-navegacao";
+  const dir = "Documentacao_Projeto_Nos/wireframes/comparacoes/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13";
   await page.screenshot({ path: `${dir}/app-12-vazio-${test.info().project.name}.png`, fullPage: true });
   await page.goto("/comecar");
   await page.screenshot({ path: `${dir}/depois-comecar-${test.info().project.name}.png`, fullPage: true });

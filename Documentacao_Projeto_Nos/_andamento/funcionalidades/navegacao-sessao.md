@@ -20,7 +20,7 @@ Revogação global de refresh tokens impede novas renovações. Não prometer re
 
 Tela 12 usa SELECT em nuclei com a sessão da requisição; a política existente permite somente associações próprias em nucleus_members. Sem nova migração ou chave administrativa. Lista ordenada por nome e identificador, 20 cartões por página; registro adicional indica continuação. Carregamento, vazio, erro e paginação têm estados próprios. Nomes e propósitos são escapados pelo React. Seleção troca o contexto pelo ID, sem misturar dados entre Núcleos.
 
-Atlas mantém 72 IDs, 41 telas planejadas, 31 recortes existentes e 14 percursos. Tela 12 ganha composição implementada; exemplos continuam identificados. [Comparações](../../wireframes/comparacoes/2026-10-07-sessao-navegacao/index.html).
+Atlas mantém 72 IDs, 41 telas planejadas, 31 recortes existentes e 14 percursos. Tela 12 ganha composição implementada; exemplos continuam identificados. [Comparações](../../wireframes/comparacoes/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/index.html).
 
 ## Verificação reproduzível
 

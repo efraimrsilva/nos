@@ -39,7 +39,7 @@ test("Atlas e aplicativo autenticado mantêm composição, estados e percursos",
   });
   const atlas = await context.newPage();
   await atlas.goto(pathToFileURL(path.resolve("Documentacao_Projeto_Nos/wireframes/atlas/index.html")).href);
-  const dir = "Documentacao_Projeto_Nos/wireframes/comparacoes/2026-10-10-entrar-convite";
+  const dir = "Documentacao_Projeto_Nos/wireframes/comparacoes/v0.13.3-2026-10-10-entrar-convite-tela_10-tela_11";
   for (const [label, viewport] of [["desktop", { width: 1440, height: 1000 }], ["mobile", { width: 390, height: 844 }]] as const) {
     await page.setViewportSize(viewport);
     await page.goto("/comecar/convite");
@@ -123,7 +123,7 @@ test("aceite explícito abre Início e lista sem duplicar nem elevar o papel", a
   await page.getByRole("button", { name: "Conferir convite" }).click();
   await expect(page.getByRole("button", { name: "Aceitar convite" })).toBeVisible();
   // Capturas usam somente texto ilustrativo; o código temporário é ocultado antes de gravar.
-  await page.screenshot({ path: `Documentacao_Projeto_Nos/wireframes/comparacoes/2026-10-10-entrar-convite/app-previa-${testInfo.project.name}.png`, fullPage: true, mask: [page.getByLabel("Código de convite")], maskColor: "#eff3e6" });
+  await page.screenshot({ path: `Documentacao_Projeto_Nos/wireframes/comparacoes/v0.13.3-2026-10-10-entrar-convite-tela_10-tela_11/app-previa-${testInfo.project.name}.png`, fullPage: true, mask: [page.getByLabel("Código de convite")], maskColor: "#eff3e6" });
   await page.getByRole("button", { name: "Aceitar convite" }).click();
   await expect(page).toHaveURL(new RegExp(`/nucleos/${invitation.nucleusId}$`));
   await expect(page.getByRole("heading", { name: "Jardim do convite" })).toBeVisible();

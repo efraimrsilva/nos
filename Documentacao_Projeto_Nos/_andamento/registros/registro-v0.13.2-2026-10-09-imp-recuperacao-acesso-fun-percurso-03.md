@@ -26,7 +26,7 @@ Mudança PATCH, sem dependência, migração ou nova rota. Sem commit, push, mer
 - `tests/recovery-proof.spec.ts`, `tests/account-entry.spec.ts`: regressões de segurança e navegação.
 - `scripts/verify-account-local.mjs`: margem para compilação inicial, credenciais ambíguas sem consumir link, recuperação direta até Seus Núcleos e login comum sem autorização de troca.
 - Atlas: `screens.js`, `atlas.js`, `global-view.js`, `product-ui.js` e `atlas.css`; subtítulos contextuais e retorno ao login.
-- [Verificador do percurso](../../wireframes/tools/verify-recovery-journey.mjs), [roteiro Gmail](../funcionalidades/recuperacao-smtp-gmail.md) e [galeria](../../wireframes/comparacoes/2026-10-09-recuperar-acesso/index.html).
+- [Verificador do percurso](../../wireframes/tools/verify-recovery-journey.mjs), [roteiro Gmail](../funcionalidades/recuperacao-smtp-gmail.md) e [galeria](../../wireframes/comparacoes/v0.13.2-2026-10-09-recuperar-acesso-tela_04-tela_05/index.html).
 - `supabase/operacao/gmail/supabase/config.toml` e `scripts/configure-gmail-smtp.ps1`: preparação solicitada após o bloqueio do Google; campos SMTP definidos e senha recebida somente por prompt oculto/ambiente do processo. Configuração isolada preserva o ambiente local. CLI confere projeto e escopo antes de aplicar.
 
 ## Validações realizadas

@@ -1,6 +1,6 @@
 # Entrar por convite — v0.13.3
 
-Atualizado em 2026-10-10. Referências: [percursos na Visão global](../../wireframes/atlas/index.html#visao-global), [Tela 10](../../wireframes/atlas/index.html#tela-10), [Tela 11](../../wireframes/atlas/index.html#tela-11) e [comparação](../../wireframes/comparacoes/2026-10-10-entrar-convite/index.html).
+Atualizado em 2026-10-10. Referências: [percursos na Visão global](../../wireframes/atlas/index.html#visao-global), [Tela 10](../../wireframes/atlas/index.html#tela-10), [Tela 11](../../wireframes/atlas/index.html#tela-11) e [comparação](../../wireframes/comparacoes/v0.13.3-2026-10-10-entrar-convite-tela_10-tela_11/index.html).
 
 ## Sequência e decisões
 

@@ -2,13 +2,13 @@
 
 Referência funcional: **v0.13.3**. Percurso 04 sincronizado em 2026-10-10; base histórica preservada.
 
-Entrada de convite mantém composição de onboarding, acrescenta retorno à lista, tipo na prévia e Agora não. [Comparação vigente](comparacoes/2026-10-10-entrar-convite/index.html) apresenta antes/depois e aplicativo real desktop/celular, com códigos mascarados. [Verificador do Percurso 04](tools/verify-invitation-journey.mjs) confere sequência, decisão, edição, estados e reservas. Fidelidade autenticada: 72 prévias, 181 saídas, 360 estados, 41 referências e 52 layouts; zero erros/chamadas externas no Atlas. Integração real testada separadamente no Supabase local.
+Entrada de convite mantém composição de onboarding, acrescenta retorno à lista, tipo na prévia e Agora não. [Comparação vigente](comparacoes/v0.13.3-2026-10-10-entrar-convite-tela_10-tela_11/index.html) apresenta antes/depois e aplicativo real desktop/celular, com códigos mascarados. [Verificador do Percurso 04](tools/verify-invitation-journey.mjs) confere sequência, decisão, edição, estados e reservas. Fidelidade autenticada: 72 prévias, 181 saídas, 360 estados, 41 referências e 52 layouts; zero erros/chamadas externas no Atlas. Integração real testada separadamente no Supabase local.
 
-Recuperação mantém composição de Conta, com retorno ao login e passos explícitos no percurso. [Comparação atual](comparacoes/2026-10-09-recuperar-acesso/index.html): antes/depois do Atlas e telas reais autorizada/bloqueada em celular e computador. [Verificador específico](tools/verify-recovery-journey.mjs) confere sequência, retorno ao login e estados; integrações reais comprovadas separadamente no Supabase local. Gmail SMTP e entrega externa não certificados.
+Recuperação mantém composição de Conta, com retorno ao login e passos explícitos no percurso. [Comparação atual](comparacoes/v0.13.2-2026-10-09-recuperar-acesso-tela_04-tela_05/index.html): antes/depois do Atlas e telas reais autorizada/bloqueada em celular e computador. [Verificador específico](tools/verify-recovery-journey.mjs) confere sequência, retorno ao login e estados; integrações reais comprovadas separadamente no Supabase local. Gmail SMTP e entrega externa não certificados.
 
 ## Procedência e precedência
 
-**Visão global compartilha a fonte:** index.html carrega global-view.js/global-view.css; tileHtml e productPhoneHtml desenham as mesmas telas nas visões por áreas e global. screens.js fornece títulos, situação, dependências, ações e percursos. A ordem de leitura só referencia IDs e preserva caminhos alternativos; não mantém uma segunda versão da interface. Qualquer alteração confere impacto e sincroniza atlas/produto, acrescentando galeria conforme o [procedimento permanente](GUIA.md#visão-global-sincronização-e-comparações--procedimento-permanente). [Comparação da nova visão](comparacoes/2026-10-07-visao-global/index.html).
+**Visão global compartilha a fonte:** index.html carrega global-view.js/global-view.css; tileHtml e productPhoneHtml desenham as mesmas telas nas visões por áreas e global. screens.js fornece títulos, situação, dependências, ações e percursos. A ordem de leitura só referencia IDs e preserva caminhos alternativos; não mantém uma segunda versão da interface. Qualquer alteração confere impacto e sincroniza atlas/produto, acrescentando galeria conforme o [procedimento permanente](GUIA.md#visão-global-sincronização-e-comparações--procedimento-permanente). [Comparação da nova visão](comparacoes/v0.12.0-2026-10-07-visao-global-tela_01-a-tela_72/index.html).
 
 **Prioridade alta do Atlas vivo:** sua composição é a referência visual obrigatória de todas as implementações e alterações de tela. Inspecionar o aspecto antes de codificar, confrontar o resultado real antes de entregar e manter o desenho sincronizado. O modo histórico preserva a comparação; não substitui a direção viva. Seguir o [procedimento](GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05), incluindo contratos e pendências.
 
@@ -131,7 +131,7 @@ Atualizar product-ui.js/product.css quando a implementação mudar; atualizar sc
 
 Não houve alteração ou nova validação funcional de banco, autenticação ou produto; o wireframe não executa persistência. Nenhuma exportação de PDF. As 45 telas planejadas e extensões dos 27 recortes existentes permanecem sinalizadas no [inventário de pendências](COBERTURA.md).
 
-A área Conta e entrada inclui também ID72. A versão viva apresenta somente botões implementados de cadastro/login; login social e consentimento jurídico históricos não foram ativados. [Comparação](comparacoes/2026-10-07-conta-entrada/index.html).
+A área Conta e entrada inclui também ID72. A versão viva apresenta somente botões implementados de cadastro/login; login social e consentimento jurídico históricos não foram ativados. [Comparação](comparacoes/v0.12.0-2026-10-07-conta-entrada-tela_01-tela_02-tela_03-tela_04-tela_05-tela_72/index.html).
 
 
 ## Validação histórica — 2026-10-07 — v0.12.0

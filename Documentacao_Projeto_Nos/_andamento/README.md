@@ -6,9 +6,9 @@ Entrega atual: [v0.13.1 — Alinhamento visual de Conta](registros/registro-v0.1
 
 Este diretório preserva o contexto operacional entre sessões e retomadas do projeto.
 
-Entrega mais recente: [v0.13.0 — Navegação e sessão](registros/registro-v0.13.0-2026-10-07-05-imp-navegacao-protegida-fun-sessao-seus-nucleos.md); [contrato](funcionalidades/navegacao-sessao.md) e [galeria](../wireframes/comparacoes/2026-10-07-sessao-navegacao/index.html).
+Entrega mais recente: [v0.13.0 — Navegação e sessão](registros/registro-v0.13.0-2026-10-07-05-imp-navegacao-protegida-fun-sessao-seus-nucleos.md); [contrato](funcionalidades/navegacao-sessao.md) e [galeria](../wireframes/comparacoes/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/index.html).
 
-Entrega anterior: [v0.12.0 — Conta e entrada](registros/registro-v0.12.0-2026-10-07-imp-conta-entrada-fun-recuperacao-integrada.md). [Contrato](funcionalidades/conta-entrada.md), [plano](planos/conta-entrada.md) e [diferenças visuais](../wireframes/comparacoes/2026-10-07-conta-entrada/index.html).
+Entrega anterior: [v0.12.0 — Conta e entrada](registros/registro-v0.12.0-2026-10-07-imp-conta-entrada-fun-recuperacao-integrada.md). [Contrato](funcionalidades/conta-entrada.md), [plano](planos/conta-entrada.md) e [diferenças visuais](../wireframes/comparacoes/v0.12.0-2026-10-07-conta-entrada-tela_01-tela_02-tela_03-tela_04-tela_05-tela_72/index.html).
 
 ## Estrutura
 

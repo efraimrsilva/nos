@@ -22,6 +22,6 @@ Limitação preservada: verify-fidelity.mjs espera /comecar público, incompatí
 
 ## Arquivos e retomada
 
-[Registro da implementação](registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md), [estado](../estado.md), [galeria](../../wireframes/comparacoes/2026-10-07-conta-alinhamento/index.html), aplicativo/teste/Atlas/manifestos e referências documentais da mesma entrega.
+[Registro da implementação](registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md), [estado](../estado.md), [galeria](../../wireframes/comparacoes/v0.13.1-2026-10-07-conta-alinhamento-tela_01-tela_02/index.html), aplicativo/teste/Atlas/manifestos e referências documentais da mesma entrega.
 
 Próximo passo operacional desta publicação: enviar main e conferir igualdade entre HEAD e refs/heads/main remoto no encerramento. Após publicação, retomar a conferência manual de Conta; evolução funcional planejada continua o contrato de Nossa Árvore. Nenhum deploy solicitado.

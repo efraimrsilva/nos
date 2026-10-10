@@ -8,7 +8,7 @@
 - **Contribuição:** tipo pelo catálogo existente, navegação de adiamento sem escrita, erro vinculado ao código e sincronização de estados/sequência/reservas no Atlas.
 - **Resultado verificado:** 92 testes gerais, 16 casos autenticados de convite e um verificador completo autenticado aprovados; tipos/build e Atlas/Visão global aprovados. Consulta/adiamento não criam vínculo; repetição mantém associação única e papel. Autorrevisão e revisão independente sem P1–P3. Benefício esperado: decisão mais clara e retomada previsível.
 - **Limite:** QR, link, gestão e certificação pública permanecem pendentes; evidência funcional exclusivamente local. Nenhuma métrica de conversão foi medida.
-- **Evidência:** [registro](../_andamento/registros/registro-v0.13.3-2026-10-10-imp-entrada-convite-fun-percurso-04.md), [contrato](../_andamento/funcionalidades/entrada-convite.md) e [comparação](../wireframes/comparacoes/2026-10-10-entrar-convite/index.html).
+- **Evidência:** [registro](../_andamento/registros/registro-v0.13.3-2026-10-10-imp-entrada-convite-fun-percurso-04.md), [contrato](../_andamento/funcionalidades/entrada-convite.md) e [comparação](../wireframes/comparacoes/v0.13.3-2026-10-10-entrar-convite-tela_10-tela_11/index.html).
 
 ## 2026-10-09 — Recuperação de acesso e sequência do Percurso 03
 
@@ -16,14 +16,14 @@
 - **Contribuição:** retorno ao login com destino interno preservado; rejeição de credenciais repetidas/misturadas antes do serviço; etapas do percurso e dependência SMTP sincronizadas no Atlas; configuração Gmail isolada e comando com prompt oculto, sem persistir credenciais.
 - **Resultado verificado:** 92 testes desktop/celular, tipos/build e Atlas aprovados; recuperação real local recusou senha antiga, aceitou nova, revogou renovação de outra sessão, rejeitou link reutilizado/prova adulterada e manteve link válido após entradas ambíguas. Revisão independente sem P1–P3. Benefício esperado: menos confusão na retomada e contrato de recuperação mais rigoroso.
 - **Limite:** preparação SMTP conferida com diff remoto somente leitura; ativação aguarda senha de app após liberação do Google e teste externo. Resultado local não certifica operação pública.
-- **Evidência:** [registro v0.13.2](../_andamento/registros/registro-v0.13.2-2026-10-09-imp-recuperacao-acesso-fun-percurso-03.md) e [comparação](../wireframes/comparacoes/2026-10-09-recuperar-acesso/index.html).
+- **Evidência:** [registro v0.13.2](../_andamento/registros/registro-v0.13.2-2026-10-09-imp-recuperacao-acesso-fun-percurso-03.md) e [comparação](../wireframes/comparacoes/v0.13.2-2026-10-09-recuperar-acesso-tela_04-tela_05/index.html).
 
 ## 2026-10-07 — Estabilidade visual em Conta
 
 - **Problema:** cadastro deslocava a árvore/frases 61px em desktop e a barra de rolagem podia mudar a largura da composição.
 - **Contribuição:** referência de altura do login, reserva da barra e remoção de link duplicado; Atlas e evidência visual sincronizados.
 - **Resultado verificado:** mesma posição entre abas em seis tamanhos; 24 testes de Conta, tipos/build e comparação específica do Atlas aprovados. Benefício esperado: alternância de acesso mais confortável.
-- **Evidência:** [registro v0.13.1](../_andamento/registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md), com [galeria](../wireframes/comparacoes/2026-10-07-conta-alinhamento/index.html).
+- **Evidência:** [registro v0.13.1](../_andamento/registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md), com [galeria](../wireframes/comparacoes/v0.13.1-2026-10-07-conta-alinhamento-tela_01-tela_02/index.html).
 
 ## 2026-09-27 — Agenda interna do Núcleo
 
@@ -138,7 +138,7 @@ Registro factual de contribuições; resultados medidos são separados de benef�
 - **Contribuição:** conclusão da área de entrada, prova de recuperação assinada e vinculada à sessão, mensagens neutras inclusive em falha SMTP, revogação e retorno de convite. Seis composições sincronizadas com comparação visual.
 - **Resultado verificado:** 108 testes desktop/mobile; jornada real local confirmou troca de senha e revogação de outra sessão. Atlas com 72 prévias/178 saídas/360 estados, sem erro/rede externa; revisão independente com achados corrigidos. Configuração nos-dev reconferida.
 - **Benefício esperado:** permitir retomar o acesso sem suporte manual e reduzir divergência entre planejamento e produto. Não medida taxa de recuperação/conversão nem entrega remota.
-- **Evidência:** [registro](../_andamento/registros/registro-v0.12.0-2026-10-07-imp-conta-entrada-fun-recuperacao-integrada.md) e [comparação](../wireframes/comparacoes/2026-10-07-conta-entrada/index.html).
+- **Evidência:** [registro](../_andamento/registros/registro-v0.12.0-2026-10-07-imp-conta-entrada-fun-recuperacao-integrada.md) e [comparação](../wireframes/comparacoes/v0.12.0-2026-10-07-conta-entrada-tela_01-tela_02-tela_03-tela_04-tela_05-tela_72/index.html).
 
 ## 2026-10-07 — Visão global com conteúdo compartilhado
 
@@ -146,7 +146,7 @@ Registro factual de contribuições; resultados medidos são separados de benef�
 - **Contribuição:** visão iniciada em Conta reutiliza as 72 composições e os 13 percursos; diferencia saídas previstas e contexto. Procedimento permanente exige atualização conjunta do app/atlas e galeria de comparação em cada criação ou alteração.
 - **Resultado verificado:** teste conferiu igualdade das 72 composições, propagação de título/dependência/ação e inclusão de tela nova, navegação, filtros e celular. Revisão independente identificou e reconferiu a correção de um P2. Seis capturas antes/depois preservadas; fidelidade das seis telas reais de Conta reconferida em duas larguras.
 - **Benefício esperado:** facilitar decisões de navegação e evitar divergência entre visões. Redução de retrabalho futuro ainda não medida; sincronização com o app continua exigindo conferência por entrega.
-- **Evidência:** [teste](../wireframes/tools/verify-global-view.mjs), [galeria](../wireframes/comparacoes/2026-10-07-visao-global/index.html) e [registro](../_andamento/registros/registro-v0.12.0-2026-10-07-03-imp-visao-global-atlas-fun-sequencia-sincronizacao-comparacoes.md).
+- **Evidência:** [teste](../wireframes/tools/verify-global-view.mjs), [galeria](../wireframes/comparacoes/v0.12.0-2026-10-07-visao-global-tela_01-a-tela_72/index.html) e [registro](../_andamento/registros/registro-v0.12.0-2026-10-07-03-imp-visao-global-atlas-fun-sequencia-sincronizacao-comparacoes.md).
 
 
 ## 2026-10-07 — Navegação privada e entrada pelos vínculos existentes

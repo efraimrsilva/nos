@@ -21,7 +21,7 @@ O respiro inferior de 60px preserva a composição do login após retirar o link
 - `src/features/auth/components/auth-form.tsx`: medição da referência do login e marcação dos blocos exclusivos do cadastro.
 - `tests/account-entry.spec.ts`: retorno às Boas-vindas pelo link superior e ausência do link removido.
 - Atlas: `atlas.js`, `product-ui.js`, `product.css`, `screens.js`; mesma árvore/frases nas duas abas, link inferior removido, ficha sincronizada. Percursos/destinos e pendências funcionais permanecem válidos.
-- Manifestos, README, andamento, frontend, cobertura, contrato de Conta e Brag atualizados para v0.13.1. [Comparação visual](../../wireframes/comparacoes/2026-10-07-conta-alinhamento/index.html).
+- Manifestos, README, andamento, frontend, cobertura, contrato de Conta e Brag atualizados para v0.13.1. [Comparação visual](../../wireframes/comparacoes/v0.13.1-2026-10-07-conta-alinhamento-tela_01-tela_02/index.html).
 
 ## Validações e resultado
 
