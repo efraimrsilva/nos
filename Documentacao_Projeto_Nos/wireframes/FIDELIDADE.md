@@ -1,6 +1,8 @@
 # Fidelidade visual e manutenção do atlas
 
-Referência funcional: **v0.13.3**. Percurso 04 sincronizado em 2026-10-10; base histórica preservada.
+Referência funcional: **v0.14.0**. Percurso 05 sincronizado em 2026-10-10; base histórica preservada.
+
+Percurso 05: caminho disponível **18 → 22 → 23 → 24**, com conferência e respostas dentro do hub. Conferir/editar não gravam; enviar registra aceite do autor; último aceite inicia teste, recusa encerra. Sequência guiada 18 → 19 → 20 → 21 → 22 → 23 → 24 reservada, com 19–21 planejadas. Tela 22 é recorte existente de conferência, sem /novo. Inventário vigente: 72 telas, 14 percursos, 32 recortes e 40 planejadas. [Contrato](../_andamento/funcionalidades/proposta-habito.md), [comparação](comparacoes/v0.14.0-2026-10-10-proposta-habito-tela_18-tela_19-tela_20-tela_21-tela_22-tela_23-tela_24/index.html) e [verificador](tools/verify-habit-proposal-journey.mjs). As prévias 18/22/23 representam os estados implementados; as composições históricas continuam acessíveis como referência.
 
 Entrada de convite mantém composição de onboarding, acrescenta retorno à lista, tipo na prévia e Agora não. [Comparação vigente](comparacoes/v0.13.3-2026-10-10-entrar-convite-tela_10-tela_11/index.html) apresenta antes/depois e aplicativo real desktop/celular, com códigos mascarados. [Verificador do Percurso 04](tools/verify-invitation-journey.mjs) confere sequência, decisão, edição, estados e reservas. Fidelidade autenticada: 72 prévias, 181 saídas, 360 estados, 41 referências e 52 layouts; zero erros/chamadas externas no Atlas. Integração real testada separadamente no Supabase local.
 
@@ -56,12 +58,12 @@ Cores contextuais rosa, azul, pêssego, amarelo e lavanda permanecem nos ícones
 | [15 — Detalhe do evento](atlas/index.html#tela-15) | Extensão coerente com identidade | Consultar módulo de origem e ficha |
 | [16 — Novo evento](atlas/index.html#tela-16) | Extensão coerente com identidade | Consultar módulo de origem e ficha |
 | [17 — Editar evento](atlas/index.html#tela-17) | Extensão coerente com identidade | Consultar módulo de origem e ficha |
-| [18 — Acordos](atlas/index.html#tela-18) | Documento com contratos atualizados | Disponível na inspeção |
+| [18 — Acordos](atlas/index.html#tela-18) | Representação atual do recorte implementado no hub | Documento histórico disponível na inspeção |
 | [19 — Novo acordo · necessidade](atlas/index.html#tela-19) | Documento com contratos atualizados | Disponível na inspeção |
 | [20 — Novo acordo · proposta](atlas/index.html#tela-20) | Documento com contratos atualizados | Disponível na inspeção |
 | [21 — Novo acordo · compreensão](atlas/index.html#tela-21) | Documento com contratos atualizados | Disponível na inspeção |
-| [22 — Novo acordo · conferir](atlas/index.html#tela-22) | Documento com contratos atualizados | Disponível na inspeção |
-| [23 — Aprovações](atlas/index.html#tela-23) | Documento com contratos atualizados | Disponível na inspeção |
+| [22 — Novo acordo · conferir](atlas/index.html#tela-22) | Representação atual do recorte implementado no hub | Documento histórico disponível na inspeção |
+| [23 — Aprovações](atlas/index.html#tela-23) | Representação atual do recorte implementado no hub | Documento histórico disponível na inspeção |
 | [24 — Detalhe do Hábito](atlas/index.html#tela-24) | Documento com contratos atualizados | Disponível na inspeção |
 | [25 — Histórico do Hábito](atlas/index.html#tela-25) | Documento com contratos atualizados | Disponível na inspeção |
 | [26 — Reflexões do Hábito](atlas/index.html#tela-26) | Documento com contratos atualizados | Disponível na inspeção |

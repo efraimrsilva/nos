@@ -1,6 +1,6 @@
 # Projeto Nós
 
-**Versão vigente do projeto:** 0.13.3
+**Versão vigente do projeto:** 0.14.0
 
 Na v0.13.3, o Percurso 04 mostra tipo na prévia, permite adiar sem associação e organiza chegada direta/entrada pela lista no Atlas. Convites inválidos, expirados, revogados e repetidos foram conferidos com duas identidades no backend local. QR/link/gestão continuam planejados. [Contrato](Documentacao_Projeto_Nos/_andamento/funcionalidades/entrada-convite.md), [registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.13.3-2026-10-10-imp-entrada-convite-fun-percurso-04.md) e [comparação](Documentacao_Projeto_Nos/wireframes/comparacoes/v0.13.3-2026-10-10-entrar-convite-tela_10-tela_11/index.html).
 
@@ -139,6 +139,12 @@ Com Docker e Supabase local disponíveis, execute `supabase test db`. Para repet
 Novos Hábitos exigem teste de 7 a 30 dias. O último aceite unânime inicia o prazo real. Depois do prazo, a confirmação ativa o Hábito com mais da metade dos participantes originais até 150 pessoas (floor(N/2)+1), ou um terço arredondado para cima acima de 150 (ceil(N/3)). Exemplos: 76 de 150; 51 de 151. A interface explica as regras antes das ações e mostra contagem e prazo reais em `/confirmar`. Ajustes e encerramentos mantêm unanimidade, sete dias de reflexão e aplicação explícita; ajuste abre novo teste e novas confirmações. Hábitos sem prazo precisam de novo período explicitamente aceito, sem inferir datas antigas.
 
 Com Supabase local iniciado e SUPABASE_CLI_PATH configurado, execute `supabase test db` e `node scripts/verify-habit-trial-local.mjs`. O script usa cinco contas temporárias, porta 3200 e `.next-verify`, aceita somente backend local e limpa os dados/servidor ao terminar. A antecipação de prazo acontece somente nas fixtures locais. 84 testes, tipos, build, banco e jornada autenticada passaram. Migração aplicada no nos-dev; 13 funções conferidas, interface autenticada testada localmente. [Registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.11.0-2026-10-03-imp-confirmacao-habito-fun-teste-votacao-proporcional.md).
+
+## v0.14.0 — Percurso 05 Uma proposta de Hábito
+
+Conferência antes de enviar no formulário de Acordos, com edição e preservação dos termos após erro. Enviar registra o aceite do autor; só o último aceite inicia o teste. Caminho disponível 18 → 22 → 23 → 24; necessidade/proposta guiada/compreensão (19–21) e /novo permanecem reservadas. [Contrato e teste manual](Documentacao_Projeto_Nos/_andamento/funcionalidades/proposta-habito.md), [registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.14.0-2026-10-10-imp-proposta-habito-fun-percurso-05.md), [comparação](Documentacao_Projeto_Nos/wireframes/comparacoes/v0.14.0-2026-10-10-proposta-habito-tela_18-tela_19-tela_20-tela_21-tela_22-tela_23-tela_24/index.html).
+
+Repetir com Supabase local: SUPABASE_CLI_PATH configurado e node scripts/test-authenticated-local.mjs habit-proposal.spec.ts. O processo usa contas temporárias e backend local; não altera ambiente remoto. Próximo passo desta área: definir persistência, privacidade e destinatários para necessidade/compreensão antes de integrar o fluxo guiado.
 
 ## Próximo passo após v0.11.0
 

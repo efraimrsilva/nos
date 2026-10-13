@@ -70,8 +70,8 @@ try {
   await page.locator('#screen-preview [name="invitation-code"]').fill('EXEMPLO');await page.locator('#screen-preview [data-local-form="invitation"] button').click();
   assert.equal(await page.locator('#screen-preview .invitation-preview').isVisible(),true);
   await page.locator('#screen-preview [name="invitation-code"]').fill('OUTRO');assert.equal(await page.locator('#screen-preview .invitation-preview').isVisible(),false,'Prévia antiga removida ao editar código');
-  await page.evaluate(()=>openScreen(18));await page.locator('#screen-preview [data-layout="acordos-experiencias"]').click();assert.match(await page.locator('#screen-preview .approved-stage').innerText(),/Jantar romântico/);
-  await page.locator('#screen-preview [data-layout="acordos-essencia"]').click();assert.match(await page.locator('#screen-preview .approved-stage').innerText(),/Nenhuma Essência/);
+  await page.evaluate(()=>openScreen(18));await page.locator('#screen-preview [data-layout="acordos-experiencias"]').click();assert.match(await page.locator('#screen-preview .phone').innerText(),/Jantar romântico/);
+  await page.locator('#screen-preview [data-layout="acordos-essencia"]').click();assert.match(await page.locator('#screen-preview .phone').innerText(),/Nenhuma Essência/);
   await page.locator('#screen-preview [data-reference="approved"]').click();await page.locator('#screen-preview [data-layout="acordos-experiencias"]').click();assert.match(await page.locator('#screen-preview .approved-stage').innerText(),/Jantar romântico/,'Abas também funcionam no documento histórico');
   await page.evaluate(()=>openScreen(47));await page.locator('#screen-preview [data-layout="vinculo-amigo"]').click();assert.match(await page.locator('#screen-preview .approved-stage').innerText(),/Cultivar uma amizade/,'Tipos de vínculo mudam a prévia');
   await page.evaluate(()=>openScreen(62));assert.doesNotMatch(await page.locator('#screen-preview .phone').innerText(),/Responder com carinho|Ana · agora|enviado com carinho/);assert.match(await page.locator('#screen-preview .phone').innerText(),/Preparação privada/);
@@ -115,7 +115,7 @@ try {
   for(const screen of inventory){await page.evaluate(id=>openScreen(id),screen.id);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Sem transbordamento da página ${screen.id}`);}
   await page.evaluate(()=>openScreen(7));await page.emulateMedia({reducedMotion:'reduce'});assert.equal(await page.locator('#screen-preview .product-primary').first().evaluate(el=>getComputedStyle(el).transitionDuration),'0s');
   await page.locator('.view-tabs [data-view="atlas"]').click();assert.equal(await page.locator('.tile').count(),72);
-  await page.locator('#status-filter').selectOption('Planejada');assert.equal(await page.locator('.tile').count(),41);await page.locator('#status-filter').selectOption('all');
+  await page.locator('#status-filter').selectOption('Planejada');assert.equal(await page.locator('.tile').count(),40);await page.locator('#status-filter').selectOption('all');
   await page.locator('#search').fill('recuperar');assert.ok(await page.locator('.tile').count()>0);await page.locator('#search').fill('');
   await page.locator('.view-tabs [data-view="flows"]').click();assert.equal(await page.locator('.flow-card').count(),14);
   await page.locator('.view-tabs [data-view="atlas"]').click();await page.emulateMedia({media:'print'});assert.equal(await page.locator('#atlas-view').isVisible(),true);

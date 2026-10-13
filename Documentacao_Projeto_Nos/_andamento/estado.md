@@ -1,10 +1,34 @@
 # Estado do Projeto Nós
 
-**Versão vigente do projeto:** 0.13.3
+**Versão vigente do projeto:** 0.14.0
 
 **DOCS_DIR:** `Documentacao_Projeto_Nos`
 
-**Atualizado:** 2026-10-10
+**Atualizado:** 2026-10-12
+
+## Publicação de Hábito autorizada — 2026-10-12
+
+Usuário autorizou dois commits separados: conferência de Hábito v0.14.0 e depois MVP. Reconferência: tipos/build e 92 testes gerais em cópia local SHA-256; cinco testes autenticados (uma repetição dispensada), banco 5/6 e Atlas aprovados. Capturas de respostas/detalhe corrigidas por espera de conteúdo/URL e refeitas em computador/celular. Volume G teve timeout; cópia local resolveu sem editar fontes/configuração original. Revisão do conjunto não encontrou bug de comportamento; correção de evidência conferida antes do envio. Objeto inicial de Hábito inspecionado: 57 arquivos, árvore ce5387d26f208b02d7730605bc2d4ed9d23fbe24 igual ao índice preparado. Todos os arquivos confirmados no objeto; pendência retirada por essa evidência e controle incorporado ao mesmo commit lógico. Conferir igualdade remota após enviar os dois commits. Sem deploy ou operação remota de banco.
+
+## Entrega atual — Percurso 05 Uma proposta de Hábito — v0.14.0 — 2026-10-10
+
+**Status:** recorte disponível concluído, revisado e validado localmente. Evolução compatível MINOR 0.13.3 → 0.14.0 pela nova conferência antes do envio. Fluxo guiado 19–21 permanece planejado; não chamar todo o percurso futuro de funcional. Git main, base 56089a5, inicialmente limpo. DOCS_DIR: Documentacao_Projeto_Nos.
+
+**Objetivo/aceite:** comparar telas 18–24 com código/banco, ordenar caminho disponível e futuro; conferir antes de gravar, editar sem perda, preservar campos após erro, manter aceite próprio, unanimidade inicial, recusa e privacidade. Nenhuma nova rota, dependência, migração ou mudança remota.
+
+**Arquivos/decisões:** ProposalForm conserva campos controlados e intercepta o primeiro envio para conferência local; Server Action/RPC existentes validam gravação. 18 → 22 → 23 → 24 é o caminho real, com 18/22/23 na mesma rota. Sequência guiada reservada 18 → 19 → 20 → 21 → 22 → 23 → 24. Atlas mantém categorias e origem histórica explicitamente separada da representação atual. Tela 22 passa a Recorte existente; 72 telas, 14 percursos, 32 recortes e 40 planejadas.
+
+**Validações:** 92/92 testes gerais; 4 casos autenticados desktop/celular e 1 comparador completo aprovados (1 repetição mobile dispensada porque o comparador cobre ambas as larguras); banco 5 arquivos/6 testes; tipos/build; Percurso 05 e Visão global aprovados. Fidelidade: 72 prévias, 184 saídas, 360 estados, 41 referências e 52 layouts, zero erros/chamadas externas no Atlas. Conferência/edição não gravam; aceite e recusa confirmada/cancelada exercitados pela interface. Erro conserva termos; categoria Experiência não herda prazo. Capturas reais/Atlas inspecionadas; rolagem resetada antes de capturar.
+
+**Revisão/limites:** autorrevisão e revisão independente. Dois P2 do Atlas (categorias removidas e atribuição incorreta ao documento aprovado) corrigidos; aviso web P3 também corrigido e conferido pelo verificador. Conferência depende de JavaScript. Bloqueio durante envio não garante idempotência de requisições independentes. Necessidade/compreensão exigem dados, privacidade e destinatários; seleção de participantes, central, notificações e conversa ficam reservadas. Não inferir ativo ou consentimento por silêncio.
+
+**Ferramentas:** Superpowers entendimento/TDD/revisão/verificação; Context7 referência oficial React 19 compatível (versão exata 19.3 não indexada), versão instalada preservada. Octocode CLI 19.1.0 disponível; grafo sintático parcial complementado por leitura local. Supabase CLI 2.118.0/Docker somente locais; sem instalação/configuração nova. Sem commit, push ou deploy.
+
+**Próximo passo executável:** definir contrato de necessidade e compreensão (autoria, persistência, compartilhamento, destinatários e retenção) para desenvolver 19–21 e /novo. **Unidades pendentes de commit desta entrega:** nenhuma; inclusão dos 57 arquivos comprovada no objeto de Git, com código/testes/galeria/versão/documentação. Título: feat(agreements): conferir propostas e sincronizar percurso de Hábito.
+
+**Índice:** [registro v0.14.0](registros/registro-v0.14.0-2026-10-10-imp-proposta-habito-fun-percurso-05.md), [contrato e teste manual](funcionalidades/proposta-habito.md), [comparação](../wireframes/comparacoes/v0.14.0-2026-10-10-proposta-habito-tela_18-tela_19-tela_20-tela_21-tela_22-tela_23-tela_24/index.html), [verificador](../wireframes/tools/verify-habit-proposal-journey.mjs).
+
+**Conferência final:** tipos/build reconferidos na v0.14.0; 510 links locais dos 11 documentos alterados, 16 seleções/40 carregamentos de imagens da galeria, sintaxe e diff aprovados. Revisão independente reconferiu P2/P3 corrigidos, sem achados materiais restantes, e executou o verificador do Percurso 05. Zero contas temporárias proposal/routing restantes; Supabase local encerrado com backup, sem reset. Servidores de testes encerrados; prévia documental para revisão disponível somente em 127.0.0.1:3435. Falha do seletor de categoria no teste corrigida e repetida em ambas as larguras. Sem commit, push ou deploy.
 
 ## Publicação autorizada — padrão e migração das comparações — 2026-10-10
 
@@ -283,7 +307,7 @@ Agenda por Núcleo concluída na **v0.6.0**: eventos pontuais com título, inten
 
 **Unidades pendentes de commit neste marco histórico:** nenhuma para a correção visual e orientação de prioridade alta; inclusão no commit confirmada por inspeção do objeto e comparação da árvore. Mensagem: `docs(wireframe): alinhar atlas ao app e consolidar prioridade visual`.
 
-**Contador de interações:** 92, incluindo a publicação autorizada das diretrizes e migração de comparações, a partir da última contagem persistida 91; eventuais interações sem registro não foram inventadas. Começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
+**Contador de interações:** 93, incluindo a conclusão do recorte disponível do Percurso 05, a partir da última contagem persistida 92; eventuais interações sem registro não foram inventadas. Começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
 
 ## Objetivo e situação histórica — v0.11.0
 

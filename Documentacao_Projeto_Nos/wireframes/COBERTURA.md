@@ -1,10 +1,12 @@
 # Cobertura e pendências do wireframe
 
-Material de planejamento criado em 2026-10-03 e corrigido visualmente em 2026-10-04. Referência funcional: v0.13.3. Atualização do Percurso 04 em 2026-10-10.
+Material de planejamento criado em 2026-10-03 e corrigido visualmente em 2026-10-04. Referência funcional: v0.14.0. Atualização do Percurso 05 em 2026-10-10.
 
-Percurso 04: chegada direta 01 → 10 → 11 → 13 → 12; entrada comum 01 → 12 → 10. Cadastro/confirmação/recuperação preservam o destino. Tipo, adiamento sem associação, edição e estados de convite indisponível sincronizados. QR/leitura e transporte por link reservados na Tela 10; QR de geração na Tela 58 e gestão na Tela 59 continuam planejados. Inventário preservado: 72 telas, 14 percursos, 31 recortes e 41 planejadas. [Contrato](../_andamento/funcionalidades/entrada-convite.md) e [comparação](comparacoes/v0.13.3-2026-10-10-entrar-convite-tela_10-tela_11/index.html).
+Percurso 05: caminho disponível **18 → 22 → 23 → 24**, com conferência e respostas dentro do hub. Conferir/editar não gravam; enviar registra aceite do autor; último aceite inicia teste, recusa encerra. Sequência guiada 18 → 19 → 20 → 21 → 22 → 23 → 24 reservada, com 19–21 planejadas. Tela 22 é recorte existente de conferência, sem /novo. Inventário vigente: 72 telas, 14 percursos, 32 recortes e 40 planejadas. [Contrato](../_andamento/funcionalidades/proposta-habito.md), [comparação](comparacoes/v0.14.0-2026-10-10-proposta-habito-tela_18-tela_19-tela_20-tela_21-tela_22-tela_23-tela_24/index.html) e [verificador](tools/verify-habit-proposal-journey.mjs). As prévias 18/22/23 representam os estados implementados; as composições históricas continuam acessíveis como referência.
 
-Percurso 03 validado localmente: 01 (login) → 04 → callback validado → 05 → 01 (novo login) → 12, com destino interno específico preservado. Voltar para Conta abre login; parâmetros repetidos/misturados são rejeitados antes do Auth. Remetente Gmail escolhido; configuração e recebimento externo permanecem pendentes. Inventário preservado: 72 telas, 14 percursos, 31 recortes e 41 planejadas. [Comparação](comparacoes/v0.13.2-2026-10-09-recuperar-acesso-tela_04-tela_05/index.html).
+Histórico v0.13.3 — Percurso 04: chegada direta 01 → 10 → 11 → 13 → 12; entrada comum 01 → 12 → 10. Cadastro/confirmação/recuperação preservam o destino. Tipo, adiamento sem associação, edição e estados de convite indisponível sincronizados. QR/leitura e transporte por link reservados na Tela 10; QR de geração na Tela 58 e gestão na Tela 59 continuam planejados. Inventário preservado: 72 telas, 14 percursos, 31 recortes e 41 planejadas. [Contrato](../_andamento/funcionalidades/entrada-convite.md) e [comparação](comparacoes/v0.13.3-2026-10-10-entrar-convite-tela_10-tela_11/index.html).
+
+Histórico v0.13.2 — Percurso 03 validado localmente: 01 (login) → 04 → callback validado → 05 → 01 (novo login) → 12, com destino interno específico preservado. Voltar para Conta abre login; parâmetros repetidos/misturados são rejeitados antes do Auth. Remetente Gmail escolhido; configuração e recebimento externo permanecem pendentes. Inventário preservado: 72 telas, 14 percursos, 31 recortes e 41 planejadas. [Comparação](comparacoes/v0.13.2-2026-10-09-recuperar-acesso-tela_04-tela_05/index.html).
 
 ## Situação verificada
 
@@ -12,11 +14,11 @@ v0.13.1: Telas 01/02 mantêm árvore/frases e largura ao alternar cadastro/login
 
 **Visão global:** reutiliza os 72 desenhos e suas situações/pendências; o mapa não altera a classificação de implementação. Percursos e destinos vêm do inventário; ligações de contexto estão distinguidas de saídas previstas nas fichas. [Abrir mapa](atlas/index.html#visao-global) e seguir o [padrão de sincronização/comparações](GUIA.md#visão-global-sincronização-e-comparações--procedimento-permanente).
 
-Conferência atualizada em 2026-10-07: as 72 fichas, situações e pendências coincidem com este inventário e com os rótulos visíveis nas miniaturas e na inspeção. Todos os 31 recortes existentes apontam para rotas presentes no código; isso não confirma as ampliações ilustradas. Os 41 desenhos planejados continuam identificados. **Antes de implementar qualquer tela, consultar seu aspecto no modo Atlas vivo com prioridade alta**, conforme o [procedimento obrigatório](GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05).
+Conferência atualizada em 2026-10-10: as 72 fichas, situações e pendências coincidem com este inventário e com os rótulos visíveis nas miniaturas e na inspeção. Todos os 32 recortes existentes apontam para rotas presentes no código; isso não confirma as ampliações ilustradas. Os 40 desenhos planejados continuam identificados. **Antes de implementar qualquer tela, consultar seu aspecto no modo Atlas vivo com prioridade alta**, conforme o [procedimento obrigatório](GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05).
 
 - 72 telas/estados; 8 áreas; 14 percursos.
-- 41 telas planejadas e pendentes de implementação.
-- 31 recortes existentes: o desenho pode incluir ampliações ainda pendentes, descritas individualmente.
+- 40 telas planejadas e pendentes de implementação.
+- 32 recortes existentes: o desenho pode incluir ampliações ainda pendentes, descritas individualmente.
 - As 37 interfaces do catálogo v2.1 estão mapeadas. Continuação de página, aba e estado podem compartilhar rota; 72 desenhos não significam 72 rotas novas.
 
 ## Inventário completo
@@ -40,12 +42,12 @@ Conferência atualizada em 2026-10-07: as 72 fichas, situações e pendências c
 | 15 | Início e agenda | [Detalhe do evento](atlas/index.html#tela-15) | Recorte existente | Complemento da 03 | /nucleos/[id]/agenda · item existente | Operações existentes no hub da agenda; rota individual é evolução proposta. |
 | 16 | Início e agenda | [Novo evento](atlas/index.html#tela-16) | Recorte existente | Complemento da 03 | /nucleos/[id]/agenda · formulário | Criação existente; campos devem respeitar esquema atual no desenvolvimento. |
 | 17 | Início e agenda | [Editar evento](atlas/index.html#tela-17) | Recorte existente | Complemento da 03 | /nucleos/[id]/agenda · edição | Edição e remoção existentes; notificações de mudança pendentes. |
-| 18 | Acordos e consentimento | [Acordos](atlas/index.html#tela-18) | Recorte existente | 04 | /nucleos/[id]/acordos | Hub real; fluxo em quatro etapas e módulos de Essência ainda planejados. |
+| 18 | Acordos e consentimento | [Acordos](atlas/index.html#tela-18) | Recorte existente | 04 | /nucleos/[id]/acordos | Formulário, conferência, filtros e respostas reais no hub. Necessidade, compreensão, seleção de participantes e Essência ainda planejadas. |
 | 19 | Acordos e consentimento | [Novo acordo · necessidade](atlas/index.html#tela-19) | Planejada | 08 | Proposta: /nucleos/[id]/acordos/novo · etapa 1 | Hub cria propostas; fluxo guiado completo ainda não existe. |
 | 20 | Acordos e consentimento | [Novo acordo · proposta](atlas/index.html#tela-20) | Planejada | Fluxo v2.2 · etapa complementar | Proposta: /nucleos/[id]/acordos/novo · etapa 2 | Dados essenciais e prazo já existem no formulário atual; novo fluxo e seleção explícita pendentes. |
 | 21 | Acordos e consentimento | [Novo acordo · compreensão](atlas/index.html#tela-21) | Planejada | Fluxo v1.10 / v2.2 | Proposta: /nucleos/[id]/acordos/novo · etapa 3 | Compreensão estruturada e fluxo assíncrono pendentes. |
-| 22 | Acordos e consentimento | [Novo acordo · conferir](atlas/index.html#tela-22) | Planejada | Fluxo v2.2 · etapa complementar | Proposta: /nucleos/[id]/acordos/novo · etapa 4 | Criação existe no hub; tela de conferência é futura. |
-| 23 | Acordos e consentimento | [Aprovações](atlas/index.html#tela-23) | Recorte existente | 36 | /nucleos/[id]/acordos · respostas / hub futuro | Respostas existentes no hub; central unificada ainda não implementada. |
+| 22 | Acordos e consentimento | [Novo acordo · conferir](atlas/index.html#tela-22) | Recorte existente | Fluxo v2.2 · etapa complementar | /nucleos/[id]/acordos · conferência do formulário | Conferência implementada dentro do hub. Rota /novo e integração guiada com necessidade/compreensão permanecem planejadas. |
+| 23 | Acordos e consentimento | [Aprovações](atlas/index.html#tela-23) | Recorte existente | 36 | /nucleos/[id]/acordos · respostas / hub futuro | Respostas individuais no hub, sem central unificada, abas Enviados/Aguardando você, votos alheios ou notificações implementadas. |
 | 24 | Acordos e consentimento | [Detalhe do Hábito](atlas/index.html#tela-24) | Recorte existente | 05, 06 | /nucleos/[id]/acordos/[agreementId] | Detalhe, registro, confirmação e revisão existem; reflexões/impacto/evento associado pendentes. |
 | 25 | Acordos e consentimento | [Histórico do Hábito](atlas/index.html#tela-25) | Recorte existente | 05 · aba histórico | /nucleos/[id]/acordos/[agreementId] · histórico | Histórico real existente, com cursor; foto e memória geral ainda pendentes. |
 | 26 | Acordos e consentimento | [Reflexões do Hábito](atlas/index.html#tela-26) | Planejada | 05 · aba reflexões | Proposta: detalhe do Hábito · reflexões | Persistência e privacidade das reflexões pendentes. |

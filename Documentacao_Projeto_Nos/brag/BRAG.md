@@ -1,6 +1,14 @@
 # Brag document — Projeto Nós
 
-**Versão vigente do projeto:** 0.13.3
+**Versão vigente do projeto:** 0.14.0
+
+## 2026-10-10 — Conferência da proposta e clareza do Percurso 05
+
+- **Problema:** envio direto sem conferência e percurso disponível misturado às telas guiadas ainda planejadas.
+- **Contribuição:** conferência local de todos os termos, aceite do autor explícito, edição/erro sem perda; caminho disponível e reservas guiadas sincronizados, com origem visual correta e categorias preservadas.
+- **Resultado verificado:** 92 testes gerais, 4 casos autenticados desktop/celular e 1 comparador completo; banco/tipos/build/Atlas aprovados. Aceite e recusa pela interface, cancelar recusa sem escrita. 72 prévias/184 saídas/360 estados/52 layouts; zero erro ou chamada externa no Atlas.
+- **Benefício esperado:** reduzir envio sem revisão e tornar pendências compreensíveis; nenhuma métrica de uso foi medida.
+- **Evidência:** [registro](../_andamento/registros/registro-v0.14.0-2026-10-10-imp-proposta-habito-fun-percurso-05.md), [contrato](../_andamento/funcionalidades/proposta-habito.md), [comparação](../wireframes/comparacoes/v0.14.0-2026-10-10-proposta-habito-tela_18-tela_19-tela_20-tela_21-tela_22-tela_23-tela_24/index.html).
 
 ## 2026-10-10 — Entrada por convite e sequência do Percurso 04
 

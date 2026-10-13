@@ -1,6 +1,8 @@
 # Wireframe completo do Projeto Nós
 
-**Natureza:** material de planejamento e revisão de produto, criado em 2026-10-03. **Referência do aplicativo:** v0.13.3.
+**Natureza:** material de planejamento e revisão de produto, criado em 2026-10-03. **Referência do aplicativo:** v0.14.0.
+
+Percurso 05: caminho disponível **18 → 22 → 23 → 24**, com conferência e respostas dentro do hub. Conferir/editar não gravam; enviar registra aceite do autor; último aceite inicia teste, recusa encerra. Sequência guiada 18 → 19 → 20 → 21 → 22 → 23 → 24 reservada, com 19–21 planejadas. Tela 22 é recorte existente de conferência, sem /novo. Inventário vigente: 72 telas, 14 percursos, 32 recortes e 40 planejadas. [Contrato](../_andamento/funcionalidades/proposta-habito.md), [comparação](comparacoes/v0.14.0-2026-10-10-proposta-habito-tela_18-tela_19-tela_20-tela_21-tela_22-tela_23-tela_24/index.html) e [verificador](tools/verify-habit-proposal-journey.mjs). As prévias 18/22/23 representam os estados implementados; as composições históricas continuam acessíveis como referência.
 
 Percurso 04 atualizado em 2026-10-10: chegada direta e entrada pela lista são alternativas; prévia e adiamento não criam associação. Conferir [contrato e reservas](../_andamento/funcionalidades/entrada-convite.md) e [comparação](comparacoes/v0.13.3-2026-10-10-entrar-convite-tela_10-tela_11/index.html). As Telas 10/11 representam estados da mesma rota; QR, link e gestão continuam planejados.
 
@@ -74,7 +76,7 @@ A antiga entrada afetiva está preservada como composição opcional na Tela 72,
 
 **Planejada** significa que a tela ainda requer implementação ou contrato próprio. **Recorte existente** significa que a base funcional existe, mas a composição afetiva aprovada pode conter extensões futuras. A ficha declara esses limites. Os rótulos de procedência distinguem layout implementado, base do documento e extensão; a presença de um recorte funcional não confirma todos os elementos do desenho.
 
-Há 41 telas planejadas e 31 recortes existentes. Os principais conjuntos pendentes são:
+Há 40 telas planejadas e 32 recortes existentes. Os principais conjuntos pendentes são:
 
 - **Conta:** telas 01–05 e 72 implementadas e comparadas. SMTP, remetente, domínio e limites do ambiente de lançamento ainda precisam de conferência; funcionalidades de login social e gestão de dados são módulos próprios.
 - **Núcleos:** listagem multínucleo e seleção implementadas na Tela 12; permanecem gestão de convites, QR (código de resposta rápida), compartilhamento ampliado e saída com tratamento das dependências. Administrador é papel documental futuro; o recorte atual usa criador e membro.

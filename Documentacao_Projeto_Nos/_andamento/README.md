@@ -1,12 +1,12 @@
 # Andamento do Projeto Nós
 
-**Versão vigente do projeto:** 0.13.1
+**Versão vigente do projeto:** 0.14.0
 
-Entrega atual: [v0.13.1 — Alinhamento visual de Conta](registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md). Mudança visual local, ainda pendente de commit.
+Entrega atual: [v0.14.0 — Percurso 05 Uma proposta de Hábito](registros/registro-v0.14.0-2026-10-10-imp-proposta-habito-fun-percurso-05.md). Conferência no hub concluída localmente, com fluxo guiado reservado; unidade incluída no commit autorizado, com objeto conferido em 2026-10-12. [Contrato](funcionalidades/proposta-habito.md). O estado canônico abaixo mantém as publicações anteriores, sem pendência fictícia de Conta.
 
 Este diretório preserva o contexto operacional entre sessões e retomadas do projeto.
 
-Entrega mais recente: [v0.13.0 — Navegação e sessão](registros/registro-v0.13.0-2026-10-07-05-imp-navegacao-protegida-fun-sessao-seus-nucleos.md); [contrato](funcionalidades/navegacao-sessao.md) e [galeria](../wireframes/comparacoes/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/index.html).
+Entrega histórica: [v0.13.0 — Navegação e sessão](registros/registro-v0.13.0-2026-10-07-05-imp-navegacao-protegida-fun-sessao-seus-nucleos.md); [contrato](funcionalidades/navegacao-sessao.md) e [galeria](../wireframes/comparacoes/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/index.html).
 
 Entrega anterior: [v0.12.0 — Conta e entrada](registros/registro-v0.12.0-2026-10-07-imp-conta-entrada-fun-recuperacao-integrada.md). [Contrato](funcionalidades/conta-entrada.md), [plano](planos/conta-entrada.md) e [diferenças visuais](../wireframes/comparacoes/v0.12.0-2026-10-07-conta-entrada-tela_01-tela_02-tela_03-tela_04-tela_05-tela_72/index.html).
 

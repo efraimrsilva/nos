@@ -22,7 +22,7 @@ function globalJourneyHtml(journey,index){
     const direct=i&&byId(journey.ids[i-1]).actions.some(action=>action.to===id);
     const transition=i?`<span class="global-transition ${direct?'direct':'context'}" data-from="${journey.ids[i-1]}" data-to="${id}" title="${direct?'Saída prevista na ficha':'Etapa de contexto; não implica botão direto'}"><span aria-hidden="true">${direct?'→':'↝'}</span><small>${direct?'Saída':'Contexto'}</small></span>`:'';
     return `${transition}<button class="flow-node" data-go="${id}" ${journey.steps&&id===1?'data-entry-login':''}><strong>${pad(id)}</strong>${escapeHtml(byId(id).title)}<small>${escapeHtml(byId(id).status)}</small>${journey.steps?.[i]?`<small>${escapeHtml(journey.steps[i])}</small>`:''}</button>`;
-  }).join('')}</div><p>${escapeHtml(journey.rule)}</p></details>`;
+  }).join('')}</div><p>${escapeHtml(journey.rule)}</p>${futurePathHtml(journey)}</details>`;
 }
 function renderGlobal(){
   const savedReference=referenceMode,savedLayout=documentLayoutKey;referenceMode=false;documentLayoutKey='';

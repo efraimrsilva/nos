@@ -1,6 +1,6 @@
 # Histórico de andamento
 
-**Versão vigente do projeto:** 0.13.1
+**Versão vigente do projeto:** 0.14.0
 
 ## 2026-10-07 — v0.13.1 — Alinhamento visual de Conta
 
@@ -431,3 +431,17 @@ Conferência da migração: 77 arquivos em seis pastas; 71 imagens com hash idê
 Usuário autorizou commit/push abrangentes do padrão versão/data/assunto/tela, da migração das seis galerias e da atualização de referências. Fetch confirmou main/origin/main sem divergência sobre dbefcd3. Verificação repetida das galerias/hashes/seletores/links, ausência de caminhos antigos ativos e carregamento dos testes com --list aprovada. [Registro da publicação](registros/registro-v0.13.3-2026-10-10-06-imp-publicacao-comparacoes-fun-rastreabilidade-migracao.md). Inspecionar objeto e igualdade remota; sem incremento funcional ou deploy.
 
 Objeto desta publicação inspecionado: 101 arquivos, 76 renomes idênticos e um HTML com ajuste de link; árvore inicial 4973af998eaf908dcad8d664e40e32473e746a40 coincide com índice preparado. Pendência removida após comprovar inclusão e controle incorporado ao mesmo commit lógico. 917 alvos de links documentais e diff aprovados; identificador definitivo reportado após conferência remota no encerramento.
+
+
+## 2026-10-10 — v0.14.0 — Percurso 05 Uma proposta de Hábito
+
+- **Produto:** conferência antes do envio no hub; editar/erro conservam campos; autor conhece seu aceite e inclusão dos membros atuais. Sem nova rota ou migração.
+- **Atlas:** disponível 18 → 22 → 23 → 24; guiado reservado 18 → 19 → 20 → 21 → 22 → 23 → 24. Tela 22 passa a recorte existente; 72 telas/14 percursos/32 recortes/40 planejadas. Categorias/referências históricas preservadas; atribuição visual corrigida.
+- **Evidência:** 92 testes gerais, 4 casos autenticados e 1 comparador completo; banco 5 arquivos/6 testes, tipos/build, Atlas/Visão global; revisão independente com dois P2 corrigidos. Nenhum dado remoto alterado, commit, push ou deploy. [Registro](registros/registro-v0.14.0-2026-10-10-imp-proposta-habito-fun-percurso-05.md), [contrato](funcionalidades/proposta-habito.md), [galeria](../wireframes/comparacoes/v0.14.0-2026-10-10-proposta-habito-tela_18-tela_19-tela_20-tela_21-tela_22-tela_23-tela_24/index.html).
+
+
+## 2026-10-12 — Reconferência e autorização de publicação de Hábito — v0.14.0
+
+Usuário autorizou publicar Hábito e MVP em dois commits separados. Tipos/build, 92 testes gerais, cinco testes autenticados (uma repetição dispensada), banco 5/6 e Atlas aprovados novamente. Revisão identificou capturas prematuras das respostas/detalhe; esperas corrigidas e quatro imagens refeitas antes de publicar. Inicialização no G excedeu 120s; cópia local conferida por SHA-256 resolveu sem mudar fontes. Verificação somente local, sem deploy ou alteração remota de banco. [Registro](registros/registro-v0.14.0-2026-10-10-imp-proposta-habito-fun-percurso-05.md).
+
+Objeto inicial de Hábito inspecionado: 57 arquivos; árvore ce5387d26f208b02d7730605bc2d4ed9d23fbe24 idêntica ao índice preparado. Inclusão dos arquivos confirmada, pendência retirada e controle incorporado ao mesmo commit lógico antes do envio.

@@ -56,6 +56,7 @@ try {
   await a.page.getByLabel("Quando?", { exact: true }).fill("Depois do jantar");
   await a.page.getByLabel("Com que frequência?").fill("Diária");
   await a.page.getByLabel("Duração do teste (dias)").fill("14");
+  await a.page.getByRole("button", { name: "Conferir proposta", exact: true }).click();
   await a.page.getByRole("button", { name: "Enviar para aprovação" }).click();
   await expect(a.page).toHaveURL(/resultado=proposta/);
   const [habit] = checked(await a.client.from("nucleus_agreements").select("id,trial_days").eq("nucleus_id", nucleusId).eq("title", "Conversar após jantar"));
