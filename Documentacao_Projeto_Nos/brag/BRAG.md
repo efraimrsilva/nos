@@ -172,3 +172,12 @@ Registro factual de contribuições; resultados medidos são separados de benef�
 - Resultado verificado: 132 testes desktop/celular, tipos/build e Atlas aprovados; acesso a outro Núcleo negado, renovação válida mantida e envio expirado sem criação. Revisão independente sem achados materiais restantes. Integração desta entrega somente local.
 - Benefício esperado: reduzir confusão ao entrar e impedir renderização privada sem identidade válida.
 - Evidência: [registro v0.13.0](../_andamento/registros/registro-v0.13.0-2026-10-07-05-imp-navegacao-protegida-fun-sessao-seus-nucleos.md), src/proxy.ts, src/app/nucleos/page.tsx e tests/authenticated/session-navigation.spec.ts.
+
+
+## 2026-10-13 — v0.14.1 — Mensagens corretas na entrada da conta
+
+- Problema: falha do serviço ou limite do Auth era apresentado como credenciais incorretas; consulta pública ignorava indisponibilidade.
+- Contribuição: separar mensagens de limite/transporte/credenciais e sinalizar consulta de sessão falha, preservando retorno interno e privacidade dos e-mails.
+- Resultado verificado: regressão falhou antes/passou depois; 100 testes gerais, tipos/build e jornada real local de e-mail aprovados; revisão independente sem achados relevantes restantes.
+- Benefício esperado: orientar a próxima tentativa sem induzir troca desnecessária de senha. Redução de tentativas não medida. Gmail externo ainda pendente.
+- Evidência: [registro](../_andamento/registros/registro-v0.14.1-2026-10-13-imp-acesso-existente-fun-mvp-etapa-01.md), tests/auth-service.spec.ts e [comparação](../wireframes/comparacoes/v0.14.1-2026-10-13-acesso-indisponivel-tela_01/index.html).

@@ -1,6 +1,6 @@
 # MVP e caminho de implementação — Projeto Nós
 
-**Versão de referência:** v0.14.0. **Aprovado pelo usuário:** 2026-10-12. **Status:** roteiro aprovado; funcionalidades futuras permanecem planejadas.
+**Versão de referência:** v0.14.1. **Aprovado pelo usuário:** 2026-10-12. **Status:** roteiro aprovado; funcionalidades futuras permanecem planejadas.
 
 A [guia MVP do Atlas vivo](../../wireframes/atlas/index.html#mvp) orienta a prioridade das próximas entregas. A [Visão global](../../wireframes/atlas/index.html#visao-global) orienta a navegação do produto; a ordem de desenvolvimento não obriga a pessoa a percorrer todas as telas. Antes de codificar, inspecionar a tela no modo vivo com prioridade alta, ler ficha/contrato e conferir permissões.
 
@@ -49,3 +49,8 @@ Ao criar/remover uma tela, revisar sua etapa e dependências. O aviso de cobertu
 Próximo passo aprovado de planejamento: etapa 01, reconferir login/recuperação/retorno e limites operacionais, aproveitando implementações atuais. Necessidade/compreensão 19–21 e Nossa Árvore permanecem previstas nas etapas 06/07; as indicações anteriores de começar por esses módulos ficam substituídas como prioridade geral. Não iniciar nova funcionalidade nesta entrega de documentação/publicação.
 
 [Registro e evidências](../registros/registro-v0.14.0-2026-10-12-imp-mvp-atlas-fun-roteiro-aprovado.md) · [Procedimento central](../../wireframes/GUIA.md#mvp-aprovado--prioridade-e-manutenção-do-roteiro).
+
+
+## Etapa 01 — conferência em 13/10/2026 — v0.14.1
+
+As seis telas e funções de acesso foram reconferidas localmente. P2 de falha de serviço/limite tratado e testado. Tipos/build, 100 testes gerais e jornada real local de cadastro/confirmação/recuperação/revogação aprovados. O critério operacional permanece aberto: Google ainda não liberou senha de aplicativo; ativar SMTP Gmail e comprovar recebimento externo, retorno e configuração do ambiente de uso. A preparação -Check foi validada sem alterações remotas. Prioridade continua etapa 01 até encerrar essa dependência. [Registro](../registros/registro-v0.14.1-2026-10-13-imp-acesso-existente-fun-mvp-etapa-01.md).

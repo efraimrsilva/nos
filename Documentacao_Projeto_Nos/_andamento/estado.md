@@ -1,12 +1,30 @@
 # Estado do Projeto Nós
 
-**Versão vigente do projeto:** 0.14.0
+**Versão vigente do projeto:** 0.14.1
 
 **DOCS_DIR:** `Documentacao_Projeto_Nos`
 
-**Atualizado:** 2026-10-12
+**Atualizado:** 2026-10-13
 
-## MVP aprovado e publicação em duas unidades — v0.14.0 — 2026-10-12
+## Conferência MVP etapa 01 — v0.14.1 — 2026-10-13
+
+**Objetivo/escopo:** conferir telas 01, 02, 03, 04, 05 e 72 e funções de acesso do Atlas. Documentação inicialmente dispensada, depois autorizada. Nenhuma etapa seguinte iniciada.
+
+**Situação atual:** código de acesso validado localmente; corrigido P2 de mensagens de indisponibilidade/limite do login e consulta de sessão. Cadastro, confirmação/reenvio, recuperação/revogação, renovação, saída e retorno de convite reconferidos. A etapa 01 continua operacionalmente pendente: Google ainda não liberou a senha de aplicativo do Gmail, confirmado pelo usuário em 13/10. Não confundir configuração preparada com SMTP ativo ou recebimento comprovado.
+
+**Arquivos/decisões:** actions.ts distingue 429/transporte/5xx de credenciais; Conta/raiz preservam motivo da falha de getUser. Formulário/next e mensagens neutras de e-mail preservados. Dois testes de regressão falharam antes e passaram após a correção; um de credenciais permaneceu aprovado. Atlas/MVP/ficha e comparação atualizados. Nenhuma nova rota, migração ou dependência.
+
+**Validações:** tipos e build aprovados; 100 testes gerais computador/celular após corrigir; 14 testes autenticados de sessão antes da correção; jornada real completa de e-mail local aprovada após corrigir, com revogação de outra sessão, link usado, token direto, prova adulterada e limpeza de fixtures. Servidor dev excedeu orçamento; mesma jornada passou com compilação local de produção. Fontes/configuração/testes comparados por SHA-256. Atlas MVP/Visão global/Percurso 03 e sintaxe aprovados; 501 links locais e seis imagens da galeria conferidos. Supabase local encerrado com backup sem reset e servidores de validação encerrados. Preparação Gmail -Check aprovada em leitura. Revisão independente reconferiu o P2 sem outros achados relevantes. Galeria demonstra apresentação via erro=servico; não constitui interrupção de rede real.
+
+**Ferramentas:** Superpowers depuração/TDD/revisão/verificação; Context7 Supabase sobre revogação/expiração; Octocode 19.1.0 com grafo sintático parcial complementado por leitura local. Versões instaladas preservadas. Supabase 2.118.0/Docker somente locais nas jornadas; leitura remota restrita à configuração Gmail.
+
+**Bloqueio/próximo passo:** após Google liberar senha de aplicativo, executar scripts/configure-gmail-smtp.ps1 com entrada oculta e certificar recebimento externo, confirmação/recuperação/retorno/revogação. Conferir origem, URLs autorizadas, HTTPS e segredo no ambiente de uso. Senha não deve ser enviada pelo chat. Não declarar etapa 01 totalmente fechada antes desta prova.
+
+**Git:** main, base 2c7a836. Commit e push da entrega completa autorizados em 13/10/2026. Fetch confirmou divergência 0/0; reconferência de verificações e inspeção do objeto antes do envio. Sem deploy ou alteração remota de configuração/banco. **Unidades pendentes de commit:** nenhuma. Os 29 arquivos da entrega foram comprovados no objeto Git; árvore inicial 935142e09add8e73171ec69acd3d90f901c82e6c idêntica ao índice preparado. Retirada da pendência incorporada ao mesmo commit lógico antes do push autorizado. Título: fix(auth): corrigir falhas de acesso e conferir etapa 01 do MVP. Identificador definitivo e igualdade remota devem ser conferidos no encerramento.
+
+**Índice:** [publicação autorizada](registros/registro-v0.14.1-2026-10-13-02-imp-publicacao-git-fun-rastreabilidade-mvp-01.md), [registro v0.14.1](registros/registro-v0.14.1-2026-10-13-imp-acesso-existente-fun-mvp-etapa-01.md), [contrato](funcionalidades/conta-entrada.md), [MVP](planos/mvp.md), [Atlas vivo](../wireframes/atlas/index.html#mvp), [comparação Tela 01](../wireframes/comparacoes/v0.14.1-2026-10-13-acesso-indisponivel-tela_01/index.html).
+
+## Marco histórico — MVP aprovado e publicação em duas unidades — v0.14.0 — 2026-10-12
 
 **Objetivo/aceite:** registrar a aprovação do MVP, orientar do login existente até todo o projeto e publicar Hábito + MVP em commits separados conforme escolha explícita do usuário. Aprovação do roteiro não conclui funcionalidades nem contratos pendentes. Versão funcional 0.14.0 preservada nesta entrega documental.
 
@@ -325,7 +343,7 @@ Agenda por Núcleo concluída na **v0.6.0**: eventos pontuais com título, inten
 
 **Unidades pendentes de commit neste marco histórico:** nenhuma para a correção visual e orientação de prioridade alta; inclusão no commit confirmada por inspeção do objeto e comparação da árvore. Mensagem: `docs(wireframe): alinhar atlas ao app e consolidar prioridade visual`.
 
-**Contador de interações:** 95: contagem persistida 93 + elaboração do MVP (registro dispensado naquela interação) + aprovação documental/publicação atual. Resposta de esclarecimento do escopo integra a solicitação atual; nenhuma interação desconhecida foi inventada. Início em 2026-09-25. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
+**Contador de interações:** 97: 96 persistidas + publicação autorizada da etapa 01 nesta solicitação. Início em 2026-09-25; último marco de over-engineering: nenhum (0); próxima auditoria: 100.
 
 ## Objetivo e situação histórica — v0.11.0
 

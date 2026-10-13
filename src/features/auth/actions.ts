@@ -6,6 +6,7 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { routes } from "@/shared/routes";
 import { isValidEmail, isValidPassword, safeAuthNext, withAuthNext } from "./input";
 import { recoveryCookie } from "./recovery-proof";
+import { isAuthRetryableFetchError } from "@supabase/supabase-js";
 
 export type AuthFormState = { message: string; success: boolean; revision: number; retryAt?: number };
 
@@ -40,7 +41,14 @@ export async function submitAuth(previous: AuthFormState, formData: FormData): P
     if (!data.session) redirect(withAuthNext("/conta/confirmar-email", next));
   } else {
     const { error } = await supabase.auth.signInWithPassword({ email, password });
-    if (error) return fail("Não foi possível entrar. Confira o e-mail e a senha.");
+    if (error) {
+      // O Auth distingue limite e falha de transporte de uma recusa das credenciais.
+      if (error.status === 429) return fail("Muitas tentativas de acesso. Aguarde um pouco antes de tentar novamente.");
+      if (isAuthRetryableFetchError(error) || (error.status ?? 0) >= 500) {
+        return fail("Não foi possível acessar o serviço de autenticação. Tente novamente em instantes.");
+      }
+      return fail("Não foi possível entrar. Confira o e-mail e a senha.");
+    }
   }
 
   // Um login comum não mantém uma prova anterior de recuperação de senha.

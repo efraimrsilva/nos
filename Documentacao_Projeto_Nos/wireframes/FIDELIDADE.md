@@ -1,8 +1,10 @@
 # Fidelidade visual e manutenção do atlas
 
+**Conferência vigente — v0.14.1 — 2026-10-13:** etapa 01 validada localmente; mensagem de sessão indisponível da Tela 01 sincronizada. 72 telas, 32 recortes/40 planejadas preservados. Gmail ainda aguarda senha de aplicativo/recebimento externo. [Registro](../_andamento/registros/registro-v0.14.1-2026-10-13-imp-acesso-existente-fun-mvp-etapa-01.md), [comparação](comparacoes/v0.14.1-2026-10-13-acesso-indisponivel-tela_01/index.html). Os marcos abaixo permanecem históricos.
+
 **MVP aprovado — 2026-10-12 — v0.14.0:** [guia prioritária](atlas/index.html#mvp) e [plano registrado](../_andamento/planos/mvp.md). Todas as 72 telas e 184 ações atuais das fichas estão relacionadas; 13 etapas, 37 telas/estados no primeiro marco. Situações preservadas: 32 recortes existentes/40 planejadas. Títulos, regras, limites e desenhos usam a mesma fonte viva, sem cópia visual. ID sem etapa/ausente/duplicado sinaliza cobertura a revisar. Aprovação não conclui funcionalidades. [Manutenção obrigatória](GUIA.md#mvp-aprovado--prioridade-e-manutenção-do-roteiro), [comparação documental](comparacoes/v0.14.0-2026-10-12-mvp-atlas-tela_01-a-tela_72/index.html) e [verificador](tools/verify-mvp-view.mjs).
 
-Referência funcional: **v0.14.0**. Percurso 05 sincronizado em 2026-10-10; base histórica preservada.
+Referência funcional: **v0.14.1**. Percurso 05 sincronizado em 2026-10-10; base histórica preservada.
 
 Percurso 05: caminho disponível **18 → 22 → 23 → 24**, com conferência e respostas dentro do hub. Conferir/editar não gravam; enviar registra aceite do autor; último aceite inicia teste, recusa encerra. Sequência guiada 18 → 19 → 20 → 21 → 22 → 23 → 24 reservada, com 19–21 planejadas. Tela 22 é recorte existente de conferência, sem /novo. Inventário vigente: 72 telas, 14 percursos, 32 recortes e 40 planejadas. [Contrato](../_andamento/funcionalidades/proposta-habito.md), [comparação](comparacoes/v0.14.0-2026-10-10-proposta-habito-tela_18-tela_19-tela_20-tela_21-tela_22-tela_23-tela_24/index.html) e [verificador](tools/verify-habit-proposal-journey.mjs). As prévias 18/22/23 representam os estados implementados; as composições históricas continuam acessíveis como referência.
 

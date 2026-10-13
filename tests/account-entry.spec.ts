@@ -1,5 +1,12 @@
 import { expect, test } from "@playwright/test";
 
+test("Conta informa falha na consulta de sessão sem atribuí-la às credenciais", async ({ page }) => {
+  await page.goto("/conta?modo=login&erro=servico&next=%2Fcomecar%2Fconvite");
+  await expect(page.getByRole("main").getByRole("alert")).toContainText("Não foi possível conferir sua sessão");
+  await expect(page.locator('input[name="next"]')).toHaveValue("/comecar/convite");
+  await expect(page.getByRole("button", { name: "Entrar", exact: true })).toBeVisible();
+});
+
 test("entrada raiz apresenta Conta primeiro", async ({ page }) => {
   // A primeira navegação compila Conta no servidor dev; o volume local pode demorar mais que 30s.
   test.setTimeout(90_000);

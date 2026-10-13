@@ -1,6 +1,8 @@
 # Projeto Nós
 
-**Versão vigente do projeto:** 0.14.0
+**Versão vigente do projeto:** 0.14.1
+
+Etapa 01 do MVP reconferida em 13/10/2026: falhas de login/sessão agora distinguem indisponibilidade e limite de credenciais incorretas. 100 testes gerais, tipos/build e jornada real local de e-mail aprovados. Fechamento operacional pendente: Google ainda não liberou senha de aplicativo para ativar envio Gmail e comprovar recebimento externo. [Registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.14.1-2026-10-13-imp-acesso-existente-fun-mvp-etapa-01.md).
 
 Na v0.13.3, o Percurso 04 mostra tipo na prévia, permite adiar sem associação e organiza chegada direta/entrada pela lista no Atlas. Convites inválidos, expirados, revogados e repetidos foram conferidos com duas identidades no backend local. QR/link/gestão continuam planejados. [Contrato](Documentacao_Projeto_Nos/_andamento/funcionalidades/entrada-convite.md), [registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.13.3-2026-10-10-imp-entrada-convite-fun-percurso-04.md) e [comparação](Documentacao_Projeto_Nos/wireframes/comparacoes/v0.13.3-2026-10-10-entrar-convite-tela_10-tela_11/index.html).
 

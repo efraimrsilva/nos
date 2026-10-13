@@ -454,3 +454,15 @@ Usuário aprovou a guia MVP criada com dispensa inicial de documentos/comparaç�
 Publicação separada conforme escolha do usuário: objeto de Hábito conferido no primeiro commit; MVP reúne 25 arquivos no segundo, árvore inicial 76fafd7569d2f39e604d64c74fc16a8fdeeb597e igual ao índice preparado. Revisão final independente sem achados pendentes; 992 links e nova galeria responsiva aprovados. Pendências de commit retiradas por prova de inclusão, controle incorporado à mesma unidade; conferir hash remoto no encerramento. Sem deploy.
 
 Validação: MVP, Visão global, Percurso 05, fonte compartilhada, filtros/teclado/celular/retorno/hash/impressão; revisão independente com omissões de QR/administração/agenda mensal corrigidas. Publicação autorizada em dois commits separados: Hábito e depois MVP. [Plano](planos/mvp.md), [registro](registros/registro-v0.14.0-2026-10-12-imp-mvp-atlas-fun-roteiro-aprovado.md) e [comparação](../wireframes/comparacoes/v0.14.0-2026-10-12-mvp-atlas-tela_01-a-tela_72/index.html). Sem deploy.
+
+
+## 2026-10-13 — v0.14.1 — Conferência da etapa 01 do MVP
+
+Correção P2: login distingue indisponibilidade/limite de credenciais, Conta/raiz explicam falha de consulta de sessão. Regressores antes/depois, 100 testes gerais, tipos/build e jornada real local de e-mail aprovados; 14 testes autenticados de sessão executados antes da correção. Revisão independente sem achados relevantes restantes. Atlas/MVP/ficha e comparação Tela 01 sincronizados. Documentação autorizada após dispensa inicial. Google ainda não liberou senha de aplicativo: SMTP Gmail e recebimento externo permanecem bloqueio operacional da etapa 01. -Check conferiu preparação/acesso em leitura. Sem ativação, configuração remota, commit, push ou deploy. [Registro](registros/registro-v0.14.1-2026-10-13-imp-acesso-existente-fun-mvp-etapa-01.md).
+
+
+## 2026-10-13 — Publicação autorizada da etapa 01 — v0.14.1
+
+Usuário autorizou commit/push de toda a entrega com descrição abrangente. Fetch confirmou main/origin/main sem divergência sobre 2c7a836. Código, regressões, Atlas/MVP, seis imagens de comparação, versão e registros compõem uma unidade lógica. Reconferir testes/tipos/build e objeto Git; registrar inclusão antes de retirar pendência. SMTP Gmail continua bloqueado pelo Google. Sem deploy. [Registro da publicação](registros/registro-v0.14.1-2026-10-13-02-imp-publicacao-git-fun-rastreabilidade-mvp-01.md).
+
+Conferência do objeto de publicação: 29 arquivos incluídos, árvore inicial 935142e09add8e73171ec69acd3d90f901c82e6c igual ao índice preparado. Pendência removida após comprovação; registros de controle incorporados ao mesmo commit lógico antes do envio autorizado. Hash definitivo e igualdade remota devem ser conferidos no encerramento.

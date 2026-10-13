@@ -41,3 +41,6 @@ Incluir index.html navegável, imagens locais legíveis, versão vigente, IDs/ro
 - **Ferramenta do atlas:** comparar a ferramenta antes/depois e demonstrar que as prévias compartilhadas continuam iguais às outras visões. Não fabricar uma tela correspondente do app.
 
 Capturas devem usar exemplos sem informações privadas, tokens ou códigos reais. Fluxos autenticados precisam de ambiente/fixtures autorizados e limpeza conforme o contrato. Verificação sem autenticação não comprova integrações protegidas.
+
+
+- [v0.14.1 — 2026-10-13 — sessão indisponível, Tela 01](v0.14.1-2026-10-13-acesso-indisponivel-tela_01/index.html): mesma URL antes/Atlas/depois em computador e celular; mostra apresentação do aviso, sem representar falha real de rede.

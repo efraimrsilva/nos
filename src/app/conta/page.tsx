@@ -6,6 +6,7 @@ import { signOut } from "@/features/auth/actions";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { routes } from "@/shared/routes";
 import { safeAuthNext, withAuthNext } from "@/features/auth/input";
+import { isNucleusAuthUnavailable } from "@/features/nuclei/nucleus-access";
 
 export const metadata: Metadata = { title: "Sua conta" };
 
@@ -14,13 +15,17 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
   const error = params.erro;
   const next = safeAuthNext(params.next);
   const supabase = await createSupabaseServerClient();
-  const user = supabase ? (await supabase.auth.getUser()).data.user : null;
+  const session = supabase ? await supabase.auth.getUser() : null;
+  const user = session?.data.user ?? null;
+  // A falha na consulta não comprova saída da conta; permite tentar novamente.
+  const unavailable = isNucleusAuthUnavailable(session?.error ?? null) || (!user && error === "servico");
   // Mantém o respiro do rodapé para preservar a composição após remover o link duplicado.
   return <div className="account-page pb-15">
     <Link href={user ? routes.nucleus : "/boas-vindas"} className="mb-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-muted"><ArrowLeft size={17} aria-hidden="true" />{user ? "Seus Núcleos" : "Voltar às boas-vindas"}</Link>
     <p className="step-label mb-3 text-lilac">Um lugar seguro para seus vínculos</p>
     <h1 className="font-display text-[30px] font-medium leading-tight md:text-[38px]">Sua conta no Nós</h1>
     <p className="mt-3 text-sm leading-7 text-muted">Crie uma conta ou entre para cuidar dos seus Núcleos com privacidade.</p>
+    {unavailable && <p role="alert" className="mt-5 rounded-xl bg-[#fce9f1] p-4 text-sm text-[#9a3153]">Não foi possível conferir sua sessão. Tente novamente em instantes.</p>}
     {error === "confirmacao" && <p role="alert" className="mt-5 rounded-xl bg-[#fce9f1] p-4 text-sm text-[#9a3153]">Não foi possível confirmar o e-mail. <Link href={withAuthNext("/conta/confirmar-email", next)} className="font-semibold underline">Solicite outro link de confirmação</Link> ou tente entrar.</p>}
     {params.resultado === "senha" && <p role="status" className="mt-5 rounded-xl bg-[#eff3e6] p-4 text-sm">Senha atualizada. Entre com sua nova senha.</p>}
     {error === "revogacao" && <p role="alert" className="mt-5 rounded-xl bg-[#fce9f1] p-4 text-sm text-[#9a3153]">A senha foi alterada, mas não foi possível encerrar todas as sessões. Entre com a nova senha, volte à Conta e use Sair da conta para tentar encerrar as outras sessões.</p>}

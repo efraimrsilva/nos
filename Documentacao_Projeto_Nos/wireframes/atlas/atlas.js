@@ -55,6 +55,8 @@ function stateHtml(screen){
 function accountStateHtml(screen){
   const content=screen.id<=2?onboardingContent(screen):accountAccessContent(screen);
   const blocked='Abra um link de recuperação válido. O link pode ter expirado, já ter sido usado ou precisar ser aberto no navegador em que você o solicitou.';
+  // Conta preserva o formulário quando o Auth não consegue conferir a sessão.
+  if(previewState==='error'&&screen.id===1)return content.replace('<section class="product-panel">','<p class="state-message access-error" role="alert">Não foi possível conferir sua sessão. Tente novamente em instantes.</p><section class="product-panel">');
   if(previewState==='blocked'&&screen.id===5){return content.replace(/<form[\s\S]*?<\/form>/,'<p class="state-message access-error" role="alert">'+blocked+'</p>');}
   if(previewState==='loading')return content.replace(/(<button[^>]*type="submit"[^>]*>)[^<]+/,'$1'+(screen.id===5?'Salvando…':screen.id<=2?'Aguarde…':'Solicitando…'))+'<p class="state-message" role="status">Aguardando resposta do servidor.</p>';
   const messages={

@@ -61,3 +61,8 @@ O Next.js omite os callbacks de confirmação/recuperação dos logs de requisi�
 ## v0.13.0 — Navegação e sessão
 
 Raiz sem sessão abre Conta; autenticada abre Seus Núcleos. Login/confirmação sem retorno específico segue para /nucleos. Todo /comecar e /nucleos exige sessão validada, inclusive rascunho e convite. Lista real sob RLS, seleção explícita e retorno do Início à lista. Token expirado com renovação válida mantém acesso; sessão não renovável pede login preservando destino. Esta decisão substitui o retorno padrão ao onboarding e o rascunho pré-login dos marcos anteriores. [Contrato vigente](navegacao-sessao.md).
+
+
+## v0.14.1 — Conferência MVP etapa 01 — 2026-10-13
+
+Login mantém resposta genérica para credenciais inválidas; status 429 orienta aguardar, transporte/5xx informa indisponibilidade. Conta e raiz não interpretam falha do Auth como prova de logout: sinalizam consulta indisponível. Mensagens neutras de recuperação/reenvio preservadas. 100 testes gerais, tipos/build e jornada de e-mail local aprovados; revisão independente sem achados relevantes. Revogação global impede renovação, não promete invalidar imediatamente JWT emitido. SMTP Gmail aguarda Google liberar senha de app, confirmado nesta data. Etapa 01 não fecha operacionalmente sem recebimento externo e conferência de origem/URLs/segredo do ambiente de uso. [Registro](../registros/registro-v0.14.1-2026-10-13-imp-acesso-existente-fun-mvp-etapa-01.md), [comparação](../../wireframes/comparacoes/v0.14.1-2026-10-13-acesso-indisponivel-tela_01/index.html).
