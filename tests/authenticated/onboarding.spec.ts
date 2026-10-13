@@ -6,11 +6,11 @@ test("escolher caminho leva às próximas etapas e permite voltar", async ({ pag
   await page.getByRole("link", { name: /Criar um núcleo/ }).click();
   await expect(page).toHaveURL(/\/comecar\/tipo$/);
   await expect(page.getByRole("heading", { name: "Que relação vocês têm?" })).toBeVisible();
-  await page.getByRole("link", { name: /Voltar/ }).click();
+  await page.getByRole("link", { name: "Voltar", exact: true }).click();
   await page.getByRole("link", { name: /Entrar com um convite/ }).click();
   await expect(page).toHaveURL(/\/comecar\/convite$/);
   await expect(page.getByRole("heading", { name: "Você recebeu um convite?" })).toBeVisible();
-  await page.getByRole("link", { name: /Voltar/ }).click();
+  await page.getByRole("link", { name: "Voltar", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Como você quer começar?" })).toBeVisible();
 });
 
@@ -42,6 +42,6 @@ test("convite abre diretamente sem criar dados nem simular autenticação", asyn
     await page.goto(route);
     await expect(page.getByRole("textbox", { name: "Código de convite" })).toBeVisible();
     await expect(page.getByRole("button", { name: "Aceitar convite" })).toHaveCount(0);
-    await expect(page.getByRole("link", { name: /Voltar/ })).toHaveAttribute("href", "/comecar");
+    await expect(page.getByRole("link", { name: "Voltar", exact: true })).toHaveAttribute("href", "/comecar");
   }
 });

@@ -1,10 +1,12 @@
 # Fidelidade visual e manutenção do atlas
 
-**Conferência vigente — v0.14.1 — 2026-10-13:** etapa 01 validada localmente; mensagem de sessão indisponível da Tela 01 sincronizada. 72 telas, 32 recortes/40 planejadas preservados. Gmail ainda aguarda senha de aplicativo/recebimento externo. [Registro](../_andamento/registros/registro-v0.14.1-2026-10-13-imp-acesso-existente-fun-mvp-etapa-01.md), [comparação](comparacoes/v0.14.1-2026-10-13-acesso-indisponivel-tela_01/index.html). Os marcos abaixo permanecem históricos.
+**Atualização v0.15.0 — 2026-10-13:** MVP 02: Telas 09/58 compartilham a composição real de convite; 13 retrata o Início existente e 59 a nova gestão. Antes do Atlas preservado em desktop (09/58/59), depois/app desktop e celular. Capturas completas do Atlas expandem somente altura e removem sobreposição da barra na sessão de captura; não são comparação de pixels. Códigos reais mascarados. [Galeria](comparacoes/v0.15.0-2026-10-13-mvp-02-tela_09-tela_13-tela_58-tela_59/index.html).
+
+**Marco histórico — v0.14.1 — 2026-10-13:** etapa 01 validada localmente; mensagem de sessão indisponível da Tela 01 sincronizada. 72 telas, 32 recortes/40 planejadas preservados. Gmail ainda aguarda senha de aplicativo/recebimento externo. [Registro](../_andamento/registros/registro-v0.14.1-2026-10-13-imp-acesso-existente-fun-mvp-etapa-01.md), [comparação](comparacoes/v0.14.1-2026-10-13-acesso-indisponivel-tela_01/index.html). Os marcos abaixo permanecem históricos.
 
 **MVP aprovado — 2026-10-12 — v0.14.0:** [guia prioritária](atlas/index.html#mvp) e [plano registrado](../_andamento/planos/mvp.md). Todas as 72 telas e 184 ações atuais das fichas estão relacionadas; 13 etapas, 37 telas/estados no primeiro marco. Situações preservadas: 32 recortes existentes/40 planejadas. Títulos, regras, limites e desenhos usam a mesma fonte viva, sem cópia visual. ID sem etapa/ausente/duplicado sinaliza cobertura a revisar. Aprovação não conclui funcionalidades. [Manutenção obrigatória](GUIA.md#mvp-aprovado--prioridade-e-manutenção-do-roteiro), [comparação documental](comparacoes/v0.14.0-2026-10-12-mvp-atlas-tela_01-a-tela_72/index.html) e [verificador](tools/verify-mvp-view.mjs).
 
-Referência funcional: **v0.14.1**. Percurso 05 sincronizado em 2026-10-10; base histórica preservada.
+Referência funcional: **v0.15.0**. MVP 02 sincronizado em 2026-10-13; publicação/migração online pendentes. Percurso 05 sincronizado em 2026-10-10; base histórica preservada.
 
 Percurso 05: caminho disponível **18 → 22 → 23 → 24**, com conferência e respostas dentro do hub. Conferir/editar não gravam; enviar registra aceite do autor; último aceite inicia teste, recusa encerra. Sequência guiada 18 → 19 → 20 → 21 → 22 → 23 → 24 reservada, com 19–21 planejadas. Tela 22 é recorte existente de conferência, sem /novo. Inventário vigente: 72 telas, 14 percursos, 32 recortes e 40 planejadas. [Contrato](../_andamento/funcionalidades/proposta-habito.md), [comparação](comparacoes/v0.14.0-2026-10-10-proposta-habito-tela_18-tela_19-tela_20-tela_21-tela_22-tela_23-tela_24/index.html) e [verificador](tools/verify-habit-proposal-journey.mjs). As prévias 18/22/23 representam os estados implementados; as composições históricas continuam acessíveis como referência.
 
@@ -18,13 +20,13 @@ Recuperação mantém composição de Conta, com retorno ao login e passos expl�
 
 **Prioridade alta do Atlas vivo:** sua composição é a referência visual obrigatória de todas as implementações e alterações de tela. Inspecionar o aspecto antes de codificar, confrontar o resultado real antes de entregar e manter o desenho sincronizado. O modo histórico preserva a comparação; não substitui a direção viva. Seguir o [procedimento](GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05), incluindo contratos e pendências.
 
-O atlas incorpora as 28 telas de Nos_App.dc.html em 52 layouts/variações estáticos. São 41 pontos de acesso à composição histórica, além de abas e nove escolhas de vínculo. A entrada do aplicativo tem 12 composições próprias; /comecar, /comecar/tipo e /comecar/convite foram comparadas ao servidor local. A ordem continua Conta primeiro.
+O atlas incorpora as 28 telas de Nos_App.dc.html em 52 layouts/variações estáticos. São 41 pontos de acesso à composição histórica, além de abas e nove escolhas de vínculo. Entrada/Início/gestão têm 15 composições próprias; /comecar, /comecar/tipo e /comecar/convite foram comparadas ao servidor local. A ordem continua Conta primeiro.
 
 | Base da composição viva | Quantidade | Regra |
 |---|---:|---|
-| Aplicativo: Conta e onboarding | 12 | Reproduzir código e interação local da entrada; não redesenhar por preferência. |
-| Documento aprovado, com adaptação de contratos | 32 | Preservar hierarquia, ícones, cores e abas; atualizar regras, dados e permissões. |
-| Extensões do inventário | 28 | Seguir identidade e contexto aprovados; verificar decisões pendentes antes de implementar. |
+| Aplicativo: Conta, onboarding, Início e gestão | 15 | Reproduzir código e interação local da entrada; não redesenhar por preferência. |
+| Documento aprovado, com adaptação de contratos | 26 | Preservar hierarquia, ícones, cores e abas; atualizar regras, dados e permissões. |
+| Extensões do inventário | 31 | Seguir identidade e contexto aprovados; verificar decisões pendentes antes de implementar. |
 
 As três categorias totalizam 72 desenhos. Não equivalem a 72 rotas ou funcionalidades concluídas. A composição web de Conta/onboarding existe; o documento aprova telas móveis e a adaptação web dos demais módulos continua pendente.
 

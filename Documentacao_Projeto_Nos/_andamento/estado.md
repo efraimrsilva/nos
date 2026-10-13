@@ -1,12 +1,42 @@
 # Estado do Projeto Nós
 
-**Versão vigente do projeto:** 0.14.1
+**Versão vigente do projeto:** 0.15.0
 
 **DOCS_DIR:** `Documentacao_Projeto_Nos`
 
 **Atualizado:** 2026-10-13
 
-## Acesso online Netlify — v0.14.1 — 2026-10-13
+## Publicação Git autorizada — v0.15.0 — 2026-10-13
+
+**Objetivo ativo:** publicar a entrega completa MVP 02 em um commit atômico com descrição abrangente. Branch main, base 5819a52; fetch confirmou HEAD/origin/main iguais, divergência 0/0. Versão funcional 0.15.0 preservada.
+
+**Escopo:** código, migração, testes, Atlas/MVP/Visão global, comparações, contratos, manifestos e documentação da mesma entrega. Nenhuma nova funcionalidade, migração remota ou deploy manual. Pipeline automático do site pode reagir ao push; resultado exige verificação própria.
+
+**Situação/controle:** 102/102 testes gerais, tipos e build produção webpack aprovados em cópia C: por SHA-256; somente startup dev adaptado ao servidor compilado na cópia. Tentativas dev G/C tiveram timeout/limite de junctions/atrasos; fontes/configuração do repositório preservados. Quatro verificadores Atlas/sintaxe, 591 referências e diff aprovados; 59 arquivos sem credenciais/artefatos. Autenticados/banco já aprovados na implementação, sem mudança de fontes e sem repetição nesta publicação. Inspecionar objeto antes de enviar. Objeto inicial inspecionado e inclusão comprovada; controle de pendência incorporado ao mesmo commit lógico. Título: feat(invitations): concluir MVP 02 e gestão segura de convites. Hash final e igualdade remota conferidos após envio; sem force-push.
+
+**Unidades pendentes de commit:** nenhuma desta entrega. Inclusão dos 59 arquivos (19 imagens) comprovada no objeto Git; árvore inicial 2b332e7fcf7d942cd9b37cd1c2ce0dd6acf26a2b idêntica ao índice preparado. Retirada da pendência e controle incorporados ao mesmo commit lógico antes do push autorizado. [Registro de publicação](registros/registro-v0.15.0-2026-10-13-02-imp-publicacao-git-fun-rastreabilidade-mvp-02.md). Controle final: enviar normalmente a origin/main e comparar hash remoto ao HEAD; identificador definitivo/equivalência serão reportados no encerramento. Próximo passo funcional: aplicação autorizada da migração e operação da etapa 01.
+
+## Entrega funcional — MVP 02 — Núcleo compartilhado — v0.15.0 — 2026-10-13
+
+**Objetivo/aceite:** conferir as dez telas e funções da etapa 02, concluir gestão/revogação e ordenar criação/convite/retorno com futuro reservado. **Situação:** recorte funcional local concluído, revisado e validado; aplicação da migração/publicação online pendentes. Conta/SMTP operacional da etapa 01 permanece aberta. DOCS_DIR: Documentacao_Projeto_Nos; main em 5819a52. Alterações documentais de Netlify anteriormente locais foram publicadas por outra sessão nesse commit durante a retomada; preservadas.
+
+**Entrega:** gestão privada do criador em /nucleos/[id]/convites; ativos/expirados/revogados, confirmação/cancelamento, paginação de 20 itens, UTC e lista sem códigos. RPC revalida papel/contexto, revogação preserva data/membros, bloqueios ordenam aceite/revogação e geração simultânea. Cópia explícita/expiração real, acesso pelo Início/convite, retorno Auth e erros/carregamento integrados. Rascunho esclarece criação e convite opcional. Sem novas dependências ou tabelas.
+
+**Atlas:** 12 → 06 → 07 → 08 → 09 → 58 → 59 → 10 → 11 → 13; criador e convidado têm caminhos próprios e opcionais. 09/58 mesma rota; 59 existente. Inventário 72 telas/14 percursos/33 recortes/39 planejadas/186 ações. QR/câmera/link, destinatários individuais, administradores e histórico de aceites reservados. Gestão não inventa categoria Aceitos.
+
+**Validações finais:** 102 testes gerais; rodadas autenticadas 28 e 44 casos, com seis finais de gestão desktop/mobile após fortalecer provas; rodadas se sobrepõem. Supabase local seis arquivos/19 verificações (13 de convites). Concorrência comprovada por conexões em PgSleep/Lock, data antiga conhecida preservada. Tipos e build Turbopack v0.15.0 aprovados. Atlas MVP02/MVP/Visão global/convite/sintaxe aprovados; 586 referências locais/galeria/diff conferidos sem pendência. Capturas reais sem código, loading corrigido; antes real do Atlas somente desktop. Autorrevisão e revisão independente: inconsistência documental e duas provas fracas corrigidas, reconferência sem bloqueio. Falha real de banco/clipboard não foi provocada. Primeira suíte geral teve timeout na compilação inicial G; cache preparado resolveu.
+
+**Ferramentas/ambiente:** Superpowers entendimento/plano/TDD/depuração/revisão/verificação; React boas práticas. Context7 Supabase funções/permissões, Octocode CLI 19.1.0 (grafo sintático parcial complementado por leitura). Next.js 16.3.6 preservado. CLI Supabase 2.118.0, Docker local; migração aplicada via SQL somente no contêiner e histórico alinhado com repair --local. Consulta final: zero contas temporárias dos testes; cópias limpas e Supabase encerrado com backup (stop confirmado). Nenhuma instalação/configuração remota nesta entrega.
+
+**Próximo passo executável:** quando autorizado, revisar/aplicar migração 20261013150000 no ambiente de uso, publicar aplicação e repetir duas contas online. Continuar operação de e-mail da etapa 01 após senha de app Gmail e segredo de recuperação disponíveis. Próximo recorte funcional do roteiro é MVP 03, ciclo real de Hábito, sem iniciar ampliação nesta entrega.
+
+**Unidades pendentes de commit desta entrega:** nenhuma; código, banco, testes, Atlas, galeria e documentos comprovados no objeto Git de 59 arquivos. Título: feat(invitations): concluir MVP 02 e gestão segura de convites. Publicação autorizada no marco acima; sem migração remota ou deploy manual.
+
+**Auditoria de over-engineering — marco 100:** baixo; reutiliza shell/CSS/Server Actions/Supabase/RLS existentes e uma migração, sem nova dependência/tabela/camada genérica. Manter abstrações vinculadas a necessidade real e deixar histórico individual para contrato próprio. Registro detalha evidências. Próximo marco: 200.
+
+**Índice:** [registro v0.15.0](registros/registro-v0.15.0-2026-10-13-imp-nucleo-compartilhado-fun-mvp-02-gestao-convites.md), [contrato/manual](funcionalidades/nucleo-compartilhado.md), [plano executado](planos/mvp-02-nucleo.md), [MVP](planos/mvp.md), [Atlas](../wireframes/atlas/index.html#mvp), [galeria](../wireframes/comparacoes/v0.15.0-2026-10-13-mvp-02-tela_09-tela_13-tela_58-tela_59/index.html), [verificador](../wireframes/tools/verify-mvp-nucleus.mjs).
+
+## Marco operacional anterior — Acesso online Netlify — v0.14.1 — 2026-10-13
 
 **Objetivo ativo/escopo:** conectar https://noslife.netlify.app ao nos-dev para cadastrar e entrar. **Em andamento:** conexão/login concluídos e verificados online; cadastro com confirmação externa depende de SMTP. Versão preservada enquanto a solicitação completa estiver pendente. DOCS_DIR acima; main em a219fb4c49accb59bb0870b8a75e7678ddaf7e63, Git inicialmente limpo.
 
@@ -357,7 +387,7 @@ Agenda por Núcleo concluída na **v0.6.0**: eventos pontuais com título, inten
 
 **Unidades pendentes de commit neste marco histórico:** nenhuma para a correção visual e orientação de prioridade alta; inclusão no commit confirmada por inspeção do objeto e comparação da árvore. Mensagem: `docs(wireframe): alinhar atlas ao app e consolidar prioridade visual`.
 
-**Contador de interações:** 99: 98 persistidas + publicação autorizada da conexão Netlify/Supabase. Início em 2026-09-25; último marco de over-engineering: nenhum (0); próxima auditoria: 100.
+**Contador de interações:** 101: 100 persistidas + publicação Git autorizada do MVP 02. Início em 2026-09-25; último marco de over-engineering: 100, baixo, auditado em 2026-10-13; próxima auditoria: 200.
 
 ## Objetivo e situação histórica — v0.11.0
 

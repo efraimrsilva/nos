@@ -1,8 +1,10 @@
 # Cobertura e pendências do wireframe
 
+**Conferência vigente — v0.15.0 — 2026-10-13:** MVP 02 local concluído; Tela 59 gestão privada existente, rota nova e migração de revogação/concorrência. Sequência de criador/convidado sincronizada; 72 telas, 33 recortes existentes, 39 planejadas e 186 ações. QR/link/destinatários/administradores/histórico por aceite reservados. Publicação/migração online pendentes. [Contrato](../_andamento/funcionalidades/nucleo-compartilhado.md), [comparação](comparacoes/v0.15.0-2026-10-13-mvp-02-tela_09-tela_13-tela_58-tela_59/index.html), [verificador](tools/verify-mvp-nucleus.mjs).
+
 **Operação online — v0.14.1 — 2026-10-13:** Netlify conectado ao nos-dev, origem e retornos online configurados, login/sessão/saída validados por HTTP com fixture confirmada removida após teste. Cadastro com confirmação externa continua pendente de SMTP; recuperação também exige segredo no Netlify. Desenhos/rotas e contagens preservados. [Registro operacional](../_andamento/registros/registro-v0.14.1-2026-10-13-03-imp-conexao-netlify-fun-acesso-online.md).
 
-**Conferência vigente — v0.14.1 — 2026-10-13:** etapa 01 validada localmente; mensagem de sessão indisponível da Tela 01 sincronizada. 72 telas, 32 recortes/40 planejadas preservados. Gmail ainda aguarda senha de aplicativo/recebimento externo. [Registro](../_andamento/registros/registro-v0.14.1-2026-10-13-imp-acesso-existente-fun-mvp-etapa-01.md), [comparação](comparacoes/v0.14.1-2026-10-13-acesso-indisponivel-tela_01/index.html). Os marcos abaixo permanecem históricos.
+**Marco histórico — v0.14.1 — 2026-10-13:** etapa 01 validada localmente; mensagem de sessão indisponível da Tela 01 sincronizada. 72 telas, 32 recortes/40 planejadas preservados. Gmail ainda aguarda senha de aplicativo/recebimento externo. [Registro](../_andamento/registros/registro-v0.14.1-2026-10-13-imp-acesso-existente-fun-mvp-etapa-01.md), [comparação](comparacoes/v0.14.1-2026-10-13-acesso-indisponivel-tela_01/index.html). Os marcos abaixo permanecem históricos.
 
 **MVP aprovado — 2026-10-12 — v0.14.0:** [guia prioritária](atlas/index.html#mvp) e [plano registrado](../_andamento/planos/mvp.md). Todas as 72 telas e 184 ações atuais das fichas estão relacionadas; 13 etapas, 37 telas/estados no primeiro marco. Situações preservadas: 32 recortes existentes/40 planejadas. Títulos, regras, limites e desenhos usam a mesma fonte viva, sem cópia visual. ID sem etapa/ausente/duplicado sinaliza cobertura a revisar. Aprovação não conclui funcionalidades. [Manutenção obrigatória](GUIA.md#mvp-aprovado--prioridade-e-manutenção-do-roteiro), [comparação documental](comparacoes/v0.14.0-2026-10-12-mvp-atlas-tela_01-a-tela_72/index.html) e [verificador](tools/verify-mvp-view.mjs).
 
@@ -20,11 +22,11 @@ v0.13.1: Telas 01/02 mantêm árvore/frases e largura ao alternar cadastro/login
 
 **Visão global:** reutiliza os 72 desenhos e suas situações/pendências; o mapa não altera a classificação de implementação. Percursos e destinos vêm do inventário; ligações de contexto estão distinguidas de saídas previstas nas fichas. [Abrir mapa](atlas/index.html#visao-global) e seguir o [padrão de sincronização/comparações](GUIA.md#visão-global-sincronização-e-comparações--procedimento-permanente).
 
-Conferência atualizada em 2026-10-10: as 72 fichas, situações e pendências coincidem com este inventário e com os rótulos visíveis nas miniaturas e na inspeção. Todos os 32 recortes existentes apontam para rotas presentes no código; isso não confirma as ampliações ilustradas. Os 40 desenhos planejados continuam identificados. **Antes de implementar qualquer tela, consultar seu aspecto no modo Atlas vivo com prioridade alta**, conforme o [procedimento obrigatório](GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05).
+Conferência atualizada em 2026-10-13: as 72 fichas, situações e pendências coincidem com este inventário e com os rótulos visíveis nas miniaturas e na inspeção. Todos os 33 recortes existentes apontam para rotas presentes no código; isso não confirma as ampliações ilustradas. Os 39 desenhos planejados continuam identificados. **Antes de implementar qualquer tela, consultar seu aspecto no modo Atlas vivo com prioridade alta**, conforme o [procedimento obrigatório](GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05).
 
 - 72 telas/estados; 8 áreas; 14 percursos.
-- 40 telas planejadas e pendentes de implementação.
-- 32 recortes existentes: o desenho pode incluir ampliações ainda pendentes, descritas individualmente.
+- 39 telas planejadas e pendentes de implementação.
+- 33 recortes existentes: o desenho pode incluir ampliações ainda pendentes, descritas individualmente.
 - As 37 interfaces do catálogo v2.1 estão mapeadas. Continuação de página, aba e estado podem compartilhar rota; 72 desenhos não significam 72 rotas novas.
 
 ## Inventário completo
@@ -39,11 +41,11 @@ Conferência atualizada em 2026-10-10: as 72 fichas, situações e pendências c
 | 06 | Criar e entrar no Núcleo | [Escolher caminho](atlas/index.html#tela-06) | Recorte existente | 29 | /comecar | Tela protegida existente; Seus Núcleos é a entrada padrão após login. |
 | 07 | Criar e entrar no Núcleo | [Tipo de Núcleo](atlas/index.html#tela-07) | Recorte existente | 30 | /comecar/tipo | Catálogo atual de nove tipos; manter identificador validado na URL. |
 | 08 | Criar e entrar no Núcleo | [Propósito do Núcleo](atlas/index.html#tela-08) | Recorte existente | 31 | /comecar/proposito | Criação existente; sem persistência de rascunho no atlas. |
-| 09 | Criar e entrar no Núcleo | [Convite inicial](atlas/index.html#tela-09) | Recorte existente | 32 | /comecar/convite-inicial/[id] | Código e compartilhamento nativo existentes; QR e gestão ampliada dependem de contrato. |
-| 10 | Criar e entrar no Núcleo | [Inserir convite](atlas/index.html#tela-10) | Recorte existente | 18 · entrada complementar | /comecar/convite | Consulta restrita e retorno à lista existentes. QR/câmera e transporte por link têm espaço reservado, sem integração. |
-| 11 | Criar e entrar no Núcleo | [Aceitar convite](atlas/index.html#tela-11) | Recorte existente | 18 | /comecar/convite · prévia | Tipo, aceite explícito e adiamento sem associação existentes; idempotência e revalidação no banco. Gestão na Tela 59 permanece planejada. |
+| 09 | Criar e entrar no Núcleo | [Convite inicial](atlas/index.html#tela-09) | Recorte existente | 32 | /comecar/convite-inicial/[id] | Código, cópia, expiração real em UTC e gestão existentes. QR/link reservados. Gestão requer migração no ambiente de uso. |
+| 10 | Criar e entrar no Núcleo | [Inserir convite](atlas/index.html#tela-10) | Recorte existente | 18 · entrada complementar | /comecar/convite | Consulta existente com prévia restrita. QR/câmera e transporte de código por link permanecem planejados; código fica fora das URLs atuais. |
+| 11 | Criar e entrar no Núcleo | [Aceitar convite](atlas/index.html#tela-11) | Recorte existente | 18 | /comecar/convite · prévia | Aceite, tipo e adiamento existentes. Gestão/revogação pela interface existe na Tela 59, validada localmente; publicação/migração no ambiente de uso pendentes. |
 | 12 | Criar e entrar no Núcleo | [Seus Núcleos](atlas/index.html#tela-12) | Recorte existente | 13 | /nucleos | Listagem, seleção, paginação, vazio, carregamento e erro implementados; cartões do atlas são exemplos identificados. |
-| 13 | Início e agenda | [Início do Núcleo](atlas/index.html#tela-13) | Recorte existente | 02 | /nucleos/[id] | Home protegida existente; resumo afetivo completo depende de módulos futuros. |
+| 13 | Início e agenda | [Início do Núcleo](atlas/index.html#tela-13) | Recorte existente | 02 | /nucleos/[id] | Home protegida com acesso à gestão do criador; resumo afetivo completo depende de módulos futuros. |
 | 14 | Início e agenda | [Agenda do Núcleo](atlas/index.html#tela-14) | Recorte existente | 03 | /nucleos/[id]/agenda | Agenda real existente; visão mensal e integração com experiências são planejadas. |
 | 15 | Início e agenda | [Detalhe do evento](atlas/index.html#tela-15) | Recorte existente | Complemento da 03 | /nucleos/[id]/agenda · item existente | Operações existentes no hub da agenda; rota individual é evolução proposta. |
 | 16 | Início e agenda | [Novo evento](atlas/index.html#tela-16) | Recorte existente | Complemento da 03 | /nucleos/[id]/agenda · formulário | Criação existente; campos devem respeitar esquema atual no desenvolvimento. |
@@ -88,8 +90,8 @@ Conferência atualizada em 2026-10-10: as 72 fichas, situações e pendências c
 | 55 | Manifesto e cuidado | [Nosso manifesto](atlas/index.html#tela-55) | Planejada | 25 | Proposta: /nucleos/[id]/manifesto | Geração, revisão, assinaturas e versões pendentes. |
 | 56 | Manifesto e cuidado | [Revisar manifesto](atlas/index.html#tela-56) | Planejada | 25 · revisão complementar | Proposta: /nucleos/[id]/manifesto/revisar | Modelo de versões e confirmação pendentes. |
 | 57 | Manifesto e cuidado | [Compartilhar manifesto](atlas/index.html#tela-57) | Planejada | 25 · compartilhar | Proposta: manifesto · confirmação de exportação | Exportação, permissão coletiva e revogação pendentes. |
-| 58 | Criar e entrar no Núcleo | [Convidar para o Núcleo](atlas/index.html#tela-58) | Recorte existente | 14, 32 | /comecar/convite-inicial/[id] | Geração existente; QR, revogação por interface e lista de pendentes são futuras. |
-| 59 | Criar e entrar no Núcleo | [Gerenciar convites](atlas/index.html#tela-59) | Planejada | 14 · gestão complementar | Proposta: /nucleos/[id]/convites | Gestão de convites pela interface pendente. |
+| 58 | Criar e entrar no Núcleo | [Convidar para o Núcleo](atlas/index.html#tela-58) | Recorte existente | 14, 32 | /comecar/convite-inicial/[id] | Código, cópia, compartilhamento e gestão existentes. QR/link, destinatários individuais e histórico de aceites reservados. |
+| 59 | Criar e entrar no Núcleo | [Gerenciar convites](atlas/index.html#tela-59) | Recorte existente | 14 · gestão complementar | /nucleos/[id]/convites | Gestão implementada e validada localmente; publicar/aplicar migração no ambiente de uso. Histórico de quem aceitou permanece reservado. |
 | 60 | Manifesto e cuidado | [Notificações](atlas/index.html#tela-60) | Planejada | 15 | Proposta: /notificacoes | Eventos, fila, preferências e canais pendentes. |
 | 61 | Manifesto e cuidado | [Conversa de cuidado](atlas/index.html#tela-61) | Planejada | 24 | Proposta: /nucleos/[id]/cuidado/novo | Conversa guiada, privacidade e consentimento pendentes. |
 | 62 | Manifesto e cuidado | [Ponte do Nós](atlas/index.html#tela-62) | Planejada | 37 | Proposta: /nucleos/[id]/cuidado/[id] | Sistema de preparação e eventual IA pendentes. |

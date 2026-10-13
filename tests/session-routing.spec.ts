@@ -18,6 +18,9 @@ test("páginas privadas pedem login antes de renderizar e preservam o destino", 
 });
 
 test("retorno aceita rotas privadas implementadas e rejeita URLs ou parâmetros arbitrários", () => {
+  expect(safeAuthNext(`/nucleos/${nucleus}/convites?status=revogados&pagina=2`)).toBe(`/nucleos/${nucleus}/convites?status=revogados&pagina=2`);
+  expect(safeAuthNext(`/nucleos/${nucleus}/convites?code=segredo`)).toBe("/nucleos");
+  expect(safeAuthNext(`/nucleos/${nucleus}/convites?status=ativos&status=revogados`)).toBe("/nucleos");
   for (const destination of ["/nucleos", `/comecar/convite-inicial/${nucleus}`, `/nucleos/${nucleus}/acordos/${habit}`, `/nucleos/${nucleus}/acordos/${habit}/confirmar`, `/nucleos/${nucleus}/acordos?categoria=habit`, `/comecar/tipo?tipo=familia`]) {
     expect(safeAuthNext(destination)).toBe(destination);
   }

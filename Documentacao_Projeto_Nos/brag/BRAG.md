@@ -1,6 +1,14 @@
 # Brag document — Projeto Nós
 
-**Versão vigente do projeto:** 0.14.1
+**Versão vigente do projeto:** 0.15.0
+
+## 2026-10-13 — MVP 02 com gestão de convites — v0.15.0
+
+- **Problema:** gestão exigia operação manual, sem RPC ou tela do criador; geração simultânea podia criar mais de um código ativo.
+- **Contribuição:** gestão paginada/confirmada, revogação autorizada/idempotente e bloqueios no banco; navegação e reservas futuras sincronizadas no Atlas.
+- **Resultado verificado:** 102 testes gerais, rodadas autenticadas e seis finais da gestão; banco seis arquivos/19 verificações, concorrência comprovada nas duas ordens. Tipos/build e Atlas aprovados; publicação remota ainda pendente.
+- **Benefício esperado:** autonomia do criador e menos risco de compartilhar códigos indisponíveis; impacto de uso ainda não medido.
+- **Evidência:** [registro](../_andamento/registros/registro-v0.15.0-2026-10-13-imp-nucleo-compartilhado-fun-mvp-02-gestao-convites.md).
 
 ## 2026-10-13 — Conexão e login publicados no Netlify
 

@@ -17,3 +17,10 @@ test("resumo do Núcleo exige uma conta", async ({ page }) => {
   await page.goto("/nucleos/11111111-1111-4111-8111-111111111111");
   await expect(page).toHaveURL(/\/conta\?modo=login&next=/);
 });
+
+test("gestão dos convites pede login e preserva destino privado", async ({ page }) => {
+  await page.goto("/nucleos/11111111-1111-4111-8111-111111111111/convites");
+  await expect(page).toHaveURL(/\/conta\?modo=login&next=/);
+  await expect(page.getByRole("heading", { name: "Gerenciar convites" })).toHaveCount(0);
+  await expect(page.locator('input[name="next"]')).toHaveValue("/nucleos/11111111-1111-4111-8111-111111111111/convites");
+});

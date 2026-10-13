@@ -44,3 +44,5 @@ Capturas devem usar exemplos sem informações privadas, tokens ou códigos reai
 
 
 - [v0.14.1 — 2026-10-13 — sessão indisponível, Tela 01](v0.14.1-2026-10-13-acesso-indisponivel-tela_01/index.html): mesma URL antes/Atlas/depois em computador e celular; mostra apresentação do aviso, sem representar falha real de rede.
+
+- [v0.15.0 — 2026-10-13 — MVP 02, Telas 09/13/58/59](v0.15.0-2026-10-13-mvp-02-tela_09-tela_13-tela_58-tela_59/index.html): antes real do Atlas desktop; depois Atlas/app desktop e celular, convite mascarado, gestão/revogados/Início. Rota de gestão nova, sem aplicativo anterior.

@@ -476,3 +476,15 @@ Site noslife.netlify.app retornava autenticação não configurada. Netlify sem 
 Commit/push autorizados para a unidade de conexão/login online, incluindo referência parcial Supabase, README, contrato, MVP/cobertura, Brag e registros. Fetch confirmou main/origin/main 0/0 sobre a219fb4. Trabalho paralelo da etapa 02 do Núcleo preservado fora do conjunto. Sem novo código/migração; cadastro externo segue bloqueado pela senha Gmail. Verificar conteúdo do objeto antes de retirar pendência e comparar hash remoto após push. [Registro](registros/registro-v0.14.1-2026-10-13-04-imp-publicacao-git-fun-rastreabilidade-acesso-online.md).
 
 Objeto inicial 52c4604 conferido: 10 arquivos e árvore 0a4131df6dfe142182491df9112ad4ee52db8d25 idêntica ao índice preparado. Pendência de commit retirada por prova de inclusão; controle incorporado ao mesmo commit lógico antes do push. 415 links locais, diff preparado e configuração remota parcial reconferidos. Confirmar hash definitivo no remoto após o envio.
+
+## 2026-10-13 — v0.15.0 — MVP 02 Núcleo compartilhado
+
+Gestão privada do criador implementada: filtros/paginação, confirmação/cancelamento e RPC de revogação idempotente sem remover membros. Geração e aceite/revogação com bloqueios; cópia/expiração, navegação/retorno Auth e estados sincronizados. Atlas 33 existentes/39 planejadas/186 ações, QR/link/histórico individual reservados. 102 testes gerais, rodadas autenticadas 28/44 e seis finais; banco 6 arquivos/19 verificações; tipos/build/Atlas/revisão independente aprovados. Contagem100: auditoria over-engineering baixo, sem novas dependências/tabelas/camadas. Sem operação remota/commit/push/deploy; unidade pronta registrada. [Registro](registros/registro-v0.15.0-2026-10-13-imp-nucleo-compartilhado-fun-mvp-02-gestao-convites.md).
+
+## 2026-10-13 — Publicação Git autorizada do MVP 02 — v0.15.0
+
+Usuário autorizou commit/push abrangentes da entrega. Base/main remoto 5819a52 iguais após fetch (0/0). Reconferência de testes gerais/tipos/build e Atlas; descrição cobre código/migração/testes/navegação/Atlas/galeria/registros/versão. Inspecionar índice/objeto e incorporar controle de pendência ao mesmo commit lógico. Sem migração remota ou deploy manual; eventual pipeline automático não é certificado. [Registro](registros/registro-v0.15.0-2026-10-13-02-imp-publicacao-git-fun-rastreabilidade-mvp-02.md).
+
+Reconferência para publicação: 102 testes gerais, tipos/build produção e quatro verificadores Atlas aprovados; 591 referências sem ausências. Testes em cópia C: com hash e startup de produção temporário após limitações dos servidores dev G/C. Fontes/configuração original preservados, cópia removida. Índice com 59 arquivos sem credenciais/artefatos.
+
+Objeto de publicação inspecionado: 59 arquivos e 19 imagens; árvore inicial 2b332e7fcf7d942cd9b37cd1c2ce0dd6acf26a2b igual ao índice preparado. Inclusão comprovada, pendência retirada e controle incorporado ao mesmo commit lógico antes do push autorizado. Comparar identificador definitivo ao remoto no encerramento.

@@ -48,6 +48,7 @@ export default async function NucleusPage({ params }: { params: Promise<{ id: st
       <h2 id="participation-heading" className="font-display text-lg">Seu lugar aqui</h2>
       <p className="mt-2 text-sm leading-7 text-muted">{details.participation}. Apenas participantes podem abrir esta página.</p>
       {details.invitationHref && <Link href={details.invitationHref} className="continue-button mt-4 inline-flex min-h-11 items-center gap-2 rounded-xl bg-forest px-5 text-sm font-semibold text-white">Convidar alguém<ArrowRight size={17} aria-hidden="true" /></Link>}
+      {details.invitationHref && <Link href={`/nucleos/${id}/convites`} className="mt-3 flex min-h-11 items-center text-sm font-semibold text-leaf underline">Gerenciar convites</Link>}
     </section>
     <section className="mt-4 rounded-[22px] border border-line bg-white p-5 sm:p-6" aria-labelledby="agenda-heading">
       <div className="flex items-center gap-2.5"><CalendarDays size={20} className="text-leaf" aria-hidden="true" /><h2 id="agenda-heading" className="font-display text-lg">Agenda do Núcleo</h2></div>

@@ -16,10 +16,10 @@ export function safeAuthNext(value: unknown): string {
   const uuid = "[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}";
   const onboarding = /^\/comecar(?:\/(?:convite|tipo|proposito))?$/.test(path);
   const invitation = new RegExp(`^/comecar/convite-inicial/${uuid}$`, "i").test(path);
-  const nucleus = new RegExp(`^/nucleos(?:/${uuid}(?:/(?:agenda|acordos(?:/${uuid}(?:/(?:registrar|confirmar|revisar))?)?))?)?$`, "i").test(path);
+  const nucleus = new RegExp(`^/nucleos(?:/${uuid}(?:/(?:agenda|convites|acordos(?:/${uuid}(?:/(?:registrar|confirmar|revisar))?)?))?)?$`, "i").test(path);
   if (!onboarding && !invitation && !nucleus) return fallback;
   // Cada rota conserva apenas parâmetros de navegação, sem tokens, URLs ou valores repetidos.
-  const allowed = path === routes.nucleus ? ["pagina"] : /\/(?:tipo|proposito)$/.test(path) ? ["tipo"] : path.endsWith("/agenda") ? ["pagina"] : path.endsWith("/acordos") ? ["categoria", "filtro", "pagina"] : /\/acordos\//.test(path) ? ["antes"] : [];
+  const allowed = path === routes.nucleus ? ["pagina"] : /\/(?:tipo|proposito)$/.test(path) ? ["tipo"] : path.endsWith("/agenda") ? ["pagina"] : path.endsWith("/convites") ? ["status", "pagina"] : path.endsWith("/acordos") ? ["categoria", "filtro", "pagina"] : /\/acordos\//.test(path) ? ["antes"] : [];
   const params = new URLSearchParams(query);
   for (const [key, item] of params) {
     if (!allowed.includes(key) || params.getAll(key).length !== 1 || !/^[a-zA-Z0-9_.:|+-]{1,160}$/.test(item)) return fallback;

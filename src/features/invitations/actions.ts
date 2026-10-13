@@ -1,9 +1,27 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 export type InvitationState = { error: string; code: string; preview: null | { id: string; name: string; type: string; purpose: string } };
+
+export async function revokeInvitation(_previous: { error: string; success: string }, formData: FormData) {
+  const nucleusId = String(formData.get("nucleus_id") ?? "");
+  const invitationId = String(formData.get("invitation_id") ?? "");
+  const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+  if (!uuid.test(nucleusId) || !uuid.test(invitationId) || formData.get("confirm") !== "yes") return { error: "Confira o convite antes de revogar.", success: "" };
+  const supabase = await createSupabaseServerClient();
+  if (!supabase) return { error: "O serviço ainda não está configurado.", success: "" };
+  const { data: { user }, error: authError } = await supabase.auth.getUser();
+  if (authError || !user) return { error: "Entre na sua conta para gerenciar convites.", success: "" };
+  // O RPC revalida o criador e o Núcleo: campos ocultos não concedem autorização.
+  const { error } = await supabase.rpc("revoke_nucleus_invitation", { target_nucleus: nucleusId, target_invitation: invitationId });
+  if (error) return { error: "Não foi possível revogar. Confira seu acesso e tente novamente.", success: "" };
+  revalidatePath(`/nucleos/${nucleusId}/convites`);
+  revalidatePath(`/comecar/convite-inicial/${nucleusId}`);
+  return { error: "", success: "Convite revogado. Quem já participa continua no Núcleo." };
+}
 
 export async function generateInvitation(previous: InvitationState, formData: FormData): Promise<InvitationState> {
   const id = String(formData.get("nucleus_id") ?? "");
@@ -14,6 +32,8 @@ export async function generateInvitation(previous: InvitationState, formData: Fo
   if (!user) return { ...previous, error: "Entre na sua conta para gerar um convite." };
   const { data, error } = await supabase.rpc("create_initial_invitation", { target_nucleus: id });
   if (error || typeof data !== "string") return { ...previous, error: "Não foi possível gerar o convite. Confira seu acesso e tente novamente." };
+  revalidatePath(`/nucleos/${id}/convites`);
+  revalidatePath(`/comecar/convite-inicial/${id}`);
   return { ...previous, code: data, error: "" };
 }
 

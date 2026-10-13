@@ -1,10 +1,12 @@
 # Frontend web
 
-**Versão vigente do projeto:** 0.14.0
+**Versão vigente do projeto:** 0.15.0
 
 **Prioridade vigente — MVP aprovado em 2026-10-12:** seguir o [roteiro](../planos/mvp.md), começando pela etapa 01 de acesso e dependências operacionais. Antes de cada implementação, conferir etapa/dependências e aspecto/ficha no Atlas vivo com prioridade alta. Sincronizar também a guia MVP em cada mudança. Recomendações anteriores de iniciar pela Árvore ou proposta guiada são históricas; esses módulos seguem nas etapas 07/06. A aprovação do planejamento não conclui funcionalidades futuras.
 
 Conta v0.13.1 reserva a barra de rolagem e calcula a referência vertical do login com useLayoutEffect/ResizeObserver, restrita ao painel de autenticação. [Registro visual](../registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md).
+
+**MVP 02 local concluído:** gestão autorizada de convites, bloqueios para geração/aceite/revogação, retorno Auth, estados e navegação. Migração/publicação online pendentes. [Contrato](../funcionalidades/nucleo-compartilhado.md).
 
 ## Decisões implementadas nesta fatia
 

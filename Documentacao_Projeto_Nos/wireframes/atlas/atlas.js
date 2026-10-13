@@ -34,6 +34,11 @@ function blockHtml(block,interactive,index,screenId){
   }
 }
 function stateHtml(screen){
+  if(screen.id===59){
+    const messages={empty:['Nenhum convite ativo nesta página','Gerar convite é uma escolha do criador; consultar não cria nenhum código.'],loading:['Conferindo sua permissão e os convites deste Núcleo','Consulta em andamento · exemplo.'],error:['Não conseguimos consultar os convites agora','A falha não confirma nenhuma revogação. Tente novamente antes de compartilhar.'],blocked:['Gestão somente para o criador','Participante não recebe acesso à lista ou revogação.'],success:['Convite revogado','Quem já participa continua no Núcleo; novos aceites desse código são impedidos.']};
+    const [title,text]=messages[previewState];
+    return `<div class="state-message product-panel" role="${['error','blocked'].includes(previewState)?'alert':'status'}"><h4>${title}</h4><p>${text}</p></div>`;
+  }
   if([10,11].includes(screen.id)){
     const invitationStates={empty:['Informe o código de convite','Cole o código recebido e confira. Nenhuma associação é criada nesta etapa.'],loading:['Conferindo convite · exemplo','Aguarde a resposta autorizada; no aceite, validade e sessão são conferidas novamente.'],error:['Não foi possível conferir agora','Preserve o código e tente novamente explicitamente. Falha de rede não confirma aceite.'],blocked:['Convite não encontrado, expirado ou revogado','Peça outro código a quem convidou. Não mostrar a prévia nem criar associação.'],success:['Prévia disponível · exemplo','Conheça nome, tipo e propósito. Só Aceitar convite cria associação e abre o Início; Agora não volta a Seus Núcleos sem entrar.']};
     const [title,text]=invitationStates[previewState];
