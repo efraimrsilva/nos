@@ -2,6 +2,8 @@
 
 **Versão de referência:** v0.14.1. **Aprovado pelo usuário:** 2026-10-12. **Status:** roteiro aprovado; funcionalidades futuras permanecem planejadas.
 
+**Operação da etapa 01 em 13/10/2026:** conexão/login/sessão/saída verificados em https://noslife.netlify.app, com configuração de produção e retornos Supabase aplicados. Cadastro com confirmação externa ainda depende da senha de aplicativo Gmail; recuperação completa também exige segredo no Netlify. Etapa 01 continua aberta. [Registro online](../registros/registro-v0.14.1-2026-10-13-03-imp-conexao-netlify-fun-acesso-online.md).
+
 A [guia MVP do Atlas vivo](../../wireframes/atlas/index.html#mvp) orienta a prioridade das próximas entregas. A [Visão global](../../wireframes/atlas/index.html#visao-global) orienta a navegação do produto; a ordem de desenvolvimento não obriga a pessoa a percorrer todas as telas. Antes de codificar, inspecionar a tela no modo vivo com prioridade alta, ler ficha/contrato e conferir permissões.
 
 ## Primeiro marco utilizável

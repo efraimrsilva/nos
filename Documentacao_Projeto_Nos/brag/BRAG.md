@@ -1,6 +1,13 @@
 # Brag document — Projeto Nós
 
-**Versão vigente do projeto:** 0.14.0
+**Versão vigente do projeto:** 0.14.1
+
+## 2026-10-13 — Conexão e login publicados no Netlify
+
+- **Problema:** site online sem variáveis de ambiente; login retornava autenticação não configurada, e Supabase autorizava apenas retornos locais.
+- **Contribuição:** conexão pública e origem do aplicativo no contexto Production; Site URL/retornos Supabase ajustados com configuração parcial; nova publicação sem cache.
+- **Resultado verificado:** login no formulário publicado, sessão privada, saída e proteção após saída passaram em teste HTTP com conta temporária confirmada, removida e ausência comprovada. Deploy 6ace48f47aa1bb0b8a70bc68 publicado. Cadastro com confirmação externa continua pendente de SMTP; não foi comprovado recebimento.
+- **Evidência:** [registro operacional](../_andamento/registros/registro-v0.14.1-2026-10-13-03-imp-conexao-netlify-fun-acesso-online.md).
 
 ## 2026-10-12 — MVP aprovado com cobertura e fonte visual compartilhada
 

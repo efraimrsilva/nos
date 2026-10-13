@@ -1,4 +1,10 @@
-# Conta e entrada — v0.13.3
+# Conta e entrada — v0.14.1
+
+## v0.14.1 — Operação online Netlify — 2026-10-13
+
+https://noslife.netlify.app conectado ao nos-dev. Netlify Production configurado com endereço/chave pública do Supabase e APP_ORIGIN; Supabase Site URL e retornos /auth/confirm e /auth/recovery online aplicados, preservando retornos locais. Deploy 6ace48f47aa1bb0b8a70bc68 publicado em main a219fb4. Login, acesso privado por cookies, saída e proteção após sair validados por HTTP com fixture confirmada e posteriormente removida. Contratos/telas mantidos.
+
+Cadastro público com confirmação externa permanece pendente: SMTP próprio desabilitado e usuário reconfirmou que senha de aplicativo Gmail ainda não foi liberada. Recuperação online completa também requer AUTH_RECOVERY_SECRET no servidor, ainda não configurado no Netlify. [Registro operacional](../registros/registro-v0.14.1-2026-10-13-03-imp-conexao-netlify-fun-acesso-online.md). Não confundir teste com fixture confirmada com cadastro/recebimento de e-mail certificado.
 
 ## v0.13.3 — Percurso 04 Entrar por convite — 2026-10-10
 

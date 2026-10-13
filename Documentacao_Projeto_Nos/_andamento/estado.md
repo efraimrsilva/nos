@@ -6,6 +6,20 @@
 
 **Atualizado:** 2026-10-13
 
+## Acesso online Netlify — v0.14.1 — 2026-10-13
+
+**Objetivo ativo/escopo:** conectar https://noslife.netlify.app ao nos-dev para cadastrar e entrar. **Em andamento:** conexão/login concluídos e verificados online; cadastro com confirmação externa depende de SMTP. Versão preservada enquanto a solicitação completa estiver pendente. DOCS_DIR acima; main em a219fb4c49accb59bb0870b8a75e7678ddaf7e63, Git inicialmente limpo.
+
+**Configuração aplicada:** Supabase Site URL online e quatro retornos online acrescentados aos quatro locais existentes, somente auth.site_url/auth.additional_redirect_urls, diff posterior sem divergência. Netlify Production recebeu NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY e APP_ORIGIN, All scopes. Deploy sem cache 6ace48f47aa1bb0b8a70bc68 Published, main a219fb4. Sem alteração no código, migração, commit ou push.
+
+**Evidências:** erro de ambiente não configurado reproduzido antes; login por formulário/Server Action publicado passou com fixture confirmada e isolada (303 /nucleos), sessão por cookies reconhecida (200 Seus Núcleos), saída (303 /conta) e proteção após sair. Conta temporária removida/404 confirmado; nenhum Núcleo criado. Build remoto Netlify completo; testes/tipos locais não repetidos. Autorrevisão, sem revisão independente. Teste HTTP autenticado não comprova apresentação visual autenticada ou recebimento de e-mail.
+
+**Bloqueio/próximo passo:** usuário reconfirmou em 13/10 que Google ainda não liberou senha de aplicativo Gmail. SMTP próprio desabilitado; cadastro público/recebimento/confirmar e-mail ainda não certificados. Quando liberada, executar scripts/configure-gmail-smtp.ps1 com prompt oculto e testar cadastro → recebimento → confirmação → login → recarregar → sair no site. Recuperação completa também depende de AUTH_RECOVERY_SECRET no ambiente servidor do Netlify; não configurado nesta entrega.
+
+**Arquivos/ferramentas:** [configuração parcial](../../supabase/operacao/netlify/supabase/config.toml), [registro](registros/registro-v0.14.1-2026-10-13-03-imp-conexao-netlify-fun-acesso-online.md), [conta](funcionalidades/conta-entrada.md), README/histórico/Brag. Superpowers depuração/verificação/revisão lidos; Context7 Supabase consultado, CLI 2.118.0 autenticada e navegador Netlify autenticado pelo usuário. Sem pesquisa avançada de código/dependências: Octocode não necessário nesta operação. Node 24.15.0 com --use-system-ca após falha de cadeia TLS; verificação de certificados mantida.
+
+**Publicação Git autorizada em 13/10/2026:** commit abrangente da conexão/login online, seguido de push para origin/main. Base a219fb4; fetch confirmou divergência 0/0. Objeto inicial 52c4604 inspecionado: 10 arquivos da entrega incluídos e árvore 0a4131df6dfe142182491df9112ad4ee52db8d25 igual ao índice preparado. **Unidades pendentes de commit desta entrega: nenhuma**, retirada por comprovação de inclusão; controle incorporado ao mesmo commit lógico antes do push. Trabalho paralelo da etapa 02 preservado fora do conjunto. Entrega funcional completa continua em andamento; o deploy validado utiliza a219fb4. Conferir hash final local/remoto após envio; não inferir novo deploy concluído pelo push. [Registro de publicação](registros/registro-v0.14.1-2026-10-13-04-imp-publicacao-git-fun-rastreabilidade-acesso-online.md).
+
 ## Conferência MVP etapa 01 — v0.14.1 — 2026-10-13
 
 **Objetivo/escopo:** conferir telas 01, 02, 03, 04, 05 e 72 e funções de acesso do Atlas. Documentação inicialmente dispensada, depois autorizada. Nenhuma etapa seguinte iniciada.
@@ -343,7 +357,7 @@ Agenda por Núcleo concluída na **v0.6.0**: eventos pontuais com título, inten
 
 **Unidades pendentes de commit neste marco histórico:** nenhuma para a correção visual e orientação de prioridade alta; inclusão no commit confirmada por inspeção do objeto e comparação da árvore. Mensagem: `docs(wireframe): alinhar atlas ao app e consolidar prioridade visual`.
 
-**Contador de interações:** 97: 96 persistidas + publicação autorizada da etapa 01 nesta solicitação. Início em 2026-09-25; último marco de over-engineering: nenhum (0); próxima auditoria: 100.
+**Contador de interações:** 99: 98 persistidas + publicação autorizada da conexão Netlify/Supabase. Início em 2026-09-25; último marco de over-engineering: nenhum (0); próxima auditoria: 100.
 
 ## Objetivo e situação histórica — v0.11.0
 

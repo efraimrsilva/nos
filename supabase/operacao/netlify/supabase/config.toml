@@ -1,0 +1,17 @@
+# Endereços de autenticação aplicados ao nos-dev em 2026-10-13 para o site noslife.
+# Configuração parcial: não usar o config.toml local para configurar o projeto remoto.
+# A CLI Supabase 2.118.0 foi verificada para aplicar somente os campos declarados.
+project_id = "nos-netlify-auth"
+
+[auth]
+site_url = "https://noslife.netlify.app"
+additional_redirect_urls = [
+  "http://127.0.0.1:3000/auth/confirm",
+  "http://127.0.0.1:3000/auth/confirm?next=**",
+  "http://127.0.0.1:3000/auth/recovery",
+  "http://127.0.0.1:3000/auth/recovery?next=**",
+  "https://noslife.netlify.app/auth/confirm",
+  "https://noslife.netlify.app/auth/confirm?next=**",
+  "https://noslife.netlify.app/auth/recovery",
+  "https://noslife.netlify.app/auth/recovery?next=**",
+]
