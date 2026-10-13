@@ -10,6 +10,16 @@ Percurso 03 atualizado em 2026-10-09: Conta (login) → Recuperar acesso → lin
 
 Abra [o atlas navegável](atlas/index.html). Ele funciona localmente, sem servidor, conta, rede ou conexão com Supabase. Para transportar o material, mantenha a pasta `atlas/` completa: página, estilos, scripts e recursos locais.
 
+## MVP aprovado — prioridade e manutenção do roteiro
+
+A [guia MVP](atlas/index.html#mvp), acima de Visão global, foi aprovada em 2026-10-12. [Plano registrado](../_andamento/planos/mvp.md) e [registro](../_andamento/registros/registro-v0.14.0-2026-10-12-imp-mvp-atlas-fun-roteiro-aprovado.md). São 13 etapas: 01–05 fecham o piloto web central (37 telas/estados); 06–12 expandem os módulos; 13 conclui integrações/plataformas. Todas as 72 telas atuais têm uma etapa principal. Começar pelo login existente na 01. Recorte existente não equivale a tela completa ou lançamento pronto.
+
+Antes de implementar, consultar a etapa, suas dependências e critério de avanço, depois o aspecto e a ficha no Atlas vivo com prioridade alta. A Visão global descreve navegação; o MVP descreve prioridade de entrega, sem impor percurso obrigatório à pessoa. Aprovação do planejamento não fecha regras ainda abertas nem autoriza gravação de módulos futuros automaticamente.
+
+screens.js fornece títulos, situação, rota, regras, permissões, pendências e ações; tileHtml/productPhoneHtml reutilizam os desenhos nas três visões. mvp-plan.js mantém apenas organização por IDs, objetivos, funcionalidades transversais e critérios. Não criar cópia visual para o MVP. Mudanças de tela/rota/dados/regra/estado devem revisar a etapa e dependências, sincronizar produto/Atlas/MVP/Visão global/fichas/percursos/cobertura e criar comparação versionada. Quando houver nova tela, resolver o aviso de cobertura e atribuir uma etapa; filtros não podem esconder pendências do planejamento.
+
+Mudanças de prioridade atualizam mvp-plan.js e a síntese do plano documental. Avançar por evidência da jornada com dados reais/permissões/estados, sem calcular conclusão por quantidade de telas. Direções anteriores de começar pela Árvore ou pelas etapas guiadas de proposta ficam substituídas como prioridade geral; seguem previstas em 07/06. [Comparação da ferramenta](comparacoes/v0.14.0-2026-10-12-mvp-atlas-tela_01-a-tela_72/index.html); não existe rota MVP equivalente no aplicativo.
+
 ## Fidelidade às telas aprovadas — correção de 2026-10-04
 
 O modelo inicial simplificava a interface em cartões genéricos e não preservava a hierarquia aprovada. A correção incorpora as **28 telas do documento Nos_App.dc.html**, com **52 composições e variações** de abas/vínculos, e reproduz as telas implementadas de Conta e onboarding. /comecar, /comecar/tipo e /comecar/convite foram comparadas ao aplicativo em execução, incluindo títulos, paleta e SVG dos nove tipos.
@@ -126,9 +136,7 @@ Quando houver divergência, decisões explícitas do usuário e contratos implem
 
 ## Próximo passo executável
 
-Manter este guia e o atlas sincronizados a cada entrega. O usuário aprovou sua continuidade como referência viva. Retomar a definição de [Nossa Árvore](../_andamento/funcionalidades/nossa-arvore.md), usando a Tela 38 como composição, fechando fontes de dados e critérios antes de implementar. Não iniciar nova funcionalidade apenas porque seu desenho está pronto.
-
-Critérios para esta entrega: Conta em primeiro; 37 origens cobertas; telas planejadas sinalizadas; fichas com contratos e permissões; destinos íntegros; navegação local; estados e apresentação responsiva verificados; versão funcional preservada; continuidade atualizada.
+Seguir a etapa 01 do [MVP aprovado](../_andamento/planos/mvp.md): reconferir login, recuperação, retorno de convite e dependências de operação antes de ampliar. Inspecionar desenho/ficha e fechar cada recorte autorizado. Árvore e proposta guiada permanecem planejadas nas etapas 07/06; registros anteriores ficam históricos. Manter este guia e as três visões sincronizados em cada entrega.
 
 ## Sincronização e apresentação de diferenças — decisão de 2026-10-07
 

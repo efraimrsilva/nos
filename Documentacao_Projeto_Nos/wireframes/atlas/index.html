@@ -8,11 +8,13 @@
   <link rel="stylesheet" href="atlas.css">
   <link rel="stylesheet" href="product.css">
   <link rel="stylesheet" href="global-view.css">
+  <link rel="stylesheet" href="mvp.css">
   <script defer src="screens.js"></script>
   <script defer src="approved-layouts.js"></script>
   <script defer src="icons.js"></script>
   <script defer src="product-ui.js"></script>
   <script defer src="global-view.js"></script>
+  <script defer src="mvp-plan.js"></script>
   <script defer src="atlas.js"></script>
 </head>
 <body>
@@ -40,6 +42,7 @@
     </div>
     <div class="atlas-heading"><p id="result-count" aria-live="polite"></p><p><span class="badge planned">Planejada</span> contrato/implementação pendente <span class="badge existing">Recorte existente</span> consultar limites</p></div>
     <section id="atlas-view" aria-label="Todas as telas"></section>
+    <section id="mvp-view" hidden aria-label="MVP aprovado e caminho de implementação"></section>
     <section id="global-view" hidden aria-label="Visão global do projeto"></section>
     <section id="prototype-view" hidden aria-label="Inspeção da tela selecionada">
       <div class="prototype-top"><button id="previous" class="quiet">← Anterior</button><div class="preview-width" role="group" aria-label="Largura da prévia"><button data-width="mobile" aria-pressed="true">Celular</button><button data-width="desktop" aria-pressed="false">Web</button></div><button id="next" class="quiet">Próxima →</button></div>

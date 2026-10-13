@@ -1,0 +1,76 @@
+import assert from 'node:assert/strict';
+import path from 'node:path';
+import {pathToFileURL} from 'node:url';
+import {chromium} from '@playwright/test';
+
+const browser=await chromium.launch();
+try{
+  const page=await browser.newPage({viewport:{width:1440,height:1000}});
+  const errors=[],external=[];
+  page.on('pageerror',error=>errors.push(error.message));
+  page.on('request',request=>{if(/^https?:/.test(request.url()))external.push(request.url());});
+  const url=pathToFileURL(path.resolve('Documentacao_Projeto_Nos/wireframes/atlas/index.html')).href;
+  await page.goto(url);
+  const nav=page.locator('#chapter-nav button');
+  assert.match(await nav.first().innerText(),/MVP/,'MVP deve ficar acima da Visão global');
+  assert.match(await nav.nth(1).innerText(),/Visão global/);
+  await nav.first().click();
+  assert.equal(await page.locator('#mvp-view').isVisible(),true);
+  assert.match(await page.locator('#mvp-view').innerText(),/MVP aprovado/i);
+  const expected=await page.evaluate(()=>screens.map(screen=>screen.id));
+  const assigned=await page.locator('#mvp-view [data-mvp-screen]').evaluateAll(nodes=>nodes.map(node=>Number(node.dataset.mvpScreen)));
+  assert.equal(new Set(assigned).size,expected.length,'Sem duplicar atribuições');
+  assert.deepEqual([...assigned].sort((a,b)=>a-b),[...expected].sort((a,b)=>a-b),'Todas as telas têm uma etapa');
+  assert.equal(assigned[0],1,'Login já existente inicia o plano');
+  const actionCount=await page.evaluate(()=>screens.reduce((total,screen)=>total+screen.actions.length,0));
+  assert.equal(await page.locator('#mvp-view [data-mvp-action]').count(),actionCount,'Nenhuma ação das fichas omitida');
+  await page.evaluate(()=>{screens[0].title='Conta com título atualizado';screens[0].dependency='Limite atual atualizado';renderMvp();});
+  assert.match(await page.locator('[data-mvp-screen="1"]').textContent(),/Conta com título atualizado/);
+  assert.match(await page.locator('[data-mvp-screen="1"]').textContent(),/Limite atual atualizado/);
+  await page.reload();await nav.first().click();
+  for(const name of ['Impacto','Linguagens de cuidado','Google e Apple','Calendários externos','Android','iOS','biometria','retenção','IA opcional','Convites por link e QR','Administrador','revisão anual do propósito'])assert.ok((await page.locator('#mvp-view').textContent()).includes(name),`Função transversal: ${name}`);
+  await page.locator('#mvp-view [data-entry-login]').first().click();
+  assert.equal(await page.locator('#screen-preview [data-auth-submit]').innerText(),'Entrar','Abrir login, não cadastro');
+  await page.locator('#screen-spec [data-view="mvp"]').click();
+  await page.locator('[data-mvp-preview="access"]').click();
+  assert.equal(await page.locator('#mvp-preview-access .tile').count(),6);
+  assert.match(await page.locator('#mvp-preview-access .tile-caption h3').first().innerText(),/Conta/);
+  for(const id of [1,2,3,4,5,72]){
+    const content=await page.locator('#mvp-tile-'+String(id).padStart(2,'0')+' .phone').evaluate(node=>node.querySelector('[data-thumbnail]').innerHTML);
+    assert.equal(content,await page.locator('#tile-'+String(id).padStart(2,'0')+' .phone').evaluate(node=>node.querySelector('[data-thumbnail]').innerHTML),'Composição compartilhada '+id);
+  }
+  await page.locator('.mvp-stage-nav [data-mvp-stage="habit"]').focus();await page.keyboard.press('Enter');
+  assert.equal(await page.locator('#mvp-phase-habit').getAttribute('open'),'');
+  await page.locator('#mvp-phase-habit [data-mvp-screen="18"] [data-go="18"]').click();
+  await page.locator('#screen-spec [data-view="mvp"]').click();
+  assert.equal(await page.locator('#mvp-phase-habit').getAttribute('open'),'','Etapa aberta preservada ao retornar');
+  assert.equal(await page.locator('#mvp-preview-access').isVisible(),true,'Prévia aberta preservada');
+  await page.evaluate(()=>window.dispatchEvent(new Event('beforeprint')));
+  assert.equal(await page.locator('#mvp-view .mvp-phase[open]').count(),13,'Impressão cobre todas as etapas');
+  await page.evaluate(()=>window.dispatchEvent(new Event('afterprint')));
+  assert.equal(await page.locator('#mvp-phase-care').getAttribute('open'),null,'Depois de imprimir restaurar etapas fechadas');
+  await page.locator('#status-filter').selectOption('Planejada');
+  assert.equal(await page.locator('#mvp-view [data-mvp-screen]').count(),await page.evaluate(()=>screens.filter(s=>s.status==='Planejada').length));
+  await page.locator('.view-tabs [data-view="atlas"]').click();
+  assert.equal(await page.locator('#atlas-view .tile').count(),await page.evaluate(()=>screens.filter(s=>s.status==='Planejada').length));
+  await nav.first().click();await page.locator('#status-filter').selectOption('all');
+  // Uma tela nova fica explicitamente sem etapa até revisar o plano; não desaparece da cobertura.
+  await page.evaluate(()=>{screens.push({...screens[0],id:73,title:'Nova tela a planejar'});renderMvp();});
+  assert.match(await page.locator('#mvp-view .mvp-unassigned').innerText(),/Nova tela a planejar/);
+  await page.goto(url+'#mvp');
+  await page.reload();
+  assert.equal(await page.locator('#mvp-view').isVisible(),true);
+  assert.equal(await page.locator('#mvp-view [data-mvp-screen]').count(),expected.length,'Alteração de cobertura só existiu no navegador do teste');
+  await page.setViewportSize({width:375,height:812});
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'Sem transbordamento em celular');
+  await page.locator('#mvp-view').evaluate(node=>node.scrollIntoView({block:'start'}));
+  await page.screenshot({path:'artifacts/mvp-mobile.png'});
+  await page.setViewportSize({width:1440,height:1000});
+  await page.locator('#mvp-view').evaluate(node=>node.scrollIntoView({block:'start'}));await page.evaluate(()=>document.fonts.ready);
+  await page.screenshot({path:'artifacts/mvp-desktop.png'});
+  await page.emulateMedia({media:'print'});
+  assert.equal(await page.locator('#mvp-view').isVisible(),true);
+  assert.equal(await page.locator('#atlas-view').isVisible(),false);
+  assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
+  console.log(JSON.stringify({screens:expected.length,uniqueAssignment:true,loginFirst:true,liveSource:true,filters:true,mobile:true,hash:true,print:true,errors,external}));
+}finally{await browser.close();}

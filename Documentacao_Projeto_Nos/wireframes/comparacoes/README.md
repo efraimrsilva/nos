@@ -6,6 +6,8 @@ Toda criação ou alteração de tela, navegação, dados, regra ou estado deve 
 
 ## Galerias
 
+- [2026-10-12 — MVP aprovado — v0.14.0](v0.14.0-2026-10-12-mvp-atlas-tela_01-a-tela_72/index.html): antes real da ferramenta sem MVP e depois do roteiro aprovado, com seis amostras em computador/celular. A dispensa de comparação valia apenas para a criação inicial; aprovação e documentação retomam o procedimento permanente. Não existe rota MVP equivalente no aplicativo.
+
 - [2026-10-10 — Percurso 05 Uma proposta de Hábito — v0.14.0](v0.14.0-2026-10-10-proposta-habito-tela_18-tela_19-tela_20-tela_21-tela_22-tela_23-tela_24/index.html): caminho disponível/futuro, conferência real no hub, respostas, detalhe e reservas em computador/celular.
 - [2026-10-10 — Percurso 04 Entrar por convite — v0.13.3](v0.13.3-2026-10-10-entrar-convite-tela_10-tela_11/index.html): tipo, adiamento e retorno sem associação, composição real desktop/celular, sequência e reservas futuras; códigos mascarados.
 

@@ -4,6 +4,8 @@
 
 Entrega atual: [v0.14.0 — Percurso 05 Uma proposta de Hábito](registros/registro-v0.14.0-2026-10-10-imp-proposta-habito-fun-percurso-05.md). Conferência no hub concluída localmente, com fluxo guiado reservado; unidade incluída no commit autorizado, com objeto conferido em 2026-10-12. [Contrato](funcionalidades/proposta-habito.md). O estado canônico abaixo mantém as publicações anteriores, sem pendência fictícia de Conta.
 
+**Prioridade atual aprovada:** [MVP e roteiro completo](planos/mvp.md), começando pelo login existente. Guia [MVP](../wireframes/atlas/index.html#mvp) acima de Visão global; 13 etapas com critérios/dependências. Consultar desenho vivo/ficha antes de implementar. [Registro](registros/registro-v0.14.0-2026-10-12-imp-mvp-atlas-fun-roteiro-aprovado.md). Aprovação não equivale a implementação.
+
 Este diretório preserva o contexto operacional entre sessões e retomadas do projeto.
 
 Entrega histórica: [v0.13.0 — Navegação e sessão](registros/registro-v0.13.0-2026-10-07-05-imp-navegacao-protegida-fun-sessao-seus-nucleos.md); [contrato](funcionalidades/navegacao-sessao.md) e [galeria](../wireframes/comparacoes/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/index.html).
@@ -68,6 +70,6 @@ Os materiais de origem foram movidos pelo usuário para [Telas](../Telas/Nos_App
 
 ## Próxima implementação
 
-A confirmação do Hábito após teste foi concluída na v0.11.0. Retomar o contrato de Nossa Árvore e manter o wireframe sincronizado com o recorte aprovado.
+Seguir a etapa 01 do [MVP aprovado](planos/mvp.md): reconferir login, recuperação, retorno e operação antes de ampliar. A indicação anterior de iniciar Nossa Árvore foi substituída como prioridade geral; o recorte permanece na etapa 07. Cada implementação mantém aspecto/contrato do Atlas vivo e comparações sincronizados.
 
 - [Próximo recorte — Nossa Árvore](funcionalidades/nossa-arvore.md): fontes, base real, lacunas e critérios de aceite.

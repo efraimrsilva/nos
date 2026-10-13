@@ -71,8 +71,8 @@ function phoneHtml(screen,interactive=false){
 }
 function filteredScreens(){const query=$('#search').value.trim().toLocaleLowerCase('pt-BR');const status=$('#status-filter').value;return screens.filter(screen=>(chapterFilter<0||screen.chapter===chapterFilter)&&(status==='all'||screen.status===status)&&(!query||`${pad(screen.id)} ${screen.title} ${screen.route} ${screen.source} ${screen.rule} ${screen.dependency}`.toLocaleLowerCase('pt-BR').includes(query)));}
 // A visão por áreas e o mapa global usam a mesma composição, ficha e estado de implementação.
-function tileHtml(screen, global=false){
-  const prefix=global?'global-tile':'tile';
+function tileHtml(screen, global=false, contextPrefix=''){
+  const prefix=contextPrefix||(global?'global-tile':'tile');
   return `<article class="tile" id="${prefix}-${pad(screen.id)}" data-screen-id="${screen.id}"><div class="tile-header"><span class="screen-number">${pad(screen.id)}</span>${badge(screen)}</div>${phoneHtml(screen)}<div class="tile-caption"><h3>${escapeHtml(screen.title)}</h3><p>${screen.status==='Planejada'?'Pendente:':'Limites:'} ${escapeHtml(screen.dependency)}</p><button class="tile-open" data-open="${screen.id}">Inspecionar tela e contrato →</button>${global?`<details class="global-destinations"><summary>${screen.actions.length} saídas desta tela</summary><ul>${screen.actions.map(action=>`<li><button data-go="${action.to}" ${action.login?'data-entry-login':''} data-destination="${action.to}">${escapeHtml(action.label)} <span>→ ${pad(action.to)} · ${escapeHtml(byId(action.to).title)}</span></button></li>`).join('')}</ul></details>`:''}</div></article>`;
 }
 function renderAtlas(){
@@ -106,8 +106,8 @@ function renderPrototype(){
   $('#screen-spec').innerHTML=`<span class="screen-number">TELA ${pad(screen.id)}</span> ${badge(screen)}<h2>${escapeHtml(screen.title)}</h2><p>${escapeHtml(chapters[screen.chapter])}</p><h3>Rota e localização</h3><code class="route">${escapeHtml(screen.route)}</code><h3>Origem no catálogo v2.1</h3><p>${escapeHtml(screen.source)}. Nova numeração independente.</p><h3>Contrato e comportamento</h3><p>${escapeHtml(screen.rule)}</p><h3>Quem pode agir</h3><p>${escapeHtml(screen.permission)}</p><h3>${screen.status==='Planejada'?'Pendente antes de implementar':'Limites do recorte existente'}</h3><div class="pending-box"><p>${escapeHtml(screen.dependency)}</p></div><h3>Saídas deste desenho</h3><div class="spec-actions">${screen.actions.map(action=>`<button class="quiet" data-go="${action.to}" ${action.login?'data-entry-login':''}>${pad(action.to)} · ${escapeHtml(byId(action.to).title)}</button>`).join('')}</div><p>Ações desta prévia não persistem dados. Seleções e campos são descartados ao trocar de tela.</p><button class="quiet screen-back" data-view="atlas">← Voltar ao atlas</button>`;
   // Reservas ficam ao lado da composição atual, identificadas sem simular uma integração futura.
   if(screen.id===10&&!referenceMode)$('#screen-preview').insertAdjacentHTML('beforeend','<section class="pending-box invitation-future" aria-label="Evoluções planejadas do convite"><span class="badge planned">Planejada</span><h3>Espaço reservado · ler QR e abrir convite por link</h3><p>Leitura por câmera virá após definir formato, permissão e alternativa por código. Convite por link exige transporte seguro durante autenticação e retirada da credencial da URL. Geração de QR está reservada na Tela 58; gestão de convites na Tela 59.</p></section>');
-  if(inspectionOrigin==='global'){
-    const back=$('#screen-spec .screen-back');back.dataset.view='global';back.textContent='← Voltar à Visão global';
+  if(['global','mvp'].includes(inspectionOrigin)){
+    const back=$('#screen-spec .screen-back');back.dataset.view=inspectionOrigin;back.textContent=inspectionOrigin==='mvp'?'← Voltar ao MVP':'← Voltar à Visão global';
   }
   $('#previous').disabled=selectedId===1;$('#next').disabled=selectedId===screens.length;
   requestAnimationFrame(alignAccountPreview);
@@ -122,26 +122,27 @@ function renderFlows(){
 }
 function setView(nextView){
   view=nextView;
-  for(const mode of ['atlas','prototype','flows','global'])$(`#${mode}-view`).hidden=mode!==view;
+  for(const mode of ['atlas','prototype','flows','global','mvp'])$(`#${mode}-view`).hidden=mode!==view;
   document.body.dataset.view=view;
-  document.querySelectorAll('#chapter-nav button').forEach(button=>button.setAttribute('aria-pressed',String(view==='global'?button.dataset.view==='global':view==='atlas'&&Number(button.dataset.chapter)===chapterFilter)));
+  document.querySelectorAll('#chapter-nav button').forEach(button=>button.setAttribute('aria-pressed',String(['global','mvp'].includes(view)?button.dataset.view===view:view==='atlas'&&Number(button.dataset.chapter)===chapterFilter)));
   document.querySelectorAll('.view-tabs [data-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.view===view)));
-  // Ambas as visões do inventário filtram a mesma fonte; a inspeção percorre todas as telas.
-  $('#search').disabled=!['atlas','global'].includes(view);$('#status-filter').disabled=!['atlas','global'].includes(view);
+  // Inventário, mapa global e MVP consultam os mesmos contratos e filtros.
+  $('#search').disabled=!['atlas','global','mvp'].includes(view);$('#status-filter').disabled=!['atlas','global','mvp'].includes(view);
   if(view==='global')renderGlobal();
+  if(view==='mvp')renderMvp();
   if(view==='atlas')renderAtlas();
-  if(!['global','prototype'].includes(view)&&location.hash==='#visao-global')history.replaceState(null,'',location.pathname+location.search);
+  if(view!=='prototype'&&((view!=='global'&&location.hash==='#visao-global')||(view!=='mvp'&&location.hash==='#mvp')))history.replaceState(null,'',location.pathname+location.search);
   if(view==='prototype')renderPrototype();
-  $('#result-count').textContent=view==='global'?`${filteredScreens().length} de ${screens.length} telas · sequência e ramificações do projeto`:view==='atlas'?`${filteredScreens().length} de ${screens.length} telas · selecione uma para inspecionar`:view==='prototype'?`Tela ${pad(selectedId)} · ${byId(selectedId).title}`:`${journeys.length} percursos · selecione uma etapa para abrir sua tela`;
+  $('#result-count').textContent=view==='mvp'?`${filteredScreens().length} de ${screens.length} telas · MVP aprovado e evolução completa`:view==='global'?`${filteredScreens().length} de ${screens.length} telas · sequência e ramificações do projeto`:view==='atlas'?`${filteredScreens().length} de ${screens.length} telas · selecione uma para inspecionar`:view==='prototype'?`Tela ${pad(selectedId)} · ${byId(selectedId).title}`:`${journeys.length} percursos · selecione uma etapa para abrir sua tela`;
 }
 function openScreen(id,updateHash=true){
-  if(view!=='prototype')inspectionOrigin=view==='global'?'global':'atlas';
+  if(view!=='prototype')inspectionOrigin=['global','mvp'].includes(view)?view:'atlas';
   if(!byId(id))return;selectedId=Number(id);previewState='content';referenceMode=false;documentLayoutKey='';document.querySelectorAll('[data-state]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.state===previewState)));setView('prototype');
   if(updateHash)history.replaceState(null,'',`#tela-${pad(selectedId)}`);
   $('#prototype-view').scrollIntoView({block:'start'});
   $('#screen-spec').setAttribute('tabindex','-1');$('#screen-spec').focus({preventScroll:true});
 }
-$('#chapter-nav').innerHTML=`<button class="chapter-button global-button" data-view="global" aria-pressed="false"><span>✳</span>Visão global</button><button class="chapter-button" data-chapter="-1" aria-pressed="true"><span>✳</span>Todas as áreas</button>${chapters.map((chapter,index)=>`<button class="chapter-button" data-chapter="${index}" aria-pressed="false"><span>${pad(index+1)}</span>${escapeHtml(chapter)}</button>`).join('')}`;
+$('#chapter-nav').innerHTML=`<button class="chapter-button global-button" data-view="mvp" aria-pressed="false"><span>✳</span>MVP</button><button class="chapter-button global-button" data-view="global" aria-pressed="false"><span>✳</span>Visão global</button><button class="chapter-button" data-chapter="-1" aria-pressed="true"><span>✳</span>Todas as áreas</button>${chapters.map((chapter,index)=>`<button class="chapter-button" data-chapter="${index}" aria-pressed="false"><span>${pad(index+1)}</span>${escapeHtml(chapter)}</button>`).join('')}`;
 $('#total-count').textContent=screens.length;$('#planned-count').textContent=screens.filter(screen=>screen.status==='Planejada').length;$('#existing-count').textContent=screens.filter(screen=>screen.status==='Recorte existente').length;
 renderAtlas();renderFlows();
 document.addEventListener('click',event=>{
@@ -156,7 +157,9 @@ document.addEventListener('click',event=>{
   if(target.hasAttribute('data-local-tab')||target.dataset.localChoice){const group=target.parentElement;group.querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));showToast('Seleção local para revisão do desenho. Sem persistência.');return;}
   if(target.dataset.demo){showToast('Ação ilustrativa do documento. O contrato e a implementação estão descritos na ficha.');return;}
   if(target.dataset.globalArea){const heading=$(`#global-area-${target.dataset.globalArea} h2`);heading.scrollIntoView({block:'start'});heading.focus({preventScroll:true});return;}
-  if(target.dataset.view){if(target.dataset.view==='global'){chapterFilter=-1;setView('global');history.replaceState(null,'','#visao-global');$('#global-view').scrollIntoView({block:'start'});}else setView(target.dataset.view);return;}
+  if(target.dataset.mvpStage){openMvpPhase(target.dataset.mvpStage);return;}
+  if(target.dataset.mvpPreview){toggleMvpPreview(target.dataset.mvpPreview);return;}
+  if(target.dataset.view){if(['global','mvp'].includes(target.dataset.view)){chapterFilter=-1;setView(target.dataset.view);history.replaceState(null,'',target.dataset.view==='mvp'?'#mvp':'#visao-global');$(`#${target.dataset.view}-view`).scrollIntoView({block:'start'});}else setView(target.dataset.view);return;}
   if(target.dataset.chapter!==undefined){chapterFilter=Number(target.dataset.chapter);document.querySelectorAll('[data-chapter]').forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.chapter)===chapterFilter)));renderAtlas();setView('atlas');$('#atlas-view').scrollIntoView({block:'start'});return;}
   if(target.dataset.state){previewState=target.dataset.state;document.querySelectorAll('[data-state]').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));renderPrototype();return;}
   if(target.dataset.width){width=target.dataset.width;document.querySelectorAll('[data-width]').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));renderPrototype();return;}
@@ -187,9 +190,9 @@ document.addEventListener('submit',event=>{
   }
 });
 document.addEventListener('keydown',event=>{const target=event.target.closest('[data-open]');if(target&&(event.key==='Enter'||event.key===' ')){event.preventDefault();openScreen(target.dataset.open);}});
-function renderFilteredView(){if(view==='global')renderGlobal();else renderAtlas();$('#result-count').textContent=`${filteredScreens().length} de ${screens.length} telas · ${view==='global'?'sequência e ramificações do projeto':'selecione uma para inspecionar'}`;}
+function renderFilteredView(){if(view==='mvp')renderMvp();else if(view==='global')renderGlobal();else renderAtlas();$('#result-count').textContent=`${filteredScreens().length} de ${screens.length} telas · ${view==='mvp'?'MVP aprovado e evolução completa':view==='global'?'sequência e ramificações do projeto':'selecione uma para inspecionar'}`;}
 $('#search').addEventListener('input',renderFilteredView);$('#status-filter').addEventListener('change',renderFilteredView);
 $('#previous').addEventListener('click',()=>openScreen(selectedId-1));$('#next').addEventListener('click',()=>openScreen(selectedId+1));
-$('#print').addEventListener('click',()=>{const printingGlobal=view==='global';chapterFilter=-1;$('#search').value='';$('#status-filter').value='all';renderAtlas();setView(printingGlobal?'global':'atlas');window.print();});
-function readHash(){if(location.hash==='#visao-global'){chapterFilter=-1;setView('global');return;}const match=location.hash.match(/^#tela-(\d+)$/);if(match&&byId(match[1]))openScreen(match[1],false);}
+$('#print').addEventListener('click',()=>{const printingView=['global','mvp'].includes(view)?view:'atlas';chapterFilter=-1;$('#search').value='';$('#status-filter').value='all';renderAtlas();setView(printingView);window.print();});
+function readHash(){if(['#visao-global','#mvp'].includes(location.hash)){chapterFilter=-1;setView(location.hash==='#mvp'?'mvp':'global');return;}const match=location.hash.match(/^#tela-(\d+)$/);if(match&&byId(match[1]))openScreen(match[1],false);}
 window.addEventListener('hashchange',readHash);readHash();

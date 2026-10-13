@@ -2,6 +2,14 @@
 
 **Versão vigente do projeto:** 0.14.0
 
+## 2026-10-12 — MVP aprovado com cobertura e fonte visual compartilhada
+
+- **Problema:** faltava uma prioridade aprovada que distinguisse primeiro valor utilizável do caminho até todo o produto.
+- **Contribuição:** 13 etapas com dependências e critérios, login existente como início, 37 telas/estados no primeiro marco e cobertura de 72 telas/184 ações. Reuso da fonte/composição do atlas, aviso de nova tela sem etapa e documentação de manutenção conjunta.
+- **Resultado verificado:** cobertura única, login Entrar, atualização de fonte, filtros/teclado/celular/retorno/hash/impressão aprovados. Revisão independente resolveu funções sem etapa; seis amostras de comparação documental acrescentadas após aprovação.
+- **Benefício esperado:** orientar prioridades e reduzir divergências entre planejamento e implementação; redução de retrabalho ainda não medida. Aprovação não representa módulos concluídos.
+- **Evidência:** [plano aprovado](../_andamento/planos/mvp.md), [registro](../_andamento/registros/registro-v0.14.0-2026-10-12-imp-mvp-atlas-fun-roteiro-aprovado.md), [guia viva](../wireframes/atlas/index.html#mvp) e [comparação](../wireframes/comparacoes/v0.14.0-2026-10-12-mvp-atlas-tela_01-a-tela_72/index.html).
+
 ## 2026-10-10 — Conferência da proposta e clareza do Percurso 05
 
 - **Problema:** envio direto sem conferência e percurso disponível misturado às telas guiadas ainda planejadas.

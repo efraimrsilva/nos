@@ -6,11 +6,29 @@
 
 **Atualizado:** 2026-10-12
 
+## MVP aprovado e publicação em duas unidades — v0.14.0 — 2026-10-12
+
+**Objetivo/aceite:** registrar a aprovação do MVP, orientar do login existente até todo o projeto e publicar Hábito + MVP em commits separados conforme escolha explícita do usuário. Aprovação do roteiro não conclui funcionalidades nem contratos pendentes. Versão funcional 0.14.0 preservada nesta entrega documental.
+
+**Resultado:** guia MVP acima de Visão global; 13 etapas, 37 telas/estados no primeiro marco e todas as 72 atribuídas sem duplicação. 184 ações reaproveitadas das fichas. Situação real continua 32 recortes existentes/40 planejadas. Fonte compartilhada de telas/desenhos/contratos, filtros/contexto preservados; aviso de cobertura para IDs novos/ausentes/duplicados. Rótulo passa a MVP aprovado.
+
+**Decisão vigente de prioridade:** começar pela etapa 01, reconferir login, confirmação, recuperação/revogação e retorno de convite, incluindo dependências operacionais. Seguir objetivos/dependências/critérios do roteiro, inspecionando visualmente o Atlas vivo com prioridade alta. Necessidade/compreensão e Árvore seguem em 06/07; recomendações anteriores de iniciá-las ficam substituídas como prioridade geral. Não iniciar funcionalidade nesta publicação.
+
+**Manutenção obrigatória:** cada mudança deve conferir sua etapa/dependências e sincronizar aplicativo, MVP, Atlas vivo, Visão global, fichas, percursos, cobertura, registros e comparações. Reuso automático dentro do atlas não sincroniza aplicativo ou priorização humana. Galerias seguem versão-data-assunto-tela e preservam anteriores.
+
+**Validação:** MVP/Visão global/Percurso 05 aprovados; 72 IDs/184 ações, login, fonte compartilhada, teclado, filtros, retorno, celular, hash/impressão, zero erros/rede externa. Revisão independente corrigiu funções sem etapa explícita. Galeria documental acrescentada após aprovação, com antes real e seis amostras; não há rota MVP no aplicativo. Verificações de publicação funcional descritas abaixo.
+
+**Git:** main; Hábito incluído no objeto e árvore conferidos do commit e32ea5013a81de6e2bb76afb0f9122e3dd0b9307. MVP incluído no segundo objeto: 25 arquivos confirmados, árvore inicial 76fafd7569d2f39e604d64c74fc16a8fdeeb597e igual ao índice preparado. **Unidades prontas pendentes de commit:** nenhuma; retirada por prova de inclusão. Título: docs(atlas): aprovar MVP e registrar roteiro completo de implementação. Controle incorporado ao mesmo commit lógico antes do push autorizado dos dois; conferir igualdade remota após envio. Sem deploy.
+
+**Ferramentas/limites:** Superpowers finalização, verificação, revisão e depuração; Context7 Playwright v1.63.0 para esperas de navegação/captura. CLI Supabase 2.118.0 e Docker 29.8.1 usados somente localmente. Nenhuma dependência/instalação/configuração remota nova. SMTP, recebimento externo, origem HTTPS e plataformas continuam com validação própria pendente.
+
+**Índice/retomada:** [plano aprovado](planos/mvp.md), [registro MVP](registros/registro-v0.14.0-2026-10-12-imp-mvp-atlas-fun-roteiro-aprovado.md), [guia viva](../wireframes/atlas/index.html#mvp), [procedimento](../wireframes/GUIA.md#mvp-aprovado--prioridade-e-manutenção-do-roteiro), [comparação](../wireframes/comparacoes/v0.14.0-2026-10-12-mvp-atlas-tela_01-a-tela_72/index.html), [verificador](../wireframes/tools/verify-mvp-view.mjs). Próximo passo: reconferir etapa 01; nenhum bloqueio para o artefato de planejamento.
+
 ## Publicação de Hábito autorizada — 2026-10-12
 
 Usuário autorizou dois commits separados: conferência de Hábito v0.14.0 e depois MVP. Reconferência: tipos/build e 92 testes gerais em cópia local SHA-256; cinco testes autenticados (uma repetição dispensada), banco 5/6 e Atlas aprovados. Capturas de respostas/detalhe corrigidas por espera de conteúdo/URL e refeitas em computador/celular. Volume G teve timeout; cópia local resolveu sem editar fontes/configuração original. Revisão do conjunto não encontrou bug de comportamento; correção de evidência conferida antes do envio. Objeto inicial de Hábito inspecionado: 57 arquivos, árvore ce5387d26f208b02d7730605bc2d4ed9d23fbe24 igual ao índice preparado. Todos os arquivos confirmados no objeto; pendência retirada por essa evidência e controle incorporado ao mesmo commit lógico. Conferir igualdade remota após enviar os dois commits. Sem deploy ou operação remota de banco.
 
-## Entrega atual — Percurso 05 Uma proposta de Hábito — v0.14.0 — 2026-10-10
+## Entrega funcional anterior — Percurso 05 Uma proposta de Hábito — v0.14.0 — 2026-10-10
 
 **Status:** recorte disponível concluído, revisado e validado localmente. Evolução compatível MINOR 0.13.3 → 0.14.0 pela nova conferência antes do envio. Fluxo guiado 19–21 permanece planejado; não chamar todo o percurso futuro de funcional. Git main, base 56089a5, inicialmente limpo. DOCS_DIR: Documentacao_Projeto_Nos.
 
@@ -307,7 +325,7 @@ Agenda por Núcleo concluída na **v0.6.0**: eventos pontuais com título, inten
 
 **Unidades pendentes de commit neste marco histórico:** nenhuma para a correção visual e orientação de prioridade alta; inclusão no commit confirmada por inspeção do objeto e comparação da árvore. Mensagem: `docs(wireframe): alinhar atlas ao app e consolidar prioridade visual`.
 
-**Contador de interações:** 93, incluindo a conclusão do recorte disponível do Percurso 05, a partir da última contagem persistida 92; eventuais interações sem registro não foram inventadas. Começou em 2026-09-25 sem histórico anterior verificável. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
+**Contador de interações:** 95: contagem persistida 93 + elaboração do MVP (registro dispensado naquela interação) + aprovação documental/publicação atual. Resposta de esclarecimento do escopo integra a solicitação atual; nenhuma interação desconhecida foi inventada. Início em 2026-09-25. Último marco de over-engineering: nenhum (0); próxima auditoria: 100.
 
 ## Objetivo e situação histórica — v0.11.0
 

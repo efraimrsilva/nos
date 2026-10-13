@@ -12,9 +12,9 @@ try {
   page.on('request',request=>{if(/^https?:/.test(request.url()))external.push(request.url());});
   await page.goto(pathToFileURL(path.resolve('Documentacao_Projeto_Nos/wireframes/atlas/index.html')).href);
   const nav=page.locator('#chapter-nav button');
-  assert.match(await nav.first().innerText(),/Visão global/,'Nova aba acima de Todas as áreas');
-  assert.match(await nav.nth(1).innerText(),/Todas as áreas/);
-  await nav.first().click();
+  assert.match(await nav.nth(1).innerText(),/Visão global/,'Visão global abaixo do MVP e acima de Todas as áreas');
+  assert.match(await nav.nth(2).innerText(),/Todas as áreas/);
+  await page.locator('#chapter-nav [data-view="global"]').click();
   assert.equal(await page.locator('#global-view').isVisible(),true);
   const inventory=await page.evaluate(()=>screens.map(s=>({id:s.id,title:s.title,status:s.status,actions:s.actions,dependency:s.dependency})));
   assert.equal(await page.locator('#global-view .tile').count(),inventory.length);
@@ -41,16 +41,16 @@ try {
   await page.locator('#global-tile-38 .phone').focus();await page.keyboard.press('Enter');
   assert.equal(await page.locator('#screen-spec h2').innerText(),'Nossa Árvore');
   await page.locator('[data-reference="approved"]').click();
-  await nav.first().click();
+  await page.locator('#chapter-nav [data-view="global"]').click();
   assert.doesNotMatch(await page.locator('#global-tile-38 .phone').innerText(),/Nível 7/,'Histórico não contamina a visão viva');
   await page.locator('#status-filter').selectOption('Planejada');
   assert.equal(await page.locator('#global-view .tile').count(),inventory.filter(s=>s.status==='Planejada').length);
   await page.locator('.view-tabs [data-view="atlas"]').click();
   assert.equal(await page.locator('#atlas-view .tile').count(),inventory.filter(s=>s.status==='Planejada').length,'Situação preservada ao alternar visões');
-  await nav.first().click();await page.locator('#status-filter').selectOption('all');await page.locator('#search').fill('Conta');
+  await page.locator('#chapter-nav [data-view="global"]').click();await page.locator('#status-filter').selectOption('all');await page.locator('#search').fill('Conta');
   const searchCount=await page.locator('#global-view .tile').count();
   await page.locator('.view-tabs [data-view="atlas"]').click();assert.equal(await page.locator('#atlas-view .tile').count(),searchCount,'Busca preservada ao alternar visões');
-  await nav.first().click();await page.locator('#search').fill('zzzz-nao-existe');
+  await page.locator('#chapter-nav [data-view="global"]').click();await page.locator('#search').fill('zzzz-nao-existe');
   assert.equal(await page.locator('#global-view .tile').count(),0);assert.equal(await page.locator('#global-view .no-results').isVisible(),true);
   await page.locator('#search').fill('');
   // Alterações na fonte e uma tela nova aparecem sem duplicar conteúdo no mapa.
@@ -59,7 +59,7 @@ try {
   assert.match(await page.locator('#global-tile-01 .tile-caption').innerText(),/Limite alterado/);
   assert.equal(await page.locator('#global-tile-01 [data-destination="72"]').count(),1);
   assert.equal(await page.locator('#global-tile-73').count(),1);
-  await page.reload();await nav.first().click();
+  await page.reload();await page.locator('#chapter-nav [data-view="global"]').click();
   await page.setViewportSize({width:375,height:812});
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'Sem transbordamento em celular');
   await page.locator('#global-view').scrollIntoViewIfNeeded();
@@ -68,9 +68,9 @@ try {
   await page.screenshot({path:'artifacts/global-view-desktop.png'});
   await page.goto(pathToFileURL(path.resolve('Documentacao_Projeto_Nos/wireframes/atlas/index.html')).href+'#visao-global');
   assert.equal(await page.locator('#global-view').isVisible(),true,'Endereço direto do mapa');
-  await nav.nth(1).click();assert.equal(await page.locator('#atlas-view').isVisible(),true);
+  await nav.nth(2).click();assert.equal(await page.locator('#atlas-view').isVisible(),true);
   assert.equal(await page.evaluate(()=>location.hash),'','Sair da visão global remove seu endereço direto');
-  await nav.first().click();await page.emulateMedia({media:'print'});
+  await page.locator('#chapter-nav [data-view="global"]').click();await page.emulateMedia({media:'print'});
   assert.equal(await page.locator('#global-view').isVisible(),true,'Impressão preserva modo global');
   assert.equal(await page.locator('#atlas-view').isVisible(),false,'Não duplica páginas na impressão');
   assert.deepEqual(errors,[]);assert.deepEqual(external,[]);

@@ -445,3 +445,12 @@ Objeto desta publicação inspecionado: 101 arquivos, 76 renomes idênticos e um
 Usuário autorizou publicar Hábito e MVP em dois commits separados. Tipos/build, 92 testes gerais, cinco testes autenticados (uma repetição dispensada), banco 5/6 e Atlas aprovados novamente. Revisão identificou capturas prematuras das respostas/detalhe; esperas corrigidas e quatro imagens refeitas antes de publicar. Inicialização no G excedeu 120s; cópia local conferida por SHA-256 resolveu sem mudar fontes. Verificação somente local, sem deploy ou alteração remota de banco. [Registro](registros/registro-v0.14.0-2026-10-10-imp-proposta-habito-fun-percurso-05.md).
 
 Objeto inicial de Hábito inspecionado: 57 arquivos; árvore ce5387d26f208b02d7730605bc2d4ed9d23fbe24 idêntica ao índice preparado. Inclusão dos arquivos confirmada, pendência retirada e controle incorporado ao mesmo commit lógico antes do envio.
+
+
+## 2026-10-12 — MVP aprovado e roteiro completo — documentação v0.14.0
+
+Usuário aprovou a guia MVP criada com dispensa inicial de documentos/comparações e autorizou registrar/publicar. Guia acima de Visão global, login existente primeiro, 13 etapas e cobertura única de 72 telas/184 ações. Primeiro marco tem 37 telas/estados; futuros módulos e funções transversais têm posição explícita. Plano em planos/mvp.md, procedimento de manutenção das três visões e nova comparação documental. Funcionalidades permanecem 32 recortes/40 planejadas; versão preservada. Prioridade geral muda para etapa 01; recomendações anteriores de Árvore/proposta guiada ficam históricas, previstas em 07/06.
+
+Publicação separada conforme escolha do usuário: objeto de Hábito conferido no primeiro commit; MVP reúne 25 arquivos no segundo, árvore inicial 76fafd7569d2f39e604d64c74fc16a8fdeeb597e igual ao índice preparado. Revisão final independente sem achados pendentes; 992 links e nova galeria responsiva aprovados. Pendências de commit retiradas por prova de inclusão, controle incorporado à mesma unidade; conferir hash remoto no encerramento. Sem deploy.
+
+Validação: MVP, Visão global, Percurso 05, fonte compartilhada, filtros/teclado/celular/retorno/hash/impressão; revisão independente com omissões de QR/administração/agenda mensal corrigidas. Publicação autorizada em dois commits separados: Hábito e depois MVP. [Plano](planos/mvp.md), [registro](registros/registro-v0.14.0-2026-10-12-imp-mvp-atlas-fun-roteiro-aprovado.md) e [comparação](../wireframes/comparacoes/v0.14.0-2026-10-12-mvp-atlas-tela_01-a-tela_72/index.html). Sem deploy.
