@@ -1,10 +1,40 @@
 # Estado do Projeto Nós
 
-**Versão vigente do projeto:** 0.15.0
+**Versão vigente do projeto:** 0.15.1
 
 **DOCS_DIR:** `Documentacao_Projeto_Nos`
 
 **Atualizado:** 2026-10-13
+
+## Publicação Git autorizada — MVP 03 — v0.15.1 — 2026-10-13
+
+**Objetivo ativo:** publicar o conjunto completo do MVP03 em um commit atômico com descrição abrangente. main, base48fdd3d; fetch confirmou igualdade HEAD/origin/main, divergência0/0. Versão0.15.1 preservada.
+
+**Escopo e situação:** código/testes/Atlas/MVP/Visão global/22 capturas/contratos/registros/manifestos da mesma entrega. Autorrevisão completa; revisão independente funcional anterior sem achados finais. 102 testes gerais, tipos/build webpack repetidos em cópiaC com109 arquivos idênticos; quatro verificadores Atlas/sintaxe/diff reconferidos. Autenticados/SQL/jornada ampliada já aprovados na implementação, sem alteração funcional posterior. Registro de publicação documenta validações e limites. Objeto inicial a775abd inspecionado: 48 arquivos (22 imagens) e árvore 3d5be254069b073481be7def15e663a4a3220190 idêntica ao índice preparado. Pendência retirada somente após comprovar inclusão; controle incorporado ao mesmo commit local antes do envio. Push normal autorizado, sem deploy manual/migração remota.
+
+**Fechamento Git:** envio normal autorizado a origin/main; identificador definitivo e equivalência remota serão reportados no encerramento. Controle de inclusão comprovado acima. **Próximo passo operacional:** implantação e prova online, quando autorizadas e após conferir as dependências do ambiente. Pipeline automático pode reagir ao push; resultado exige verificação separada. [Registro de publicação](registros/registro-v0.15.1-2026-10-13-02-imp-publicacao-git-fun-rastreabilidade-mvp-03.md).
+
+## Entrega vigente — MVP 03 — ciclo real de Hábito — v0.15.1 — 2026-10-13
+
+**Objetivo/aceite:** conferir doze telas/estados e funções do ciclo, concluir pendências viáveis, ordenar caminho e reservar ampliações sem contrato. **Situação:** recorte funcional local concluído e validado. PATCH para histórico paginado e correções de navegação/sinalização, sem regra nova/rota/tabela/dependência. DOCS_DIR acima; main em 48fdd3d, checkout inicial limpo.
+
+**Entrega:** revisões concluídas em páginas de vinte, cursor validado created_at/ID, desempate e retorno; pendência independente do cursor, sempre visível e bloqueando nova solicitação. Histórico consultado antes da pendência para evitar estados contraditórios em aplicação/recusa concorrente. Detalhe preserva história após encerrar e reserva reflexões/Impacto/Linguagens/fotos/Essência/Árvore/evento. Consentimento, prazos, votos privados, originais e RPCs existentes preservados.
+
+**Atlas:** principal 18 → 22 → 23 → 24 → 27 → 25 → 28 → detalhe ativo. Legado29 é alternativa sem prazo; revisão30 → ajuste31 OU encerramento32 → acompanhamento33 → detalhe24 (e hub18). Visão global/percursos/fichas/MVP sincronizados. Desenho histórico24 preservado; vivo sinaliza indicadores/evento/reflexões como planejados. Tela32 não presume motivo persistido;33 mostra histórico paginado. Inventário72/33 existentes/39 planejadas preservado.
+
+**Validações:** 102 testes gerais; quatro novos autenticados desktop/mobile (paginação23=20+3 com datas empatadas/pendência antiga e ciclo completo de duas pessoas); SQL quatro arquivos/cinco casos pgTAP; jornada ampliada com quatro originais + externo, maioria3/4, confirmações concorrentes, isolamento, entrada posterior, ativo/ciclos/legado. Tipos e build produção webpack v0.15.1 aprovados em cópia C:, 109 arquivos de fontes/testes/configuração idênticos por SHA-256. Somente startup do verificador ampliado dev→start adaptado na cópia; app/config do repositório preservados. MVP03/MVP geral/Visão global/proposta e sintaxe aprovados, sem erros/chamadas externas. Galeria22 capturas reais: antes de48fdd3d, depoisAtlas/app desktop/mobile. Diff aprovado e 1155 referências mantidas sem ausentes (excluídos protótipo histórico Telas e expressão dinâmica antiga).
+
+**Revisão/limites:** autorrevisão + independente. P2 leitura concorrente corrigido e reconferido; P2 captura vazia corrigido CSS somente da sessão/guarda de altura e recapturado; P3 versões globais alinhadas. Página é fotografia da leitura, atualizar após decisão alheia; banco bloqueia ação obsoleta. Primeiro teste de ciclo falhou no seletor do rádio oculto; clique no texto visível + checked resolveu, sem bypass. Prazos antecipados só em fixtures locais, sem observação longitudinal. Falha real de rede/banco não foi provocada; estados existentes/Atlas conferidos. Publicação/prova online ainda pendentes, SMTP/segredo etapa01 e migração gestão02 têm seus bloqueios próprios.
+
+**Ferramentas:** Superpowers entendimento/plano/TDD/depuração/revisão/verificação + React boas práticas; Context7 Supabase filtros compostos (referência compatível, versão instalada preservada); Octocode19.1.0 grafo parcial complementado por leitura. Next16.3.6 e SupabaseCLI2.118.0/Docker locais, sem instalação adicional. Zero contas temporárias routing/cycle/trial após as jornadas. Supabase stop confirmado com backup, sem reset/migração remota. Nenhum commit/push/deploy. Cópia de validação C:/Users/Efraim/AppData/Local/Temp/nos-mvp03-20261013 mantida fora do repositório: exclusão bloqueada pela revisão automática de permissões, sem motivo adicional informado.
+
+**Unidades pendentes de commit desta entrega:** nenhuma. Inclusão de código/testes/Atlas/capturas/documentação/versão comprovada no objeto inicial a775abd de 48 arquivos; controle incorporado ao mesmo commit lógico antes do push. Título: fix(habits): concluir MVP 03 e acompanhamento do ciclo real. Commit/push autorizados em 13/10/2026; controle no marco acima.
+
+**Próximo passo executável:** implantar e repetir ciclo online com contas autorizadas após conferência das dependências do ambiente; publicação Git foi autorizada separadamente no marco acima. Próximo recorte funcional: MVP04 agenda, mediante solicitação. Não iniciar ampliação de reflexões/mídia/Essência sem contrato próprio. Contador103; último marco100 baixo (13/10/2026), próximo200.
+
+**Índice desta entrega:** [registro](registros/registro-v0.15.1-2026-10-13-imp-ciclo-habito-fun-mvp-03.md), [contrato/manual](funcionalidades/ciclo-habito.md), [plano executado](planos/mvp-03-habito.md), [MVP](planos/mvp.md), [Atlas](../wireframes/atlas/index.html#mvp), [galeria](../wireframes/comparacoes/v0.15.1-2026-10-13-mvp-03-tela_24-tela_28-tela_33/index.html), [verificador](../wireframes/tools/verify-mvp-habit.mjs).
+
+## Marcos anteriores preservados
 
 ## Publicação Git autorizada — v0.15.0 — 2026-10-13
 
@@ -387,7 +417,7 @@ Agenda por Núcleo concluída na **v0.6.0**: eventos pontuais com título, inten
 
 **Unidades pendentes de commit neste marco histórico:** nenhuma para a correção visual e orientação de prioridade alta; inclusão no commit confirmada por inspeção do objeto e comparação da árvore. Mensagem: `docs(wireframe): alinhar atlas ao app e consolidar prioridade visual`.
 
-**Contador de interações:** 101: 100 persistidas + publicação Git autorizada do MVP 02. Início em 2026-09-25; último marco de over-engineering: 100, baixo, auditado em 2026-10-13; próxima auditoria: 200.
+**Contador de interações:** 103: 102 persistidas + publicação Git autorizada do MVP 03. Início em 2026-09-25; último marco de over-engineering: 100, baixo, auditado em 2026-10-13; próxima auditoria: 200.
 
 ## Objetivo e situação histórica — v0.11.0
 

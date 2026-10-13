@@ -1,6 +1,6 @@
 # MVP e caminho de implementação — Projeto Nós
 
-**Versão de referência:** v0.15.0. **Aprovado pelo usuário:** 2026-10-12. **Status:** roteiro aprovado; funcionalidades futuras permanecem planejadas.
+**Versão de referência:** v0.15.1. **Aprovado pelo usuário:** 2026-10-12. **Status:** roteiro aprovado; funcionalidades futuras permanecem planejadas.
 
 **Operação da etapa 01 em 13/10/2026:** conexão/login/sessão/saída verificados em https://noslife.netlify.app, com configuração de produção e retornos Supabase aplicados. Cadastro com confirmação externa ainda depende da senha de aplicativo Gmail; recuperação completa também exige segredo no Netlify. Etapa 01 continua aberta. [Registro online](../registros/registro-v0.14.1-2026-10-13-03-imp-conexao-netlify-fun-acesso-online.md).
 
@@ -18,7 +18,7 @@ Login existente é o início. Reconferir cadastro/confirmação, recuperação/r
 |---|---|---|---|
 | 01 | Login, sessão, cadastro, confirmação, recuperação e entrada opcional | 01, 02, 03, 04, 05, 72 | MVP |
 | 02 | Núcleo compartilhado, lista, criação, código de convite, gestão/revogação e Início | 12, 06, 07, 08, 09, 58, 59, 10, 11, 13 | MVP |
-| 03 | Proposta de Hábito, respostas, teste, prática, histórico, confirmação e revisão | 18, 22, 23, 24, 27, 25, 29, 28, 30, 31, 32, 33 | MVP |
+| 03 | Proposta de Hábito, respostas, teste, prática, histórico, confirmação e revisão | 18, 22, 23, 24, 27, 25, 28, 29, 30, 31, 32, 33 | MVP |
 | 04 | Agenda interna, evento, presença, edição e remoção | 14, 16, 15, 17 | MVP |
 | 05 | Configurações essenciais, privacidade, conta, ajuda e saída | 66, 67, 69, 70, 71 | Fechamento do MVP |
 | 06 | Proposta guiada, compreensão, reflexões, Impacto, Linguagens de cuidado e Experiências; agenda mensal/recorrência | 19, 20, 21, 26, 34, 35 | Expansão |
@@ -61,3 +61,7 @@ As seis telas e funções de acesso foram reconferidas localmente. P2 de falha d
 ## Etapa 02 — conferência em 13/10/2026 — v0.15.0
 
 Recorte funcional local concluído com gestão/revogação privada do criador, datas/filtros/paginação, cópia e concorrência protegida. Criador segue lista → tipo/propósito → criação → convite/compartilhamento → Início; gestão é opcional. Convidado segue código → prévia → aceite → Início → lista. Publicar/aplicar migração e comprovar ambiente online ainda pendentes; etapa 01 segue operacionalmente aberta. QR/link/destinatários/administradores/histórico por aceite reservados. [Contrato](../funcionalidades/nucleo-compartilhado.md), [plano executado](mvp-02-nucleo.md), [registro](../registros/registro-v0.15.0-2026-10-13-imp-nucleo-compartilhado-fun-mvp-02-gestao-convites.md).
+
+## Etapa 03 — conferência em 13/10/2026 — v0.15.1
+
+Ciclo central validado localmente: proposta → teste → prática/histórico → confirmação; legado é alternativa, ajuste e encerramento são ramificações. Histórico de revisões paginado, pendência visível, leitura concorrente corrigida. Duas contas desktop/mobile, quatro originais/externo/legado e testes SQL aprovados; futuras expansões explicitadas. Publicação/prova online pendentes; etapas 01/02 continuam com suas dependências operacionais. [Contrato/manual](../funcionalidades/ciclo-habito.md), [plano](mvp-03-habito.md), [registro](../registros/registro-v0.15.1-2026-10-13-imp-ciclo-habito-fun-mvp-03.md). Próximo recorte funcional é etapa 04, quando solicitado.

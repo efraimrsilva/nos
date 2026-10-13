@@ -1,6 +1,14 @@
 # Histórico de andamento
 
-**Versão vigente do projeto:** 0.14.0
+## 2026-10-13 — v0.15.1 — publicação Git autorizada do MVP 03
+
+Usuário autorizou commit/push abrangente do ciclo de Hábito. Base main48fdd3d; fetch confirmou0/0. Suíte geral/tipos/build e verificadores Atlas reconferidos; fontes funcionais idênticas à implementação validada. Um commit lógico inclui código, testes,22 capturas, Atlas, versão e documentação. Inclusão/objeto e equivalência remota conferidos no fechamento; publicação Git não certifica deploy. [Registro](registros/registro-v0.15.1-2026-10-13-02-imp-publicacao-git-fun-rastreabilidade-mvp-03.md).
+
+## 2026-10-13 — v0.15.1 — MVP 03, ciclo real de Hábito
+
+Produto: completado acesso ao histórico antigo de revisões por cursor data/ID, com pendência visível e leitura ordenada contra estados contraditórios. Ciclo de duas pessoas validado em desktop/celular, SQL e jornada ampliada de legado/maioria/isolamento. Atlas/MVP/Visão global: caminho principal, legado opcional, ajuste ou encerramento, detalhe/história preservados; ampliações reservadas. 102 testes gerais e quatro novos autenticados aprovados; tipos/build/equivalência conferidos no fechamento. Nenhuma migração nova/alteração remota/commit/push/deploy. [Registro](registros/registro-v0.15.1-2026-10-13-imp-ciclo-habito-fun-mvp-03.md).
+
+**Versão vigente do projeto:** 0.15.1
 
 ## 2026-10-07 — v0.13.1 — Alinhamento visual de Conta
 

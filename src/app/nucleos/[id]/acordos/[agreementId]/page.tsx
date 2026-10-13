@@ -55,7 +55,7 @@ export default async function HabitDetailPage({ params, searchParams }: {
     </section>
 
     <Link href={`/nucleos/${id}/acordos/${agreementId}/confirmar`} className="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Ver período e confirmação do hábito</Link>
-    <section aria-labelledby="habit-history-heading" className="mt-4 rounded-[22px] border border-line bg-white p-5 sm:p-7">
+    <section id="historico" aria-labelledby="habit-history-heading" className="mt-4 scroll-mt-4 rounded-[22px] border border-line bg-white p-5 sm:p-7">
       <h2 id="habit-history-heading" className="font-display text-xl">Momentos registrados</h2>
       <p className="mt-2 text-sm leading-7 text-muted">Os registros são visíveis para integrantes do Núcleo. Eles contam vivências sem medir desempenho.</p>
       {visibleMoments.length ? <ol className="mt-4 grid gap-3">{visibleMoments.map((moment) => <li key={moment.id} className="rounded-xl border border-line bg-[#fbfaf7] p-4">
@@ -71,8 +71,12 @@ export default async function HabitDetailPage({ params, searchParams }: {
     </section>
 
     <section aria-labelledby="habit-next-heading" className="mt-4 rounded-[22px] border border-line bg-white p-5 sm:p-7">
-      <h2 id="habit-next-heading" className="font-display text-xl">Outros acompanhamentos</h2>
-      <p className="mt-2 text-sm leading-7 text-muted">Reflexões e progresso ainda não estão disponíveis. Esses recursos precisam de regras próprias e dados reais.</p>
+      <h2 id="habit-next-heading" className="font-display text-xl">Próximas possibilidades · planejadas</h2>
+      <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-7 text-muted">
+        <li>Reflexões, Impacto e Linguagens de cuidado: espaço para percepções opcionais, após definir autoria, visibilidade e consentimento.</li>
+        <li>Fotos dos momentos: envio e mídia protegida após definir acesso, armazenamento e retenção.</li>
+        <li>Essência e Nossa Árvore: evolução coletiva após definir fontes reais e regras próprias. Confirmar este Hábito não gera promoção, pontuação ou progresso.</li>
+      </ul>
       <p className="mt-3 text-sm leading-7 text-muted">A agenda do Núcleo ainda não associa eventos a propostas. Você pode consultá-la separadamente.</p>
       <Link href={`${routes.nucleus}/${id}/agenda`} className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Abrir agenda do Núcleo</Link>
     </section>

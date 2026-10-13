@@ -1,5 +1,7 @@
 # Wireframe completo do Projeto Nós
 
+**Marco vigente v0.15.1 — 2026-10-13:** MVP 03 local validado. Ler ciclo principal, alternativa de legado e ramificações de ajuste/encerramento sem tratar todas as telas como sequência obrigatória. Histórico de revisões paginado e pendência preservada; desenhos históricos e ampliações sinalizados. [Contrato/manual](../_andamento/funcionalidades/ciclo-habito.md) · [Comparação](comparacoes/v0.15.1-2026-10-13-mvp-03-tela_24-tela_28-tela_33/index.html).
+
 **Natureza:** material de planejamento e revisão de produto, criado em 2026-10-03. **Referência do aplicativo:** v0.14.0.
 
 Percurso 05: caminho disponível **18 → 22 → 23 → 24**, com conferência e respostas dentro do hub. Conferir/editar não gravam; enviar registra aceite do autor; último aceite inicia teste, recusa encerra. Sequência guiada 18 → 19 → 20 → 21 → 22 → 23 → 24 reservada, com 19–21 planejadas. Tela 22 é recorte existente de conferência, sem /novo. Inventário vigente: 72 telas, 14 percursos, 32 recortes e 40 planejadas. [Contrato](../_andamento/funcionalidades/proposta-habito.md), [comparação](comparacoes/v0.14.0-2026-10-10-proposta-habito-tela_18-tela_19-tela_20-tela_21-tela_22-tela_23-tela_24/index.html) e [verificador](tools/verify-habit-proposal-journey.mjs). As prévias 18/22/23 representam os estados implementados; as composições históricas continuam acessíveis como referência.

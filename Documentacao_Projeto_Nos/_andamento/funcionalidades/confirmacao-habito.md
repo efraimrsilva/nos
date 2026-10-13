@@ -1,6 +1,8 @@
 # Continuidade — confirmação do Hábito após teste
 
-**Versão vigente:** 0.11.0. **Atualizado:** 2026-10-03.
+**Conferência vigente v0.15.1 — 2026-10-13:** confirmação/legado/maioria/isolamento reconferidos localmente no MVP 03. [Ciclo completo e teste manual](ciclo-habito.md). Nenhuma regra de voto alterada; operação online exige evidência própria.
+
+**Versão vigente:** 0.15.1. **Atualizado:** 2026-10-13. Implementação inicial v0.11.0, preservada nos marcos históricos abaixo.
 **Status:** implementação concluída e validada; contrato aprovado em 2026-10-03 com limiar proporcional para confirmação pós-teste.
 
 ## Objetivo e fontes

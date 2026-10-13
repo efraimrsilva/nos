@@ -1,6 +1,10 @@
 # Brag document — Projeto Nós
 
-**Versão vigente do projeto:** 0.15.0
+## 2026-10-13 — v0.15.1 — ciclo de Hábito verificável e história acessível
+
+**Problema:** revisões acima de vinte não tinham acesso pela interface; Atlas misturava caminho principal/legado e trazia indicadores/evento sem contrato suficiente. **Contribuição:** paginação estável, pendência preservada, leitura concorrente corrigida e planejamento sincronizado com limites explícitos. **Resultado verificado:** 23 revisões empatadas acessíveis sem repetição em desktop/mobile; duas pessoas completam registro, confirmação, recusa, ajuste/novo ciclo e encerramento com memória preservada; SQL/jornada ampliada de legado e isolamento aprovados. Benefício esperado: facilitar acompanhamento sem esconder decisões abertas; não medido com usuários. **Evidência:** [teste](../../tests/authenticated/habit-cycle.spec.ts), [registro](../_andamento/registros/registro-v0.15.1-2026-10-13-imp-ciclo-habito-fun-mvp-03.md), [galeria](../wireframes/comparacoes/v0.15.1-2026-10-13-mvp-03-tela_24-tela_28-tela_33/index.html).
+
+**Versão vigente do projeto:** 0.15.1
 
 ## 2026-10-13 — MVP 02 com gestão de convites — v0.15.0
 

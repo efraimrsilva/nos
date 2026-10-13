@@ -90,6 +90,30 @@ function adaptCurrentContract(fragment, screen, key){
     const body=fragment.querySelector('.nos-scroll>div');
     body.lastElementChild.innerHTML='<div class="product-panel"><h4>Ainda estamos cultivando</h4><p class="product-help">Nenhuma Essência está registrada neste recorte. Promoção exige contrato e consentimento próprios.</p><button class="product-text-link" data-go="37">Conhecer o desenho de promoção</button></div>';
   }
+  if(screen.id===24){
+    // O desenho histórico contém indicadores/evento sem contrato. No modo vivo, reservar sem simular integração.
+    for(const el of leafElements){
+      const text=el.textContent.trim();
+      if(text==='IMPACTO ESPERADO')el.textContent='IMPACTO · PLANEJADO';
+      if(text==='Alto')el.textContent='A definir';
+      if(text==='LINGUAGEM')el.textContent='LINGUAGEM · PLANEJADA';
+      if(text==='Tempo de qualidade')el.textContent='Declaração futura';
+      if(text==='Progresso')el.textContent='Progresso · planejado';
+      if(text==='Próxima conversa marcada')el.textContent='Evento associado · planejado';
+      if(text==='Amanhã às 20:00')el.textContent='Sem integração com a agenda';
+      if(text==='Reflexões')el.textContent='Reflexões · planejadas';
+    }
+    const panel=document.createElement('section');panel.className='product-panel';
+    panel.innerHTML='<h4>Próximas possibilidades · planejadas</h4><p class="product-help">Reflexões, Impacto e Linguagens de cuidado dependem de autoria, visibilidade e consentimento. Fotos exigem mídia protegida e retenção. Essência e Nossa Árvore dependem de fontes reais e regras próprias; confirmar não gera promoção ou pontuação.</p><p class="product-help">O período real e a confirmação ficam na rota /confirmar. Legado sem prazo usa a alternativa da Tela 29.</p><button class="product-primary" data-go="28">Ver período e confirmação</button>';
+    const reflections=fragment.querySelector('[data-source-action="setHRef"]');
+    if(reflections)reflections.textContent='Reflexões · planejadas';
+    const progress=leafElements.find(el=>el.textContent==='Progresso · planejado');
+    if(progress){
+      const progressPanel=progress.parentElement.parentElement;
+      progressPanel.innerHTML='<h4>Progresso · planejado</h4><p class="product-help">Fontes e regras ainda precisam ser definidas. Momentos registrados não comprovam frequência praticada; nenhum dia é marcado automaticamente.</p>';
+    }
+    fragment.querySelector('.nos-scroll')?.append(panel);
+  }
   if(screen.id===30){
     fragment.querySelector('.nos-scroll').innerHTML=`<div class="extension-scroll"><header class="extension-header">${productBack(24)}${icon('Handshake')}</header><h3>Revisar Hábito</h3><p class="product-intro">Combinados podem amadurecer.</p><div class="block block-hero"><span class="block-title">Nosso combinado atual</span><p class="block-text">Conversar sem distrações · exemplo de termos a consultar antes da mudança.</p></div><p class="block-note">Solicitar uma revisão preserva o combinado atual. Ajuste e encerramento exigem unanimidade, sete dias de reflexão e aplicação explícita.</p><div class="extension-actions"><button class="product-primary" data-go="31">${icon('NotebookPen')}Propor ajuste</button><button class="product-primary" data-go="32">${icon('Leaf')}Propor encerramento</button><button class="product-primary" data-go="33">${icon('CircleCheck')}Acompanhar revisão</button><button class="product-primary" data-go="61">${icon('Heart')}Preparar conversa</button></div></div>`;
   }
@@ -159,6 +183,8 @@ function approvedLayout(screen, key) {
     while((node=walker.nextNode())){
       node.textContent=node.textContent.replace(/\b\d+%\b/g,'Indicador pendente').replace(/\b\d+%/g,'—').replace(/1\.250 \/ 1\.800 exp/g,'Crescimento · contrato pendente').replace(/Nível 7(?: •)?/g,'Nossa história').replace(/Faltam 550 exp/g,'Critério de evolução a definir').replace(/Criar acordo/g,'Enviar proposta');
       if([18,24,25,26].includes(screen.id))node.textContent=node.textContent.replace(/Em andamento/g,'Em teste').replace(/Concluídos/g,'Ativos');
+      if(screen.id===24 && /^impacto esperado$/i.test(node.textContent.trim()))node.textContent='Impacto · planejado';
+      if(screen.id===24 && /^linguagem$/i.test(node.textContent.trim()))node.textContent='Linguagem · planejada';
       if(/Em breve poderá ser elegível|cada hábito praticado e momento registrado faz a árvore crescer|Este hábito está ativo há/.test(node.textContent))node.textContent='Critérios ainda pendentes. Tempo e registros não promovem automaticamente para Essência.';
     }
     template.content.querySelectorAll('[style]').forEach(el=>{if(/width:\s*\d+%;/.test(el.getAttribute('style'))&&el.style.height==='100%'){el.style.width='0%';el.setAttribute('aria-label','Indicador sem contrato; sem valor simulado');}});

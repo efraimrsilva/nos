@@ -1,6 +1,8 @@
 # Projeto Nós
 
-**Versão vigente do projeto:** 0.15.0
+**Versão vigente do projeto:** 0.15.1
+
+**MVP 03 — v0.15.1:** ciclo central validado localmente com duas pessoas em computador/celular, legado, maioria, isolamento, revisão e história preservada. Histórico de revisões agora paginado, pendência sempre visível; Atlas ordenado e ampliações reservadas. [Contrato/manual](Documentacao_Projeto_Nos/_andamento/funcionalidades/ciclo-habito.md), [registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.15.1-2026-10-13-imp-ciclo-habito-fun-mvp-03.md) e [comparação](Documentacao_Projeto_Nos/wireframes/comparacoes/v0.15.1-2026-10-13-mvp-03-tela_24-tela_28-tela_33/index.html). Publicação e prova online desta versão ainda pendentes.
 
 **MVP 02 — v0.15.0:** recorte funcional concluído localmente: gestão de convites do criador, revogação confirmada, filtros/paginação e concorrência protegida. Atlas ordenado e futuro reservado. Migração/publicação online pendentes; publicação Git autorizada em 13/10/2026, com controle no [registro de publicação](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.15.0-2026-10-13-02-imp-publicacao-git-fun-rastreabilidade-mvp-02.md). [Contrato e teste manual](Documentacao_Projeto_Nos/_andamento/funcionalidades/nucleo-compartilhado.md), [registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.15.0-2026-10-13-imp-nucleo-compartilhado-fun-mvp-02-gestao-convites.md), [comparação](Documentacao_Projeto_Nos/wireframes/comparacoes/v0.15.0-2026-10-13-mvp-02-tela_09-tela_13-tela_58-tela_59/index.html).
 
