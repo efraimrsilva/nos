@@ -1,10 +1,40 @@
 # Estado do Projeto Nós
 
-**Versão vigente do projeto:** 0.15.1
+**Versão vigente do projeto:** 0.15.2
 
 **DOCS_DIR:** `Documentacao_Projeto_Nos`
 
 **Atualizado:** 2026-10-13
+
+## Publicação Git autorizada — MVP 04 — v0.15.2 — 2026-10-13
+
+**Objetivo ativo:** publicar toda a entrega MVP04 em um commit atômico com descrição abrangente. main, base06edf58; fetch confirmou HEAD/origin/main iguais (0/0). Versão0.15.2 preservada. Autorização explícita de commit/push recebida nesta conversa; sem deploy manual ou banco remoto.
+
+**Escopo:** código de agenda/confirmação/feedback/retorno, testes, Atlas/MVP/Visão global/fichas, reservas futuras,26 capturas, contrato/manual/plano/registros/README/manifestos. Revisão independente da implementação sem achado final.119 arquivos idênticos à cópiaC; 102 testes gerais, tipos e build produção webpack aprovados novamente nesta publicação, verificadores Atlas aprovados. Objeto inicial 38815be conferido:55 arquivos,26 imagens e árvore 8acbf677ee936984a7f2929332cc5c14e290cd71 igual ao índice preparado. Inclusão comprovada; pendência retirada e controle incorporado ao mesmo commit local antes do envio. [Registro de publicação](registros/registro-v0.15.2-2026-10-13-02-imp-publicacao-git-fun-rastreabilidade-mvp-04.md).
+
+**Fechamento Git:** push normal autorizado a origin/main, sem força; identificador definitivo/equivalência remota reportados no encerramento. Próximo passo operacional: implantação/prova online quando autorizadas; pipeline automático exige evidência própria. Contador106 (inclui esclarecimento sobre conclusão e esta publicação); último marco100, próximo200.
+
+## Entrega vigente — MVP 04 — agenda interna — v0.15.2 — 2026-10-13
+
+**Objetivo/aceite:** conferir Telas14/16/15/17 e funções, concluir pendências viáveis, ordenar caminho e reservar futuro. **Situação:** recorte funcional local concluído, revisado e validado. PATCH para confirmação/feedback/retorno e sincronização; sem regra de negócio nova, rota/tabela/dependência/migração. DOCS_DIR acima; main06edf58, Git inicialmente limpo.
+
+**Entrega e arquivos principais:** página agenda, actions, calendar-event-form e novo calendar-event-actions. Confirmação com nome/consequência/ciência também no servidor; abrir/manter não grava; foco entra/retorna. Respostas de presença compartilham processamento e bloqueio dos botões. Links internos para criar/voltar. Edição explica: texto conserva respostas, mudar horário pede nova resposta aos demais e preserva ator/participantes originais. Banco/RPCs/RLS existentes mantidos; leitura por associação, gestão por autor/criador associado, resposta própria de participante original.
+
+**Atlas:** Agenda14 → Novo16 → Evento/respostas15 → Editar17 opcional → Agenda14. Evento existente abre15 diretamente. Quatro estados da mesma rota. MVP/Visão global/fichas/desenhos/cobertura/guias/contrato/manual/galeria sincronizados; novo percurso no fim sem renumerar anteriores.72 telas,15 percursos,33 recortes/39 planejadas. Mês/dia, recorrência, local, Ainda não sei, sugestão de horário, seleção individual/acesso restrito, notificações, histórico/cancelamento com retenção, vínculo com acordo/Experiência/conversa, memória e calendários externos reservados, sem persistência simulada.
+
+**Validações recentes:**102 testes gerais aprovados; seis autenticados finais v0.15.2 em desktop/mobile comprovam confirmação sem ciência recusada, abrir/manter sem gravação, paginação51 futuros+1 passado, retorno sem criar, validação de horário, criação/recusa/aceite, texto preservando respostas, remarcação redefinindo demais, exclusão de evento/respostas e negativa real RPC/RLS em outro Núcleo/sem autoria. Tipo e build de produção webpack aprovados em cópiaC;119 fontes/testes/scripts/manifestos/configs idênticos por SHA-256. Única adaptação de startup --webpack no playwright.config da cópia (junction rejeitada pelo Turbopack), sem modificar config do repositório. Autenticados build/start também webpack. MVP04/MVP geral/Visão global/MVP03, sintaxe e diff conferidos. Galeria26 imagens (16Atlas antes/depois,4MVP,6app), antes real de06edf58. Links locais novos válidos; verificação ampla ignora expressão dinâmica histórica '+src+' do comparador antigo.
+
+**Revisão e ferramentas:** autorrevisão do diff completo e revisão independente funcional/documental sem bloqueio. Linha extra no estado corrigida; referências vigentes do guia/comparações e escolha/pending no plano esclarecidas. Superpowers entendimento/plano/TDD/depuração/revisão/verificação + boas práticas React. Context7 Next16.2.9 padrão de formulários, catálogo sem16.3.6, versão instalada preservada. OctocodeCLI19.1.0 grafo sintático parcial complementado por leitura, sem instalação adicional. SupabaseCLI2.118.0/Docker exclusivamente local; zero contas temporárias routing/calendar após testes. Encerramento local com backup conferido no fechamento.
+
+**Limites/bloqueios:** falha real de rede/banco não provocada; cinco estados Atlas não certificam falhas externas. Página é fotografia da leitura: recarregar após mudança alheia. Sem prova pública, SMTP/e-mail/calendário externo. Etapas01/02 mantêm dependências operacionais próprias. CópiaC:/Users/Efraim/AppData/Local/Temp/nos-mvp04-20261013 mantida para rastreabilidade, dependências por junction à cópia anterior; arquivos ignorados de teste fora do commit. Sem commit/push/deploy/remoto.
+
+**Próximo passo executável:** quando solicitado, revisar/publicar o commit atômico desta entrega e provar ambiente online. Próximo recorte funcional do roteiro: MVP05 controles, quando solicitado. Não iniciar novas integrações sem contrato específico.
+
+**Contador de interações:**106; último marco auditado100 (baixo,13/10/2026); próximo200. **Unidades pendentes de commit desta entrega:** nenhuma. Inclusão de toda a entrega comprovada no objeto inicial 38815be; controle incorporado ao mesmo commit lógico antes do envio. Título: fix(calendar): concluir MVP 04 e confirmação de remoção. Publicação autorizada no marco acima.
+
+**Índice:** [registro](registros/registro-v0.15.2-2026-10-13-imp-agenda-interna-fun-mvp-04.md), [contrato/manual](funcionalidades/agenda-interna.md), [plano executado](planos/mvp-04-agenda.md), [MVP](planos/mvp.md), [Atlas](../wireframes/atlas/index.html#mvp), [galeria](../wireframes/comparacoes/v0.15.2-2026-10-13-mvp-04-tela_14-tela_16-tela_15-tela_17/index.html), [verificador](../wireframes/tools/verify-mvp-agenda.mjs).
+
+## Marcos anteriores preservados
 
 ## Publicação Git autorizada — MVP 03 — v0.15.1 — 2026-10-13
 

@@ -1,6 +1,8 @@
 # Projeto Nós
 
-**Versão vigente do projeto:** 0.15.1
+**Versão vigente do projeto:** 0.15.2
+
+**MVP 04 — v0.15.2:** agenda interna conferida localmente; confirmação de remoção, cancelamento sem gravação, feedback de presença/remoção e reservas futuras. Sequência14 →16 →15 →17 opcional →14; são seções da mesma rota. Duas contas desktop/mobile validam criação, respostas, edição/remarcação, paginação, exclusão e isolamento. [Contrato/manual](Documentacao_Projeto_Nos/_andamento/funcionalidades/agenda-interna.md), [registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.15.2-2026-10-13-imp-agenda-interna-fun-mvp-04.md) e [galeria](Documentacao_Projeto_Nos/wireframes/comparacoes/v0.15.2-2026-10-13-mvp-04-tela_14-tela_16-tela_15-tela_17/index.html). Entrega incluída no commit atômico de publicação Git autorizado em13/10/2026; confirmação remota reportada no encerramento. Prova online pendente.
 
 **MVP 03 — v0.15.1:** ciclo central validado localmente com duas pessoas em computador/celular, legado, maioria, isolamento, revisão e história preservada. Histórico de revisões agora paginado, pendência sempre visível; Atlas ordenado e ampliações reservadas. [Contrato/manual](Documentacao_Projeto_Nos/_andamento/funcionalidades/ciclo-habito.md), [registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.15.1-2026-10-13-imp-ciclo-habito-fun-mvp-03.md) e [comparação](Documentacao_Projeto_Nos/wireframes/comparacoes/v0.15.1-2026-10-13-mvp-03-tela_24-tela_28-tela_33/index.html). Publicação e prova online desta versão ainda pendentes.
 

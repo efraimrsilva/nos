@@ -3,7 +3,7 @@
 const globalAreaNotes=[
   'Conta é a entrada. Cadastro, confirmação e recuperação são caminhos alternativos; a Tela 72 é acolhimento opcional.',
   'Após login, Seus Núcleos reúne associações reais e abre o Início escolhido. Sem associações, oferece criação ou convite. Escolher caminho é uma alternativa protegida; não há rascunho antes do login.',
-  'O Início é o ponto de retorno do Núcleo. A agenda é acessada conforme a intenção de organizar um encontro.',
+  'O Início é o retorno do Núcleo. Agenda14 → criação16 → evento/respostas15 → edição17 opcional → agenda14. Evento existente abre15 diretamente; os quatro estados compartilham a rota. Remover exige confirmação; manter não grava. Mês/recorrência/local/integrações são planejados.',
   'Propor, consentir, testar, registrar e confirmar têm condições próprias. Revisão, encerramento e experiências são ramificações.',
   'Explorar árvore, marcos, memórias e gratidão é opcional. Indicadores e Essência exigem seus contratos; não avançam automaticamente.',
   'Conexões e perfis dependem de autorização e compartilhamento voluntário. Consultar outra pessoa não permite editar seus dados.',

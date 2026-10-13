@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { CalendarDays, ChevronLeft, LockKeyhole } from "lucide-react";
 import { CalendarEventForm } from "@/features/calendar/components/calendar-event-form";
-import { deleteCalendarEvent, respondCalendarEvent } from "@/features/calendar/actions";
+import { CalendarPresenceForm, CalendarRemovalForm } from "@/features/calendar/components/calendar-event-actions";
 import { formatCalendarEventDate, parseCalendarPage } from "@/features/calendar/event-input";
 import { isNucleusAuthUnavailable } from "@/features/nuclei/nucleus-access";
 import { OnboardingShell } from "@/features/onboarding/components/onboarding-shell";
@@ -69,6 +69,7 @@ export default async function CalendarPage({ params, searchParams }: {
     <h1 className="mt-3 font-display text-[32px] leading-tight md:text-[42px]">Agenda do Núcleo</h1>
     <p className="mt-2 text-sm leading-7 text-muted">Planejem momentos no tempo de vocês. Cada pessoa decide se pode participar.</p>
     <p className="mt-1 text-xs leading-6 text-muted">Os eventos aparecem apenas aqui no Nós; a sincronização com calendários externos ainda não está disponível.</p>
+    <a href="#create-heading" className="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Adicionar evento</a>
     {resultado && notice[resultado] && <p role="status" className="mt-4 rounded-xl bg-[#edf3e5] p-3 text-sm text-forest">{notice[resultado]}</p>}
 
     <section className="mt-6 rounded-[22px] border border-line bg-white p-5 shadow-[0_5px_18px_#52403805] sm:p-7" aria-labelledby="upcoming-heading">
@@ -80,21 +81,18 @@ export default async function CalendarPage({ params, searchParams }: {
           const canManage = membership.role === "creator" || event.created_by === user.id;
           const start = formatCalendarEventDate(event.starts_at, event.time_zone);
           const end = formatCalendarEventDate(event.ends_at, event.time_zone);
-          return <li key={event.id} className="rounded-2xl border border-line bg-[#fbfaf7] p-4">
+          return <li key={event.id} id={`evento-${event.id}`} className="rounded-2xl border border-line bg-[#fbfaf7] p-4">
             <h3 className="break-words font-display text-lg">{event.title}</h3>
             <p className="mt-1 text-sm text-muted">{start.text} até {end.text} ({start.zoneLabel})</p>
             {event.intention && <p className="mt-2 whitespace-pre-wrap break-words text-sm text-muted">{event.intention}</p>}
             <p className="mt-3 text-xs font-semibold text-leaf">{participationLabel(participants)} · {participants.length} participante(s)</p>
             {own && <div className="mt-3">
               <p className="text-xs text-muted">Sua resposta: {own.response === "accepted" ? "vou participar" : own.response === "declined" ? "não posso participar" : "ainda não respondi"}.</p>
-              <div className="mt-2 flex flex-wrap gap-2">
-                <form action={respondCalendarEvent.bind(null, id, event.id, "accepted")}><button className="min-h-11 rounded-xl border border-leaf px-4 text-sm font-semibold text-leaf">Posso participar</button></form>
-                <form action={respondCalendarEvent.bind(null, id, event.id, "declined")}><button className="min-h-11 rounded-xl border border-line px-4 text-sm font-semibold text-muted">Não posso</button></form>
-              </div>
+              <CalendarPresenceForm nucleusId={id} eventId={event.id} />
             </div>}
             {canManage && <details className="mt-4 border-t border-line pt-3"><summary className="cursor-pointer text-sm font-semibold text-leaf">Editar ou remover</summary>
               <CalendarEventForm nucleusId={id} event={event} />
-              <form action={deleteCalendarEvent.bind(null, id, event.id)} className="mt-4"><button className="min-h-11 text-sm font-semibold text-red-700 underline">Remover evento</button></form>
+              <CalendarRemovalForm nucleusId={id} eventId={event.id} title={event.title} />
             </details>}
           </li>;
         })}</ol>}
@@ -108,6 +106,12 @@ export default async function CalendarPage({ params, searchParams }: {
       <h2 id="create-heading" className="font-display text-xl">Adicionar evento</h2>
       <p className="mt-2 text-sm text-muted">Todos os integrantes atuais receberão um pedido de resposta nesta agenda.</p>
       <CalendarEventForm nucleusId={id} />
+    </section>
+    <section className="mt-4 rounded-[22px] border border-dashed border-line p-5 sm:p-7" aria-labelledby="calendar-future-heading">
+      <p className="text-xs font-semibold text-muted">Planejado · próximas etapas</p>
+      <h2 id="calendar-future-heading" className="mt-2 font-display text-xl">Próximas possibilidades</h2>
+      <p className="mt-2 text-sm leading-7 text-muted">Visão mensal e por dia, eventos recorrentes, local do encontro, sugestão de outros horários e a opção “Ainda não sei”.</p>
+      <p className="mt-2 text-sm leading-7 text-muted">Também virão a escolha de participantes, notificações de mudanças, vínculos com Hábitos e Experiências, memórias do encontro e conexão com calendários externos. Cada recurso será disponibilizado após definir suas regras de privacidade e consentimento.</p>
     </section>
   </OnboardingShell>;
 }

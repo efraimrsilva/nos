@@ -54,12 +54,14 @@ export function CalendarEventForm({ nucleusId, event }: { nucleusId: string; eve
         <input type="datetime-local" required value={end} onChange={(e) => setEnd(e.target.value)} className="min-h-11 w-full rounded-xl border border-line bg-white px-3 font-normal" />
       </label>
     </div>
-    <p className="text-xs text-muted">Horários no fuso deste dispositivo: {timeZone || "identificando…"}. Todos os integrantes atuais serão convidados.</p>
+    <p className="text-xs text-muted">Horários no fuso deste dispositivo: {timeZone || "identificando…"}. {event ? "A edição mantém o conjunto de participantes do evento." : "Todos os integrantes atuais serão convidados."}</p>
+    {event ? <p className="text-xs leading-6 text-muted">Alterar título ou intenção mantém as respostas. Mudar o início ou término pede nova resposta aos demais participantes; a sua resposta é preservada.</p> : <p className="text-xs leading-6 text-muted">Ao criar, você confirma sua própria presença. Os demais integrantes atuais ficam aguardando resposta; ninguém é confirmado automaticamente por você.</p>}
     <input type="hidden" name="startsAt" /><input type="hidden" name="endsAt" />
     <input type="hidden" name="timeZone" value={timeZone} />
     {(clientError || state.error) && <p role="alert" className="text-sm text-red-700">{clientError || state.error}</p>}
     <button disabled={pending || !timeZone} type="submit" className="continue-button min-h-11 rounded-xl bg-forest px-5 text-sm font-semibold text-white disabled:opacity-60">
       {pending ? "Salvando…" : event ? "Salvar alterações" : "Criar evento"}
     </button>
+    {!event && <a href="#upcoming-heading" className="inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Voltar aos eventos sem enviar</a>}
   </form>;
 }

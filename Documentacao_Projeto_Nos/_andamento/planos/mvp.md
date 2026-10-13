@@ -1,6 +1,6 @@
 # MVP e caminho de implementação — Projeto Nós
 
-**Versão de referência:** v0.15.1. **Aprovado pelo usuário:** 2026-10-12. **Status:** roteiro aprovado; funcionalidades futuras permanecem planejadas.
+**Versão de referência:** v0.15.2. **Aprovado pelo usuário:** 2026-10-12. **Status:** roteiro aprovado; funcionalidades futuras permanecem planejadas.
 
 **Operação da etapa 01 em 13/10/2026:** conexão/login/sessão/saída verificados em https://noslife.netlify.app, com configuração de produção e retornos Supabase aplicados. Cadastro com confirmação externa ainda depende da senha de aplicativo Gmail; recuperação completa também exige segredo no Netlify. Etapa 01 continua aberta. [Registro online](../registros/registro-v0.14.1-2026-10-13-03-imp-conexao-netlify-fun-acesso-online.md).
 
@@ -65,3 +65,7 @@ Recorte funcional local concluído com gestão/revogação privada do criador, d
 ## Etapa 03 — conferência em 13/10/2026 — v0.15.1
 
 Ciclo central validado localmente: proposta → teste → prática/histórico → confirmação; legado é alternativa, ajuste e encerramento são ramificações. Histórico de revisões paginado, pendência visível, leitura concorrente corrigida. Duas contas desktop/mobile, quatro originais/externo/legado e testes SQL aprovados; futuras expansões explicitadas. Publicação/prova online pendentes; etapas 01/02 continuam com suas dependências operacionais. [Contrato/manual](../funcionalidades/ciclo-habito.md), [plano](mvp-03-habito.md), [registro](../registros/registro-v0.15.1-2026-10-13-imp-ciclo-habito-fun-mvp-03.md). Próximo recorte funcional é etapa 04, quando solicitado.
+
+## Etapa04 — conferência em13/10/2026 — v0.15.2
+
+Agenda14 → Novo16 → Evento/respostas15 → edição17 opcional → agenda14; são seções da mesma rota. Recorte funcional local validado com duas contas desktop/mobile: criação/presença/remarcação, autorização, paginação e remoção contextual confirmada; manter não grava. Mês/recorrência/local/terceira resposta/seleção individual/notificações/memórias/integrações reservados.102 gerais e seis autenticados aprovados. Sem nova migração; publicação/prova online pendentes. Próximo recorte funcional é MVP05, quando solicitado; etapas01/02 seguem com suas dependências operacionais. [Contrato/manual](../funcionalidades/agenda-interna.md), [plano](mvp-04-agenda.md), [registro](../registros/registro-v0.15.2-2026-10-13-imp-agenda-interna-fun-mvp-04.md).

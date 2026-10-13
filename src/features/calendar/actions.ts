@@ -56,8 +56,10 @@ export async function respondCalendarEvent(nucleusId: string, eventId: string, r
   redirect(`${routes.nucleus}/${nucleusId}/agenda?resultado=${error ? "erro" : "resposta"}`);
 }
 
-export async function deleteCalendarEvent(nucleusId: string, eventId: string) {
+export async function deleteCalendarEvent(nucleusId: string, eventId: string, formData: FormData) {
   if (!uuid.test(nucleusId) || !uuid.test(eventId)) return;
+  // A confirmação também é exigida no servidor; abrir/cancelar a interface não chama a RPC.
+  if (formData.get("confirmRemoval") !== "yes") redirect(`${routes.nucleus}/${nucleusId}/agenda?resultado=erro`);
   const { client: supabase, authUnavailable } = await authenticatedClient();
   if (!supabase) redirect(authUnavailable ? `${routes.nucleus}/${nucleusId}/agenda?resultado=erro` : routes.account);
   const { error } = await supabase.rpc("delete_nucleus_event", { target_event: eventId });

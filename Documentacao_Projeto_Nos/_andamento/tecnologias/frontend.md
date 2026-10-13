@@ -1,6 +1,8 @@
 # Frontend web
 
-**Versão vigente do projeto:** 0.15.0
+**Versão vigente do projeto:** 0.15.2
+
+**MVP 04:** agenda mantém Server Actions/RPCs existentes. Confirmação contextual com ciência no servidor, foco ao abrir/retornar, botões de presença compartilham useFormStatus; feedback bloqueia envio durante processamento. Reservas futuras sem ação fictícia. [Contrato](../funcionalidades/agenda-interna.md).
 
 **Prioridade vigente — MVP aprovado em 2026-10-12:** seguir o [roteiro](../planos/mvp.md), começando pela etapa 01 de acesso e dependências operacionais. Antes de cada implementação, conferir etapa/dependências e aspecto/ficha no Atlas vivo com prioridade alta. Sincronizar também a guia MVP em cada mudança. Recomendações anteriores de iniciar pela Árvore ou proposta guiada são históricas; esses módulos seguem nas etapas 07/06. A aprovação do planejamento não conclui funcionalidades futuras.
 

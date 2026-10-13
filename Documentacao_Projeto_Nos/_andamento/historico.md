@@ -1,5 +1,12 @@
 # Histórico de andamento
 
+## 2026-10-13 — v0.15.2 — publicação Git do MVP04 autorizada
+
+Autorizado commit/push abrangendo código, testes, Atlas, galeria26 capturas, contratos/registros/manifestos da entrega. Versão preservada; conferência do objeto e hash remoto obrigatórias antes de reportar envio. Sem migração remota ou deploy manual. [Registro](registros/registro-v0.15.2-2026-10-13-02-imp-publicacao-git-fun-rastreabilidade-mvp-04.md).
+
+## 2026-10-13 — v0.15.2 — MVP04: agenda interna
+
+Conferência do fluxo existente; remoção imediata corrigida com confirmação/ciência no servidor, cancelamento sem gravação, foco e feedback. Texto conserva respostas; remarcação pede nova resposta aos demais conforme contrato já existente. Atlas/MVP/Visão global/fichas/cobertura/galeria alinhados e futuro reservado.102 gerais e seis autenticados aprovados; revisão independente sem achado funcional/segurança. Sem migração nova/banco remoto/commit/push/deploy. [Registro](registros/registro-v0.15.2-2026-10-13-imp-agenda-interna-fun-mvp-04.md).
 ## 2026-10-13 — v0.15.1 — publicação Git autorizada do MVP 03
 
 Usuário autorizou commit/push abrangente do ciclo de Hábito. Base main48fdd3d; fetch confirmou0/0. Suíte geral/tipos/build e verificadores Atlas reconferidos; fontes funcionais idênticas à implementação validada. Um commit lógico inclui código, testes,22 capturas, Atlas, versão e documentação. Inclusão/objeto e equivalência remota conferidos no fechamento; publicação Git não certifica deploy. [Registro](registros/registro-v0.15.1-2026-10-13-02-imp-publicacao-git-fun-rastreabilidade-mvp-03.md).
@@ -8,7 +15,7 @@ Usuário autorizou commit/push abrangente do ciclo de Hábito. Base main48fdd3d;
 
 Produto: completado acesso ao histórico antigo de revisões por cursor data/ID, com pendência visível e leitura ordenada contra estados contraditórios. Ciclo de duas pessoas validado em desktop/celular, SQL e jornada ampliada de legado/maioria/isolamento. Atlas/MVP/Visão global: caminho principal, legado opcional, ajuste ou encerramento, detalhe/história preservados; ampliações reservadas. 102 testes gerais e quatro novos autenticados aprovados; tipos/build/equivalência conferidos no fechamento. Nenhuma migração nova/alteração remota/commit/push/deploy. [Registro](registros/registro-v0.15.1-2026-10-13-imp-ciclo-habito-fun-mvp-03.md).
 
-**Versão vigente do projeto:** 0.15.1
+**Versão vigente do projeto:** 0.15.2
 
 ## 2026-10-07 — v0.13.1 — Alinhamento visual de Conta
 
