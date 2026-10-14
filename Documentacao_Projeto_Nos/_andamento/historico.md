@@ -1,5 +1,45 @@
 # Histórico de andamento
 
+## 2026-10-14 — v0.16.0 — Publicação documental do modelo simples autorizada
+
+Usuário autorizou commit/push abrangentes do contrato consolidado e registros/referências. main/base30ea405 alinhada ao remoto após fetch. Documentação define alvo aprovado, sem alteração em código/banco/manifestos. Conferir objeto antes de retirar pendência e confirmar hash remoto após envio. Modelo simples ainda não implementado; operação adiada. [Registro](registros/registro-v0.16.0-2026-10-14-12-imp-publicacao-git-fun-contrato-administracao.md).
+
+## 2026-10-14 — v0.16.0 — Oito respostas do modelo simples consolidadas
+
+Usuário aprovou todas as recomendações com alteração da resposta2: sortear administrador entre participantes restantes quando último administrador sair. Resposta3 elimina votação coletiva do ciclo de acordos, mantendo escolha individual; alerta de saída informa histórico compartilhado preservado. Responsável Sintagma Software, sintagmasoftware@gmail.com. Contrato único e referências atualizadas, registros antigos5–10 superados, sem implementação/commit/push. [Registro](registros/registro-v0.16.0-2026-10-14-11-imp-contrato-administracao-fun-respostas-consolidadas.md), [contrato](funcionalidades/administracao-participacao.md).
+
+## 2026-10-14 — v0.16.0 — Modelo simples aprovado e perguntas reelaboradas
+
+Usuário aprovou quadro de administração/participação simples e pediu novo rumo de definições. Cancelamentos/votações por saída das respostas5–10 substituídos, registros históricos preservados. Nova sequência: oito decisões em quatro blocos, com recomendações e resposta por pacote/exceção. Nenhuma implementação. [Roteiro](registros/registro-v0.16.0-2026-10-14-10-imp-modelo-administracao-fun-roteiro-simplificado.md).
+
+## 2026-10-14 — v0.16.0 — Reavaliação para administração simples
+
+Usuário apontou excesso de perguntas/regras/cancelamentos e propôs administrador de Núcleo, convites/entrada de pessoas e retirada das votações adicionais para facilitar o uso. Sequência anterior interrompida; pergunta11 não respondida. Proposta de saída sem cancelamentos/votação automática em discussão, sem implementação/substituição aprovada. [Registro](registros/registro-v0.16.0-2026-10-14-09-imp-reavaliacao-contrato-fun-administracao-simples.md).
+
+## 2026-10-14 — v0.16.0 — Reinício após nova saída aprovado
+
+Resposta10: outra saída de original durante votação pendente encerra a rodada sem decidir continuidade e abre nova para originais restantes, sete dias/novos votos; momentos continuam permitidos. Votos antigos não reaproveitados. Próxima definição: menos de dois originais associados. Sem implementação. [Registro](registros/registro-v0.16.0-2026-10-14-08-imp-contrato-saida-fun-reinicio-votacao.md).
+
+## 2026-10-14 — v0.16.0 — Novos registros durante votação permitidos
+
+Resposta9 B: continuar recebendo registros de momentos durante votação de continuidade; preservá-los se o prazo terminar sem aprovação e o acordo for encerrado. Não pausar registros como sugerido antes. Próxima definição: saída adicional durante votação. Sem implementação. [Registro](registros/registro-v0.16.0-2026-10-14-07-imp-contrato-saida-fun-registros-durante-votacao.md).
+
+## 2026-10-14 — v0.16.0 — Prazo e resultado da continuidade aprovados
+
+Resposta8: sete dias para votar; maioria aprova continuidade imediatamente; prazo sem maioria encerra acordo preservando história. Próxima definição: novos registros durante votação. Sem implementação. [Registro](registros/registro-v0.16.0-2026-10-14-06-imp-contrato-saida-fun-prazo-votacao.md).
+
+## 2026-10-14 — v0.16.0 — Eleitorado da continuidade aprovado
+
+Resposta7 A: somente participantes originais do acordo que permanecem associados votam; novos membros não participam. Nova votação exige maioria absoluta dos elegíveis, sem reutilizar votos. Prazo/resultado sem maioria ainda por definir. Sem implementação. [Registro](registros/registro-v0.16.0-2026-10-14-05-imp-contrato-saida-fun-eleitorado-continuidade.md).
+
+## 2026-10-14 — v0.16.0 — Saída encerra teste; ativo recebe votação de continuidade
+
+Resposta6 corrigida na mesma interação: encerramento automático somente do acordo em teste, com história preservada. Ativo terá votação nova e continuará se mais da metade das pessoas com direito a voto escolher seguir. Eleitorado/prazo/estado intermediário ainda pendentes. Sem implementação; decisão posterior a30ea405. [Registro](registros/registro-v0.16.0-2026-10-14-04-imp-contrato-saida-fun-continuidade-acordo.md).
+
+## 2026-10-14 — v0.16.0 — Cancelamento da proposta após saída aprovado
+
+Resposta5: cancelar a proposta original se participante original sair durante aprovação inicial; proposta não passa a teste por reduzir participantes e não reaproveita votos numa nova proposta. Decisão posterior ao commit/push30ea405, ainda sem implementação. Próxima definição: Hábitos em teste/ativos. [Registro](registros/registro-v0.16.0-2026-10-14-03-imp-contrato-saida-fun-cancelamento-proposta.md).
+
 ## 2026-10-14 — v0.16.0 — Publicação Git autorizada do MVP 05
 
 Usuário autorizou commit/push abrangentes da entrega e definições registradas até pergunta 4. main/origin/main iguais após fetch, base c40594f. Reconferir validações, índice e objeto antes do envio normal. MVP05 parcial; saída/anonimização ainda em definição, pergunta 5 sem resposta e operação adiada pelo Google. Sem deploy manual ou alteração remota de banco/configuração. [Registro](registros/registro-v0.16.0-2026-10-14-02-imp-publicacao-git-fun-rastreabilidade-mvp-05.md).
@@ -529,3 +569,5 @@ Reconferência para publicação: 102 testes gerais, tipos/build produção e qu
 Objeto de publicação inspecionado: 59 arquivos e 19 imagens; árvore inicial 2b332e7fcf7d942cd9b37cd1c2ce0dd6acf26a2b igual ao índice preparado. Inclusão comprovada, pendência retirada e controle incorporado ao mesmo commit lógico antes do push autorizado. Comparar identificador definitivo ao remoto no encerramento.
 
 Controle de publicação MVP05 em14/10/2026:87 arquivos/46 imagens conferidos no objeto inicial5572751; árvore6efcec131b6e924af9d1df056a9a489de7f1e8fc idêntica ao índice preparado. Pendência retirada por prova de inclusão; controle incorporado ao mesmo commit antes do push.106 testes/tipos/build/Atlas/revisão aprovados. Hash definitivo/equivalência remota reportados no encerramento, sem deploy certificado.
+
+Controle de inclusão da publicação documental:28 documentos no objeto inicial5602093; árvorecb6e4bd383d69f12e82e367e060d980e047dfb6e igual ao índice preparado. Nenhuma mudança de código/banco/manifestos. Pendência retirada após comprovar inclusão e controle incorporado ao mesmo commit lógico antes do push. Confirmar hash final remoto no encerramento.

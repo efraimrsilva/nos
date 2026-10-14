@@ -1,5 +1,7 @@
 # Plano — MVP 05 — autonomia e proteção
 
+**Plano histórico da orientação0.16.0:** a próxima implementação deve seguir [contrato novo aprovado](../funcionalidades/administracao-participacao.md); não executar cancelamentos/votações antigos por saída.
+
 Data: 2026-10-13. Base: main c40594f, inicialmente limpo. DOCS_DIR: Documentacao_Projeto_Nos.
 
 Objetivo autorizado: conferir Telas 66/67/69/70/71, concluir o viável, ordenar navegação e reservar funções sem contrato. O Atlas impede remover vínculo sem retenção/dependências; saída efetiva não pode ser inventada nesta entrega.

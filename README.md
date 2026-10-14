@@ -1,5 +1,7 @@
 # Projeto Nós
 
+**Modelo de administração/participação aprovado em14/10/2026:** [contrato consolidado](Documentacao_Projeto_Nos/_andamento/funcionalidades/administracao-participacao.md). Administradores gerenciam Núcleo/acordos; participação individual; saída sem cancelamento/votação; sorteio se último administrador sair. Preferência de autoria mantém conteúdo. Responsável: Sintagma Software, sintagmasoftware@gmail.com. Definição aprovada, ainda não implementada; aplicação permanece0.16.0 com regras anteriores.
+
 **MVP 05 — v0.16.0:** Configurações, Privacidade, Conta e segurança, Ajuda e orientação de saída disponíveis com acesso protegido. Recuperação/logout reusados; logout conserva vínculos. Saída efetiva, transferência, retenção/direitos, suporte/termos e operação ainda pendentes: etapa parcial, piloto não liberado. [Contrato/manual](Documentacao_Projeto_Nos/_andamento/funcionalidades/autonomia-protecao.md), [registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.16.0-2026-10-13-imp-controles-autonomia-fun-mvp-05.md) e [galeria](Documentacao_Projeto_Nos/wireframes/comparacoes/v0.16.0-2026-10-13-mvp-05-tela_66-tela_67-tela_69-tela_70-tela_71/index.html). Entrega incluída no commit atômico de publicação Git autorizado em14/10/2026; confirmação remota reportada no encerramento. Sem deploy certificado.
 
 **Versão vigente do projeto:** 0.16.0

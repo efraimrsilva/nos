@@ -1,5 +1,7 @@
 # Núcleo compartilhado — v0.15.0
 
+**Modelo aprovado — v0.16.0 — 14/10/2026; implementação pendente:** [administração e participação](administracao-participacao.md) substitui votações coletivas de acordos e cancelamentos/votações por saída. Gestão administrativa com participação/novo aceite individual; múltiplos administradores e sorteio após saída do último. O comportamento descrito abaixo é o contrato anterior ainda executado pelo código, preservado para migração/histórico. Não implementar novamente as votações como comportamento-alvo.
+
 Atualizado em 2026-10-13. MVP 02 concluído no recorte funcional local; publicação e migração remotas pendentes. Conta confirmada é pré-requisito; operação externa da etapa 01 continua pendente.
 
 ## Fluxos e permissões

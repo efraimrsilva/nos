@@ -1,5 +1,9 @@
 # Brag document — Projeto Nós
 
+## 2026-10-14 — v0.16.0 — Contrato simples de administração e participação
+
+Problema: saída havia acumulado cancelamentos e votações, contrariando a simplicidade pretendida pelo usuário. Contribuição documental: oito respostas consolidadas, seis registros antigos superados e referência única para gestão administrativa/participação individual. Resultado verificado: referências locais válidas e revisão independente sem inconsistências relevantes; código ainda não adaptado. Benefício esperado, não medido: menor custo de implementação/manutenção e menos etapas para o usuário. [Contrato](../_andamento/funcionalidades/administracao-participacao.md), [evidências](../_andamento/registros/registro-v0.16.0-2026-10-14-11-imp-contrato-administracao-fun-respostas-consolidadas.md).
+
 ## 2026-10-13 — v0.16.0 — Orientação de autonomia e proteção
 
 Problema: controles do MVP05 planejados e acesso/privacidade/saída sem orientação reunida. Contribuição: cinco páginas autenticadas, vínculo e papel conferidos, recuperação/logout reusados; Atlas e reservas coerentes. Resultado verificado:106 testes gerais produção e quatro autenticados, incluindo isolamento e conservação de vínculo; revisão independente corrigida. Benefício esperado: reduzir dúvidas sobre alcance das notas e diferença entre logout/saída, sem medição de uso. [Evidência](../_andamento/registros/registro-v0.16.0-2026-10-13-imp-controles-autonomia-fun-mvp-05.md). MVP05 ainda parcial.

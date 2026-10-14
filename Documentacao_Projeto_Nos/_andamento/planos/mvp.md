@@ -1,5 +1,7 @@
 # MVP e caminho de implementação — Projeto Nós
 
+**Atualização aprovada — v0.16.0 — 14/10/2026:** [contrato administrativo](../funcionalidades/administracao-participacao.md) substitui votação coletiva do ciclo de acordos e as decisões posteriores de votação por saída. Administração/participação entram no fechamento MVP05; gestão/revisão administrativa substitui consenso no comportamento-alvo de propósito e acordos. Os percursos/fichas atuais ainda descrevem código anterior; implementação e sincronização do Atlas pendentes.
+
 **Versão de referência:** v0.15.2. **Aprovado pelo usuário:** 2026-10-12. **Status:** roteiro aprovado; funcionalidades futuras permanecem planejadas.
 
 **Operação da etapa 01 em 13/10/2026:** conexão/login/sessão/saída verificados em https://noslife.netlify.app, com configuração de produção e retornos Supabase aplicados. Cadastro com confirmação externa ainda depende da senha de aplicativo Gmail; recuperação completa também exige segredo no Netlify. Etapa 01 continua aberta. [Registro online](../registros/registro-v0.14.1-2026-10-13-03-imp-conexao-netlify-fun-acesso-online.md).

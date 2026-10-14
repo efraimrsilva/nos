@@ -1,6 +1,10 @@
 # Autonomia e proteção — MVP 05 — v0.16.0
 
+**Modelo aprovado — v0.16.0 — 14/10/2026; implementação pendente:** [administração e participação](administracao-participacao.md) substitui votações coletivas de acordos e cancelamentos/votações por saída. Gestão administrativa com participação/novo aceite individual; múltiplos administradores e sorteio após saída do último. O comportamento descrito abaixo é o contrato anterior ainda executado pelo código, preservado para migração/histórico. Não implementar novamente as votações como comportamento-alvo.
+
 Data: 2026-10-13. Recorte implementado e validado localmente; etapa MVP05 permanece parcial.
+
+**Direção de produto vigente — 14/10/2026:** quadro de administração/participação simples aprovado. Quem cria inicia administrador; administração gerencia convites/participantes e organiza acordos; entrada/participação individuais; saída não cancela acordos nem gera votação automaticamente. Preferência geral de ocultar autoria preservando conteúdo permanece. Respostas5–10 nas seções abaixo são histórico substituído, sem implementação. [Roteiro simplificado de definições restantes](../registros/registro-v0.16.0-2026-10-14-10-imp-modelo-administracao-fun-roteiro-simplificado.md). Nenhuma mudança no comportamento do aplicativo ainda.
 
 | Tela | Disponível | Pendente/reservado |
 |---|---|---|
@@ -17,6 +21,12 @@ Autorização: proxy e páginas conferem sessão com auth.getUser(); as novas ro
 Privacidade vigente: pessoas associadas consultam contexto, propostas, termos, momentos com humor/nota, revisões e agenda. Cada pessoa responde por si; votos individuais da confirmação são privados, resultado agregado exige autorização. Nenhuma opção finge esconder notas retroativamente. Logout usa a ação existente de Auth e não remove nucleus_members. Tokens já emitidos e administração individual de sessões não são apresentados como revogação imediata granular.
 
 Pendências para fechar esta etapa e o piloto:
+
+**Pergunta10 — 14/10/2026:** nova saída de original durante votação de continuidade pendente encerra rodada sem decidir continuidade e abre nova para originais restantes, sete dias e novos votos. Registros continuam permitidos e votos anteriores não são reaproveitados. Caso de menos de dois originais associados ainda pendente. [Registro](../registros/registro-v0.16.0-2026-10-14-08-imp-contrato-saida-fun-reinicio-votacao.md).
+
+**Perguntas6–9 — 14/10/2026:** saída de original encerra automaticamente somente acordo em teste, preservando histórico. Ativo terá votação nova com maioria absoluta dos originais que permanecem associados; novos membros não votam. Sete dias: maioria aprova imediatamente; prazo sem maioria encerra com história preservada. Resposta9 B permite novos registros durante votação, mantidos após eventual encerramento. Saída adicional definida na pergunta10 acima, sem recálculo silencioso. Implementação pendente. [Continuidade](../registros/registro-v0.16.0-2026-10-14-04-imp-contrato-saida-fun-continuidade-acordo.md), [eleitorado](../registros/registro-v0.16.0-2026-10-14-05-imp-contrato-saida-fun-eleitorado-continuidade.md), [prazo](../registros/registro-v0.16.0-2026-10-14-06-imp-contrato-saida-fun-prazo-votacao.md), [registros](../registros/registro-v0.16.0-2026-10-14-07-imp-contrato-saida-fun-registros-durante-votacao.md).
+
+**Pergunta 5 aprovada após a publicação — 14/10/2026:** saída de um participante original durante aprovação inicial cancela a proposta. Os atuais poderão criar nova proposta com novos aceites; nenhum aceite implícito ou recálculo silencioso. Implementação ainda pendente. [Registro](../registros/registro-v0.16.0-2026-10-14-03-imp-contrato-saida-fun-cancelamento-proposta.md).
 
 **Definição em andamento — 14/10/2026:** qualquer participante poderá sair a qualquer momento. Atividades preservadas por padrão; preferência geral para todos os Núcleos poderá retirar identificação de autoria após sair. Pergunta 4, opção A: conteúdo pessoal, humor e notas permanecem; não apagar/reescrever textos automaticamente, nem prometer anonimato completo de conteúdo/contexto. Essas decisões substituem a eliminação obrigatória anterior; aviso refletirá a escolha vigente. Saídas anteriores, decisões coletivas e tratamento do criador ainda precisam de definição. Nenhuma saída/anonimização implementada. Item 5 adiado explicitamente devido ao impedimento do Google; continuar itens 1–4. [Registro de definição](../registros/registro-v0.16.0-2026-10-14-imp-contrato-saida-fun-definicao-mvp-05.md).
 

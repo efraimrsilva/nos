@@ -1,5 +1,7 @@
 ﻿# Projeto Nós - Modelo Funcional, Dados, Estados e Regras (Versão 2.4)
 
+**Atualização de direção — projeto v0.16.0 — 14/10/2026:** para Núcleos/acordos, seguir [contrato administrativo aprovado](_andamento/funcionalidades/administracao-participacao.md). Votação coletiva de acordos, administração futura e consenso para ajuste de propósito descritos neste documento são referência histórica do modelo substituído. Consentimento individual, isolamento e privacidade permanecem; código anterior ainda não migrado. Demais módulos futuros não recebem novas regras por inferência.
+
 ## Categoria
 **2.x - Interface e Implementação**
 
