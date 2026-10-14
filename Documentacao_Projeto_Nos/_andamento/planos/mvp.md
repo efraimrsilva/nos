@@ -69,3 +69,7 @@ Ciclo central validado localmente: proposta → teste → prática/histórico �
 ## Etapa04 — conferência em13/10/2026 — v0.15.2
 
 Agenda14 → Novo16 → Evento/respostas15 → edição17 opcional → agenda14; são seções da mesma rota. Recorte funcional local validado com duas contas desktop/mobile: criação/presença/remarcação, autorização, paginação e remoção contextual confirmada; manter não grava. Mês/recorrência/local/terceira resposta/seleção individual/notificações/memórias/integrações reservados.102 gerais e seis autenticados aprovados. Sem nova migração; publicação/prova online pendentes. Próximo recorte funcional é MVP05, quando solicitado; etapas01/02 seguem com suas dependências operacionais. [Contrato/manual](../funcionalidades/agenda-interna.md), [plano](mvp-04-agenda.md), [registro](../registros/registro-v0.15.2-2026-10-13-imp-agenda-interna-fun-mvp-04.md).
+
+## Etapa 05 — conferência em 13/10/2026 — v0.16.0
+
+Recorte local de orientação concluído; etapa parcial. Lista/Início→66;67/69/70 alternativas;13→71→13 contextual. Sem remoção/transferência/exclusão/preferências simuladas.106 testes gerais produção, quatro autenticados, tipos/build/Atlas e revisão aprovados. Saída/transferência/retenção/direitos/suporte/termos e operação continuam necessários para fechar o MVP. [Contrato](../funcionalidades/autonomia-protecao.md), [registro](../registros/registro-v0.16.0-2026-10-13-imp-controles-autonomia-fun-mvp-05.md).

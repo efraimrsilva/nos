@@ -1,7 +1,9 @@
 # Comparações de telas — procedimento permanente
 
+- [v0.16.0 — MVP05 controles e orientação](v0.16.0-2026-10-13-mvp-05-tela_66-tela_67-tela_69-tela_70-tela_71/index.html): cinco telas novas e entradas12/13; antes/depois Atlas desktop/mobile, app autenticado com exemplos locais. Sem app anterior às novas rotas. Saída efetiva permanece planejada.
+
 **v0.15.2 — MVP04 — 2026-10-13:** [galeria](v0.15.2-2026-10-13-mvp-04-tela_14-tela_16-tela_15-tela_17/index.html):26 capturas, Atlas14/16/15/17 antes/depois e MVP desktop/mobile, app real edição/confirmação/vazio com reservas. Antes06edf58; fixtures locais limpas. Script `scripts/capture-mvp-agenda-atlas.mjs` e testes autenticados de agenda.
-Referência funcional atual: **v0.15.2**. Procedimento definido em 2026-10-07.
+Referência funcional atual: **v0.16.0**. Procedimento definido em 2026-10-07.
 
 Toda criação ou alteração de tela, navegação, dados, regra ou estado deve acrescentar evidências nesta pasta no mesmo conjunto lógico da entrega. Preservar galerias anteriores; não sobrescrever suas imagens para simular continuidade. Consultar o [procedimento completo](../GUIA.md#visão-global-sincronização-e-comparações--procedimento-permanente).
 

@@ -1,5 +1,9 @@
 # Brag document — Projeto Nós
 
+## 2026-10-13 — v0.16.0 — Orientação de autonomia e proteção
+
+Problema: controles do MVP05 planejados e acesso/privacidade/saída sem orientação reunida. Contribuição: cinco páginas autenticadas, vínculo e papel conferidos, recuperação/logout reusados; Atlas e reservas coerentes. Resultado verificado:106 testes gerais produção e quatro autenticados, incluindo isolamento e conservação de vínculo; revisão independente corrigida. Benefício esperado: reduzir dúvidas sobre alcance das notas e diferença entre logout/saída, sem medição de uso. [Evidência](../_andamento/registros/registro-v0.16.0-2026-10-13-imp-controles-autonomia-fun-mvp-05.md). MVP05 ainda parcial.
+
 ## 2026-10-13 — v0.15.2 — remoção consciente na agenda
 
 **Problema:** remoção imediata contrariava confirmação prevista; Atlas misturava campos/funções atuais e futuros. **Contribuição:** confirmação contextual, ciência no servidor, cancelamento sem gravação, foco/feedback e fluxo sincronizado. **Resultado verificado:** seis casos desktop/mobile comprovam confirmação/cancelamento, bloqueio sem ciência, paginação, presença/remarcação, autorização e isolamento. **Benefício esperado:** reduzir remoções acidentais e tornar limites da agenda compreensíveis; não medido com usuários. **Evidência:** [testes](../../tests/authenticated/calendar.spec.ts), [registro](../_andamento/registros/registro-v0.15.2-2026-10-13-imp-agenda-interna-fun-mvp-04.md), [galeria](../wireframes/comparacoes/v0.15.2-2026-10-13-mvp-04-tela_14-tela_16-tela_15-tela_17/index.html).

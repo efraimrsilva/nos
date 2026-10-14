@@ -7,4 +7,8 @@ export const routes = {
   account: "/conta",
   initialInvitation: "/comecar/convite-inicial",
   nucleus: "/nucleos",
+  settings: "/configuracoes",
+  privacy: "/configuracoes/privacidade",
+  security: "/configuracoes/conta",
+  help: "/ajuda",
 } as const;

@@ -211,6 +211,9 @@ function productPhoneHtml(screen, interactive) {
   const key=documentLayoutKey||(referenceMode?approvedKey(screen.id):String(screen.id));
   const imported=!!approvedLayouts[key]&&!onboarding;
   let body=onboarding?onboardingLayout(screen,interactive):imported&&(!interactive||previewState==='content')?`<div class="approved-stage" data-approved="${key}">${approvedLayout(screen,key)}</div>`:extensionLayout(screen,interactive);
+  // Os controles vivos exibem regras/reservas reais, sem toggles do desenho histórico.
+  if([66,67,69,70,71].includes(screen.id)&&!referenceMode)body=extensionLayout(screen,interactive);
+  if([12,13].includes(screen.id)&&!referenceMode)body+='<button class="product-text-link access-link" data-go="66">Configurações, privacidade e ajuda</button>'+(screen.id===13?'<button class="product-text-link access-link" data-go="71">Entender a saída deste Núcleo</button>':'');
   if([19,20,21].includes(screen.id)&&!referenceMode)body='<p class="block-note" role="note">Planejada · espaço reservado para o fluxo guiado. Esta etapa e a rota /novo ainda não estão disponíveis no aplicativo.</p>'+body;
   return `<div class="phone product-phone ${onboarding?'onboarding-phone':imported?'approved-phone':'extension-phone'}" ${interactive?'':`data-open="${screen.id}" role="button" tabindex="0" aria-label="Inspecionar tela ${pad(screen.id)} ${escapeHtml(screen.title)}"`}>${body}</div>`;
 }

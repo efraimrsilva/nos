@@ -46,5 +46,6 @@ export default async function NucleiPage({ searchParams }: { searchParams: Promi
       <PathCard href={routes.invitation} title="Entrar com um convite" description="Recebeu um código de alguém? Junte-se a eles." icon={UsersRound} variant="invite" />
     </nav>
     <Link href={routes.account} className="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Minha conta e sair</Link>
+    <Link href={routes.settings} className="mt-3 block min-h-11 text-sm font-semibold leading-[44px] text-leaf underline">Configurações, privacidade e ajuda</Link>
   </OnboardingShell>;
 }

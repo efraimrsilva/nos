@@ -7,7 +7,7 @@ import { isNucleusAuthUnavailable } from "@/features/nuclei/nucleus-access";
 
 export async function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname;
-  const protectedPage = /^\/(?:comecar|nucleos)(?:\/|$)/.test(path);
+  const protectedPage = /^\/(?:comecar|nucleos|configuracoes|ajuda)(?:\/|$)/.test(path);
   const loginRedirect = () => {
     const login = new URL("/conta", request.url);
     login.searchParams.set("modo", "login");

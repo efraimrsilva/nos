@@ -1,10 +1,38 @@
 # Estado do Projeto Nós
 
-**Versão vigente do projeto:** 0.15.2
+**Versão vigente do projeto:** 0.16.0
 
 **DOCS_DIR:** `Documentacao_Projeto_Nos`
 
-**Atualizado:** 2026-10-13
+**Atualizado:** 2026-10-14
+
+## Objetivo ativo — contratos MVP 05 — 2026-10-14
+
+**Publicação Git autorizada nesta interação:** preparar commit/push abrangentes da v0.16.0 e decisões registradas até pergunta 4. main/base c40594f; fetch confirmou igualdade 0/0. Reconferência em cópia C com dependências restauradas pelo lockfile após junctions de validação indisponíveis. Sem alteração de versão/dependência no projeto. Conferir objeto antes de retirar pendência e comparar hash remoto depois do push. [Registro de publicação](registros/registro-v0.16.0-2026-10-14-02-imp-publicacao-git-fun-rastreabilidade-mvp-05.md). Pergunta 5 continua sem resposta; autorização Git não aprova regra de cancelamento sugerida. Sem deploy manual ou operação remota de banco/configuração.
+
+Definir itens 1–4 por perguntas sucessivas antes de implementar mutações. Decisões vigentes: saída a qualquer momento; atividades preservadas; preferência geral do aplicativo para retirar autoria após sair (pergunta 3 A), mantendo conteúdo, humor e notas (pergunta 4 A). Sem apagamento/reescrita automática ou garantia de anonimato do conteúdo/contexto. Resposta 2 substituiu eliminação obrigatória anterior; aviso refletirá preferência. Próxima pergunta: cancelar proposta em aprovação inicial quando original sair e exigir nova proposta para os atuais, sem recalcular aceites? Hábitos em teste/ativos, revisões, saídas anteriores, criador/último membro, direitos e suporte/termos seguem em definição. Item 5 adiado por impedimento do Google; continuar itens 1–4, piloto operacionalmente pendente. Sem mudança funcional; versão 0.16.0 preservada; entrega abaixo incluída no commit de publicação autorizado.
+
+Contador atual: 115; último marco 100, próximo 200. Unidades pendentes de commit: nenhuma. Inclusão comprovada no objeto inicial 5572751; controle incorporado ao mesmo commit lógico antes do envio. [Registro e próxima pergunta](registros/registro-v0.16.0-2026-10-14-imp-contrato-saida-fun-definicao-mvp-05.md).
+
+## Entrega vigente — MVP 05 — autonomia e proteção — v0.16.0 — 2026-10-13
+
+**Objetivo/aceite:** conferir cinco telas, implementar orientação/controles viáveis, ordenar e reservar futuro. **Situação:** recorte local concluído; MVP05 parcial e piloto não liberado. main/base c40594f, inicialmente limpo. DOCS_DIR acima. MINOR por cinco novas rotas; sem dependência/migração/permissão nova.
+
+**Mudanças/decisões:** Configurações66 → Privacidade67 OU Conta69 OU Ajuda70 →66, entradas por lista12/Início13. Início13 → orientação71 →13. Sessão conferida por página; saída consulta vínculo próprio e contexto do criador. Recuperação com retorno e logout reusados; consultar orientação e logout conservam associação. Sem remoção, transferência, exportação, preferências ou canal fictícios. Atlas/MVP/Visão global/fichas/cobertura/galeria sincronizados:72 telas,16 percursos,38 recortes/34 planejadas.
+
+**Validações:**106 testes gerais em produção local, oito focados anteriores, quatro autenticados finais desktop/mobile com duas contas; tipos/build webpack; MVP05/MVP/Visão global/sintaxe/diff/links/imagens. Dev100/106 com seis timeouts; produção106/106. Isolamento confere conteúdo not-found/noindex devido a streaming200. Autorrevisão e independente: P2 de entradas Atlas corrigido e reconferido; sem achado funcional restante. 46 capturas finais concluídas após aguardar título específico;125 fontes/recursos/testes/manifestos idênticos por SHA-256 e584 referências locais/galeria válidas. Cópia C:/Users/Efraim/AppData/Local/Temp/nos-mvp05-20261013; fontes e manifestos conferidos por SHA-256 no encerramento, somente config de startup adaptada à produção webpack. Sem operação remota.
+
+**Bloqueios/limites:** saída efetiva/transferência/retenção e dependências, procedimentos de direitos, suporte/termos, preferências e sessões granulares aguardam contrato. SMTP/recebimento externo/segredo, limites/logs, backup/restauração e prova online continuam pendentes de validação no ambiente de uso. Não foram provocadas falhas reais de Auth; somente estados locais e acesso legítimo/negado certificados.
+
+**Próximo passo executável:** definir/aprovar contrato de saída (participante/criador/último membro, decisões e histórico), implementar com testes de concorrência/permissão; em paralelo, concluir operação após credenciais disponíveis no ambiente seguro. Não avançar para remoção/exclusão por inferência.
+
+**Contador de interações:**107; último marco100, próximo200. **Unidade da entrega:** incluída no commit atômico de publicação autorizado em 14/10/2026; nenhuma pendência de commit.87 arquivos/46 imagens comprovados no objeto inicial 5572751 e árvore6efcec131b6e924af9d1df056a9a489de7f1e8fc idêntica ao índice preparado. Controle incorporado ao mesmo commit antes do push. Sem deploy manual.
+
+**Ferramentas:** Superpowers entendimento/plano/TDD/depuração/revisão/verificação e React boas práticas. Context7 Next16.2.9 (catálogo sem16.3.6), versão instalada16.3.6 preservada; autorização/streaming. OctocodeCLI19.1.0 grafo sintático parcial para auth/input, complementado por leitura local; ALLOWED_PATHS apenas no processo. SupabaseCLI2.118.0/Docker locais; nenhuma instalação ou alteração remota. Zero contas temporárias routing/controls após limpeza das duas deixadas pela falha de worker; Supabase local encerrado com backup no fechamento.
+
+**Índice:** [registro](registros/registro-v0.16.0-2026-10-13-imp-controles-autonomia-fun-mvp-05.md), [contrato/manual](funcionalidades/autonomia-protecao.md), [plano](planos/mvp-05-controles.md), [MVP](planos/mvp.md), [galeria](../wireframes/comparacoes/v0.16.0-2026-10-13-mvp-05-tela_66-tela_67-tela_69-tela_70-tela_71/index.html), [verificador](../wireframes/tools/verify-mvp-controls.mjs).
+
+## Marcos anteriores preservados
 
 ## Publicação Git autorizada — MVP 04 — v0.15.2 — 2026-10-13
 

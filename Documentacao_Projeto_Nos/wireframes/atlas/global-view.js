@@ -11,7 +11,7 @@ const globalAreaNotes=[
   'Preferências e segurança são acessos contextuais. Sair da conta, sair do Núcleo e tratar dados têm consequências diferentes.'
 ];
 // Ajustes de leitura: criação antes do detalhe, registro antes do histórico; legado é alternativa da confirmação.
-const globalReadingOrder={1:[12,6,7,8,9,10,11],2:[13,14,16,15,17],3:[18,19,20,21,22,23,24,27,25,28,29,26,30,31,32,33,34,35,36,37],4:[38,39,40,42,41,43]};
+const globalReadingOrder={1:[12,6,7,8,9,10,11],2:[13,14,16,15,17],3:[18,19,20,21,22,23,24,27,25,28,29,26,30,31,32,33,34,35,36,37],4:[38,39,40,42,41,43],7:[66,67,69,70,71,68]};
 function orderedGlobalScreens(list,chapter){
   const order=globalReadingOrder[chapter];
   const rank=screen=>order?.includes(screen.id)?order.indexOf(screen.id):1000+screen.id;

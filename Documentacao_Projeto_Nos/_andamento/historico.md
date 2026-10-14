@@ -1,5 +1,29 @@
 # Histórico de andamento
 
+## 2026-10-14 — v0.16.0 — Publicação Git autorizada do MVP 05
+
+Usuário autorizou commit/push abrangentes da entrega e definições registradas até pergunta 4. main/origin/main iguais após fetch, base c40594f. Reconferir validações, índice e objeto antes do envio normal. MVP05 parcial; saída/anonimização ainda em definição, pergunta 5 sem resposta e operação adiada pelo Google. Sem deploy manual ou alteração remota de banco/configuração. [Registro](registros/registro-v0.16.0-2026-10-14-02-imp-publicacao-git-fun-rastreabilidade-mvp-05.md).
+
+## 2026-10-14 — v0.16.0 — Conteúdo preservado após ocultar autoria
+
+Pergunta 4: opção A aprovada. Preferência de anonimização retira identificação de autoria, preservando conteúdo pessoal, humor e notas; sem reescrita automática e sem promessa de anonimato completo do conteúdo/contexto. Próxima pergunta trata de proposta pendente e saída de participante original. Definição documental; sem implementação. [Registro vigente](registros/registro-v0.16.0-2026-10-14-imp-contrato-saida-fun-definicao-mvp-05.md).
+
+## 2026-10-14 — v0.16.0 — Preferência geral de anonimização
+
+Pergunta 3: usuário aprovou opção A, uma preferência do aplicativo válida para todos os Núcleos, sem configuração por Núcleo. Próxima definição: alcance sobre identificação e conteúdo pessoal. Registro documental, sem implementação/alteração funcional. [Contrato em definição](registros/registro-v0.16.0-2026-10-14-imp-contrato-saida-fun-definicao-mvp-05.md).
+
+## 2026-10-14 — v0.16.0 — Preservação padrão e anonimização opcional
+
+Na resposta à pergunta 2, usuário definiu preservação das atividades por padrão e opção nas configurações para anonimizar interações após a saída. Essa decisão substitui a eliminação obrigatória do evento abaixo; histórico preservado como decisão superada. Alcance da preferência e anonimização ainda em definição. Sem implementação ou mudança funcional de versão. [Registro vigente](registros/registro-v0.16.0-2026-10-14-imp-contrato-saida-fun-definicao-mvp-05.md).
+
+## 2026-10-14 — v0.16.0 — Definição de saída e eliminação das vivências
+
+Usuário definiu saída a qualquer momento para qualquer participante. Corrigiu a proposta inicial de escolher manter/apagar: avisar que as vivências da pessoa no Núcleo serão eliminadas ao sair, sem histórico, por privacidade. Alcance em vivências conjuntas e decisões ainda precisa ser esclarecido. Item 5 adiado pelo impedimento do Google. Sem remoção implementada ou incremento funcional. [Registro](registros/registro-v0.16.0-2026-10-14-imp-contrato-saida-fun-definicao-mvp-05.md).
+
+## 2026-10-13 — v0.16.0 — MVP 05 autonomia e proteção
+
+Cinco rotas de orientação autenticada, navegação e pontos de entrada; recuperação/logout existentes reutilizados e vínculo conservado. Saída exige associação e distingue criador. Atlas ordenado, toggles históricos substituídos por regras/reservas;72 telas/16 percursos/38 recortes/34 planejadas.106 gerais produção e quatro autenticados finais, tipos/build e Atlas aprovados; P2 da revisão independente corrigido. MVP05 parcial por contratos de saída/transferência/retenção/direitos/suporte/termos e operação. Sem commit/push/deploy. [Registro](registros/registro-v0.16.0-2026-10-13-imp-controles-autonomia-fun-mvp-05.md).
+
 ## 2026-10-13 — v0.15.2 — publicação Git do MVP04 autorizada
 
 Autorizado commit/push abrangendo código, testes, Atlas, galeria26 capturas, contratos/registros/manifestos da entrega. Versão preservada; conferência do objeto e hash remoto obrigatórias antes de reportar envio. Sem migração remota ou deploy manual. [Registro](registros/registro-v0.15.2-2026-10-13-02-imp-publicacao-git-fun-rastreabilidade-mvp-04.md).
@@ -503,3 +527,5 @@ Usuário autorizou commit/push abrangentes da entrega. Base/main remoto 5819a52 
 Reconferência para publicação: 102 testes gerais, tipos/build produção e quatro verificadores Atlas aprovados; 591 referências sem ausências. Testes em cópia C: com hash e startup de produção temporário após limitações dos servidores dev G/C. Fontes/configuração original preservados, cópia removida. Índice com 59 arquivos sem credenciais/artefatos.
 
 Objeto de publicação inspecionado: 59 arquivos e 19 imagens; árvore inicial 2b332e7fcf7d942cd9b37cd1c2ce0dd6acf26a2b igual ao índice preparado. Inclusão comprovada, pendência retirada e controle incorporado ao mesmo commit lógico antes do push autorizado. Comparar identificador definitivo ao remoto no encerramento.
+
+Controle de publicação MVP05 em14/10/2026:87 arquivos/46 imagens conferidos no objeto inicial5572751; árvore6efcec131b6e924af9d1df056a9a489de7f1e8fc idêntica ao índice preparado. Pendência retirada por prova de inclusão; controle incorporado ao mesmo commit antes do push.106 testes/tipos/build/Atlas/revisão aprovados. Hash definitivo/equivalência remota reportados no encerramento, sem deploy certificado.

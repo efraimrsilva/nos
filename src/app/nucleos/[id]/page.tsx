@@ -61,5 +61,9 @@ export default async function NucleusPage({ params }: { params: Promise<{ id: st
       <Link href={`${routes.nucleus}/${id}/acordos`} className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-leaf underline">Abrir acordos<ArrowRight size={16} aria-hidden="true" /></Link>
     </section>
     <Link href={routes.account} className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Minha conta e sair</Link>
+    <nav aria-label="Autonomia e proteção" className="mt-3 flex flex-col gap-2 text-sm font-semibold text-leaf underline">
+      <Link href={routes.settings} className="inline-flex min-h-11 items-center">Configurações, privacidade e ajuda</Link>
+      <Link href={`/nucleos/${id}/sair`} className="inline-flex min-h-11 items-center">Entender a saída deste Núcleo</Link>
+    </nav>
   </OnboardingShell>;
 }
