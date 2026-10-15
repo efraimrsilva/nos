@@ -13,10 +13,10 @@ import { routes } from "@/shared/routes";
 export const metadata: Metadata = { title: "Agenda do Núcleo" };
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
-type Participant = { user_id: string; response: string };
+type Participant = { user_id: string | null; response: string; is_own: boolean };
 type EventRow = {
   id: string; title: string; intention: string; starts_at: string; ends_at: string;
-  time_zone: string; created_by: string; nucleus_event_participants: Participant[];
+  time_zone: string; created_by: string | null; can_manage: boolean; nucleus_event_participants: Participant[];
 };
 
 function participationLabel(participants: Participant[]) {
@@ -48,11 +48,10 @@ export default async function CalendarPage({ params, searchParams }: {
     .select("name").eq("id", id).maybeSingle();
   if (nucleusError) throw new Error("Não foi possível consultar o Núcleo.");
   if (!nucleus) notFound();
-  // A consulta usa a sessão SSR; a política RLS filtra eventos e respostas pelo Núcleo da pessoa.
-  const { data, error } = await supabase.from("nucleus_events")
-    .select("id,title,intention,starts_at,ends_at,time_zone,created_by,nucleus_event_participants(user_id,response)")
-    .eq("nucleus_id", id).gte("ends_at", new Date().toISOString())
-    .order("starts_at").order("id").range(offset, offset + pageSize);
+  // A função mascara autoria após a saída sem perder a autorização de gestão da agenda.
+  const { data, error } = await supabase.rpc("get_nucleus_calendar", {
+    target_nucleus: id, from_ends_at: new Date().toISOString(), page_offset: offset, page_size: pageSize + 1,
+  });
   if (error) throw new Error("Não foi possível consultar a agenda agora.");
   const events = ((data ?? []).slice(0, pageSize)) as EventRow[];
   const hasNextPage = (data ?? []).length > pageSize;
@@ -77,8 +76,8 @@ export default async function CalendarPage({ params, searchParams }: {
       {events.length === 0 ? <p className="mt-4 text-sm leading-7 text-muted">{page === 1 ? "Nada marcado por enquanto. Vocês podem criar um momento quando fizer sentido." : "Nenhum evento nesta página. Volte aos anteriores."}</p> :
         <ol className="mt-4 grid gap-4">{events.map((event) => {
           const participants = event.nucleus_event_participants ?? [];
-          const own = participants.find((participant) => participant.user_id === user.id);
-          const canManage = membership.role === "creator" || event.created_by === user.id;
+          const own = participants.find((participant) => participant.is_own);
+          const canManage = event.can_manage;
           const start = formatCalendarEventDate(event.starts_at, event.time_zone);
           const end = formatCalendarEventDate(event.ends_at, event.time_zone);
           return <li key={event.id} id={`evento-${event.id}`} className="rounded-2xl border border-line bg-[#fbfaf7] p-4">

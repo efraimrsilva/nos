@@ -1,4 +1,8 @@
-# Entrar por convite — v0.15.0
+# Entrar por convite — v1.0.0
+
+**Atualização v1.0.0 — 14/10/2026:** [contrato administrativo](administracao-participacao.md) implementado localmente. Convites são geridos por administradores; Núcleos fechados não aceitam convites. Agenda usa consulta que protege autoria após saída e conserva a própria presença na reentrada. Autor associado ou administrador pode gerir eventos. Regras de criação, horários e respostas individuais permanecem.
+
+## Histórico e contratos anteriores
 
 Atualizado em 2026-10-13. Referências: [percursos na Visão global](../../wireframes/atlas/index.html#visao-global), [Tela 10](../../wireframes/atlas/index.html#tela-10), [Tela 11](../../wireframes/atlas/index.html#tela-11) e [comparação](../../wireframes/comparacoes/v0.13.3-2026-10-10-entrar-convite-tela_10-tela_11/index.html).
 

@@ -5,7 +5,7 @@ import { routes } from "@/shared/routes";
 
 export const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
-export async function loadHabitContext(id: string, agreementId: string, includeEnded = false) {
+export async function loadHabitContext(id: string, agreementId: string, includeEnded = false, includeProposals = false) {
   if (!uuid.test(id) || !uuid.test(agreementId)) notFound();
   const supabase = await createSupabaseServerClient();
   if (!supabase) redirect(routes.account);
@@ -23,11 +23,13 @@ export async function loadHabitContext(id: string, agreementId: string, includeE
   if (!nucleus) notFound();
 
   // O filtro da URL complementa a RLS; a resposta aninhada expõe somente a da pessoa autenticada.
-  const { data: habit, error: habitError } = await supabase.from("nucleus_agreements")
-    .select("title,description,timing,frequency,status,trial_days,created_at,nucleus_agreement_participants(response)")
-    .eq("id", agreementId).eq("nucleus_id", id).eq("category", "habit")
-    .in("status", includeEnded ? ["testing", "active", "ended"] : ["testing", "active"]).maybeSingle();
+  let request = supabase.from("nucleus_agreements")
+    .select("category,title,description,timing,frequency,status,trial_days,created_at,terms_version,test_started_at,nucleus_agreement_participants(response,accepted_version)")
+    .eq("id", agreementId).eq("nucleus_id", id);
+  if (!includeProposals) request = request.eq("category", "habit");
+  const { data: habit, error: habitError } = await request
+    .in("status", includeProposals ? ["pending", "testing", "active", "ended", "declined"] : includeEnded ? ["testing", "active", "ended"] : ["testing", "active"]).maybeSingle();
   if (habitError) throw new Error("Não foi possível consultar o hábito agora.");
   if (!habit) notFound();
-  return { supabase, user, nucleus, habit };
+  return { supabase, user, nucleus, habit, membership };
 }

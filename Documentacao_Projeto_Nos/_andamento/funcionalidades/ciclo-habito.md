@@ -1,6 +1,10 @@
-# Ciclo real de Hábito — MVP 03
+# Ciclo real de Hábito — MVP 03 — v1.0.0
 
-**Modelo aprovado — v0.16.0 — 14/10/2026; implementação pendente:** [administração e participação](administracao-participacao.md) substitui votações coletivas de acordos e cancelamentos/votações por saída. Gestão administrativa com participação/novo aceite individual; múltiplos administradores e sorteio após saída do último. O comportamento descrito abaixo é o contrato anterior ainda executado pelo código, preservado para migração/histórico. Não implementar novamente as votações como comportamento-alvo.
+**Modelo implementado localmente — v1.0.0 — 14/10/2026:** [administração e participação](administracao-participacao.md) é o contrato vigente. Administração compartilhada, escolha individual, novo aceite por versão, saída com história preservada e preferência de autoria estão implementados. Sem votação coletiva ou cancelamento de acordo por saída. [Manual de teste](administracao-manual.md). Publicação, migração remota e operação do piloto permanecem pendentes.
+
+## Histórico do modelo anterior — até v0.16.0
+
+Os contratos e marcos abaixo são preservados para rastreabilidade; não representam as regras atuais dos Núcleos/acordos.
 
 Referência vigente v0.15.1, 2026-10-13. Recorte funcional local validado; fontes e banco local determinam o estado, não a contagem de telas.
 

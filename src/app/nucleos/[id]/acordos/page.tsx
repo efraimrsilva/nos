@@ -4,6 +4,8 @@ import { notFound, redirect } from "next/navigation";
 import { ArrowRight, ChevronLeft, LockKeyhole } from "lucide-react";
 import { respondAgreementProposal } from "@/features/agreements/actions";
 import { ProposalForm } from "@/features/agreements/components/proposal-form";
+import { administerAgreement } from "@/features/agreements/administration-actions";
+import { ControlActionForm } from "@/features/controls/components/action-form";
 import { DeclineButton } from "@/features/agreements/components/decline-button";
 import { isNucleusAuthUnavailable } from "@/features/nuclei/nucleus-access";
 import { OnboardingShell } from "@/features/onboarding/components/onboarding-shell";
@@ -14,13 +16,13 @@ export const metadata: Metadata = { title: "Acordos do Núcleo" };
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 type Agreement = {
   id: string; category: string; title: string; description: string; timing: string;
-  frequency: string; trial_days: number | null; status: string; created_at: string;
-  nucleus_agreement_participants: { response: string }[];
+  frequency: string; trial_days: number | null; status: string; created_at: string; terms_version: number;
+  nucleus_agreement_participants: { response: string; accepted_version: number | null }[];
 };
 const categories = [{ key: "habit", label: "Hábitos" }, { key: "experience", label: "Experiências" }, { key: "essence", label: "Essência" }] as const;
 const filters = [{ key: "all", label: "Todos" }, { key: "pending", label: "Aguardando" },
   { key: "testing", label: "Em teste" }, { key: "active", label: "Ativos" }, { key: "declined", label: "Recusados" }, { key: "ended", label: "Encerrados" }] as const;
-const statusLabel: Record<string, string> = { active: "Acordo ativo", pending: "Aguardando aceite", testing: "Em teste com consentimento", declined: "Proposta recusada", ended: "Encerrado de comum acordo" };
+const statusLabel: Record<string, string> = { active: "Acordo ativo", pending: "Proposta enviada", testing: "Em teste", declined: "Proposta recusada", ended: "Encerrado pela administração" };
 
 export default async function AgreementsPage({ params, searchParams }: {
   params: Promise<{ id: string }>;
@@ -53,7 +55,7 @@ export default async function AgreementsPage({ params, searchParams }: {
   if (category !== "essence") {
     // RLS filtra por Núcleo e a tabela de respostas expõe apenas a resposta da própria pessoa.
     let request = supabase.from("nucleus_agreements")
-      .select("id,category,title,description,timing,frequency,status,trial_days,created_at,nucleus_agreement_participants(response)")
+      .select("id,category,title,description,timing,frequency,status,trial_days,created_at,terms_version,nucleus_agreement_participants(response,accepted_version)")
       .eq("nucleus_id", id).eq("category", category);
     if (filter !== "all") request = request.eq("status", filter);
     const { data, error } = await request.order("created_at", { ascending: false }).order("id")
@@ -62,8 +64,8 @@ export default async function AgreementsPage({ params, searchParams }: {
     agreements = ((data ?? []).slice(0, 50)) as Agreement[];
     hasNextPage = (data ?? []).length > 50;
   }
-  const notice: Record<string, string> = { proposta: "Proposta enviada. Aguarde a resposta das outras pessoas.",
-    resposta: "Sua resposta foi registrada.", erro: "Não foi possível registrar a resposta. Atualize a página e tente novamente." };
+  const notice: Record<string, string> = { proposta: "Proposta enviada. Escolha se deseja participar; a administração organiza o próximo passo.",
+    resposta: "Sua resposta foi registrada.", gestao: "Gestão do acordo concluída.", erro: "Não foi possível registrar a resposta. Atualize a página e tente novamente." };
 
   return <OnboardingShell>
     <Link href={`${routes.nucleus}/${id}`} className="mb-5 inline-flex min-h-11 items-center gap-1 text-sm font-semibold text-leaf underline">
@@ -103,12 +105,20 @@ export default async function AgreementsPage({ params, searchParams }: {
               {category === "habit" && ["testing", "active", "ended"].includes(agreement.status) && <Link
                 href={`${routes.nucleus}/${id}/acordos/${agreement.id}`}
                 className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Ver detalhe do hábito<ArrowRight size={15} className="ml-1" aria-hidden="true" /></Link>}
-              {category === "habit" && agreement.trial_days && <p className="mt-2 text-sm text-muted">Teste: {agreement.trial_days} dias após o aceite de todos. Confirmação após prazo: maioria absoluta até 150 participantes; um terço acima de 150.</p>}
-              {agreement.status === "pending" && ownResponse === "pending" && <div className="mt-4 flex flex-wrap gap-2">
-                <form action={respondAgreementProposal.bind(null, id, agreement.id, "accepted", category)}><button className="min-h-11 rounded-xl bg-forest px-4 text-sm font-semibold text-white">Aceitar proposta</button></form>
-                <form action={respondAgreementProposal.bind(null, id, agreement.id, "declined", category)}><DeclineButton /></form>
+              <p className="mt-2 text-xs text-muted">Termos · versão {agreement.terms_version}</p>
+              <Link href={`/nucleos/${id}/acordos/${agreement.id}/revisar`} className="inline-flex min-h-11 items-center font-semibold text-leaf underline">Termos e histórico</Link>
+              {ownResponse === "accepted" && ["pending", "testing", "active"].includes(agreement.status) && <form action={respondAgreementProposal.bind(null, id, agreement.id, "declined", category, agreement.terms_version)}><DeclineButton /></form>}
+              {membership.role === "admin" && ["pending", "testing", "active"].includes(agreement.status) && <div className="mt-3 border-t border-line pt-3">
+                {agreement.status === "pending" && <ControlActionForm action={administerAgreement.bind(null, id, agreement.id, "start_test", agreement.terms_version)} label="Iniciar teste" confirmation="Iniciar o teste; cada pessoa decide se participa." />}
+                {agreement.status === "testing" && <ControlActionForm action={administerAgreement.bind(null, id, agreement.id, "activate", agreement.terms_version)} label="Ativar acordo" confirmation="Concluir o teste e manter o acordo ativo com participação individual." />}
+                <ControlActionForm action={administerAgreement.bind(null, id, agreement.id, "end", agreement.terms_version)} label="Encerrar acordo" confirmation="Encerrar o acordo e impedir novos momentos; o histórico permanecerá." />
               </div>}
-              {agreement.status === "pending" && ownResponse === "accepted" && <p className="mt-3 text-xs text-muted">Você aceitou. Aguardando outras respostas.</p>}
+              {category === "habit" && agreement.trial_days && <p className="mt-2 text-sm text-muted">Teste planejado: {agreement.trial_days} dias. A administração inicia e conclui o teste.</p>}
+              {["pending", "testing", "active"].includes(agreement.status) && (ownResponse !== "accepted" || agreement.nucleus_agreement_participants?.[0]?.accepted_version !== agreement.terms_version) && <div className="mt-4 flex flex-wrap gap-2">
+                <form action={respondAgreementProposal.bind(null, id, agreement.id, "accepted", category, agreement.terms_version)}><button className="min-h-11 rounded-xl bg-forest px-4 text-sm font-semibold text-white">Aceitar proposta</button></form>
+                <form action={respondAgreementProposal.bind(null, id, agreement.id, "declined", category, agreement.terms_version)}><DeclineButton /></form>
+              </div>}
+              {ownResponse === "accepted" && agreement.nucleus_agreement_participants?.[0]?.accepted_version === agreement.terms_version && <p className="mt-3 text-xs text-muted">Você participa dos termos da versão {agreement.terms_version}.</p>}
             </li>;
           })}</ol>}
       {category !== "essence" && (safePage > 1 || hasNextPage) && <nav aria-label="Páginas dos acordos" className="mt-5 flex flex-wrap justify-between gap-3 text-sm font-semibold text-leaf">
@@ -119,7 +129,7 @@ export default async function AgreementsPage({ params, searchParams }: {
 
     {category !== "essence" && <section className="mt-4 rounded-[22px] border border-line bg-white p-5 sm:p-7" aria-labelledby="new-agreement-heading">
       <h2 id="new-agreement-heading" className="font-display text-xl">Nova proposta</h2>
-      <p className="mt-2 text-sm leading-7 text-muted">Conversem sobre a necessidade antes de enviar. Todas as pessoas que já fazem parte do Núcleo poderão responder. É preciso ter ao menos duas pessoas.</p>
+      <p className="mt-2 text-sm leading-7 text-muted">Conversem sobre a necessidade antes de enviar. Todas as pessoas associadas podem escolher se participam, inclusive quem entrar depois. Criar uma proposta não registra aceite.</p>
       <ProposalForm key={category} nucleusId={id} category={category} />
     </section>}
   </OnboardingShell>;

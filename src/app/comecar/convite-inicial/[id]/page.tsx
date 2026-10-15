@@ -16,9 +16,12 @@ export default async function InitialInvitationPage({ params }: { params: Promis
   const { data: { user }, error: authError } = await supabase.auth.getUser();
   if (isNucleusAuthUnavailable(authError)) throw new Error("Não foi possível conferir a sessão agora.");
   if (!user) redirect(routes.account);
-  const { data: nucleus, error: nucleusError } = await supabase.from("nuclei").select("id,name,created_by").eq("id", id).maybeSingle();
+  const { data: membership, error: membershipError } = await supabase.from("nucleus_members").select("role").eq("nucleus_id", id).eq("user_id", user.id).maybeSingle();
+  if (membershipError) throw new Error("Não foi possível consultar sua participação.");
+  if (membership?.role !== "admin") notFound();
+  const { data: nucleus, error: nucleusError } = await supabase.from("nuclei").select("id,name").eq("id", id).maybeSingle();
   if (nucleusError) throw new Error("Não foi possível consultar o Núcleo.");
-  if (!nucleus || nucleus.created_by !== user.id) notFound();
+  if (!nucleus) notFound();
   const { data: invitations, error: invitationsError } = await supabase.from("nucleus_invitations").select("code,expires_at").eq("nucleus_id", id).is("revoked_at", null).gt("expires_at", new Date().toISOString()).order("created_at", { ascending: false }).order("id", { ascending: false }).limit(1);
   if (invitationsError) throw new Error("Não foi possível consultar o convite.");
 

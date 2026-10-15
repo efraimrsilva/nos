@@ -44,7 +44,7 @@ test("listagem usa associações reais e não revela Núcleos alheios", async ({
   if (other.error) throw other.error;
   try {
     const ownId = randomUUID(), externalId = randomUUID();
-    localSql(`insert into public.nuclei(id,name,type,purpose,created_by) values('${ownId}','Jardim de teste','familia','Cuidar com respeito.','${account.id}'),('${externalId}','Jardim privado de outra pessoa','amigos','Não deve aparecer.','${other.data.user.id}'); insert into public.nucleus_members(nucleus_id,user_id,role) values('${ownId}','${account.id}','creator');`);
+    localSql(`insert into public.nuclei(id,name,type,purpose,created_by) values('${ownId}','Jardim de teste','familia','Cuidar com respeito.','${account.id}'),('${externalId}','Jardim privado de outra pessoa','amigos','Não deve aparecer.','${other.data.user.id}'); insert into public.nucleus_members(nucleus_id,user_id,role) values('${ownId}','${account.id}','admin');`);
     await page.goto("/nucleos");
     await expect(page.getByRole("heading", { name: "Jardim de teste" })).toBeVisible();
     await expect(page.getByText("Jardim privado de outra pessoa")).toHaveCount(0);
@@ -156,7 +156,7 @@ test("sessão revogada não renova token expirado", async ({ page, context }) =>
 
 test("paginação da lista permite consultar todos os Núcleos próprios", async ({ page, account }) => {
   const ids = Array.from({ length: 21 }, () => randomUUID());
-  localSql(`insert into public.nuclei(id,name,type,purpose,created_by) values ${ids.map((id,index)=>`('${id}','Jardim ${String(index).padStart(2,"0")}','familia','Lista temporária local.','${account.id}')`).join(",")}; insert into public.nucleus_members(nucleus_id,user_id,role) values ${ids.map(id=>`('${id}','${account.id}','creator')`).join(",")};`);
+  localSql(`insert into public.nuclei(id,name,type,purpose,created_by) values ${ids.map((id,index)=>`('${id}','Jardim ${String(index).padStart(2,"0")}','familia','Lista temporária local.','${account.id}')`).join(",")}; insert into public.nucleus_members(nucleus_id,user_id,role) values ${ids.map(id=>`('${id}','${account.id}','admin')`).join(",")};`);
   await page.goto("/nucleos");
   await expect(page.getByRole("navigation", { name: "Seus Núcleos", exact: true }).getByRole("link")).toHaveCount(20);
   await page.getByRole("link", { name: "Próxima página" }).click();

@@ -17,6 +17,7 @@ export default async function SecurityPage() {
       <form action={signOut} className="mt-3"><SignOutButton /></form>
     </ControlSection>
     <ControlSection title="Sessões e dispositivos" planned><p>Uma lista de dispositivos e a revogação individual de sessões ainda não estão disponíveis. Nunca compartilhe senha ou links de acesso.</p></ControlSection>
-    <ControlSection title="Meus dados e ações sensíveis" planned><p>Reautenticação específica, alteração de e-mail, exportação e exclusão da conta dependem de política de retenção e tratamento do histórico compartilhado. Excluir a conta é diferente de sair.</p><Link href={routes.help} className="inline-flex min-h-11 items-center font-semibold text-leaf underline">Ajuda sobre meus dados</Link></ControlSection>
+    <ControlSection title="Meus dados"><p>Acesso, correção, exportação e exclusão são solicitados manualmente à Sintagma Software. O atendimento verifica a titularidade e protege terceiros. Excluir a conta é diferente de sair de um Núcleo.</p><Link href={routes.help} className="inline-flex min-h-11 items-center font-semibold text-leaf underline">Ajuda sobre meus dados</Link></ControlSection>
+    <ControlSection title="Próximas ações de segurança" planned><p>Reautenticação específica e alteração de e-mail ainda não estão disponíveis.</p></ControlSection>
   </ControlsShell>;
 }

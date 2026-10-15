@@ -8,9 +8,9 @@ try {
   const page=await browser.newPage(), errors=[];
   page.on('pageerror',error=>errors.push(error.message));
   await page.goto(pathToFileURL(path.resolve('Documentacao_Projeto_Nos/wireframes/atlas/index.html')).href+'#mvp');
-  assert.deepEqual(await page.evaluate(()=>mvpPhases.find(p=>p.key==='controls').ids),[66,67,69,70,71]);
-  assert.deepEqual(await page.evaluate(()=>globalReadingOrder[7]),[66,67,69,70,71,68]);
-  assert.equal(await page.evaluate(()=>screens.filter(s=>s.status==='Recorte existente').length),38);
+  assert.deepEqual(await page.evaluate(()=>mvpPhases.find(p=>p.key==='controls').ids),[73,71,66,67,69,70]);
+  assert.deepEqual(await page.evaluate(()=>globalReadingOrder[7]),[73,71,66,67,69,70,68]);
+  assert.equal(await page.evaluate(()=>screens.filter(s=>s.status==='Recorte existente').length),39);
   await page.evaluate(()=>openScreen(12));
   await page.locator('#screen-preview .phone [data-go="66"]').click();
   assert.equal(await page.evaluate(()=>selectedId),66);
@@ -25,10 +25,10 @@ try {
       await page.evaluate(id=>openScreen(id),id);
       assert.equal(await page.evaluate(id=>byId(id).status,id),'Recorte existente');
       assert.equal(await page.locator('#screen-preview input[type=checkbox]').count(),0);
-      assert.match(await page.locator('#screen-preview').innerText(),/planejad|pendent|indisponível/i);
+      assert.match(await page.locator('#screen-preview').innerText(),/planejad|pendent|indisponível|administrador|preferência/i);
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
     }
   }
   assert.deepEqual(errors,[]);
-  console.log(JSON.stringify({screens:72,existing:38,planned:34,controls:5,logicalOrder:true,noFakeToggles:true,mobile:true,errors}));
+  console.log(JSON.stringify({screens:73,existing:39,planned:34,controls:6,logicalOrder:true,noFakeToggles:true,mobile:true,errors}));
 } finally {await browser.close();}

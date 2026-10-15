@@ -1,6 +1,6 @@
-# Administração e participação — contrato aprovado — v0.16.0
+# Administração e participação — contrato implementado — v1.0.0
 
-Data: 2026-10-14. Status: definição aprovada; implementação pendente. Esta é a referência para o novo comportamento do Núcleo e dos acordos. A aplicação v0.16.0 ainda executa contratos anteriores; não confundir aprovação com migração concluída.
+Data: 2026-10-14. Status: implementação funcional validada localmente. Administração e participação são o comportamento vigente do código; publicação, aplicação da migração remota e operação do piloto continuam pendentes.
 
 ## Decisões vigentes
 
@@ -21,7 +21,7 @@ Data: 2026-10-14. Status: definição aprovada; implementação pendente. Esta �
 | Retroatividade | Não modificar automaticamente saídas anteriores nem reidentificar contribuições cuja autoria já foi ocultada. |
 | Direitos sobre dados | No MVP, solicitações de acesso/correção/exportação/exclusão pelo suporte, com verificação de titularidade e proteção de terceiros. Não apresentar central automática como implementada. |
 
-O sorteio foi aprovado especificamente para a saída do último administrador com participantes restantes. A escolha deve ocorrer junto da saída de forma atômica, sem incluir a pessoa que saiu nem permitir sorteio no navegador que possa ser manipulado. Detalhes de concorrência/permissão serão resolvidos na implementação dentro desse contrato.
+O sorteio foi aprovado especificamente para a saída do último administrador com participantes restantes. A escolha deve ocorrer junto da saída de forma atômica, sem incluir a pessoa que saiu nem permitir sorteio no navegador que possa ser manipulado. A implementação serializa as operações pelo Núcleo e confere permissões no servidor; saídas simultâneas foram testadas.
 
 Administrador tem poderes de gestão, não acesso irrestrito a dados pessoais. Preservar isolamento entre Núcleos e decisões individuais. Deixar o Núcleo não apaga a conta nem associa automaticamente a outro espaço.
 
@@ -45,12 +45,12 @@ Mostrar o efeito da preferência no próprio aviso: autoria mantida ou ocultada,
 
 Respostas antigas5–10 sobre cancelamentos, encerramento automático de teste por saída, maioria, sete dias, continuidade e reinícios ficam superadas. A antiga pergunta11 não foi respondida e não será retomada. A nova resposta3 também substitui, no comportamento futuro de acordos, votações coletivas existentes de confirmação/revisão; não construir essas votações novamente.
 
-Preservar migrações, testes e registros históricos da aplicação sem reescrevê-los como se já implementassem este modelo. Durante a implementação, adaptar autorização, dados, interfaces e testes em conjunto; identificar o comportamento anterior como legado e manter dados já registrados. Não reutilizar votos antigos como participação na versão nova.
+Preservar migrações, testes e registros históricos da aplicação sem reescrevê-los como se já implementassem este modelo. Aplicação, dados, interfaces e testes foram adaptados em conjunto. As cinco suítes SQL substituídas permanecem intactas em supabase/tests-legacy; os históricos anteriores são somente consulta. Não reutilizar votos antigos como participação na versão nova.
 
 Este escopo trata de Núcleos e acordos. Não definir por inferência o comportamento de módulos futuros sem contrato, como manifesto/Essência. Não gerar um sistema genérico de votação para essas áreas nesta entrega.
 
 Item5 operacional permanece adiado a pedido do usuário pelo impedimento do Google. Não configurar SMTP, publicar, migrar banco remoto ou enviar mensagens apenas por consolidar estas respostas.
 
-## Critérios para a futura implementação
+## Critérios implementados e validados
 
-Validar gestão com múltiplos administradores, aceite de nomeação comum, saída/remoção com revogação, sorteio do último administrador, fechamento do último membro, participação individual, mudança de termos com novo aceite, gestão do teste/ativo/encerramento sem votação, história preservada e preferência de autoria. Atualizar aplicação, banco, testes, Atlas/Visão global/MVP/fichas/galeria e documentos coerentemente. Fonte de verdade deste desenho: este contrato; registros antigos servem apenas de histórico.
+Foram validados gestão com múltiplos administradores, aceite de nomeação comum, saída/remoção com revogação, sorteio do último administrador, fechamento do último membro, participação individual, mudança de termos com novo aceite, gestão do teste/ativo/encerramento sem votação, história preservada e preferência de autoria. Atualizar aplicação, banco, testes, Atlas/Visão global/MVP/fichas/galeria e documentos coerentemente. Fonte de verdade deste desenho: este contrato; registros antigos servem apenas de histórico.

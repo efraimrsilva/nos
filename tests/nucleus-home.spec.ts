@@ -3,10 +3,10 @@ import { AuthApiError, AuthRetryableFetchError, AuthSessionMissingError } from "
 import { isNucleusAuthUnavailable } from "../src/features/nuclei/nucleus-access";
 import { getNucleusHomeDetails } from "../src/features/nuclei/nucleus-home-details";
 
-test("a Home identifica o tipo e oferece convite somente ao criador", () => {
-  expect(getNucleusHomeDetails("familia", "creator", "11111111-1111-4111-8111-111111111111")).toEqual({
+test("a Home identifica o tipo e oferece convite a qualquer administrador", () => {
+  expect(getNucleusHomeDetails("familia", "admin", "11111111-1111-4111-8111-111111111111")).toEqual({
     typeLabel: "Família",
-    participation: "Você criou este Núcleo",
+    participation: "Você administra este Núcleo",
     invitationHref: "/comecar/convite-inicial/11111111-1111-4111-8111-111111111111",
   });
 });

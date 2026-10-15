@@ -77,9 +77,16 @@ try {
   await page.evaluate(()=>openScreen(62));assert.doesNotMatch(await page.locator('#screen-preview .phone').innerText(),/Responder com carinho|Ana · agora|enviado com carinho/);assert.match(await page.locator('#screen-preview .phone').innerText(),/Preparação privada/);
   await page.evaluate(()=>openScreen(44));assert.doesNotMatch(await page.locator('#screen-preview .phone').innerText(),/\bForte\b|\bFortes\b|\bMédio\b|\bFrágil\b/);
   await page.evaluate(()=>openScreen(27));assert.equal(await page.locator('#screen-preview .phone [data-source-action="goHabit"]').first().getAttribute('data-go'),'24');assert.equal(await page.locator('#screen-preview .phone [data-source-action="goHabit"]').last().getAttribute('data-go'),'25');
-  await page.evaluate(()=>openScreen(30));assert.doesNotMatch(await page.locator('#screen-preview .phone').innerText(),/maioria das semanas|Manter e promover|duas pessoas/);await page.locator('#screen-preview .phone [data-go="31"]').click();assert.equal(await page.locator('#screen-spec h2').innerText(),'Propor ajuste');
+  await page.evaluate(()=>openScreen(30));assert.doesNotMatch(await page.locator('#screen-preview .phone').innerText(),/maioria das semanas|Manter e promover|duas pessoas/);await page.locator('#screen-preview .phone [data-go="31"]').click();assert.equal(await page.locator('#screen-spec h2').innerText(),'Alterar termos');
   await page.evaluate(()=>openScreen(49));await page.locator('#screen-preview .phone button').filter({hasText:'Privacidade e visibilidade'}).click();assert.equal(await page.locator('#screen-spec h2').innerText(),'Privacidade e visibilidade');
-  await page.evaluate(()=>openScreen(24));await page.locator('#screen-preview .approved-stage [data-source-action="setHHist"]').click();assert.equal(await page.locator('#screen-spec h2').innerText(),'Histórico do Hábito');
+  // O recorte vivo segue a navegação atual. A composição histórica continua conferida separadamente abaixo.
+  await page.evaluate(()=>openScreen(24));await page.locator('#screen-preview .phone [data-go="25"]').click();assert.equal(await page.locator('#screen-spec h2').innerText(),'Histórico do Hábito');
+  await page.locator('#screen-preview .phone [data-go="24"]').last().click();
+  assert.match(await page.locator('#screen-preview .phone').innerText(),/Próximas possibilidades · planejadas/);
+  assert.match(await page.locator('#screen-preview .phone').innerText(),/reflexões/);
+  await page.evaluate(()=>openScreen(24));await page.locator('#screen-preview [data-reference="approved"]').click();
+  await page.locator('#screen-preview .approved-stage [data-source-action="setHHist"]').click();assert.equal(await page.locator('#screen-spec h2').innerText(),'Histórico do Hábito');
+  await page.locator('#screen-preview [data-reference="approved"]').click();
   await page.locator('#screen-preview .approved-stage [data-source-action="setHRef"]').click();assert.equal(await page.locator('#screen-spec h2').innerText(),'Reflexões do Hábito');
   await page.evaluate(()=>openScreen(38));assert.doesNotMatch(await page.locator('#screen-preview .phone').innerText(),/\b23\b|\b17\b|\b6\b|550 exp|Nível 7/,'Árvore sem contadores inventados');
   await page.locator('#screen-preview [data-reference="approved"]').click();assert.match(await page.locator('#screen-preview .phone').innerText(),/Nível 7/,'Composição histórica preservada e identificada');
@@ -95,7 +102,7 @@ try {
     assert.equal(await page.locator('#screen-preview .approved-stage').evaluate(el=>el.innerHTML.includes('{{')),false,`Bindings resolvidos ${key}`);
     await verifyImages(page);
   }
-  assert.equal(inventory.length,72);
+  assert.equal(inventory.length,73);
   let states=0,actions=0,references=0;
   for(const screen of inventory){
     await page.evaluate(id=>openScreen(id),screen.id);
@@ -114,10 +121,10 @@ try {
   await page.setViewportSize({width:375,height:812});await page.locator('[data-width="mobile"]').click();
   for(const screen of inventory){await page.evaluate(id=>openScreen(id),screen.id);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Sem transbordamento da página ${screen.id}`);}
   await page.evaluate(()=>openScreen(7));await page.emulateMedia({reducedMotion:'reduce'});assert.equal(await page.locator('#screen-preview .product-primary').first().evaluate(el=>getComputedStyle(el).transitionDuration),'0s');
-  await page.locator('.view-tabs [data-view="atlas"]').click();assert.equal(await page.locator('.tile').count(),72);
-  await page.locator('#status-filter').selectOption('Planejada');assert.equal(await page.locator('.tile').count(),40);await page.locator('#status-filter').selectOption('all');
+  await page.locator('.view-tabs [data-view="atlas"]').click();assert.equal(await page.locator('.tile').count(),73);
+  await page.locator('#status-filter').selectOption('Planejada');assert.equal(await page.locator('.tile').count(),34);await page.locator('#status-filter').selectOption('all');
   await page.locator('#search').fill('recuperar');assert.ok(await page.locator('.tile').count()>0);await page.locator('#search').fill('');
-  await page.locator('.view-tabs [data-view="flows"]').click();assert.equal(await page.locator('.flow-card').count(),14);
+  await page.locator('.view-tabs [data-view="flows"]').click();assert.equal(await page.locator('.flow-card').count(),16);
   await page.locator('.view-tabs [data-view="atlas"]').click();await page.emulateMedia({media:'print'});assert.equal(await page.locator('#atlas-view').isVisible(),true);
   assert.deepEqual(errors,[],'Nenhum erro de execução');assert.deepEqual(external,[],'Atlas funciona sem chamadas HTTP externas');
   const result={screens:inventory.length,actions,states,references,approvedLayouts:Object.keys(layoutDefinitions).length,documentScreens:new Set(Object.values(layoutDefinitions).map(d=>d.screen)).size,paletteRoutes:3,nucleusTypes:9,errors,external};

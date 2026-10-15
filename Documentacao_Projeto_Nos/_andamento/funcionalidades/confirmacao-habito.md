@@ -1,6 +1,10 @@
-# Continuidade — confirmação do Hábito após teste
+# Continuidade — confirmação do Hábito após teste — v1.0.0
 
-**Modelo aprovado — v0.16.0 — 14/10/2026; implementação pendente:** [administração e participação](administracao-participacao.md) substitui votações coletivas de acordos e cancelamentos/votações por saída. Gestão administrativa com participação/novo aceite individual; múltiplos administradores e sorteio após saída do último. O comportamento descrito abaixo é o contrato anterior ainda executado pelo código, preservado para migração/histórico. Não implementar novamente as votações como comportamento-alvo.
+**Modelo implementado localmente — v1.0.0 — 14/10/2026:** [administração e participação](administracao-participacao.md) é o contrato vigente. Administração compartilhada, escolha individual, novo aceite por versão, saída com história preservada e preferência de autoria estão implementados. Sem votação coletiva ou cancelamento de acordo por saída. [Manual de teste](administracao-manual.md). Publicação, migração remota e operação do piloto permanecem pendentes.
+
+## Histórico do modelo anterior — até v0.16.0
+
+Os contratos e marcos abaixo são preservados para rastreabilidade; não representam as regras atuais dos Núcleos/acordos.
 
 **Conferência vigente v0.15.1 — 2026-10-13:** confirmação/legado/maioria/isolamento reconferidos localmente no MVP 03. [Ciclo completo e teste manual](ciclo-habito.md). Nenhuma regra de voto alterada; operação online exige evidência própria.
 

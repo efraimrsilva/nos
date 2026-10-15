@@ -4,7 +4,7 @@ set local search_path = public, extensions;
 select plan(13);
 insert into auth.users(id) values ('10000000-0000-4000-8000-000000000001'), ('10000000-0000-4000-8000-000000000002');
 insert into public.nuclei(id,type,name,purpose,created_by) values ('20000000-0000-4000-8000-000000000001','amigos','Teste','Cuidar','10000000-0000-4000-8000-000000000001');
-insert into public.nucleus_members(nucleus_id,user_id,role) values ('20000000-0000-4000-8000-000000000001','10000000-0000-4000-8000-000000000001','creator');
+insert into public.nucleus_members(nucleus_id,user_id,role) values ('20000000-0000-4000-8000-000000000001','10000000-0000-4000-8000-000000000001','admin');
 insert into public.nucleus_invitations(id,nucleus_id,code,created_by) values ('30000000-0000-4000-8000-000000000001','20000000-0000-4000-8000-000000000001',repeat('a',32),'10000000-0000-4000-8000-000000000001');
 insert into public.nuclei(id,type,name,purpose,created_by) values ('20000000-0000-4000-8000-000000000002','amigos','Outro','Outro contexto','10000000-0000-4000-8000-000000000001');
 insert into public.nucleus_invitations(id,nucleus_id,code,created_by) values ('30000000-0000-4000-8000-000000000002','20000000-0000-4000-8000-000000000002',repeat('c',32),'10000000-0000-4000-8000-000000000001');
@@ -15,7 +15,7 @@ select lives_ok($$select public.accept_invitation(repeat('a',32))$$, 'aceite rep
 select throws_ok($$select public.revoke_nucleus_invitation('20000000-0000-4000-8000-000000000001','30000000-0000-4000-8000-000000000001')$$,'42501','not authorized','participante não revoga');
 select is((select count(*)::int from public.nucleus_invitations),0,'participante não lê convites');
 select set_config('request.jwt.claim.sub','10000000-0000-4000-8000-000000000001',true);
-select lives_ok($$select public.revoke_nucleus_invitation('20000000-0000-4000-8000-000000000001','30000000-0000-4000-8000-000000000001')$$,'criador revoga');
+select lives_ok($$select public.revoke_nucleus_invitation('20000000-0000-4000-8000-000000000001','30000000-0000-4000-8000-000000000001')$$,'administrador revoga');
 reset role;
 -- now() é constante nesta transação: usar data anterior prova que não há sobrescrita.
 update public.nucleus_invitations set revoked_at='2000-01-01T00:00:00Z' where id='30000000-0000-4000-8000-000000000001';

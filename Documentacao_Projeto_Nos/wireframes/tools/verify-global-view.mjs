@@ -54,7 +54,7 @@ try {
   assert.equal(await page.locator('#global-view .tile').count(),0);assert.equal(await page.locator('#global-view .no-results').isVisible(),true);
   await page.locator('#search').fill('');
   // Alterações na fonte e uma tela nova aparecem sem duplicar conteúdo no mapa.
-  await page.evaluate(()=>{screens[0].title='Conta sincronizada';screens[0].dependency='Limite alterado';screens[0].actions.push({label:'Novo destino',to:72});screens.push({...screens[0],id:73,chapter:7,title:'Nova tela sincronizada'});renderGlobal();});
+  await page.evaluate(()=>{screens[0].title='Conta sincronizada';screens[0].dependency='Limite alterado';screens[0].actions.push({label:'Novo destino',to:72});screens.push({...screens[0],id:74,chapter:7,title:'Nova tela sincronizada'});renderGlobal();});
   assert.equal(await page.locator('#global-tile-01 .tile-caption h3').innerText(),'Conta sincronizada');
   assert.match(await page.locator('#global-tile-01 .tile-caption').innerText(),/Limite alterado/);
   assert.equal(await page.locator('#global-tile-01 [data-destination="72"]').count(),1);

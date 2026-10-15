@@ -4,7 +4,7 @@ import { routes } from "@/shared/routes";
 export function getNucleusHomeDetails(type: string, role: string, id: string) {
   return {
     typeLabel: findNucleusType(type)?.label ?? "Núcleo",
-    participation: role === "creator" ? "Você criou este Núcleo" : "Você faz parte deste Núcleo",
-    invitationHref: role === "creator" ? `${routes.initialInvitation}/${encodeURIComponent(id)}` : null,
+    participation: role === "admin" ? "Você administra este Núcleo" : "Você faz parte deste Núcleo",
+    invitationHref: role === "admin" ? `${routes.initialInvitation}/${encodeURIComponent(id)}` : null,
   };
 }

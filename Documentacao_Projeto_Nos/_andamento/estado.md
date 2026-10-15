@@ -1,12 +1,34 @@
 # Estado do Projeto Nós
 
-**Versão vigente do projeto:** 0.16.0
+**Versão vigente do projeto:** 1.0.0
 
 **DOCS_DIR:** `Documentacao_Projeto_Nos`
 
-**Atualizado:** 2026-10-14
+**Atualizado:** 2026-10-15
 
-## Objetivo ativo — contratos MVP 05 — 2026-10-14
+## Publicação Git autorizada — MVP05 — v1.0.0 — 2026-10-15
+
+Usuário autorizou commit/push abrangentes desta unidade funcional. Branch main/base9153223, fetch confirmou igualdade0/0.135 arquivos de código/testes/scripts/manifestos/configurações idênticos à cópia de validação; tipos,106 testes gerais/build de produção e seis verificadores Atlas aprovados novamente.167 caminhos literais,80 PNGs e674 referências locais conferidos. Objeto inicial conferido; controle incorporado ao mesmo commit lógico antes do push normal autorizado. Confirmação do hash remoto no encerramento. Nenhuma pendência de commit desta unidade. Inclusão comprovada no objeto inicial3c71eb584952d52dee5172a88127c6823fa88a51, árvore16c01439fb6694f4a7d3854d289aaa740fb91d23 idêntica ao índice preparado;167 caminhos literais,162 arquivos no diff com cinco renomeações integrais e80 imagens. Pendência retirada somente após essa conferência. Controle incorporado ao mesmo commit lógico antes do push normal. Hash definitivo e igualdade remota de main reportados no encerramento. [Registro de publicação](registros/registro-v1.0.0-2026-10-15-imp-publicacao-git-fun-administracao-participacao.md). Sem incremento de versão, deploy ou operação remota de banco/configuração. Contador128; último marco100/próximo200.
+
+## Entrega vigente — MVP05 administração e participação — v1.0.0 — 2026-10-14
+
+**Objetivo/aceite:** implementar as oito respostas consolidadas e substituir votações coletivas por administração e participação individual. **Situação:** unidade funcional local concluída, revisada e validada; piloto ainda não liberado. Base main/9153223, checkout inicialmente limpo. Versão MAJOR pela mudança incompatível do ciclo/permissões; não certifica estabilidade operacional.
+
+**Entregas:** gestão73 /nucleos/[id]/pessoas, administradores equivalentes/nomeação aceita, convites/nome/propósito/remoção; saída71 confirmada, sorteio atômico/fechamento; preferência67 inicialmente desativada, autoria protegida em momentos/agenda/consultas brutas; ajuda70 responsável/canal manual. Acordos sem votação: publicar não aceita, participação própria, administração inicia teste/ativa/encerra, termos versionados/novo aceite/versão esperada, no-op não redefine consentimento, reentrada não recupera aceite. Históricos anteriores somente consulta. Nova migração20261014120000 aplicada SOMENTE local; históricoCLI local sincronizado. Testes SQL antigos preservados em tests-legacy com cinco blobs idênticos ao HEAD.
+
+**Validações:**81 testes SQL oficiais; oito migrações do zero+68 testes administrativos no banco descartável, removido;106 gerais em produção local,81 autenticados/um dispensado por verificação conjunta de duas larguras; tipos/build webpack e seis verificadores Atlas/fidelidade73 telas/365 estados. Autorrevisão e revisão independente reconferidas após correções. Capturas80 (26antes/28depois Atlas +26app) de exemplos/contas temporárias. Validação usa cópia C:/Users/Efraim/AppData/Local/Temp/nos-mvp05-20261013; startup dos testes adaptado a webpack na cópia, sem mudar a configuração do repositório. Ferramentas Superpowers, Context7 Supabase/RLS e OctocodeCLI19.1.0 grafo sintático parcial, complementado por leituras locais. Nenhuma dependência nova.
+
+**Fechamento da validação:** Fechamento local: seis testes finais dos controles aprovados na versão1.0.0; tipos reconferidos com configuração do repositório e135 arquivos idênticos por SHA-256 na cópia de validação. Apenas o startup de Playwright foi adaptado na cópia para produção webpack. Zero contas temporárias das suítes routing/administration/member/cycle/proposal/controls após limpeza. A suíte geral foi executada pela CLI do Playwright (equivalente ao script test) porque o shim npm da cópia retornou código1 sem diagnóstico; CLI direta aprovou106 testes. Sem alteração de gerenciador ou dependências do projeto. Supabase local encerrado com backup=true confirmado; nenhuma conta temporária das suítes permanece.
+
+**Limites/pendências:** item5 adiado pelo Google (SMTP/recebimento, segredo, HTTPS/origens, limites/logs, backup/restauração, duas contas online). Termos/política completos, retenção/rotina operacional de direitos e suporte ainda reservados, sem duração inventada. Contato configurado não comprova atendimento. Dispositivos/e-mail/chat/mídia/expansões permanecem planejados. Inclusão Git desta unidade comprovada na publicação acima; sem deploy manual ou alteração remota de banco/configuração. Código novo requer migração correspondente no ambiente de uso.
+
+**Próximo passo operacional:** aplicar migração/código coordenadamente no ambiente de uso e retomar prova operacional após liberação do Google, conforme autorização e dependências disponíveis. A confirmação do hash de GitHub desta publicação é reportada no encerramento.
+
+**Contador de interações:**127; último marco100, próximo200. **Unidade funcional:** código, migração, testes, Atlas e registros incluídos no objeto inicial3c71eb584952d52dee5172a88127c6823fa88a51; nenhuma pendência de commit desta unidade. Controle incorporado à publicação acima.
+
+**Índice:** [contrato](funcionalidades/administracao-participacao.md), [manual](funcionalidades/administracao-manual.md), [plano](planos/mvp-05-administracao.md), [registro](registros/registro-v1.0.0-2026-10-14-13-imp-administracao-nucleo-fun-participacao-individual.md), [Atlas](../wireframes/atlas/index.html#mvp), [comparação](../wireframes/comparacoes/v1.0.0-2026-10-14-mvp-05-administracao/index.html).
+
+## Marco histórico — contratos MVP05 — v0.16.0 — 2026-10-14
 
 **Publicação documental autorizada:** commit/push abrangentes do contrato consolidado, respostas e substituições. main/base30ea405; fetch confirmou igualdade0/0.27 documentos/669 referências locais reconferidos, sem alteração de código/banco/manifestos. Inclusão comprovada no objeto inicial5602093:28 documentos e árvorecb6e4bd383d69f12e82e367e060d980e047dfb6e idêntica ao índice preparado. Controle incorporado ao mesmo commit lógico antes do push normal; hash definitivo/igualdade remota reportados no encerramento. [Registro desta publicação](registros/registro-v0.16.0-2026-10-14-12-imp-publicacao-git-fun-contrato-administracao.md). Sem implementação/deploy novo neste marco.
 
@@ -20,7 +42,7 @@
 
 Contador atual:126; último marco100, próximo200. Unidades pendentes de commit: nenhuma. Contrato consolidado, substituições e registros incluídos no objeto inicial5602093, com28 documentos/árvore conferidos. Retirada da pendência incorporada ao mesmo commit lógico antes do push autorizado. Entrega funcional anterior incluída em30ea405. [Registro das decisões anteriores](registros/registro-v0.16.0-2026-10-14-imp-contrato-saida-fun-definicao-mvp-05.md).
 
-## Entrega vigente — MVP 05 — autonomia e proteção — v0.16.0 — 2026-10-13
+## Entrega histórica — MVP05 autonomia e proteção — v0.16.0 — 2026-10-13
 
 **Objetivo/aceite:** conferir cinco telas, implementar orientação/controles viáveis, ordenar e reservar futuro. **Situação:** recorte local concluído; MVP05 parcial e piloto não liberado. main/base c40594f, inicialmente limpo. DOCS_DIR acima. MINOR por cinco novas rotas; sem dependência/migração/permissão nova.
 

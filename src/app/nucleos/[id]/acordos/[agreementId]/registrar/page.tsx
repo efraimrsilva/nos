@@ -14,7 +14,7 @@ export default async function RecordHabitMomentPage({ params }: {
 }) {
   const { id, agreementId } = await params;
   const { nucleus, habit } = await loadHabitContext(id, agreementId);
-  if (habit.nucleus_agreement_participants?.[0]?.response !== "accepted") notFound();
+  if (habit.nucleus_agreement_participants?.[0]?.response !== "accepted" || habit.nucleus_agreement_participants?.[0]?.accepted_version !== habit.terms_version) notFound();
   return <OnboardingShell>
     <Link href={`${routes.nucleus}/${id}/acordos/${agreementId}`} className="mb-5 inline-flex min-h-11 items-center gap-1 text-sm font-semibold text-leaf underline">
       <ChevronLeft size={16} aria-hidden="true" />Voltar ao hábito

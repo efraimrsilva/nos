@@ -55,7 +55,7 @@ try{
   assert.equal(await page.locator('#atlas-view .tile').count(),await page.evaluate(()=>screens.filter(s=>s.status==='Planejada').length));
   await nav.first().click();await page.locator('#status-filter').selectOption('all');
   // Uma tela nova fica explicitamente sem etapa até revisar o plano; não desaparece da cobertura.
-  await page.evaluate(()=>{screens.push({...screens[0],id:73,title:'Nova tela a planejar'});renderMvp();});
+  await page.evaluate(()=>{screens.push({...screens[0],id:74,title:'Nova tela a planejar'});renderMvp();});
   assert.match(await page.locator('#mvp-view .mvp-unassigned').innerText(),/Nova tela a planejar/);
   await page.goto(url+'#mvp');
   await page.reload();

@@ -25,8 +25,8 @@ export default async function InvitationsPage({ params, searchParams }: { params
   if (!user) redirect(routes.account);
   const { data: membership, error: membershipError } = await supabase.from("nucleus_members").select("role").eq("nucleus_id", id).eq("user_id", user.id).maybeSingle();
   if (membershipError) throw new Error("Não foi possível consultar a participação.");
-  if (membership?.role !== "creator") notFound();
-  // RLS restringe os convites do criador; a consulta nunca transporta códigos para a lista.
+  if (membership?.role !== "admin") notFound();
+  // RLS restringe os convites aos administradores; a consulta nunca transporta códigos para a lista.
   let invitationsQuery = supabase.from("nucleus_invitations").select("id,created_at,expires_at,revoked_at").eq("nucleus_id", id);
   const now = new Date().toISOString();
   if (filter === "revogados") invitationsQuery = invitationsQuery.not("revoked_at", "is", null);
@@ -42,7 +42,7 @@ export default async function InvitationsPage({ params, searchParams }: { params
     <Link href={`/nucleos/${id}`} className="mb-4 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Voltar ao Núcleo</Link>
     <p className="step-label mb-3 text-lilac">A porta do Núcleo merece cuidado</p>
     <h1 className="font-display text-[30px] font-medium md:text-[38px]">Gerenciar convites</h1>
-    <p className="mt-3 text-sm leading-7 text-muted">Só o criador gerencia os códigos. Revogar um convite não remove participantes.</p>
+    <p className="mt-3 text-sm leading-7 text-muted">Administradores gerenciam os códigos. Revogar um convite não remove participantes.</p>
     <nav aria-label="Status dos convites" className="mt-6 flex flex-wrap gap-2 rounded-2xl bg-[#edf3e5] p-2">
       {Object.entries(filters).map(([key, label]) => <Link key={key} href={`/nucleos/${id}/convites?status=${key}`} aria-current={filter === key ? "page" : undefined} className={`min-h-11 rounded-xl px-4 py-3 text-sm font-semibold transition-colors hover:bg-white ${filter === key ? "bg-white text-leaf" : "text-muted"}`}>{label}</Link>)}
     </nav>
@@ -60,6 +60,6 @@ export default async function InvitationsPage({ params, searchParams }: { params
       {invitations.length > 20 && <Link href={href(page + 1)} className="min-h-11 py-3 text-sm font-semibold text-leaf underline">Próxima página</Link>}
     </nav>}
     <Link href={`${routes.initialInvitation}/${id}`} className="continue-button mt-5 inline-flex min-h-12 items-center rounded-xl bg-forest px-5 text-sm font-semibold text-white">Gerar ou compartilhar convite</Link>
-    <aside className="mt-5 rounded-2xl bg-[#eff3e6] p-5 text-sm leading-7 text-muted"><h2 className="font-semibold text-forest">Próximas possibilidades · planejadas</h2><p>QR e leitura por câmera, convites por link, destinatários individuais e administradores terão contratos próprios. O histórico de quem aceitou cada convite também está previsto; o código atual pode ser usado por mais de uma pessoa e não registra esse histórico.</p></aside>
+    <aside className="mt-5 rounded-2xl bg-[#eff3e6] p-5 text-sm leading-7 text-muted"><h2 className="font-semibold text-forest">Próximas possibilidades · planejadas</h2><p>QR e leitura por câmera, convites por link, e destinatários individuais terão contratos próprios. O histórico de quem aceitou cada convite também está previsto; o código atual pode ser usado por mais de uma pessoa e não registra esse histórico.</p></aside>
   </OnboardingShell>;
 }

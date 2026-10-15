@@ -16,7 +16,7 @@ try {
   if(mode==='global')await journey.locator('summary').click();
   assert.deepEqual(await journey.locator(':scope > .flow-path .flow-node').evaluateAll(nodes=>nodes.map(node=>Number(node.dataset.go))),[18,22,23,24]);
   assert.deepEqual(await journey.locator('.future-path .flow-node').evaluateAll(nodes=>nodes.map(node=>Number(node.dataset.go))),[18,19,20,21,22,23,24]);
-  assert.match(await journey.innerText(),/último aceite/);
+  assert.match(await journey.innerText(),/administrador/i);
   assert.match(await journey.locator('.future-path').innerText(),/Planejada/);
  }
  for(const viewport of [{width:1440,height:1000},{width:390,height:844}]) {
@@ -33,7 +33,7 @@ try {
    }
   }
   await page.evaluate(()=>openScreen(22));
-  assert.match(await page.locator('#screen-preview').innerText(),/seu aceite/);
+  assert.match(await page.locator('#screen-preview').innerText(),/não registra seu aceite/i);
   await page.locator('[data-width="desktop"]').click();
   assert.match(await page.locator('.preview-origin').innerText(),/Representação atual/);
   assert.doesNotMatch(await page.locator('.preview-origin').innerText(),/adaptação web ainda/);
@@ -41,7 +41,7 @@ try {
   assert.match(await page.locator('.preview-origin').innerText(),/Documento aprovado/);
   await page.locator('#screen-preview [data-reference="current"]').click();
   await page.evaluate(()=>openScreen(23));
-  assert.match(await page.locator('#screen-preview').innerText(),/último aceite/);
+  assert.match(await page.locator('#screen-preview').innerText(),/administrador/i);
  }
  assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
  console.log(JSON.stringify({journey:5,sequence:[18,22,23,24],future:[18,19,20,21,22,23,24],mobile:true,errors,external}));

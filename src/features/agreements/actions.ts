@@ -33,26 +33,26 @@ export async function createAgreementProposal(nucleusId: string, _previous: Agre
   if (input.category === "habit" && trialDays === null) return { error: "Escolha um período de teste inteiro entre 7 e 30 dias." };
   const { client: supabase, authUnavailable } = await authenticatedClient();
   if (!supabase) return { error: authUnavailable ? "Não foi possível conferir a sessão agora." : "Entre na sua conta novamente." };
-  // A RPC confere participação e registra o aceite do autor junto às respostas pendentes.
+  // A RPC confere participação; criar não aceita os termos por ninguém.
   const { error } = await supabase.rpc("create_nucleus_agreement", {
     target_nucleus: nucleusId, agreement_category: input.category, agreement_title: input.title,
     agreement_description: input.description, agreement_timing: input.timing,
     agreement_frequency: input.frequency, agreement_trial_days: trialDays,
   });
-  if (error) return { error: "Não foi possível criar a proposta. Confira se há ao menos duas pessoas no Núcleo e tente novamente." };
+  if (error) return { error: "Não foi possível criar a proposta. Atualize a página e tente novamente." };
   revalidatePath(`${routes.nucleus}/${nucleusId}/acordos`);
   redirect(`${routes.nucleus}/${nucleusId}/acordos?categoria=${input.category}&filtro=all&resultado=proposta`);
 }
 
 export async function respondAgreementProposal(nucleusId: string, agreementId: string,
-  response: "accepted" | "declined", category: "habit" | "experience") {
+  response: "accepted" | "declined", category: "habit" | "experience", termsVersion: number) {
   if (!uuid.test(nucleusId) || !uuid.test(agreementId)
     || !["accepted", "declined"].includes(response)
-    || !["habit", "experience"].includes(category)) return;
+    || !["habit", "experience"].includes(category) || !Number.isSafeInteger(termsVersion) || termsVersion < 1) return;
   const { client: supabase, authUnavailable } = await authenticatedClient();
   if (!supabase) redirect(authUnavailable ? `${routes.nucleus}/${nucleusId}/acordos?categoria=${category}&resultado=erro` : routes.account);
   const { error } = await supabase.rpc("respond_nucleus_agreement", {
-    target_agreement: agreementId, agreement_response: response,
+    target_agreement: agreementId, agreement_response: response, expected_terms_version: termsVersion,
   });
   revalidatePath(`${routes.nucleus}/${nucleusId}/acordos`);
   redirect(`${routes.nucleus}/${nucleusId}/acordos?categoria=${category}&filtro=all&resultado=${error ? "erro" : "resposta"}`);

@@ -43,7 +43,7 @@ export function ProposalForm({ nucleusId, category }: { nucleusId: string; categ
       <label className="grid gap-1.5 text-sm font-semibold text-forest">Duração do teste (dias)
         <input name="trialDays" type="number" min={7} max={30} step={1} required value={terms.trialDays} onChange={(event) => setTerms({ ...terms, trialDays: event.target.value })} aria-describedby="trial-rule" className="min-h-11 rounded-xl border border-line px-3" />
       </label>
-      <p id="trial-rule" className="text-sm leading-7 text-muted">Escolha de 7 a 30 dias. O teste começa quando todos aceitarem. Após o prazo, a confirmação exige maioria absoluta até 150 participantes ou um terço acima de 150; ajustes e encerramento continuam exigindo unanimidade.</p>
+      <p id="trial-rule" className="text-sm leading-7 text-muted">Escolha de 7 a 30 dias. Um administrador inicia e conclui o teste. Cada pessoa decide se participa.</p>
       <HabitConsentGuidance />
     </>}
     </fieldset>
@@ -52,8 +52,8 @@ export function ProposalForm({ nucleusId, category }: { nucleusId: string; categ
       <dl className="mt-3 grid gap-3 break-words text-sm text-muted">
         {[["Categoria", selectedCategory === "habit" ? "Hábito" : "Experiência"], ["O que vamos fazer?", terms.title], ["Como será?", terms.description], ["Quando?", terms.timing], ["Com que frequência?", terms.frequency], ...(selectedCategory === "habit" ? [["Duração do teste", `${terms.trialDays} dias`]] : [])].map(([label, value]) => <div key={label}><dt className="font-semibold text-forest">{label}</dt><dd className="mt-1 whitespace-pre-wrap">{value.trim()}</dd></div>)}
       </dl>
-      <p className="mt-4 text-sm leading-7 text-muted">Ao enviar, você registra seu aceite destes termos. Todas as pessoas que fazem parte do Núcleo neste momento serão incluídas; ainda não é possível selecionar participantes.</p>
-      <p className="mt-2 text-sm leading-7 text-muted">{selectedCategory === "habit" ? "O último aceite inicia o teste. Uma recusa encerra a proposta. Após o prazo, a confirmação do Hábito segue a regra própria de participação." : "A proposta depende do aceite de todas as pessoas. Uma recusa encerra a proposta."}</p>
+      <p className="mt-4 text-sm leading-7 text-muted">Ao enviar, você cria uma proposta. Depois, escolha explicitamente se aceita participar; nenhuma pessoa é incluída automaticamente.</p>
+      <p className="mt-2 text-sm leading-7 text-muted">{selectedCategory === "habit" ? "Um administrador organiza o teste e a ativação. Recusar afeta somente a sua participação." : "Administradores organizam a proposta. Cada pessoa decide se participa."}</p>
       {selectedCategory === "habit" && <HabitConsentGuidance />}
       <button type="button" disabled={pending} onClick={() => {
         setReviewing(false);
@@ -63,7 +63,7 @@ export function ProposalForm({ nucleusId, category }: { nucleusId: string; categ
     {/* Campos controlados preservam os termos quando a ação retorna erro sem redirecionar. */}
     {state.error && <p role="alert" className="text-sm text-red-700">{state.error}</p>}
     <button disabled={pending} className="continue-button min-h-11 rounded-xl bg-forest px-5 text-sm font-semibold text-white disabled:opacity-60">
-      {pending ? "Enviando proposta..." : reviewing ? "Enviar para aprovação" : "Conferir proposta"}
+      {pending ? "Enviando proposta..." : reviewing ? "Enviar proposta" : "Conferir proposta"}
     </button>
   </form>;
 }

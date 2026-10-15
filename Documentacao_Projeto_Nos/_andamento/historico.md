@@ -1,5 +1,13 @@
 # Histórico de andamento
 
+## 2026-10-15 — v1.0.0 — Publicação Git da administração autorizada
+
+Commit/push abrangentes solicitados pelo usuário. main/base9153223 alinhada ao origin/main após fetch. Publicar código, migração, testes, Atlas/galeria e documentação como unidade atômica, preservando a versão1.0.0. Inclusão comprovada no objeto inicial3c71eb584952d52dee5172a88127c6823fa88a51 e árvore preparada16c01439fb6694f4a7d3854d289aaa740fb91d23; controle incorporado antes do envio normal autorizado. Hash definitivo/igualdade remota reportados no encerramento. Publicação não certifica deploy ou migração remota. [Registro](registros/registro-v1.0.0-2026-10-15-imp-publicacao-git-fun-administracao-participacao.md).
+
+## 2026-10-14 — v1.0.0 — Administração compartilhada e participação individual
+
+Contrato implementado no banco/app/Atlas: múltiplos administradores, nomeação aceita, gestão, saída/sorteio/fechamento, privacidade após saída e acordos sem votação com termos versionados. Histórico preservado; reentrada exige novo aceite; termos idênticos não invalidam participação.81SQL,81autenticados (um dispensado),106gerais, tipos/build e revisão independente aprovados. Oito migrações do zero conferidas; cinco suítes antigas preservadas com blobs idênticos.73telas,39recortes/34planejadas,80capturas. MAJOR por reformulação incompatível, sem liberação operacional do piloto. Sem commit/push/remoto; unidade pronta registrada. [Registro](registros/registro-v1.0.0-2026-10-14-13-imp-administracao-nucleo-fun-participacao-individual.md).
+
 ## 2026-10-14 — v0.16.0 — Publicação documental do modelo simples autorizada
 
 Usuário autorizou commit/push abrangentes do contrato consolidado e registros/referências. main/base30ea405 alinhada ao remoto após fetch. Documentação define alvo aprovado, sem alteração em código/banco/manifestos. Conferir objeto antes de retirar pendência e confirmar hash remoto após envio. Modelo simples ainda não implementado; operação adiada. [Registro](registros/registro-v0.16.0-2026-10-14-12-imp-publicacao-git-fun-contrato-administracao.md).

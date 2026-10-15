@@ -1,101 +1,51 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { loadHabitContext } from "@/features/agreements/habit-access";
-import { parseHabitMomentCursor } from "@/features/agreements/habit-moment-input";
-import { HabitRevisionForm, RevisionDecision } from "@/features/agreements/components/habit-revision-form";
-import { OnboardingShell } from "@/features/onboarding/components/onboarding-shell";
-
-export const metadata: Metadata = { title: "Revisar hábito" };
-export default async function HabitRevisionPage({ params, searchParams }: {
-  params: Promise<{ id: string; agreementId: string }>;
-  searchParams: Promise<{ resultado?: string | string[]; antes?: string | string[] }>;
-}) {
+import { administerAgreement } from "@/features/agreements/administration-actions";
+import { ControlActionForm } from "@/features/controls/components/action-form";
+import { ControlsShell, ControlSection } from "@/features/controls/components/controls-shell";
+export const metadata: Metadata = { title: "Termos e histórico do acordo" };
+type Version = { version: number; title: string; description: string; timing: string; frequency: string; changed_at: string };
+export default async function HabitTermsPage({ params, searchParams }: { params: Promise<{ id: string; agreementId: string }>; searchParams: Promise<{ versao?: string; legado?: string }> }) {
   const { id, agreementId } = await params;
-  const { supabase, habit } = await loadHabitContext(id, agreementId, true);
+  const { supabase, habit, membership } = await loadHabitContext(id, agreementId, true, true);
   const query = await searchParams;
-  const fields = "id,kind,title,description,timing,frequency,status,created_at,reflect_until,applied_at,nucleus_habit_revision_responses(response)";
-  const cursor = parseHabitMomentCursor(query.antes);
-  let history = supabase.from("nucleus_habit_revisions").select(fields)
-    .eq("agreement_id", agreementId).neq("status", "pending");
-  // Mesmo cursor validado dos momentos/ciclos; data e ID desempatarão solicitações simultâneas.
-  if (cursor) history = history.or(`created_at.lt."${cursor.createdAt}",and(created_at.eq."${cursor.createdAt}",id.lt.${cursor.id})`);
-  const { data: revisions, error } = await history.order("created_at", { ascending: false })
-    .order("id", { ascending: false }).limit(21);
-  if (error) throw new Error("Não foi possível consultar as revisões.");
-  const visibleRevisions = (revisions ?? []).slice(0, 20);
-  // Ler a pendência depois do histórico evita duplicar uma revisão concluída entre consultas.
-  // Revisões concluídas não reabrem; a consulta independente mantém a pendência em qualquer página.
-  const { data: pendingRevision, error: pendingError } = await supabase.from("nucleus_habit_revisions")
-    .select(fields).eq("agreement_id", agreementId).eq("status", "pending").maybeSingle();
-  if (pendingError) throw new Error("Não foi possível conferir a revisão pendente.");
-
-  // O banco agrega o consenso sem ampliar a leitura dos votos individuais.
-  const readiness = pendingRevision ? await supabase.rpc("can_apply_nucleus_habit_revision", { target_revision: pendingRevision.id }) : null;
-  if (readiness?.error) throw new Error("Não foi possível conferir o consenso da revisão.");
-  const ownAccepted = habit.nucleus_agreement_participants?.[0]?.response === "accepted";
-  const date = (value: string) => `${new Intl.DateTimeFormat("pt-BR", { dateStyle: "medium", timeStyle: "short", timeZone: "UTC" }).format(new Date(value))} UTC`;
-  const notices: Record<string, string> = { proposta: "Revisão enviada. O combinado atual permanece em vigor durante a decisão.", resposta: "Sua resposta foi registrada.", aplicada: "Revisão aplicada com consentimento após o período de reflexão." };
-  return <OnboardingShell>
-    <Link href={`/nucleos/${id}/acordos/${agreementId}`} className="inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Voltar ao Hábito</Link>
-    <h1 className="mt-3 font-display text-[32px]">Revisar hábito</h1>
-    <p className="mt-2 break-words font-semibold">{habit.title}</p>
-    <p className="mt-3 text-sm leading-7 text-muted">Revisar é cuidar do combinado. Mudanças exigem o sim de todas as pessoas envolvidas e sete dias completos de reflexão desde a solicitação. Depois, uma pessoa participante confirma a aplicação.</p>
-    {typeof query.resultado === "string" && notices[query.resultado] && <p role="status" className="mt-4 rounded-xl bg-[#edf3e5] p-3 text-sm text-forest">{notices[query.resultado]}</p>}
-    {habit.status === "ended" && <p role="status" className="mt-4 text-sm">Hábito encerrado de comum acordo. O histórico está preservado.</p>}
-    <section aria-labelledby="current-habit-heading" className="mt-5 rounded-2xl border border-line bg-white p-5">
-      <h2 id="current-habit-heading" className="font-display text-xl">Combinado atual</h2>
-      <p className="mt-3 whitespace-pre-wrap break-words text-sm">{habit.description}</p>
-      <p className="mt-3 break-words text-sm text-muted">Quando: {habit.timing} · Frequência: {habit.frequency}</p>
-    </section>
-    {!pendingRevision && ["testing", "active"].includes(habit.status) && ownAccepted && <section className="mt-5 rounded-2xl border border-line bg-white p-5">
-      <h2 className="font-display text-xl">Nova solicitação</h2>
-      <HabitRevisionForm nucleusId={id} agreementId={agreementId} habit={habit} />
-    </section>}
-    {pendingRevision && <section aria-labelledby="pending-revision-heading" className="mt-5 rounded-2xl border border-line bg-white p-5">
-      <h2 id="pending-revision-heading" className="font-display text-xl">Revisão em andamento</h2>
-      <p className="mt-2 text-sm leading-7 text-muted">Esta solicitação permanece visível ao consultar revisões antigas. O combinado atual só muda após a aplicação autorizada.</p>
-      <ol className="mt-4 grid gap-4">{[pendingRevision].map((r) => {
-        const response = r.nucleus_habit_revision_responses?.[0]?.response;
-        return <li key={r.id} data-revision-id={r.id} className="rounded-xl border border-line p-4">
-          <h3 className="font-semibold">{r.kind === "end" ? "Encerrar de comum acordo" : "Ajustar o combinado"}</h3>
-          <p className="mt-2 text-sm">{r.status === "applied" ? "Aplicada" : r.status === "declined" ? "Recusada · combinado preservado" : "Aguardando consentimento e aplicação"}</p>
-          <p className="mt-2 text-xs text-muted">Solicitada em {date(r.created_at)} · Reflexão até {date(r.reflect_until)}</p>
-          {r.applied_at && <p className="mt-2 text-xs text-muted">Aplicada em {date(r.applied_at)}</p>}
-          {r.kind === "adjust" && <div className="mt-3 grid gap-2 text-sm">
-            <p className="leading-7 text-muted">Aplicar este ajuste coloca o Hábito em teste novamente. {habit.trial_days ? `O novo prazo será de ${habit.trial_days} dias, contado da aplicação, e precisará de novas confirmações.` : "Depois, os envolvidos precisarão acordar um período de teste de 7 a 30 dias."} O histórico permanece preservado, mas os votos anteriores não serão reutilizados.</p>
-            <p className="break-words font-semibold">{r.title}</p><p className="whitespace-pre-wrap break-words">{r.description}</p>
-            <p className="break-words">Quando: {r.timing} · Frequência: {r.frequency}</p>
-          </div>}
-          {r.status === "pending" && <>
-            <p className="mt-3 text-sm text-muted">Sua resposta: {response === "accepted" ? "Aceita" : response === "pending" ? "Aguardando" : "Você não participa desta solicitação"}.</p>
-            {response === "pending" && <div className="flex flex-wrap gap-3">
-              <RevisionDecision nucleusId={id} agreementId={agreementId} revisionId={r.id} decision="accepted" />
-              <RevisionDecision nucleusId={id} agreementId={agreementId} revisionId={r.id} decision="declined" />
-            </div>}
-            {response === "accepted" && !readiness?.data && <p className="mt-3 text-sm text-muted">Aguardando aceite de todas as pessoas envolvidas e o fim da reflexão. Atualize esta página para conferir.</p>}
-            {response === "accepted" && readiness?.data === true && <RevisionDecision nucleusId={id} agreementId={agreementId} revisionId={r.id} decision="apply" />}
-          </>}
-        </li>;
-      })}</ol>
-    </section>}
-    <section aria-labelledby="revision-history-heading" className="mt-5 rounded-2xl border border-line bg-white p-5">
-      <h2 id="revision-history-heading" className="font-display text-xl">Histórico das revisões</h2>
-      {!visibleRevisions.length && <p className="mt-3 text-sm text-muted">{cursor ? "Não há revisões mais antigas." : "Ainda não há revisões concluídas."}</p>}
-      <ol className="mt-4 grid gap-4">{visibleRevisions.map(r => <li key={r.id} data-revision-id={r.id} className="rounded-xl border border-line p-4">
-        <h3 className="font-semibold">{r.kind === "end" ? "Encerrar de comum acordo" : "Ajustar o combinado"}</h3>
-        <p className="mt-2 text-sm">{r.status === "applied" ? "Aplicada" : "Recusada · combinado preservado"}</p>
-        <p className="mt-2 text-xs text-muted">Solicitada em {date(r.created_at)} · Reflexão até {date(r.reflect_until)}</p>
-        {r.applied_at && <p className="mt-2 text-xs text-muted">Aplicada em {date(r.applied_at)}</p>}
-        {r.kind === "adjust" && <div className="mt-3 grid gap-2 text-sm">
-          <p className="break-words font-semibold">{r.title}</p>
-          <p className="whitespace-pre-wrap break-words">{r.description}</p>
-          <p className="break-words">Quando: {r.timing} · Frequência: {r.frequency}</p>
-        </div>}
-      </li>)}</ol>
-      {(cursor || (revisions?.length ?? 0) > 20) && <nav aria-label="Páginas das revisões" className="mt-4 flex flex-wrap justify-between gap-3 text-sm font-semibold text-leaf">
-        {cursor ? <Link href="?" className="min-h-11 content-center underline">Voltar às revisões recentes</Link> : <span />}
-        {(revisions?.length ?? 0) > 20 && <Link href={`?antes=${encodeURIComponent(`${visibleRevisions[visibleRevisions.length - 1].created_at}|${visibleRevisions[visibleRevisions.length - 1].id}`)}`} className="min-h-11 content-center underline">Revisões mais antigas</Link>}
-      </nav>}
-    </section>
-  </OnboardingShell>;
+  const legacyPage = query.legado && /^[1-9]\d{0,3}$/.test(query.legado) ? Number(query.legado) : 1;
+  const before = query.versao && /^[1-9]\d{0,8}$/.test(query.versao) ? Number(query.versao) : null;
+  let request = supabase.from("nucleus_agreement_versions").select("version,title,description,timing,frequency,changed_at").eq("agreement_id", agreementId);
+  if (before) request = request.lt("version", before);
+  const { data: versions, error } = await request.order("version", { ascending: false }).limit(21);
+  if (error) throw new Error("Não foi possível consultar as versões dos termos.");
+  const visibleVersions = ((versions ?? []) as Version[]).slice(0, 20);
+  // Dados anteriores continuam consultáveis, sem reativar votos ou mutações do modelo substituído.
+  const [legacyRevisions, legacyTrials] = await Promise.all([
+    supabase.from("nucleus_habit_revisions").select("id,kind,status,title,description,timing,frequency,created_at").eq("agreement_id", agreementId).order("created_at", { ascending: false }).order("id", { ascending: false }).range((legacyPage - 1) * 20, legacyPage * 20),
+    supabase.from("nucleus_habit_trials").select("id,status,started_at,ends_at,created_at").eq("agreement_id", agreementId).order("created_at", { ascending: false }).order("id", { ascending: false }).range((legacyPage - 1) * 20, legacyPage * 20),
+  ]);
+  if (legacyRevisions.error || legacyTrials.error) throw new Error("Não foi possível consultar o histórico anterior.");
+  return <ControlsShell title="Termos e histórico do acordo" subtitle={habit.title} back={`/nucleos/${id}/acordos?categoria=${habit.category}`}>
+    <ControlSection title="Mudanças claras"><p>Alterar os termos pede novo aceite individual. Os momentos e as versões anteriores permanecem. Ninguém pode aceitar pela outra pessoa.</p></ControlSection>
+    {membership.role === "admin" && ["pending", "testing", "active"].includes(habit.status) && <ControlSection title="Alterar termos"><ControlActionForm action={administerAgreement.bind(null, id, agreementId, "terms", habit.terms_version)} label="Publicar novos termos" confirmation="Publicar nova versão e solicitar novo aceite a cada participante.">
+      <label className="grid gap-1">O que vamos fazer?<input name="title" required maxLength={100} defaultValue={habit.title} className="min-h-11 rounded-xl border border-line px-3" /></label>
+      <label className="grid gap-1">Como será?<textarea name="description" required maxLength={500} defaultValue={habit.description} rows={3} className="rounded-xl border border-line p-3" /></label>
+      <label className="grid gap-1">Quando?<input name="timing" required maxLength={120} defaultValue={habit.timing} className="min-h-11 rounded-xl border border-line px-3" /></label>
+      <label className="grid gap-1">Com que frequência?<input name="frequency" required maxLength={120} defaultValue={habit.frequency} className="min-h-11 rounded-xl border border-line px-3" /></label>
+    </ControlActionForm></ControlSection>}
+    <ControlSection title="Histórico dos termos"><ol className="grid gap-3">{visibleVersions.map(version => <li key={version.version} className="rounded-xl border border-line p-3"><h3 className="font-semibold">Versão {version.version} · {version.title}</h3><p className="whitespace-pre-wrap break-words">{version.description}</p><p>{version.timing} · {version.frequency}</p><p className="text-xs">{new Date(version.changed_at).toLocaleString("pt-BR", { timeZone: "UTC" })} UTC</p></li>)}</ol>
+      {!visibleVersions.length && <p>Nenhuma versão nesta página.</p>}
+      <nav aria-label="Páginas dos termos" className="mt-3 flex gap-4 font-semibold text-leaf">
+        {before && <Link href="?" className="inline-flex min-h-11 items-center underline">Versões recentes</Link>}
+        {(versions ?? []).length > 20 && <Link href={`?versao=${visibleVersions[visibleVersions.length - 1].version}`} className="inline-flex min-h-11 items-center underline">Versões anteriores</Link>}
+      </nav>
+    </ControlSection>
+    {((legacyRevisions.data ?? []).length > 0 || (legacyTrials.data ?? []).length > 0 || legacyPage > 1) && <ControlSection title="Histórico do modelo anterior">
+      <p>Somente consulta. Votações e solicitações antigas não comandam o acordo atual e não são reutilizadas como aceite de novos termos.</p>
+      <ol className="mt-3 grid gap-3">{(legacyRevisions.data ?? []).slice(0, 20).map(revision => <li key={revision.id} className="rounded-xl border border-line p-3"><h3 className="font-semibold">{revision.kind === "end" ? "Solicitação antiga de encerramento" : "Ajuste anterior"} · {revision.status === "applied" ? "Aplicado no modelo anterior" : revision.status === "declined" ? "Recusado no modelo anterior" : "Pendente no modelo descontinuado"}</h3>{revision.title && <p>{revision.title}</p>}{revision.description && <p className="whitespace-pre-wrap break-words">{revision.description}</p>}{revision.timing && <p>{revision.timing} · {revision.frequency}</p>}</li>)}</ol>
+      <ol className="mt-3 grid gap-3">{(legacyTrials.data ?? []).slice(0, 20).map(trial => <li key={trial.id} className="rounded-xl border border-line p-3"><p>Período anterior · {trial.status}</p>{trial.started_at && <p>{new Date(trial.started_at).toLocaleString("pt-BR", { timeZone: "UTC" })} UTC</p>}</li>)}</ol>
+      <nav aria-label="Páginas do histórico anterior" className="mt-3 flex gap-4 font-semibold text-leaf">
+        {legacyPage > 1 && <Link href={`?legado=${legacyPage - 1}`} className="inline-flex min-h-11 items-center underline">Histórico anterior: página anterior</Link>}
+        {((legacyRevisions.data ?? []).length > 20 || (legacyTrials.data ?? []).length > 20) && <Link href={`?legado=${legacyPage + 1}`} className="inline-flex min-h-11 items-center underline">Histórico anterior: próximos registros</Link>}
+      </nav>
+    </ControlSection>}
+  </ControlsShell>;
 }

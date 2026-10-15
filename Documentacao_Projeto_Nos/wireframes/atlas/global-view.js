@@ -4,14 +4,14 @@ const globalAreaNotes=[
   'Conta é a entrada. Cadastro, confirmação e recuperação são caminhos alternativos; a Tela 72 é acolhimento opcional.',
   'Após login, Seus Núcleos reúne associações reais e abre o Início escolhido. Sem associações, oferece criação ou convite. Escolher caminho é uma alternativa protegida; não há rascunho antes do login.',
   'O Início é o retorno do Núcleo. Agenda14 → criação16 → evento/respostas15 → edição17 opcional → agenda14. Evento existente abre15 diretamente; os quatro estados compartilham a rota. Remover exige confirmação; manter não grava. Mês/recorrência/local/integrações são planejados.',
-  'Propor, consentir, testar, registrar e confirmar têm condições próprias. Revisão, encerramento e experiências são ramificações.',
+  'Publicar, participar individualmente, testar e registrar são etapas distintas; administrador gerencia o ciclo sem votação. Revisão, encerramento e experiências são ramificações.',
   'Explorar árvore, marcos, memórias e gratidão é opcional. Indicadores e Essência exigem seus contratos; não avançam automaticamente.',
   'Conexões e perfis dependem de autorização e compartilhamento voluntário. Consultar outra pessoa não permite editar seus dados.',
   'Manifesto, convites, notificações e cuidado partem de contextos distintos. Preparação privada, cartão e encontro não formam um chat.',
   'Preferências e segurança são acessos contextuais. Sair da conta, sair do Núcleo e tratar dados têm consequências diferentes.'
 ];
 // Ajustes de leitura: criação antes do detalhe, registro antes do histórico; legado é alternativa da confirmação.
-const globalReadingOrder={1:[12,6,7,8,9,10,11],2:[13,14,16,15,17],3:[18,19,20,21,22,23,24,27,25,28,29,26,30,31,32,33,34,35,36,37],4:[38,39,40,42,41,43],7:[66,67,69,70,71,68]};
+const globalReadingOrder={1:[12,6,7,8,9,10,11],2:[13,14,16,15,17],3:[18,19,20,21,22,23,24,27,25,28,29,26,30,31,32,33,34,35,36,37],4:[38,39,40,42,41,43],7:[73,71,66,67,69,70,68]};
 function orderedGlobalScreens(list,chapter){
   const order=globalReadingOrder[chapter];
   const rank=screen=>order?.includes(screen.id)?order.indexOf(screen.id):1000+screen.id;

@@ -1,4 +1,8 @@
-# Agenda interna — MVP 04 — v0.15.2
+# Agenda interna — v1.0.0
+
+**Atualização v1.0.0 — 14/10/2026:** [contrato administrativo](administracao-participacao.md) implementado localmente. Convites são geridos por administradores; Núcleos fechados não aceitam convites. Agenda usa consulta que protege autoria após saída e conserva a própria presença na reentrada. Autor associado ou administrador pode gerir eventos. Regras de criação, horários e respostas individuais permanecem.
+
+## Histórico e contratos anteriores
 
 **Data:** 2026-10-13. **Status:** recorte funcional validado localmente; publicação/prova online pendentes. Base existente v0.6.0 reconferida, sem migração nova.
 

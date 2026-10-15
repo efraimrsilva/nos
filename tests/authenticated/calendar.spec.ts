@@ -6,7 +6,7 @@ import { test, expect, localSql } from "./fixtures";
 test("remoção pede confirmação contextual antes de gravar", async ({ page, account }) => {
   const nucleusId = randomUUID();
   localSql(`insert into public.nuclei(id,type,name,purpose,created_by) values('${nucleusId}','familia','Agenda confirmação','Presença','${account.id}');
-    insert into public.nucleus_members(nucleus_id,user_id,role) values('${nucleusId}','${account.id}','creator');
+    insert into public.nucleus_members(nucleus_id,user_id,role) values('${nucleusId}','${account.id}','admin');
     insert into public.nucleus_events(nucleus_id,created_by,title,starts_at,ends_at,time_zone) values('${nucleusId}','${account.id}','Evento protegido',now()+interval '7 days',now()+interval '7 days 1 hour','UTC');`);
   await page.goto(`/nucleos/${nucleusId}/agenda`);
   await page.getByText("Editar ou remover", { exact: true }).click();
@@ -24,7 +24,7 @@ test("remoção pede confirmação contextual antes de gravar", async ({ page, a
 test("agenda pagina eventos futuros e permite voltar sem criar", async ({ page, account }) => {
   const nucleusId = randomUUID();
   localSql(`insert into public.nuclei(id,type,name,purpose,created_by) values('${nucleusId}','familia','Agenda paginada','Presença','${account.id}');
-    insert into public.nucleus_members(nucleus_id,user_id,role) values('${nucleusId}','${account.id}','creator');
+    insert into public.nucleus_members(nucleus_id,user_id,role) values('${nucleusId}','${account.id}','admin');
     insert into public.nucleus_events(nucleus_id,created_by,title,starts_at,ends_at,time_zone)
       select '${nucleusId}','${account.id}','Momento '||lpad(i::text,2,'0'),now()+i*interval '1 day',now()+i*interval '1 day'+interval '1 hour','UTC' from generate_series(1,51) i;
     insert into public.nucleus_events(nucleus_id,created_by,title,starts_at,ends_at,time_zone) values('${nucleusId}','${account.id}','Passado',now()-interval '2 days',now()-interval '1 day','UTC');`);
@@ -56,7 +56,7 @@ test("agenda: criação, respostas, remarcação e remoção confirmada", async 
   const gallery = "Documentacao_Projeto_Nos/wireframes/comparacoes/v0.15.2-2026-10-13-mvp-04-tela_14-tela_16-tela_15-tela_17";
   try {
     localSql(`insert into public.nuclei(id,type,name,purpose,created_by) values('${nucleusId}','familia','Jardim da agenda','Cultivar presença.','${account.id}');
-      insert into public.nucleus_members(nucleus_id,user_id,role) values('${nucleusId}','${account.id}','creator'),('${nucleusId}','${memberId}','member');`);
+      insert into public.nucleus_members(nucleus_id,user_id,role) values('${nucleusId}','${account.id}','admin'),('${nucleusId}','${memberId}','member');`);
     const hub = `/nucleos/${nucleusId}/agenda`;
     await page.goto(hub);
     await expect(page.getByText("Nada marcado por enquanto.", { exact: false })).toBeVisible();
@@ -93,10 +93,12 @@ test("agenda: criação, respostas, remarcação e remoção confirmada", async 
     expect((await member.rpc("delete_nucleus_event", { target_event: eventId })).error?.code).toBe("42501");
     const otherNucleus = randomUUID(), otherEvent = randomUUID();
     localSql(`insert into public.nuclei(id,type,name,purpose,created_by) values('${otherNucleus}','familia','Outro jardim','Presença','${account.id}');
-      insert into public.nucleus_members(nucleus_id,user_id,role) values('${otherNucleus}','${account.id}','creator');
+      insert into public.nucleus_members(nucleus_id,user_id,role) values('${otherNucleus}','${account.id}','admin');
       insert into public.nucleus_events(id,nucleus_id,created_by,title,starts_at,ends_at,time_zone) values('${otherEvent}','${otherNucleus}','${account.id}','Evento privado',now()+interval '7 days',now()+interval '7 days 1 hour','UTC');`);
     const hidden = await member.from("nucleus_events").select("id").eq("nucleus_id", otherNucleus);
-    expect(hidden.error).toBeNull(); expect(hidden.data).toEqual([]);
+    expect(hidden.error?.code).toBe("42501");
+    const hiddenCalendar = await member.rpc("get_nucleus_calendar", { target_nucleus: otherNucleus, from_ends_at: new Date().toISOString(), page_offset: 0, page_size: 51 });
+    expect(hiddenCalendar.error?.code).toBe("42501");
     expect((await member.rpc("respond_nucleus_event", { target_event: otherEvent, event_response: "accepted" })).error?.code).toBe("42501");
     await memberPage.goto(`/nucleos/${otherNucleus}/agenda`);
     await expect(memberPage.getByRole("heading", { name: "Agenda do Núcleo" })).toHaveCount(0);

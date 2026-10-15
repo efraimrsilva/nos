@@ -1,5 +1,9 @@
 # Brag document — Projeto Nós
 
+## 2026-10-14 — v1.0.0 — Administração simples com consentimento individual
+
+Problema: votação coletiva, saída bloqueada e ausência de gestão impediam executar o comportamento aprovado. Contribuição: administração compartilhada, nomeações aceitas, sorteio/fechamento atômicos, saída confirmada, preferência de autoria e acordos com gestão administrativa/novo aceite por versão. Resultado verificado:81 testes SQL,81 autenticados/um dispensado e106 gerais aprovados; isolamento, concorrência, reentrada e proteção da autoria exercitados.68 casos passaram após oito migrações do zero. Atlas73telas/80capturas e registros sincronizados. Benefício esperado, sem medição de uso: menos decisões coletivas e menor atrito. Operação do piloto continua pendente. [Evidência](../_andamento/registros/registro-v1.0.0-2026-10-14-13-imp-administracao-nucleo-fun-participacao-individual.md).
+
 ## 2026-10-14 — v0.16.0 — Contrato simples de administração e participação
 
 Problema: saída havia acumulado cancelamentos e votações, contrariando a simplicidade pretendida pelo usuário. Contribuição documental: oito respostas consolidadas, seis registros antigos superados e referência única para gestão administrativa/participação individual. Resultado verificado: referências locais válidas e revisão independente sem inconsistências relevantes; código ainda não adaptado. Benefício esperado, não medido: menor custo de implementação/manutenção e menos etapas para o usuário. [Contrato](../_andamento/funcionalidades/administracao-participacao.md), [evidências](../_andamento/registros/registro-v0.16.0-2026-10-14-11-imp-contrato-administracao-fun-respostas-consolidadas.md).

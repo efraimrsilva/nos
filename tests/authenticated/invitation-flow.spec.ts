@@ -133,7 +133,7 @@ test("aceite explícito abre Início e lista sem duplicar nem elevar o papel", a
   await page.getByRole("button", { name: "Aceitar convite" }).click();
   await expect(page).toHaveURL(new RegExp(`/nucleos/${invitation.nucleusId}$`));
   expect(localSql(`select count(*) from public.nucleus_members where nucleus_id='${invitation.nucleusId}' and user_id='${account.id}' and role='member';`).trim()).toBe("1");
-  expect(localSql(`select role from public.nucleus_members where nucleus_id='${invitation.nucleusId}' and user_id='${invitation.ownerId}';`).trim()).toBe("creator");
+  expect(localSql(`select role from public.nucleus_members where nucleus_id='${invitation.nucleusId}' and user_id='${invitation.ownerId}';`).trim()).toBe("admin");
   await page.getByRole("link", { name: "Voltar a Seus Núcleos" }).click();
   await expect(page.getByRole("link").filter({ hasText: "Jardim do convite" })).toBeVisible();
 });
