@@ -1,5 +1,7 @@
 # Administração e participação — manual de teste — v1.1.0
 
+**Atualização operacional — v1.1.0 — 15/10/2026:** migração de encerramento aplicada no ambiente publicado, conteúdo/permissões conferidos e formulário online comprovado com duas contas descartáveis em oito grupos. Atualizar a página e usar a conta administradora. O Núcleo real permanece intacto; encerrá-lo é decisão do usuário. [Registro](../registros/registro-v1.1.0-2026-10-15-03-imp-correcao-online-fun-encerramento-nucleo.md). Limites de publicação/migração mencionados nos marcos anteriores ficam substituídos para esta função.
+
 ## Encerrar o Núcleo para todos — v1.1.0
 
 Use um Núcleo descartável no ambiente local com a migração20261015120000 aplicada.

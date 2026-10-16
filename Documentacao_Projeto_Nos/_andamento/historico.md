@@ -1,5 +1,9 @@
 # Histórico de andamento
 
+## 2026-10-15 — v1.1.0 — correção operacional do encerramento online
+
+Deploy automático6ad17f6c7f65114f0602d866/6efc4c0 já publicado; função de encerramento ausente no banco remoto. Aplicada somente migração20261015120000, com histórico transacional e conteúdo conferido, elevando a nove migrações. Dados existentes preservados; oito grupos online aprovados pelo formulário/consultas com duas contas descartáveis, limpas ao final. Núcleo real não encerrado. Sem alteração de código/versão ou novo commit/push. [Registro](registros/registro-v1.1.0-2026-10-15-03-imp-correcao-online-fun-encerramento-nucleo.md).
+
 ## 2026-10-15 — v1.1.0 — publicação Git abrangente autorizada
 
 Preparação de commit/push do encerramento, interface/árvore/rodapé/carregamento, Atlas,200 frases autorais e registros pendentes. Tipos/build e106 testes gerais reconferidos sobre cópia idêntica dos fontes; três verificadores Atlas aprovados. Sem incremento de versão ou operação remota de banco. Inclusão de89 arquivos comprovada no objeto inicial11707b907cb296e754ebb900670a5bec3e9ead7d; controle incorporado ao mesmo commit antes do push normal autorizado. Hash definitivo/igualdade remota reportados no fechamento. [Registro](registros/registro-v1.1.0-2026-10-15-02-imp-publicacao-git-fun-encerramento-interface.md).

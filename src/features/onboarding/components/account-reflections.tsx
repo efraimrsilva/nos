@@ -1,0 +1,66 @@
+"use client";
+
+import { Pause, Play } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { reflectionPhrases } from "@/features/onboarding/reflection-phrases";
+
+const DISPLAY_DURATION = 7000;
+
+function shufflePhrases(previous?: string) {
+  const order = [...reflectionPhrases];
+  // Fisher–Yates visita todas as posições, sem repetir ou descartar frases no ciclo.
+  for (let index = order.length - 1; index > 0; index--) {
+    const target = Math.floor(Math.random() * (index + 1));
+    [order[index], order[target]] = [order[target], order[index]];
+  }
+  if (order.length > 1 && order[0] === previous) {
+    [order[0], order[1]] = [order[1], order[0]];
+  }
+  return order;
+}
+
+export function AccountReflections() {
+  const [deck, setDeck] = useState<{ order: string[]; index: number }>({ order: [], index: 0 });
+  const [paused, setPaused] = useState(false);
+  const remaining = useRef(DISPLAY_DURATION);
+
+  useEffect(() => {
+    // Sorteia só no navegador: cada montagem tem sua ordem, sem divergência de hidratação.
+    setDeck({ order: shufflePhrases(), index: 0 });
+  }, []);
+
+  useEffect(() => {
+    if (paused || deck.order.length === 0) return;
+    const started = performance.now();
+    let completed = false;
+    const timer = window.setTimeout(() => {
+      completed = true;
+      remaining.current = DISPLAY_DURATION;
+      const finished = deck.index === deck.order.length - 1;
+      // Ao completar a lista, inicia outro sorteio sem repetir a frase na fronteira dos ciclos.
+      setDeck(finished
+        ? { order: shufflePhrases(deck.order[deck.index]), index: 0 }
+        : { order: deck.order, index: deck.index + 1 });
+    }, remaining.current);
+    return () => {
+      window.clearTimeout(timer);
+      // Pausa o relógio junto da animação; retomar preserva o tempo que ainda faltava.
+      if (!completed) remaining.current = Math.max(0, remaining.current - (performance.now() - started));
+    };
+  }, [deck, paused]);
+
+  const phrase = deck.order[deck.index];
+  return (
+    <section aria-label="Uma reflexão para começar" className="account-reflections mx-auto mt-5 max-w-96" data-paused={paused}>
+      {phrase && <div key={phrase}>
+        {/* Uma única frase no documento; sem anúncios automáticos que interrompam o formulário. */}
+        <p data-reflection-phrase className="reflection-phrase text-sm leading-7 text-muted" aria-live="off">{phrase}</p>
+        <div className="reflection-track mx-auto mt-3" aria-hidden="true"><span className="reflection-progress" /></div>
+      </div>}
+      {phrase && <button type="button" onClick={() => setPaused(!paused)} aria-label={paused ? "Retomar frases" : "Pausar frases"} className="mx-auto mt-1 inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg px-3 text-[11px] text-muted hover:text-leaf">
+        {paused ? <Play size={12} aria-hidden="true" /> : <Pause size={12} aria-hidden="true" />}
+        {paused ? "Retomar" : "Pausar"}
+      </button>}
+    </section>
+  );
+}

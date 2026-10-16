@@ -71,3 +71,17 @@ html:has(.account-page) { scrollbar-gutter: stable; }
 
 /* Apresentação opcional usa os tokens existentes; não introduz espera nem splash obrigatório. */
 .welcome-entry { background: linear-gradient(180deg, #f6f3eb 62%, #edf3e5 100%); }
+
+/* Reserva quatro linhas para a frase sem deslocar a árvore ou o formulário a cada troca. */
+.account-reflections { min-height: 176px; }
+.reflection-phrase { min-height: 112px; animation: reflection-text 7s ease-in-out both; }
+.reflection-track { width: 48px; height: 3px; overflow: hidden; border-radius: 999px; background: #4f7e2c20; }
+.reflection-progress { display: block; width: 100%; height: 100%; border-radius: inherit; background: var(--color-leaf); transform-origin: left; animation: reflection-time 7s linear both; }
+.account-reflections[data-paused="true"] .reflection-phrase,
+.account-reflections[data-paused="true"] .reflection-progress { animation-play-state: paused; }
+@keyframes reflection-text {
+  0% { opacity: 0; transform: translateY(4px); }
+  5%, 95% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-4px); }
+}
+@keyframes reflection-time { from { transform: scaleX(0); } to { transform: scaleX(1); } }

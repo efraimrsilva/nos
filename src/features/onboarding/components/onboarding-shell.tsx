@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Sprout } from "lucide-react";
 import type { ReactNode } from "react";
+import { AccountReflections } from "@/features/onboarding/components/account-reflections";
 
 export function OnboardingShell({ children, showTree = false }: { children: ReactNode; showTree?: boolean }) {
   return (
@@ -21,9 +22,7 @@ export function OnboardingShell({ children, showTree = false }: { children: Reac
           <div className="garden-art mx-auto w-40 md:w-full md:max-w-96">
             <Image src="/brand/nos-tree.png" alt="Árvore com troncos entrelaçados, símbolo dos vínculos que cultivamos" width={877} height={875} sizes="(max-width: 767px) 160px, 384px" priority />
           </div>
-          <p className="mt-5 hidden font-display text-[32px] font-medium leading-tight md:block">Toda relação é uma semente.</p>
-          <p className="mx-auto mt-3 hidden max-w-72 text-sm leading-7 text-muted md:block">Com presença e pequenos gestos,<br />a gente cresce junto.</p>
-          <div className="mt-7 hidden items-center justify-center gap-2 md:flex" aria-hidden="true"><span className="h-1 w-7 rounded-full bg-leaf/40" /><span className="h-1 w-1 rounded-full bg-leaf/20" /><span className="h-1 w-1 rounded-full bg-leaf/20" /></div>
+          <AccountReflections />
         </aside>}
 
         <main id="conteudo" tabIndex={-1} className="min-w-0 scroll-mt-6 focus:outline-none">{children}</main>

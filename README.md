@@ -1,5 +1,7 @@
 # Projeto Nós
 
+**Encerramento online corrigido — v1.1.0 — 15/10/2026:** deploy6ad17f6c7f65114f0602d866/6efc4c0 conferido publicado; nova migração20261015120000 aplicada no Supabase, agora com nove migrações. Oito grupos online aprovados, incluindo encerramento pelo formulário, bloqueio de acesso/convites e preservação do histórico. Um Núcleo e dois vínculos reais preservados; fixture removida. Sem exclusão física ou nova certificação do piloto. [Registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v1.1.0-2026-10-15-03-imp-correcao-online-fun-encerramento-nucleo.md). As pendências de migração/publicação nos marcos abaixo são anteriores a esta correção.
+
 **Entrega local — v1.1.0 — 15/10/2026:** administradores podem encerrar o Núcleo para todos em Pessoas e administração, com nome digitado e ciência explícita. Todos perdem acesso e convites são revogados; acordos, momentos, agenda e contas permanecem armazenados. Sem reabertura pelo aplicativo. Nova migração aplicada somente localmente; publicação e migração remota desta função pendentes. [Registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v1.1.0-2026-10-15-imp-administracao-nucleo-fun-encerramento-coletivo.md).
 
 **Entrega local — v1.0.1 — 15/10/2026:** árvore decorativa reservada à Conta sem sessão e boas-vindas. Conteúdo interno centralizado, sem painel lateral. [Registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v1.0.1-2026-10-15-imp-layout-interno-fun-arvore-opcional.md). Publicação online abaixo permanece na versão anterior.

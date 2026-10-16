@@ -1,5 +1,19 @@
 # Estado do Projeto Nós
 
+## Publicação autorizada — reflexões da Conta e registros operacionais — 2026-10-15
+
+**Escopo:** 200 frases incorporadas em `src`, sem dependência do TXT; uma por vez, 7 segundos, transições/barra sincronizadas, pausa com tempo restante, sorteio por carregamento e novo sorteio a cada ciclo, sem repetição consecutiva na fronteira. Inclui testes e registros operacionais pendentes da correção online do encerramento. Sem novo registro funcional, conforme dispensa documental do usuário. Versão 1.1.0 preservada.
+
+**Validação da publicação:** tipos no repositório e build webpack/114 testes gerais na cópia local aprovados; 126 arquivos de fontes/testes idênticos por SHA-256. A primeira tentativa com servidor dev apresentou expiração de navegação durante compilação/recarga; suíte completa em produção passou. Inspeção visual desktop/celular e revisão independente da funcionalidade concluídas anteriormente nesta entrega. **Situação:** inclusão dos 13 caminhos conferida no commit inicial be5cb387938748e4475cc38c249fd39cd34469b3, árvore 164066adaa4427eb94e8f217e128148c769ceef3 idêntica ao índice preparado, na branch main/base 6efc4c0. Controle incorporado ao mesmo commit antes do push normal autorizado. **Unidades prontas para commit:** nenhuma pendência desta entrega; referências abaixo a registros ainda não commitados são históricas e ficam substituídas por esta comprovação. **Contador:**135; último marco100/próximo200. Próximo passo: confirmar publicação no GitHub; esta operação não certifica novo deploy ou banco remoto. Hash definitivo e igualdade com origin/main serão confirmados no encerramento.
+
+## Estado atual — correção online do encerramento — v1.1.0 — 2026-10-15
+
+**Objetivo/aceite:** investigar e corrigir impossibilidade de encerrar Núcleo existente pelo aplicativo online. **Causa confirmada:** interface6efc4c0 publicada no Netlify, mas função close_nucleus e migração20261015120000 ausentes no Supabase remoto (oito migrações). **Correção:** migração versionada aplicada em transação pela API oficial e cache de esquema atualizado; agora nove migrações, conteúdo idêntico ao arquivo e permissões conferidas. Sem alteração de fontes/versão/deploy manual.
+
+**Validações:** oito grupos online com duas contas temporárias e formulário HTTP publicado: login, preparação de conteúdo, negativa a membro comum, nome incorreto, falta de ciência, encerramento correto, perda de acesso/convite e histórico preservado. Impressões digitais dos dados existentes iguais antes/depois da migração. Limpeza final: um Núcleo/dois vínculos reais preservados, zero contas temporárias closure. Não foi jornada integral por cliques. Autorrevisão operacional; sem nova revisão independente. Context7 PostgREST consultado; Superpowers depuração/verificação aplicados.
+
+**Próximo passo:** usuário atualizar a página e, como administrador, decidir se encerra o Núcleo real. SMTP/recuperação e demais limites do piloto não foram certificados. Branch main/6efc4c00d56b50c45cdb8fba11dd272ae82204f2; publicação Git anterior confirmada, agora banco alinhado à função de encerramento. **Contador:**134; último marco100/próximo200. **Unidade pronta para commit:** somente registros desta correção operacional; sugestão `docs(deploy): registrar correção e validação online do encerramento`. Nenhum novo commit/push. **Índice:** [registro](registros/registro-v1.1.0-2026-10-15-03-imp-correcao-online-fun-encerramento-nucleo.md), [manual](funcionalidades/administracao-manual.md), [contrato](funcionalidades/administracao-participacao.md), [histórico](historico.md). Os limites de migração remota nos marcos anteriores descrevem o estado antes desta correção.
+
 **Versão vigente do projeto:** 1.1.0
 
 **DOCS_DIR:** `Documentacao_Projeto_Nos`

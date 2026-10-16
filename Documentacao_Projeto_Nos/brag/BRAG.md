@@ -1,5 +1,9 @@
 # Brag document — Projeto Nós
 
+## 2026-10-15 — v1.1.0 — encerramento operacional online
+
+**Problema:** a interface publicada chamava uma função ainda ausente no banco remoto. **Contribuição:** diagnóstico entre Netlify/Supabase, aplicação transacional da migração já versionada e conferência de conteúdo/permissões, preservando dados existentes. **Resultado verificado:** oito grupos online aprovados pelo formulário publicado e consultas autenticadas; acesso e convites bloqueados após encerramento, histórico preservado. Fixture limpa e Núcleo real intacto. **Evidência:** [registro operacional](../_andamento/registros/registro-v1.1.0-2026-10-15-03-imp-correcao-online-fun-encerramento-nucleo.md). Não certifica demais controles do piloto.
+
 ## 2026-10-15 — v1.1.0 — encerramento coletivo com preservação da história
 
 **Problema:** administradores não podiam encerrar o espaço para todos. **Contribuição:** confirmação explícita, verificação transacional de administração, revogação de convites e retirada do acesso, preservando dados compartilhados e contas. **Resultado verificado:**24 verificações SQL novas,105 SQL totais e10 testes autenticados aprovados, incluindo concorrência e regressões de saída; Atlas sincronizado. **Benefício esperado:** controle administrativo mais claro, sem medição de uso. **Evidência:** [registro](../_andamento/registros/registro-v1.1.0-2026-10-15-imp-administracao-nucleo-fun-encerramento-coletivo.md). Publicação remota pendente.
