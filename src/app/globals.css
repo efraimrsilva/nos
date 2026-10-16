@@ -27,6 +27,7 @@ a { -webkit-tap-highlight-color: transparent; }
 .app-shell { min-height: 100svh; padding: max(24px, env(safe-area-inset-top)) max(22px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(22px, env(safe-area-inset-left)); }
 .brand-word { font-family: var(--font-display); font-size: 36px; letter-spacing: -2px; line-height: 1; }
 .welcome-grid { width: 100%; max-width: 1056px; margin-inline: auto; }
+.welcome-grid.content-layout { max-width: 672px; }
 /* Somente Conta reserva a barra para não mudar de largura ao alternar abas. */
 html:has(.account-page) { scrollbar-gutter: stable; }
 @media (min-width: 768px) {

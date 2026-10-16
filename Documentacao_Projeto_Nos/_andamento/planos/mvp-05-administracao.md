@@ -1,6 +1,10 @@
 # Plano — v1.0.0 — MVP 05 administração e participação
 
+Evolução compatível — v1.1.0 —15/10/2026: novo encerramento administrativo para todos em73, com preservação de histórico e contas; saída individual não foi substituída. Nova migração e publicação remotas pendentes. O plano1.0.0 abaixo permanece como marco original. [Registro](../registros/registro-v1.1.0-2026-10-15-imp-administracao-nucleo-fun-encerramento-coletivo.md).
+
 Status: implementado, revisado e validado localmente, 2026-10-14. Base main/9153223.
+
+Atualização operacional de15/10/2026: deploy e migrações remotas autorizados posteriormente e concluídos. Onze grupos online aprovados com duas contas descartáveis, sem mudar a versão1.0.0. As restrições de operação remota abaixo descrevem o escopo original do plano e foram substituídas exclusivamente para esta implantação pela autorização atual. SMTP, segredo de recuperação e demais controles pendentes não estão certificados. [Registro operacional](../registros/registro-v1.0.0-2026-10-15-02-imp-deploy-online-fun-administracao-participacao.md).
 
 Objetivo: implementar o contrato aprovado em [administração e participação](../funcionalidades/administracao-participacao.md), substituindo votação coletiva por gestão administrativa e consentimento individual.
 

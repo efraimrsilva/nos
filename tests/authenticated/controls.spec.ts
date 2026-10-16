@@ -54,7 +54,7 @@ test("gestão e saída exigem associação; suporte mostra contato aprovado", as
     await expect(page.getByRole("heading", { name: "404", exact: true })).toBeVisible();
   }
   await page.goto("/ajuda");
-  await expect(page.getByText("Sintagma Software", { exact: true })).toBeVisible();
+  await expect(page.getByRole("main").locator("p").filter({ hasText: /^Sintagma Software$/ })).toBeVisible();
   await expect(page.getByRole("link", { name: "sintagmasoftware@gmail.com", exact: true })).toHaveAttribute("href", "mailto:sintagmasoftware@gmail.com");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

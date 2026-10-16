@@ -1,4 +1,16 @@
-# Administração e participação — manual de teste — v1.0.0
+# Administração e participação — manual de teste — v1.1.0
+
+## Encerrar o Núcleo para todos — v1.1.0
+
+Use um Núcleo descartável no ambiente local com a migração20261015120000 aplicada.
+
+1. Como participante comum, confira que o controle de encerramento não aparece.
+2. Como administrador, abra Pessoas e administração → Encerrar Núcleo para todos → Quero encerrar este Núcleo. Fechar a confirmação sem enviar não altera o espaço.
+3. Tente confirmar com campos ausentes ou nome incorreto: nada deve ser encerrado. Após um envio com erro, preencha o nome e marque novamente a ciência.
+4. Digite o nome atual, marque ciência e confirme. O aplicativo volta a Seus Núcleos com mensagem; o Núcleo deixa de aparecer para todos.
+5. Nas duas contas, links antigos e convites devem negar acesso. Confira no banco local que histórico, contas e dados de outros Núcleos permaneceram. Sem reabertura na interface.
+
+Os passos de saída individual abaixo mantêm seu comportamento anterior. [Registro da entrega](../registros/registro-v1.1.0-2026-10-15-imp-administracao-nucleo-fun-encerramento-coletivo.md).
 
 Status: implementação funcional validada localmente, 2026-10-14. [Contrato](administracao-participacao.md). Não executar este roteiro em produção sem publicar código e aplicar a migração correspondente.
 
@@ -33,4 +45,4 @@ Status: implementação funcional validada localmente, 2026-10-14. [Contrato](ad
 
 Ajuda informa Sintagma Software e sintagmasoftware@gmail.com. Acesso, correção, exportação e exclusão são solicitações manuais; titularidade e terceiros devem ser protegidos. Não enviar senha, token ou conteúdo íntimo. O aplicativo não envia pedidos automaticamente, não oferece exclusão física automática e não promete prazo de atendimento/retenção.
 
-Termos e política completos, rotina operacional de atendimento/retenção, dispositivos, alteração de e-mail, chat, mídia e demais expansões têm espaço sinalizado. O item5 (SMTP/recebimento, segredo de recuperação, origens/HTTPS, limites/logs, backup/restauração e duas contas online) permanece adiado pelo Google. Teste local não comprova operação remota.
+Termos e política completos, rotina operacional de atendimento/retenção, dispositivos, alteração de e-mail, chat, mídia e demais expansões têm espaço sinalizado. Em15/10/2026, aplicação e migrações foram implantadas e onze grupos foram aprovados com duas contas temporárias online; HTTPS e origens também conferidos. SMTP/recebimento externo continuam adiados pelo Google; segredo de recuperação, verificação completa de limites/logs e backup/restauração integral ainda pendentes. O percurso central com contas confirmadas está disponível em [noslife.netlify.app](https://noslife.netlify.app), sem certificação de cadastro/recuperação externos ou liberação do piloto integral. [Evidências e limites](../registros/registro-v1.0.0-2026-10-15-02-imp-deploy-online-fun-administracao-participacao.md).

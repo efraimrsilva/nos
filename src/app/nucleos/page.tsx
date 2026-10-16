@@ -11,13 +11,13 @@ import { routes } from "@/shared/routes";
 
 export const metadata: Metadata = { title: "Seus Núcleos" };
 
-export default async function NucleiPage({ searchParams }: { searchParams: Promise<{ pagina?: string | string[] }> }) {
+export default async function NucleiPage({ searchParams }: { searchParams: Promise<{ pagina?: string | string[]; resultado?: string }> }) {
   const supabase = await createSupabaseServerClient();
   if (!supabase) redirect(routes.account);
   const { data: { user }, error: authError } = await supabase.auth.getUser();
   if (isNucleusAuthUnavailable(authError)) throw new Error("Não foi possível conferir a sessão agora.");
   if (!user) redirect(routes.account);
-  const { pagina } = await searchParams;
+  const { pagina, resultado } = await searchParams;
   const page = typeof pagina === "string" && /^[1-9]\d{0,3}$/.test(pagina) ? Number(pagina) : 1;
   const start = (page - 1) * 20;
   // A RLS retorna somente Núcleos com associação própria; ordenação estável evita misturar contextos.
@@ -27,6 +27,7 @@ export default async function NucleiPage({ searchParams }: { searchParams: Promi
   return <OnboardingShell>
     <p className="step-label mb-3 text-lilac">Seus vínculos</p>
     <h1 className="font-display text-[30px] font-medium leading-tight md:text-[38px]">Seus Núcleos</h1>
+    {resultado === "encerrado" && <p role="status" className="mt-4 rounded-xl border border-line bg-white p-4 text-sm text-leaf">Núcleo encerrado. Todos perderam acesso, os convites foram revogados e o histórico permanece armazenado.</p>}
     <p className="mt-3 text-sm leading-7 text-muted">Cada jardim tem sua própria história. Escolha o espaço que quer cuidar agora.</p>
     <p className="mt-3 flex items-center gap-2 text-xs text-muted"><LockKeyhole size={15} aria-hidden="true" />Apenas os Núcleos dos quais você participa aparecem aqui.</p>
     {nuclei.length ? <nav aria-label="Seus Núcleos" className="mt-6 flex flex-col gap-3">

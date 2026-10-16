@@ -1,4 +1,5 @@
 "use client";
+import { LoadingIndicator } from "@/shared/components/loading-indicator";
 
 import { useActionState, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
@@ -71,7 +72,7 @@ function CredentialsForm({ mode, next }: { mode: "signup" | "login"; next: strin
         <input key={state.revision} id="account-password" name="password" type="password" autoComplete={mode === "signup" ? "new-password" : "current-password"} className="mt-2 w-full rounded-[14px] border border-line px-4 py-3.5 text-sm" />
         {mode === "signup" && <div data-signup-extra className="flow-root"><p className="mt-2 text-xs leading-5 text-muted">{passwordHelp}</p></div>}
         {state.message && <p role={state.success ? "status" : "alert"} className={`mt-4 rounded-xl p-3 text-sm ${state.success ? "bg-[#eff3e6]" : "bg-[#fce9f1] text-[#9a3153]"}`}>{state.message}</p>}
-        <button disabled={pending} type="submit" className="continue-button mt-6 min-h-12 w-full rounded-2xl bg-forest px-5 py-3 text-sm font-semibold text-white disabled:opacity-60">{pending ? "Aguarde…" : mode === "signup" ? "Criar conta" : "Entrar"}</button>
+        <button disabled={pending} aria-busy={pending} type="submit" className="continue-button mt-6 min-h-12 w-full rounded-2xl bg-forest px-5 py-3 text-sm font-semibold text-white disabled:opacity-60">{pending ? <LoadingIndicator>Aguarde…</LoadingIndicator> : mode === "signup" ? "Criar conta" : "Entrar"}</button>
       </form>
   );
 }

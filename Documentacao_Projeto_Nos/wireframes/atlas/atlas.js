@@ -177,6 +177,10 @@ document.addEventListener('change',event=>{if(event.target.name==='nucleus-type'
 document.addEventListener('input',event=>{if(event.target.name==='invitation-code'){const panel=event.target.closest('.product-content');panel.querySelector('.invitation-preview').hidden=true;}});
 document.addEventListener('submit',event=>{
   const form=event.target.closest('[data-local-form]');if(!form)return;event.preventDefault();
+  if(form.dataset.localForm==='closure'){
+    form.querySelector('.local-feedback').textContent=form.elements['closure-name'].value.trim()==='Nosso jardim'?'Prévia: encerramento confirmado. No aplicativo, o destino é Seus Núcleos. Nenhum Núcleo real foi alterado.':'O nome informado não corresponde ao Núcleo de exemplo.';
+    return;
+  }
   if(form.dataset.localForm==='type'){onboardingType=form.elements['nucleus-type'].value;if(onboardingType)openScreen(8);}
   if(form.dataset.localForm==='purpose'){const name=form.elements['nucleus-name'].value.trim(),purpose=form.elements.purpose.value.trim();if(!name||!purpose){showToast('Preencha o nome e o propósito para conferir o rascunho.');return;}const content=form.closest('.product-content');content.querySelector('[data-draft-name]').textContent=name;content.querySelector('[data-draft-purpose]').textContent=purpose;form.hidden=true;content.querySelector('.purpose-draft').hidden=false;}
   if(form.dataset.localForm==='invitation'){if(!form.elements['invitation-code'].value.trim()){showToast('Cole um código para conferir a composição da prévia.');return;}form.closest('.product-content').querySelector('.invitation-preview').hidden=false;showToast('Convite de exemplo. Nenhum código foi consultado.');}

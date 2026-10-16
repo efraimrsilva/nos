@@ -1,12 +1,60 @@
 # Estado do Projeto Nós
 
-**Versão vigente do projeto:** 1.0.0
+**Versão vigente do projeto:** 1.1.0
 
 **DOCS_DIR:** `Documentacao_Projeto_Nos`
 
 **Atualizado:** 2026-10-15
 
-## Publicação Git autorizada — MVP05 — v1.0.0 — 2026-10-15
+## Publicação Git autorizada — v1.1.0 — 2026-10-15
+
+**Objetivo/aceite:** commit e push abrangentes de todo o trabalho local autorizado. **Situação:** inclusão das89 alterações comprovada no objeto Git inicial; controle incorporado ao mesmo commit antes do push normal autorizado. Branch main/base ebe8237; fetch confirmou igualdade0/0.124 arquivos de fontes/recursos/testes conferidos na cópia por SHA-256; tipos/build webpack e106 testes gerais aprovados novamente. Atlas controles/visão global/MVP aprovados;42 PNGs e200 frases sequenciais conferidos. Sem nova operação de banco/deploy.
+
+**Escopo:** encerramento administrativo, árvore opcional, layout de Conta, rodapé, carregamentos acessíveis, testes/migração, Atlas/galerias, conteúdo editorial e registros operacionais anteriores. Versão1.1.0 preservada. **Contador:**133; último marco100/próximo200. **Unidades prontas para commit:** nenhuma pendência desta entrega: encerramento, árvore opcional, rodapé/carregamentos, conteúdo editorial e registros operacionais incluídos no objeto inicial11707b907cb296e754ebb900670a5bec3e9ead7d, árvorea859683bfc855329e81cdabb1c16bc6e4c5ee974, com89 arquivos conferidos contra o índice. As menções de pendências nos marcos abaixo são históricas e estão substituídas por esta comprovação. Controle incorporado ao mesmo commit antes do push normal; hash definitivo/igualdade remota reportados no encerramento. **Próximo passo operacional:** aplicar a nova migração e verificar a função online mediante autorização; publicação Git não comprova deploy/banco. **Índice:** [registro desta publicação](registros/registro-v1.1.0-2026-10-15-02-imp-publicacao-git-fun-encerramento-interface.md); demais contratos/galerias no marco abaixo.
+
+## Entrega funcional — encerramento administrativo — v1.1.0 — 2026-10-15
+
+**Objetivo/aceite:** administrador encerra para todos, revoga convites e preserva histórico armazenado/contas. **Situação:** unidade funcional local concluída, revisada e validada. Branch main/base ebe8237. DOCS_DIR preservado; alterações locais anteriores reconhecidas e preservadas.
+
+**Arquivos/decisões:** tela73 Pessoas, ação de servidor, formulário compartilhado e retorno a Seus Núcleos; nova função close_nucleus em20261015120000, com validação de administração/nome após trava. Remove vínculos/nomeações e revoga convites, sem apagar conteúdo ou contas, sem sorteio ou reabertura. Atlas73, ficha/percursos/visão global, MVP05, galeria e contratos sincronizados; sem dependências novas.
+
+**Validações:** TDD com falha inicial de função ausente;105 testes SQL (24 novos),10 autenticados desktop/celular, typecheck e build webpack aprovados. Cópia temporária de produção comparada por SHA-256. Atlas73/MVP05 e visão global sem erros/overflow. Revisão independente estática e autorrevisão sem achados pendentes. Verificador histórico de fidelidade exige sessão, tentativa sem cookies não aprovada; fluxo novo conferido em testes autenticados/capturas.
+
+**Ferramentas:** Superpowers entendimento/TDD/depuração/revisão/verificação e checklist React; Context7 Supabase consultado; OctocodeCLI19.1.0 grafo sintático parcial complementado por leitura. Supabase/Docker locais; nova migração aplicada e histórico local alinhado. Nenhuma operação remota.
+
+**Fechamento:** zero contas temporárias routing/administration conferidas no banco; Supabase local encerrado com `backup=true`. Tipos reconferidos na versão1.1.0; manifestos coerentes,11 referências locais da galeria válidas e `git diff --check` aprovado. Verificadores de controles, visão global e MVP aprovados; revisão independente final de Atlas/testes sem novos achados. Serviços de desenvolvimento preexistentes preservados.
+
+**Limites/próximo passo:** publicar código e aplicar nova migração mediante autorização, depois comprovar online. Núcleo real não foi encerrado; produção permanece na versão publicada anterior. Sem tela de arquivo/reabertura ou nova política de retenção. **Contador:**132; último marco100/próximo200. **Unidade pronta para commit:** encerramento administrativo do Núcleo com preservação de histórico; sugestão `feat(nucleos): permitir encerramento administrativo com histórico preservado`. Pendências anteriores de árvore opcional e registros online continuam separadas; nenhum commit/push nesta tarefa.
+
+**Índice:** [registro](registros/registro-v1.1.0-2026-10-15-imp-administracao-nucleo-fun-encerramento-coletivo.md), [contrato](funcionalidades/administracao-participacao.md), [manual](funcionalidades/administracao-manual.md), [galeria](../wireframes/comparacoes/v1.1.0-2026-10-15-encerramento/index.html), [histórico](historico.md), [Brag](../brag/BRAG.md).
+
+## Marco anterior — árvore opcional — v1.0.1 — 2026-10-15
+
+**Objetivo/aceite:** remover painel ilustrado persistente após acesso, preservar árvore em Conta sem sessão e boas-vindas, sem coluna vazia. **Situação:** alteração visual local concluída; versão PATCH. Branch main/base ebe8237. DOCS_DIR preservado.
+
+**Decisões/arquivos:** OnboardingShell showTree=false, coluna 672px; Conta reutiliza getUser existente e exibe árvore apenas sem usuário; subpáginas de segurança recebem shell sem árvore. globals.css, páginas Conta, Atlas product-ui.js/product.css, manifestos e registros sincronizados. Rodapé, loading, auth-form e registros online preexistentes preservados.
+
+**Validações:** tipos, 36 testes Playwright desktop/mobile, 12 combinações públicas em 390/640/1440px (árvore/main/overflow), sintaxe JS, visão global Atlas73 telas sem erros/chamadas externas. Build de produção webpack aprovado (19 páginas estáticas e rotas dinâmicas geradas). Autorrevisão e revisão independente estática sem bloqueio. Não executada nova jornada autenticada com banco.
+
+**Ferramentas:** Superpowers entendimento/TDD proporcional/revisão/verificação; Context7 padrão de renderização condicional compatível (sem React19.3 exato no catálogo); OctocodeCLI19.1.0 grafo parcial complementado por busca local. Sem novas dependências.
+
+**Próximo passo:** conferir com conta confirmada e publicar apenas mediante autorização. Sem operação remota nesta interação. **Contador:**130; último marco100/próximo200. **Unidades prontas para commit:** (1) ajuste visual árvore opcional, sugestão `fix(ui): reservar árvore à entrada e centralizar telas internas`; (2) registros operacionais/alterações locais anteriores continuam pendentes e não foram incorporados em commit nesta tarefa. **Índice:** [registro](registros/registro-v1.0.1-2026-10-15-imp-layout-interno-fun-arvore-opcional.md), [galeria](../wireframes/comparacoes/v1.0.1-2026-10-15-arvore/index.html), [histórico](historico.md), [Brag](../brag/BRAG.md).
+
+## Marco anterior — deploy online — v1.0.0 — 2026-10-15
+
+**Objetivo/aceite:** tornar funcional o link online com aplicação e banco compatíveis e comprovar o percurso com duas contas descartáveis. **Resultado:** aplicativo publicado em [noslife.netlify.app](https://noslife.netlify.app), Netlify deploy `6ad055c8a42c00493a8198b9`, branch main/commit `ebe823727a1c609e031a0193d8d6f860ef999884`. Versão1.0.0 preservada, sem alteração de fontes. Os marcos abaixo documentam o estado anterior à operação atual.
+
+**Banco:** duas migrações pendentes aplicadas conjuntamente pela API oficial Supabase; oito versões remotas, conteúdo das novas migrações idêntico aos arquivos locais. Um Núcleo e dois membros existentes preservados; criador convertido em administrador. Snapshot seletivo criptografado local antes da operação; não substitui backup integral nem certifica restauração.
+
+**Validações novas:** onze grupos online aprovados: HTTPS/sessão, login de duas contas pelo formulário, convite, nomeação com aceite, páginas reais, preferência salva pelo site, proposta/participação/teste/momento, termos com novo aceite/ativação sem votação, saída com sucessão e autoria oculta, encerramento e logout. Formulários HTTP e chamadas autenticadas ao banco; não alegar execução integral por cliques. Núcleo e contas de teste removidos, zero contas temporárias. Origem/callbacks de autenticação conferidos. Autorrevisão dos registros e diff; nenhuma nova revisão independente nesta operação.
+
+**Pendências/bloqueios:** SMTP próprio ainda desativado pelo adiamento Google; recebimento externo não certificado. `AUTH_RECOVERY_SECRET` ainda ausente no Netlify. Backup/restauração integral, limites/logs completos, termos/política e rotina de direitos/retenção continuam pendentes. HTTPS e duas contas online deixaram de ser pendências. Piloto integral não liberado; uso central com contas confirmadas comprovado.
+
+**Ferramentas:** Netlify via navegador autenticado, Supabase CLI2.118.0 e API oficial com credencial existente no cofre Windows. A CLI travou ao gerar login temporário do banco; API concluiu transação e conferência. Node com certificados do sistema, sem desativar validação TLS. Nenhuma credencial incluída em registros.
+
+**Próximo passo:** usar o link com conta confirmada; retomar SMTP/recuperação após Google liberar e concluir controles operacionais restantes. **Contador:**129; último marco100/próximo200. **Unidade pronta para commit:** registros da implantação e comprovação online; sugestão `docs(deploy): registrar implantação e validação online do MVP 05`. Não houve novo commit/push. **Índice:** [registro operacional](registros/registro-v1.0.0-2026-10-15-02-imp-deploy-online-fun-administracao-participacao.md), [manual](funcionalidades/administracao-manual.md), [plano](planos/mvp-05-administracao.md), [histórico](historico.md), [Brag](../brag/BRAG.md).
+
+## Marco anterior — publicação Git autorizada — MVP05 — v1.0.0 — 2026-10-15
 
 Usuário autorizou commit/push abrangentes desta unidade funcional. Branch main/base9153223, fetch confirmou igualdade0/0.135 arquivos de código/testes/scripts/manifestos/configurações idênticos à cópia de validação; tipos,106 testes gerais/build de produção e seis verificadores Atlas aprovados novamente.167 caminhos literais,80 PNGs e674 referências locais conferidos. Objeto inicial conferido; controle incorporado ao mesmo commit lógico antes do push normal autorizado. Confirmação do hash remoto no encerramento. Nenhuma pendência de commit desta unidade. Inclusão comprovada no objeto inicial3c71eb584952d52dee5172a88127c6823fa88a51, árvore16c01439fb6694f4a7d3854d289aaa740fb91d23 idêntica ao índice preparado;167 caminhos literais,162 arquivos no diff com cinco renomeações integrais e80 imagens. Pendência retirada somente após essa conferência. Controle incorporado ao mesmo commit lógico antes do push normal. Hash definitivo e igualdade remota de main reportados no encerramento. [Registro de publicação](registros/registro-v1.0.0-2026-10-15-imp-publicacao-git-fun-administracao-participacao.md). Sem incremento de versão, deploy ou operação remota de banco/configuração. Contador128; último marco100/próximo200.
 

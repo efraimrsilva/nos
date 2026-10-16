@@ -1,5 +1,17 @@
 # Brag document — Projeto Nós
 
+## 2026-10-15 — v1.1.0 — encerramento coletivo com preservação da história
+
+**Problema:** administradores não podiam encerrar o espaço para todos. **Contribuição:** confirmação explícita, verificação transacional de administração, revogação de convites e retirada do acesso, preservando dados compartilhados e contas. **Resultado verificado:**24 verificações SQL novas,105 SQL totais e10 testes autenticados aprovados, incluindo concorrência e regressões de saída; Atlas sincronizado. **Benefício esperado:** controle administrativo mais claro, sem medição de uso. **Evidência:** [registro](../_andamento/registros/registro-v1.1.0-2026-10-15-imp-administracao-nucleo-fun-encerramento-coletivo.md). Publicação remota pendente.
+
+## 2026-10-15 — v1.0.1 — foco no conteúdo interno
+
+**Problema:** ilustração persistente ocupava espaço nas tarefas após login. **Contribuição:** árvore opcional por padrão e coluna central; acesso preservado, Atlas sincronizado. **Resultado verificado:** 36 testes e 12 combinações públicas de rota/largura aprovados, sem overflow horizontal. **Benefício esperado:** menos distração durante as tarefas; sem medição de usabilidade. **Evidência:** [registro](../_andamento/registros/registro-v1.0.1-2026-10-15-imp-layout-interno-fun-arvore-opcional.md).
+
+## 2026-10-15 — v1.0.0 — Administração e participação funcionais online
+
+Problema: aplicativo publicado exigia contratos ainda ausentes no banco remoto. Contribuição: implantação coordenada das duas migrações pendentes, conferência do deploy e teste isolado com duas contas. Resultado verificado: onze grupos online aprovados, histórico remoto alinhado aos arquivos, Núcleo e dois membros existentes preservados; contas de teste removidas. Benefício esperado: permitir uso central por contas confirmadas; sem medição de uso. Cadastro/recuperação por e-mail, backup/restauração e piloto integral continuam pendentes. [Evidência](../_andamento/registros/registro-v1.0.0-2026-10-15-02-imp-deploy-online-fun-administracao-participacao.md).
+
 ## 2026-10-14 — v1.0.0 — Administração simples com consentimento individual
 
 Problema: votação coletiva, saída bloqueada e ausência de gestão impediam executar o comportamento aprovado. Contribuição: administração compartilhada, nomeações aceitas, sorteio/fechamento atômicos, saída confirmada, preferência de autoria e acordos com gestão administrativa/novo aceite por versão. Resultado verificado:81 testes SQL,81 autenticados/um dispensado e106 gerais aprovados; isolamento, concorrência, reentrada e proteção da autoria exercitados.68 casos passaram após oito migrações do zero. Atlas73telas/80capturas e registros sincronizados. Benefício esperado, sem medição de uso: menos decisões coletivas e menor atrito. Operação do piloto continua pendente. [Evidência](../_andamento/registros/registro-v1.0.0-2026-10-14-13-imp-administracao-nucleo-fun-participacao-individual.md).

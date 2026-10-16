@@ -47,5 +47,18 @@ export default async function PeoplePage({ params, searchParams }: { params: Pro
     </ControlActionForm></ControlSection>}
     <ControlSection title="Quando alguém sai"><p>A saída não cancela acordos. Se o último administrador sair, uma pessoa restante será sorteada para administrar. Se não houver participantes restantes, o Núcleo será encerrado e seus convites revogados.</p></ControlSection>
     <Link href={`/nucleos/${id}/sair`} className="inline-flex min-h-11 items-center font-semibold text-leaf underline">Sair deste Núcleo</Link>
+    {isAdmin && <ControlSection title="Encerrar Núcleo para todos">
+      <p>Todos perderão acesso a este Núcleo, inclusive os administradores. Os convites serão revogados. Acordos, momentos e agenda permanecerão armazenados, sem acesso pelos antigos participantes. As contas das pessoas não serão apagadas.</p>
+      <p>Não há opção de reabrir o Núcleo pelo aplicativo. Se deseja apenas deixar de participar, use “Sair deste Núcleo”.</p>
+      <details className="mt-3 rounded-xl border border-red-200 p-4">
+        <summary className="min-h-11 cursor-pointer font-semibold text-red-800">Quero encerrar este Núcleo</summary>
+        <ControlActionForm action={manageNucleus.bind(null, id, "close", null)} label="Encerrar Núcleo" pendingLabel="Encerrando..." danger confirmation="Entendi que todos perderão acesso, os convites serão revogados e o histórico permanecerá armazenado.">
+          <label className="grid gap-1">Digite o nome do Núcleo para confirmar: {nucleus.name}
+            <input name="confirmationName" required maxLength={80} autoComplete="off" className="min-h-11 rounded-xl border border-line px-3" />
+          </label>
+        </ControlActionForm>
+        <p className="mt-3 text-sm">Para cancelar, feche esta confirmação ou volte ao Início. Nada é alterado antes de confirmar o encerramento.</p>
+      </details>
+    </ControlSection>}
   </ControlsShell>;
 }

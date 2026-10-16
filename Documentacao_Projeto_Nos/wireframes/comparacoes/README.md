@@ -1,5 +1,9 @@
 # Comparações de telas — procedimento permanente
 
+**Entrega local vigente: v1.1.0.** [Encerramento administrativo — 15/10/2026](v1.1.0-2026-10-15-encerramento/index.html): Atlas73 e MVP05 antes/depois, aplicativo autenticado em desktop/celular. Exemplos temporários locais; sem dados reais de produção.
+
+**Entrega local vigente: v1.0.1.** [Árvore opcional — 15/10/2026](v1.0.1-2026-10-15-arvore/index.html): 20 capturas Atlas antes/depois e 12 imagens reais de acesso em três larguras.
+
 - [v0.16.0 — MVP05 controles e orientação](v0.16.0-2026-10-13-mvp-05-tela_66-tela_67-tela_69-tela_70-tela_71/index.html): cinco telas novas e entradas12/13; antes/depois Atlas desktop/mobile, app autenticado com exemplos locais. Sem app anterior às novas rotas. Saída efetiva permanece planejada.
 
 **v0.15.2 — MVP04 — 2026-10-13:** [galeria](v0.15.2-2026-10-13-mvp-04-tela_14-tela_16-tela_15-tela_17/index.html):26 capturas, Atlas14/16/15/17 antes/depois e MVP desktop/mobile, app real edição/confirmação/vazio com reservas. Antes06edf58; fixtures locais limpas. Script `scripts/capture-mvp-agenda-atlas.mjs` e testes autenticados de agenda.

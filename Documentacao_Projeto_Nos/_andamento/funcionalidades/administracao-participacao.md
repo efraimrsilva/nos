@@ -1,4 +1,6 @@
-# Administração e participação — contrato implementado — v1.0.0
+# Administração e participação — contrato implementado — v1.1.0
+
+Atualização de15/10/2026 — v1.1.0: encerramento administrativo aprovado e validado localmente. A administração original foi publicada online em15/10; o novo encerramento ainda exige migração/publicação. [Registro](../registros/registro-v1.1.0-2026-10-15-imp-administracao-nucleo-fun-encerramento-coletivo.md). Os marcos anteriores abaixo descrevem a entrega de14/10.
 
 Data: 2026-10-14. Status: implementação funcional validada localmente. Administração e participação são o comportamento vigente do código; publicação, aplicação da migração remota e operação do piloto continuam pendentes.
 
@@ -8,6 +10,7 @@ Data: 2026-10-14. Status: implementação funcional validada localmente. Adminis
 |---|---|
 | Administração | Quem cria inicia como administrador. Pode haver vários administradores com os mesmos poderes. |
 | Poderes | Gerenciar convites e revogação, remover participantes, ajustar nome/propósito e nomear/destituir administradores. Ações sensíveis pedem confirmação. |
+| Encerramento administrativo | Qualquer administrador pode encerrar para todos, com nome atual digitado e ciência explícita. Revogar convites, retirar todos os vínculos e registrar fechamento na mesma transação; preservar histórico armazenado e contas. Não há reabertura pelo aplicativo. A saída individual permanece distinta. Nova função validada localmente; migração/publicação remotas pendentes. |
 | Nomeação comum | A pessoa nomeada aceita o papel antes de assumi-lo. |
 | Saída do último administrador | Sortear no servidor um dos participantes que permanecerem e atribuir a administração automaticamente. É a exceção explicitamente escolhida pelo usuário ao aceite da nomeação comum. Não criar eleição ou votação. |
 | Entrada/saída | Entrada por aceite explícito de convite; qualquer pessoa pode sair. Saída ou remoção revoga acesso próprio e possibilidade de gravar no Núcleo. |

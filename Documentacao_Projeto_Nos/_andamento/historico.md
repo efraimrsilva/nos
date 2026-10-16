@@ -1,5 +1,21 @@
 # Histórico de andamento
 
+## 2026-10-15 — v1.1.0 — publicação Git abrangente autorizada
+
+Preparação de commit/push do encerramento, interface/árvore/rodapé/carregamento, Atlas,200 frases autorais e registros pendentes. Tipos/build e106 testes gerais reconferidos sobre cópia idêntica dos fontes; três verificadores Atlas aprovados. Sem incremento de versão ou operação remota de banco. Inclusão de89 arquivos comprovada no objeto inicial11707b907cb296e754ebb900670a5bec3e9ead7d; controle incorporado ao mesmo commit antes do push normal autorizado. Hash definitivo/igualdade remota reportados no fechamento. [Registro](registros/registro-v1.1.0-2026-10-15-02-imp-publicacao-git-fun-encerramento-interface.md).
+
+## 2026-10-15 — v1.1.0 — encerramento administrativo do Núcleo (local)
+
+Administrador pode encerrar para todos com nome e ciência explícita; banco valida papel sob trava, revoga convites e remove acesso sem apagar história ou contas.105 testes SQL,10 autenticados desktop/celular, tipos/build webpack e verificadores Atlas/visão global aprovados. Autorrevisão e revisão independente estática sem bloqueios. Alterações locais anteriores preservadas; sem commit/push/deploy ou migração remota. [Registro](registros/registro-v1.1.0-2026-10-15-imp-administracao-nucleo-fun-encerramento-coletivo.md).
+
+## 2026-10-15 — v1.0.1 — árvore opcional (local)
+
+Painel ilustrado removido por padrão da estrutura compartilhada; Conta sem sessão e boas-vindas preservadas. Conteúdo central até 672px. Tipos, 36 testes, 12 combinações visuais públicas e visão global Atlas aprovados; revisão independente sem bloqueios. [Registro](registros/registro-v1.0.1-2026-10-15-imp-layout-interno-fun-arvore-opcional.md). Sem commit/push/deploy.
+
+## 2026-10-15 — v1.0.0 — Implantação e comprovação online autorizadas
+
+Deploy Netlify `6ad055c8a42c00493a8198b9`, commit `ebe823727a1c609e031a0193d8d6f860ef999884`, confirmado publicado. Aplicadas as duas migrações administrativas pendentes numa transação: oito versões remotas, arquivos conferidos, Núcleo e dois membros existentes preservados. Onze grupos online aprovados com duas contas descartáveis, incluindo formulários de login/preferência/saída/logout e regras de consentimento/administração; limpeza confirmada. HTTPS/origens conferidos. SMTP/recebimento, segredo de recuperação, backup/restauração integral e controles restantes continuam pendentes; piloto integral não liberado. Sem alteração de código, versão ou novo commit/push. [Registro](registros/registro-v1.0.0-2026-10-15-02-imp-deploy-online-fun-administracao-participacao.md).
+
 ## 2026-10-15 — v1.0.0 — Publicação Git da administração autorizada
 
 Commit/push abrangentes solicitados pelo usuário. main/base9153223 alinhada ao origin/main após fetch. Publicar código, migração, testes, Atlas/galeria e documentação como unidade atômica, preservando a versão1.0.0. Inclusão comprovada no objeto inicial3c71eb584952d52dee5172a88127c6823fa88a51 e árvore preparada16c01439fb6694f4a7d3854d289aaa740fb91d23; controle incorporado antes do envio normal autorizado. Hash definitivo/igualdade remota reportados no encerramento. Publicação não certifica deploy ou migração remota. [Registro](registros/registro-v1.0.0-2026-10-15-imp-publicacao-git-fun-administracao-participacao.md).

@@ -1,5 +1,4 @@
-import { OnboardingShell } from "@/features/onboarding/components/onboarding-shell";
-
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <OnboardingShell>{children}</OnboardingShell>;
+  // Cada página escolhe o shell; Conta já conhece a sessão e decide sobre a árvore.
+  return children;
 }
