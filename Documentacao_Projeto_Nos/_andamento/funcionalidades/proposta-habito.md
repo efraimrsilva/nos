@@ -1,5 +1,7 @@
 # Proposta de Hábito — Percurso 05 — v1.0.0
 
+**Fluxo completo aprovado — v1.1.0 — 18/10/2026:** [Proposta → Hábito → Experiência → Essência](fluxo-proposta-habito-experiencia-essencia.md) é a sequência obrigatória da evolução da pessoa. Propor Experiência diretamente pertence ao modelo implementado anterior. Critérios das três passagens, dados individuais, adequação do código e legado pendentes; marcos históricos abaixo preservados.
+
 **Modelo implementado localmente — v1.0.0 — 14/10/2026:** [administração e participação](administracao-participacao.md) é o contrato vigente. Administração compartilhada, escolha individual, novo aceite por versão, saída com história preservada e preferência de autoria estão implementados. Sem votação coletiva ou cancelamento de acordo por saída. [Manual de teste](administracao-manual.md). Publicação, migração remota e operação do piloto permanecem pendentes.
 
 ## Histórico do modelo anterior — até v0.16.0

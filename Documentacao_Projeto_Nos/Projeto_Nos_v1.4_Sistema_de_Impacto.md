@@ -1,5 +1,7 @@
 ﻿# Projeto Nós - Sistema de Impacto dos Compromissos (Versão 1.4)
 
+**Fluxo completo aprovado — aplicativo v1.1.0 — 18/10/2026:** seguir o [contrato Proposta → Hábito → Experiência → Essência](_andamento/funcionalidades/fluxo-proposta-habito-experiencia-essencia.md). A ordem é obrigatória por pessoa e substitui categorias independentes e saltos. Critérios das passagens e implementação pendentes; limites, consentimento e compatibilização de Essência estão centralizados no contrato.
+
 ## Categoria
 **1.x - Visão e Regras de Negócio**
 
@@ -523,7 +525,7 @@ Após pelo menos 6 meses de prática, revisões positivas e consenso total dos m
 
 O Sistema de Impacto será implementado como atributo dos compromissos, não como nova categoria.
 
-As três categorias principais permanecem:
+Os três agrupamentos de apresentação permanecem, com esta leitura atualizada: o fluxo obrigatório é Proposta → Hábito → Experiência → Essência. A representação é da evolução individual; os critérios das três passagens dependem de contrato próprio. A lista não autoriza entrada independente em Experiência:
 
 - Hábitos que Queremos Construir
 - Experiências que Queremos Viver

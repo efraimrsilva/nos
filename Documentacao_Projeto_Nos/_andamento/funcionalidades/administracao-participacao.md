@@ -1,5 +1,7 @@
 # Administração e participação — contrato implementado — v1.1.0
 
+**Fluxo aprovado, adequação pendente — v1.1.0 — 18/10/2026:** [Proposta → Hábito → Experiência → Essência](fluxo-proposta-habito-experiencia-essencia.md) é a sequência obrigatória da evolução da pessoa. A direção substitui categorias independentes e saltos no desenho futuro, mas não reintroduz votação coletiva nem altera os aceites individuais. Critérios de cada passagem e compatibilização de Essência pendentes. O código atual ainda permite proposta direta de Experiência; isso exige adequação posterior.
+
 **Atualização operacional — v1.1.0 — 15/10/2026:** migração de encerramento aplicada no ambiente publicado, conteúdo/permissões conferidos e formulário online comprovado com duas contas descartáveis em oito grupos. Atualizar a página e usar a conta administradora. O Núcleo real permanece intacto; encerrá-lo é decisão do usuário. [Registro](../registros/registro-v1.1.0-2026-10-15-03-imp-correcao-online-fun-encerramento-nucleo.md). Limites de publicação/migração mencionados nos marcos anteriores ficam substituídos para esta função.
 
 Atualização de15/10/2026 — v1.1.0: encerramento administrativo aprovado e validado localmente. A administração original foi publicada online em15/10; o novo encerramento ainda exige migração/publicação. [Registro](../registros/registro-v1.1.0-2026-10-15-imp-administracao-nucleo-fun-encerramento-coletivo.md). Os marcos anteriores abaixo descrevem a entrega de14/10.

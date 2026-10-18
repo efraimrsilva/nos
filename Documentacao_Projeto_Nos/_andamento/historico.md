@@ -1,5 +1,15 @@
 # Histórico de andamento
 
+## 2026-10-18 — v1.1.0 — publicação Git autorizada do fluxo completo
+
+Autorizados commit e push abrangentes da unidade documental Proposta → Hábito → Experiência → Essência, com contratos, referências, roteiro e fichas do Atlas. Base main/69888b8, fetch inicial0/0. Validações e prova de inclusão no objeto Git registradas em [estado](estado.md) e no [registro da unidade](registros/registro-v1.1.0-2026-10-18-imp-documentacao-acordos-fun-fluxo-proposta-habito-experiencia-essencia.md). Sem incremento de versão, nova implementação ou operação remota de banco/deploy.
+
+
+## 2026-10-18 — v1.1.0 — decisão documental do fluxo completo de Acordos
+
+Autorizada e documentada a ordem Proposta → Hábito → Experiência → Essência, referente à evolução da pessoa na prática apoiada pelo Núcleo. Categorias independentes e saltos ficam superados para o desenho futuro; gestão administrativa/aceite individual preservados, sem retorno de votação coletiva. Significados das quatro etapas, limites e critérios pendentes centralizados no [contrato](funcionalidades/fluxo-proposta-habito-experiencia-essencia.md); visão, dados, fluxos e Atlas referenciam a decisão. [Registro](registros/registro-v1.1.0-2026-10-18-imp-documentacao-acordos-fun-fluxo-proposta-habito-experiencia-essencia.md). Evento documental; aplicativo, banco e versão preservados. Sintaxe e três verificadores Atlas aprovados,73 telas preservadas;924 referências locais sem quebra. Revisão independente concluída após corrigir retorno da promoção e objetivo do roteiro; resultados no estado.
+
+
 ## 2026-10-15 — v1.1.0 — correção operacional do encerramento online
 
 Deploy automático6ad17f6c7f65114f0602d866/6efc4c0 já publicado; função de encerramento ausente no banco remoto. Aplicada somente migração20261015120000, com histórico transacional e conteúdo conferido, elevando a nove migrações. Dados existentes preservados; oito grupos online aprovados pelo formulário/consultas com duas contas descartáveis, limpas ao final. Núcleo real não encerrado. Sem alteração de código/versão ou novo commit/push. [Registro](registros/registro-v1.1.0-2026-10-15-03-imp-correcao-online-fun-encerramento-nucleo.md).

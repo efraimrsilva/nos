@@ -1,5 +1,7 @@
 ﻿# Projeto Nós - Fluxos, Navegação e Interações (Versão 2.2)
 
+**Fluxo completo aprovado — aplicativo v1.1.0 — 18/10/2026:** seguir o [contrato Proposta → Hábito → Experiência → Essência](_andamento/funcionalidades/fluxo-proposta-habito-experiencia-essencia.md). A ordem é obrigatória por pessoa e substitui categorias independentes e saltos. Critérios das passagens e implementação pendentes; limites, consentimento e compatibilização de Essência estão centralizados no contrato.
+
 ## Categoria
 **2.x - Interface e Implementação**
 
@@ -314,15 +316,17 @@ Mostrar o estado atual do Núcleo e conduzir a pequenas ações de cuidado.
 - tocar em hábito abre detalhe;
 - tocar em experiência abre detalhe de experiência;
 - tocar em item de Essência abre detalhe da prática consolidada;
-- botão adicionar abre Novo acordo.
+- botão adicionar inicia a Proposta; o percurso continua em Hábito → Experiência → Essência, sem criação independente de Experiência ou salto para Essência; implementação pendente.
 
 ### Regras
 
-- categorias não devem ser misturadas visualmente;
+- Proposta → Hábito → Experiência → Essência é uma sequência obrigatória por pessoa; o desenho deve distinguir etapa individual de situação operacional do acordo;
 - Essência deve ter tratamento mais identitário e menos operacional;
 - acordos pendentes devem indicar que aguardam aceite.
 
 ## 5.2 Novo acordo
+
+As etapas de necessidade, conversa e definição de termos abaixo descrevem a preparação da Proposta. Elas não substituem os quatro degraus de evolução aprovados: Proposta → Hábito → Experiência → Essência. A relação com teste, ativação e confirmação de cada passagem ainda exige contrato.
 
 ### Etapas oficiais
 

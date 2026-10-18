@@ -1,5 +1,10 @@
 # Brag document — Projeto Nós
 
+## 2026-10-18 — v1.1.0 — direção única para o fluxo de Acordos
+
+**Problema:** documentação tratava Hábito e Experiência como categorias independentes, divergindo da sequência esclarecida pelo usuário. **Contribuição:** contrato único para Proposta → Hábito → Experiência → Essência, com avanço individual, distinção do ciclo operacional, limites de autorização e dependências de implementação; referências conceituais e Atlas sincronizados. **Resultado documental:** regra e pendências rastreáveis, com critérios de passagem não presumidos e separação entre decisão e funcionalidade disponível. **Benefício esperado, não medido:** reduzir interpretações incompatíveis em futuras implementações. **Evidência:** [contrato](../_andamento/funcionalidades/fluxo-proposta-habito-experiencia-essencia.md) e [registro](../_andamento/registros/registro-v1.1.0-2026-10-18-imp-documentacao-acordos-fun-fluxo-proposta-habito-experiencia-essencia.md). Sem nova funcionalidade ou migração.
+
+
 ## 2026-10-15 — v1.1.0 — encerramento operacional online
 
 **Problema:** a interface publicada chamava uma função ainda ausente no banco remoto. **Contribuição:** diagnóstico entre Netlify/Supabase, aplicação transacional da migração já versionada e conferência de conteúdo/permissões, preservando dados existentes. **Resultado verificado:** oito grupos online aprovados pelo formulário publicado e consultas autenticadas; acesso e convites bloqueados após encerramento, histórico preservado. Fixture limpa e Núcleo real intacto. **Evidência:** [registro operacional](../_andamento/registros/registro-v1.1.0-2026-10-15-03-imp-correcao-online-fun-encerramento-nucleo.md). Não certifica demais controles do piloto.

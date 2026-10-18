@@ -1,5 +1,51 @@
 # Estado do Projeto Nós
 
+## Publicação Git autorizada — fluxo completo de Acordos — v1.1.0 — 2026-10-18
+
+**Objetivo e autorização:** commit e push da unidade documental que define Proposta → Hábito → Experiência → Essência e sincroniza os documentos e o Atlas. Publicação autorizada pelo usuário nesta interação. Sem implantação do aplicativo, operação de banco ou incremento de versão.
+
+**Situação:** inclusão dos 23 arquivos conferida no commit inicial 385321b4547b169cd658bfb6a8231f5dc1850f47, árvore 24a62597f3c42d40e97003898e13793ce49080bd, idêntica ao índice preparado. Branch main/base 69888b8; fetch origin confirmou divergência 0/0 antes da preparação. Controle incorporado à mesma unidade antes do push normal autorizado.
+
+**Descrição abrangente:** ordem obrigatória e evolução por pessoa; significado das quatro etapas; distinção do ciclo operacional; consentimento, gestão e legado; critérios das três passagens ainda pendentes; visão, fluxo, catálogo, dados, roteiro e Atlas coerentes; histórico de decisões preservado e implementação não presumida.
+
+**Validações desta publicação:** 929 referências locais conferidas; sintaxe dos dois arquivos JavaScript aprovada; verificadores de MVP, visão global e percurso 05 aprovados com 73 telas preservadas e nenhum erro ou chamada externa; git diff --check aprovado. Autorrevisão do diff e revisão independente da unidade documental concluídas. Não há alteração de fontes do aplicativo, migrações, dependências ou manifestos; validação concentrada na documentação e no Atlas.
+
+**Contador de interações registradas:**138:136 da entrega anterior, uma solicitação de redação atendida e esta publicação. Último marco100/próximo200.
+
+**Unidades prontas para commit:** nenhuma pendência desta entrega. A inclusão foi comprovada no objeto Git acima; as referências a esta unidade ainda não commitada nos marcos anteriores ficam substituídas por essa comprovação.
+
+**Próximo passo executável:** confirmar o hash definitivo e a igualdade com origin/main após o push; em seguida, aplicar a redação sugerida no Como funciona do Kanban, conforme solicitação posterior do usuário.
+
+**Índice:** [contrato completo](funcionalidades/fluxo-proposta-habito-experiencia-essencia.md), [registro da unidade e publicação](registros/registro-v1.1.0-2026-10-18-imp-documentacao-acordos-fun-fluxo-proposta-habito-experiencia-essencia.md) e [histórico](historico.md).
+
+
+## Direção vigente — fluxo completo de Acordos — v1.1.0 — 2026-10-18
+
+**Objetivo e escopo:** documentar a decisão autorizada Proposta → Hábito → Experiência → Essência como ordem obrigatória da evolução da pessoa na prática apoiada pelo Núcleo. Inclui significado das quatro etapas, limites, substituição de categorias independentes, referências conceituais e roteiro/Atlas. Não inclui implementação de fontes do produto, banco, migração ou mudança de votação.
+
+**Critérios de aceite:** sequência e caráter individual explícitos; sem entrada direta em Experiência nem salto para Essência no novo desenho; distinguir evolução de situação operacional; registrar critérios de transição ainda abertos e incompatibilidade do formulário atual; preservar história e inventário; referências e verificadores documentais aprovados.
+
+**Situação:** entrega documental concluída, revisada e validada. Progresso individual e transições ainda não implementados. A versão do aplicativo permanece **1.1.0**; não incrementar por edição documental. **DOCS_DIR:** Documentacao_Projeto_Nos. **Git:** main, base 69888b8; checkout inicialmente limpo. Na entrega documental original não houve autorização de commit/push/deploy; o commit e push desta unidade foram autorizados no marco de publicação acima.
+
+**Decisões:** Proposta é entrada; Hábito e Experiência são degraus da mesma prática; Essência vem depois de Experiência. A pessoa é a referência do avanço; não promover todos por inferência. Aceites individuais e gestão administrativa sem votação coletiva preservados. Critérios antigos de Essência exigem compatibilização; tempo/limiares não foram definidos nesta autorização.
+
+**Bloqueios e pendências funcionais:** fechar as três passagens, confirmação/consentimento, evidências/histórico individual, representação de pessoas em etapas diferentes, exceções e legado. O aplicativo atual ainda permite propor habit/experience diretamente; não está adaptado ao novo percurso.
+
+**Próximo passo executável:** definir com o usuário os critérios das três passagens, seus responsáveis/consentimentos e evidências individuais; depois, detalhar dados, legado e implementação em escopo próprio.
+
+**Validações:**924 referências locais de21 arquivos Markdown alterados/novos conferidas, sem links quebrados; sintaxe dos dois arquivos JavaScript do Atlas e git diff --check aprovados. Verificadores MVP/Visão global/percurso05 aprovados após as correções;73 telas e atribuição única preservadas, sem erros de navegador ou chamadas externas. Autorrevisão e revisão independente concluídas; dois achados do Atlas/roteiro corrigidos e reconferidos. Não executados testes de aplicativo/banco: fontes do produto, migrações, dependências e manifestos preservados.
+
+**Contador de interações registradas:**136, a partir do último valor persistido135. Interações anteriores de laboratório/auditoria dispensadas de documentação não foram reconstituídas ou contadas retroativamente. Último marco de over-engineering100; próximo200.
+
+**Unidade pronta para commit:** documentação do fluxo individual Proposta → Hábito → Experiência → Essência, com referências e Atlas. Sugestão: docs(acordos): definir fluxo individual de proposta a essência. A unidade permanece não commitada; confirmar sua inclusão no objeto Git antes de remover esta pendência.
+
+**Ferramentas desta entrega:** skills locais de planejamento, revisão e verificação disponíveis e aplicadas. Pesquisa documental local; sem necessidade de documentação de bibliotecas ou pesquisa avançada de dependências. Nenhuma instalação/configuração de ferramenta foi alterada.
+
+**Índice desta decisão:** [contrato completo](funcionalidades/fluxo-proposta-habito-experiencia-essencia.md), [registro](registros/registro-v1.1.0-2026-10-18-imp-documentacao-acordos-fun-fluxo-proposta-habito-experiencia-essencia.md), [administração](funcionalidades/administracao-participacao.md), [manual do comportamento atual](funcionalidades/administracao-manual.md), [proposta](funcionalidades/proposta-habito.md), [roteiro](planos/mvp.md), [guia do Atlas](../wireframes/GUIA.md), [cobertura](../wireframes/COBERTURA.md), [fidelidade](../wireframes/FIDELIDADE.md), [histórico](historico.md) e [Brag](../brag/BRAG.md).
+
+Os resumos abaixo são marcos anteriores e não autorizam ignorar esta nova direção ou tratar sua implementação como concluída.
+
+
 ## Publicação autorizada — reflexões da Conta e registros operacionais — 2026-10-15
 
 **Escopo:** 200 frases incorporadas em `src`, sem dependência do TXT; uma por vez, 7 segundos, transições/barra sincronizadas, pausa com tempo restante, sorteio por carregamento e novo sorteio a cada ciclo, sem repetição consecutiva na fronteira. Inclui testes e registros operacionais pendentes da correção online do encerramento. Sem novo registro funcional, conforme dispensa documental do usuário. Versão 1.1.0 preservada.
@@ -18,7 +64,7 @@
 
 **DOCS_DIR:** `Documentacao_Projeto_Nos`
 
-**Atualizado:** 2026-10-15
+**Atualizado:** 2026-10-18
 
 ## Publicação Git autorizada — v1.1.0 — 2026-10-15
 

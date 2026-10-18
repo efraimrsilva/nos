@@ -1,5 +1,7 @@
 ﻿# Projeto Nós - Sistema de Aprovação e Construção de Acordos (Versão 1.2)
 
+**Fluxo completo aprovado — aplicativo v1.1.0 — 18/10/2026:** seguir o [contrato Proposta → Hábito → Experiência → Essência](_andamento/funcionalidades/fluxo-proposta-habito-experiencia-essencia.md). A ordem é obrigatória por pessoa e substitui categorias independentes e saltos. Critérios das passagens e implementação pendentes; limites, consentimento e compatibilização de Essência estão centralizados no contrato.
+
 **Atualização de direção — projeto v1.0.0 — 14/10/2026:** para Núcleos/acordos, seguir [contrato administrativo aprovado](_andamento/funcionalidades/administracao-participacao.md). Votação coletiva de acordos, administração futura e consenso para ajuste de propósito descritos neste documento são referência histórica do modelo substituído. Consentimento individual, isolamento e privacidade permanecem; novo modelo implementado e validado localmente; publicação, migração remota e operação pendentes. Demais módulos futuros não recebem novas regras por inferência.
 
 ## Categoria
@@ -248,7 +250,9 @@ Avaliação periódica do acordo.
 
 ## Etapa 8 — Elegível para Nossa Essência
 
-Um acordo torna-se elegível quando:
+Referência conceitual anterior, a compatibilizar com a passagem Experiência → Essência aprovada em 18/10/2026. A lista abaixo não representa uma promoção implementada nem autoriza saltar Hábito ou Experiência.
+
+Na proposta anterior, um acordo tornava-se elegível quando:
 
 - Está ativo há pelo menos 6 meses.
 - Passou por revisões positivas.
@@ -262,7 +266,7 @@ Um acordo torna-se elegível quando:
 
 ## Etapa 9 — Promoção para Nossa Essência
 
-Transforma comportamento em identidade.
+No fluxo aprovado, Essência vem depois de Experiência e reconhece a consolidação da prática. Não há salto direto de Hábito para Essência. Critérios e consentimentos específicos permanecem pendentes de compatibilização; a implementação não está concluída.
 
 ### Exemplo
 

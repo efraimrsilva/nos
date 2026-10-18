@@ -1,6 +1,8 @@
 # Andamento do Projeto Nós
 
-**Versão vigente do projeto:** 0.14.0
+**Entrega documental atual — 18/10/2026:** [fluxo obrigatório Proposta → Hábito → Experiência → Essência](funcionalidades/fluxo-proposta-habito-experiencia-essencia.md). [Registro](registros/registro-v1.1.0-2026-10-18-imp-documentacao-acordos-fun-fluxo-proposta-habito-experiencia-essencia.md). Evolução da pessoa; critérios e implementação pendentes. Resumos anteriores abaixo são históricos. Consulte [estado](estado.md) para a retomada.
+
+**Versão vigente do projeto:** 1.1.0
 
 Entrega atual: [v0.14.0 — Percurso 05 Uma proposta de Hábito](registros/registro-v0.14.0-2026-10-10-imp-proposta-habito-fun-percurso-05.md). Conferência no hub concluída localmente, com fluxo guiado reservado; unidade incluída no commit autorizado, com objeto conferido em 2026-10-12. [Contrato](funcionalidades/proposta-habito.md). O estado canônico abaixo mantém as publicações anteriores, sem pendência fictícia de Conta.
 

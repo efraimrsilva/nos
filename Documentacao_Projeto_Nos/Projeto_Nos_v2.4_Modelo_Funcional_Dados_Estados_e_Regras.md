@@ -1,5 +1,7 @@
 ﻿# Projeto Nós - Modelo Funcional, Dados, Estados e Regras (Versão 2.4)
 
+**Fluxo completo aprovado — aplicativo v1.1.0 — 18/10/2026:** seguir o [contrato Proposta → Hábito → Experiência → Essência](_andamento/funcionalidades/fluxo-proposta-habito-experiencia-essencia.md). A ordem é obrigatória por pessoa e substitui categorias independentes e saltos. Critérios das passagens e implementação pendentes; limites, consentimento e compatibilização de Essência estão centralizados no contrato.
+
 **Atualização de direção — projeto v1.0.0 — 14/10/2026:** para Núcleos/acordos, seguir [contrato administrativo aprovado](_andamento/funcionalidades/administracao-participacao.md). Votação coletiva de acordos, administração futura e consenso para ajuste de propósito descritos neste documento são referência histórica do modelo substituído. Consentimento individual, isolamento e privacidade permanecem; novo modelo implementado e validado localmente; publicação, migração remota e operação pendentes. Demais módulos futuros não recebem novas regras por inferência.
 
 ## Categoria
@@ -305,13 +307,17 @@ Compromisso construído a partir de necessidade, conversa e consentimento.
 - `aprovacoes`;
 - `progressoPercentual`;
 
-### Categorias
+### Etapas de evolução da pessoa — direção aprovada
 
-- hábito;
-- experiência;
-- essência.
+- Proposta → Hábito → Experiência → Essência: sequência obrigatória vinculada à mesma prática e à pessoa participante.
+- Experiência não pode ser tratada como uma categoria independente de entrada no novo modelo.
+- Essência sucede obrigatoriamente Experiência; critérios de consolidação, consentimento e implementação permanecem pendentes.
 
-### Status
+O campo global `categoria` da proposta anterior não comprova a evolução de todas as pessoas. A estrutura para estágio, critérios, permissões e histórico individuais ainda precisa ser definida antes de criar campos ou migrações. O aplicativo atual continua usando categorias no acordo; essa limitação não representa conclusão do novo desenho.
+
+### Status operacionais — lista conceitual anterior
+
+Estados operacionais não substituem as etapas individuais de evolução. Para regras vigentes de gestão e participação, seguir o contrato administrativo; os estados detalhados abaixo não restabelecem votações do modelo antigo.
 
 - rascunho;
 - proposta;

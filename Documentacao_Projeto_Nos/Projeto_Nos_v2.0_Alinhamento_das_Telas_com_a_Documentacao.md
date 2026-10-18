@@ -1,5 +1,7 @@
 ﻿﻿# Projeto Nós - Síntese Consolidada das Interfaces e Documentações (Versão 2.0)
 
+**Fluxo completo aprovado — aplicativo v1.1.0 — 18/10/2026:** seguir o [contrato Proposta → Hábito → Experiência → Essência](_andamento/funcionalidades/fluxo-proposta-habito-experiencia-essencia.md). A ordem é obrigatória por pessoa e substitui categorias independentes e saltos. Critérios das passagens e implementação pendentes; limites, consentimento e compatibilização de Essência estão centralizados no contrato.
+
 ## Categoria
 **2.x - Interface e Implementação**
 

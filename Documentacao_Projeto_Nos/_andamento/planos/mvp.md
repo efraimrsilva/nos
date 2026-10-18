@@ -1,5 +1,7 @@
 # MVP e caminho de implementação — Projeto Nós
 
+**Fluxo completo aprovado — v1.1.0 — 18/10/2026:** a expansão deverá implementar [Proposta → Hábito → Experiência → Essência](../funcionalidades/fluxo-proposta-habito-experiencia-essencia.md), sequência obrigatória por pessoa. Antes de implementar, fechar critérios das três passagens, confirmação/consentimento, dados, agrupamento, Essência e legado. A decisão documental não altera o status de conclusão do MVP nem restaura votação coletiva.
+
 **Atualização implementada localmente — v1.0.0 — 14/10/2026:** [contrato administrativo](../funcionalidades/administracao-participacao.md) substitui votação coletiva do ciclo de acordos e as decisões posteriores de votação por saída. Administração/participação entram no fechamento MVP05; gestão/revisão administrativa substitui consenso no comportamento-alvo de propósito e acordos. Percursos/fichas, aplicativo e migração local estão sincronizados:73 telas,39 recortes e34 planejadas. [Manual atual](../funcionalidades/administracao-manual.md). Publicação, migração remota, termos/política completos e operação do piloto permanecem pendentes. O roteiro abaixo conserva os marcos históricos; para Núcleos/acordos, prevalece o contrato administrativo.
 
 **Versão de referência atual:** v1.0.0. **Aprovado pelo usuário:** 2026-10-12. **Status:** roteiro aprovado; funcionalidades futuras permanecem planejadas.

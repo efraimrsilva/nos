@@ -1,5 +1,7 @@
 ﻿# Projeto Nós - Catálogo Completo das Interfaces (Versão 2.1)
 
+**Fluxo completo aprovado — aplicativo v1.1.0 — 18/10/2026:** seguir o [contrato Proposta → Hábito → Experiência → Essência](_andamento/funcionalidades/fluxo-proposta-habito-experiencia-essencia.md). A ordem é obrigatória por pessoa e substitui categorias independentes e saltos. Critérios das passagens e implementação pendentes; limites, consentimento e compatibilização de Essência estão centralizados no contrato.
+
 ## Categoria
 **2.x - Interface e Implementação**
 
@@ -322,7 +324,7 @@ Completar a Home mostrando continuação do calendário e lista de próximos mom
 
 ### Objetivo
 
-Centralizar os compromissos do Núcleo em três categorias: Hábitos, Experiências e Essência.
+Centralizar os compromissos do Núcleo e apresentar Proposta → Hábito → Experiência → Essência como etapas obrigatórias da evolução da pessoa. Os critérios de cada passagem continuam a definir; os agrupamentos visuais não autorizam criação direta de Experiência. A implementação atual ainda usa categorias no acordo e precisa ser adaptada.
 
 ### Conteúdo
 
@@ -339,7 +341,7 @@ Centralizar os compromissos do Núcleo em três categorias: Hábitos, Experiênc
 
 ### Interações
 
-- trocar abas altera a categoria exibida;
+- trocar abas altera o agrupamento exibido; no novo desenho, a etapa Hábito/Experiência corresponde à pessoa participante, sem inferir progresso coletivo;
 - filtros alteram status da lista;
 - tocar em item abre detalhe;
 - botão adicionar abre "Novo acordo";
@@ -348,7 +350,7 @@ Centralizar os compromissos do Núcleo em três categorias: Hábitos, Experiênc
 ### Dados necessários
 
 - lista de acordos do Núcleo;
-- categoria;
+- etapa de evolução da pessoa, com representação de dados ainda a definir;
 - status;
 - frequência;
 - progresso;
@@ -357,14 +359,14 @@ Centralizar os compromissos do Núcleo em três categorias: Hábitos, Experiênc
 
 ### Regras
 
-- Hábitos são práticas recorrentes;
-- Experiências são momentos planejados ou recorrentes;
-- Essência contém acordos consolidados e confirmados;
+- Proposta é a entrada do percurso; Hábito é o primeiro degrau de prática depois da Proposta;
+- Experiência é a etapa posterior do mesmo percurso, obrigatoriamente precedida pelo Hábito; critérios e confirmação da passagem estão pendentes;
+- Essência é a etapa de consolidação depois de Experiência; critérios e consentimentos ainda precisam ser contratados;
 - progresso não deve virar ranking.
 
 ### Alinhamento documental
 
-- v1.1: três categorias principais;
+- v1.1: referência conceitual anterior de três categorias; direção atual aprovada em 18/10/2026 exige o fluxo Proposta → Hábito → Experiência → Essência;
 - v1.2: construção de acordos;
 - v1.4: impacto;
 - v1.6: marcos.
