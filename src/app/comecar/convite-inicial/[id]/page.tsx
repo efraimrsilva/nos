@@ -5,6 +5,7 @@ import { InitialInvitation } from "@/features/invitations/components/initial-inv
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { routes } from "@/shared/routes";
 import { isNucleusAuthUnavailable } from "@/features/nuclei/nucleus-access";
+import { OnboardingSteps } from "@/features/onboarding/components/onboarding-steps";
 
 export const metadata: Metadata = { title: "Convite inicial" };
 
@@ -26,10 +27,11 @@ export default async function InitialInvitationPage({ params }: { params: Promis
   if (invitationsError) throw new Error("Não foi possível consultar o convite.");
 
   return <>
-    <p className="step-label mb-3 text-lilac">Núcleo criado</p>
-    <h1 className="font-display text-[30px] font-medium leading-tight md:text-[38px]">Convide quem faz parte</h1>
-    <p className="mt-3 text-sm leading-7 text-muted">{nucleus.name} já é seu espaço privado. Convidar alguém agora é opcional.</p>
+    <OnboardingSteps current={3} />
+    <header className="ui-page-header"><div><p className="ui-kicker">Núcleo criado</p>
+    <h1 className="ui-title">Convide quem faz parte</h1>
+    <p className="ui-copy">{nucleus.name} já é seu espaço privado. Convidar alguém agora é opcional.</p></div></header>
     <InitialInvitation key={invitations?.[0]?.code ?? "empty"} nucleusId={id} initialCode={invitations?.[0]?.code ?? ""} expiresAt={invitations?.[0]?.expires_at} />
-    <Link href={`/nucleos/${encodeURIComponent(id)}`} className="mt-5 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Concluir por enquanto</Link>
+    <Link href={`/nucleos/${encodeURIComponent(id)}`} className="ui-button-secondary mt-5">Concluir por enquanto</Link>
   </>;
 }

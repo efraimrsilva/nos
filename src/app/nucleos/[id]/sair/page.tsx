@@ -6,6 +6,7 @@ import { manageNucleus } from "@/features/controls/actions";
 import { ControlActionForm } from "@/features/controls/components/action-form";
 import { ControlsShell, ControlSection } from "@/features/controls/components/controls-shell";
 import { uuid } from "@/features/agreements/habit-access";
+import { ActionDialog } from "@/shared/components/ui/action-dialog";
 export const metadata: Metadata = { title: "Sair de um Núcleo" };
 export default async function LeaveNucleusPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -18,8 +19,8 @@ export default async function LeaveNucleusPage({ params }: { params: Promise<{ i
   if (preferenceError) throw new Error("Não foi possível consultar sua preferência.");
   return <ControlsShell title="Sair de um Núcleo" subtitle="Você pode sair a qualquer momento." back={`/nucleos/${id}`}>
     <ControlSection title="Antes de sair"><p>Você perderá acesso ao Núcleo. O histórico compartilhado de conversas e interações permanecerá para as pessoas que continuarem, incluindo os momentos, o humor e as notas já registrados. A saída não cancela acordos.</p><p className="mt-2">O aplicativo ainda não oferece uma conversa livre; quando essa função existir, o aviso também abrangerá esse histórico.</p></ControlSection>
-    <ControlSection title="Autoria dos registros"><p>{hidden ? "Sua preferência está ativada: a autoria de suas interações será ocultada após esta saída; o conteúdo permanecerá." : "Sua preferência está desativada: a autoria dos registros será preservada."} O texto ainda pode identificar você.</p><Link href="/configuracoes/privacidade" className="inline-flex min-h-11 items-center font-semibold text-leaf underline">Conferir minha preferência</Link></ControlSection>
+    <ControlSection title="Autoria dos registros"><p>{hidden ? "Sua preferência está ativada: a autoria de suas interações será ocultada após esta saída; o conteúdo permanecerá." : "Sua preferência está desativada: a autoria dos registros será preservada."} O texto ainda pode identificar você.</p><Link href="/configuracoes/privacidade" className="ui-text-link">Conferir minha preferência</Link></ControlSection>
     {member.role === "admin" && <ControlSection title="Você administra este Núcleo"><p>Outro administrador continuará administrando. Se você for o último administrador, uma pessoa restante será sorteada automaticamente. Se ninguém permanecer, o Núcleo será encerrado e os convites revogados.</p></ControlSection>}
-    <ControlSection title="Confirmar saída"><ControlActionForm action={manageNucleus.bind(null, id, "leave", null)} label="Sair deste Núcleo" confirmation="Entendi que perderei acesso e que o histórico compartilhado permanecerá." /></ControlSection>
+    <ControlSection title="Confirmar saída"><p>Confira as consequências e confirme sua decisão antes de sair.</p><div className="mt-4"><ActionDialog title="Sair deste Núcleo?" description="Você perderá o acesso. O histórico compartilhado permanecerá para quem continuar." trigger="Revisar minha saída"><ControlActionForm action={manageNucleus.bind(null, id, "leave", null)} label="Sair deste Núcleo" danger pendingLabel="Saindo…" confirmation="Entendi que perderei acesso e que o histórico compartilhado permanecerá." /></ActionDialog></div></ControlSection>
   </ControlsShell>;
 }

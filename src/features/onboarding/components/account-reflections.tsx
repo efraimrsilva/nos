@@ -4,7 +4,7 @@ import { Pause, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { reflectionPhrases } from "@/features/onboarding/reflection-phrases";
 
-const DISPLAY_DURATION = 7000;
+const DISPLAY_DURATION = 10_000;
 
 function shufflePhrases(previous?: string) {
   const order = [...reflectionPhrases];

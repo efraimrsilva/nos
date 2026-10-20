@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
-import { ArrowRight, ChevronLeft, LockKeyhole } from "lucide-react";
+import { ArrowRight, Clock3, MoreHorizontal, Plus } from "lucide-react";
 import { respondAgreementProposal } from "@/features/agreements/actions";
+import { AgreementsWorkspace } from "@/features/agreements/components/agreements-workspace";
+import { AgreementsHowItWorks } from "@/features/agreements/components/agreements-how-it-works";
 import { ProposalForm } from "@/features/agreements/components/proposal-form";
-import { administerAgreement } from "@/features/agreements/administration-actions";
-import { ControlActionForm } from "@/features/controls/components/action-form";
+import { AgreementAdministration } from "@/features/agreements/components/agreement-administration";
+import { HabitMomentForm } from "@/features/agreements/components/habit-moment-form";
+import { HabitConsentGuidance } from "@/features/agreements/components/habit-consent-guidance";
+import { ActionDialog } from "@/shared/components/ui/action-dialog";
 import { DeclineButton } from "@/features/agreements/components/decline-button";
 import { isNucleusAuthUnavailable } from "@/features/nuclei/nucleus-access";
 import { OnboardingShell } from "@/features/onboarding/components/onboarding-shell";
@@ -15,11 +19,11 @@ import { routes } from "@/shared/routes";
 export const metadata: Metadata = { title: "Acordos do Núcleo" };
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 type Agreement = {
-  id: string; category: string; title: string; description: string; timing: string;
+  id: string; category: "habit" | "experience"; title: string; description: string; timing: string;
   frequency: string; trial_days: number | null; status: string; created_at: string; terms_version: number;
   nucleus_agreement_participants: { response: string; accepted_version: number | null }[];
 };
-const categories = [{ key: "habit", label: "Hábitos" }, { key: "experience", label: "Experiências" }, { key: "essence", label: "Essência" }] as const;
+const categories = [{ key: "all", label: "Todos" }, { key: "habit", label: "Hábitos" }, { key: "experience", label: "Experiências" }, { key: "essence", label: "Essência" }] as const;
 const filters = [{ key: "all", label: "Todos" }, { key: "pending", label: "Aguardando" },
   { key: "testing", label: "Em teste" }, { key: "active", label: "Ativos" }, { key: "declined", label: "Recusados" }, { key: "ended", label: "Encerrados" }] as const;
 const statusLabel: Record<string, string> = { active: "Acordo ativo", pending: "Proposta enviada", testing: "Em teste", declined: "Proposta recusada", ended: "Encerrado pela administração" };
@@ -31,7 +35,7 @@ export default async function AgreementsPage({ params, searchParams }: {
   const { id } = await params;
   const query = await searchParams;
   if (!uuid.test(id)) notFound();
-  const category = categories.find((item) => item.key === query.categoria)?.key ?? "habit";
+  const category = categories.find((item) => item.key === query.categoria)?.key ?? "all";
   const filter = filters.find((item) => item.key === query.filtro)?.key ?? "all";
   const page = query.pagina && /^[1-9]\d*$/.test(query.pagina) ? Number(query.pagina) : 1;
   const safePage = Number.isSafeInteger(page) && page <= 1000 ? page : 1;
@@ -56,7 +60,8 @@ export default async function AgreementsPage({ params, searchParams }: {
     // RLS filtra por Núcleo e a tabela de respostas expõe apenas a resposta da própria pessoa.
     let request = supabase.from("nucleus_agreements")
       .select("id,category,title,description,timing,frequency,status,trial_days,created_at,terms_version,nucleus_agreement_participants(response,accepted_version)")
-      .eq("nucleus_id", id).eq("category", category);
+      .eq("nucleus_id", id);
+    if (category !== "all") request = request.eq("category", category);
     if (filter !== "all") request = request.eq("status", filter);
     const { data, error } = await request.order("created_at", { ascending: false }).order("id")
       .range((safePage - 1) * 50, safePage * 50);
@@ -67,70 +72,77 @@ export default async function AgreementsPage({ params, searchParams }: {
   const notice: Record<string, string> = { proposta: "Proposta enviada. Escolha se deseja participar; a administração organiza o próximo passo.",
     resposta: "Sua resposta foi registrada.", gestao: "Gestão do acordo concluída.", erro: "Não foi possível registrar a resposta. Atualize a página e tente novamente." };
 
-  return <OnboardingShell>
-    <Link href={`${routes.nucleus}/${id}`} className="mb-5 inline-flex min-h-11 items-center gap-1 text-sm font-semibold text-leaf underline">
-      <ChevronLeft size={16} aria-hidden="true" />Voltar ao Núcleo
-    </Link>
-    <p className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted"><LockKeyhole size={14} aria-hidden="true" />Espaço privado · {nucleus.name}</p>
-    <h1 className="mt-3 font-display text-[32px] leading-tight md:text-[42px]">Acordos</h1>
-    <p className="mt-2 text-sm leading-7 text-muted">Pequenas ações, grandes laços. Cada compromisso começa por uma proposta e pelo sim de quem participa.</p>
-    {query.resultado && notice[query.resultado] && <p role="status" className="mt-4 rounded-xl bg-[#edf3e5] p-3 text-sm text-forest">{notice[query.resultado]}</p>}
+  const participates = (agreement: Agreement) => agreement.nucleus_agreement_participants?.[0]?.response === "accepted" && agreement.nucleus_agreement_participants?.[0]?.accepted_version === agreement.terms_version;
+  const responseLabel = (agreement: Agreement) => participates(agreement) ? "Participação aceita · v" + agreement.terms_version : agreement.nucleus_agreement_participants?.[0]?.response === "declined" ? "Participação recusada" : agreement.nucleus_agreement_participants?.[0]?.response === "accepted" ? "Novo aceite necessário" : "Participação a decidir";
+  const participation = (agreement: Agreement) => <div className="agreement-participation">
+    <span className="ui-badge">{responseLabel(agreement)}</span>
+    <p className="ui-copy">{["ended", "declined"].includes(agreement.status) ? "Este acordo não recebe novas participações. As decisões e o histórico permanecem disponíveis." : participates(agreement) ? "Você participa dos termos atuais. Sua escolha pode ser revista." : "Conheça os termos e escolha se deseja participar. Silêncio não é aceite."}</p>
+    {["pending", "testing", "active"].includes(agreement.status) && <div className="agreement-card-actions">
+      {!participates(agreement) && <form action={respondAgreementProposal.bind(null, id, agreement.id, "accepted", agreement.category, agreement.terms_version)}><button className="ui-button">Aceitar proposta</button></form>}
+      <form action={respondAgreementProposal.bind(null, id, agreement.id, "declined", agreement.category, agreement.terms_version)}><DeclineButton /></form>
+    </div>}
+  </div>;
+  const revision = (agreement: Agreement) => [agreement.id, agreement.status, agreement.terms_version, agreement.nucleus_agreement_participants?.[0]?.response, agreement.nucleus_agreement_participants?.[0]?.accepted_version].join(":");
+  const details = (agreement: Agreement) => <div key={revision(agreement)} className="agreement-summary-detail">
+    <span className="ui-badge">{statusLabel[agreement.status] ?? "Estado indisponível"} · termos v{agreement.terms_version}</span>
+    <p className="agreement-description">{agreement.description}</p>
+    <dl className="agreement-facts">
+      <div><dt>Quando</dt><dd>{agreement.timing}</dd></div>
+      <div><dt>Frequência</dt><dd>{agreement.frequency}</dd></div>
+      {agreement.trial_days && <div><dt>Teste planejado</dt><dd>{agreement.trial_days} dias · início e conclusão pela administração</dd></div>}
+    </dl>
+    <p className="agreement-form-note"><strong>Evolução individual · esboço.</strong> Hábito e Experiência identificam as categorias dos dados atuais. A passagem entre etapas ainda não está integrada.</p>
+    {participation(agreement)}
+    <div className="agreement-detail-links">
+      {agreement.category === "habit" && ["testing", "active", "ended"].includes(agreement.status) && <Link href={routes.nucleus + "/" + id + "/acordos/" + agreement.id} className="ui-button-secondary">Ver detalhe do hábito<ArrowRight size={15} aria-hidden="true" /></Link>}
+      <Link href={routes.nucleus + "/" + id + "/acordos/" + agreement.id + "/revisar"} className="ui-button-secondary">Termos e histórico</Link>
+      {agreement.category === "habit" && ["testing", "active"].includes(agreement.status) && participates(agreement) && <ActionDialog title="Registrar momento" description={agreement.title} trigger="Registrar momento" variant="primary"><HabitMomentForm nucleusId={id} agreementId={agreement.id} /></ActionDialog>}
+      {membership.role === "admin" && ["pending", "testing", "active"].includes(agreement.status) && <ActionDialog title="Administrar acordo" description={agreement.title} trigger="Administrar acordo" variant="secondary"><AgreementAdministration nucleusId={id} agreementId={agreement.id} status={agreement.status} termsVersion={agreement.terms_version} /></ActionDialog>}
+    </div>
+    <HabitConsentGuidance />
+  </div>;
+  const card = (agreement: Agreement, detail: ReturnType<typeof details>) => <ActionDialog key={revision(agreement)} title={agreement.title} description="Confira os termos e sua participação neste combinado." variant="card" size="wide" className="agreement-layout-card" trigger={<>
+    <span className="agreement-card-top"><span className="agreement-category-badge">{agreement.status === "pending" ? "Proposta" : agreement.category === "habit" ? "Hábito" : "Experiência"}</span><MoreHorizontal size={18} aria-hidden="true" /></span>
+    <span className="agreement-card-title">{agreement.title}</span>
+    <span className="agreement-card-description">{agreement.description}</span>
+    <span className="agreement-card-time"><Clock3 size={13} aria-hidden="true" />{agreement.timing} · {agreement.frequency}</span>
+    <span className="agreement-card-footer"><span>{responseLabel(agreement)}</span><span className="agreement-category-badge">{statusLabel[agreement.status] ?? "Indisponível"}</span></span>
+  </>}>{detail}</ActionDialog>;
 
-    <nav aria-label="Categorias dos acordos" className="mt-6 flex flex-wrap gap-2">
-      {categories.map((item) => <Link key={item.key} href={href(item.key, "all")}
-        aria-current={category === item.key ? "page" : undefined}
-        className={`inline-flex min-h-11 items-center rounded-xl px-4 text-sm font-semibold ${category === item.key ? "bg-forest text-white" : "border border-line bg-white text-leaf"}`}>
-        {item.label}
-      </Link>)}
-    </nav>
-    {category !== "essence" && <nav aria-label="Estado dos acordos" className="mt-3 flex flex-wrap gap-2">
-      {filters.map((item) => <Link key={item.key} href={href(category, item.key)} aria-current={filter === item.key ? "page" : undefined}
-        className={`inline-flex min-h-11 items-center rounded-xl px-3 text-xs font-semibold ${filter === item.key ? "bg-[#edf3e5] text-forest" : "text-muted underline"}`}>
-        {item.label}
-      </Link>)}
-    </nav>}
-
-    <section className="mt-5 rounded-[22px] border border-line bg-white p-5 shadow-[0_5px_18px_#52403805] sm:p-7" aria-labelledby="agreements-list-heading">
-      <h2 id="agreements-list-heading" className="font-display text-xl">{categories.find((item) => item.key === category)?.label}</h2>
-      {category === "essence" ? <p className="mt-4 text-sm leading-7 text-muted">A Essência reunirá práticas consolidadas com consentimento de todos. Essa etapa ainda não está disponível.</p> :
-        agreements.length === 0 ? <p className="mt-4 text-sm leading-7 text-muted">{safePage > 1 ? "Nenhuma proposta nesta página. Volte à anterior." :
-          filter === "all" ? "Comece por uma necessidade simples. Um acordo nasce melhor quando nasce de uma conversa." : "Nenhuma proposta neste estado por enquanto."}</p> :
-          <ol className="mt-4 grid gap-4">{agreements.map((agreement) => {
-            const ownResponse = agreement.nucleus_agreement_participants?.[0]?.response;
-            return <li key={agreement.id} className="rounded-2xl border border-line bg-[#fbfaf7] p-4">
-              <h3 className="break-words font-display text-lg">{agreement.title}</h3>
-              <p className="mt-1 text-xs font-semibold text-leaf">{statusLabel[agreement.status] ?? "Estado indisponível"}</p>
-              <p className="mt-3 whitespace-pre-wrap break-words text-sm text-muted">{agreement.description}</p>
-              <p className="mt-2 text-sm text-muted">Quando: {agreement.timing} · Frequência: {agreement.frequency}</p>
-              {category === "habit" && ["testing", "active", "ended"].includes(agreement.status) && <Link
-                href={`${routes.nucleus}/${id}/acordos/${agreement.id}`}
-                className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Ver detalhe do hábito<ArrowRight size={15} className="ml-1" aria-hidden="true" /></Link>}
-              <p className="mt-2 text-xs text-muted">Termos · versão {agreement.terms_version}</p>
-              <Link href={`/nucleos/${id}/acordos/${agreement.id}/revisar`} className="inline-flex min-h-11 items-center font-semibold text-leaf underline">Termos e histórico</Link>
-              {ownResponse === "accepted" && ["pending", "testing", "active"].includes(agreement.status) && <form action={respondAgreementProposal.bind(null, id, agreement.id, "declined", category, agreement.terms_version)}><DeclineButton /></form>}
-              {membership.role === "admin" && ["pending", "testing", "active"].includes(agreement.status) && <div className="mt-3 border-t border-line pt-3">
-                {agreement.status === "pending" && <ControlActionForm action={administerAgreement.bind(null, id, agreement.id, "start_test", agreement.terms_version)} label="Iniciar teste" confirmation="Iniciar o teste; cada pessoa decide se participa." />}
-                {agreement.status === "testing" && <ControlActionForm action={administerAgreement.bind(null, id, agreement.id, "activate", agreement.terms_version)} label="Ativar acordo" confirmation="Concluir o teste e manter o acordo ativo com participação individual." />}
-                <ControlActionForm action={administerAgreement.bind(null, id, agreement.id, "end", agreement.terms_version)} label="Encerrar acordo" confirmation="Encerrar o acordo e impedir novos momentos; o histórico permanecerá." />
-              </div>}
-              {category === "habit" && agreement.trial_days && <p className="mt-2 text-sm text-muted">Teste planejado: {agreement.trial_days} dias. A administração inicia e conclui o teste.</p>}
-              {["pending", "testing", "active"].includes(agreement.status) && (ownResponse !== "accepted" || agreement.nucleus_agreement_participants?.[0]?.accepted_version !== agreement.terms_version) && <div className="mt-4 flex flex-wrap gap-2">
-                <form action={respondAgreementProposal.bind(null, id, agreement.id, "accepted", category, agreement.terms_version)}><button className="min-h-11 rounded-xl bg-forest px-4 text-sm font-semibold text-white">Aceitar proposta</button></form>
-                <form action={respondAgreementProposal.bind(null, id, agreement.id, "declined", category, agreement.terms_version)}><DeclineButton /></form>
-              </div>}
-              {ownResponse === "accepted" && agreement.nucleus_agreement_participants?.[0]?.accepted_version === agreement.terms_version && <p className="mt-3 text-xs text-muted">Você participa dos termos da versão {agreement.terms_version}.</p>}
-            </li>;
-          })}</ol>}
-      {category !== "essence" && (safePage > 1 || hasNextPage) && <nav aria-label="Páginas dos acordos" className="mt-5 flex flex-wrap justify-between gap-3 text-sm font-semibold text-leaf">
-        {safePage > 1 ? <Link href={href(category, filter, safePage - 1)} className="underline">Propostas anteriores</Link> : <span />}
-        {hasNextPage && <Link href={href(category, filter, safePage + 1)} className="underline">Mais propostas<ArrowRight size={14} className="ml-1 inline" aria-hidden="true" /></Link>}
+  const header = <>
+    <header className="ui-page-header agreements-heading">
+      <div><p className="ui-kicker">Combinados do Núcleo</p><h1 className="ui-title">Cada combinado no seu tempo.</h1>
+        <p className="ui-copy">O principal módulo de todo ecossistema. É a partir de Acordos que tudo toma forma.</p>
+        <AgreementsHowItWorks><ol>
+          <li><span aria-hidden="true">➜</span><span>Comece com uma <strong>Proposta:</strong> apresente a prática e combine seus termos. Cada pessoa escolhe se deseja participar.</span></li>
+          <li><span aria-hidden="true">➜</span><span>Da Proposta ao <strong>Hábito:</strong> cultive a prática com o apoio do Núcleo, respeitando os termos e a participação de cada pessoa.</span></li>
+          <li><span aria-hidden="true">➜</span><span>Do Hábito à <strong>Experiência:</strong> a continuidade da mesma prática orienta o percurso planejado. A passagem individual ainda será implementada.</span></li>
+          <li><span aria-hidden="true">➜</span><span>Da Experiência à <strong>Essência:</strong> o reconhecimento da prática consolidada depende de critérios e consentimentos ainda a definir. Ninguém avança automaticamente pelo tempo.</span></li>
+        </ol></AgreementsHowItWorks>
+      </div>
+      <ActionDialog key={agreements.map(agreement => agreement.id).join(":")} title="Nova proposta" description="Uma conversa pode virar um combinado. Enviar a proposta não registra aceite." trigger={<><Plus size={17} aria-hidden="true" />Nova proposta</>} size="wide" variant="primary">
+        <p className="agreement-form-note"><strong>Evolução individual · esboço.</strong> As categorias disponíveis conservam os dados atuais. Cadastrar uma Experiência ainda não registra evolução individual a partir de um Hábito.</p>
+        <ProposalForm nucleusId={id} category={category === "experience" ? "experience" : "habit"} />
+      </ActionDialog>
+    </header>
+    {query.resultado && notice[query.resultado] && <p role="status" className="agreements-feedback">{notice[query.resultado]}</p>}
+  </>;
+  return <OnboardingShell nucleusName={nucleus.name}>
+    <div className="agreements-page">
+      <AgreementsWorkspace initialStatus={filter} essenceOnly={category === "essence"} header={header}
+        categories={<nav aria-label="Categorias dos acordos" className="agreements-category-nav"><Link href={href("all", "all")} aria-current={category === "all" && filter === "all" ? "page" : undefined}>Todos</Link><Link href={href("all", "pending")} aria-current={category === "all" && filter === "pending" ? "page" : undefined}>Propostas</Link>{categories.filter(item => item.key !== "all").map(item => <Link key={item.key} href={href(item.key, "all")} aria-current={category === item.key && filter === "all" ? "page" : undefined}>{item.label}</Link>)}</nav>}
+        filters={<nav aria-label="Estado dos acordos" className="agreements-server-filters">{filters.map(item => <Link key={item.key} href={href(category, item.key)} aria-current={filter === item.key ? "page" : undefined}>{item.label}</Link>)}</nav>}
+        cards={agreements.map(agreement => {
+          // Reutiliza o conteúdo de servidor nas duas visualizações; somente uma é montada.
+          const detail = details(agreement);
+          return { id: agreement.id, revision: revision(agreement), title: agreement.title, description: agreement.description, timing: agreement.timing, frequency: agreement.frequency, category: agreement.category, status: agreement.status, statusLabel: statusLabel[agreement.status] ?? "Indisponível", participationLabel: responseLabel(agreement), content: card(agreement, detail), detail, context: <><span className="ui-badge">{responseLabel(agreement)}</span><p className="ui-copy">Termos versão {agreement.terms_version}</p><p className="ui-copy">{["ended", "declined"].includes(agreement.status) ? "Este acordo permanece disponível para consulta do histórico." : participates(agreement) ? "Você aceitou participar dos termos atuais." : "Você pode escolher se participa dos termos atuais."}</p><p className="ui-copy">A administração organiza o ciclo e preserva o histórico.</p></> };
+        })} />
+      <p className="agreements-model-note">As colunas mostram propostas e categorias existentes. O percurso de evolução individual permanece planejado.</p>
+      {category !== "essence" && (safePage > 1 || hasNextPage) && <nav aria-label="Páginas dos acordos" className="agreements-pagination">
+        {safePage > 1 ? <Link href={href(category, filter, safePage - 1)} className="ui-button-secondary">Propostas anteriores</Link> : <span />}
+        <span>Página {safePage}</span>
+        {hasNextPage && <Link href={href(category, filter, safePage + 1)} className="ui-button-secondary">Mais propostas<ArrowRight size={15} aria-hidden="true" /></Link>}
       </nav>}
-    </section>
-
-    {category !== "essence" && <section className="mt-4 rounded-[22px] border border-line bg-white p-5 sm:p-7" aria-labelledby="new-agreement-heading">
-      <h2 id="new-agreement-heading" className="font-display text-xl">Nova proposta</h2>
-      <p className="mt-2 text-sm leading-7 text-muted">Conversem sobre a necessidade antes de enviar. Todas as pessoas associadas podem escolher se participam, inclusive quem entrar depois. Criar uma proposta não registra aceite.</p>
-      <ProposalForm key={category} nucleusId={id} category={category} />
-    </section>}
+    </div>
   </OnboardingShell>;
 }

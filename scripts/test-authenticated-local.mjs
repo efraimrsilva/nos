@@ -35,8 +35,8 @@ const modules = path.join(workspace, "node_modules");
 mkdirSync(modules);
 for (const entry of readdirSync("node_modules", { withFileTypes: true })) {
   const source = path.resolve("node_modules", entry.name), target = path.join(modules, entry.name);
-  // CSS precisa de URLs de fontes no mesmo volume; copiar só as fontes evita caminhos G: relativos inválidos.
-  if (["@fontsource", "next"].includes(entry.name) || !entry.isDirectory()) cpSync(source, target, { recursive: true });
+  // O Next resolve seus arquivos a partir da cópia; as demais dependências podem usar junções locais.
+  if (entry.name === "next" || !entry.isDirectory()) cpSync(source, target, { recursive: true });
   else symlinkSync(source, target, "junction");
 }
 const child = spawn(process.execPath, ["node_modules/@playwright/test/cli.js", "test", "--config=playwright.authenticated.config.ts", ...process.argv.slice(2)], {

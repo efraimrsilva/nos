@@ -14,7 +14,7 @@ Manter IDs estáveis, cobertura e percursos coerentes; registrar acréscimos/con
 
 ## Organização dos materiais
 
-Local vigente: `Documentacao_Projeto_Nos/Telas/`, com protótipo HTML, ícone, PDF, imagens e extrações. Esses materiais preservam a origem histórica; o [atlas](../../wireframes/atlas/index.html) acompanha a evolução atual. [Abrir protótipo](../../Telas/Nos_App.dc.html).
+Local vigente: `Documentacao_Projeto_Nos/Telas/`, com protótipo HTML, ícone, PDF, imagens e extrações. Esses materiais preservam a origem histórica; o [atlas](../../wireframes/atlas/index.html) acompanha a evolução atual. [Abrir protótipo](../../Telas/Layout%20inicial/Nos_App.dc.html).
 
 ## Arquivos envolvidos
 

@@ -6,7 +6,8 @@ export default defineConfig({
   outputDir: "./test-results-authenticated",
   workers: 1,
   timeout: 60_000,
-  use: { baseURL: "http://127.0.0.1:3200", trace: "retain-on-failure" },
+  // Permite isolar uma falha de gravação de traces no volume Windows sem alterar a suíte funcional.
+  use: { baseURL: "http://127.0.0.1:3200", trace: process.env.NOS_DISABLE_TRACE === "1" ? "off" : "retain-on-failure" },
   projects: [
     { name: "desktop", use: { ...devices["Desktop Chrome"] } },
     { name: "mobile", use: { ...devices["Pixel 7"] } },

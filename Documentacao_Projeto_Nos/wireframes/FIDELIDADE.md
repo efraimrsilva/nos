@@ -1,4 +1,22 @@
-# Fidelidade visual e manutenção do atlas
+# Fidelidade visual e manutenção do Atlas
+
+**Atualização vigente — v3.0.1 — 20/10/2026:** por autorização explícita, a árvore original retorna somente ao painel público da Conta; Atlas01/02 usam a mesma imagem. A composição3.0.0 permanece a base; demais telas e modais preservados. Validação pontual:12 testes, tipos, três larguras e prévias de cadastro/login. [Registro](../_andamento/registros/registro-v3.0.1-2026-10-20-imp-conta-fun-restauracao-arvore.md) · [galeria](comparacoes/v3.0.1-2026-10-20-conta-arvore/index.html).
+
+## Referência vigente — reconstrução v3.0.0 — 18/10/2026
+
+A referência é [Telas/Layout novo](../Telas/Layout%20novo/index.html). Estilos e interiores foram reconstruídos, incluindo Agenda semanal, cartões de Pessoas, Acordos/lista móvel e controles. Não há composição do primeiro layout no aplicativo ou no renderizador vivo; fontes e galerias históricas continuam arquivadas explicitamente.
+
+Atlas, Visão global e MVP compartilham a revisão3, com 73 fichas,39 recortes existentes e34 planejados. Gatilhos de diálogos mostram **Modal**, e a ficha lista os existentes na composição. Navegação para outra rota e seleção de painel são identificadas separadamente. [Contrato permanente](../_andamento/funcionalidades/modais-interface.md).
+
+122 testes gerais aprovados; 94 cenários autenticados consolidados (66 da rodada ampla, 24 corrigidos/reexecutados, dois de registros consecutivos e dois de fidelidade protegida; rodadas focais adicionais aprovadas). Tipos, build webpack dos fontes finais e análise de CSS aprovados. Atlas: 73 telas, 207 ações, 365 estados, 41 referências históricas, 20 contextos modais e três rotas protegidas comparadas, sem erros ou chamadas externas. Visão global, MVP e percurso da proposta aprovados.
+
+170 capturas do aplicativo (85 capturas de modais, 27 rotas autenticadas, sete páginas públicas e larguras de 390/640/768/1024/1440 px), 176 do Atlas (86 telas/contextos e 90 capturas de modais), 40 da referência e 20 anteriores: 406 imagens e 20 comparações por área/dispositivo. Modais têm título, gatilho e origem no manifesto; a captura é recortada no diálogo. [Galeria vigente](comparacoes/v3.0.0-2026-10-18-layout-novo-integral/index.html). As comparações põem a captura histórica v2.0.0, a referência fornecida e o aplicativo atual lado a lado. Capturas esperam o conteúdo final; não reutilizam carregamentos como prova de página pronta.
+
+Limites: validação estrutural/funcional e inspeção visual local, sem medição pixel a pixel, teste com usuários ou certificação remota. A referência/Atlas usam exemplos; app autenticado da galeria usa fixtures locais. Esboços e evolução individual não se tornam funções concluídas pela apresentação.
+
+## Evidências e critérios históricos
+
+Os resultados, medidas e comparações a seguir pertencem à composição e versão indicadas em cada marco. Preservam a rastreabilidade, sem certificar automaticamente o Layout atual.
 
 **Fluxo completo aprovado, implementação pendente — v1.1.0 — 18/10/2026:** [Proposta → Hábito → Experiência → Essência](../_andamento/funcionalidades/fluxo-proposta-habito-experiencia-essencia.md) é a sequência obrigatória da evolução de cada pessoa na prática apoiada pelo Núcleo. O formulário atual ainda oferece categorias diretas e não está adequado a essa direção. Fichas de Proposta, Experiência e Essência e roteiro apontam o fluxo, sem inferir avanço coletivo, critérios, votação ou migração. Inventário e capturas históricas preservados; nenhuma nova certificação de fidelidade funcional.
 

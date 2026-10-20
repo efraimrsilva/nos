@@ -1,5 +1,31 @@
 # Cobertura e pendências do wireframe
 
+**Atualização vigente — v3.0.1 — 20/10/2026:** por autorização explícita, a árvore original retorna somente ao painel público da Conta; Atlas01/02 usam a mesma imagem. A composição3.0.0 permanece a base; demais telas e modais preservados. Validação pontual:12 testes, tipos, três larguras e prévias de cadastro/login. [Registro](../_andamento/registros/registro-v3.0.1-2026-10-20-imp-conta-fun-restauracao-arvore.md) · [galeria](comparacoes/v3.0.1-2026-10-20-conta-arvore/index.html).
+
+## Cobertura da reconstrução do Layout novo — 18/10/2026
+
+**Reconstrução validada localmente — v3.0.0.** A composição viva das **73 fichas** usa a referência [Layout novo](../Telas/Layout%20novo/index.html). O inventário permanece em **39 recortes existentes e 34 planejadas**, com IDs históricos preservados. O shell visual não altera contratos, permissões ou conclusão dos módulos.
+
+| Fichas | Representação atual | Limite funcional |
+| --- | --- | --- |
+| 01–05 e72 | Entrada/Conta com a nova identidade | Sessão, confirmação e recuperação preservam contratos existentes |
+| 06–13;58–59 | Criação/entrada, Núcleos e convites com nova estrutura | Convites reais continuam sujeitos a papéis e validação; Atlas não grava |
+| 14–17 | Agenda com nova estrutura | Grade semanal, painel, lista/formulários/respostas reais; mês/dia/recorrência/externos planejados |
+| 18;22–33 | Acordos, participação, gestão e histórico com nova identidade | Kanban/Painéis/lista móvel organizam o modelo atual; não implementam evolução individual |
+| 38 e40 | Esboços protegidos de Árvore e Memórias | /nucleos/[id]/arvore e /memorias; sem crescimento, fotos, feed ou persistência |
+| 44 e49 | Esboços protegidos de Conexões e Perfis | /nucleos/[id]/conexoes e /perfis; sem métricas nem perfis afetivos persistidos |
+| 55 e61 | Esboços protegidos de Manifesto e Cuidado | /nucleos/[id]/manifesto e /cuidado; sem assinaturas ou conversas persistidas |
+| 66–71;73 | Preferências, ajuda, saída e administração com nova estrutura | Funções existentes preservadas; notificações68 permanecem planejadas |
+| Demais fichas planejadas | Desenhos de planejamento com shell atual e aviso explícito | A presença do desenho não cria a rota nem conclui o módulo |
+
+Árvore/Memórias, Conexões/Perfis e Manifesto/Cuidado são pares de esboços acessíveis pelo menu e pelos links do respectivo módulo. Os percursos detalhados preservam seus IDs, regras pendentes e ordem de planejamento. O modo histórico e as galerias anteriores estão preservados. A origem histórica reorganizada está em [Layout inicial](../Telas/Layout%20inicial/Nos_App.dc.html) e [PDFs](../Telas/Layout%20inicial/pdfs/source1.pdf).
+
+**Modais:** identificação no gatilho/ficha, origem e título; links para rotas e seleção inline não recebem esse rótulo. [Inventário permanente](../_andamento/funcionalidades/modais-interface.md) · [galeria 3.0.0](comparacoes/v3.0.0-2026-10-18-layout-novo-integral/index.html). 170 capturas do aplicativo (85 capturas de modais, 27 rotas autenticadas, sete páginas públicas e larguras de 390/640/768/1024/1440 px), 176 do Atlas (86 telas/contextos e 90 capturas de modais), 40 da referência e 20 anteriores: 406 imagens e 20 comparações por área/dispositivo. Modais têm título, gatilho e origem no manifesto; a captura é recortada no diálogo.
+
+## Cobertura histórica por marco
+
+Os inventários e contratos abaixo devem ser lidos na data correspondente. A migração visual acima prevalece na apresentação; o contrato administrativo vigente prevalece sobre regras históricas de votação e de criador exclusivo.
+
 **Fluxo completo aprovado, implementação pendente — v1.1.0 — 18/10/2026:** [Proposta → Hábito → Experiência → Essência](../_andamento/funcionalidades/fluxo-proposta-habito-experiencia-essencia.md) é a sequência obrigatória da evolução de cada pessoa na prática apoiada pelo Núcleo. O formulário atual ainda oferece categorias diretas e não está adequado a essa direção. Fichas de Proposta, Experiência e Essência e roteiro apontam o fluxo, sem inferir avanço coletivo, critérios, votação ou migração. Inventário e capturas históricas preservados; nenhuma nova certificação de fidelidade funcional.
 
 **Entrega local vigente — v1.1.0 — 15/10/2026:** Tela73 inclui encerramento administrativo para todos, com nome/ciência e cancelamento sem gravação. Todos perdem acesso, convites são revogados, histórico e contas permanecem armazenados. Alternativa73 →12; saída individual71 preservada. Mesmas73 telas,39 recortes existentes e34 planejadas. Atlas/MVP/visão global sincronizados. [Galeria](comparacoes/v1.1.0-2026-10-15-encerramento/index.html). Nova função ainda sem publicação/migração remota.

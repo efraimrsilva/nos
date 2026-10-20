@@ -9,13 +9,13 @@ export function ControlActionForm({ action, label, confirmation, children, dange
   danger?: boolean; pendingLabel?: string;
 }) {
   const [state, submit, pending] = useActionState(action, { error: "" });
-  return <form action={submit} className="mt-3 grid gap-3" aria-busy={pending}>
-    <fieldset disabled={pending} className="grid gap-3">
+  return <form action={submit} className="control-form" aria-busy={pending}>
+    <fieldset disabled={pending}>
       {children}
-      {confirmation && <label className="flex items-start gap-3 text-sm"><input type="checkbox" name="confirmed" required className="mt-1 h-5 w-5 shrink-0" /><span>{confirmation}</span></label>}
-      <button className={`continue-button min-h-11 rounded-xl px-4 text-sm font-semibold text-white disabled:opacity-60 ${danger ? "bg-red-800" : "bg-forest"}`} disabled={pending}>{pending ? pendingLabel : label}</button>
+      {confirmation && <label className="control-check"><input type="checkbox" name="confirmed" required /><span>{confirmation}</span></label>}
+      <button className={`ui-button${danger ? " ui-button-danger" : ""}`} disabled={pending}>{pending ? pendingLabel : label}</button>
     </fieldset>
-    {state.error && <p role="alert" className="text-sm text-red-700">{state.error}</p>}
-    {state.success && <p role="status" className="text-sm text-leaf">{state.success}</p>}
+    {state.error && <p role="alert" className="ui-feedback">{state.error}</p>}
+    {state.success && <p role="status" className="ui-feedback">{state.success}</p>}
   </form>;
 }

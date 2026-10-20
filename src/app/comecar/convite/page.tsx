@@ -9,12 +9,9 @@ export const metadata: Metadata = { title: "Entrar por convite" };
 export default async function InvitationPage() {
   const supabase = await createSupabaseServerClient();
   const user = supabase ? (await supabase.auth.getUser()).data.user : null;
-
   return <>
-    <Link href={routes.start} className="mb-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-muted"><ArrowLeft size={17} aria-hidden="true" />Voltar</Link>
-    <p className="step-label mb-3 text-lilac">Um convite para cultivar juntos</p>
-    <h1 className="font-display text-[30px] font-medium leading-tight md:text-[38px]">Você recebeu um convite?</h1>
-    <p className="mt-3 text-sm leading-7 text-muted">Digite o código que te enviaram. Você poderá conhecer o Núcleo antes de decidir.</p>
+    <Link href={routes.start} className="ui-text-link mb-5"><ArrowLeft size={16} aria-hidden="true" />Voltar</Link>
+    <header className="ui-page-header"><div><p className="ui-kicker">Um convite para cultivar juntos</p><h1 className="ui-title">Você recebeu um convite?</h1><p className="ui-copy">Digite o código que te enviaram. Você poderá conhecer o Núcleo antes de decidir.</p></div></header>
     <InvitationEntry isAuthenticated={Boolean(user)} />
   </>;
 }

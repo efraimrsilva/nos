@@ -1,5 +1,22 @@
 # Brag document — Projeto Nós
 
+## 2026-10-20 — v3.0.3 — sobreposição de eventos corrigida na revisão
+
+**Problema:** eventos longos podiam encobrir outros na Agenda. **Contribuição:** distribuição por interseção visual e faixas estáveis, com altura coerente e acesso ao detalhe completo. **Resultado verificado:** três testes unitários e revisão independente aprovados. **Benefício esperado:** reduzir ocultação acidental dos encontros na grade. [Evidência](../_andamento/registros/registro-v3.0.3-2026-10-20-imp-publicacao-layout-fun-consolidacao-interface-e-agenda.md).
+
+## 2026-10-20 — v3.0.1 — identidade ilustrada na Conta
++
++**Problema:** o usuário solicitou recuperar a árvore original após aprovar a reconstrução. **Contribuição:** reutilização do recurso existente, restrita à Conta sem sessão, com tamanho responsivo e Atlas alinhado. **Resultado verificado:**12 testes aprovados e imagem carregada sem overflow em três larguras. **Benefício esperado:** recuperar o elemento de identidade desejado sem ampliar o escopo visual. [Evidências](../_andamento/registros/registro-v3.0.1-2026-10-20-imp-conta-fun-restauracao-arvore.md).
+
+## 2026-10-18 — v3.0.0 — apresentação unificada e modais verificáveis
+
+**Problema:** a migração anterior mantinha interiores antigos e não expunha todos os diálogos da referência. **Contribuição:** reconstrução de estilos/páginas/componentes, diálogos acessíveis e inventário permanente com evidências de origem/gatilho. **Resultado verificado:** 122 testes gerais e94 autenticados consolidados; 73 fichas do Atlas sincronizadas; 406 capturas e20 comparações versionadas. **Benefício esperado, não medido:** maior consistência e facilidade de verificação pelo usuário. [Evidências](../_andamento/registros/registro-v3.0.0-2026-10-18-imp-reconstrucao-layout-novo-fun-interface-e-modais.md).
+
+## 2026-10-18 — v2.0.2 — restauração da conexão local ao Auth
+
+**Problema:** erro de confiança do certificado impedia login local antes da validação da conta. **Contribuição:** causa reproduzida, inicialização do Node corrigida para usar certificados confiáveis do sistema e integração remota auditada sem escrita de dados. **Resultado verificado:** formulário volta a receber resposta do Auth; dez testes e tipos aprovados; nove migrações e contratos de 26 RPCs/27 consultas conferidos. Login da conta pessoal ainda requer confirmação do usuário. **Evidência:** [registro](../_andamento/registros/registro-v2.0.2-2026-10-18-imp-conexao-supabase-fun-correcao-login-local.md).
+
+
 ## 2026-10-18 — v1.1.0 — direção única para o fluxo de Acordos
 
 **Problema:** documentação tratava Hábito e Experiência como categorias independentes, divergindo da sequência esclarecida pelo usuário. **Contribuição:** contrato único para Proposta → Hábito → Experiência → Essência, com avanço individual, distinção do ciclo operacional, limites de autorização e dependências de implementação; referências conceituais e Atlas sincronizados. **Resultado documental:** regra e pendências rastreáveis, com critérios de passagem não presumidos e separação entre decisão e funcionalidade disponível. **Benefício esperado, não medido:** reduzir interpretações incompatíveis em futuras implementações. **Evidência:** [contrato](../_andamento/funcionalidades/fluxo-proposta-habito-experiencia-essencia.md) e [registro](../_andamento/registros/registro-v1.1.0-2026-10-18-imp-documentacao-acordos-fun-fluxo-proposta-habito-experiencia-essencia.md). Sem nova funcionalidade ou migração.
@@ -236,3 +253,11 @@ Registro factual de contribuições; resultados medidos são separados de benef�
 - Resultado verificado: regressão falhou antes/passou depois; 100 testes gerais, tipos/build e jornada real local de e-mail aprovados; revisão independente sem achados relevantes restantes.
 - Benefício esperado: orientar a próxima tentativa sem induzir troca desnecessária de senha. Redução de tentativas não medida. Gmail externo ainda pendente.
 - Evidência: [registro](../_andamento/registros/registro-v0.14.1-2026-10-13-imp-acesso-existente-fun-mvp-etapa-01.md), tests/auth-service.spec.ts e [comparação](../wireframes/comparacoes/v0.14.1-2026-10-13-acesso-indisponivel-tela_01/index.html).
+
+## 2026-10-18 — v2.0.0 — Identidade visual coerente em toda a aplicação
+
+- **Problema:** a aplicação usava a primeira composição e não representava a nova direção de navegação e módulos.
+- **Contribuição:** estrutura compartilhada, migração das rotas/ações existentes, Kanban/Painéis/lista, ícones e movimentos acessíveis; seis esboços privados com limites explícitos; Atlas e comparação completa sincronizados.
+- **Resultado verificado:**122 testes gerais,87 cenários autenticados consolidados/1 dispensa e tipos/build aprovados;73 fichas/207 ações/365 estados do Atlas sem erros/rede;165 capturas. Achados de navegação, acessibilidade e evidência resolvidos; sem alteração de regras ou dependências.
+- **Benefício esperado:** consistência da experiência e menor custo para manter navegação/identidade. Ganho de usabilidade não foi medido com pessoas usuárias.
+- **Evidência:** [registro](../_andamento/registros/registro-v2.0.0-2026-10-18-imp-layout-atual-fun-migracao-integral.md), [galeria](../wireframes/comparacoes/v2.0.0-2026-10-18-layout-atual-tela_01-a-tela_73/index.html) e testes de layout/navegação.

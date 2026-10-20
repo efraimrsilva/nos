@@ -1,5 +1,25 @@
 # Wireframe completo do Projeto Nós
 
+**Atualização vigente — v3.0.1 — 20/10/2026:** por autorização explícita, a árvore original retorna somente ao painel público da Conta; Atlas01/02 usam a mesma imagem. A composição3.0.0 permanece a base; demais telas e modais preservados. Validação pontual:12 testes, tipos, três larguras e prévias de cadastro/login. [Registro](../_andamento/registros/registro-v3.0.1-2026-10-20-imp-conta-fun-restauracao-arvore.md) · [galeria](comparacoes/v3.0.1-2026-10-20-conta-arvore/index.html).
+
+## Referência visual vigente — v3.0.0 — 18/10/2026
+
+**Reconstrução concluída e validada localmente — v3.0.0.** O [Layout novo](../Telas/Layout%20novo/index.html), seu [app.js](../Telas/Layout%20novo/app.js) e [styles.css](../Telas/Layout%20novo/styles.css) são a referência visual vigente para todas as rotas. A reformulação ampla foi validada e classificada como versão principal3.0.0. O antigo desenho está em [Layout inicial](../Telas/Layout%20inicial/Nos_App.dc.html); as galerias datadas conservam as evidências de cada marco.
+
+O modo **Atlas vivo** usa Arial/Georgia, fundo #f5f7f1, texto #293e35, ação #345d44 e borda #dce3d6. A estrutura compartilha navegação lateral no desktop, título contextual, conteúdo e rodapé; no celular, barra inferior com Início, Acordos, Agenda, Pessoas e Mais. O menu contextual abre as demais áreas. Conta e recuperação mantêm uma composição de entrada própria. Os desenhos importados de approved-layouts.js aparecem somente no modo **desenho histórico do documento**.
+
+O inventário continua em **73 fichas, 39 recortes existentes e 34 planejadas**. Esboço visual não equivale a módulo funcional: as fichas38/40/44/49/55/61 registram, respectivamente, /nucleos/[id]/arvore, /memorias, /conexoes, /perfis, /manifesto e /cuidado. As seis rotas exigem sessão e vínculo no aplicativo, apresentam aviso visível e não persistem dados. Detalhes futuros permanecem nas fichas seguintes, sem criar rotas inexistentes ou alterar as contagens para sugerir conclusão.
+
+Acordos18 representa **Kanban · Fluxo**, **Painéis · Lado a lado** e lista móvel. O aplicativo utiliza dados reais e conserva ações e permissões. O Atlas continua offline e usa exemplos identificados. Propostas são agrupadas pela situação; Hábito e Experiência conservam a categoria do modelo atual. O percurso **Proposta → Hábito → Experiência → Essência** é uma direção aprovada por pessoa; as passagens individuais, critérios e consentimentos não foram desenvolvidos. Nenhum cartão comprova avanço individual ou coletivo. Essência permanece como esboço.
+
+A mesma função productPhoneHtml fornece Atlas, Visão global, MVP e inspeção; fichas vêm de screens.js. A nova composição não importa o CSS completo das variantes do protótipo. Ações do Atlas demonstram navegação e não chamam o banco de dados. Fichas futuras exibem aviso próprio e os contratos administrativos atuais continuam prevalecendo sobre desenhos históricos.
+
+**Limite de evidência:** esta atualização de composição não certifica fidelidade pixel a pixel, operação online, migração remota ou conclusão das funcionalidades futuras. A [galeria v3.0.0](comparacoes/v3.0.0-2026-10-18-layout-novo-integral/index.html) contém 406 imagens, incluindo 85 modais do aplicativo e90 do Atlas, além das telas, referência e capturas anteriores. Há busca por título/gatilho/origem e filtros Tela/Modal/Atlas/Referência/Anterior. Galerias anteriores não certificam a reconstrução atual.
+
+## Histórico do guia e das composições anteriores
+
+Os marcos e especificações abaixo registram o estado de cada data. Para composição visual atual e situação dos módulos, prevalece a seção de migração acima. Regras antigas de criador, unanimidade, quórum e progressão não substituem o contrato administrativo vigente.
+
 **Fluxo completo aprovado, implementação pendente — v1.1.0 — 18/10/2026:** [Proposta → Hábito → Experiência → Essência](../_andamento/funcionalidades/fluxo-proposta-habito-experiencia-essencia.md) é a sequência obrigatória da evolução de cada pessoa na prática apoiada pelo Núcleo. O formulário atual ainda oferece categorias diretas e não está adequado a essa direção. Fichas de Proposta, Experiência e Essência e roteiro apontam o fluxo, sem inferir avanço coletivo, critérios, votação ou migração. Inventário e capturas históricas preservados; nenhuma nova certificação de fidelidade funcional.
 
 **Entrega local vigente — v1.1.0 — 15/10/2026:** Tela73 inclui encerramento administrativo para todos, com nome/ciência e cancelamento sem gravação. Todos perdem acesso, convites são revogados, histórico e contas permanecem armazenados. Alternativa73 →12; saída individual71 preservada. Mesmas73 telas,39 recortes existentes e34 planejadas. Atlas/MVP/visão global sincronizados. [Galeria](comparacoes/v1.1.0-2026-10-15-encerramento/index.html). Nova função ainda sem publicação/migração remota.
@@ -147,7 +167,7 @@ As fontes Fredoka e Plus Jakarta Sans foram copiadas das dependências já insta
 - [Modelo funcional v2.4](../Projeto_Nos_v2.4_Modelo_Funcional_Dados_Estados_e_Regras.md) e [permissões v2.5](../Projeto_Nos_v2.5_Matriz_de_Permissoes_Privacidade_Visibilidade.md).
 - [Estados v2.6](../Projeto_Nos_v2.6_Estados_Vazios_Erros_e_Carregamento.md), [eventos v2.7](../Projeto_Nos_v2.7_Notificacoes_e_Eventos_do_Sistema.md) e [segurança v2.8](../Projeto_Nos_v2.8_Autenticacao_e_Seguranca.md).
 - [Acordos v1.2](../Projeto_Nos_v1.2_Sistema_de_Aprovacao_e_Construcao_de_Acordos.md), [impacto v1.4](../Projeto_Nos_v1.4_Sistema_de_Impacto.md), [marcos v1.6](../Projeto_Nos_v1.6_Sistema_de_Marcos_de_Evolucao_e_Celebracoes_Saudaveis.md), [conversas v1.10](../Projeto_Nos_v1.10_Sistema_de_Conversas_Guiadas_e_Mediacao_Afetiva.md).
-- [Protótipo original](../Telas/Nos_App.dc.html), [estado vigente](../_andamento/estado.md) e código local das rotas, catálogos e contratos de acesso.
+- [Protótipo original](../Telas/Layout%20inicial/Nos_App.dc.html), [estado vigente](../_andamento/estado.md) e código local das rotas, catálogos e contratos de acesso.
 
 Quando houver divergência, decisões explícitas do usuário e contratos implementados mais recentes prevalecem sobre exemplos antigos. O wireframe propõe composição e explicita decisões abertas; não substitui regras ou permissões persistidas.
 
@@ -186,3 +206,7 @@ Decisão de 2026-10-07: **qualquer alteração deve conferir o impacto em todas 
 ## Navegação protegida — v0.13.0
 
 Conta → Seus Núcleos → Início escolhido. Criação e convite são alternativas explícitas da lista; /comecar continua protegido. Tela12 passou de planejada a recorte existente. 132 testes, tipos/build, 72 prévias/180 saídas/360 estados e Visão global aprovados. Comparação real autenticada em desktop/celular na [galeria desta entrega](comparacoes/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/index.html).
+
+## Identificação permanente de modais — decisão de 2026-10-18
+
+Toda ação que abre diálogo deve aparecer como **Modal** no Atlas e nas fichas/documentações correspondentes. Registrar gatilho, objetivo, conteúdo, permissões, resultado/fechamento e integração real ou esboço. A galeria de cada entrega deve identificar os modais abertos e suas telas de origem. Navegação para rota não é modal. Consultar e manter o [inventário e contrato permanente](../_andamento/funcionalidades/modais-interface.md).

@@ -1,10 +1,12 @@
 # MVP e caminho de implementação — Projeto Nós
 
+**Migração visual validada localmente — 18/10/2026 — v2.0.0:** [Layout atual](../../Telas/Layout%20novo/index.html) é a referência de todas as áreas. A navegação lateral/inferior inclui esboços protegidos de Árvore/Memórias, Conexões/Perfis e Manifesto/Cuidado. As seis rotas não persistem dados e não concluem etapas07–11. Mantêm-se73 fichas,39 recortes existentes e34 planejadas. Kanban/Painéis/lista móvel de Acordos organiza o modelo atual; a evolução individual aprovada continua pendente de critérios, dados e consentimento. Versão2.0.0 e evidência visual estão no [registro da migração](../registros/registro-v2.0.0-2026-10-18-imp-layout-atual-fun-migracao-integral.md).
+
 **Fluxo completo aprovado — v1.1.0 — 18/10/2026:** a expansão deverá implementar [Proposta → Hábito → Experiência → Essência](../funcionalidades/fluxo-proposta-habito-experiencia-essencia.md), sequência obrigatória por pessoa. Antes de implementar, fechar critérios das três passagens, confirmação/consentimento, dados, agrupamento, Essência e legado. A decisão documental não altera o status de conclusão do MVP nem restaura votação coletiva.
 
 **Atualização implementada localmente — v1.0.0 — 14/10/2026:** [contrato administrativo](../funcionalidades/administracao-participacao.md) substitui votação coletiva do ciclo de acordos e as decisões posteriores de votação por saída. Administração/participação entram no fechamento MVP05; gestão/revisão administrativa substitui consenso no comportamento-alvo de propósito e acordos. Percursos/fichas, aplicativo e migração local estão sincronizados:73 telas,39 recortes e34 planejadas. [Manual atual](../funcionalidades/administracao-manual.md). Publicação, migração remota, termos/política completos e operação do piloto permanecem pendentes. O roteiro abaixo conserva os marcos históricos; para Núcleos/acordos, prevalece o contrato administrativo.
 
-**Versão de referência atual:** v1.0.0. **Aprovado pelo usuário:** 2026-10-12. **Status:** roteiro aprovado; funcionalidades futuras permanecem planejadas.
+**Versão de referência atual:** v2.0.0. **Aprovado pelo usuário:** 2026-10-12. **Status:** roteiro aprovado; funcionalidades futuras permanecem planejadas.
 
 **Operação da etapa 01 em 13/10/2026:** conexão/login/sessão/saída verificados em https://noslife.netlify.app, com configuração de produção e retornos Supabase aplicados. Cadastro com confirmação externa ainda depende da senha de aplicativo Gmail; recuperação completa também exige segredo no Netlify. Etapa 01 continua aberta. [Registro online](../registros/registro-v0.14.1-2026-10-13-03-imp-conexao-netlify-fun-acesso-online.md).
 

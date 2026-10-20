@@ -8,7 +8,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import * as icons from 'lucide-react';
 
 const root = path.resolve('Documentacao_Projeto_Nos');
-const source = fs.readFileSync(path.join(root, 'Telas/Nos_App.dc.html'), 'utf8');
+const source = fs.readFileSync(path.join(root, 'Telas/Layout inicial/Nos_App.dc.html'), 'utf8');
 const logic = source.match(/<script type="text\/x-dc"[^>]*>([\s\S]*?)<\/script>/)[1];
 // O código de referência é interpretado somente nesta ferramenta local. O atlas recebe HTML estático.
 const context = vm.createContext({ DCLogic: class {}, React: { createElement: (tag, props, ...children) => ({ tag, props, children }) } });
@@ -100,7 +100,7 @@ try {
   }
 } finally { await browser.close(); }
 const sha256 = crypto.createHash('sha256').update(source).digest('hex');
-fs.writeFileSync(path.join(root, 'wireframes/atlas/approved-layouts.js'), `/* Gerado por tools/import-approved.mjs a partir de Telas/Nos_App.dc.html. Não editar manualmente. */\nconst approvedSourceHash = ${JSON.stringify(sha256)};\nconst approvedLayoutDefinitions = ${JSON.stringify(definitions, null, 2)};\nconst approvedLayouts = ${JSON.stringify(layouts, null, 2)};\n`);
+fs.writeFileSync(path.join(root, 'wireframes/atlas/approved-layouts.js'), `/* Gerado por tools/import-approved.mjs a partir de Telas/Layout inicial/Nos_App.dc.html. Não editar manualmente. */\nconst approvedSourceHash = ${JSON.stringify(sha256)};\nconst approvedLayoutDefinitions = ${JSON.stringify(definitions, null, 2)};\nconst approvedLayouts = ${JSON.stringify(layouts, null, 2)};\n`);
 const names = ['Sprout','Heart','Plus','UsersRound','ChevronRight','ArrowLeft','ArrowRight','Leaf','House','HandHeart','Smile','BriefcaseBusiness','Network','Church','Lightbulb','CalendarDays','Handshake','Images','UserRound','ShieldCheck','Mail','LockKeyhole','Bell','Settings','NotebookPen','Compass','CircleCheck','Info','Sparkles','TreeDeciduous'];
 const svg = Object.fromEntries(names.map(name => [name, renderToStaticMarkup(createElement(icons[name], { size: 24, strokeWidth: 1.8, 'aria-hidden': true }))]));
 fs.writeFileSync(path.join(root, 'wireframes/atlas/icons.js'), `/* SVG Lucide da versão instalada; sem biblioteca ou rede no atlas. */\nconst atlasIcons = ${JSON.stringify(svg, null, 2)};\n`);

@@ -2,9 +2,11 @@
 
 import { useActionState, useState } from "react";
 import Link from "next/link";
+import { Check, Copy, KeyRound, Share2 } from "lucide-react";
 import { generateInvitation, type InvitationState } from "@/features/invitations/actions";
+import "./participation-layout.css";
 
-export function InitialInvitation({ nucleusId, initialCode, expiresAt }: { nucleusId: string; initialCode: string; expiresAt?: string }) {
+export function InitialInvitation({ nucleusId, initialCode, expiresAt, showManagementLink = true }: { nucleusId: string; initialCode: string; expiresAt?: string; showManagementLink?: boolean }) {
   const [state, action, pending] = useActionState(generateInvitation, { error: "", code: initialCode, preview: null } satisfies InvitationState);
   const [feedback, setFeedback] = useState("");
 
@@ -23,21 +25,20 @@ export function InitialInvitation({ nucleusId, initialCode, expiresAt }: { nucle
     }
   }
 
-  return <section className="mt-7 rounded-[22px] border border-line bg-white p-5 sm:p-7">
-    <p className="text-sm leading-7 text-muted">Quem tiver o código poderá conferir o Núcleo e entrar após aceitar o convite. O convite expira em sete dias e o aceite é sempre explícito.</p>
+  return <section className="invitation-generator" aria-label="Preparar convite">
+    <p className="ui-copy">Quem tiver o código poderá conferir o Núcleo e entrar após aceitar o convite. O convite expira em sete dias e o aceite é sempre explícito.</p>
     {state.code ? <>
-      <p className="mt-6 text-xs font-bold uppercase tracking-wide text-muted">Código de convite</p>
-      <p className="mt-2 break-all rounded-xl bg-[#eff3e6] p-4 font-mono text-sm font-semibold tracking-wider">{state.code}</p>
-      {expiresAt && state.code === initialCode && <p className="mt-2 text-xs leading-6 text-muted">Expira em {new Intl.DateTimeFormat("pt-BR", { dateStyle: "short", timeStyle: "short", timeZone: "UTC" }).format(new Date(expiresAt))} UTC.</p>}
-      <button type="button" onClick={share} className="mt-4 min-h-11 rounded-xl border border-line px-5 text-sm font-semibold transition-colors hover:bg-canvas">Compartilhar código</button>
-      <button type="button" onClick={copy} className="mt-3 ml-2 min-h-11 rounded-xl border border-line px-5 text-sm font-semibold transition-colors hover:bg-canvas">Copiar código</button>
-      {feedback && <p role="status" className="mt-2 text-sm text-muted">{feedback}</p>}
-    </> : <form action={action} className="mt-6">
+      <p className="invitation-code-label"><KeyRound size={17} aria-hidden="true" />Código de convite</p>
+      <p className="invitation-code">{state.code}</p>
+      {expiresAt && state.code === initialCode && <p className="invitation-small">Expira em {new Intl.DateTimeFormat("pt-BR", { dateStyle: "short", timeStyle: "short", timeZone: "UTC" }).format(new Date(expiresAt))} UTC.</p>}
+      <div className="invitation-share-actions"><button type="button" onClick={share} className="ui-button"><Share2 size={17} aria-hidden="true" />Compartilhar código</button><button type="button" onClick={copy} className="ui-button-secondary"><Copy size={17} aria-hidden="true" />Copiar código</button></div>
+      {feedback && <p role="status" className="invitation-feedback"><Check size={16} aria-hidden="true" />{feedback}</p>}
+    </> : <form action={action} className="invitation-generation-form" aria-busy={pending}>
       <input type="hidden" name="nucleus_id" value={nucleusId} />
-      {state.error && <p role="alert" className="mb-3 text-sm font-semibold text-[#9a3153]">{state.error}</p>}
-      <button type="submit" disabled={pending} className="continue-button min-h-12 w-full rounded-2xl bg-forest px-5 py-3 text-sm font-semibold text-white disabled:opacity-60">{pending ? "Gerando…" : "Gerar convite"}</button>
+      {state.error && <p role="alert" className="ui-status">{state.error}</p>}
+      <button type="submit" disabled={pending} className="ui-button"><KeyRound size={17} aria-hidden="true" />{pending ? "Gerando…" : "Gerar convite"}</button>
     </form>}
-    <Link href={`/nucleos/${nucleusId}/convites`} className="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Gerenciar convites</Link>
-    <p className="mt-4 rounded-xl bg-[#eff3e6] p-4 text-xs leading-6 text-muted">QR e convites por link · planejados. Por enquanto, compartilhe o código para a outra pessoa conferir e aceitar na própria conta.</p>
+    {showManagementLink && <Link href={`/nucleos/${nucleusId}/convites`} className="invitation-management-link">Gerenciar convites</Link>}
+    <p className="invitation-small">Esboço de funcionalidade · ainda não desenvolvido: QR (código de resposta rápida) e convites por link. Por enquanto, compartilhe o código para a outra pessoa conferir e aceitar na própria conta.</p>
   </section>;
 }

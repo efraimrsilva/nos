@@ -39,7 +39,8 @@ test("Atlas e aplicativo autenticado mantêm composição, estados e percursos",
   });
   const atlas = await context.newPage();
   await atlas.goto(pathToFileURL(path.resolve("Documentacao_Projeto_Nos/wireframes/atlas/index.html")).href);
-  const dir = "Documentacao_Projeto_Nos/wireframes/comparacoes/v0.13.3-2026-10-10-entrar-convite-tela_10-tela_11";
+  // Capturas de regressão ficam nos artefatos; galerias versionadas são evidências históricas imutáveis.
+  const dir = "artifacts/current-layout-invitation";
   for (const [label, viewport] of [["desktop", { width: 1440, height: 1000 }], ["mobile", { width: 390, height: 844 }]] as const) {
     await page.setViewportSize(viewport);
     await page.goto("/comecar/convite");
@@ -123,7 +124,7 @@ test("aceite explícito abre Início e lista sem duplicar nem elevar o papel", a
   await page.getByRole("button", { name: "Conferir convite" }).click();
   await expect(page.getByRole("button", { name: "Aceitar convite" })).toBeVisible();
   // Capturas usam somente texto ilustrativo; o código temporário é ocultado antes de gravar.
-  await page.screenshot({ path: `Documentacao_Projeto_Nos/wireframes/comparacoes/v0.13.3-2026-10-10-entrar-convite-tela_10-tela_11/app-previa-${testInfo.project.name}.png`, fullPage: true, mask: [page.getByLabel("Código de convite")], maskColor: "#eff3e6" });
+  await page.screenshot({ path: `artifacts/regression-captures/v0.13.3-2026-10-10-entrar-convite-tela_10-tela_11/app-previa-${testInfo.project.name}.png`, fullPage: true, mask: [page.getByLabel("Código de convite")], maskColor: "#eff3e6" });
   await page.getByRole("button", { name: "Aceitar convite" }).click();
   await expect(page).toHaveURL(new RegExp(`/nucleos/${invitation.nucleusId}$`));
   await expect(page.getByRole("heading", { name: "Jardim do convite" })).toBeVisible();
@@ -134,6 +135,6 @@ test("aceite explícito abre Início e lista sem duplicar nem elevar o papel", a
   await expect(page).toHaveURL(new RegExp(`/nucleos/${invitation.nucleusId}$`));
   expect(localSql(`select count(*) from public.nucleus_members where nucleus_id='${invitation.nucleusId}' and user_id='${account.id}' and role='member';`).trim()).toBe("1");
   expect(localSql(`select role from public.nucleus_members where nucleus_id='${invitation.nucleusId}' and user_id='${invitation.ownerId}';`).trim()).toBe("admin");
-  await page.getByRole("link", { name: "Voltar a Seus Núcleos" }).click();
-  await expect(page.getByRole("link").filter({ hasText: "Jardim do convite" })).toBeVisible();
+  await page.getByRole("main").getByRole("link", { name: "Seus Núcleos", exact: true }).click();
+  await expect(page.getByRole("link", { name: "Abrir Núcleo Jardim do convite", exact: true })).toBeVisible();
 });

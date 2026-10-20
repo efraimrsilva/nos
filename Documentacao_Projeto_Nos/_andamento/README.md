@@ -1,10 +1,14 @@
 # Andamento do Projeto Nós
 
-**Entrega documental atual — 18/10/2026:** [fluxo obrigatório Proposta → Hábito → Experiência → Essência](funcionalidades/fluxo-proposta-habito-experiencia-essencia.md). [Registro](registros/registro-v1.1.0-2026-10-18-imp-documentacao-acordos-fun-fluxo-proposta-habito-experiencia-essencia.md). Evolução da pessoa; critérios e implementação pendentes. Resumos anteriores abaixo são históricos. Consulte [estado](estado.md) para a retomada.
+**Atualização vigente — v3.0.1:** [árvore da Conta](registros/registro-v3.0.1-2026-10-20-imp-conta-fun-restauracao-arvore.md) · [galeria](../wireframes/comparacoes/v3.0.1-2026-10-20-conta-arvore/index.html). Exceção visual pontual autorizada; consultar [estado](estado.md).
 
-**Versão vigente do projeto:** 1.1.0
+**Entrega vigente — v3.0.0:** [reconstrução integral do Layout novo](registros/registro-v3.0.0-2026-10-18-imp-reconstrucao-layout-novo-fun-interface-e-modais.md) · [galeria](../wireframes/comparacoes/v3.0.0-2026-10-18-layout-novo-integral/index.html) · [regra permanente de modais](funcionalidades/modais-interface.md). Leia [estado.md](estado.md) para retomada, limites e pendências.
 
-Entrega atual: [v0.14.0 — Percurso 05 Uma proposta de Hábito](registros/registro-v0.14.0-2026-10-10-imp-proposta-habito-fun-percurso-05.md). Conferência no hub concluída localmente, com fluxo guiado reservado; unidade incluída no commit autorizado, com objeto conferido em 2026-10-12. [Contrato](funcionalidades/proposta-habito.md). O estado canônico abaixo mantém as publicações anteriores, sem pendência fictícia de Conta.
+**Marco documental anterior — 18/10/2026:** [fluxo obrigatório Proposta → Hábito → Experiência → Essência](funcionalidades/fluxo-proposta-habito-experiencia-essencia.md). [Registro](registros/registro-v1.1.0-2026-10-18-imp-documentacao-acordos-fun-fluxo-proposta-habito-experiencia-essencia.md). Evolução da pessoa; critérios e implementação pendentes. Resumos anteriores abaixo são históricos. Consulte [estado](estado.md) para a retomada.
+
+**Versão vigente do projeto:** 3.0.3
+
+Entrega histórica: [v0.14.0 — Percurso 05 Uma proposta de Hábito](registros/registro-v0.14.0-2026-10-10-imp-proposta-habito-fun-percurso-05.md). Conferência no hub concluída localmente, com fluxo guiado reservado; unidade incluída no commit autorizado, com objeto conferido em 2026-10-12. [Contrato](funcionalidades/proposta-habito.md). O estado canônico abaixo mantém as publicações anteriores, sem pendência fictícia de Conta.
 
 **Prioridade atual aprovada:** [MVP e roteiro completo](planos/mvp.md), começando pelo login existente. Guia [MVP](../wireframes/atlas/index.html#mvp) acima de Visão global; 13 etapas com critérios/dependências. Consultar desenho vivo/ficha antes de implementar. [Registro](registros/registro-v0.14.0-2026-10-12-imp-mvp-atlas-fun-roteiro-aprovado.md). Aprovação não equivale a implementação.
 
@@ -68,7 +72,7 @@ Em 2026-09-24, o usuário dispensou qualquer informação sobre percentual ou in
 
 Decisão de 2026-10-03: manter o [wireframe](../wireframes/atlas/index.html) atualizado para refletir todo o desenvolvimento atual e futuro. Cada entrega que alterar a experiência deve atualizar desenhos, fichas, fluxos e [pendências](../wireframes/COBERTURA.md) correspondentes, com situação fiel ao código e validações. Detalhes no [guia](../wireframes/GUIA.md) e em [estado.md](estado.md).
 
-Os materiais de origem foram movidos pelo usuário para [Telas](../Telas/Nos_App.dc.html), dentro de **Documentacao_Projeto_Nos**. Preservar essa organização; o protótipo antigo é fonte histórica, enquanto o atlas é mantido continuamente.
+Os materiais de origem foram movidos pelo usuário para [Telas](../Telas/Layout%20inicial/Nos_App.dc.html), dentro de **Documentacao_Projeto_Nos**. Preservar essa organização; o protótipo antigo é fonte histórica, enquanto o atlas é mantido continuamente.
 
 ## Próxima implementação
 

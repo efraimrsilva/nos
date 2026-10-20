@@ -1,14 +1,22 @@
 # Frontend web
 
-**Versão vigente do projeto:** 0.15.2
+**v3.0.1:** somente a ilustração original da Conta foi restaurada com Next Image e preload; sessão e estrutura novas preservadas. [Registro](../registros/registro-v3.0.1-2026-10-20-imp-conta-fun-restauracao-arvore.md).
+
+## v3.0.0 — sistema visual único e diálogos
+
+globals/layout-system e interiores reconstruídos. ActionDialog usa diálogo nativo/useId; páginas recebem conteúdo do servidor e preservam autorização nas ações. Chaves persistidas renovam formulários concluídos sem apagar feedback de revalidação. Agenda semanal, lista móvel de Acordos e estados seguem a referência; esboços não persistem. [Registro](../registros/registro-v3.0.0-2026-10-18-imp-reconstrucao-layout-novo-fun-interface-e-modais.md) · [contrato de modais](../funcionalidades/modais-interface.md).
+
+**Versão vigente do projeto:**3.0.3
 
 **MVP 04:** agenda mantém Server Actions/RPCs existentes. Confirmação contextual com ciência no servidor, foco ao abrir/retornar, botões de presença compartilham useFormStatus; feedback bloqueia envio durante processamento. Reservas futuras sem ação fictícia. [Contrato](../funcionalidades/agenda-interna.md).
 
 **Prioridade vigente — MVP aprovado em 2026-10-12:** seguir o [roteiro](../planos/mvp.md), começando pela etapa 01 de acesso e dependências operacionais. Antes de cada implementação, conferir etapa/dependências e aspecto/ficha no Atlas vivo com prioridade alta. Sincronizar também a guia MVP em cada mudança. Recomendações anteriores de iniciar pela Árvore ou proposta guiada são históricas; esses módulos seguem nas etapas 07/06. A aprovação do planejamento não conclui funcionalidades futuras.
 
-Conta v0.13.1 reserva a barra de rolagem e calcula a referência vertical do login com useLayoutEffect/ResizeObserver, restrita ao painel de autenticação. [Registro visual](../registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md).
+Marco histórico v0.13.1: a Conta calculava a referência vertical do login com useLayoutEffect/ResizeObserver. A migração de 18/10/2026 substitui esse cálculo por grade CSS com posição estável. [Registro visual](../registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md).
 
 **MVP 02 local concluído:** gestão autorizada de convites, bloqueios para geração/aceite/revogação, retorno Auth, estados e navegação. Migração/publicação online pendentes. [Contrato](../funcionalidades/nucleo-compartilhado.md).
+
+**Layout vigente v2.0.0:** ApplicationShell centraliza menus, identidade e acessibilidade; conteúdo e ações permanecem no servidor. OnboardingShell conserva a interface dos consumidores. Ícones Lucide fortes e coloridos, animações com movimento reduzido, fontes de sistema, sem nova dependência. Seis esboços privados sem persistência. [Registro e validações](../registros/registro-v2.0.0-2026-10-18-imp-layout-atual-fun-migracao-integral.md).
 
 ## Decisões implementadas nesta fatia
 
@@ -17,7 +25,7 @@ Conta v0.13.1 reserva a barra de rolagem e calcula a referência vertical do log
 **Referência visual prioritária para todas as próximas telas:** consultar obrigatoriamente o modo Atlas vivo antes de implementar ou alterar interfaces. Seguir seu aspecto, hierarquia, paleta, fontes, ícones, abas e navegação; comparar a interface real antes da conclusão e atualizar desenho/ficha no mesmo recorte. O desenho histórico é comparação. Ver [procedimento de prioridade alta](../../wireframes/GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05); pendências e contratos precisam ser respeitados.
 
 - Next.js App Router, TypeScript estrito, React e Tailwind CSS.
-- Componentes próprios seguindo o protótipo; fontes Fredoka e Plus Jakarta Sans hospedadas pelo próprio app, sem requisição a Google Fonts.
+- Componentes próprios seguindo o Layout atual; Arial e Georgia usam fontes do sistema, sem requisição a serviços de fontes. A composição e as fontes anteriores pertencem ao histórico.
 - `src/app`: rotas e metadados; `src/features/onboarding`: interface do fluxo inicial; `src/features/auth`, `src/features/invitations` e `src/lib/supabase`: conta e integração; `src/shared`: contratos compartilhados de navegação.
 - Componentes de servidor por padrão. Nenhum estado global, sessão fictícia ou armazenamento local de dados pessoais; a sessão real usa cookies protegidos.
 - Layout de onboarding compartilhado para incorporar as próximas telas sem duplicação de identidade visual.
@@ -65,3 +73,7 @@ A raiz agora abre `/conta`; `/comecar` continua acessível após autenticação.
 ## v0.13.0 — Navegação e sessão
 
 Raiz sem sessão abre Conta; autenticada abre Seus Núcleos. Login/confirmação sem retorno específico segue para /nucleos. Todo /comecar e /nucleos exige sessão validada, inclusive rascunho e convite. Lista real sob RLS, seleção explícita e retorno do Início à lista. Token expirado com renovação válida mantém acesso; sessão não renovável pede login preservando destino. Esta decisão substitui o retorno padrão ao onboarding e o rascunho pré-login dos marcos anteriores. [Contrato vigente](../funcionalidades/navegacao-sessao.md).
+
+## v2.0.2 — 2026-10-18 — certificados no servidor local
+
+Scripts dev/start usam node --use-system-ca antes do CLI Next. A configuração precisa estar na inicialização do processo para alcançar suas requisições ao Supabase; não desabilita TLS. Validado com Node24.15.0, formulário real e dez testes de autenticação/rotas. [Evidências](../registros/registro-v2.0.2-2026-10-18-imp-conexao-supabase-fun-correcao-login-local.md).

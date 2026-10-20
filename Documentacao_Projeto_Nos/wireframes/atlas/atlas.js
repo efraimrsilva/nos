@@ -17,8 +17,8 @@ function blockHtml(block,interactive,index,screenId){
   const t=escapeHtml(block.title), text=escapeHtml(block.text);
   switch(block.type){
     case 'field': case 'area': {
-      const id=`field-${screenId}-${index}`;
-      return `<div class="block"><label class="wire-label" for="${id}">${t}</label>${block.type==='area'?`<textarea id="${id}" class="wire-input wire-area" placeholder="${text}" ${interactive?'':'disabled'}></textarea>`:`<input id="${id}" class="wire-input" type="${/senha/i.test(block.title)?'password':'text'}" placeholder="${text}" ${interactive?'':'disabled'} autocomplete="off">`}</div>`;
+      // O mesmo desenho aparece em miniaturas e inspeção. O label envolvente evita IDs repetidos entre essas cópias.
+      return `<div class="block"><label><span class="wire-label">${t}</span>${block.type==='area'?`<textarea class="wire-input wire-area" placeholder="${text}" ${interactive?'':'disabled'}></textarea>`:`<input class="wire-input" type="${/senha/i.test(block.title)?'password':'text'}" placeholder="${text}" ${interactive?'':'disabled'} autocomplete="off">`}</label></div>`;
     }
     case 'card':return `<div class="block block-card"><span class="block-title">${t}</span><p class="block-text">${text}</p>${interactive&&block.to?`<button class="tile-open" data-go="${block.to}">Ver tela ${pad(block.to)} →</button>`:''}</div>`;
     case 'hero':return `<div class="block block-hero"><span class="block-title">${t}</span><p class="block-text">${text}</p></div>`;
@@ -108,9 +108,18 @@ window.addEventListener('beforeprint',scaleThumbnails);window.addEventListener('
 function renderPrototype(){
   const screen=byId(selectedId);
   const source=approvedKey(screen.id);
-  const origin=referenceMode?'Documento aprovado · composição original': [18,22,23,24,25,28,29,30,31,32,33,66,67,69,70,71,73].includes(screen.id)?'Representação atual do recorte implementado · contrato de administração e participação': [1,2,6,7,8,9,10,11].includes(screen.id)?'Aplicativo implementado · estrutura atual':approvedLayouts[documentLayoutKey||screen.id]?'Documento aprovado · estrutura preservada, regras atuais sinalizadas':'Extensão do atlas · identidade aprovada, contrato a conferir';
-  $('#screen-preview').innerHTML=`<div class="preview-origin"><strong>${origin}</strong><br>${referenceMode?'Dados, níveis e textos históricos são exemplos do documento; consulte a ficha para o contrato vigente.': 'Prévia local. Conteúdo afetivo de exemplo; nenhuma informação é enviada ou salva.'}${source?`<div class="reference-controls"><button data-reference="current" aria-pressed="${!referenceMode}">Atlas vivo</button><button data-reference="approved" aria-pressed="${referenceMode}">Ver desenho aprovado do documento</button></div>`:''}${width==='desktop'&&(referenceMode||![18,22,23].includes(screen.id))&&approvedLayouts[documentLayoutKey||screen.id]?'O documento aprova composição móvel; sua adaptação web ainda precisa ser definida.':''}</div><div class="preview-wrap ${width}">${phoneHtml(screen,true)}</div>${previewState==='content'?`<div class="contract-outlets"><p>Destinos do contrato atual · navegação de planejamento</p>${screen.actions.map(action=>`<button data-go="${action.to}" ${action.login?'data-entry-login':''}>${escapeHtml(action.label)}</button>`).join('')}</div>`:''}`;
+  const origin=referenceMode?'Documento aprovado anteriormente · composição histórica original':screen.status==='Planejada'?'Layout atual · esboço e planejamento de módulo futuro':'Representação atual do recorte funcional vigente · Layout atual';
+  $('#screen-preview').innerHTML=`<div class="preview-origin"><strong>${origin}</strong><br>${referenceMode?'Dados, níveis e textos históricos são exemplos do documento; consulte a ficha para o contrato vigente.': 'Prévia local. Conteúdo afetivo de exemplo; nenhuma informação é enviada ou salva.'}${source?`<div class="reference-controls"><button data-reference="current" aria-pressed="${!referenceMode}">Atlas vivo</button><button data-reference="approved" aria-pressed="${referenceMode}">Ver desenho histórico do documento</button></div>`:''}${width==='desktop'&&referenceMode&&approvedLayouts[documentLayoutKey||screen.id]?'O documento aprova composição móvel; sua adaptação web ainda precisa ser definida.':''}</div><div class="preview-wrap ${width}">${phoneHtml(screen,true)}</div>${previewState==='content'?`<div class="contract-outlets"><p>Destinos do contrato atual · navegação de planejamento</p>${screen.actions.map(action=>`<button data-go="${action.to}" ${action.login?'data-entry-login':''}>${escapeHtml(action.label)}</button>`).join('')}</div>`:''}`;
   $('#screen-spec').innerHTML=`<span class="screen-number">TELA ${pad(screen.id)}</span> ${badge(screen)}<h2>${escapeHtml(screen.title)}</h2><p>${escapeHtml(chapters[screen.chapter])}</p><h3>Rota e localização</h3><code class="route">${escapeHtml(screen.route)}</code><h3>Origem no catálogo v2.1</h3><p>${escapeHtml(screen.source)}. Nova numeração independente.</p><h3>Contrato e comportamento</h3><p>${escapeHtml(screen.rule)}</p><h3>Quem pode agir</h3><p>${escapeHtml(screen.permission)}</p><h3>${screen.status==='Planejada'?'Pendente antes de implementar':'Limites do recorte existente'}</h3><div class="pending-box"><p>${escapeHtml(screen.dependency)}</p></div><h3>Saídas deste desenho</h3><div class="spec-actions">${screen.actions.map(action=>`<button class="quiet" data-go="${action.to}" ${action.login?'data-entry-login':''}>${pad(action.to)} · ${escapeHtml(byId(action.to).title)}</button>`).join('')}</div><p>Ações desta prévia não persistem dados. Seleções e campos são descartados ao trocar de tela.</p><button class="quiet screen-back" data-view="atlas">← Voltar ao atlas</button>`;
+  // Modal é uma apresentação contextual; rota direta e estado funcional são contratos distintos.
+  if(!referenceMode){
+    const modalTriggers=[...$('#screen-preview').querySelectorAll('[data-atlas-modal]')].filter(trigger=>!trigger.closest('[inert]'));
+    $('#screen-preview .preview-origin').insertAdjacentHTML('beforeend','<p class="live-modal-legend"><strong>Modal</strong> identifica uma ação que abre um diálogo sobre esta área e retorna ao mesmo contexto ao fechar. A ficha informa o estado da funcionalidade. As saídas de navegação direta continuam disponíveis abaixo.</p>');
+    if(modalTriggers.length){
+      const labels=[...new Set(modalTriggers.map(trigger=>trigger.textContent.trim().replace(/\s+/g,' ')||trigger.getAttribute('aria-label')||'Modal de contexto'))];
+      $('#screen-spec').insertAdjacentHTML('beforeend',`<h3>Modais desta composição</h3><p>Gatilhos marcados visualmente com Modal. Fechar preserva a área de origem; o Atlas não executa operações reais.</p><ul>${labels.map(label=>`<li>${escapeHtml(label)}</li>`).join('')}</ul>`);
+    }
+  }
   // Reservas ficam ao lado da composição atual, identificadas sem simular uma integração futura.
   if(screen.id===10&&!referenceMode)$('#screen-preview').insertAdjacentHTML('beforeend','<section class="pending-box invitation-future" aria-label="Evoluções planejadas do convite"><span class="badge planned">Planejada</span><h3>Espaço reservado · ler QR e abrir convite por link</h3><p>Leitura por câmera virá após definir formato, permissão e alternativa por código. Convite por link exige transporte seguro durante autenticação e retirada da credencial da URL. Geração de QR está reservada na Tela 58; gestão de convites na Tela 59.</p></section>');
   if(['global','mvp'].includes(inspectionOrigin)){
@@ -158,9 +167,19 @@ document.addEventListener('click',event=>{
   if(target.dataset.go){const login=target.hasAttribute('data-entry-login');openScreen(target.dataset.go);if(login)$('#screen-preview [data-auth="login"]').click();showToast('Navegação de exemplo. Nenhuma ação foi enviada.');return;}
   if(target.dataset.reference){referenceMode=target.dataset.reference==='approved';documentLayoutKey='';previewState='content';renderPrototype();return;}
   if(target.dataset.layout){documentLayoutKey=target.dataset.layout;renderPrototype();return;}
-  if(target.dataset.auth){const section=target.closest('.product-panel');const signup=target.dataset.auth==='signup';section.querySelectorAll('[data-auth]').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));section.querySelectorAll('[data-signup-field]').forEach(el=>el.hidden=!signup);section.querySelector('form').reset();section.querySelector('[data-auth-submit]').textContent=signup?'Criar conta':'Entrar';alignAccountPreview();return;}
-  if(target.hasAttribute('data-suggestion')){const content=target.closest('.product-content');content.querySelector('[name="purpose"]').value=(nucleusOptions.find(option=>option[0]===onboardingType)||nucleusOptions[0])[2];return;}
-  if(target.hasAttribute('data-edit-draft')){const content=target.closest('.product-content');content.querySelector('form').hidden=false;content.querySelector('.purpose-draft').hidden=true;return;}
+  if(target.dataset.auth){
+    // O formulário pode estar na página ou no modal; o escopo semântico acompanha ambos.
+    const content=target.closest('[data-local-content]');
+    const signup=target.dataset.auth==='signup';
+    content.querySelectorAll('[data-auth]').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));
+    content.querySelectorAll('[data-signup-field]').forEach(el=>el.hidden=!signup);
+    content.querySelector('form[data-local-form="account"]').reset();
+    content.querySelector('[data-auth-submit]').textContent=signup?'Criar conta':'Entrar';
+    return;
+  }
+  // O escopo semântico acompanha as composições pública e interna, independentemente do CSS.
+  if(target.hasAttribute('data-suggestion')){const content=target.closest('[data-local-content]');content.querySelector('[name="purpose"]').value=(nucleusOptions.find(option=>option[0]===onboardingType)||nucleusOptions[0])[2];return;}
+  if(target.hasAttribute('data-edit-draft')){const content=target.closest('[data-local-content]');content.querySelector('form').hidden=false;content.querySelector('.purpose-draft').hidden=true;return;}
   if(target.hasAttribute('data-local-tab')||target.dataset.localChoice){const group=target.parentElement;group.querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));showToast('Seleção local para revisão do desenho. Sem persistência.');return;}
   if(target.dataset.demo){showToast('Ação ilustrativa do documento. O contrato e a implementação estão descritos na ficha.');return;}
   if(target.dataset.globalArea){const heading=$(`#global-area-${target.dataset.globalArea} h2`);heading.scrollIntoView({block:'start'});heading.focus({preventScroll:true});return;}
@@ -174,7 +193,7 @@ document.addEventListener('click',event=>{
   if(target.hasAttribute('data-retry')){previewState='content';document.querySelectorAll('[data-state]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.state==='content')));renderPrototype();}
 });
 document.addEventListener('change',event=>{if(event.target.name==='nucleus-type')onboardingType=event.target.value;});
-document.addEventListener('input',event=>{if(event.target.name==='invitation-code'){const panel=event.target.closest('.product-content');panel.querySelector('.invitation-preview').hidden=true;}});
+document.addEventListener('input',event=>{if(event.target.name==='invitation-code'){const panel=event.target.closest('[data-local-content]');panel.querySelector('.invitation-preview').hidden=true;}});
 document.addEventListener('submit',event=>{
   const form=event.target.closest('[data-local-form]');if(!form)return;event.preventDefault();
   if(form.dataset.localForm==='closure'){
@@ -182,8 +201,8 @@ document.addEventListener('submit',event=>{
     return;
   }
   if(form.dataset.localForm==='type'){onboardingType=form.elements['nucleus-type'].value;if(onboardingType)openScreen(8);}
-  if(form.dataset.localForm==='purpose'){const name=form.elements['nucleus-name'].value.trim(),purpose=form.elements.purpose.value.trim();if(!name||!purpose){showToast('Preencha o nome e o propósito para conferir o rascunho.');return;}const content=form.closest('.product-content');content.querySelector('[data-draft-name]').textContent=name;content.querySelector('[data-draft-purpose]').textContent=purpose;form.hidden=true;content.querySelector('.purpose-draft').hidden=false;}
-  if(form.dataset.localForm==='invitation'){if(!form.elements['invitation-code'].value.trim()){showToast('Cole um código para conferir a composição da prévia.');return;}form.closest('.product-content').querySelector('.invitation-preview').hidden=false;showToast('Convite de exemplo. Nenhum código foi consultado.');}
+  if(form.dataset.localForm==='purpose'){const name=form.elements['nucleus-name'].value.trim(),purpose=form.elements.purpose.value.trim();if(!name||!purpose){showToast('Preencha o nome e o propósito para conferir o rascunho.');return;}const content=form.closest('[data-local-content]');content.querySelector('[data-draft-name]').textContent=name;content.querySelector('[data-draft-purpose]').textContent=purpose;form.hidden=true;content.querySelector('.purpose-draft').hidden=false;}
+  if(form.dataset.localForm==='invitation'){if(!form.elements['invitation-code'].value.trim()){showToast('Cole um código para conferir a composição da prévia.');return;}form.closest('[data-local-content]').querySelector('.invitation-preview').hidden=false;showToast('Convite de exemplo. Nenhum código foi consultado.');}
   if(form.dataset.localForm==='account')showToast('Demonstração de formulário. Nenhuma conta foi criada e nenhum dado foi enviado.');
   if(form.dataset.localForm==='access'){
     const feedback=form.querySelector('.local-feedback');

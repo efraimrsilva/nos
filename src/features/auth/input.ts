@@ -16,7 +16,7 @@ export function safeAuthNext(value: unknown): string {
   const uuid = "[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}";
   const onboarding = /^\/comecar(?:\/(?:convite|tipo|proposito))?$/.test(path);
   const invitation = new RegExp(`^/comecar/convite-inicial/${uuid}$`, "i").test(path);
-  const nucleus = new RegExp(`^/nucleos(?:/${uuid}(?:/(?:sair|pessoas|agenda|convites|acordos(?:/${uuid}(?:/(?:registrar|confirmar|revisar))?)?))?)?$`, "i").test(path);
+  const nucleus = new RegExp(`^/nucleos(?:/${uuid}(?:/(?:sair|pessoas|agenda|convites|arvore|memorias|conexoes|perfis|manifesto|cuidado|acordos(?:/${uuid}(?:/(?:registrar|confirmar|revisar))?)?))?)?$`, "i").test(path);
   const controls = /^\/(?:configuracoes(?:\/(?:privacidade|conta))?|ajuda)$/.test(path);
   if (!onboarding && !invitation && !nucleus && !controls) return fallback;
   // Cada rota conserva apenas parâmetros de navegação, sem tokens, URLs ou valores repetidos.

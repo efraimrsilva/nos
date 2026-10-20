@@ -48,16 +48,16 @@ test("listagem usa associações reais e não revela Núcleos alheios", async ({
     await page.goto("/nucleos");
     await expect(page.getByRole("heading", { name: "Jardim de teste" })).toBeVisible();
     await expect(page.getByText("Jardim privado de outra pessoa")).toHaveCount(0);
-    await page.screenshot({ path: `Documentacao_Projeto_Nos/wireframes/comparacoes/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/app-12-${test.info().project.name}.png`, fullPage: true });
+    await page.screenshot({ path: `artifacts/regression-captures/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/app-12-${test.info().project.name}.png`, fullPage: true });
     await page.getByRole("link", { name: /Jardim de teste/ }).click();
     await expect(page).toHaveURL(new RegExp(`/nucleos/${ownId}$`));
     await expect(page.getByRole("heading", { name: "Jardim de teste" })).toBeVisible();
-    await page.screenshot({ path: `Documentacao_Projeto_Nos/wireframes/comparacoes/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/depois-inicio-${test.info().project.name}.png`, fullPage: true });
-    await page.getByRole("link", { name: "Voltar a Seus Núcleos" }).click();
+    await page.screenshot({ path: `artifacts/regression-captures/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/depois-inicio-${test.info().project.name}.png`, fullPage: true });
+    await page.getByRole("main").getByRole("link", { name: "Seus Núcleos", exact: true }).click();
     await expect(page).toHaveURL(/\/nucleos$/);
     await page.goto("/conta");
-    await expect(page.getByRole("link", { name: "Seus Núcleos", exact: true })).toBeVisible();
-    await page.screenshot({ path: `Documentacao_Projeto_Nos/wireframes/comparacoes/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/depois-conta-autenticada-${test.info().project.name}.png`, fullPage: true });
+    await expect(page.getByRole("main").getByRole("link", { name: /Continuar para o Nós/ })).toBeVisible();
+    await page.screenshot({ path: `artifacts/regression-captures/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/depois-conta-autenticada-${test.info().project.name}.png`, fullPage: true });
     await page.goto(`/nucleos/${externalId}`);
     await expect(page.getByRole("heading", { name: "Jardim privado de outra pessoa" })).toHaveCount(0);
   } finally {
@@ -75,7 +75,7 @@ test("atlas e aplicativo preservam composição e caminhos protegidos", async ({
   await page.goto("/nucleos");
   await expect(page.getByRole("status")).toContainText("ainda não participa");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  const dir = "Documentacao_Projeto_Nos/wireframes/comparacoes/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13";
+  const dir = "artifacts/regression-captures/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13";
   await page.screenshot({ path: `${dir}/app-12-vazio-${test.info().project.name}.png`, fullPage: true });
   await page.goto("/comecar");
   await page.screenshot({ path: `${dir}/depois-comecar-${test.info().project.name}.png`, fullPage: true });
@@ -158,10 +158,10 @@ test("paginação da lista permite consultar todos os Núcleos próprios", async
   const ids = Array.from({ length: 21 }, () => randomUUID());
   localSql(`insert into public.nuclei(id,name,type,purpose,created_by) values ${ids.map((id,index)=>`('${id}','Jardim ${String(index).padStart(2,"0")}','familia','Lista temporária local.','${account.id}')`).join(",")}; insert into public.nucleus_members(nucleus_id,user_id,role) values ${ids.map(id=>`('${id}','${account.id}','admin')`).join(",")};`);
   await page.goto("/nucleos");
-  await expect(page.getByRole("navigation", { name: "Seus Núcleos", exact: true }).getByRole("link")).toHaveCount(20);
+  await expect(page.getByRole("navigation", { name: "Seus Núcleos", exact: true }).getByRole("link", { name: /^Abrir Núcleo/ })).toHaveCount(20);
   await page.getByRole("link", { name: "Próxima página" }).click();
   await expect(page.getByRole("heading", { name: "Jardim 20" })).toBeVisible();
-  await expect(page.getByRole("navigation", { name: "Seus Núcleos", exact: true }).getByRole("link")).toHaveCount(1);
+  await expect(page.getByRole("navigation", { name: "Seus Núcleos", exact: true }).getByRole("link", { name: /^Abrir Núcleo/ })).toHaveCount(1);
   await page.getByRole("link", { name: "Página anterior" }).click();
   await expect(page.getByRole("heading", { name: "Jardim 00" })).toBeVisible();
 });

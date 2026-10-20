@@ -1,0 +1,3396 @@
+{
+  "version": "3.0.0",
+  "date": "2026-10-18",
+  "entries": [
+    {
+      "file": "app-nucleos-desktop.png",
+      "kind": "Tela",
+      "label": "Seus Núcleos · nucleos-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos",
+      "modal": false
+    },
+    {
+      "file": "app-nucleos-modal-1-desktop.png",
+      "kind": "Modal",
+      "label": "Começar com intenção · nucleos-modal-1-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos · Gatilho: Criar um núcleo",
+      "modal": true
+    },
+    {
+      "file": "app-inicio-desktop.png",
+      "kind": "Tela",
+      "label": "Núcleo Casa · inicio-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]",
+      "modal": false
+    },
+    {
+      "file": "app-inicio-modal-1-desktop.png",
+      "kind": "Modal",
+      "label": "Notificações, no seu tempo · inicio-modal-1-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id] · Gatilho: Conhecer esta área",
+      "modal": true
+    },
+    {
+      "file": "app-inicio-modal-2-desktop.png",
+      "kind": "Modal",
+      "label": "Nosso propósito · inicio-modal-2-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id] · Gatilho: O que nos reúne",
+      "modal": true
+    },
+    {
+      "file": "app-global-modal-busca-desktop.png",
+      "kind": "Modal",
+      "label": "Encontre seu caminho · global-modal-busca-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id] · Gatilho: Buscar uma área",
+      "modal": true
+    },
+    {
+      "file": "app-global-modal-notificacoes-desktop.png",
+      "kind": "Modal",
+      "label": "Novidades, no seu tempo. · global-modal-notificacoes-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id] · Gatilho: Notificações — esboço",
+      "modal": true
+    },
+    {
+      "file": "app-agenda-desktop.png",
+      "kind": "Tela",
+      "label": "Tempo para o que importa. · agenda-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/agenda",
+      "modal": false
+    },
+    {
+      "file": "app-agenda-modal-1-desktop.png",
+      "kind": "Modal",
+      "label": "Adicionar evento · agenda-modal-1-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/agenda · Gatilho: Novo momento",
+      "modal": true
+    },
+    {
+      "file": "app-agenda-modal-2-desktop.png",
+      "kind": "Modal",
+      "label": "Sua participação · agenda-modal-2-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/agenda · Gatilho: Responder convite",
+      "modal": true
+    },
+    {
+      "file": "app-agenda-modal-3-desktop.png",
+      "kind": "Modal",
+      "label": "Editar evento · agenda-modal-3-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/agenda · Gatilho: Editar evento",
+      "modal": true
+    },
+    {
+      "file": "app-agenda-modal-4-desktop.png",
+      "kind": "Modal",
+      "label": "Confirmar remoção · agenda-modal-4-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/agenda · Gatilho: Remover evento",
+      "modal": true
+    },
+    {
+      "file": "app-pessoas-desktop.png",
+      "kind": "Tela",
+      "label": "Cada pessoa tem seu lugar. · pessoas-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/pessoas",
+      "modal": false
+    },
+    {
+      "file": "app-pessoas-modal-1-desktop.png",
+      "kind": "Modal",
+      "label": "Convidar alguém · pessoas-modal-1-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/pessoas · Gatilho: Convidar alguém",
+      "modal": true
+    },
+    {
+      "file": "app-pessoas-modal-2-desktop.png",
+      "kind": "Modal",
+      "label": "Participação de Ana · pessoas-modal-2-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/pessoas · Gatilho: Ver participação",
+      "modal": true
+    },
+    {
+      "file": "app-pessoas-modal-3-desktop.png",
+      "kind": "Modal",
+      "label": "Preparar convite · pessoas-modal-3-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/pessoas · Gatilho: Preparar convite",
+      "modal": true
+    },
+    {
+      "file": "app-pessoas-modal-4-desktop.png",
+      "kind": "Modal",
+      "label": "Nome e propósito · pessoas-modal-4-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/pessoas · Gatilho: Nome e propósito\nCuidar da identidade do espaço",
+      "modal": true
+    },
+    {
+      "file": "app-pessoas-modal-5-desktop.png",
+      "kind": "Modal",
+      "label": "Quando alguém sai · pessoas-modal-5-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/pessoas · Gatilho: Quando alguém sai",
+      "modal": true
+    },
+    {
+      "file": "app-pessoas-modal-6-desktop.png",
+      "kind": "Modal",
+      "label": "Encerrar Núcleo para todos · pessoas-modal-6-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/pessoas · Gatilho: Encerrar Núcleo para todos",
+      "modal": true
+    },
+    {
+      "file": "app-convites-desktop.png",
+      "kind": "Tela",
+      "label": "Um convite para estar perto. · convites-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/convites",
+      "modal": false
+    },
+    {
+      "file": "app-convites-modal-1-desktop.png",
+      "kind": "Modal",
+      "label": "Preparar convite · convites-modal-1-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/convites · Gatilho: Preparar convite",
+      "modal": true
+    },
+    {
+      "file": "app-acordos-desktop.png",
+      "kind": "Tela",
+      "label": "Cada combinado no seu tempo. · acordos-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos",
+      "modal": false
+    },
+    {
+      "file": "app-acordos-modal-1-desktop.png",
+      "kind": "Modal",
+      "label": "Nova proposta · acordos-modal-1-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos · Gatilho: Nova proposta",
+      "modal": true
+    },
+    {
+      "file": "app-acordos-modal-2-desktop.png",
+      "kind": "Modal",
+      "label": "Filtrar acordos · acordos-modal-2-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos · Gatilho: Opções de visualização",
+      "modal": true
+    },
+    {
+      "file": "app-acordos-modal-3-desktop.png",
+      "kind": "Modal",
+      "label": "Uma caminhada para conversar · acordos-modal-3-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos · Gatilho: Proposta\nUma caminhada para conversar\nEstar juntos ao ar livre.\nDomingo · Semanal\nParticipação a decidir\nProposta enviada",
+      "modal": true
+    },
+    {
+      "file": "app-acordos-modal-4-desktop.png",
+      "kind": "Modal",
+      "label": "Uma refeição com presença · acordos-modal-4-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos · Gatilho: Hábito\nUma refeição com presença\nUm tempo tranquilo, sem distrações.\nNo jantar · Três vezes por semana\nParticipação aceita · v1\nEm teste",
+      "modal": true
+    },
+    {
+      "file": "app-habito-desktop.png",
+      "kind": "Tela",
+      "label": "Uma refeição com presença · habito-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos/2ed11ffc-c138-407f-b1b2-3501bfabeca4",
+      "modal": false
+    },
+    {
+      "file": "app-habito-modal-1-desktop.png",
+      "kind": "Modal",
+      "label": "Registrar momento · habito-modal-1-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos/2ed11ffc-c138-407f-b1b2-3501bfabeca4 · Gatilho: Registrar momento",
+      "modal": true
+    },
+    {
+      "file": "app-habito-modal-2-desktop.png",
+      "kind": "Modal",
+      "label": "Administrar acordo · habito-modal-2-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos/2ed11ffc-c138-407f-b1b2-3501bfabeca4 · Gatilho: Administrar acordo",
+      "modal": true
+    },
+    {
+      "file": "app-registrar-desktop.png",
+      "kind": "Tela",
+      "label": "Registrar momento · registrar-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos/2ed11ffc-c138-407f-b1b2-3501bfabeca4/registrar",
+      "modal": false
+    },
+    {
+      "file": "app-revisar-desktop.png",
+      "kind": "Tela",
+      "label": "Termos e histórico do acordo · revisar-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos/2ed11ffc-c138-407f-b1b2-3501bfabeca4/revisar",
+      "modal": false
+    },
+    {
+      "file": "app-revisar-modal-1-desktop.png",
+      "kind": "Modal",
+      "label": "Alterar termos · revisar-modal-1-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos/2ed11ffc-c138-407f-b1b2-3501bfabeca4/revisar · Gatilho: Alterar termos",
+      "modal": true
+    },
+    {
+      "file": "app-confirmar-desktop.png",
+      "kind": "Tela",
+      "label": "Período e administração do hábito · confirmar-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos/2ed11ffc-c138-407f-b1b2-3501bfabeca4/confirmar",
+      "modal": false
+    },
+    {
+      "file": "app-arvore-desktop.png",
+      "kind": "Tela",
+      "label": "Raízes no que vivemos. · arvore-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/arvore",
+      "modal": false
+    },
+    {
+      "file": "app-arvore-modal-1-desktop.png",
+      "kind": "Modal",
+      "label": "Sobre Nossa árvore · arvore-modal-1-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/arvore · Gatilho: O que está previsto nesta área?",
+      "modal": true
+    },
+    {
+      "file": "app-memorias-desktop.png",
+      "kind": "Tela",
+      "label": "Há instantes que ficam. · memorias-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/memorias",
+      "modal": false
+    },
+    {
+      "file": "app-memorias-modal-1-desktop.png",
+      "kind": "Modal",
+      "label": "Sobre Memórias · memorias-modal-1-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/memorias · Gatilho: O que está previsto nesta área?",
+      "modal": true
+    },
+    {
+      "file": "app-memorias-modal-2-desktop.png",
+      "kind": "Modal",
+      "label": "O domingo no parque · memorias-modal-2-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/memorias · Gatilho: Abrir detalhe da memória",
+      "modal": true
+    },
+    {
+      "file": "app-conexoes-desktop.png",
+      "kind": "Tela",
+      "label": "Conhecer para cuidar. · conexoes-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/conexoes",
+      "modal": false
+    },
+    {
+      "file": "app-conexoes-modal-1-desktop.png",
+      "kind": "Modal",
+      "label": "Sobre Conexões · conexoes-modal-1-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/conexoes · Gatilho: O que está previsto nesta área?",
+      "modal": true
+    },
+    {
+      "file": "app-conexoes-modal-2-desktop.png",
+      "kind": "Modal",
+      "label": "Perfil de exemplo · Ana · conexoes-modal-2-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/conexoes · Gatilho: Explorar perfil em detalhe",
+      "modal": true
+    },
+    {
+      "file": "app-perfis-desktop.png",
+      "kind": "Tela",
+      "label": "Um jeito único de estar no Nós. · perfis-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/perfis",
+      "modal": false
+    },
+    {
+      "file": "app-perfis-modal-1-desktop.png",
+      "kind": "Modal",
+      "label": "Sobre Perfis afetivos · perfis-modal-1-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/perfis · Gatilho: O que está previsto nesta área?",
+      "modal": true
+    },
+    {
+      "file": "app-perfis-modal-2-desktop.png",
+      "kind": "Modal",
+      "label": "Perfil de exemplo · Ana · perfis-modal-2-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/perfis · Gatilho: Explorar perfil em detalhe",
+      "modal": true
+    },
+    {
+      "file": "app-manifesto-desktop.png",
+      "kind": "Tela",
+      "label": "O que escolhemos cultivar. · manifesto-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/manifesto",
+      "modal": false
+    },
+    {
+      "file": "app-manifesto-modal-1-desktop.png",
+      "kind": "Modal",
+      "label": "Sobre Nosso manifesto · manifesto-modal-1-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/manifesto · Gatilho: O que está previsto nesta área?",
+      "modal": true
+    },
+    {
+      "file": "app-cuidado-desktop.png",
+      "kind": "Tela",
+      "label": "Conversar também é um cuidado. · cuidado-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/cuidado",
+      "modal": false
+    },
+    {
+      "file": "app-cuidado-modal-1-desktop.png",
+      "kind": "Modal",
+      "label": "Sobre Ponte do Nós · cuidado-modal-1-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/cuidado · Gatilho: O que está previsto nesta área?",
+      "modal": true
+    },
+    {
+      "file": "app-comecar-desktop.png",
+      "kind": "Tela",
+      "label": "Como você quer começar? · comecar-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/comecar",
+      "modal": false
+    },
+    {
+      "file": "app-tipo-desktop.png",
+      "kind": "Tela",
+      "label": "Que relação vocês têm? · tipo-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/comecar/tipo",
+      "modal": false
+    },
+    {
+      "file": "app-proposito-desktop.png",
+      "kind": "Tela",
+      "label": "Qual o propósito de vocês? · proposito-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/comecar/proposito?tipo=familia",
+      "modal": false
+    },
+    {
+      "file": "app-convite-desktop.png",
+      "kind": "Tela",
+      "label": "Você recebeu um convite? · convite-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/comecar/convite",
+      "modal": false
+    },
+    {
+      "file": "app-convite-inicial-desktop.png",
+      "kind": "Tela",
+      "label": "Convide quem faz parte · convite-inicial-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/comecar/convite-inicial/[id]",
+      "modal": false
+    },
+    {
+      "file": "app-conta-desktop.png",
+      "kind": "Tela",
+      "label": "Seu espaço também merece cuidado. · conta-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/conta",
+      "modal": false
+    },
+    {
+      "file": "app-conta-modal-1-desktop.png",
+      "kind": "Modal",
+      "label": "Dados da conta · conta-modal-1-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/conta · Gatilho: Dados da conta\nNome e identificação",
+      "modal": true
+    },
+    {
+      "file": "app-conta-modal-2-desktop.png",
+      "kind": "Modal",
+      "label": "Conta e segurança · conta-modal-2-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/conta · Gatilho: Conta e segurança\nSenha, recuperação e acesso",
+      "modal": true
+    },
+    {
+      "file": "app-conta-modal-3-desktop.png",
+      "kind": "Modal",
+      "label": "Sair da conta · conta-modal-3-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/conta · Gatilho: Sair da conta\nEncerrar acesso com segurança",
+      "modal": true
+    },
+    {
+      "file": "app-configuracoes-desktop.png",
+      "kind": "Tela",
+      "label": "Privacidade com clareza. · configuracoes-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/configuracoes",
+      "modal": false
+    },
+    {
+      "file": "app-configuracoes-modal-1-desktop.png",
+      "kind": "Modal",
+      "label": "Privacidade e visibilidade · configuracoes-modal-1-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/configuracoes · Gatilho: Visibilidade das próximas saídas\nUma escolha para as próximas ações",
+      "modal": true
+    },
+    {
+      "file": "app-configuracoes-modal-2-desktop.png",
+      "kind": "Modal",
+      "label": "Dados e autonomia · configuracoes-modal-2-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/configuracoes · Gatilho: Dados e autonomia\nOrientações e limites do produto",
+      "modal": true
+    },
+    {
+      "file": "app-configuracoes-modal-3-desktop.png",
+      "kind": "Modal",
+      "label": "Presença também precisa de silêncio · configuracoes-modal-3-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/configuracoes · Gatilho: Presença também precisa de silêncio\nPreferências de comunicação futuras",
+      "modal": true
+    },
+    {
+      "file": "app-configuracoes-modal-4-desktop.png",
+      "kind": "Modal",
+      "label": "Ajuda e suporte · configuracoes-modal-4-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/configuracoes · Gatilho: Preciso de orientação\nResponsável e canal de contato",
+      "modal": true
+    },
+    {
+      "file": "app-configuracoes-modal-5-desktop.png",
+      "kind": "Modal",
+      "label": "Conta e segurança · configuracoes-modal-5-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/configuracoes · Gatilho: Conta e segurança\nSenha, recuperação e acesso",
+      "modal": true
+    },
+    {
+      "file": "app-configuracoes-modal-6-desktop.png",
+      "kind": "Modal",
+      "label": "Sair de um Núcleo · configuracoes-modal-6-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/configuracoes · Gatilho: Sair de um Núcleo\nEscolher o vínculo e conferir a saída",
+      "modal": true
+    },
+    {
+      "file": "app-privacidade-desktop.png",
+      "kind": "Tela",
+      "label": "Privacidade e visibilidade · privacidade-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/configuracoes/privacidade",
+      "modal": false
+    },
+    {
+      "file": "app-seguranca-desktop.png",
+      "kind": "Tela",
+      "label": "Conta e segurança · seguranca-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/configuracoes/conta",
+      "modal": false
+    },
+    {
+      "file": "app-ajuda-desktop.png",
+      "kind": "Tela",
+      "label": "Ajuda e suporte · ajuda-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/ajuda",
+      "modal": false
+    },
+    {
+      "file": "app-sair-desktop.png",
+      "kind": "Tela",
+      "label": "Sair de um Núcleo · sair-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/sair",
+      "modal": false
+    },
+    {
+      "file": "app-sair-modal-1-desktop.png",
+      "kind": "Modal",
+      "label": "Sair deste Núcleo? · sair-modal-1-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/sair · Gatilho: Revisar minha saída",
+      "modal": true
+    },
+    {
+      "file": "app-inicio-768-desktop.png",
+      "kind": "Tela",
+      "label": "Núcleo Casa · inicio-768-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]",
+      "modal": false
+    },
+    {
+      "file": "app-agenda-768-desktop.png",
+      "kind": "Tela",
+      "label": "Tempo para o que importa. · agenda-768-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/agenda",
+      "modal": false
+    },
+    {
+      "file": "app-pessoas-768-desktop.png",
+      "kind": "Tela",
+      "label": "Cada pessoa tem seu lugar. · pessoas-768-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/pessoas",
+      "modal": false
+    },
+    {
+      "file": "app-acordos-768-desktop.png",
+      "kind": "Tela",
+      "label": "Cada combinado no seu tempo. · acordos-768-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos",
+      "modal": false
+    },
+    {
+      "file": "app-configuracoes-768-desktop.png",
+      "kind": "Tela",
+      "label": "Privacidade com clareza. · configuracoes-768-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/configuracoes",
+      "modal": false
+    },
+    {
+      "file": "app-inicio-1024-desktop.png",
+      "kind": "Tela",
+      "label": "Núcleo Casa · inicio-1024-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]",
+      "modal": false
+    },
+    {
+      "file": "app-agenda-1024-desktop.png",
+      "kind": "Tela",
+      "label": "Tempo para o que importa. · agenda-1024-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/agenda",
+      "modal": false
+    },
+    {
+      "file": "app-pessoas-1024-desktop.png",
+      "kind": "Tela",
+      "label": "Cada pessoa tem seu lugar. · pessoas-1024-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/pessoas",
+      "modal": false
+    },
+    {
+      "file": "app-acordos-1024-desktop.png",
+      "kind": "Tela",
+      "label": "Cada combinado no seu tempo. · acordos-1024-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos",
+      "modal": false
+    },
+    {
+      "file": "app-configuracoes-1024-desktop.png",
+      "kind": "Tela",
+      "label": "Privacidade com clareza. · configuracoes-1024-desktop",
+      "device": "desktop",
+      "origin": "http://127.0.0.1:3200/configuracoes",
+      "modal": false
+    },
+    {
+      "file": "app-nucleos-mobile.png",
+      "kind": "Tela",
+      "label": "Seus Núcleos · nucleos-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos",
+      "modal": false
+    },
+    {
+      "file": "app-nucleos-modal-1-mobile.png",
+      "kind": "Modal",
+      "label": "Começar com intenção · nucleos-modal-1-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos · Gatilho: Criar um núcleo",
+      "modal": true
+    },
+    {
+      "file": "app-inicio-mobile.png",
+      "kind": "Tela",
+      "label": "Núcleo Casa · inicio-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]",
+      "modal": false
+    },
+    {
+      "file": "app-inicio-modal-1-mobile.png",
+      "kind": "Modal",
+      "label": "Notificações, no seu tempo · inicio-modal-1-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id] · Gatilho: Conhecer esta área",
+      "modal": true
+    },
+    {
+      "file": "app-inicio-modal-2-mobile.png",
+      "kind": "Modal",
+      "label": "Nosso propósito · inicio-modal-2-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id] · Gatilho: O que nos reúne",
+      "modal": true
+    },
+    {
+      "file": "app-global-modal-busca-mobile.png",
+      "kind": "Modal",
+      "label": "Encontre seu caminho · global-modal-busca-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id] · Gatilho: Buscar uma área",
+      "modal": true
+    },
+    {
+      "file": "app-global-modal-notificacoes-mobile.png",
+      "kind": "Modal",
+      "label": "Novidades, no seu tempo. · global-modal-notificacoes-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id] · Gatilho: Notificações — esboço",
+      "modal": true
+    },
+    {
+      "file": "app-global-modal-menu-mobile.png",
+      "kind": "Modal",
+      "label": "Todos os seus caminhos · global-modal-menu-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id] · Gatilho: Mais áreas e preferências",
+      "modal": true
+    },
+    {
+      "file": "app-agenda-mobile.png",
+      "kind": "Tela",
+      "label": "Tempo para o que importa. · agenda-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/agenda",
+      "modal": false
+    },
+    {
+      "file": "app-agenda-modal-1-mobile.png",
+      "kind": "Modal",
+      "label": "Adicionar evento · agenda-modal-1-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/agenda · Gatilho: Novo momento",
+      "modal": true
+    },
+    {
+      "file": "app-agenda-modal-2-mobile.png",
+      "kind": "Modal",
+      "label": "Sua participação · agenda-modal-2-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/agenda · Gatilho: Responder convite",
+      "modal": true
+    },
+    {
+      "file": "app-agenda-modal-3-mobile.png",
+      "kind": "Modal",
+      "label": "Editar evento · agenda-modal-3-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/agenda · Gatilho: Editar evento",
+      "modal": true
+    },
+    {
+      "file": "app-agenda-modal-4-mobile.png",
+      "kind": "Modal",
+      "label": "Confirmar remoção · agenda-modal-4-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/agenda · Gatilho: Remover evento",
+      "modal": true
+    },
+    {
+      "file": "app-pessoas-mobile.png",
+      "kind": "Tela",
+      "label": "Cada pessoa tem seu lugar. · pessoas-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/pessoas",
+      "modal": false
+    },
+    {
+      "file": "app-pessoas-modal-1-mobile.png",
+      "kind": "Modal",
+      "label": "Convidar alguém · pessoas-modal-1-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/pessoas · Gatilho: Convidar alguém",
+      "modal": true
+    },
+    {
+      "file": "app-pessoas-modal-2-mobile.png",
+      "kind": "Modal",
+      "label": "Participação de Ana · pessoas-modal-2-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/pessoas · Gatilho: Ver participação",
+      "modal": true
+    },
+    {
+      "file": "app-pessoas-modal-3-mobile.png",
+      "kind": "Modal",
+      "label": "Preparar convite · pessoas-modal-3-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/pessoas · Gatilho: Preparar convite",
+      "modal": true
+    },
+    {
+      "file": "app-pessoas-modal-4-mobile.png",
+      "kind": "Modal",
+      "label": "Nome e propósito · pessoas-modal-4-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/pessoas · Gatilho: Nome e propósito\nCuidar da identidade do espaço",
+      "modal": true
+    },
+    {
+      "file": "app-pessoas-modal-5-mobile.png",
+      "kind": "Modal",
+      "label": "Quando alguém sai · pessoas-modal-5-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/pessoas · Gatilho: Quando alguém sai",
+      "modal": true
+    },
+    {
+      "file": "app-pessoas-modal-6-mobile.png",
+      "kind": "Modal",
+      "label": "Encerrar Núcleo para todos · pessoas-modal-6-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/pessoas · Gatilho: Encerrar Núcleo para todos",
+      "modal": true
+    },
+    {
+      "file": "app-convites-mobile.png",
+      "kind": "Tela",
+      "label": "Um convite para estar perto. · convites-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/convites",
+      "modal": false
+    },
+    {
+      "file": "app-convites-modal-1-mobile.png",
+      "kind": "Modal",
+      "label": "Preparar convite · convites-modal-1-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/convites · Gatilho: Preparar convite",
+      "modal": true
+    },
+    {
+      "file": "app-acordos-mobile.png",
+      "kind": "Tela",
+      "label": "Cada combinado no seu tempo. · acordos-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos",
+      "modal": false
+    },
+    {
+      "file": "app-acordos-modal-1-mobile.png",
+      "kind": "Modal",
+      "label": "Nova proposta · acordos-modal-1-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos · Gatilho: Nova proposta",
+      "modal": true
+    },
+    {
+      "file": "app-acordos-modal-2-mobile.png",
+      "kind": "Modal",
+      "label": "Filtrar acordos · acordos-modal-2-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos · Gatilho: Opções de visualização",
+      "modal": true
+    },
+    {
+      "file": "app-acordos-modal-3-mobile.png",
+      "kind": "Modal",
+      "label": "Uma caminhada para conversar · acordos-modal-3-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos · Gatilho: Uma caminhada para conversar\nDomingo · Semanal\nProposta\nProposta enviada\nParticipação a decidir",
+      "modal": true
+    },
+    {
+      "file": "app-acordos-modal-4-mobile.png",
+      "kind": "Modal",
+      "label": "Uma refeição com presença · acordos-modal-4-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos · Gatilho: Uma refeição com presença\nNo jantar · Três vezes por semana\nHábito\nEm teste\nParticipação aceita · v1",
+      "modal": true
+    },
+    {
+      "file": "app-habito-mobile.png",
+      "kind": "Tela",
+      "label": "Uma refeição com presença · habito-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos/f4d8e771-c703-4a75-91ee-3ae30d3615d6",
+      "modal": false
+    },
+    {
+      "file": "app-habito-modal-1-mobile.png",
+      "kind": "Modal",
+      "label": "Registrar momento · habito-modal-1-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos/f4d8e771-c703-4a75-91ee-3ae30d3615d6 · Gatilho: Registrar momento",
+      "modal": true
+    },
+    {
+      "file": "app-habito-modal-2-mobile.png",
+      "kind": "Modal",
+      "label": "Administrar acordo · habito-modal-2-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos/f4d8e771-c703-4a75-91ee-3ae30d3615d6 · Gatilho: Administrar acordo",
+      "modal": true
+    },
+    {
+      "file": "app-registrar-mobile.png",
+      "kind": "Tela",
+      "label": "Registrar momento · registrar-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos/f4d8e771-c703-4a75-91ee-3ae30d3615d6/registrar",
+      "modal": false
+    },
+    {
+      "file": "app-revisar-mobile.png",
+      "kind": "Tela",
+      "label": "Termos e histórico do acordo · revisar-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos/f4d8e771-c703-4a75-91ee-3ae30d3615d6/revisar",
+      "modal": false
+    },
+    {
+      "file": "app-revisar-modal-1-mobile.png",
+      "kind": "Modal",
+      "label": "Alterar termos · revisar-modal-1-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos/f4d8e771-c703-4a75-91ee-3ae30d3615d6/revisar · Gatilho: Alterar termos",
+      "modal": true
+    },
+    {
+      "file": "app-confirmar-mobile.png",
+      "kind": "Tela",
+      "label": "Período e administração do hábito · confirmar-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/acordos/f4d8e771-c703-4a75-91ee-3ae30d3615d6/confirmar",
+      "modal": false
+    },
+    {
+      "file": "app-arvore-mobile.png",
+      "kind": "Tela",
+      "label": "Raízes no que vivemos. · arvore-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/arvore",
+      "modal": false
+    },
+    {
+      "file": "app-arvore-modal-1-mobile.png",
+      "kind": "Modal",
+      "label": "Sobre Nossa árvore · arvore-modal-1-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/arvore · Gatilho: O que está previsto nesta área?",
+      "modal": true
+    },
+    {
+      "file": "app-memorias-mobile.png",
+      "kind": "Tela",
+      "label": "Há instantes que ficam. · memorias-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/memorias",
+      "modal": false
+    },
+    {
+      "file": "app-memorias-modal-1-mobile.png",
+      "kind": "Modal",
+      "label": "Sobre Memórias · memorias-modal-1-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/memorias · Gatilho: O que está previsto nesta área?",
+      "modal": true
+    },
+    {
+      "file": "app-memorias-modal-2-mobile.png",
+      "kind": "Modal",
+      "label": "O domingo no parque · memorias-modal-2-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/memorias · Gatilho: Abrir detalhe da memória",
+      "modal": true
+    },
+    {
+      "file": "app-conexoes-mobile.png",
+      "kind": "Tela",
+      "label": "Conhecer para cuidar. · conexoes-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/conexoes",
+      "modal": false
+    },
+    {
+      "file": "app-conexoes-modal-1-mobile.png",
+      "kind": "Modal",
+      "label": "Sobre Conexões · conexoes-modal-1-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/conexoes · Gatilho: O que está previsto nesta área?",
+      "modal": true
+    },
+    {
+      "file": "app-conexoes-modal-2-mobile.png",
+      "kind": "Modal",
+      "label": "Perfil de exemplo · Ana · conexoes-modal-2-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/conexoes · Gatilho: Explorar perfil em detalhe",
+      "modal": true
+    },
+    {
+      "file": "app-perfis-mobile.png",
+      "kind": "Tela",
+      "label": "Um jeito único de estar no Nós. · perfis-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/perfis",
+      "modal": false
+    },
+    {
+      "file": "app-perfis-modal-1-mobile.png",
+      "kind": "Modal",
+      "label": "Sobre Perfis afetivos · perfis-modal-1-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/perfis · Gatilho: O que está previsto nesta área?",
+      "modal": true
+    },
+    {
+      "file": "app-perfis-modal-2-mobile.png",
+      "kind": "Modal",
+      "label": "Perfil de exemplo · Ana · perfis-modal-2-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/perfis · Gatilho: Explorar perfil em detalhe",
+      "modal": true
+    },
+    {
+      "file": "app-manifesto-mobile.png",
+      "kind": "Tela",
+      "label": "O que escolhemos cultivar. · manifesto-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/manifesto",
+      "modal": false
+    },
+    {
+      "file": "app-manifesto-modal-1-mobile.png",
+      "kind": "Modal",
+      "label": "Sobre Nosso manifesto · manifesto-modal-1-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/manifesto · Gatilho: O que está previsto nesta área?",
+      "modal": true
+    },
+    {
+      "file": "app-cuidado-mobile.png",
+      "kind": "Tela",
+      "label": "Conversar também é um cuidado. · cuidado-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/cuidado",
+      "modal": false
+    },
+    {
+      "file": "app-cuidado-modal-1-mobile.png",
+      "kind": "Modal",
+      "label": "Sobre Ponte do Nós · cuidado-modal-1-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/cuidado · Gatilho: O que está previsto nesta área?",
+      "modal": true
+    },
+    {
+      "file": "app-comecar-mobile.png",
+      "kind": "Tela",
+      "label": "Como você quer começar? · comecar-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/comecar",
+      "modal": false
+    },
+    {
+      "file": "app-tipo-mobile.png",
+      "kind": "Tela",
+      "label": "Que relação vocês têm? · tipo-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/comecar/tipo",
+      "modal": false
+    },
+    {
+      "file": "app-proposito-mobile.png",
+      "kind": "Tela",
+      "label": "Qual o propósito de vocês? · proposito-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/comecar/proposito?tipo=familia",
+      "modal": false
+    },
+    {
+      "file": "app-convite-mobile.png",
+      "kind": "Tela",
+      "label": "Você recebeu um convite? · convite-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/comecar/convite",
+      "modal": false
+    },
+    {
+      "file": "app-convite-inicial-mobile.png",
+      "kind": "Tela",
+      "label": "Convide quem faz parte · convite-inicial-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/comecar/convite-inicial/[id]",
+      "modal": false
+    },
+    {
+      "file": "app-conta-mobile.png",
+      "kind": "Tela",
+      "label": "Seu espaço também merece cuidado. · conta-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/conta",
+      "modal": false
+    },
+    {
+      "file": "app-conta-modal-1-mobile.png",
+      "kind": "Modal",
+      "label": "Dados da conta · conta-modal-1-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/conta · Gatilho: Dados da conta\nNome e identificação",
+      "modal": true
+    },
+    {
+      "file": "app-conta-modal-2-mobile.png",
+      "kind": "Modal",
+      "label": "Conta e segurança · conta-modal-2-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/conta · Gatilho: Conta e segurança\nSenha, recuperação e acesso",
+      "modal": true
+    },
+    {
+      "file": "app-conta-modal-3-mobile.png",
+      "kind": "Modal",
+      "label": "Sair da conta · conta-modal-3-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/conta · Gatilho: Sair da conta\nEncerrar acesso com segurança",
+      "modal": true
+    },
+    {
+      "file": "app-configuracoes-mobile.png",
+      "kind": "Tela",
+      "label": "Privacidade com clareza. · configuracoes-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/configuracoes",
+      "modal": false
+    },
+    {
+      "file": "app-configuracoes-modal-1-mobile.png",
+      "kind": "Modal",
+      "label": "Privacidade e visibilidade · configuracoes-modal-1-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/configuracoes · Gatilho: Visibilidade das próximas saídas\nUma escolha para as próximas ações",
+      "modal": true
+    },
+    {
+      "file": "app-configuracoes-modal-2-mobile.png",
+      "kind": "Modal",
+      "label": "Dados e autonomia · configuracoes-modal-2-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/configuracoes · Gatilho: Dados e autonomia\nOrientações e limites do produto",
+      "modal": true
+    },
+    {
+      "file": "app-configuracoes-modal-3-mobile.png",
+      "kind": "Modal",
+      "label": "Presença também precisa de silêncio · configuracoes-modal-3-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/configuracoes · Gatilho: Presença também precisa de silêncio\nPreferências de comunicação futuras",
+      "modal": true
+    },
+    {
+      "file": "app-configuracoes-modal-4-mobile.png",
+      "kind": "Modal",
+      "label": "Ajuda e suporte · configuracoes-modal-4-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/configuracoes · Gatilho: Preciso de orientação\nResponsável e canal de contato",
+      "modal": true
+    },
+    {
+      "file": "app-configuracoes-modal-5-mobile.png",
+      "kind": "Modal",
+      "label": "Conta e segurança · configuracoes-modal-5-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/configuracoes · Gatilho: Conta e segurança\nSenha, recuperação e acesso",
+      "modal": true
+    },
+    {
+      "file": "app-configuracoes-modal-6-mobile.png",
+      "kind": "Modal",
+      "label": "Sair de um Núcleo · configuracoes-modal-6-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/configuracoes · Gatilho: Sair de um Núcleo\nEscolher o vínculo e conferir a saída",
+      "modal": true
+    },
+    {
+      "file": "app-privacidade-mobile.png",
+      "kind": "Tela",
+      "label": "Privacidade e visibilidade · privacidade-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/configuracoes/privacidade",
+      "modal": false
+    },
+    {
+      "file": "app-seguranca-mobile.png",
+      "kind": "Tela",
+      "label": "Conta e segurança · seguranca-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/configuracoes/conta",
+      "modal": false
+    },
+    {
+      "file": "app-ajuda-mobile.png",
+      "kind": "Tela",
+      "label": "Ajuda e suporte · ajuda-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/ajuda",
+      "modal": false
+    },
+    {
+      "file": "app-sair-mobile.png",
+      "kind": "Tela",
+      "label": "Sair de um Núcleo · sair-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/sair",
+      "modal": false
+    },
+    {
+      "file": "app-sair-modal-1-mobile.png",
+      "kind": "Modal",
+      "label": "Sair deste Núcleo? · sair-modal-1-mobile",
+      "device": "mobile",
+      "origin": "http://127.0.0.1:3200/nucleos/[id]/sair · Gatilho: Revisar minha saída",
+      "modal": true
+    },
+    {
+      "file": "app-publico-404-640.png",
+      "kind": "Tela",
+      "label": "404-640",
+      "device": "640px",
+      "origin": "Aplicativo público",
+      "modal": false
+    },
+    {
+      "file": "app-publico-404-desktop.png",
+      "kind": "Tela",
+      "label": "404-desktop",
+      "device": "desktop",
+      "origin": "Aplicativo público",
+      "modal": false
+    },
+    {
+      "file": "app-publico-404-mobile.png",
+      "kind": "Tela",
+      "label": "404-mobile",
+      "device": "mobile",
+      "origin": "Aplicativo público",
+      "modal": false
+    },
+    {
+      "file": "app-publico-boas-vindas-640.png",
+      "kind": "Tela",
+      "label": "boas-vindas-640",
+      "device": "640px",
+      "origin": "Aplicativo público",
+      "modal": false
+    },
+    {
+      "file": "app-publico-boas-vindas-desktop.png",
+      "kind": "Tela",
+      "label": "boas-vindas-desktop",
+      "device": "desktop",
+      "origin": "Aplicativo público",
+      "modal": false
+    },
+    {
+      "file": "app-publico-boas-vindas-mobile.png",
+      "kind": "Tela",
+      "label": "boas-vindas-mobile",
+      "device": "mobile",
+      "origin": "Aplicativo público",
+      "modal": false
+    },
+    {
+      "file": "app-publico-confirmar-email-640.png",
+      "kind": "Tela",
+      "label": "confirmar-email-640",
+      "device": "640px",
+      "origin": "Aplicativo público",
+      "modal": false
+    },
+    {
+      "file": "app-publico-confirmar-email-desktop.png",
+      "kind": "Tela",
+      "label": "confirmar-email-desktop",
+      "device": "desktop",
+      "origin": "Aplicativo público",
+      "modal": false
+    },
+    {
+      "file": "app-publico-confirmar-email-mobile.png",
+      "kind": "Tela",
+      "label": "confirmar-email-mobile",
+      "device": "mobile",
+      "origin": "Aplicativo público",
+      "modal": false
+    },
+    {
+      "file": "app-publico-conta-cadastro-640.png",
+      "kind": "Tela",
+      "label": "conta-cadastro-640",
+      "device": "640px",
+      "origin": "Aplicativo público",
+      "modal": false
+    },
+    {
+      "file": "app-publico-conta-cadastro-desktop.png",
+      "kind": "Tela",
+      "label": "conta-cadastro-desktop",
+      "device": "desktop",
+      "origin": "Aplicativo público",
+      "modal": false
+    },
+    {
+      "file": "app-publico-conta-cadastro-mobile.png",
+      "kind": "Tela",
+      "label": "conta-cadastro-mobile",
+      "device": "mobile",
+      "origin": "Aplicativo público",
+      "modal": false
+    },
+    {
+      "file": "app-publico-conta-login-640.png",
+      "kind": "Tela",
+      "label": "conta-login-640",
+      "device": "640px",
+      "origin": "Aplicativo público",
+      "modal": false
+    },
+    {
+      "file": "app-publico-conta-login-desktop.png",
+      "kind": "Tela",
+      "label": "conta-login-desktop",
+      "device": "desktop",
+      "origin": "Aplicativo público",
+      "modal": false
+    },
+    {
+      "file": "app-publico-conta-login-mobile.png",
+      "kind": "Tela",
+      "label": "conta-login-mobile",
+      "device": "mobile",
+      "origin": "Aplicativo público",
+      "modal": false
+    },
+    {
+      "file": "app-publico-nova-senha-640.png",
+      "kind": "Tela",
+      "label": "nova-senha-640",
+      "device": "640px",
+      "origin": "Aplicativo público",
+      "modal": false
+    },
+    {
+      "file": "app-publico-nova-senha-desktop.png",
+      "kind": "Tela",
+      "label": "nova-senha-desktop",
+      "device": "desktop",
+      "origin": "Aplicativo público",
+      "modal": false
+    },
+    {
+      "file": "app-publico-nova-senha-mobile.png",
+      "kind": "Tela",
+      "label": "nova-senha-mobile",
+      "device": "mobile",
+      "origin": "Aplicativo público",
+      "modal": false
+    },
+    {
+      "file": "app-publico-recuperar-640.png",
+      "kind": "Tela",
+      "label": "recuperar-640",
+      "device": "640px",
+      "origin": "Aplicativo público",
+      "modal": false
+    },
+    {
+      "file": "app-publico-recuperar-desktop.png",
+      "kind": "Tela",
+      "label": "recuperar-desktop",
+      "device": "desktop",
+      "origin": "Aplicativo público",
+      "modal": false
+    },
+    {
+      "file": "app-publico-recuperar-mobile.png",
+      "kind": "Tela",
+      "label": "recuperar-mobile",
+      "device": "mobile",
+      "origin": "Aplicativo público",
+      "modal": false
+    },
+    {
+      "file": "referencia-account-desktop.png",
+      "kind": "Referência",
+      "label": "account-desktop",
+      "device": "desktop",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": false
+    },
+    {
+      "file": "referencia-account-mobile.png",
+      "kind": "Referência",
+      "label": "account-mobile",
+      "device": "mobile",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": false
+    },
+    {
+      "file": "referencia-account-modal-desktop.png",
+      "kind": "Referência",
+      "label": "account-modal-desktop",
+      "device": "desktop",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": true
+    },
+    {
+      "file": "referencia-account-modal-mobile.png",
+      "kind": "Referência",
+      "label": "account-modal-mobile",
+      "device": "mobile",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": true
+    },
+    {
+      "file": "referencia-agenda-desktop.png",
+      "kind": "Referência",
+      "label": "agenda-desktop",
+      "device": "desktop",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": false
+    },
+    {
+      "file": "referencia-agenda-mobile.png",
+      "kind": "Referência",
+      "label": "agenda-mobile",
+      "device": "mobile",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": false
+    },
+    {
+      "file": "referencia-agenda-modal-desktop.png",
+      "kind": "Referência",
+      "label": "agenda-modal-desktop",
+      "device": "desktop",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": true
+    },
+    {
+      "file": "referencia-agenda-modal-mobile.png",
+      "kind": "Referência",
+      "label": "agenda-modal-mobile",
+      "device": "mobile",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": true
+    },
+    {
+      "file": "referencia-agreements-desktop.png",
+      "kind": "Referência",
+      "label": "agreements-desktop",
+      "device": "desktop",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": false
+    },
+    {
+      "file": "referencia-agreements-mobile.png",
+      "kind": "Referência",
+      "label": "agreements-mobile",
+      "device": "mobile",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": false
+    },
+    {
+      "file": "referencia-agreements-modal-desktop.png",
+      "kind": "Referência",
+      "label": "agreements-modal-desktop",
+      "device": "desktop",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": true
+    },
+    {
+      "file": "referencia-agreements-modal-mobile.png",
+      "kind": "Referência",
+      "label": "agreements-modal-mobile",
+      "device": "mobile",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": true
+    },
+    {
+      "file": "referencia-care-desktop.png",
+      "kind": "Referência",
+      "label": "care-desktop",
+      "device": "desktop",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": false
+    },
+    {
+      "file": "referencia-care-mobile.png",
+      "kind": "Referência",
+      "label": "care-mobile",
+      "device": "mobile",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": false
+    },
+    {
+      "file": "referencia-care-modal-desktop.png",
+      "kind": "Referência",
+      "label": "care-modal-desktop",
+      "device": "desktop",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": true
+    },
+    {
+      "file": "referencia-care-modal-mobile.png",
+      "kind": "Referência",
+      "label": "care-modal-mobile",
+      "device": "mobile",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": true
+    },
+    {
+      "file": "referencia-connections-desktop.png",
+      "kind": "Referência",
+      "label": "connections-desktop",
+      "device": "desktop",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": false
+    },
+    {
+      "file": "referencia-connections-mobile.png",
+      "kind": "Referência",
+      "label": "connections-mobile",
+      "device": "mobile",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": false
+    },
+    {
+      "file": "referencia-connections-modal-desktop.png",
+      "kind": "Referência",
+      "label": "connections-modal-desktop",
+      "device": "desktop",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": true
+    },
+    {
+      "file": "referencia-connections-modal-mobile.png",
+      "kind": "Referência",
+      "label": "connections-modal-mobile",
+      "device": "mobile",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": true
+    },
+    {
+      "file": "referencia-nuclei-desktop.png",
+      "kind": "Referência",
+      "label": "nuclei-desktop",
+      "device": "desktop",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": false
+    },
+    {
+      "file": "referencia-nuclei-mobile.png",
+      "kind": "Referência",
+      "label": "nuclei-mobile",
+      "device": "mobile",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": false
+    },
+    {
+      "file": "referencia-nuclei-modal-desktop.png",
+      "kind": "Referência",
+      "label": "nuclei-modal-desktop",
+      "device": "desktop",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": true
+    },
+    {
+      "file": "referencia-nuclei-modal-mobile.png",
+      "kind": "Referência",
+      "label": "nuclei-modal-mobile",
+      "device": "mobile",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": true
+    },
+    {
+      "file": "referencia-overview-desktop.png",
+      "kind": "Referência",
+      "label": "overview-desktop",
+      "device": "desktop",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": false
+    },
+    {
+      "file": "referencia-overview-mobile.png",
+      "kind": "Referência",
+      "label": "overview-mobile",
+      "device": "mobile",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": false
+    },
+    {
+      "file": "referencia-overview-modal-desktop.png",
+      "kind": "Referência",
+      "label": "overview-modal-desktop",
+      "device": "desktop",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": true
+    },
+    {
+      "file": "referencia-overview-modal-mobile.png",
+      "kind": "Referência",
+      "label": "overview-modal-mobile",
+      "device": "mobile",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": true
+    },
+    {
+      "file": "referencia-people-desktop.png",
+      "kind": "Referência",
+      "label": "people-desktop",
+      "device": "desktop",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": false
+    },
+    {
+      "file": "referencia-people-mobile.png",
+      "kind": "Referência",
+      "label": "people-mobile",
+      "device": "mobile",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": false
+    },
+    {
+      "file": "referencia-people-modal-desktop.png",
+      "kind": "Referência",
+      "label": "people-modal-desktop",
+      "device": "desktop",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": true
+    },
+    {
+      "file": "referencia-people-modal-mobile.png",
+      "kind": "Referência",
+      "label": "people-modal-mobile",
+      "device": "mobile",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": true
+    },
+    {
+      "file": "referencia-settings-desktop.png",
+      "kind": "Referência",
+      "label": "settings-desktop",
+      "device": "desktop",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": false
+    },
+    {
+      "file": "referencia-settings-mobile.png",
+      "kind": "Referência",
+      "label": "settings-mobile",
+      "device": "mobile",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": false
+    },
+    {
+      "file": "referencia-settings-modal-desktop.png",
+      "kind": "Referência",
+      "label": "settings-modal-desktop",
+      "device": "desktop",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": true
+    },
+    {
+      "file": "referencia-settings-modal-mobile.png",
+      "kind": "Referência",
+      "label": "settings-modal-mobile",
+      "device": "mobile",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": true
+    },
+    {
+      "file": "referencia-tree-desktop.png",
+      "kind": "Referência",
+      "label": "tree-desktop",
+      "device": "desktop",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": false
+    },
+    {
+      "file": "referencia-tree-mobile.png",
+      "kind": "Referência",
+      "label": "tree-mobile",
+      "device": "mobile",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": false
+    },
+    {
+      "file": "referencia-tree-modal-desktop.png",
+      "kind": "Referência",
+      "label": "tree-modal-desktop",
+      "device": "desktop",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": true
+    },
+    {
+      "file": "referencia-tree-modal-mobile.png",
+      "kind": "Referência",
+      "label": "tree-modal-mobile",
+      "device": "mobile",
+      "origin": "Telas/Layout novo · dados ilustrativos",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_01-desktop.png",
+      "kind": "Atlas",
+      "label": "Conta · tela_01-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 1",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_02-desktop.png",
+      "kind": "Atlas",
+      "label": "Criar conta · tela_02-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 2",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_03-desktop.png",
+      "kind": "Atlas",
+      "label": "Confirmar e-mail · tela_03-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 3",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_04-desktop.png",
+      "kind": "Atlas",
+      "label": "Recuperar acesso · tela_04-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 4",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_05-desktop.png",
+      "kind": "Atlas",
+      "label": "Redefinir senha · tela_05-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 5",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_06-desktop.png",
+      "kind": "Atlas",
+      "label": "Escolher caminho · tela_06-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 6",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_07-desktop.png",
+      "kind": "Atlas",
+      "label": "Tipo de Núcleo · tela_07-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 7",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_08-desktop.png",
+      "kind": "Atlas",
+      "label": "Propósito do Núcleo · tela_08-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 8",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_09-desktop.png",
+      "kind": "Atlas",
+      "label": "Convite inicial · tela_09-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 9",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_10-desktop.png",
+      "kind": "Atlas",
+      "label": "Inserir convite · tela_10-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 10",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_11-desktop.png",
+      "kind": "Atlas",
+      "label": "Aceitar convite · tela_11-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 11",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_12-desktop.png",
+      "kind": "Atlas",
+      "label": "Seus Núcleos · tela_12-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 12",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_12-modal-1-desktop.png",
+      "kind": "Atlas",
+      "label": "Começar com intenção · tela_12-modal-1-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 12 · Gatilho: Criar Núcleo\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_13-desktop.png",
+      "kind": "Atlas",
+      "label": "Início do Núcleo · tela_13-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 13",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_13-modal-1-desktop.png",
+      "kind": "Atlas",
+      "label": "Notificações · tela_13-modal-1-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 13 · Gatilho: Cada novidade no seu tempo\nNotificações ainda não estão disponíveis\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_13-modal-2-desktop.png",
+      "kind": "Atlas",
+      "label": "Nosso propósito · tela_13-modal-2-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 13 · Gatilho: O que nos reúne\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-global-modal-1-desktop.png",
+      "kind": "Atlas",
+      "label": "Encontre seu espaço · global-modal-1-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 13 · Gatilho: Abrir modal de busca",
+      "modal": true
+    },
+    {
+      "file": "atlas-global-modal-2-desktop.png",
+      "kind": "Atlas",
+      "label": "Notificações · global-modal-2-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 13 · Gatilho: Abrir modal de notificações planejadas",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_14-desktop.png",
+      "kind": "Atlas",
+      "label": "Agenda do Núcleo · tela_14-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 14",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_14-modal-1-desktop.png",
+      "kind": "Atlas",
+      "label": "Novo evento · tela_14-modal-1-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 14 · Gatilho: Novo momento\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_14-modal-2-desktop.png",
+      "kind": "Atlas",
+      "label": "Sua participação · tela_14-modal-2-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 14 · Gatilho: Responder convite\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_14-modal-3-desktop.png",
+      "kind": "Atlas",
+      "label": "Editar evento · tela_14-modal-3-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 14 · Gatilho: Editar evento\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_14-modal-4-desktop.png",
+      "kind": "Atlas",
+      "label": "Confirmar remoção · tela_14-modal-4-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 14 · Gatilho: Remover evento\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_15-desktop.png",
+      "kind": "Atlas",
+      "label": "Detalhe do evento · tela_15-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 15",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_15-modal-1-desktop.png",
+      "kind": "Atlas",
+      "label": "Novo evento · tela_15-modal-1-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 15 · Gatilho: Novo momento\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_15-modal-2-desktop.png",
+      "kind": "Atlas",
+      "label": "Sua participação · tela_15-modal-2-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 15 · Gatilho: Responder convite\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_15-modal-3-desktop.png",
+      "kind": "Atlas",
+      "label": "Editar evento · tela_15-modal-3-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 15 · Gatilho: Editar evento\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_15-modal-4-desktop.png",
+      "kind": "Atlas",
+      "label": "Confirmar remoção · tela_15-modal-4-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 15 · Gatilho: Remover evento\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_16-desktop.png",
+      "kind": "Atlas",
+      "label": "Novo evento · tela_16-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 16",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_17-desktop.png",
+      "kind": "Atlas",
+      "label": "Editar evento · tela_17-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 17",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_18-desktop.png",
+      "kind": "Atlas",
+      "label": "Acordos · tela_18-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 18",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_18-modal-1-desktop.png",
+      "kind": "Atlas",
+      "label": "Nova proposta · tela_18-modal-1-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 18 · Gatilho: Nova proposta\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_18-modal-2-desktop.png",
+      "kind": "Atlas",
+      "label": "Detalhe do Hábito · tela_18-modal-2-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 18 · Gatilho: Proposta\nMODAL\nConversar sem distrações\n\nUm tempo para estar presente, com espaço para escolher.\n\nDepois do jantar · exemplo\nTermos ilustrativos · v1\nParticipação individual",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_18-modal-3-desktop.png",
+      "kind": "Atlas",
+      "label": "Nova proposta · tela_18-modal-3-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 18 · Gatilho: + Propor um combinado MODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_19-desktop.png",
+      "kind": "Atlas",
+      "label": "Novo acordo · necessidade · tela_19-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 19",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_20-desktop.png",
+      "kind": "Atlas",
+      "label": "Novo acordo · proposta · tela_20-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 20",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_21-desktop.png",
+      "kind": "Atlas",
+      "label": "Novo acordo · compreensão · tela_21-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 21",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_22-desktop.png",
+      "kind": "Atlas",
+      "label": "Novo acordo · conferir · tela_22-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 22",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_23-desktop.png",
+      "kind": "Atlas",
+      "label": "Participação individual · tela_23-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 23",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_24-desktop.png",
+      "kind": "Atlas",
+      "label": "Detalhe do Hábito · tela_24-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 24",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_24-modal-1-desktop.png",
+      "kind": "Atlas",
+      "label": "Registrar momento · tela_24-modal-1-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 24 · Gatilho: Registrar momento\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_24-modal-2-desktop.png",
+      "kind": "Atlas",
+      "label": "Gerenciar ciclo · tela_24-modal-2-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 24 · Gatilho: Gerenciar ciclo · administrador\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_25-desktop.png",
+      "kind": "Atlas",
+      "label": "Histórico do Hábito · tela_25-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 25",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_25-modal-1-desktop.png",
+      "kind": "Atlas",
+      "label": "Registrar momento · tela_25-modal-1-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 25 · Gatilho: Registrar momento\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_26-desktop.png",
+      "kind": "Atlas",
+      "label": "Reflexões do Hábito · tela_26-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 26",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_27-desktop.png",
+      "kind": "Atlas",
+      "label": "Registrar momento · tela_27-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 27",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_28-desktop.png",
+      "kind": "Atlas",
+      "label": "Gerenciar ciclo · tela_28-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 28",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_29-desktop.png",
+      "kind": "Atlas",
+      "label": "Período do legado · tela_29-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 29",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_30-desktop.png",
+      "kind": "Atlas",
+      "label": "Revisar termos e versões · tela_30-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 30",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_30-modal-1-desktop.png",
+      "kind": "Atlas",
+      "label": "Alterar termos · tela_30-modal-1-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 30 · Gatilho: Alterar termos · administrador\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_31-desktop.png",
+      "kind": "Atlas",
+      "label": "Alterar termos · tela_31-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 31",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_32-desktop.png",
+      "kind": "Atlas",
+      "label": "Encerrar acordo · tela_32-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 32",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_33-desktop.png",
+      "kind": "Atlas",
+      "label": "Histórico das versões · tela_33-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 33",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_34-desktop.png",
+      "kind": "Atlas",
+      "label": "Detalhe de experiência · tela_34-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 34",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_35-desktop.png",
+      "kind": "Atlas",
+      "label": "Registrar experiência · tela_35-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 35",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_36-desktop.png",
+      "kind": "Atlas",
+      "label": "Nossa Essência · tela_36-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 36",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_37-desktop.png",
+      "kind": "Atlas",
+      "label": "Promover para Essência · tela_37-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 37",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_38-desktop.png",
+      "kind": "Atlas",
+      "label": "Nossa Árvore · tela_38-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 38",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_38-modal-1-desktop.png",
+      "kind": "Atlas",
+      "label": "O que está previsto nesta área? · tela_38-modal-1-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 38 · Gatilho: O que está previsto nesta área?\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_38-modal-2-desktop.png",
+      "kind": "Atlas",
+      "label": "Detalhe da memória · tela_38-modal-2-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 38 · Gatilho: O domingo no parque\n\nExemplo visual · sem memória real.\n\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_38-modal-3-desktop.png",
+      "kind": "Atlas",
+      "label": "Detalhe da memória · tela_38-modal-3-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 38 · Gatilho: Nossa primeira caminhada\n\nExemplo visual · sem memória real.\n\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_38-modal-4-desktop.png",
+      "kind": "Atlas",
+      "label": "Detalhe da memória · tela_38-modal-4-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 38 · Gatilho: Uma mesa e boas histórias\n\nExemplo visual · sem memória real.\n\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_39-desktop.png",
+      "kind": "Atlas",
+      "label": "Marcos e celebrações · tela_39-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 39",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_40-desktop.png",
+      "kind": "Atlas",
+      "label": "Memórias · tela_40-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 40",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_40-modal-1-desktop.png",
+      "kind": "Atlas",
+      "label": "O que está previsto nesta área? · tela_40-modal-1-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 40 · Gatilho: O que está previsto nesta área?\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_40-modal-2-desktop.png",
+      "kind": "Atlas",
+      "label": "Detalhe da memória · tela_40-modal-2-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 40 · Gatilho: O domingo no parque\n\nExemplo visual · sem memória real.\n\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_40-modal-3-desktop.png",
+      "kind": "Atlas",
+      "label": "Detalhe da memória · tela_40-modal-3-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 40 · Gatilho: Nossa primeira caminhada\n\nExemplo visual · sem memória real.\n\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_40-modal-4-desktop.png",
+      "kind": "Atlas",
+      "label": "Detalhe da memória · tela_40-modal-4-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 40 · Gatilho: Uma mesa e boas histórias\n\nExemplo visual · sem memória real.\n\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_41-desktop.png",
+      "kind": "Atlas",
+      "label": "Detalhe da memória · tela_41-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 41",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_42-desktop.png",
+      "kind": "Atlas",
+      "label": "Galeria de fotos · tela_42-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 42",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_43-desktop.png",
+      "kind": "Atlas",
+      "label": "Demonstrar gratidão · tela_43-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 43",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_44-desktop.png",
+      "kind": "Atlas",
+      "label": "Conexões · tela_44-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 44",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_44-modal-1-desktop.png",
+      "kind": "Atlas",
+      "label": "O que está previsto nesta área? · tela_44-modal-1-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 44 · Gatilho: O que está previsto nesta área?\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_44-modal-2-desktop.png",
+      "kind": "Atlas",
+      "label": "Perfil de exemplo · Ana · tela_44-modal-2-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 44 · Gatilho: Explorar perfil em detalhe\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_45-desktop.png",
+      "kind": "Atlas",
+      "label": "Perfil de membro · tela_45-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 45",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_46-desktop.png",
+      "kind": "Atlas",
+      "label": "Gostos do membro · tela_46-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 46",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_47-desktop.png",
+      "kind": "Atlas",
+      "label": "Tipos de vínculo · tela_47-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 47",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_48-desktop.png",
+      "kind": "Atlas",
+      "label": "Nossa jornada · tela_48-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 48",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_49-desktop.png",
+      "kind": "Atlas",
+      "label": "Meu perfil · tela_49-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 49",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_49-modal-1-desktop.png",
+      "kind": "Atlas",
+      "label": "O que está previsto nesta área? · tela_49-modal-1-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 49 · Gatilho: O que está previsto nesta área?\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_49-modal-2-desktop.png",
+      "kind": "Atlas",
+      "label": "Perfil de exemplo · Ana · tela_49-modal-2-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 49 · Gatilho: Explorar perfil em detalhe\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_50-desktop.png",
+      "kind": "Atlas",
+      "label": "Perfil · maturidade e opções · tela_50-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 50",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_51-desktop.png",
+      "kind": "Atlas",
+      "label": "Sobre mim · tela_51-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 51",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_52-desktop.png",
+      "kind": "Atlas",
+      "label": "Gostos, cuidado e datas · tela_52-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 52",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_53-desktop.png",
+      "kind": "Atlas",
+      "label": "Editar perfil afetivo · tela_53-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 53",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_54-desktop.png",
+      "kind": "Atlas",
+      "label": "Lista de desejos · tela_54-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 54",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_55-desktop.png",
+      "kind": "Atlas",
+      "label": "Nosso manifesto · tela_55-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 55",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_55-modal-1-desktop.png",
+      "kind": "Atlas",
+      "label": "O que está previsto nesta área? · tela_55-modal-1-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 55 · Gatilho: O que está previsto nesta área?\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_56-desktop.png",
+      "kind": "Atlas",
+      "label": "Revisar manifesto · tela_56-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 56",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_57-desktop.png",
+      "kind": "Atlas",
+      "label": "Compartilhar manifesto · tela_57-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 57",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_58-desktop.png",
+      "kind": "Atlas",
+      "label": "Convidar para o Núcleo · tela_58-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 58",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_59-desktop.png",
+      "kind": "Atlas",
+      "label": "Gerenciar convites · tela_59-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 59",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_59-modal-1-desktop.png",
+      "kind": "Atlas",
+      "label": "Convidar para o Núcleo · tela_59-modal-1-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 59 · Gatilho: Preparar convite\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_59-modal-2-desktop.png",
+      "kind": "Atlas",
+      "label": "Revogar convite · tela_59-modal-2-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 59 · Gatilho: Revogar\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_60-desktop.png",
+      "kind": "Atlas",
+      "label": "Notificações · tela_60-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 60",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_61-desktop.png",
+      "kind": "Atlas",
+      "label": "Conversa de cuidado · tela_61-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 61",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_61-modal-1-desktop.png",
+      "kind": "Atlas",
+      "label": "O que está previsto nesta área? · tela_61-modal-1-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 61 · Gatilho: O que está previsto nesta área?\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_62-desktop.png",
+      "kind": "Atlas",
+      "label": "Ponte do Nós · tela_62-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 62",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_62-modal-1-desktop.png",
+      "kind": "Atlas",
+      "label": "O que está previsto nesta área? · tela_62-modal-1-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 62 · Gatilho: O que está previsto nesta área?\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_63-desktop.png",
+      "kind": "Atlas",
+      "label": "Cartão de Intenção · tela_63-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 63",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_64-desktop.png",
+      "kind": "Atlas",
+      "label": "Marcar conversa ao vivo · tela_64-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 64",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_65-desktop.png",
+      "kind": "Atlas",
+      "label": "Depois da conversa · tela_65-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 65",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_66-desktop.png",
+      "kind": "Atlas",
+      "label": "Configurações · tela_66-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 66",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_66-modal-1-desktop.png",
+      "kind": "Atlas",
+      "label": "Privacidade e visibilidade · tela_66-modal-1-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 66 · Gatilho: Visibilidade das próximas saídas\nUma escolha para as próximas ações\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_66-modal-2-desktop.png",
+      "kind": "Atlas",
+      "label": "Ajuda e suporte · tela_66-modal-2-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 66 · Gatilho: Dados e autonomia\nOrientações e limites do produto\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_66-modal-3-desktop.png",
+      "kind": "Atlas",
+      "label": "Preferências de notificações · tela_66-modal-3-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 66 · Gatilho: Presença também precisa de silêncio\nPreferências de comunicação futuras\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_66-modal-4-desktop.png",
+      "kind": "Atlas",
+      "label": "Ajuda e suporte · tela_66-modal-4-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 66 · Gatilho: Preciso de orientação\nResponsável e canal de contato\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_66-modal-5-desktop.png",
+      "kind": "Atlas",
+      "label": "Conta e segurança · tela_66-modal-5-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 66 · Gatilho: Conta e segurança\nRecuperação, confirmação e saída\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_67-desktop.png",
+      "kind": "Atlas",
+      "label": "Privacidade e visibilidade · tela_67-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 67",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_68-desktop.png",
+      "kind": "Atlas",
+      "label": "Preferências de notificações · tela_68-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 68",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_69-desktop.png",
+      "kind": "Atlas",
+      "label": "Conta e segurança · tela_69-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 69",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_69-modal-1-desktop.png",
+      "kind": "Atlas",
+      "label": "Conta e segurança · tela_69-modal-1-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 69 · Gatilho: Dados da conta\nNome e identificação\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_69-modal-2-desktop.png",
+      "kind": "Atlas",
+      "label": "Conta e segurança · tela_69-modal-2-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 69 · Gatilho: Conta e segurança\nSenha, recuperação e acesso\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_69-modal-3-desktop.png",
+      "kind": "Atlas",
+      "label": "Sair da conta · tela_69-modal-3-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 69 · Gatilho: Sair da conta\nEncerrar acesso neste dispositivo\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_70-desktop.png",
+      "kind": "Atlas",
+      "label": "Ajuda e suporte · tela_70-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 70",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_71-desktop.png",
+      "kind": "Atlas",
+      "label": "Sair de um Núcleo · tela_71-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 71",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_71-modal-1-desktop.png",
+      "kind": "Atlas",
+      "label": "Sair deste Núcleo? · tela_71-modal-1-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 71 · Gatilho: Revisar minha saída\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_72-desktop.png",
+      "kind": "Atlas",
+      "label": "Entrada afetiva · opcional · tela_72-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 72",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_73-desktop.png",
+      "kind": "Atlas",
+      "label": "Pessoas e administração · tela_73-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 73",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_73-modal-1-desktop.png",
+      "kind": "Atlas",
+      "label": "Convidar para o Núcleo · tela_73-modal-1-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 73 · Gatilho: Convidar alguém\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_73-modal-2-desktop.png",
+      "kind": "Atlas",
+      "label": "Pessoas e participação · tela_73-modal-2-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 73 · Gatilho: Ver participação\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_73-modal-3-desktop.png",
+      "kind": "Atlas",
+      "label": "Pessoas e participação · tela_73-modal-3-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 73 · Gatilho: Ver participação\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_73-modal-4-desktop.png",
+      "kind": "Atlas",
+      "label": "Pessoas e participação · tela_73-modal-4-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 73 · Gatilho: Ver participação\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_73-modal-5-desktop.png",
+      "kind": "Atlas",
+      "label": "Convidar para o Núcleo · tela_73-modal-5-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 73 · Gatilho: Preparar convite\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_73-modal-6-desktop.png",
+      "kind": "Atlas",
+      "label": "Nome e propósito · tela_73-modal-6-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 73 · Gatilho: Nome e propósito\nCuidar da identidade do espaço\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_73-modal-7-desktop.png",
+      "kind": "Atlas",
+      "label": "Encerrar Núcleo para todos · tela_73-modal-7-desktop",
+      "device": "desktop",
+      "origin": "Atlas vivo · Tela 73 · Gatilho: Encerrar Núcleo para todos\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_01-mobile.png",
+      "kind": "Atlas",
+      "label": "Conta · tela_01-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 1",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_07-mobile.png",
+      "kind": "Atlas",
+      "label": "Tipo de Núcleo · tela_07-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 7",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_12-mobile.png",
+      "kind": "Atlas",
+      "label": "Seus Núcleos · tela_12-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 12",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_12-modal-1-mobile.png",
+      "kind": "Atlas",
+      "label": "Começar com intenção · tela_12-modal-1-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 12 · Gatilho: Criar Núcleo\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_13-mobile.png",
+      "kind": "Atlas",
+      "label": "Início do Núcleo · tela_13-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 13",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_13-modal-1-mobile.png",
+      "kind": "Atlas",
+      "label": "Notificações · tela_13-modal-1-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 13 · Gatilho: Cada novidade no seu tempo\nNotificações ainda não estão disponíveis\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_13-modal-2-mobile.png",
+      "kind": "Atlas",
+      "label": "Nosso propósito · tela_13-modal-2-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 13 · Gatilho: O que nos reúne\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-global-modal-1-mobile.png",
+      "kind": "Atlas",
+      "label": "Encontre seu espaço · global-modal-1-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 13 · Gatilho: Abrir modal de busca",
+      "modal": true
+    },
+    {
+      "file": "atlas-global-modal-2-mobile.png",
+      "kind": "Atlas",
+      "label": "Notificações · global-modal-2-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 13 · Gatilho: Abrir modal de notificações planejadas",
+      "modal": true
+    },
+    {
+      "file": "atlas-global-modal-3-mobile.png",
+      "kind": "Atlas",
+      "label": "Mais áreas e preferências · global-modal-3-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 13 · Gatilho: Mais áreas e preferências · Modal",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_14-mobile.png",
+      "kind": "Atlas",
+      "label": "Agenda do Núcleo · tela_14-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 14",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_14-modal-1-mobile.png",
+      "kind": "Atlas",
+      "label": "Novo evento · tela_14-modal-1-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 14 · Gatilho: Novo momento\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_14-modal-2-mobile.png",
+      "kind": "Atlas",
+      "label": "Sua participação · tela_14-modal-2-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 14 · Gatilho: Responder convite\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_14-modal-3-mobile.png",
+      "kind": "Atlas",
+      "label": "Editar evento · tela_14-modal-3-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 14 · Gatilho: Editar evento\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_14-modal-4-mobile.png",
+      "kind": "Atlas",
+      "label": "Confirmar remoção · tela_14-modal-4-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 14 · Gatilho: Remover evento\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_18-mobile.png",
+      "kind": "Atlas",
+      "label": "Acordos · tela_18-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 18",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_18-modal-1-mobile.png",
+      "kind": "Atlas",
+      "label": "Nova proposta · tela_18-modal-1-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 18 · Gatilho: Nova proposta\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_18-modal-2-mobile.png",
+      "kind": "Atlas",
+      "label": "Detalhe do Hábito · tela_18-modal-2-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 18 · Gatilho: Proposta\nMODAL\nConversar sem distrações\n\nUm tempo para estar presente, com espaço para escolher.\n\nDepois do jantar · exemplo\nTermos ilustrativos · v1\nParticipação individual",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_18-modal-3-mobile.png",
+      "kind": "Atlas",
+      "label": "Nova proposta · tela_18-modal-3-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 18 · Gatilho: + Propor um combinado MODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_24-mobile.png",
+      "kind": "Atlas",
+      "label": "Detalhe do Hábito · tela_24-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 24",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_24-modal-1-mobile.png",
+      "kind": "Atlas",
+      "label": "Registrar momento · tela_24-modal-1-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 24 · Gatilho: Registrar momento\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_24-modal-2-mobile.png",
+      "kind": "Atlas",
+      "label": "Gerenciar ciclo · tela_24-modal-2-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 24 · Gatilho: Gerenciar ciclo · administrador\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_38-mobile.png",
+      "kind": "Atlas",
+      "label": "Nossa Árvore · tela_38-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 38",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_38-modal-1-mobile.png",
+      "kind": "Atlas",
+      "label": "O que está previsto nesta área? · tela_38-modal-1-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 38 · Gatilho: O que está previsto nesta área?\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_38-modal-2-mobile.png",
+      "kind": "Atlas",
+      "label": "Detalhe da memória · tela_38-modal-2-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 38 · Gatilho: O domingo no parque\n\nExemplo visual · sem memória real.\n\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_38-modal-3-mobile.png",
+      "kind": "Atlas",
+      "label": "Detalhe da memória · tela_38-modal-3-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 38 · Gatilho: Nossa primeira caminhada\n\nExemplo visual · sem memória real.\n\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_38-modal-4-mobile.png",
+      "kind": "Atlas",
+      "label": "Detalhe da memória · tela_38-modal-4-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 38 · Gatilho: Uma mesa e boas histórias\n\nExemplo visual · sem memória real.\n\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_44-mobile.png",
+      "kind": "Atlas",
+      "label": "Conexões · tela_44-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 44",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_44-modal-1-mobile.png",
+      "kind": "Atlas",
+      "label": "O que está previsto nesta área? · tela_44-modal-1-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 44 · Gatilho: O que está previsto nesta área?\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_44-modal-2-mobile.png",
+      "kind": "Atlas",
+      "label": "Perfil de exemplo · Ana · tela_44-modal-2-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 44 · Gatilho: Explorar perfil em detalhe\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_55-mobile.png",
+      "kind": "Atlas",
+      "label": "Nosso manifesto · tela_55-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 55",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_55-modal-1-mobile.png",
+      "kind": "Atlas",
+      "label": "O que está previsto nesta área? · tela_55-modal-1-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 55 · Gatilho: O que está previsto nesta área?\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_66-mobile.png",
+      "kind": "Atlas",
+      "label": "Configurações · tela_66-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 66",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_66-modal-1-mobile.png",
+      "kind": "Atlas",
+      "label": "Privacidade e visibilidade · tela_66-modal-1-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 66 · Gatilho: Visibilidade das próximas saídas\nUma escolha para as próximas ações\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_66-modal-2-mobile.png",
+      "kind": "Atlas",
+      "label": "Ajuda e suporte · tela_66-modal-2-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 66 · Gatilho: Dados e autonomia\nOrientações e limites do produto\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_66-modal-3-mobile.png",
+      "kind": "Atlas",
+      "label": "Preferências de notificações · tela_66-modal-3-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 66 · Gatilho: Presença também precisa de silêncio\nPreferências de comunicação futuras\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_66-modal-4-mobile.png",
+      "kind": "Atlas",
+      "label": "Ajuda e suporte · tela_66-modal-4-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 66 · Gatilho: Preciso de orientação\nResponsável e canal de contato\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_66-modal-5-mobile.png",
+      "kind": "Atlas",
+      "label": "Conta e segurança · tela_66-modal-5-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 66 · Gatilho: Conta e segurança\nRecuperação, confirmação e saída\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_69-mobile.png",
+      "kind": "Atlas",
+      "label": "Conta e segurança · tela_69-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 69",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_69-modal-1-mobile.png",
+      "kind": "Atlas",
+      "label": "Conta e segurança · tela_69-modal-1-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 69 · Gatilho: Dados da conta\nNome e identificação\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_69-modal-2-mobile.png",
+      "kind": "Atlas",
+      "label": "Conta e segurança · tela_69-modal-2-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 69 · Gatilho: Conta e segurança\nSenha, recuperação e acesso\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_69-modal-3-mobile.png",
+      "kind": "Atlas",
+      "label": "Sair da conta · tela_69-modal-3-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 69 · Gatilho: Sair da conta\nEncerrar acesso neste dispositivo\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_73-mobile.png",
+      "kind": "Atlas",
+      "label": "Pessoas e administração · tela_73-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 73",
+      "modal": false
+    },
+    {
+      "file": "atlas-tela_73-modal-1-mobile.png",
+      "kind": "Atlas",
+      "label": "Convidar para o Núcleo · tela_73-modal-1-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 73 · Gatilho: Convidar alguém\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_73-modal-2-mobile.png",
+      "kind": "Atlas",
+      "label": "Pessoas e participação · tela_73-modal-2-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 73 · Gatilho: Ver participação\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_73-modal-3-mobile.png",
+      "kind": "Atlas",
+      "label": "Pessoas e participação · tela_73-modal-3-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 73 · Gatilho: Ver participação\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_73-modal-4-mobile.png",
+      "kind": "Atlas",
+      "label": "Pessoas e participação · tela_73-modal-4-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 73 · Gatilho: Ver participação\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_73-modal-5-mobile.png",
+      "kind": "Atlas",
+      "label": "Convidar para o Núcleo · tela_73-modal-5-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 73 · Gatilho: Preparar convite\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_73-modal-6-mobile.png",
+      "kind": "Atlas",
+      "label": "Nome e propósito · tela_73-modal-6-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 73 · Gatilho: Nome e propósito\nCuidar da identidade do espaço\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "atlas-tela_73-modal-7-mobile.png",
+      "kind": "Atlas",
+      "label": "Encerrar Núcleo para todos · tela_73-modal-7-mobile",
+      "device": "mobile",
+      "origin": "Atlas vivo · Tela 73 · Gatilho: Encerrar Núcleo para todos\nMODAL",
+      "modal": true
+    },
+    {
+      "file": "anterior-inicio-desktop.png",
+      "kind": "Anterior",
+      "label": "inicio · v2.0.0",
+      "device": "desktop",
+      "origin": "Captura histórica da entrega v2.0.0; não representa a interface vigente",
+      "modal": false
+    },
+    {
+      "file": "anterior-inicio-mobile.png",
+      "kind": "Anterior",
+      "label": "inicio · v2.0.0",
+      "device": "mobile",
+      "origin": "Captura histórica da entrega v2.0.0; não representa a interface vigente",
+      "modal": false
+    },
+    {
+      "file": "anterior-nucleos-desktop.png",
+      "kind": "Anterior",
+      "label": "nucleos · v2.0.0",
+      "device": "desktop",
+      "origin": "Captura histórica da entrega v2.0.0; não representa a interface vigente",
+      "modal": false
+    },
+    {
+      "file": "anterior-nucleos-mobile.png",
+      "kind": "Anterior",
+      "label": "nucleos · v2.0.0",
+      "device": "mobile",
+      "origin": "Captura histórica da entrega v2.0.0; não representa a interface vigente",
+      "modal": false
+    },
+    {
+      "file": "anterior-agenda-desktop.png",
+      "kind": "Anterior",
+      "label": "agenda · v2.0.0",
+      "device": "desktop",
+      "origin": "Captura histórica da entrega v2.0.0; não representa a interface vigente",
+      "modal": false
+    },
+    {
+      "file": "anterior-agenda-mobile.png",
+      "kind": "Anterior",
+      "label": "agenda · v2.0.0",
+      "device": "mobile",
+      "origin": "Captura histórica da entrega v2.0.0; não representa a interface vigente",
+      "modal": false
+    },
+    {
+      "file": "anterior-pessoas-desktop.png",
+      "kind": "Anterior",
+      "label": "pessoas · v2.0.0",
+      "device": "desktop",
+      "origin": "Captura histórica da entrega v2.0.0; não representa a interface vigente",
+      "modal": false
+    },
+    {
+      "file": "anterior-pessoas-mobile.png",
+      "kind": "Anterior",
+      "label": "pessoas · v2.0.0",
+      "device": "mobile",
+      "origin": "Captura histórica da entrega v2.0.0; não representa a interface vigente",
+      "modal": false
+    },
+    {
+      "file": "anterior-acordos-desktop.png",
+      "kind": "Anterior",
+      "label": "acordos · v2.0.0",
+      "device": "desktop",
+      "origin": "Captura histórica da entrega v2.0.0; não representa a interface vigente",
+      "modal": false
+    },
+    {
+      "file": "anterior-acordos-mobile.png",
+      "kind": "Anterior",
+      "label": "acordos · v2.0.0",
+      "device": "mobile",
+      "origin": "Captura histórica da entrega v2.0.0; não representa a interface vigente",
+      "modal": false
+    },
+    {
+      "file": "anterior-conta-desktop.png",
+      "kind": "Anterior",
+      "label": "conta · v2.0.0",
+      "device": "desktop",
+      "origin": "Captura histórica da entrega v2.0.0; não representa a interface vigente",
+      "modal": false
+    },
+    {
+      "file": "anterior-conta-mobile.png",
+      "kind": "Anterior",
+      "label": "conta · v2.0.0",
+      "device": "mobile",
+      "origin": "Captura histórica da entrega v2.0.0; não representa a interface vigente",
+      "modal": false
+    },
+    {
+      "file": "anterior-configuracoes-desktop.png",
+      "kind": "Anterior",
+      "label": "configuracoes · v2.0.0",
+      "device": "desktop",
+      "origin": "Captura histórica da entrega v2.0.0; não representa a interface vigente",
+      "modal": false
+    },
+    {
+      "file": "anterior-configuracoes-mobile.png",
+      "kind": "Anterior",
+      "label": "configuracoes · v2.0.0",
+      "device": "mobile",
+      "origin": "Captura histórica da entrega v2.0.0; não representa a interface vigente",
+      "modal": false
+    },
+    {
+      "file": "anterior-arvore-desktop.png",
+      "kind": "Anterior",
+      "label": "arvore · v2.0.0",
+      "device": "desktop",
+      "origin": "Captura histórica da entrega v2.0.0; não representa a interface vigente",
+      "modal": false
+    },
+    {
+      "file": "anterior-arvore-mobile.png",
+      "kind": "Anterior",
+      "label": "arvore · v2.0.0",
+      "device": "mobile",
+      "origin": "Captura histórica da entrega v2.0.0; não representa a interface vigente",
+      "modal": false
+    },
+    {
+      "file": "anterior-conexoes-desktop.png",
+      "kind": "Anterior",
+      "label": "conexoes · v2.0.0",
+      "device": "desktop",
+      "origin": "Captura histórica da entrega v2.0.0; não representa a interface vigente",
+      "modal": false
+    },
+    {
+      "file": "anterior-conexoes-mobile.png",
+      "kind": "Anterior",
+      "label": "conexoes · v2.0.0",
+      "device": "mobile",
+      "origin": "Captura histórica da entrega v2.0.0; não representa a interface vigente",
+      "modal": false
+    },
+    {
+      "file": "anterior-cuidado-desktop.png",
+      "kind": "Anterior",
+      "label": "cuidado · v2.0.0",
+      "device": "desktop",
+      "origin": "Captura histórica da entrega v2.0.0; não representa a interface vigente",
+      "modal": false
+    },
+    {
+      "file": "anterior-cuidado-mobile.png",
+      "kind": "Anterior",
+      "label": "cuidado · v2.0.0",
+      "device": "mobile",
+      "origin": "Captura histórica da entrega v2.0.0; não representa a interface vigente",
+      "modal": false
+    }
+  ],
+  "comparisons": [
+    {
+      "label": "inicio",
+      "device": "desktop",
+      "before": "anterior-inicio-desktop.png",
+      "reference": "referencia-overview-desktop.png",
+      "after": "app-inicio-desktop.png"
+    },
+    {
+      "label": "inicio",
+      "device": "mobile",
+      "before": "anterior-inicio-mobile.png",
+      "reference": "referencia-overview-mobile.png",
+      "after": "app-inicio-mobile.png"
+    },
+    {
+      "label": "nucleos",
+      "device": "desktop",
+      "before": "anterior-nucleos-desktop.png",
+      "reference": "referencia-nuclei-desktop.png",
+      "after": "app-nucleos-desktop.png"
+    },
+    {
+      "label": "nucleos",
+      "device": "mobile",
+      "before": "anterior-nucleos-mobile.png",
+      "reference": "referencia-nuclei-mobile.png",
+      "after": "app-nucleos-mobile.png"
+    },
+    {
+      "label": "agenda",
+      "device": "desktop",
+      "before": "anterior-agenda-desktop.png",
+      "reference": "referencia-agenda-desktop.png",
+      "after": "app-agenda-desktop.png"
+    },
+    {
+      "label": "agenda",
+      "device": "mobile",
+      "before": "anterior-agenda-mobile.png",
+      "reference": "referencia-agenda-mobile.png",
+      "after": "app-agenda-mobile.png"
+    },
+    {
+      "label": "pessoas",
+      "device": "desktop",
+      "before": "anterior-pessoas-desktop.png",
+      "reference": "referencia-people-desktop.png",
+      "after": "app-pessoas-desktop.png"
+    },
+    {
+      "label": "pessoas",
+      "device": "mobile",
+      "before": "anterior-pessoas-mobile.png",
+      "reference": "referencia-people-mobile.png",
+      "after": "app-pessoas-mobile.png"
+    },
+    {
+      "label": "acordos",
+      "device": "desktop",
+      "before": "anterior-acordos-desktop.png",
+      "reference": "referencia-agreements-desktop.png",
+      "after": "app-acordos-desktop.png"
+    },
+    {
+      "label": "acordos",
+      "device": "mobile",
+      "before": "anterior-acordos-mobile.png",
+      "reference": "referencia-agreements-mobile.png",
+      "after": "app-acordos-mobile.png"
+    },
+    {
+      "label": "conta",
+      "device": "desktop",
+      "before": "anterior-conta-desktop.png",
+      "reference": "referencia-account-desktop.png",
+      "after": "app-conta-desktop.png"
+    },
+    {
+      "label": "conta",
+      "device": "mobile",
+      "before": "anterior-conta-mobile.png",
+      "reference": "referencia-account-mobile.png",
+      "after": "app-conta-mobile.png"
+    },
+    {
+      "label": "configuracoes",
+      "device": "desktop",
+      "before": "anterior-configuracoes-desktop.png",
+      "reference": "referencia-settings-desktop.png",
+      "after": "app-configuracoes-desktop.png"
+    },
+    {
+      "label": "configuracoes",
+      "device": "mobile",
+      "before": "anterior-configuracoes-mobile.png",
+      "reference": "referencia-settings-mobile.png",
+      "after": "app-configuracoes-mobile.png"
+    },
+    {
+      "label": "arvore",
+      "device": "desktop",
+      "before": "anterior-arvore-desktop.png",
+      "reference": "referencia-tree-desktop.png",
+      "after": "app-arvore-desktop.png"
+    },
+    {
+      "label": "arvore",
+      "device": "mobile",
+      "before": "anterior-arvore-mobile.png",
+      "reference": "referencia-tree-mobile.png",
+      "after": "app-arvore-mobile.png"
+    },
+    {
+      "label": "conexoes",
+      "device": "desktop",
+      "before": "anterior-conexoes-desktop.png",
+      "reference": "referencia-connections-desktop.png",
+      "after": "app-conexoes-desktop.png"
+    },
+    {
+      "label": "conexoes",
+      "device": "mobile",
+      "before": "anterior-conexoes-mobile.png",
+      "reference": "referencia-connections-mobile.png",
+      "after": "app-conexoes-mobile.png"
+    },
+    {
+      "label": "cuidado",
+      "device": "desktop",
+      "before": "anterior-cuidado-desktop.png",
+      "reference": "referencia-care-desktop.png",
+      "after": "app-cuidado-desktop.png"
+    },
+    {
+      "label": "cuidado",
+      "device": "mobile",
+      "before": "anterior-cuidado-mobile.png",
+      "reference": "referencia-care-mobile.png",
+      "after": "app-cuidado-mobile.png"
+    }
+  ]
+}

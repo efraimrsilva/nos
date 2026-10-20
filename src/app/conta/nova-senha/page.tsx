@@ -13,7 +13,7 @@ export default async function NewPasswordPage({ searchParams }: { searchParams: 
   const authorized = !params.erro && await getRecoverySession();
   return <OnboardingShell>
     <AccessHeading title="Redefinir senha" subtitle="Um novo acesso, com segurança." next={next} />
-    {authorized ? <PasswordResetForm next={next} /> : <p role="alert" className="mt-6 rounded-xl bg-[#fce9f1] p-4 text-sm text-[#9a3153]">Abra um link de recuperação válido. O link pode ter expirado, já ter sido usado ou precisar ser aberto no navegador em que você o solicitou.</p>}
-    <Link href={withAuthNext("/conta/recuperar", next)} className="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Solicitar outro link</Link>
+    {authorized ? <PasswordResetForm next={next} /> : <p role="alert" className="ui-feedback mt-6">Abra um link de recuperação válido. O link pode ter expirado, já ter sido usado ou precisar ser aberto no navegador em que você o solicitou.</p>}
+    <Link href={withAuthNext("/conta/recuperar", next)} className="ui-text-link mt-4">Solicitar outro link</Link>
   </OnboardingShell>;
 }

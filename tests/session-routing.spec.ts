@@ -6,7 +6,7 @@ const habit = "22222222-2222-4222-8222-222222222222";
 
 test("páginas privadas pedem login antes de renderizar e preservam o destino", async ({ page }) => {
   test.setTimeout(90_000);
-  for (const destination of ["/comecar", "/comecar/tipo", "/comecar/proposito?tipo=familia", "/comecar/convite", "/nucleos", `/nucleos/${nucleus}/acordos/${habit}/registrar`]) {
+  for (const destination of ["/comecar", "/comecar/tipo", "/comecar/proposito?tipo=familia", "/comecar/convite", "/nucleos", `/nucleos/${nucleus}/acordos/${habit}/registrar`, ...["arvore", "memorias", "conexoes", "perfis", "manifesto", "cuidado"].map(area => `/nucleos/${nucleus}/${area}`)]) {
     await page.goto(destination);
     await expect(page.getByRole("heading", { name: "Sua conta no Nós" })).toBeVisible();
     const url = new URL(page.url());
@@ -14,6 +14,10 @@ test("páginas privadas pedem login antes de renderizar e preservam o destino", 
     expect(url.searchParams.get("modo")).toBe("login");
     await expect(page.locator('input[name="next"]')).toHaveValue(destination);
     await expect(page.getByRole("button", { name: "Entrar", exact: true })).toBeVisible();
+  }
+  for (const area of ["arvore", "memorias", "conexoes", "perfis", "manifesto", "cuidado"]) {
+    expect(safeAuthNext(`/nucleos/${nucleus}/${area}`)).toBe(`/nucleos/${nucleus}/${area}`);
+    expect(safeAuthNext(`/nucleos/${nucleus}/${area}?token=segredo`)).toBe("/nucleos");
   }
 });
 
@@ -24,7 +28,7 @@ test("retorno aceita rotas privadas implementadas e rejeita URLs ou parâmetros 
   for (const destination of ["/nucleos", `/comecar/convite-inicial/${nucleus}`, `/nucleos/${nucleus}/acordos/${habit}`, `/nucleos/${nucleus}/acordos/${habit}/confirmar`, `/nucleos/${nucleus}/acordos?categoria=habit`, `/comecar/tipo?tipo=familia`]) {
     expect(safeAuthNext(destination)).toBe(destination);
   }
-  for (const destination of [undefined, ["/comecar"], "https://example.com", "//example.com", "/nucleos?token=segredo", "/nucleos/../../conta", `/nucleos/${nucleus}/arvore`, `/comecar/proposito?tipo=familia&tipo=casal`]) {
+  for (const destination of [undefined, ["/comecar"], "https://example.com", "//example.com", "/nucleos?token=segredo", "/nucleos/../../conta", `/nucleos/${nucleus}/inexistente`, `/comecar/proposito?tipo=familia&tipo=casal`]) {
     expect(safeAuthNext(destination)).toBe("/nucleos");
   }
 });

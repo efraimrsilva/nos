@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
-import { CalendarDays, ChevronLeft, LockKeyhole } from "lucide-react";
-import { CalendarEventForm } from "@/features/calendar/components/calendar-event-form";
-import { CalendarPresenceForm, CalendarRemovalForm } from "@/features/calendar/components/calendar-event-actions";
-import { formatCalendarEventDate, parseCalendarPage } from "@/features/calendar/event-input";
+import { CalendarWorkspace, type CalendarEvent } from "@/features/calendar/components/calendar-workspace";
+import { parseCalendarPage } from "@/features/calendar/event-input";
 import { isNucleusAuthUnavailable } from "@/features/nuclei/nucleus-access";
 import { OnboardingShell } from "@/features/onboarding/components/onboarding-shell";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
@@ -12,18 +10,6 @@ import { routes } from "@/shared/routes";
 
 export const metadata: Metadata = { title: "Agenda do Núcleo" };
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
-
-type Participant = { user_id: string | null; response: string; is_own: boolean };
-type EventRow = {
-  id: string; title: string; intention: string; starts_at: string; ends_at: string;
-  time_zone: string; created_by: string | null; can_manage: boolean; nucleus_event_participants: Participant[];
-};
-
-function participationLabel(participants: Participant[]) {
-  if (participants.some((participant) => participant.response === "declined")) return "Precisa de novo horário";
-  if (participants.length && participants.every((participant) => participant.response === "accepted")) return "Confirmado";
-  return "Aguardando respostas";
-}
 
 export default async function CalendarPage({ params, searchParams }: {
   params: Promise<{ id: string }>;
@@ -48,69 +34,30 @@ export default async function CalendarPage({ params, searchParams }: {
     .select("name").eq("id", id).maybeSingle();
   if (nucleusError) throw new Error("Não foi possível consultar o Núcleo.");
   if (!nucleus) notFound();
-  // A função mascara autoria após a saída sem perder a autorização de gestão da agenda.
+  // O RPC mascara autoria após a saída e conserva a autorização real de gestão.
   const { data, error } = await supabase.rpc("get_nucleus_calendar", {
     target_nucleus: id, from_ends_at: new Date().toISOString(), page_offset: offset, page_size: pageSize + 1,
   });
   if (error) throw new Error("Não foi possível consultar a agenda agora.");
-  const events = ((data ?? []).slice(0, pageSize)) as EventRow[];
+  const events = ((data ?? []).slice(0, pageSize)) as CalendarEvent[];
   const hasNextPage = (data ?? []).length > pageSize;
+  const weekStart = new Date(events[0]?.starts_at ?? Date.now());
+  weekStart.setUTCHours(0, 0, 0, 0);
+  weekStart.setUTCDate(weekStart.getUTCDate() - (weekStart.getUTCDay() + 6) % 7);
   const notice: Record<string, string> = {
-    erro: "Não foi possível concluir a ação. Tente novamente.",
-    removido: "Evento removido.",
-    resposta: "Sua resposta foi registrada.",
-    salvo: "Evento salvo.",
+    erro: "Não foi possível concluir a ação. Tente novamente.", removido: "Evento removido.",
+    resposta: "Sua resposta foi registrada.", salvo: "Evento salvo.",
   };
+  // Atualizações persistidas renovam os formulários, inclusive quando a URL de retorno é a mesma.
+  const calendarVersion = JSON.stringify(events.map(event => [event.id, event.title, event.intention,
+    event.starts_at, event.ends_at, (event.nucleus_event_participants ?? []).map(participant => participant.response)]));
 
-  return <OnboardingShell>
-    <Link href={`${routes.nucleus}/${id}`} className="mb-5 inline-flex min-h-11 items-center gap-1 text-sm font-semibold text-leaf underline"><ChevronLeft size={16} aria-hidden="true" />Voltar ao Núcleo</Link>
-    <div className="flex items-center gap-2 text-xs font-semibold text-muted"><LockKeyhole size={14} aria-hidden="true" />Agenda privada · {nucleus.name}</div>
-    <h1 className="mt-3 font-display text-[32px] leading-tight md:text-[42px]">Agenda do Núcleo</h1>
-    <p className="mt-2 text-sm leading-7 text-muted">Planejem momentos no tempo de vocês. Cada pessoa decide se pode participar.</p>
-    <p className="mt-1 text-xs leading-6 text-muted">Os eventos aparecem apenas aqui no Nós; a sincronização com calendários externos ainda não está disponível.</p>
-    <a href="#create-heading" className="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Adicionar evento</a>
-    {resultado && notice[resultado] && <p role="status" className="mt-4 rounded-xl bg-[#edf3e5] p-3 text-sm text-forest">{notice[resultado]}</p>}
-
-    <section className="mt-6 rounded-[22px] border border-line bg-white p-5 shadow-[0_5px_18px_#52403805] sm:p-7" aria-labelledby="upcoming-heading">
-      <div className="flex items-center gap-2.5"><CalendarDays size={21} className="text-leaf" aria-hidden="true" /><h2 id="upcoming-heading" className="font-display text-xl">Próximos momentos</h2></div>
-      {events.length === 0 ? <p className="mt-4 text-sm leading-7 text-muted">{page === 1 ? "Nada marcado por enquanto. Vocês podem criar um momento quando fizer sentido." : "Nenhum evento nesta página. Volte aos anteriores."}</p> :
-        <ol className="mt-4 grid gap-4">{events.map((event) => {
-          const participants = event.nucleus_event_participants ?? [];
-          const own = participants.find((participant) => participant.is_own);
-          const canManage = event.can_manage;
-          const start = formatCalendarEventDate(event.starts_at, event.time_zone);
-          const end = formatCalendarEventDate(event.ends_at, event.time_zone);
-          return <li key={event.id} id={`evento-${event.id}`} className="rounded-2xl border border-line bg-[#fbfaf7] p-4">
-            <h3 className="break-words font-display text-lg">{event.title}</h3>
-            <p className="mt-1 text-sm text-muted">{start.text} até {end.text} ({start.zoneLabel})</p>
-            {event.intention && <p className="mt-2 whitespace-pre-wrap break-words text-sm text-muted">{event.intention}</p>}
-            <p className="mt-3 text-xs font-semibold text-leaf">{participationLabel(participants)} · {participants.length} participante(s)</p>
-            {own && <div className="mt-3">
-              <p className="text-xs text-muted">Sua resposta: {own.response === "accepted" ? "vou participar" : own.response === "declined" ? "não posso participar" : "ainda não respondi"}.</p>
-              <CalendarPresenceForm nucleusId={id} eventId={event.id} />
-            </div>}
-            {canManage && <details className="mt-4 border-t border-line pt-3"><summary className="cursor-pointer text-sm font-semibold text-leaf">Editar ou remover</summary>
-              <CalendarEventForm nucleusId={id} event={event} />
-              <CalendarRemovalForm nucleusId={id} eventId={event.id} title={event.title} />
-            </details>}
-          </li>;
-        })}</ol>}
-      {(page > 1 || hasNextPage) && <nav aria-label="Páginas da agenda" className="mt-5 flex flex-wrap items-center justify-between gap-3 text-sm font-semibold text-leaf">
-        {page > 1 ? <Link href={`${routes.nucleus}/${id}/agenda?pagina=${page - 1}`} className="underline">Eventos anteriores</Link> : <span />}
-        {hasNextPage && <Link href={`${routes.nucleus}/${id}/agenda?pagina=${page + 1}`} className="underline">Mais eventos</Link>}
-      </nav>}
-    </section>
-
-    <section className="mt-4 rounded-[22px] border border-line bg-white p-5 sm:p-7" aria-labelledby="create-heading">
-      <h2 id="create-heading" className="font-display text-xl">Adicionar evento</h2>
-      <p className="mt-2 text-sm text-muted">Todos os integrantes atuais receberão um pedido de resposta nesta agenda.</p>
-      <CalendarEventForm nucleusId={id} />
-    </section>
-    <section className="mt-4 rounded-[22px] border border-dashed border-line p-5 sm:p-7" aria-labelledby="calendar-future-heading">
-      <p className="text-xs font-semibold text-muted">Planejado · próximas etapas</p>
-      <h2 id="calendar-future-heading" className="mt-2 font-display text-xl">Próximas possibilidades</h2>
-      <p className="mt-2 text-sm leading-7 text-muted">Visão mensal e por dia, eventos recorrentes, local do encontro, sugestão de outros horários e a opção “Ainda não sei”.</p>
-      <p className="mt-2 text-sm leading-7 text-muted">Também virão a escolha de participantes, notificações de mudanças, vínculos com Hábitos e Experiências, memórias do encontro e conexão com calendários externos. Cada recurso será disponibilizado após definir suas regras de privacidade e consentimento.</p>
-    </section>
+  return <OnboardingShell nucleusName={nucleus.name}>
+    {resultado && notice[resultado] && <p role="status" className="ui-status">{notice[resultado]}</p>}
+    <CalendarWorkspace key={`${page}-${calendarVersion}`} nucleusId={id} nucleusName={nucleus.name} events={events} initialWeek={weekStart.toISOString()} today={new Date().toISOString().slice(0, 10)} />
+    {(page > 1 || hasNextPage) && <nav aria-label="Páginas da agenda" className="calendar-pagination">
+      {page > 1 ? <Link href={`${routes.nucleus}/${id}/agenda?pagina=${page - 1}`} className="ui-button-secondary">Eventos anteriores</Link> : <span />}
+      {hasNextPage && <Link href={`${routes.nucleus}/${id}/agenda?pagina=${page + 1}`} className="ui-button-secondary">Mais eventos</Link>}
+    </nav>}
   </OnboardingShell>;
 }

@@ -1,0 +1,837 @@
+{
+  "version": "2.0.0",
+  "date": "2026-10-18",
+  "counts": {
+    "Aplicativo": 83,
+    "Atlas": 76,
+    "Antes": 4,
+    "Referência": 2
+  },
+  "files": [
+    {
+      "name": "v2.0.0-2026-10-18-tela_18-acordos-depois-1024.png",
+      "group": "Aplicativo",
+      "label": "acordos · 1024 · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_18-acordos-depois-768.png",
+      "group": "Aplicativo",
+      "label": "acordos · 768 · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_18-acordos-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "acordos · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_18-acordos-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "acordos · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_14-agenda-depois-1024.png",
+      "group": "Aplicativo",
+      "label": "agenda · 1024 · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_14-agenda-depois-768.png",
+      "group": "Aplicativo",
+      "label": "agenda · 768 · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_14-agenda-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "agenda · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_14-agenda-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "agenda · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_70-ajuda-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "ajuda · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_70-ajuda-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "ajuda · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_38-arvore-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "arvore · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_38-arvore-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "arvore · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_06-comecar-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "comecar · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_06-comecar-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "comecar · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_44-conexoes-depois-1024.png",
+      "group": "Aplicativo",
+      "label": "conexoes · 1024 · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_44-conexoes-depois-768.png",
+      "group": "Aplicativo",
+      "label": "conexoes · 768 · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_44-conexoes-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "conexoes · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_44-conexoes-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "conexoes · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_66-configuracoes-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "configuracoes · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_66-configuracoes-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "configuracoes · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_28-confirmar-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "confirmar · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_28-confirmar-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "confirmar · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_01-conta-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "conta · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_01-conta-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "conta · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_10-convite-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "convite · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_10-convite-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "convite · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_59-convites-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "convites · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_59-convites-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "convites · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_61-cuidado-depois-1024.png",
+      "group": "Aplicativo",
+      "label": "cuidado · 1024 · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_61-cuidado-depois-768.png",
+      "group": "Aplicativo",
+      "label": "cuidado · 768 · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_61-cuidado-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "cuidado · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_61-cuidado-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "cuidado · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_24-habito-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "habito · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_24-habito-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "habito · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_13-inicio-depois-1024.png",
+      "group": "Aplicativo",
+      "label": "inicio · 1024 · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_13-inicio-depois-768.png",
+      "group": "Aplicativo",
+      "label": "inicio · 768 · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_13-inicio-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "inicio · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_13-inicio-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "inicio · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_55-manifesto-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "manifesto · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_55-manifesto-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "manifesto · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_40-memorias-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "memorias · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_40-memorias-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "memorias · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_12-nucleos-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "nucleos · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_12-nucleos-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "nucleos · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_49-perfis-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "perfis · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_49-perfis-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "perfis · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_73-pessoas-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "pessoas · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_73-pessoas-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "pessoas · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_67-privacidade-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "privacidade · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_67-privacidade-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "privacidade · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_08-proposito-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "proposito · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_08-proposito-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "proposito · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_27-registrar-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "registrar · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_27-registrar-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "registrar · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_31-revisar-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "revisar · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_31-revisar-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "revisar · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_71-sair-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "sair · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_71-sair-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "sair · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_69-seguranca-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "seguranca · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_69-seguranca-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "seguranca · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_07-tipo-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "tipo · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_07-tipo-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "tipo · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-estado-404-404-depois-640.png",
+      "group": "Aplicativo",
+      "label": "404 · 640 · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-estado-404-404-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "404 · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-estado-404-404-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "404 · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_72-boas-vindas-depois-640.png",
+      "group": "Aplicativo",
+      "label": "boas-vindas · 640 · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_72-boas-vindas-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "boas-vindas · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_72-boas-vindas-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "boas-vindas · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_03-confirmar-email-depois-640.png",
+      "group": "Aplicativo",
+      "label": "confirmar-email · 640 · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_03-confirmar-email-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "confirmar-email · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_03-confirmar-email-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "confirmar-email · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_01-conta-cadastro-depois-640.png",
+      "group": "Aplicativo",
+      "label": "conta-cadastro · 640 · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_01-conta-cadastro-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "conta-cadastro · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_01-conta-cadastro-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "conta-cadastro · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_02-conta-login-depois-640.png",
+      "group": "Aplicativo",
+      "label": "conta-login · 640 · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_02-conta-login-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "conta-login · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_02-conta-login-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "conta-login · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_05-nova-senha-depois-640.png",
+      "group": "Aplicativo",
+      "label": "nova-senha · 640 · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_05-nova-senha-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "nova-senha · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_05-nova-senha-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "nova-senha · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_04-recuperar-depois-640.png",
+      "group": "Aplicativo",
+      "label": "recuperar · 640 · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_04-recuperar-depois-desktop.png",
+      "group": "Aplicativo",
+      "label": "recuperar · desktop · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_04-recuperar-depois-mobile.png",
+      "group": "Aplicativo",
+      "label": "recuperar · mobile · aplicativo local"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_01-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_01 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_02-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_02 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_03-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_03 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_04-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_04 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_05-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_05 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_06-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_06 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_07-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_07 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_08-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_08 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_09-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_09 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_10-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_10 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_11-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_11 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_12-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_12 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_13-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_13 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_14-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_14 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_15-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_15 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_16-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_16 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_17-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_17 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_18-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_18 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_19-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_19 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_20-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_20 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_21-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_21 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_22-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_22 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_23-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_23 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_24-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_24 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_25-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_25 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_26-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_26 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_27-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_27 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_28-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_28 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_29-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_29 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_30-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_30 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_31-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_31 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_32-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_32 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_33-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_33 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_34-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_34 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_35-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_35 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_36-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_36 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_37-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_37 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_38-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_38 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_39-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_39 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_40-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_40 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_41-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_41 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_42-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_42 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_43-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_43 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_44-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_44 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_45-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_45 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_46-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_46 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_47-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_47 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_48-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_48 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_49-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_49 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_50-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_50 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_51-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_51 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_52-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_52 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_53-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_53 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_54-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_54 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_55-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_55 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_56-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_56 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_57-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_57 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_58-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_58 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_59-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_59 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_60-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_60 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_61-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_61 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_62-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_62 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_63-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_63 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_64-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_64 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_65-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_65 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_66-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_66 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_67-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_67 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_68-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_68 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_69-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_69 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_70-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_70 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_71-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_71 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_72-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_72 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_73-atlas-mobile.png",
+      "group": "Atlas",
+      "label": "tela_73 · Atlas vivo ilustrativo"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_18-atlas-composicao-desktop.png",
+      "group": "Atlas",
+      "label": "Composição compartilhada · desktop"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_38-atlas-composicao-mobile.png",
+      "group": "Atlas",
+      "label": "Composição compartilhada · mobile"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_18-atlas-composicao-panels.png",
+      "group": "Atlas",
+      "label": "Composição compartilhada · panels"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_13-antes-arquivo-historico.png",
+      "group": "Antes",
+      "label": "Tela 13 · captura histórica preservada; dados/altura podem diferir"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_18-antes-arquivo-historico.png",
+      "group": "Antes",
+      "label": "Tela 18 · captura histórica preservada; dados/altura podem diferir"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_73-antes-arquivo-historico.png",
+      "group": "Antes",
+      "label": "Tela 73 · captura histórica preservada; dados/altura podem diferir"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_01-antes-arquivo-historico.png",
+      "group": "Antes",
+      "label": "Tela 1 · captura histórica preservada; dados/altura podem diferir"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_13-referencia-fornecida.png",
+      "group": "Referência",
+      "label": "Início · referência fornecida pelo usuário, dados ilustrativos"
+    },
+    {
+      "name": "v2.0.0-2026-10-18-tela_18-referencia-fornecida.png",
+      "group": "Referência",
+      "label": "Acordos · referência fornecida pelo usuário, dados ilustrativos"
+    }
+  ]
+}

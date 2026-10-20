@@ -1,13 +1,17 @@
 # Comparações de telas — procedimento permanente
 
-**Entrega local vigente: v1.1.0.** [Encerramento administrativo — 15/10/2026](v1.1.0-2026-10-15-encerramento/index.html): Atlas73 e MVP05 antes/depois, aplicativo autenticado em desktop/celular. Exemplos temporários locais; sem dados reais de produção.
+**Galeria vigente — v3.0.1:** [árvore da Conta](v3.0.1-2026-10-20-conta-arvore/index.html), nove prints com antes/depois em1440/390px, depois em640px e Atlas01/02. Somente telas; nenhum modal criado ou alterado.
 
-**Entrega local vigente: v1.0.1.** [Árvore opcional — 15/10/2026](v1.0.1-2026-10-15-arvore/index.html): 20 capturas Atlas antes/depois e 12 imagens reais de acesso em três larguras.
+**Entrega vigente — v3.0.0:** [Layout novo integral](v3.0.0-2026-10-18-layout-novo-integral/index.html). 170 capturas do aplicativo (85 modais, 27 rotas autenticadas, sete páginas públicas e larguras de 390/640/768/1024/1440 px), 176 do Atlas (86 telas/contextos e 90 modais), 40 da referência e 20 anteriores: 406 imagens e 20 comparações por área/dispositivo. Modais têm título, gatilho e origem no manifesto; a captura é recortada no diálogo. Cada modal identifica título, gatilho e origem; filtre **Modal** para consultar também os diálogos do Atlas e da referência. Preservar versões anteriores sem substituir seus arquivos. [Contrato permanente](../../_andamento/funcionalidades/modais-interface.md).
+
+**Galeria histórica: v1.1.0.** [Encerramento administrativo — 15/10/2026](v1.1.0-2026-10-15-encerramento/index.html): Atlas73 e MVP05 antes/depois, aplicativo autenticado em desktop/celular. Exemplos temporários locais; sem dados reais de produção.
+
+**Galeria histórica: v1.0.1.** [Árvore opcional — 15/10/2026](v1.0.1-2026-10-15-arvore/index.html): 20 capturas Atlas antes/depois e 12 imagens reais de acesso em três larguras.
 
 - [v0.16.0 — MVP05 controles e orientação](v0.16.0-2026-10-13-mvp-05-tela_66-tela_67-tela_69-tela_70-tela_71/index.html): cinco telas novas e entradas12/13; antes/depois Atlas desktop/mobile, app autenticado com exemplos locais. Sem app anterior às novas rotas. Saída efetiva permanece planejada.
 
 **v0.15.2 — MVP04 — 2026-10-13:** [galeria](v0.15.2-2026-10-13-mvp-04-tela_14-tela_16-tela_15-tela_17/index.html):26 capturas, Atlas14/16/15/17 antes/depois e MVP desktop/mobile, app real edição/confirmação/vazio com reservas. Antes06edf58; fixtures locais limpas. Script `scripts/capture-mvp-agenda-atlas.mjs` e testes autenticados de agenda.
-Referência funcional atual: **v0.16.0**. Procedimento definido em 2026-10-07.
+Referência funcional histórica desse marco: **v0.16.0**. Procedimento definido em 2026-10-07.
 
 Toda criação ou alteração de tela, navegação, dados, regra ou estado deve acrescentar evidências nesta pasta no mesmo conjunto lógico da entrega. Preservar galerias anteriores; não sobrescrever suas imagens para simular continuidade. Consultar o [procedimento completo](../GUIA.md#visão-global-sincronização-e-comparações--procedimento-permanente).
 
@@ -53,3 +57,5 @@ Capturas devem usar exemplos sem informações privadas, tokens ou códigos reai
 - [v0.14.1 — 2026-10-13 — sessão indisponível, Tela 01](v0.14.1-2026-10-13-acesso-indisponivel-tela_01/index.html): mesma URL antes/Atlas/depois em computador e celular; mostra apresentação do aviso, sem representar falha real de rede.
 
 - [v0.15.0 — 2026-10-13 — MVP 02, Telas 09/13/58/59](v0.15.0-2026-10-13-mvp-02-tela_09-tela_13-tela_58-tela_59/index.html): antes real do Atlas desktop; depois Atlas/app desktop e celular, convite mascarado, gestão/revogados/Início. Rota de gestão nova, sem aplicativo anterior.
+
+- [v2.0.0 — 2026-10-18 — Layout atual, fichas01 a73](v2.0.0-2026-10-18-layout-atual-tela_01-a-tela_73/index.html):83 capturas do aplicativo,76 doAtlas,4 anteriores e2 da referência; rotas reais e esboços distinguidos, fonte/viewport/limites documentados.

@@ -1,4 +1,4 @@
-/* Gerado por tools/import-approved.mjs a partir de Telas/Nos_App.dc.html. Não editar manualmente. */
+/* Gerado por tools/import-approved.mjs a partir de Telas/Layout inicial/Nos_App.dc.html (origem histórica reorganizada). Não editar manualmente. */
 const approvedSourceHash = "2bd4f96e677853f161441294566369442aa1f8f26b82862f2d96b79efc9e9c93";
 const approvedLayoutDefinitions = {
   "11": {

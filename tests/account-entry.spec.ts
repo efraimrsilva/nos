@@ -19,7 +19,7 @@ test("entrada afetiva opcional conduz a cadastro e login sem esperar", async ({ 
   // Boas-vindas também é compilada na primeira abertura; conserva o orçamento da entrada em Conta.
   test.setTimeout(90_000);
   await page.goto("/boas-vindas");
-  await expect(page.getByRole("heading", { name: "nós." })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Fortalecendo os laços que unem quem você ama." })).toBeVisible();
   await page.getByRole("link", { name: "Entrar na minha conta" }).click();
   await expect(page.getByRole("button", { name: "Entrar", exact: true })).toBeVisible();
   await expect(page.getByRole("link", { name: "Conheça o Nós" })).toHaveCount(0);

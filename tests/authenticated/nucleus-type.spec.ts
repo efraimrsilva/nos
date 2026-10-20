@@ -42,7 +42,7 @@ test("troca a escolha por teclado, cabe em 320px e respeita movimento reduzido",
   await expect(page.getByRole("radio", { name: "Família", exact: true })).toBeChecked();
   await expect(page.locator("input:checked")).toHaveCount(1);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  expect(await page.locator(".type-option").first().evaluate(el => getComputedStyle(el).transitionDuration)).toBe("0s");
+  expect(await page.locator(".wizard-type").first().evaluate(el => getComputedStyle(el).transitionDuration)).toBe("0s");
   expect(errors).toEqual([]);
 });
 

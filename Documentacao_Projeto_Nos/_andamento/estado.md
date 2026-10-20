@@ -1,5 +1,128 @@
 # Estado do Projeto Nós
 
+## Publicação abrangente autorizada — v3.0.3 — 2026-10-20
+
+**Objetivo:** commit/push da reconstrução integral, ajustes de Conta/Kanban, correção TLS e registros/Atlas/testes. Branch codex/novo-layout, base de44ca8; sem merge/deploy/operação de banco. DOCS_DIR: Documentacao_Projeto_Nos. Versão vigente3.0.3 pela correção de colisões da Agenda na revisão final.
+
+**Situação:** inclusão dos804 caminhos comprovada no commit inicial e41d2058f81e90781b2b9646ae1eded49a5009fe, árvore 4edb38434da2bef47a63c9eb30aef3cfabc06e2e, idêntica ao índice preparado. Controle incorporado à mesma unidade antes do push normal autorizado. Revisão independente detectou eventos longos sobrepostos na mesma faixa; correção por intervalos visuais/faixas estáveis, altura definida e nome acessível completo, reconferida sem novos achados. Detalhe conserva o texto integral.
+
+**Validações:** três testes novos e tipos aprovados; Atlas MVP/Global/percurso05/fidelidade aprovados (73 telas/207 ações/365 estados/20 contextos modais, sem erros ou rede externa). Build webpack3.0.3 e128 testes gerais aprovados em cópia local;128 arquivos de fontes/recursos e cinco configurações idênticos.905 referências locais sem destinos ausentes; diff --check aprovado.34 materiais históricos movidos conservam conteúdo (30 idênticos em bytes/quatro com fins de linha normalizados). Backend local encerrado; testes autenticados anteriores são evidência histórica3.0.0 e não uma nova execução.
+
+**Contador:**145; último marco100/próximo200. **Unidades prontas para commit:** nenhuma pendência desta entrega. Reconstrução visual, TLS, Conta, Kanban e Agenda incluídos no objeto Git conferido acima; as pendências dos marcos anteriores ficam substituídas por esta prova. **Próximo passo:** push normal autorizado da branch codex/novo-layout e confirmação de igualdade entre hash local/remoto; revisão do aplicativo pelo usuário. Nenhum merge ou deploy incluído. [Registro da publicação](registros/registro-v3.0.3-2026-10-20-imp-publicacao-layout-fun-consolidacao-interface-e-agenda.md). Marcos abaixo são históricos.
+
+
+## Setas do fluxo de Acordos — v3.0.2 — 2026-10-20
+
+**Objetivo/situação:** concluído localmente: três setas (topo, centro, base) por intervalo no Kanban do aplicativo, sem alterar as dimensões da grade. Versão vigente 3.0.2; DOCS_DIR: Documentacao_Projeto_Nos. Branch codex/novo-layout/base de44ca8; amplo trabalho anterior preservado.
+
+**Arquivos/decisão:** agreements-workspace.tsx e agreements-layout.css. Centro em 50%, base a 23px; largura20px ocupa o intervalo existente. Ícones decorativos, sem clique; última coluna e Essência isolada sem setas. Ocultação intermediária e lista mobile preservadas.
+
+**Validação:** tipos aprovados; dez ensaios de geometria com CSS real e estrutura representativa, cinco larguras/duas alturas. Autorrevisão focal; sem revisão independente, build ou jornada autenticada nova. Sem bloqueio. [Registro](registros/registro-v3.0.2-2026-10-20-imp-kanban-acordos-fun-setas-fluxo.md).
+
+**Contador:**144; último marco100/próximo200. **Unidade pronta para commit:** ajuste de setas do Kanban; sugestão: fix(acordos): alinhar setas no topo centro e base do kanban. Pendências anteriores permanecem registradas nos marcos abaixo. Nenhum commit/push/deploy. **Próximo passo:** revisar Acordos no aplicativo; publicação somente quando autorizada. Ferramentas locais suficientes; sem consulta de biblioteca ou instalação adicional.
+
+
+## Restauração pontual da árvore na Conta — v3.0.1 — 2026-10-20
++
++**Versão vigente:**3.0.1. **DOCS_DIR:**Documentacao_Projeto_Nos. Branch codex/novo-layout, referência de44ca8; amplo trabalho anterior preservado e sem commit/push/deploy.
++
++**Objetivo e aceite:** restaurar somente a ilustração original em /conta sem sessão, dentro do layout novo. Autorização explícita do usuário permite essa exceção pontual à remoção visual anterior. Tamanho280px no computador/160px no celular; frases10s e funções preservadas. Sem alteração de modais.
++
++**Situação e arquivos:** concluído localmente. application-shell.tsx reutiliza Next Image e imagem original; layout-system.css dimensiona a ilustração; product-ui.js/product.css sincronizam Atlas01/02. getUser e showTree={!user} preservados; recuperação, boas-vindas e outras rotas não recebem a árvore restaurada.
++
++**Validação:**12 testes de layout/reflexões aprovados no servidor local3000 em operações somente leitura; tipos e sintaxe do Atlas aprovados, inspeção em1440/640/390px sem overflow. Atlas01/02 computador/celular e ausência em72 conferidos. Autorrevisão focal/diff. Servidor isolado3100 não respondeu em120s; alternativa temporária documentada. Sem nova jornada autenticada ou build de produção nesta alteração visual.
++
++**Evidências e próximo passo:** [registro](registros/registro-v3.0.1-2026-10-20-imp-conta-fun-restauracao-arvore.md) e [galeria com nove prints](../wireframes/comparacoes/v3.0.1-2026-10-20-conta-arvore/index.html). Atualizar /conta para revisão. Aplicativo3000 mantido. Fontes e galerias anteriores preservadas. Regra permanente de modais continua no [inventário](funcionalidades/modais-interface.md).
++
++**Contador de interações concluídas:**143, a partir de142. Último marco de over-engineering100; próximo200. **Pendências de commit:** unidade visual3.0.0 e correção TLS anteriores mantidas; restauração pontual da árvore em3.0.1 pronta como unidade separável. Sugestão: fix(conta): restaurar ilustração da árvore no layout novo. Nenhum commit criado.
++
++**Ferramentas:** Superpowers entendimento/TDD/verificação proporcionais; Context7 Next16.2.9 (catálogo disponível; projeto16.3.6 preservado), imagem responsiva e preload. Pesquisa local delimitada; sem necessidade de pesquisa avançada Octocode ou instalação adicional.
++
++## Marco anterior — reconstrução integral validada em18/10/2026
++
+
+## Reconstrução do Layout novo — v3.0.0 — 2026-10-18
+
+**Versão vigente:** 3.0.0. **DOCS_DIR:** Documentacao_Projeto_Nos. **Git:** codex/novo-layout, referência de44ca8; alterações preexistentes e reorganização dos protótipos preservadas. Sem commit/push/deploy.
+
+**Objetivo e aceite:** remover a apresentação antiga de todas as rotas; reconstruir interiores e modais conforme Telas/Layout novo, preservar funções reais e sinalizar todo esboço. Aplicativo e Atlas usam somente a composição viva nova; documentos/galerias antigos continuam históricos. Não reintroduzir o primeiro layout sem nova solicitação.
+
+**Regra permanente:** identificar modais no Atlas, nas fichas e documentações, com título, gatilho, origem, conteúdo, permissão, integração real/esboço, resultado e fechamento. Navegação para rota não é modal. [Contrato e inventário](funcionalidades/modais-interface.md).
+
+**Situação:** entrega local concluída, revisada e validada; manifestos/build3.0.0, galeria e limpeza conferidos. Shell/entrada, Núcleos/Início, Agenda/Pessoas/Convites, Acordos/detalhes e controles reconstruídos. CSS antigo e dependências de fontes antigas removidos. Modais nativos, ícones fortes coloridos, movimento reduzido, foco/retorno e estados compartilhados.
+
+**Validações:** 122 testes gerais aprovados; 94 cenários autenticados consolidados (66 da rodada ampla, 24 corrigidos/reexecutados, dois de registros consecutivos e dois de fidelidade protegida; rodadas focais adicionais aprovadas). Tipos, build webpack dos fontes finais e análise de CSS aprovados. Atlas: 73 telas, 207 ações, 365 estados, 41 referências históricas, 20 contextos modais e três rotas protegidas comparadas, sem erros ou chamadas externas. Visão global, MVP e percurso da proposta aprovados.
+
+**Evidências:** 170 capturas do aplicativo (85 capturas de modais, 27 rotas autenticadas, sete páginas públicas e larguras de 390/640/768/1024/1440 px), 176 do Atlas (86 telas/contextos e 90 capturas de modais), 40 da referência e 20 anteriores: 406 imagens e 20 comparações por área/dispositivo. Modais têm título, gatilho e origem no manifesto; a captura é recortada no diálogo.
+
+**Decisões vigentes:** páginas/ações validam sessão, vínculo e papel; shell é apresentação. Revalidação preserva códigos/feedback, e sucessos renovam só o formulário pertinente com identidade persistida. Semana é funcional; mês/dia/recorrência/externos são futuros. Árvore/Memórias/Conexões/Perfis/Manifesto/Cuidado e evolução individual continuam esboços, sem persistência ou progresso fictício.
+
+**Arquivos principais:** src/app/globals.css e layout-system.css; src/shared/components/application-shell.tsx, ui/action-dialog.tsx e route-state.tsx; páginas de src/app; features agreements/calendar/controls/invitations/onboarding/auth/preview; Atlas product-ui.js/product.css/atlas.js; scripts de captura/galeria e testes. Inventário completo no registro.
+
+**Ferramentas e limites:** Superpowers entendimento/plano/execução/depuração/revisão/verificação; checklist React e Context7 React/Next/Playwright consultados conforme versões. OctocodeCLI19.1.0 já disponível; pesquisas locais delimitadas complementam a navegação. Testes autenticados somente no Supabase local. Traces desativados por NOS_DISABLE_TRACE=1 devido trava de gravação no Windows; padrão preservado. Build em cópia C: comparada por SHA-256 para contornar trava no G:. Sem certificação de novo deploy, banco remoto, SMTP/recebimento externo ou login pessoal.
+
+**Fechamento:** 406 PNGs válidos e únicos;20 comparações/filtros/busca/celular aprovados;1.431 links locais sem destinos ausentes. Três fixtures residuais e três cópias temporárias removidas;zero contas de teste e zero Núcleos da galeria após a limpeza. Supabase local encerrado com backup. **Próximo passo executável:** usuário revisar aplicativo3000, documentação3400 e referência4177 mantidos; depois, com autorização, preparar os commits atômicos. Sem bloqueios funcionais conhecidos no escopo validado.
+
+**Contador de interações concluídas:** 142, a partir de141. Último marco de over-engineering100; próximo200. **Unidades prontas para commit:** reconstrução integral do Layout novo com Atlas/modais/esboços/frases10s, testes e documentação; correção TLS local separável. Nenhum commit criado. Sugestão visual: feat(layout): reconstruir o Nós integralmente no novo layout.
+
+**Índice:** [registro v3.0.0](registros/registro-v3.0.0-2026-10-18-imp-reconstrucao-layout-novo-fun-interface-e-modais.md) · [plano](planos/reconstrucao-layout-novo-2026-10-18.md) · [galeria](../wireframes/comparacoes/v3.0.0-2026-10-18-layout-novo-integral/index.html) · [modais](funcionalidades/modais-interface.md) · [frontend](tecnologias/frontend.md) · [histórico](historico.md) · [Brag](../brag/BRAG.md) · [Atlas](../wireframes/atlas/index.html).
+
+## Marcos históricos — a referência atual é o primeiro bloco deste documento
+
+## Correção de login local e auditoria de banco — v2.0.2 — 2026-10-18
+
+**Objetivo e aceite:** restaurar comunicação local com Auth e conferir contratos de banco sem modificar dados. **Versão vigente:**2.0.2. **DOCS_DIR:** Documentacao_Projeto_Nos. Branch codex/novo-layout, base de44ca8; mudanças anteriores preservadas.
+
+**Causa e entrega:** Node 24.15.0 rejeitava a cadeia TLS com UNABLE_TO_VERIFY_LEAF_SIGNATURE. Scripts dev/start passam a usar node --use-system-ca, preservando validação de certificado. Servidor reiniciado e mantido em http://127.0.0.1:3000. Nenhum segredo/configuração global ou banco alterado.
+
+**Validações:** GET Auth 200 com certificados do sistema; formulário local chega ao Auth sem falha de transporte. Dez testes de autenticação/rotas e análise de tipos aprovados; autorrevisão e git diff --check aprovados. Auditoria remota somente leitura: nove migrações presentes, 15 tabelas com RLS, 26 RPCs com permissões esperadas e 27 consultas com colunas autorizadas. Credencial do cofre existente usada sem exposição.
+
+**Limites e próximo passo:** usuário deve confirmar login com sua própria conta após atualizar /conta; não foi testada sua senha. Sem escrita nas funções, criação de contas, nova migração ou deploy. Esboços e evolução individual continuam pendentes conforme marco visual. Build/start de produção não repetidos.
+
+**Contador de interações concluídas:**141; último marco100, próximo200. **Unidades prontas para commit:** unidade visual anterior com frases de 10s; correção do transporte TLS local, separável como fix(auth): corrigir conexão TLS local com o Supabase. Nenhum commit/push/deploy realizado.
+
+**Ferramentas e índice:** Superpowers depuração/verificação e Context7 Node24; pesquisas locais delimitadas, sem necessidade de pesquisa avançada Octocode nesta correção. [Registro v2.0.2](registros/registro-v2.0.2-2026-10-18-imp-conexao-supabase-fun-correcao-login-local.md) · [histórico](historico.md) · [frontend](tecnologias/frontend.md). Demais índices preservados nos marcos anteriores.
+
+
+## Ajuste concluído — frases da Conta — v2.0.1 — 2026-10-18
+
+**Objetivo e aceite:** cada frase de /conta dura 10 segundos; pausa, retomada, sorteio e movimento reduzido preservados. **Versão desse marco:**2.0.1. **DOCS_DIR:** Documentacao_Projeto_Nos. Branch codex/novo-layout, base de44ca8; alterações anteriores preservadas, sem commit/push/deploy.
+
+**Arquivos e decisão:** account-reflections.tsx usa 10_000 ms, alinhado às animações existentes de 10s; testes, manifestos e README atualizados. Sem mudança de dados ou dependências.
+
+**Validações recentes:** teste de limite falhou antes da correção nos dois dispositivos; após o ajuste, oito testes de frases e análise de tipos aprovados. Autorrevisão pontual e git diff --check aprovados. Sem bloqueios; build não repetido.
+
+**Contador de interações concluídas:**140; último marco de over-engineering100, próximo200. **Unidade pronta para commit:** migração integral do Layout atual com ajuste das frases para 10 segundos, testes, Atlas e registros. Pendência anterior mantida; nenhum commit efetuado.
+
+**Próximo passo executável:** conferir /conta e a galeria e, mediante autorização, preparar a publicação da unidade visual. **Ferramentas:** ferramentas existentes reutilizadas, sem instalação adicional. **Índice adicional:** [registro v2.0.1](registros/registro-v2.0.1-2026-10-18-imp-frases-conta-fun-duracao-dez-segundos.md). Plano, histórico, galeria e ferramentas da migração estão no marco abaixo; suas validações pertencem à entrega v2.0.0.
+
+
+## Entrega local concluída — Layout atual — v2.0.0 — 2026-10-18
+
+**Objetivo e aceite:** migrar todas as famílias de rotas para a referência Telas/Layout novo, preservar funções e dados reais, oferecer esboços explícitos e manter navegação, responsividade, acessibilidade e Atlas coerentes. **Situação:** implementado, revisado e validado localmente. **Versão desse marco:**2.0.0. **DOCS_DIR:** Documentacao_Projeto_Nos. **Git:** branch codex/novo-layout, base de44ca8; trabalho local sem commit/push/deploy. Reorganização preexistente dos protótipos preservada.
+
+**Entrega:** estrutura compartilhada lateral/inferior, entrada pública, Núcleos/Início, agenda, pessoas/convites, Acordos em Kanban/Painéis/lista e detalhes/registro/termos/gestão, configurações/privacidade/conta/ajuda/saída, carregamentos/erros/404. Ícones fortes coloridos, feedback e animações com movimento reduzido. Sem nova dependência ou migração.
+
+**Decisões vigentes:** apresentação cliente recebe conteúdo de servidor; validações de sessão, vínculo, participação e administração permanecem nas páginas/ações. Os seis esboços protegidos de Árvore/Memórias/Conexões/Perfis/Manifesto/Cuidado e notificações não persistem nem enviam dados. Categorias atuais de Acordos não comprovam evolução individual; critérios das passagens Proposta → Hábito → Experiência → Essência continuam pendentes. Desenhos/galerias anteriores são históricos.
+
+**Arquivos principais:** src/shared/components/application-shell.tsx; src/app/layout-system.css; OnboardingShell; src/app/nucleos; src/features/agreements; src/features/preview; testes de layout/navegação e verificadores do Atlas. Fontes do protótipo indicadas em Telas/Layout novo; origem antiga em Telas/Layout inicial.
+
+**Validações:**122 testes gerais aprovados;87 cenários autenticados consolidados e1 dispensa prevista após reexecução dos seis casos corrigidos.26 rotas positivas com títulos conferidos,62 capturas autenticadas e21 públicas, incluindo390/640/768/1024/1440px; negativas de vínculo e rascunho não persistido. Tipos e build webpack2.0.0 aprovados após manifestos na cópia local comparada por SHA-256; JSONs alinhados.841 alvos Markdown e165 PNGs únicos conferidos. Atlas73 telas/207 ações/365 estados, MVP/Global/proposta aprovados; zero erros/rede. Revisão independente e autorrevisão, achados corrigidos. Galerias históricas preservadas. Zero contas temporárias routing/invite/peer e zero Núcleos da galeria após limpeza.
+
+**Limites e bloqueios:** nenhum bloqueio desta entrega local. Os módulos e passagens futuros permanecem pendentes; novo deploy/banco remoto/SMTP/recebimento externo não certificados. A referência e o Atlas são ilustrativos. A galeria não representa uma medição pixel a pixel de arquivos históricos.
+
+**Próximo passo executável:** usuário revisar visualmente a aplicação e a galeria; mediante autorização, preparar commit/push desta unidade. A evolução funcional seguinte requer definir critérios, consentimento e dados das três passagens individuais antes de alterar o banco.
+
+**Contador de interações concluídas:**139, a partir de138. Último marco de over-engineering100; próximo200. **Unidade pronta para commit:** migração integral do Layout atual, funcionalidades existentes preservadas, seis esboços, testes, Atlas e registros. Sugestão: feat(layout): migrar todo o Nós para a nova experiência visual. Não remover esta pendência apenas por diretório limpo; comprovar inclusão no objeto Git quando houver autorização.
+
+**Ferramentas:** Superpowers entendimento/planejamento/execução com subagentes/TDD/depuração/revisão/verificação/fechamento e checklist React. Context7 Next16.2.9, versão16.3.6 ausente do catálogo e preservada. OctocodeCLI19.1.0 disponível, grafo parcial complementado localmente. Docker/Supabase usados somente para fixtures locais. Supabase local encerrado com backup após limpeza das fixtures. Aplicativo em http://127.0.0.1:3000 e documentação em http://127.0.0.1:3400 para revisão local.
+
+**Índice:** [registro v2.0.0](registros/registro-v2.0.0-2026-10-18-imp-layout-atual-fun-migracao-integral.md) · [plano concluído](planos/novo-layout-2026-10-18.md) · [galeria](../wireframes/comparacoes/v2.0.0-2026-10-18-layout-atual-tela_01-a-tela_73/index.html) · [histórico](historico.md) · [Brag](../brag/BRAG.md) · [Atlas](../wireframes/atlas/index.html).
+
+## Marcos históricos anteriores
+
+As versões e pendências abaixo preservam as datas de seus registros; o primeiro bloco deste documento é a referência atual.
+
 ## Publicação Git autorizada — fluxo completo de Acordos — v1.1.0 — 2026-10-18
 
 **Objetivo e autorização:** commit e push da unidade documental que define Proposta → Hábito → Experiência → Essência e sincroniza os documentos e o Atlas. Publicação autorizada pelo usuário nesta interação. Sem implantação do aplicativo, operação de banco ou incremento de versão.
@@ -549,7 +672,7 @@ O usuário determinou que o wireframe será mantido continuamente para refletir 
 - Preservar os IDs existentes sempre que possível; acrescentar telas e registrar substituições ou consolidações sem perder a referência às interfaces antigas. Conferir destinos, links, estados e apresentação das partes alteradas; ampliar a verificação se a mudança afetar renderização ou navegação compartilhada.
 - Em retomadas, conferir as fichas relevantes contra o código e as evidências atuais. Diferenças devem ser corrigidas ou sinalizadas explicitamente antes de considerar a entrega concluída.
 
-**Protótipo e materiais de origem:** pasta movida pelo usuário para [Documentacao_Projeto_Nos/Telas](../Telas/Nos_App.dc.html). HTML, PDF, imagens e extrações permanecem como fontes históricas; o atlas vivo acompanha a evolução. Não recriar a pasta antiga na raiz.
+**Protótipo e materiais de origem:** pasta movida pelo usuário para [Documentacao_Projeto_Nos/Telas](../Telas/Layout%20inicial/Nos_App.dc.html). HTML, PDF, imagens e extrações permanecem como fontes históricas; o atlas vivo acompanha a evolução. Não recriar a pasta antiga na raiz.
 
 ## Última entrega funcional — Confirmação do Hábito após teste
 

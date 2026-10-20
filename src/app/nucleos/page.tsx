@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { ArrowRight, LockKeyhole, Plus, UsersRound } from "lucide-react";
+import { ArrowRight, Heart, House, LockKeyhole, Plus, Sprout, UsersRound } from "lucide-react";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { isNucleusAuthUnavailable } from "@/features/nuclei/nucleus-access";
 import { findNucleusType } from "@/features/nuclei/nucleus-types";
 import { OnboardingShell } from "@/features/onboarding/components/onboarding-shell";
-import { PathCard } from "@/features/onboarding/components/path-card";
+import { ActionDialog } from "@/shared/components/ui/action-dialog";
 import { routes } from "@/shared/routes";
 
 export const metadata: Metadata = { title: "Seus Núcleos" };
@@ -25,28 +25,13 @@ export default async function NucleiPage({ searchParams }: { searchParams: Promi
   if (error) throw new Error("Não foi possível consultar seus Núcleos.");
   const nuclei = (data ?? []).slice(0, 20);
   return <OnboardingShell>
-    <p className="step-label mb-3 text-lilac">Seus vínculos</p>
-    <h1 className="font-display text-[30px] font-medium leading-tight md:text-[38px]">Seus Núcleos</h1>
-    {resultado === "encerrado" && <p role="status" className="mt-4 rounded-xl border border-line bg-white p-4 text-sm text-leaf">Núcleo encerrado. Todos perderam acesso, os convites foram revogados e o histórico permanece armazenado.</p>}
-    <p className="mt-3 text-sm leading-7 text-muted">Cada jardim tem sua própria história. Escolha o espaço que quer cuidar agora.</p>
-    <p className="mt-3 flex items-center gap-2 text-xs text-muted"><LockKeyhole size={15} aria-hidden="true" />Apenas os Núcleos dos quais você participa aparecem aqui.</p>
-    {nuclei.length ? <nav aria-label="Seus Núcleos" className="mt-6 flex flex-col gap-3">
-      {nuclei.map(nucleus => <Link key={nucleus.id} href={`${routes.nucleus}/${nucleus.id}`} className="nucleus-card rounded-[22px] border border-line bg-white p-5">
-        <span className="text-xs font-semibold text-leaf">{findNucleusType(nucleus.type)?.label ?? "Núcleo"}</span>
-        <h2 className="mt-2 break-words font-display text-xl">{nucleus.name}</h2>
-        <p className="mt-2 break-words text-sm leading-6 text-muted">{nucleus.purpose}</p>
-        <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-leaf">Abrir Núcleo<ArrowRight size={17} aria-hidden="true" /></span>
-      </Link>)}
-    </nav> : <p role="status" className="mt-6 rounded-[22px] border border-line bg-white p-6 text-sm leading-7 text-muted">{page === 1 ? "Você ainda não participa de um Núcleo. Crie um espaço ou entre com um convite quando fizer sentido." : "Não há Núcleos nesta página. Volte à página anterior."}</p>}
-    {(page > 1 || (data ?? []).length > 20) && <nav aria-label="Páginas de Núcleos" className="mt-4 flex justify-between text-sm font-semibold text-leaf">
-      {page > 1 && <Link href={`/nucleos?pagina=${page - 1}`} className="inline-flex min-h-11 items-center underline">Página anterior</Link>}
-      {(data ?? []).length > 20 && <Link href={`/nucleos?pagina=${page + 1}`} className="inline-flex min-h-11 items-center underline">Próxima página</Link>}
-    </nav>}
-    <nav aria-label="Criar ou entrar em outro Núcleo" className="mt-6 flex flex-col gap-3">
-      <PathCard href={routes.nucleusType} title="Criar um núcleo" description="Comece um novo jardim com quem você ama." icon={Plus} />
-      <PathCard href={routes.invitation} title="Entrar com um convite" description="Recebeu um código de alguém? Junte-se a eles." icon={UsersRound} variant="invite" />
-    </nav>
-    <Link href={routes.account} className="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Minha conta e sair</Link>
-    <Link href={routes.settings} className="mt-3 block min-h-11 text-sm font-semibold leading-[44px] text-leaf underline">Configurações, privacidade e ajuda</Link>
+    <header className="ui-page-header"><div><p className="ui-kicker">SEUS VÍNCULOS</p><h1 className="ui-title">Seus Núcleos</h1><p className="ui-copy">Vários laços. Seu próprio ritmo. Escolha o espaço que quer cuidar agora.</p></div><ActionDialog trigger={<><Plus size={17} aria-hidden="true" />Criar um núcleo</>} title="Começar com intenção" variant="primary"><p className="ui-copy">Cada espaço começa com o vínculo e o propósito de vocês.</p><div className="ui-form-stack mt-6"><Link href={routes.nucleusType} className="ui-row"><span className="color-icon tone-green"><Sprout size={20} aria-hidden="true" /></span><span><strong>Criar um núcleo</strong><small>Escolher vínculo, nome e propósito</small></span><ArrowRight size={17} /></Link><Link href={routes.invitation} className="ui-row"><span className="color-icon tone-blue"><UsersRound size={20} aria-hidden="true" /></span><span><strong>Entrar com um convite</strong><small>Abrir um espaço que já existe</small></span><ArrowRight size={17} /></Link></div></ActionDialog></header>
+    {resultado === "encerrado" && <p role="status" className="ui-status">Núcleo encerrado. Todos perderam acesso, os convites foram revogados e o histórico permanece armazenado.</p>}
+    <div className="nuclei-workspace"><nav aria-label="Seus Núcleos" className="nuclei-cards">
+      {nuclei.map(nucleus => <article key={nucleus.id} className="ui-panel nucleus-space-card"><div className={'nucleus-cover nucleus-cover-'+nucleus.type}>{nucleus.type === "casal" ? <Heart size={43} aria-hidden="true" /> : nucleus.type === "familia" ? <House size={43} aria-hidden="true" /> : <UsersRound size={43} aria-hidden="true" />}</div><span className="ui-badge">{findNucleusType(nucleus.type)?.label ?? "Núcleo"}</span><h2>{nucleus.name}</h2><p>{nucleus.purpose}</p><Link href={routes.nucleus+'/'+nucleus.id} aria-label={"Abrir Núcleo "+nucleus.name} className="ui-row"><span>Abrir Núcleo</span><ArrowRight size={17} aria-hidden="true" /></Link></article>)}
+      {!nuclei.length && <div role="status" className="ui-empty"><Sprout size={35} aria-hidden="true" />{page===1?"Você ainda não participa de um Núcleo. Crie um espaço ou entre com um convite quando fizer sentido.":"Não há Núcleos nesta página. Volte à página anterior."}</div>}
+      <Link href={routes.invitation} className="nucleus-invite-card"><UsersRound size={30} className="tone-blue" aria-hidden="true" /><h2>Um lugar à mesa</h2><p>Recebeu um convite? Encontre seu espaço aqui.</p><span className="ui-button-secondary">Entrar com um convite<ArrowRight size={16} /></span></Link>
+    </nav><aside className="nuclei-intention"><Sprout size={27} aria-hidden="true" /><p className="ui-kicker">CADA LAÇO TEM SEU TEMPO</p><h2>Espaço para estar.<br />Liberdade para escolher.</h2><p>O propósito é de vocês. A participação também.</p><p className="nuclei-private"><LockKeyhole size={16} aria-hidden="true" />Apenas seus espaços aparecem aqui.</p><Link href={routes.settings} className="ui-row">Configurações, privacidade e ajuda<ArrowRight size={16} /></Link><Link href={routes.account} className="ui-row">Minha conta e sair<ArrowRight size={16} /></Link></aside></div>
+    {(page>1 || (data??[]).length>20) && <nav className="ui-pagination" aria-label="Páginas de Núcleos">{page>1 && <Link className="ui-button-secondary" href={'/nucleos?pagina='+(page-1)}>Página anterior</Link>}{(data??[]).length>20 && <Link className="ui-button-secondary" href={'/nucleos?pagina='+(page+1)}>Próxima página</Link>}</nav>}
   </OnboardingShell>;
 }

@@ -2,9 +2,11 @@
 
 import { useActionState, useState } from "react";
 import Link from "next/link";
+import { ArrowLeft, ArrowRight, KeyRound, ShieldCheck } from "lucide-react";
 import { acceptInvitation, inspectInvitation, type InvitationState } from "@/features/invitations/actions";
 import { routes } from "@/shared/routes";
 import { findNucleusType } from "@/features/nuclei/nucleus-types";
+import "./participation-layout.css";
 
 const emptyState: InvitationState = { error: "", code: "", preview: null };
 
@@ -15,28 +17,28 @@ export function InvitationEntry({ isAuthenticated }: { isAuthenticated: boolean 
   // O aceite só pode usar a prévia associada ao código que ainda está no campo.
   const previewMatchesInput = inspection.preview && enteredCode.trim().toLowerCase() === inspection.code;
 
-  return <>
-    <form action={inspectAction} noValidate className="mt-7 rounded-[22px] border border-line bg-white p-5 sm:p-7">
-      <label htmlFor="invitation-code" className="block text-xs font-bold text-muted">Código de convite</label>
-      <input id="invitation-code" name="code" type="text" autoComplete="off" spellCheck={false} maxLength={32} value={enteredCode} onChange={event => setEnteredCode(event.target.value)} className="mt-2 w-full rounded-[14px] border border-line px-4 py-3.5 font-mono text-sm tracking-wide uppercase" placeholder="Cole o código recebido" />
-      {inspection.error && <p role="alert" className="mt-3 text-sm font-semibold text-[#9a3153]">{inspection.error}</p>}
-      <button type="submit" disabled={inspecting} className="continue-button mt-5 min-h-12 w-full rounded-2xl bg-forest px-5 py-3 text-sm font-semibold text-white disabled:opacity-60">{inspecting ? "Conferindo…" : "Conferir convite"}</button>
-    </form>
-    <Link href={routes.nucleus} className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Voltar a Seus Núcleos</Link>
-    {previewMatchesInput && inspection.preview && <section className="mt-5 rounded-[22px] border border-line bg-white p-5 sm:p-7" aria-label="Prévia do convite">
-      <p className="step-label text-lilac">Confira antes de aceitar</p>
-      <h2 className="mt-2 font-display text-2xl">{inspection.preview.name}</h2>
-      <p className="mt-2 text-xs font-semibold text-muted">{findNucleusType(inspection.preview.type)?.label ?? "Núcleo"}</p>
-      <p className="mt-2 text-sm leading-6 text-muted">Propósito: {inspection.preview.purpose}</p>
-      <p className="mt-4 text-xs leading-6 text-muted">Ao aceitar, você fará parte deste Núcleo e poderá ver as informações compartilhadas nele. A decisão é sua.</p>
-      <form action={acceptAction} className="mt-5">
-        <input type="hidden" name="code" value={inspection.code} />
-        {/* Um erro de aceite pertence ao código enviado; editar o campo não deve exibir erro de outro convite. */}
-        {acceptance.error && acceptance.code === inspection.code && <p role="alert" className="mb-3 text-sm font-semibold text-[#9a3153]">{acceptance.error}</p>}
-        <button type="submit" disabled={accepting} className="continue-button min-h-12 w-full rounded-2xl bg-forest px-5 py-3 text-sm font-semibold text-white disabled:opacity-60">{accepting ? "Aceitando…" : "Aceitar convite"}</button>
+  return <div className="invitation-entry">
+    <section className="ui-panel invitation-entry-card" aria-label="Conferir um convite">
+      <p className="ui-copy">Recebeu um convite? Confira o contexto do Núcleo antes de decidir.</p>
+      <form action={inspectAction} noValidate aria-busy={inspecting}>
+        <label className="ui-field" htmlFor="invitation-code">Código de convite<input id="invitation-code" name="code" type="text" autoComplete="off" spellCheck={false} maxLength={32} value={enteredCode} onChange={event => setEnteredCode(event.target.value)} className="invitation-entry-code" placeholder="Cole o código recebido" /></label>
+        {inspection.error && <p role="alert" className="ui-status">{inspection.error}</p>}
+        <button type="submit" disabled={inspecting} className="ui-button"><KeyRound size={17} aria-hidden="true" />{inspecting ? "Conferindo…" : "Conferir convite"}</button>
       </form>
-      <Link href={routes.nucleus} className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-leaf underline">Agora não</Link>
+    </section>
+    {previewMatchesInput && inspection.preview && <section className="ui-panel invitation-entry-card" aria-label="Prévia do convite">
+      <p className="ui-kicker">Confira antes de aceitar</p><h2>{inspection.preview.name}</h2>
+      <span className="ui-badge">{findNucleusType(inspection.preview.type)?.label ?? "Núcleo"}</span>
+      <p className="invitation-preview-purpose">Propósito: {inspection.preview.purpose}</p>
+      <p className="ui-copy">Ao aceitar, você fará parte deste Núcleo e poderá ver as informações compartilhadas nele. A decisão é sua.</p>
+      <form action={acceptAction} aria-busy={accepting}>
+        <input type="hidden" name="code" value={inspection.code} />
+        {/* Um erro pertence ao código enviado; editar o campo não deve mostrar falhas de outro convite. */}
+        {acceptance.error && acceptance.code === inspection.code && <p role="alert" className="ui-status">{acceptance.error}</p>}
+        <div className="invitation-entry-actions"><button type="submit" disabled={accepting} className="ui-button"><ShieldCheck size={18} aria-hidden="true" />{accepting ? "Aceitando…" : "Aceitar convite"}<ArrowRight size={16} aria-hidden="true" /></button><Link href={routes.nucleus} className="ui-button-secondary">Agora não</Link></div>
+      </form>
     </section>}
-    {!isAuthenticated && <p className="mt-5 text-xs leading-6 text-muted">Você precisa de uma conta para conferir e aceitar um convite. <Link href={`${routes.account}?next=%2Fcomecar%2Fconvite`} className="font-semibold text-leaf underline">Criar conta ou entrar</Link>.</p>}
-  </>;
+    <Link href={routes.nucleus} className="invitation-entry-back"><ArrowLeft size={17} aria-hidden="true" />Voltar a Seus Núcleos</Link>
+    {!isAuthenticated && <p className="invitation-signin-note">Você precisa de uma conta para conferir e aceitar um convite. <Link href={`${routes.account}?next=%2Fcomecar%2Fconvite`}>Criar conta ou entrar</Link>.</p>}
+  </div>;
 }

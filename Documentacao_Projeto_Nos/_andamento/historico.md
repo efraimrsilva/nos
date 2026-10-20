@@ -1,5 +1,31 @@
 # Histórico de andamento
 
+## 2026-10-20 — v3.0.3 — publicação abrangente autorizada e colisões da Agenda
+
+Revisão independente encontrou sobreposição de eventos longos na mesma faixa; corrigida por intervalos visuais e altura definida, com três testes e reconferência. Inclusão dos804 caminhos comprovada no commit inicial e41d2058f81e90781b2b9646ae1eded49a5009fe; controle incorporado à mesma unidade antes do push normal da reconstrução integral e ajustes, sem merge/deploy/banco. [Registro](registros/registro-v3.0.3-2026-10-20-imp-publicacao-layout-fun-consolidacao-interface-e-agenda.md).
+
+## 2026-10-20 — v3.0.2 — setas distribuídas no Kanban de Acordos
+
+Adicionadas posições central e inferior entre colunas do aplicativo, preservando largura20px, grade, último estágio e responsividade. Tipos e dez ensaios geométricos aprovados. Sem publicação. [Registro](registros/registro-v3.0.2-2026-10-20-imp-kanban-acordos-fun-setas-fluxo.md).
+
+## 2026-10-20 — v3.0.1 — árvore decorativa restaurada na Conta
++
++Autorizado o retorno somente da ilustração original na Conta sem sessão, mantendo o Layout novo, frases10s e funções. Atlas01/02 sincronizados; nenhum modal alterado.12 testes de layout/frases, tipos e inspeção responsiva aprovados; nove capturas versionadas. [Registro](registros/registro-v3.0.1-2026-10-20-imp-conta-fun-restauracao-arvore.md). Sem publicação.
+
+## 2026-10-18 — v3.0.0 — reconstrução de interiores e modais
+
+Substituída a composição antiga das rotas por estruturas do Layout novo; Agenda semanal, Pessoas, Acordos móvel, controles e diálogos reconstruídos. Identificação de modais passa a ser regra permanente no Atlas/documentação; navegação e esboços distinguem-se de modais reais. 122 testes gerais aprovados; 94 cenários autenticados consolidados (66 da rodada ampla, 24 corrigidos/reexecutados, dois de registros consecutivos e dois de fidelidade protegida; rodadas focais adicionais aprovadas). Tipos, build webpack dos fontes finais e análise de CSS aprovados. Atlas: 73 telas, 207 ações, 365 estados, 41 referências históricas, 20 contextos modais e três rotas protegidas comparadas, sem erros ou chamadas externas. Visão global, MVP e percurso da proposta aprovados. 170 capturas do aplicativo (85 modais, 27 rotas autenticadas, sete páginas públicas e larguras de 390/640/768/1024/1440 px), 176 do Atlas (86 telas/contextos e 90 modais), 40 da referência e 20 anteriores: 406 imagens e 20 comparações por área/dispositivo. Modais têm título, gatilho e origem no manifesto; a captura é recortada no diálogo. [Registro](registros/registro-v3.0.0-2026-10-18-imp-reconstrucao-layout-novo-fun-interface-e-modais.md). Sem commit ou publicação remota.
+
+## 2026-10-18 — v2.0.2 — transporte TLS local e auditoria de integração
+
+Corrigida inicialização dev/start para usar certificados confiáveis do sistema. Falha de conexão reproduzida e removida no formulário local. Dez testes e tipos aprovados; auditoria remota somente leitura confirmou nove migrações, 15 tabelas protegidas, 26 RPCs e colunas de 27 consultas. Sem operação de dados; confirmação da conta pessoal pendente. [Registro](registros/registro-v2.0.2-2026-10-18-imp-conexao-supabase-fun-correcao-login-local.md).
+
+
+## 2026-10-18 — v2.0.1 — frases da Conta por dez segundos
+
+Temporizador alinhado às animações existentes de 10s. Oito testes de navegador e análise de tipos aprovados; pausa, retomada e sorteio preservados. [Registro](registros/registro-v2.0.1-2026-10-18-imp-frases-conta-fun-duracao-dez-segundos.md). Entrega local sem publicação; migração visual anterior permanece pendente de commit.
+
+
 ## 2026-10-18 — v1.1.0 — publicação Git autorizada do fluxo completo
 
 Autorizados commit e push abrangentes da unidade documental Proposta → Hábito → Experiência → Essência, com contratos, referências, roteiro e fichas do Atlas. Base main/69888b8, fetch inicial0/0. Validações e prova de inclusão no objeto Git registradas em [estado](estado.md) e no [registro da unidade](registros/registro-v1.1.0-2026-10-18-imp-documentacao-acordos-fun-fluxo-proposta-habito-experiencia-essencia.md). Sem incremento de versão, nova implementação ou operação remota de banco/deploy.
@@ -609,3 +635,7 @@ Objeto de publicação inspecionado: 59 arquivos e 19 imagens; árvore inicial 2
 Controle de publicação MVP05 em14/10/2026:87 arquivos/46 imagens conferidos no objeto inicial5572751; árvore6efcec131b6e924af9d1df056a9a489de7f1e8fc idêntica ao índice preparado. Pendência retirada por prova de inclusão; controle incorporado ao mesmo commit antes do push.106 testes/tipos/build/Atlas/revisão aprovados. Hash definitivo/equivalência remota reportados no encerramento, sem deploy certificado.
 
 Controle de inclusão da publicação documental:28 documentos no objeto inicial5602093; árvorecb6e4bd383d69f12e82e367e060d980e047dfb6e igual ao índice preparado. Nenhuma mudança de código/banco/manifestos. Pendência retirada após comprovar inclusão e controle incorporado ao mesmo commit lógico antes do push. Confirmar hash final remoto no encerramento.
+
+## 2026-10-18 — v2.0.0 — Migração integral do Layout atual
+
+Todas as famílias de rotas passam à nova estrutura, preservando ações e permissões. Kanban/Painéis/lista de Acordos e seis esboços privados sem persistência; Atlas73 fichas sincronizado.122 testes gerais e87 cenários autenticados consolidados aprovados/1 dispensa; tipos/build local e verificador73 telas/207 ações/365 estados. Capturas históricas preservadas e nova galeria165 imagens. Revisões estática/funcional corrigiram menu administrativo, cascata/hierarquia, eventos do Atlas, rótulos e evidência de capturas. Sem nova migração, commit, push ou deploy. [Registro](registros/registro-v2.0.0-2026-10-18-imp-layout-atual-fun-migracao-integral.md).

@@ -1,0 +1,17 @@
+{
+  "version": "3.0.1",
+  "date": "2026-10-20",
+  "kind": "Tela",
+  "modalsChanged": false,
+  "images": [
+    "antes-desktop.png",
+    "antes-mobile.png",
+    "atlas-1-desktop.png",
+    "atlas-1-mobile.png",
+    "atlas-2-desktop.png",
+    "atlas-2-mobile.png",
+    "depois-640.png",
+    "depois-desktop.png",
+    "depois-mobile.png"
+  ]
+}

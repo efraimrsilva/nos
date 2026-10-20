@@ -4,7 +4,7 @@ import { createClient } from "@supabase/supabase-js";
 import { createServerClient } from "@supabase/ssr";
 import { test, expect, localSql } from "./fixtures";
 
-const gallery = "Documentacao_Projeto_Nos/wireframes/comparacoes/v0.15.0-2026-10-13-mvp-02-tela_09-tela_13-tela_58-tela_59";
+const gallery = "artifacts/regression-captures/v0.15.0-2026-10-13-mvp-02-tela_09-tela_13-tela_58-tela_59";
 
 async function waitForDatabase(query: string) {
   const deadline = Date.now() + 5_000;
@@ -29,7 +29,8 @@ async function holdInvitationLock(actor: string, query: string) {
 
 test("criação, convite, aceite e revogação preservam vínculo e isolamento", async ({ page, account, browser }, testInfo) => {
   await page.goto("/nucleos");
-  await page.getByRole("link", { name: /^Criar um núcleo/ }).click();
+  await page.getByRole("button", { name: "Criar um núcleo", exact: true }).click();
+  await page.getByRole("dialog", { name: "Começar com intenção", exact: true }).getByRole("link", { name: /^Criar um núcleo/ }).click();
   await page.getByRole("radio", { name: "Amigos", exact: true }).check();
   await page.getByRole("button", { name: "Continuar" }).click();
   await page.getByRole("textbox", { name: "Nome do Núcleo" }).fill("Jardim compartilhado");
@@ -44,14 +45,16 @@ test("criação, convite, aceite e revogação preservam vínculo e isolamento",
   const code = localSql(`select code from public.nucleus_invitations where nucleus_id='${nucleusId}' and revoked_at is null;`).trim();
   await expect(page.getByText(/Expira em/)).toBeVisible();
   await page.evaluate(() => window.scrollTo(0, 0));
-  await page.screenshot({ path: `${gallery}/app-convite-${testInfo.project.name}.png`, fullPage: true, mask: [page.locator(".font-mono")], maskColor: "#eff3e6" });
+  await page.screenshot({ path: `${gallery}/app-convite-${testInfo.project.name}.png`, fullPage: true, mask: [page.locator(".invitation-code")], maskColor: "#eff3e6" });
   await page.getByRole("link", { name: "Gerenciar convites", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Gerenciar convites", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Um convite para estar perto.", exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: "Revogar convite", exact: true })).toBeVisible();
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.screenshot({ path: `${gallery}/app-gestao-${testInfo.project.name}.png`, fullPage: true });
   await page.getByRole("button", { name: "Revogar convite", exact: true }).click();
-  await page.getByRole("button", { name: "Cancelar", exact: true }).click();
+  const revocation = page.getByRole("dialog", { name: "Revogar convite", exact: true });
+  await revocation.getByRole("button", { name: "Cancelar", exact: true }).click();
+  await expect(revocation).toBeHidden();
   expect(localSql(`select count(*) from public.nucleus_invitations where nucleus_id='${nucleusId}' and revoked_at is null;`).trim()).toBe("1");
 
   const admin = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_LOCAL_SERVICE_KEY!, { auth: { persistSession: false } });
@@ -75,23 +78,26 @@ test("criação, convite, aceite e revogação preservam vínculo e isolamento",
     await member.reload();
     await expect(member.getByRole("link", { name: "Gerenciar convites" })).toHaveCount(0);
     await member.goto(`http://127.0.0.1:3200/nucleos/${nucleusId}/convites`);
-    await expect(member.getByRole("heading", { name: "Gerenciar convites" })).toHaveCount(0);
+    await expect(member.getByRole("heading", { name: "Um convite para estar perto.", exact: true })).toHaveCount(0);
     await page.getByRole("button", { name: "Revogar convite", exact: true }).click();
-    await page.getByRole("button", { name: "Confirmar revogação" }).click();
+    await revocation.getByRole("button", { name: "Confirmar revogação" }).click();
     await expect(page.getByText("Nenhum convite ativo nesta página.")).toBeVisible();
     await page.getByRole("link", { name: "Revogados", exact: true }).click();
-    await expect(page.getByRole("heading", { name: "Convite revogado", exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Convites revogados", exact: true })).toBeVisible();
+    await expect(page.locator(".invitation-detail").getByText("Revogado", { exact: true })).toBeVisible();
     await page.screenshot({ path: `${gallery}/app-revogado-${testInfo.project.name}.png`, fullPage: true });
     expect(localSql(`select count(*) from public.nucleus_members where nucleus_id='${nucleusId}';`).trim()).toBe("2");
     await member.goto("http://127.0.0.1:3200/nucleos");
     await expect(member.getByText("Jardim compartilhado", { exact: true })).toBeVisible();
-    await page.getByRole("link", { name: "Gerar ou compartilhar convite" }).click();
-    await expect(page.getByRole("button", { name: "Gerar convite", exact: true })).toBeVisible();
-    await page.getByRole("button", { name: "Gerar convite", exact: true }).click();
-    await expect(page.getByRole("button", { name: "Compartilhar código" })).toBeVisible();
+    await page.getByRole("button", { name: "Preparar convite", exact: true }).click();
+    const generation = page.getByRole("dialog", { name: "Preparar convite", exact: true });
+    await expect(generation.getByRole("button", { name: "Gerar convite", exact: true })).toBeVisible();
+    await generation.getByRole("button", { name: "Gerar convite", exact: true }).click();
+    await expect(generation.getByRole("button", { name: "Compartilhar código" })).toBeVisible();
     expect(localSql(`select code from public.nucleus_invitations where nucleus_id='${nucleusId}' and revoked_at is null;`).trim()).not.toBe(code);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole("link", { name: "Concluir por enquanto" }).click();
+    await generation.getByRole("button", { name: "Fechar Preparar convite", exact: true }).click();
+    await page.getByRole("link", { name: "Início", exact: true }).click();
     await expect(page.getByRole("heading", { name: "Jardim compartilhado" })).toBeVisible();
     await page.screenshot({ path: `${gallery}/app-inicio-${testInfo.project.name}.png`, fullPage: true });
   } finally {
@@ -113,15 +119,18 @@ test("geração concorrente reutiliza código e gestão pagina sem revelar códi
   expect(localSql(`select count(*) from public.nucleus_invitations where nucleus_id='${id}';`).trim()).toBe("1");
   localSql(`insert into public.nucleus_invitations(nucleus_id,code,created_by,created_at,expires_at) select '${id}',md5(gen_random_uuid()::text),'${account.id}',now()-interval '8 days',now()-interval '1 day' from generate_series(1,21);`);
   await page.goto(`/nucleos/${id}/convites?status=expirados`);
-  await expect(page.getByRole("heading", { name: "Convite expirado", exact: true })).toHaveCount(20);
+  const invitationItems = page.locator(".invitation-list").getByRole("button");
+  await expect(invitationItems).toHaveCount(20);
+  await expect(page.locator(".invitation-detail").getByText("Expirado", { exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: "Revogar convite" })).toHaveCount(0);
   await expect(page.getByText(results[0].data, { exact: true })).toHaveCount(0);
   await page.getByRole("link", { name: "Próxima página" }).click();
-  await expect(page.getByRole("heading", { name: "Convite expirado", exact: true })).toHaveCount(1);
+  await expect(invitationItems).toHaveCount(1);
   await page.getByRole("link", { name: "Página anterior" }).click();
-  await expect(page.getByRole("heading", { name: "Convite expirado", exact: true })).toHaveCount(20);
+  await expect(invitationItems).toHaveCount(20);
   await page.getByRole("link", { name: "Ativos", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Convite ativo", exact: true })).toHaveCount(1);
+  await expect(invitationItems).toHaveCount(1);
+  await expect(page.locator(".invitation-detail").getByText("Ativo", { exact: true })).toBeVisible();
   await page.setViewportSize({ width: 320, height: 568 });
   await page.emulateMedia({ reducedMotion: "reduce" });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);

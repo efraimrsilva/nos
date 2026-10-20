@@ -205,6 +205,23 @@ S(72,0,'Entrada afetiva · opcional','A marca como acolhimento','01','/boas-vind
 
 S(73,7,"Pessoas e administração","Gestão simples e compartilhada",'Contrato de administração aprovado',"/nucleos/[id]/pessoas",'Recorte existente',[card("Participantes e administradores","Quem cria inicia como administrador. Administradores têm os mesmos poderes."),card("Nomear administrador","A pessoa recebe nomeação e precisa aceitar o papel."),card("Gerenciar o Núcleo","Administrador ajusta nome e propósito, remove participantes e destitui administradores com confirmação."),card("Limites de gestão","Não autoriza aceitar acordos por outras pessoas, ler rascunhos privados ou editar dados íntimos."),card("Encerrar Núcleo para todos","Somente administrador. Todos perdem acesso; convites revogados. Acordos, momentos e agenda permanecem armazenados. Contas preservadas; sem opção de reabrir pelo aplicativo.")],[["Aceitar nomeação · exemplo",73],["Gerenciar convites",59],["Sair do Núcleo",71],["Voltar ao Início",13]],"Membro consulta e decide sua nomeação. Gestão exige administrador associado. Destituição não deixa o Núcleo sem administrador; saída do último administrador usa sorteio atômico. Encerrar para todos exige nome atual e ciência explícita; banco revalida administração sob trava, revoga convites e remove vínculos sem apagar histórico. Sucesso retorna a Seus Núcleos12.",'Pessoa associada; gestão e encerramento somente por administradores.', 'Encerramento administrativo novo validado localmente na v1.1.0; aplicação da nova migração e publicação desta função no ambiente de uso pendentes.');
 
+// O esboço protegido não converte um módulo planejado em funcionalidade implementada.
+// IDs, cobertura e percursos detalhados permanecem estáveis para conservar o histórico.
+const layoutPreviewRoutes = {38:'arvore',40:'memorias',44:'conexoes',49:'perfis',55:'manifesto',61:'cuidado'};
+for(const [id,area] of Object.entries(layoutPreviewRoutes)){
+  const screen=screens.find(item=>item.id===Number(id));
+  screen.route=`/nucleos/[id]/${area} · esboço protegido`;
+  screen.rule='Layout atual: sessão e vínculo obrigatórios para abrir o esboço; sem persistência do módulo. '+screen.rule;
+  screen.dependency='Esboço visual disponível nesta migração; funcionalidade completa permanece planejada. '+screen.dependency;
+}
+// Saídas dos pares de esboços e o controle funcional de privacidade ficam também nas fichas.
+for(const [from,to,label] of [[38,40,'Explorar Memórias · esboço'],[40,38,'Voltar à Árvore · esboço'],[44,49,'Explorar Perfis · esboço'],[49,44,'Explorar Conexões · esboço'],[49,67,'Privacidade e visibilidade'],[55,61,'Explorar Cuidado · esboço'],[61,55,'Explorar Manifesto · esboço']]){
+  const screen=screens.find(item=>item.id===from);
+  if(!screen.actions.some(action=>action.to===to))screen.actions.push({label,to});
+}
+screens.find(screen=>screen.id===18).dependency='Layout atual: Kanban · Fluxo, Painéis · Lado a lado e lista móvel sobre os registros reais. Categorias do modelo atual não comprovam evolução individual. Proposta → Hábito → Experiência → Essência continua planejado; critérios, consentimento e passagens não desenvolvidos.';
+screens.find(screen=>screen.id===13).dependency='Layout atual com propósito real, acesso a Acordos, agenda, pessoas e convites; módulos futuros abrem esboços protegidos. Sem indicadores de crescimento, estágio ou evolução inventados.';
+
 const journeys = [
  {name:'Voltar a um Núcleo existente',ids:[1,12,13,18],rule:'Login → lista de associações reais → seleção explícita → Início → área escolhida. Não exigir nova criação.'},
  {name:'Primeiro acesso · criar um Núcleo',ids:[1,12,6,7,8,9,58,59,13],steps:['Entrar com conta confirmada','Seus Núcleos','Escolha opcional de caminho','Selecionar vínculo','Propósito e conferência sem gravar','Criar explicitamente','Copiar ou compartilhar código · opcional','Gerenciar/revogar · opcional','Abrir Início'],rule:'Conta confirmada → lista → criação → convite → Início. Cadastro/confirmação (02/03) são ramificações da Conta. Lista pode ir direto ao Tipo; Escolher caminho é alternativa. 09/58 são estados da mesma rota. Convidar/gerenciar são opcionais e acessíveis pelo Início. Outra pessoa segue o Percurso 04: código → prévia → aceite explícito. Revogar impede novos aceites, preservando participantes existentes. QR/link e histórico por aceite reservados.'},
