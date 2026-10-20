@@ -1,5 +1,9 @@
 # Brag document — Projeto Nós
 
+## 2026-10-20 — v3.0.3 — publicação integral com prova online
+
+**Problema:** site público ainda exibia a versão anterior. **Contribuição:** integração segura em main, publicação automática acompanhada e Atlas/documentos sincronizados. **Resultado verificado:** build Netlify aprovado,27 rotas autenticadas e nove grupos online com duas contas descartáveis, removidas após comparação de oito tabelas. **Benefício esperado:** consistência entre aplicativo publicado e referência viva. [Evidências](../_andamento/registros/registro-v3.0.3-2026-10-20-02-imp-deploy-netlify-fun-publicacao-producao.md).
+
 ## 2026-10-20 — v3.0.3 — sobreposição de eventos corrigida na revisão
 
 **Problema:** eventos longos podiam encobrir outros na Agenda. **Contribuição:** distribuição por interseção visual e faixas estáveis, com altura coerente e acesso ao detalhe completo. **Resultado verificado:** três testes unitários e revisão independente aprovados. **Benefício esperado:** reduzir ocultação acidental dos encontros na grade. [Evidência](../_andamento/registros/registro-v3.0.3-2026-10-20-imp-publicacao-layout-fun-consolidacao-interface-e-agenda.md).

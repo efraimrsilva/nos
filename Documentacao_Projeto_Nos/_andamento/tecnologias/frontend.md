@@ -1,5 +1,7 @@
 # Frontend web
 
+**Publicação vigente — v3.0.3 — 20/10/2026:** layout completo em [produção](https://noslife.netlify.app/conta), deploy6ad7eeb747e9c9a82835d3b5/main@8b529e8. Build Netlify aprovado;27 rotas autenticadas verificadas com fixtures removidas. Atlas preserva73 fichas,39 recortes existentes/34 planejadas e20 contextos modais, sem promover esboços a funcionalidades. [Registro](../registros/registro-v3.0.3-2026-10-20-02-imp-deploy-netlify-fun-publicacao-producao.md) · [prints](../../wireframes/comparacoes/v3.0.3-2026-10-20-producao-netlify/index.html). Marcos abaixo são históricos; SMTP/piloto completo mantêm pendências.
+
 **v3.0.1:** somente a ilustração original da Conta foi restaurada com Next Image e preload; sessão e estrutura novas preservadas. [Registro](../registros/registro-v3.0.1-2026-10-20-imp-conta-fun-restauracao-arvore.md).
 
 ## v3.0.0 — sistema visual único e diálogos

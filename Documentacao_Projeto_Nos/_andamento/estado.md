@@ -1,12 +1,18 @@
 # Estado do Projeto Nós
 
-## Publicação em produção autorizada — v3.0.3 — 2026-10-20
+## Produção publicada e verificada — v3.0.3 — 2026-10-20
 
-**Objetivo ativo:** promover todo o conjunto f925c17 para main e produção Netlify, atualizar Atlas e registros. Netlify confirmado: produção de44ca8/deploy6ad466219a970e3fc96c18ba, GitHub efraimrsilva/nos, publicação automática de main ativa. Git limpo; main ancestral da entrega. Autorização atual inclui integração/push/deploy.
+**Objetivo/situação:** publicação integral concluída em [noslife.netlify.app](https://noslife.netlify.app/conta), com Atlas/documentação atualizados. Deploy6ad7eeb747e9c9a82835d3b5, fonte8b529e8e15785d0cd20732ef8fba9ff2bea9760a/main, publicado em20/10/2026 às19:44:44 (Brasília). Build real npm run build → Next16.3.6/Turbopack e TypeScript aprovados; Runtime Netlify5.16.3/Node24. Nova prova HTTPS com duas contas temporárias:27 rotas autenticadas, login/logout e preferência por formulários reais; Núcleo, convite, acordo, participação, momento e evento por RPCs (funções remotas). Nove grupos aprovados. Fixtures removidas e fingerprints de oito tabelas preservados. Nove migrações existentes; nenhuma aplicada nesta entrega.
 
-**Situação:** revisão independente liberada sem P1/P2; verificação fresca de tipos/build webpack/128 testes gerais aprovada. Atlas recebe indicação correta de versão e publicação em preparação; modais e esboços mantidos. Sem migrações Supabase novas no conjunto.
+**Git e versão:** main; fonte implantada8b529e8; publicação automática ativa. Fechamento documental em commit próprio com [skip netlify], sem diferenças funcionais em relação à fonte publicada. Versão vigente3.0.3; DOCS_DIR:Documentacao_Projeto_Nos. Sem alteração de esquema remoto.
 
-**Próximo passo:** finalizar checks, commit dos registros, avançar main sem reescrever histórico e acompanhar deploy; comprovar domínio e recursos publicados, registrar resultados e limpar fixtures de verificação quando utilizadas. [Registro operacional](registros/registro-v3.0.3-2026-10-20-02-imp-deploy-netlify-fun-publicacao-producao.md). Contador de referência145; incrementar no fechamento. Nenhum sucesso remoto presumido.
+**Validações:** revisão independente sem P1/P2; tipos/build webpack/128 testes locais; build Turbopack real aprovado no Netlify; Atlas73 telas/207 ações/365 estados/41 referências/20 contextos modais; nove grupos online/27 rotas e limpeza confirmados. Autorrevisão e links locais no fechamento. Prints da Conta e confirmação do deploy na galeria.
+
+**Decisões/limites:** modais seguem inventariados; ampliações continuam esboços. SMTP (envio de e-mail), recebimento externo, recuperação completa, backup/restauração e certificação integral do piloto não foram comprovados nesta rodada. Esboços e progressão individual continuam pendentes; Atlas usa exemplos offline, sem gravação no banco.
+
+**Continuidade:** [registro operacional](registros/registro-v3.0.3-2026-10-20-02-imp-deploy-netlify-fun-publicacao-producao.md) · [galeria](../wireframes/comparacoes/v3.0.3-2026-10-20-producao-netlify/index.html) · [Atlas](../wireframes/atlas/index.html) · [histórico](historico.md) · [Brag](../brag/BRAG.md). Próximo passo: revisão do site publicado pelo usuário. Sem bloqueio funcional conhecido. Contador146; último marco100/próximo200. Fechamento documental integra o commit autorizado que contém este registro; nenhuma unidade funcional pendente da publicação.
+
+**Ferramentas:** Superpowers deploy/revisão/verificação aplicados; Netlify autenticado e consultado, painel e site inspecionados. Context7/Octocode disponíveis conforme registros anteriores; nenhuma mudança de biblioteca/configuração ou pesquisa avançada nesta publicação operacional.
 
 ## Marcos anteriores — validações e autorizações nas datas registradas
 

@@ -1,5 +1,7 @@
 # Andamento do Projeto Nós
 
+**Publicação vigente — v3.0.3 — 20/10/2026:** layout completo em [produção](https://noslife.netlify.app/conta), deploy6ad7eeb747e9c9a82835d3b5/main@8b529e8. Build Netlify aprovado;27 rotas autenticadas verificadas com fixtures removidas. Atlas preserva73 fichas,39 recortes existentes/34 planejadas e20 contextos modais, sem promover esboços a funcionalidades. [Registro](registros/registro-v3.0.3-2026-10-20-02-imp-deploy-netlify-fun-publicacao-producao.md) · [prints](../wireframes/comparacoes/v3.0.3-2026-10-20-producao-netlify/index.html). Marcos abaixo são históricos; SMTP/piloto completo mantêm pendências.
+
 **Atualização vigente — v3.0.1:** [árvore da Conta](registros/registro-v3.0.1-2026-10-20-imp-conta-fun-restauracao-arvore.md) · [galeria](../wireframes/comparacoes/v3.0.1-2026-10-20-conta-arvore/index.html). Exceção visual pontual autorizada; consultar [estado](estado.md).
 
 **Entrega vigente — v3.0.0:** [reconstrução integral do Layout novo](registros/registro-v3.0.0-2026-10-18-imp-reconstrucao-layout-novo-fun-interface-e-modais.md) · [galeria](../wireframes/comparacoes/v3.0.0-2026-10-18-layout-novo-integral/index.html) · [regra permanente de modais](funcionalidades/modais-interface.md). Leia [estado.md](estado.md) para retomada, limites e pendências.

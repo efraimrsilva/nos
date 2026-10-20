@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-20",
+  "origin": "https://noslife.netlify.app",
+  "checks": [
+    "nove migrações remotas existentes; nenhuma migração aplicada",
+    "rotas privadas continuam protegidas sem sessão",
+    "duas contas descartáveis confirmadas entram pelo formulário HTTPS publicado",
+    "Núcleo, convite aceito, proposta, participação, teste, momento e evento persistem pelas RPCs existentes",
+    "27 rotas autenticadas do aplicativo publicado renderizam composição nova com dados autorizados e esboços explícitos",
+    "segundo participante consulta o histórico e permanece impedido de encerrar o Núcleo",
+    "preferência da conta temporária salva pela Server Action real do site",
+    "logout pelo formulário publicado encerra a sessão",
+    "fixtures removidas e fingerprints das oito tabelas existentes preservados"
+  ],
+  "authenticatedRoutes": 27,
+  "cleanup": true,
+  "passed": true,
+  "externalEmailVerified": false
+}

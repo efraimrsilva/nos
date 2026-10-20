@@ -1,5 +1,9 @@
 # Histórico de andamento
 
+## 2026-10-20 — v3.0.3 — layout integral publicado e verificado no Netlify
+
+Deploy6ad7eeb747e9c9a82835d3b5, fonte8b529e8e15785d0cd20732ef8fba9ff2bea9760a/main, publicado em20/10/2026 às19:44:44 (Brasília). Build real npm run build → Next16.3.6/Turbopack e TypeScript aprovados; Runtime Netlify5.16.3/Node24. Nova prova HTTPS com duas contas temporárias:27 rotas autenticadas, login/logout e preferência por formulários reais; Núcleo, convite, acordo, participação, momento e evento por RPCs (funções remotas). Nove grupos aprovados. Fixtures removidas e fingerprints de oito tabelas preservados. Nove migrações existentes; nenhuma aplicada nesta entrega. Atlas/guia/cobertura/fidelidade e continuidade atualizados, com prints reais e limites explícitos. Sem incremento funcional ou migração. [Registro](registros/registro-v3.0.3-2026-10-20-02-imp-deploy-netlify-fun-publicacao-producao.md).
+
 ## 2026-10-20 — v3.0.3 — publicação abrangente autorizada e colisões da Agenda
 
 Revisão independente encontrou sobreposição de eventos longos na mesma faixa; corrigida por intervalos visuais e altura definida, com três testes e reconferência. Inclusão dos804 caminhos comprovada no commit inicial e41d2058f81e90781b2b9646ae1eded49a5009fe; controle incorporado à mesma unidade antes do push normal da reconstrução integral e ajustes, sem merge/deploy/banco. [Registro](registros/registro-v3.0.3-2026-10-20-imp-publicacao-layout-fun-consolidacao-interface-e-agenda.md).
