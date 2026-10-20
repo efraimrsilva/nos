@@ -1,5 +1,15 @@
 # Estado do Projeto Nós
 
+## Publicação em produção autorizada — v3.0.3 — 2026-10-20
+
+**Objetivo ativo:** promover todo o conjunto f925c17 para main e produção Netlify, atualizar Atlas e registros. Netlify confirmado: produção de44ca8/deploy6ad466219a970e3fc96c18ba, GitHub efraimrsilva/nos, publicação automática de main ativa. Git limpo; main ancestral da entrega. Autorização atual inclui integração/push/deploy.
+
+**Situação:** revisão independente liberada sem P1/P2; verificação fresca de tipos/build webpack/128 testes gerais aprovada. Atlas recebe indicação correta de versão e publicação em preparação; modais e esboços mantidos. Sem migrações Supabase novas no conjunto.
+
+**Próximo passo:** finalizar checks, commit dos registros, avançar main sem reescrever histórico e acompanhar deploy; comprovar domínio e recursos publicados, registrar resultados e limpar fixtures de verificação quando utilizadas. [Registro operacional](registros/registro-v3.0.3-2026-10-20-02-imp-deploy-netlify-fun-publicacao-producao.md). Contador de referência145; incrementar no fechamento. Nenhum sucesso remoto presumido.
+
+## Marcos anteriores — validações e autorizações nas datas registradas
+
 ## Publicação abrangente autorizada — v3.0.3 — 2026-10-20
 
 **Objetivo:** commit/push da reconstrução integral, ajustes de Conta/Kanban, correção TLS e registros/Atlas/testes. Branch codex/novo-layout, base de44ca8; sem merge/deploy/operação de banco. DOCS_DIR: Documentacao_Projeto_Nos. Versão vigente3.0.3 pela correção de colisões da Agenda na revisão final.
