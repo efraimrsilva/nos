@@ -657,3 +657,15 @@ Propósito e vínculo movidos para o cabeçalho; diálogo duplicado removido e A
 
 ## 2026-10-21 — v3.0.4 — Publicação GitHub autorizada
 Preparado commit atômico do propósito e vínculo no Início, Atlas, manifestos e registros; tipos e seis testes de lógica revalidados. Conferência de hash remoto no fechamento da operação; deploy não certificado.
+
+## 2026-10-21 — v3.0.4 — Correção da compilação local antiga
+Diagnóstico comprovou next start servindo build15/10. Compilações obsoletas isoladas fora do app por bloqueio de exclusão; build padrão atual e npm run dev validados. Quatro testes de interface e21 capturas públicas aprovados. Nenhuma fonte alterada. Registro: registros/registro-v3.0.4-2026-10-21-02-imp-execucao-local-fun-layout-atual.md.
+
+## 2026-10-21 — v3.0.5 — Destaque de administração no Início
+Selo verde, negrito e escudo para quem administra o Núcleo; mensagem comum preservada para membros. Atlas alinhado; tipos/seis testes/sintaxe aprovados. Registro: registros/registro-v3.0.5-2026-10-21-imp-inicio-fun-destaque-administracao.md. Sem publicação.
+
+## 2026-10-21 — v3.0.6 — Atalhos complementares no menu Mais
+Removidas quatro duplicações da navegação móvel; grupos vazios ocultados e desktop preservado. Componente validado isoladamente antes/depois; tipos/quatro testes públicos/sintaxe aprovados. Asserções autenticadas adicionadas, não executadas. Registro: registros/registro-v3.0.6-2026-10-21-imp-menu-mobile-fun-atalhos-complementares.md. Sem publicação.
+
+## 2026-10-21 — v3.0.6 — Publicação integral autorizada
+Três unidades: execução local1e6fb0d, destaque1c8be96 e menu móvel complementar, com Atlas/testes/manifestos/registros. Tipos, dez testes, verificação isolada, sintaxe e build padrão aprovados. Conferência remota no fechamento; deploy não certificado. Registro: registros/registro-v3.0.6-2026-10-21-02-imp-publicacao-github-fun-consolidacao-ajustes.md.

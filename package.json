@@ -1,6 +1,6 @@
 {
   "name": "nos-app",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "private": true,
   "scripts": {
     "dev": "node --use-system-ca node_modules/next/dist/bin/next dev --hostname 127.0.0.1",

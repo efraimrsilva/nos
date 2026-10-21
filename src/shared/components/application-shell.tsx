@@ -44,7 +44,16 @@ export function ApplicationShell({ children, showTree = false, nucleusName }: Sh
   const allItems = groups.flatMap(group => group.items);
   const isActive = (item: NavItem) => [base, "/nucleos", "/conta"].includes(item.href) ? pathname === item.href : pathname.startsWith(item.href);
   const active = allItems.find(isActive)?.label ?? (pathname.startsWith("/comecar") ? "Um novo vínculo" : pathname === "/ajuda" ? "Ajuda" : "Seu espaço");
-  const links = (inDialog = false) => groups.map(group => <section className="navigation-group" key={group.title}>
+  const mobileItems: NavItem[] = nucleusId ? [
+    { label: "Início", href: base, icon: House, tone: "green" },
+    { label: "Acordos", href: to("acordos"), icon: Heart, tone: "rose" },
+    { label: "Agenda", href: to("agenda"), icon: CalendarDays, tone: "orange" },
+    { label: "Pessoas", href: to("pessoas"), icon: UsersRound, tone: "blue" },
+  ] : [{ label: "Núcleos", href: "/nucleos", icon: UsersRound, tone: "blue" }];
+  // O menu Mais complementa a barra inferior; a navegação lateral mantém todas as áreas.
+  const links = (inDialog = false) => (inDialog && nucleusId ? groups
+    .map(group => ({ ...group, items: group.items.filter(item => !mobileItems.some(mobile => mobile.href === item.href)) }))
+    .filter(group => group.items.length > 0) : groups).map(group => <section className="navigation-group" key={group.title}>
     <h2>{group.title}</h2>{group.items.map(item => <Link key={item.label} href={item.href} prefetch={false} aria-current={isActive(item) ? "page" : undefined} onClick={() => { if (inDialog) menu.current?.close(); }} className="navigation-link"><item.icon size={20} strokeWidth={2.5} aria-hidden="true" className={`nav-icon tone-${item.tone}`} /><span>{item.label}</span>{item.planned && <span className="nav-planned" aria-label="Esboço">○</span>}</Link>)}
   </section>);
   const brand = <Link href={publicEntry ? "/boas-vindas" : base} className="current-brand" aria-label="Nós — início"><span><Leaf size={26} strokeWidth={2.3} aria-hidden="true" /></span>nós<span className="brand-period">.</span></Link>;
@@ -61,12 +70,6 @@ export function ApplicationShell({ children, showTree = false, nucleusName }: Sh
     </div><footer className="public-footer">{footer}</footer>
   </div>;
 
-  const mobileItems: NavItem[] = nucleusId ? [
-    { label: "Início", href: base, icon: House, tone: "green" },
-    { label: "Acordos", href: to("acordos"), icon: Heart, tone: "rose" },
-    { label: "Agenda", href: to("agenda"), icon: CalendarDays, tone: "orange" },
-    { label: "Pessoas", href: to("pessoas"), icon: UsersRound, tone: "blue" },
-  ] : [{ label: "Núcleos", href: "/nucleos", icon: UsersRound, tone: "blue" }];
   const results = allItems.filter(item => item.label.toLocaleLowerCase("pt-BR").includes(search.toLocaleLowerCase("pt-BR")));
   return <div className="current-shell" data-layout="current" data-layout-revision="3">
     <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>

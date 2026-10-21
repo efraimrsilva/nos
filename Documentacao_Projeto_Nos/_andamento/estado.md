@@ -1,5 +1,37 @@
 # Estado do Projeto Nós
 
+## Publicação integral autorizada — v3.0.6 — 2026-10-21
+
+**Objetivo/escopo:** publicar todas as alterações pendentes com descrição abrangente. Main, base0813046; remota sincronizada antes da operação. Unidades: execução local1e6fb0d, destaque da administração1c8be96 e menu Mais complementar no commit que contém este registro. Fontes, Atlas, testes, manifestos e registros incluídos conforme seus assuntos. DOCS_DIR:Documentacao_Projeto_Nos; versão vigente3.0.6.
+
+**Validação:** tipos, dez testes de lógica/interface pública, verificação isolada do menu, sintaxe do Atlas, build padrão Turbopack e autorrevisão aprovados. Suíte autenticada não reexecutada; inspeção autenticada pendente. Limpeza definitiva anterior bloqueada, compilações antigas isoladas fora do aplicativo e não versionadas. Sem alteração de banco, dependências ou segredos. Push não confirma deploy. [Registro abrangente](registros/registro-v3.0.6-2026-10-21-02-imp-publicacao-github-fun-consolidacao-ajustes.md).
+
+**Continuidade:** confirmar hash remoto/conteúdo dos três commits no fechamento; depois conferir versão publicada em celular e com pessoa administradora. **Contador:**154; último marco100/próximo200. **Unidades prontas para commit:** pendências dos marcos abaixo incorporadas aos commits desta publicação; nenhuma outra unidade conhecida. Superpowers de verificação aplicado. Não há nova configuração tecnológica ou pesquisa avançada exigindo Context7/Octocode. Marcos abaixo preservam o estado histórico de cada entrega.
+
+
+## Menu Mais complementar à barra inferior — v3.0.6 — 2026-10-21
+
+**Resultado:** Mais deixa de duplicar Início/Acordos/Agenda/Pessoas no contexto do Núcleo; grupos vazios removidos. Barra inferior, navegação desktop, busca e demais áreas preservadas. ApplicationShell, teste autenticado existente e Atlas alinhados; manifestos3.0.6. DOCS_DIR:Documentacao_Projeto_Nos. [Registro](registros/registro-v3.0.6-2026-10-21-imp-menu-mobile-fun-atalhos-complementares.md).
+
+**Validação/limites:** renderização isolada do componente falhou antes e passou após o ajuste; tipos, quatro testes públicos reais e sintaxe do Atlas aprovados; autorrevisão do diff. Asserções autenticadas adicionadas, não executadas; sem build ou nova inspeção autenticada. Próximo passo: conferir Mais em Núcleo no celular e atalhos desktop. **Contador:**153; último marco100/próximo200. **Unidades prontas para commit:** navegação complementar (`fix(navegacao): remover atalhos duplicados do menu Mais no celular`), destaque de administração e registros anteriores de execução local. Sem commit/push/deploy. Superpowers brainstorming/TDD proporcional/verificação aplicados; sem API nova ou pesquisa avançada exigindo Context7/Octocode.
+
+
+## Destaque da administração — v3.0.5 — 2026-10-21
+
+**Resultado:** selo verde com texto em negrito e escudo decorativo para “Você administra este Núcleo.”; condicionado ao papel admin da sessão existente. Mensagem de participante preservada. Página e Atlas alinhados; manifestos3.0.5. DOCS_DIR:Documentacao_Projeto_Nos. **Validação:** tipos, seis testes de lógica e sintaxe do Atlas aprovados, autorrevisão/diff. Sem inspeção visual autenticada ou build novo. [Registro](registros/registro-v3.0.5-2026-10-21-imp-inicio-fun-destaque-administracao.md).
+
+**Continuidade:** conferir selo com administrador e ausência do selo com membro em desktop/celular. **Contador:**152; último marco100/próximo200. **Unidades prontas para commit:** destaque de administração (`fix(inicio): destacar indicação de administração do Núcleo`) e registros anteriores de execução local. Sem commit/push/deploy; trabalho preexistente preservado. Superpowers brainstorming e verificação proporcionais; sem nova integração, documentação tecnológica ou pesquisa avançada que exija Context7/Octocode.
+
+
+## Execução local com layout atual — v3.0.4 — 2026-10-21
+
+**Objetivo/resultado:** corrigir next start com layout antigo e garantir npm run dev. Causa comprovada: build local de15/10 em .next; código fonte já atual. Servidor antigo encerrado; compilações geradas isoladas fora do aplicativo em ../.codex-obsolete-next-2026-10-21. Novo build Turbopack/TypeScript aprovado. npm run dev já funcionava e foi validado sem alterar scripts. Servidor de desenvolvimento deixado na porta3000; diagnóstico produção3210 encerrado. DOCS_DIR:Documentacao_Projeto_Nos; versão3.0.4 preservada (operação local/documentação).
+
+**Evidências/limites:** produção local: três rotas HTTP200/revisão3/sem marcadores antigos; dev: quatro testes de interface aprovados e21 capturas/7rotas/1440,640,390px sem overflow; Conta desktop inspecionada. Sem nova prova autenticada. Exclusão definitiva bloqueada automaticamente com blocked by policy; cópias antigas isoladas não servidas, sem contorno do controle. Fonte, dependências, banco e segredos preservados. [Registro](registros/registro-v3.0.4-2026-10-21-02-imp-execucao-local-fun-layout-atual.md). README explica dev versus build/start.
+
+**Continuidade:** npm run dev para desenvolver; build/start para produção local. Tipos/build e testes proporcionais concluídos; autorrevisão operacional. **Contador:**151; último marco100/próximo200. **Unidade pronta para commit:** registros de execução local; sugestão `docs(dev): esclarecer execução local e registrar recompilação do layout atual`. Sem commit/push/deploy nesta rodada. Superpowers de depuração/verificação aplicados; Context7 consultado (16.3.6 não indexada; referência16.2.9). Não houve pesquisa avançada exigindo Octocode. A publicação anterior0813046 foi confirmada em origin/main e não permanece pendente.
+
+
 ## Publicação autorizada do Início — v3.0.4 — 2026-10-21
 
 **Objetivo:** commit e push do propósito e da participação no cabeçalho, incluindo Atlas, manifestos e registros. Branch main, base c1fff28; origin/main sincronizada antes da publicação. Autorização explícita do usuário. DOCS_DIR: Documentacao_Projeto_Nos.

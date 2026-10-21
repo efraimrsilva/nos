@@ -21,7 +21,17 @@ test("layout vigente integra áreas reais, esboços, busca, menu e isolamento", 
   await expect(page).toHaveURL(`${testInfo.project.use.baseURL ?? "http://127.0.0.1:3200"}${base}/agenda`);
   await expect(page.getByRole("heading", { name: "Tempo para o que importa.", exact: true })).toBeVisible();
   if (testInfo.project.name === "mobile") {
+    const bottomNavigation = page.getByRole("navigation", { name: "Navegação móvel" });
+    for (const label of ["Início", "Acordos", "Agenda", "Pessoas"]) {
+      await expect(bottomNavigation.getByRole("link", { name: label, exact: true })).toBeVisible();
+    }
     await page.getByRole("button", { name: "Mais áreas e preferências" }).click();
+    const moreMenu = page.getByRole("dialog", { name: "Todos os seus caminhos" });
+    for (const label of ["Início", "Acordos", "Agenda", "Pessoas"]) {
+      await expect(moreMenu.getByRole("link", { name: label, exact: true })).toHaveCount(0);
+    }
+    await expect(moreMenu.getByRole("heading", { name: "Cultivar juntos", exact: true })).toHaveCount(0);
+    await expect(moreMenu.getByRole("link", { name: "Seus Núcleos", exact: true })).toBeVisible();
     await page.getByRole("dialog").getByRole("link", { name: "Árvore e memórias" }).click();
   } else await page.getByRole("navigation", { name: "Áreas do Nós" }).getByRole("link", { name: "Árvore e memórias" }).click();
   await expect(page).toHaveURL(new RegExp(`${base}/arvore$`));
