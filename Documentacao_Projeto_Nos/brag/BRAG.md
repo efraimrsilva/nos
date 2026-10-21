@@ -272,3 +272,6 @@ Registro factual de contribuições; resultados medidos são separados de benef�
 
 ## 2026-10-21 — v3.0.4 — Contexto do Núcleo visível no Início
 Problema: propósito exigia abrir um diálogo. Contribuição: propósito e vínculo visíveis acima dos blocos. Benefício esperado: facilitar reconhecer a intenção compartilhada e o próprio papel. Evidência: página nucleos/[id], Atlas e seis testes de lógica aprovados; sem medição de uso.
+
+## 2026-10-21 — v3.0.4 — Execução local alinhada ao código atual
+Problema: start servia compilação com layout antigo. Contribuição: diagnóstico pela resposta HTTP e artefatos, isolamento seguro do build obsoleto e recompilação atual, sem exclusão de funcionalidades. Resultado verificado: dev e produção local com layout novo, build padrão aprovado, quatro testes de interface e21 capturas públicas sem overflow. Exclusão definitiva do isolamento bloqueada pelo controle automático.

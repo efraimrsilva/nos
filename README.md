@@ -78,6 +78,15 @@ npm run dev
 
 Mantenha o terminal aberto para acompanhar as alterações em tempo real; `Ctrl+C` encerra o servidor. Se aparecer aviso de que já existe um servidor Next.js, use o que está em `http://127.0.0.1:3000` ou encerre a instância anterior no terminal em que ela foi aberta antes de iniciar outra.
 
+Para desenvolver, use **`npm run dev`**: ele compila o código atual e acompanha as alterações. O comando `next start` (também usado por `npm start`) serve a última compilação de produção, sem recompilar os arquivos que você acabou de editar. Para conferir o aplicativo em modo de produção local, encerre a instância anterior e execute:
+
+```powershell
+npm run build
+npm start
+```
+
+Em 21/10/2026, a compilação local antiga foi retirada do caminho ativo e substituída por um build do layout atual. A versão do produto permanece 3.0.4; não foi necessário alterar os componentes ou o script `dev`.
+
 Abra http://127.0.0.1:3000. Sem sessão, a raiz abre **Conta**; após login, abre **Seus Núcleos** (`/nucleos`) ou o destino privado solicitado. A lista contém somente associações reais da pessoa e permite escolher o Início de cada Núcleo. Quem ainda não participa recebe opções de criar ou entrar com convite. **Escolher caminho** (`/comecar`) continua como alternativa protegida. Criar segue Tipo → Propósito → conferir rascunho → criação explícita. Todo `/comecar` e `/nucleos` exige sessão validada, inclusive o rascunho local. Recarregar descarta o rascunho; nome e propósito só são persistidos ao criar.
 
 As rotas de conta, criação protegida, convite e a primeira Home protegida estão implementadas. A Home mostra dados reais do Núcleo e do vínculo próprio. Sem Supabase configurado, as rotas protegidas não simulam cadastro, Núcleo ou convite. O fluxo de conta e associação foi validado com contas reais no projeto de desenvolvimento `nos-dev`; a Home também foi acessada nas sessões usadas para testar a agenda. Na validação original, o aplicativo ainda não estava publicado; o estado online atual está descrito no início deste README.
