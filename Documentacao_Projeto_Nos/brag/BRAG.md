@@ -1,5 +1,9 @@
 # Brag document — Projeto Nós
 
+## 2026-10-20 — v3.0.3 — envio externo pela Brevo
+
+**Problema:** espera pela senha de aplicativo Google impedia comprovar o envio externo; recuperação também carecia do segredo do servidor. **Contribuição:** configuração Brevo/Supabase, segredo protegido em produção e novo deploy sem alterar fontes. **Resultado verificado:** confirmação recebida na caixa de entrada pelo responsável; recuperação solicitada na tela real, registrada como enviada e também recebida na caixa de entrada. Troca de senha pelo link ainda não certificada. Fixture removida e confirmação de cadastro preservada. **Benefício esperado:** permitir o acesso por confirmação externa sem depender de SMTP Gmail. [Evidências e limites](../_andamento/registros/registro-v3.0.3-2026-10-20-03-imp-envio-brevo-fun-autenticacao-email.md).
+
 ## 2026-10-20 — v3.0.3 — publicação integral com prova online
 
 **Problema:** site público ainda exibia a versão anterior. **Contribuição:** integração segura em main, publicação automática acompanhada e Atlas/documentos sincronizados. **Resultado verificado:** build Netlify aprovado,27 rotas autenticadas e nove grupos online com duas contas descartáveis, removidas após comparação de oito tabelas. **Benefício esperado:** consistência entre aplicativo publicado e referência viva. [Evidências](../_andamento/registros/registro-v3.0.3-2026-10-20-02-imp-deploy-netlify-fun-publicacao-producao.md).

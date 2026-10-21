@@ -1,5 +1,7 @@
 # Recuperação de acesso e SMTP Gmail — v0.13.2
 
+**Substituído operacionalmente em 20/10/2026 — v3.0.3:** SMTP Brevo ativo no Supabase; confirmação recebida externamente e segredo de recuperação configurado no Netlify. Este guia permanece histórico. Não executar `configure-gmail-smtp.ps1` contra o projeto publicado, pois substituiria o provedor atual. [Configuração vigente, evidências e limites](../registros/registro-v3.0.3-2026-10-20-03-imp-envio-brevo-fun-autenticacao-email.md).
+
 Atualizado em 2026-10-10. **Status: preparação concluída; ativação externa bloqueada pela verificação do Google.** O usuário escolheu Gmail e indicou `sintagmasoftware@gmail.com` como remetente. Criou a conta em 2026-10-09 e informou que o Google exige dispositivo/chave registrado há pelo menos sete dias para confirmar a identidade e liberar a ação. A espera depende do registro do fator de verificação, não apenas da idade da conta. Nenhuma credencial deve ser adicionada ao Git, ao Atlas ou a este documento.
 
 ## Preparação entregue e retomada com a senha

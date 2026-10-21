@@ -1,5 +1,13 @@
 # Histórico de andamento
 
+## 2026-10-21 — v3.0.3 — consolidação documental no GitHub
+
+Publicação autorizada dos registros de SMTP Brevo e recuperação, sem novas mudanças funcionais. Descrição do commit resume layout, Conta, Acordos, Agenda, Atlas, deploy e autenticação, distinguindo as entregas já commitadas do fechamento atual. [Registro](registros/registro-v3.0.3-2026-10-21-imp-publicacao-github-fun-consolidacao-entrega.md).
+
+## 2026-10-20 — v3.0.3 — SMTP Brevo e configuração de recuperação
+
+Brevo substitui a preparação Gmail: remetente verificado, chave exclusiva sem expiração fixa e SMTP Supabase ativo, com confirmação obrigatória. Usuário confirmou recebimento da confirmação na entrada. Segredo de recuperação ausente criado no Netlify; deploy `6ad820c79cbacbaabe97e70f` publicado e pedido de recuperação pelo site aceito, com envio registrado. Recebimento da recuperação também confirmado na entrada; troca de senha pelo link ainda não certificada. Conta temporária removida; fontes/esquema preservados. [Registro](registros/registro-v3.0.3-2026-10-20-03-imp-envio-brevo-fun-autenticacao-email.md).
+
 ## 2026-10-20 — v3.0.3 — layout integral publicado e verificado no Netlify
 
 Deploy6ad7eeb747e9c9a82835d3b5, fonte8b529e8e15785d0cd20732ef8fba9ff2bea9760a/main, publicado em20/10/2026 às19:44:44 (Brasília). Build real npm run build → Next16.3.6/Turbopack e TypeScript aprovados; Runtime Netlify5.16.3/Node24. Nova prova HTTPS com duas contas temporárias:27 rotas autenticadas, login/logout e preferência por formulários reais; Núcleo, convite, acordo, participação, momento e evento por RPCs (funções remotas). Nove grupos aprovados. Fixtures removidas e fingerprints de oito tabelas preservados. Nove migrações existentes; nenhuma aplicada nesta entrega. Atlas/guia/cobertura/fidelidade e continuidade atualizados, com prints reais e limites explícitos. Sem incremento funcional ou migração. [Registro](registros/registro-v3.0.3-2026-10-20-02-imp-deploy-netlify-fun-publicacao-producao.md).

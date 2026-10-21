@@ -1,5 +1,21 @@
 # Estado do Projeto Nós
 
+## Publicação GitHub — v3.0.3 — 2026-10-21
+
+**Objetivo/situação:** consolidar registros Brevo/recuperação e publicar em origin/main com descrição abrangente do conjunto já desenvolvido. Base 69c6eb8, sem divergência remota. Fontes/layout/Atlas e deploys anteriores preservados; versão3.0.3. DOCS_DIR:Documentacao_Projeto_Nos. Autorização explícita para commit/push.
+
+**Validações e continuidade:** autorrevisão documental, links locais e diff do índice conferidos no fechamento; igualdade do hash local/remoto e conteúdo do commit conferidos após push. Sem nova suíte funcional, build, envio de e-mail ou mudança de banco. Unidade documental incorporada ao commit que contém este registro; pendência Brevo abaixo substituída por esta publicação. Contador148; último marco100/próximo200. [Registro](registros/registro-v3.0.3-2026-10-21-imp-publicacao-github-fun-consolidacao-entrega.md). Próximo passo: validar troca completa de senha com conta própria; sem bloqueio para publicação dos registros. Superpowers de verificação aplicado; nenhuma consulta de biblioteca ou pesquisa avançada necessária.
+
+## Marco operacional anterior
+
+## Estado atual — envio Brevo — v3.0.3 — 2026-10-20
+
+**Objetivo/resultado:** substituir Gmail SMTP pela Brevo sem serviço paralelo no app. Remetente `sintagmasoftware@gmail.com` verificado; chave `Nós - Supabase Auth` ativa, sem expiração fixa (política Brevo: 90 dias de inatividade). Host/porta/login/segredo configurados no Supabase e conferidos; confirmação de cadastro obrigatória e limite Auth 30/hora. Recebimento de confirmação e recuperação na entrada comprovado pelo usuário; chave Brevo com uso registrado. Recuperação bloqueava por falta de `AUTH_RECOVERY_SECRET`: criado como secreto só em produção no Netlify e aplicado pelo deploy `6ad820c79cbacbaabe97e70f`, commit `69c6eb8`, publicado em 20/10 às 23:18:19 (Brasília), build/TypeScript e varredura de segredos aprovados. Fontes funcionais iguais a `8b529e8`; sem alteração de esquema.
+
+**Validações/limites:** cadastro descartável pela API Auth e pedido de recuperação pelo formulário HTTPS, com envio registrado. Dois recebimentos externos confirmados; troca completa de senha pelo link ainda pendente, sem afirmar recuperação integral certificada. Fixture removida por API administrativa e ausência conferida. Gmail não permite autenticação de domínio próprio e pode ter remetente reescrito pela Brevo. Tentativas SMTP diretas e respostas de upsert do conector Netlify não foram usadas como prova; configuração efetiva conferida no painel e no envio real. Sem nova suíte local ou revisão independente, pois não houve alteração de fontes.
+
+**Continuidade:** [registro operacional](registros/registro-v3.0.3-2026-10-20-03-imp-envio-brevo-fun-autenticacao-email.md). Guia Gmail marcado como histórico; não reaplicar o script antigo. Próximo passo: validar links com conta própria, sem usar a fixture removida. Demais limites do piloto permanecem. **Contador:**147; último marco100/próximo200. **Unidade pronta para commit:** registros de SMTP Brevo/recuperação; sugestão `docs(auth): registrar SMTP Brevo e recuperação em produção`. Nenhum commit/push nesta operação. Ferramentas: painéis Brevo/Supabase/Netlify, API Supabase e conector Netlify, Context7 Supabase/Netlify, Superpowers de verificação/depuração e skills de configuração/deploy Netlify. Os marcos abaixo conservam as condições verificadas nas suas datas.
+
 ## Produção publicada e verificada — v3.0.3 — 2026-10-20
 
 **Objetivo/situação:** publicação integral concluída em [noslife.netlify.app](https://noslife.netlify.app/conta), com Atlas/documentação atualizados. Deploy6ad7eeb747e9c9a82835d3b5, fonte8b529e8e15785d0cd20732ef8fba9ff2bea9760a/main, publicado em20/10/2026 às19:44:44 (Brasília). Build real npm run build → Next16.3.6/Turbopack e TypeScript aprovados; Runtime Netlify5.16.3/Node24. Nova prova HTTPS com duas contas temporárias:27 rotas autenticadas, login/logout e preferência por formulários reais; Núcleo, convite, acordo, participação, momento e evento por RPCs (funções remotas). Nove grupos aprovados. Fixtures removidas e fingerprints de oito tabelas preservados. Nove migrações existentes; nenhuma aplicada nesta entrega.
