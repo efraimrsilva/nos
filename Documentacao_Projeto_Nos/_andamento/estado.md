@@ -1,5 +1,19 @@
 # Estado do Projeto Nós
 
+## Publicação autorizada do Início — v3.0.4 — 2026-10-21
+
+**Objetivo:** commit e push do propósito e da participação no cabeçalho, incluindo Atlas, manifestos e registros. Branch main, base c1fff28; origin/main sincronizada antes da publicação. Autorização explícita do usuário. DOCS_DIR: Documentacao_Projeto_Nos.
+
+**Validação:** npm run typecheck, seis testes de lógica nucleus-home.spec.ts com configuração temporária sem servidor, sintaxe do Atlas e revisão do diff aprovados. Sem build ou inspeção visual autenticada nesta rodada. Unidade incorporada ao commit que contém este registro; sem outra unidade pronta pendente. **Contador:**150; último marco100/próximo200. Próximo passo: confirmar hash local/remoto após o push e conferir visualmente o Início publicado quando o deploy estiver pronto. Push não comprova deploy. [Registro](registros/registro-v3.0.4-2026-10-21-imp-inicio-nucleo-fun-proposito-e-participacao.md). Superpowers de verificação aplicado. Marcos abaixo preservam o estado nas datas registradas.
+
+
+## Início do Núcleo — v3.0.4 — 2026-10-21
+
+**Resultado:** propósito cadastrado no cabeçalho e participação na linha abaixo; removido diálogo “O que nos reúne”. Dados e permissões existentes preservados; Atlas e manifestos alinhados. DOCS_DIR: Documentacao_Projeto_Nos. Critérios locais atendidos, sem publicação.
+
+**Validação:** tipos, seis testes de lógica da Home e sintaxe do Atlas aprovados; autorrevisão do diff. Servidor local lento na tentativa inicial; sem build ou inspeção visual autenticada. Próximo passo: conferir administrador/participante, móvel e propósito longo. **Contador:**149; último marco100/próximo200. **Unidade pronta para commit:** propósito e participação no Início; sugestão `fix(inicio): destacar propósito e participação no Núcleo`. Sem commit/push/deploy. Superpowers brainstorming/TDD proporcional/verificação aplicados; nenhuma API nova ou pesquisa avançada requerendo Context7/Octocode. [Registro](registros/registro-v3.0.4-2026-10-21-imp-inicio-nucleo-fun-proposito-e-participacao.md). Marcos abaixo são históricos.
+
+
 ## Publicação GitHub — v3.0.3 — 2026-10-21
 
 **Objetivo/situação:** consolidar registros Brevo/recuperação e publicar em origin/main com descrição abrangente do conjunto já desenvolvido. Base 69c6eb8, sem divergência remota. Fontes/layout/Atlas e deploys anteriores preservados; versão3.0.3. DOCS_DIR:Documentacao_Projeto_Nos. Autorização explícita para commit/push.

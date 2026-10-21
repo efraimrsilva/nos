@@ -269,3 +269,6 @@ Registro factual de contribuições; resultados medidos são separados de benef�
 - **Resultado verificado:**122 testes gerais,87 cenários autenticados consolidados/1 dispensa e tipos/build aprovados;73 fichas/207 ações/365 estados do Atlas sem erros/rede;165 capturas. Achados de navegação, acessibilidade e evidência resolvidos; sem alteração de regras ou dependências.
 - **Benefício esperado:** consistência da experiência e menor custo para manter navegação/identidade. Ganho de usabilidade não foi medido com pessoas usuárias.
 - **Evidência:** [registro](../_andamento/registros/registro-v2.0.0-2026-10-18-imp-layout-atual-fun-migracao-integral.md), [galeria](../wireframes/comparacoes/v2.0.0-2026-10-18-layout-atual-tela_01-a-tela_73/index.html) e testes de layout/navegação.
+
+## 2026-10-21 — v3.0.4 — Contexto do Núcleo visível no Início
+Problema: propósito exigia abrir um diálogo. Contribuição: propósito e vínculo visíveis acima dos blocos. Benefício esperado: facilitar reconhecer a intenção compartilhada e o próprio papel. Evidência: página nucleos/[id], Atlas e seis testes de lógica aprovados; sem medição de uso.

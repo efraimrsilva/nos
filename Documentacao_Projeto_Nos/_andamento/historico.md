@@ -651,3 +651,9 @@ Controle de inclusão da publicação documental:28 documentos no objeto inicial
 ## 2026-10-18 — v2.0.0 — Migração integral do Layout atual
 
 Todas as famílias de rotas passam à nova estrutura, preservando ações e permissões. Kanban/Painéis/lista de Acordos e seis esboços privados sem persistência; Atlas73 fichas sincronizado.122 testes gerais e87 cenários autenticados consolidados aprovados/1 dispensa; tipos/build local e verificador73 telas/207 ações/365 estados. Capturas históricas preservadas e nova galeria165 imagens. Revisões estática/funcional corrigiram menu administrativo, cascata/hierarquia, eventos do Atlas, rótulos e evidência de capturas. Sem nova migração, commit, push ou deploy. [Registro](registros/registro-v2.0.0-2026-10-18-imp-layout-atual-fun-migracao-integral.md).
+
+## 2026-10-21 — v3.0.4 — Propósito no Início
+Propósito e vínculo movidos para o cabeçalho; diálogo duplicado removido e Atlas alinhado. Tipos, seis testes de lógica e sintaxe aprovados. Sem publicação. Registro: registros/registro-v3.0.4-2026-10-21-imp-inicio-nucleo-fun-proposito-e-participacao.md.
+
+## 2026-10-21 — v3.0.4 — Publicação GitHub autorizada
+Preparado commit atômico do propósito e vínculo no Início, Atlas, manifestos e registros; tipos e seis testes de lógica revalidados. Conferência de hash remoto no fechamento da operação; deploy não certificado.
