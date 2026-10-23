@@ -1,5 +1,10 @@
 # Histórico de andamento
 
+## 2026-10-23 — v3.1.1 — cadastro com e-mail existente
+
+Cadastro repetido avisa no formulário sem prometer confirmação; cadastro válido e destino interno preservados. 142 testes gerais, tipos, build e Visão global aprovados; autorrevisão e revisão independente concluídas. Commit e push de todas as alterações autorizados em 23/10/2026, com descrição abrangendo código, testes, Atlas, documentação e versão. Conferir hash remoto após publicação; nenhuma alteração no banco remoto. [Registro](registros/registro-v3.1.1-2026-10-23-imp-cadastro-fun-email-existente.md).
+
+
 ## 2026-10-23 — v3.1.0 — exclusão da própria conta
 
 Opção vermelha e confirmação APAGAR CONTA; exclusão transacional de acesso/identificação, saída dos Núcleos e histórico preservado como Conta excluída. 130 testes gerais, 12 autenticados relacionados e 143 verificações SQL aprovados; tipos/build e revisão independente. Atlas, contratos e galeria alinhados. Migração remota aplicada após autorização; código8afecb2 publicado no deploy6adae350fa2928885a0de2c8. Prova online desktop/mobile aprovada; quatro contas descartáveis removidas e comparação de15 tabelas confirma dados anteriores preservados. [Registro](registros/registro-v3.1.0-2026-10-23-imp-conta-fun-exclusao-propria.md).

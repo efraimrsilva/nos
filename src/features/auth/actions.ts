@@ -37,7 +37,14 @@ export async function submitAuth(previous: AuthFormState, formData: FormData): P
     const emailRedirectTo = new URL(withAuthNext("/auth/confirm", next), appOrigin).toString();
     // O link padrão confirma no Supabase e retorna para esta rota com um código de sessão PKCE.
     const { data, error } = await supabase.auth.signUp({ email, password, options: { data: { name }, emailRedirectTo } });
+    // Com confirmação ativa, o Auth pode ocultar cadastro repetido retornando
+    // um usuário sem identidades e sem sessão, sem enviar outro e-mail.
+    if (error?.code === "user_already_exists" || error?.code === "email_exists" ||
+      (!error && !data.session && data.user?.identities?.length === 0)) {
+      return fail("Este e-mail já possui uma conta. Use ‘Já tenho conta’ para entrar ou ‘Esqueci minha senha’ para recuperar o acesso.");
+    }
     if (error) return fail("Não foi possível criar a conta agora. Confira os dados e tente novamente.");
+    if (!data.user) return fail("Não foi possível criar a conta agora. Confira os dados e tente novamente.");
     if (!data.session) redirect(withAuthNext("/conta/confirmar-email", next));
   } else {
     const { error } = await supabase.auth.signInWithPassword({ email, password });

@@ -1,5 +1,20 @@
 # Estado do Projeto Nós
 
+## Entrega e publicação GitHub autorizada — v3.1.1 — 2026-10-23 — cadastro com e-mail existente
+
+**Objetivo/aceite:** conta existente avisa no formulário, sem prometer confirmação; cadastro válido/pendente e destino interno preservados. DOCS_DIR: Documentacao_Projeto_Nos. Branch main, base 6ecebdc; árvore limpa antes desta entrega.
+
+**Alterações/decisões:** ação trata códigos explícitos e usuário ofuscado sem sessão/identidades; resposta sem usuário falha. Alerta e opções existentes reutilizados. Sem consulta administrativa ou migração. Indicação pública de existência no cadastro atende ao pedido; recuperação/reenvio continuam neutros. Atlas Tela 02, percurso e cobertura atualizados. PATCH compatível; manifestos 3.1.1.
+
+**Validações:** regressão reproduzida antes do ajuste; 36 testes focados e 142 gerais desktop/mobile aprovados; tipos e build padrão Turbopack aprovados; Visão global do Atlas aprovada; autorrevisão e revisão independente sem achados necessários. Serviço externo isolado nos testes da ação real; sem prova online ou recebimento externo nesta tarefa.
+
+**Contador:** 157; último marco 100/próximo 200. **Unidade de publicação:** correção de cadastro com e-mail existente, testes, Atlas, versão e registros incorporados ao commit que contém este estado. Commit e push de todas as alterações autorizados pelo usuário em 23/10/2026; verificar conteúdo do commit e igualdade com origin/main no fechamento. Nenhuma outra unidade pendente conhecida.
+
+**Ferramentas:** Superpowers depuração, entendimento proporcional, TDD, revisão e verificação; Context7 Supabase consultado, sem versão específica do cliente no catálogo, complementado com cliente instalado e fonte oficial Auth. Octocode 19.1.0 já configurado, ferramenta indisponível nesta sessão; buscas locais delimitadas como alternativa. Nenhuma instalação/configuração alterada.
+
+**Bloqueios:** nenhum para entrega local. **Próximo passo:** verificar commit/push autorizado e depois conferir o aviso no site quando o deploy correspondente estiver confirmado. Publicação GitHub não comprova deploy ou recebimento externo de e-mail. Nenhuma operação em conta real nesta tarefa. **Índice:** [registro](registros/registro-v3.1.1-2026-10-23-imp-cadastro-fun-email-existente.md) · [histórico](historico.md) · [Brag](../brag/BRAG.md) · [Atlas](../wireframes/atlas/index.html#tela-02) · [cobertura](../wireframes/COBERTURA.md).
+
+
 ## Publicação concluída — v3.1.0 — 2026-10-23
 
 **Objetivo e aceite:** exclusão da própria conta, opção vermelha e frase exata APAGAR CONTA. Acesso/identificação removidos; histórico compartilhado preservado como Conta excluída; sucessão/encerramento existentes. DOCS_DIR: Documentacao_Projeto_Nos. Main, base129a333, remota sincronizada antes da entrega. Usuário autorizou publicação em produção em23/10/2026.

@@ -1,5 +1,10 @@
 # Brag document — Projeto Nós
 
+## 2026-10-23 — v3.1.1 — orientação no cadastro repetido
+
+**Problema:** conta existente seguia para confirmação sem envio de e-mail. **Contribuição:** interpretar resposta ofuscada/códigos do Supabase e exibir aviso com caminhos de acesso existentes. **Resultado verificado:** regressão reproduzida e corrigida; 142 testes gerais, tipos/build e Atlas aprovados. **Benefício esperado:** evitar espera por mensagem que não será enviada. [Registro](../_andamento/registros/registro-v3.1.1-2026-10-23-imp-cadastro-fun-email-existente.md).
+
+
 ## 2026-10-23 — v3.1.0 — autonomia para excluir a própria conta
 
 **Problema:** exclusão dependia de suporte e referências obrigatórias de autoria impediam preservar histórico sem manter a conta. **Contribuição:** exclusão transacional da conta autenticada com confirmação por frase, aviso vermelho e preservação de conteúdo; sucessão e encerramento existentes; histórico separado da presença atual na agenda. **Resultado verificado:** 143 verificações SQL, 130 testes gerais, 12 autenticados relacionados, tipos/build e revisões; rollback provocado preservou a conta e os vínculos. **Benefício esperado:** maior autonomia e menor dependência operacional do suporte. Resultado online: duas jornadas desktop/mobile aprovadas, quatro contas descartáveis removidas e dados anteriores preservados em15 tabelas. Deploy6adae350fa2928885a0de2c8/8afecb2 publicado; migração remota aplicada. [Evidências](../_andamento/registros/registro-v3.1.0-2026-10-23-imp-conta-fun-exclusao-propria.md).
