@@ -1,5 +1,19 @@
 # Estado do Projeto Nós
 
+## Publicação em andamento — v3.1.0 — 2026-10-23
+
+**Objetivo e aceite:** exclusão da própria conta, opção vermelha e frase exata APAGAR CONTA. Acesso/identificação removidos; histórico compartilhado preservado como Conta excluída; sucessão/encerramento existentes. DOCS_DIR: Documentacao_Projeto_Nos. Main, base129a333, remota sincronizada antes da entrega. Usuário autorizou publicação em produção em23/10/2026.
+
+**Validação local concluída:** 130 testes gerais, dois novos fluxos autenticados desktop/celular e dez autenticados existentes aprovados; 143 verificações SQL (38 novas/105 existentes); tipos e build padrão Turbopack aprovados. Build autenticado webpack em cópia SHA-256 também passou. Capturas inspecionadas; verificador específico e Visão global aprovados. Verificador legado MVP05 falha em seletor oculto de Tela12, não modificada. Autorrevisão e revisão independente concluídas, P2 da agenda corrigido.
+
+**Publicação:** projeto Netlify noslife confirmado; Supabase pyvohqgcwkcfzbtkmbvx conferido com nove migrações, dry-run com somente20261023120000. Migração remota aplicada com sucesso, agora dez. Referência de preservação de15 tabelas capturada por contagens/hashes, sem conteúdo pessoal. Código aguardando commit/push/deploy e prova online com contas descartáveis. Nenhuma conta real apagada.
+
+**Contador:**155; último marco100/próximo200. **Unidade pronta para commit:** exclusão própria completa com testes, migração, Atlas e documentação; publicação autorizada. Sugestão: feat(conta): permitir exclusão própria com confirmação e histórico preservado.
+
+**Próximo passo:** publicar o commit, acompanhar deploy e executar scripts/verify-account-deletion-online.mjs somente com --production e autorização já recebida. Comparar referência de dados e limpar todas as fixtures. **Ferramentas:** Superpowers entendimento/planejamento/TDD/depuração/revisão/verificação; Context7 Supabase; skill netlify-deploy. Octocode19.1.0 configurado, ferramenta indisponível nesta sessão; não houve pesquisa avançada entre repositórios ou nova instalação.
+
+**Índice:** [registro](registros/registro-v3.1.0-2026-10-23-imp-conta-fun-exclusao-propria.md) · [contrato](funcionalidades/exclusao-conta.md) · [plano](planos/exclusao-conta-2026-10-23.md) · [galeria](../wireframes/comparacoes/v3.1.0-2026-10-23-exclusao-conta/index.html) · [modais](funcionalidades/modais-interface.md) · [histórico](historico.md) · [Brag](../brag/BRAG.md).
+
 ## Publicação integral autorizada — v3.0.6 — 2026-10-21
 
 **Objetivo/escopo:** publicar todas as alterações pendentes com descrição abrangente. Main, base0813046; remota sincronizada antes da operação. Unidades: execução local1e6fb0d, destaque da administração1c8be96 e menu Mais complementar no commit que contém este registro. Fontes, Atlas, testes, manifestos e registros incluídos conforme seus assuntos. DOCS_DIR:Documentacao_Projeto_Nos; versão vigente3.0.6.

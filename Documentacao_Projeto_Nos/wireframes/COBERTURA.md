@@ -206,3 +206,7 @@ Esta validação comprova o funcionamento do atlas. Não valida novamente funcio
 ## Navegação e sessão — v0.13.0
 
 Conta → Seus Núcleos → Início escolhido. Sem associação, criar ou conferir convite; destino específico tem prioridade após login. Todo /comecar e /nucleos exige sessão validada antes de renderizar; token expirado com renovação válida mantém a sessão. Tela 12 tem listagem real protegida por RLS; nenhuma alteração em permissões do banco. Validação atual: 72 prévias, 180 saídas, 360 estados, 14 percursos e Visão global sincronizada; 132 testes do aplicativo, tipos/build e revisão independente aprovados. Métricas da seção histórica acima pertencem à entrega anterior.
+
+## Atualização — v3.1.0 — 23/10/2026
+
+Tela69/Conta e segurança: exclusão da própria conta implementada e validada localmente, opção vermelha, confirmação exata APAGAR CONTA e modal identificado no inventário. Tela01 recebe o resultado; Telas24/28/33 preservam momentos com autoria Conta excluída; Agenda14/15 separa resposta histórica de presença atual. Configurações66, Privacidade67 e Ajuda70 orientam o novo fluxo. Histórico compartilhado mantido, sucessão/encerramento existentes reutilizados. Nova migração apenas no Docker local; produção pendente. [Contrato](../_andamento/funcionalidades/exclusao-conta.md) · [galeria](comparacoes/v3.1.0-2026-10-23-exclusao-conta/index.html).

@@ -9,10 +9,10 @@ import { CalendarPresenceForm, CalendarRemovalForm } from "./calendar-event-acti
 import { ActionDialog } from "@/shared/components/ui/action-dialog";
 import "./calendar-workspace.css";
 
-export type CalendarParticipant = { user_id: string | null; response: string; is_own: boolean };
+export type CalendarParticipant = { user_id: string | null; response: string; is_own: boolean; account_deleted?: boolean };
 export type CalendarEvent = {
   id: string; title: string; intention: string; starts_at: string; ends_at: string;
-  time_zone: string; created_by: string | null; can_manage: boolean;
+  time_zone: string; created_by: string | null; can_manage: boolean; creator_deleted?: boolean;
   nucleus_event_participants: CalendarParticipant[];
 };
 const dayDuration = 86_400_000;
@@ -20,7 +20,8 @@ const clock = new Intl.DateTimeFormat("pt-BR", { hour: "2-digit", minute: "2-dig
 const month = new Intl.DateTimeFormat("pt-BR", { month: "long", year: "numeric", timeZone: "UTC" });
 const day = new Intl.DateTimeFormat("pt-BR", { weekday: "short", day: "numeric", timeZone: "UTC" });
 
-function participationLabel(participants: CalendarParticipant[]) {
+function participationLabel(allParticipants: CalendarParticipant[]) {
+  const participants = allParticipants.filter(participant => !participant.account_deleted);
   if (participants.some(participant => participant.response === "declined")) return "Precisa de novo horário";
   if (participants.length && participants.every(participant => participant.response === "accepted")) return "Confirmado";
   return "Aguardando respostas";
@@ -49,6 +50,9 @@ export function CalendarWorkspace({ nucleusId, nucleusName, events, initialWeek,
   const range = latestHour - earliestHour;
   const timelineHeight = 385;
   const participants = selected?.nucleus_event_participants ?? [];
+  // Respostas históricas permanecem, mas contas excluídas não confirmam presença atual.
+  const currentParticipants = participants.filter(participant => !participant.account_deleted);
+  const deletedResponses = participants.length - currentParticipants.length;
   const own = participants.find(participant => participant.is_own);
   const selectedStart = selected && formatCalendarEventDate(selected.starts_at, selected.time_zone);
   const selectedEnd = selected && formatCalendarEventDate(selected.ends_at, selected.time_zone);
@@ -142,9 +146,11 @@ export function CalendarWorkspace({ nucleusId, nucleusName, events, initialWeek,
         {selected && selectedStart && selectedEnd ? <div className="calendar-selected-event" key={selected.id}>
           <p className="ui-kicker"><time dateTime={selected.starts_at}>{day.format(new Date(selected.starts_at))} · {clock.format(new Date(selected.starts_at))} UTC</time></p>
           <h3>{selected.title}</h3>
+          {selected.creator_deleted && <p className="ui-copy">Criado por Conta excluída.</p>}
           <p className="ui-copy">{selected.intention || "Um momento para estar presente, do jeito que fizer sentido para vocês."}</p>
           <p className="calendar-detail-time"><Clock3 size={16} aria-hidden="true" /><span>{selectedStart.text} até {selectedEnd.text}<small>{selectedStart.zoneLabel}</small></span></p>
-          <p className="calendar-participants"><UsersRound size={19} aria-hidden="true" />{participants.length} participante(s)<span>{participants.filter(participant => participant.response === "accepted").length} com presença confirmada</span></p>
+          <p className="calendar-participants"><UsersRound size={19} aria-hidden="true" />{currentParticipants.length} participante(s)<span>{currentParticipants.filter(participant => participant.response === "accepted").length} com presença confirmada</span></p>
+          {deletedResponses > 0 && <p className="ui-copy">{deletedResponses} resposta(s) histórica(s) de Conta excluída.</p>}
           <span className={`ui-badge ${own?.response === "pending" ? "calendar-pending" : ""}`}>{participationLabel(participants)}</span>
           {own && <><p className="calendar-own-response"><Check size={15} aria-hidden="true" />Sua resposta: {own.response === "accepted" ? "vou participar" : own.response === "declined" ? "não posso participar" : "ainda não respondi"}.</p><CalendarPresenceForm nucleusId={nucleusId} eventId={selected.id} /></>}
           {selected.can_manage && <div className="calendar-management"><ActionDialog trigger={<><Pencil size={16} aria-hidden="true" />Editar evento</>} title="Editar evento" variant="secondary" size="wide"><CalendarEventForm nucleusId={nucleusId} event={selected} /></ActionDialog><CalendarRemovalForm nucleusId={nucleusId} eventId={selected.id} title={selected.title} /></div>}

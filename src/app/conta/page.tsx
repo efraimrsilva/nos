@@ -39,6 +39,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
     {unavailable && <p role="alert" className="ui-feedback mb-5">Não foi possível conferir sua sessão. Tente novamente em instantes.</p>}
     {error === "confirmacao" && <p role="alert" className="ui-feedback mb-5">Não foi possível confirmar o e-mail. <Link href={withAuthNext("/conta/confirmar-email", next)} className="underline">Solicite outro link de confirmação</Link> ou tente entrar.</p>}
     {params.resultado === "senha" && <p role="status" className="ui-feedback mb-5">Senha atualizada. Entre com sua nova senha.</p>}
+    {!user && params.resultado === "conta-excluida" && <p role="status" className="ui-feedback mb-5">Sua conta foi apagada. Seu acesso e seus vínculos foram removidos. O histórico compartilhado permanece com autoria “Conta excluída”.</p>}
     {error === "revogacao" && <p role="alert" className="ui-feedback mb-5">A senha foi alterada, mas não foi possível encerrar todas as sessões. Entre com a nova senha, volte à Conta e use Sair da conta para tentar encerrar as outras sessões.</p>}
     {error === "saida" && <p role="alert" className="ui-feedback mb-5">Não foi possível sair agora. Tente novamente.</p>}
     {user ? <div className="ui-grid">

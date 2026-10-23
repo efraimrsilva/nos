@@ -24,7 +24,8 @@ export const test = base.extend<{ account: { email: string; password: string; id
       // As tabelas não concedem escrita ao service_role; fixtures usam SQL somente no contêiner local.
       localSql(`delete from public.nuclei where created_by='${data.user.id}';`);
       const cleanup = await admin.auth.admin.deleteUser(data.user.id);
-      if (cleanup.error) throw new Error("Falha ao remover a conta temporária local.");
+      // O teste de exclusão já remove a conta; 404 confirma a limpeza nesse caso.
+      if (cleanup.error && cleanup.error.status !== 404) throw new Error("Falha ao remover a conta temporária local.");
     }
   },
   page: async ({ page, context, account }, use) => {

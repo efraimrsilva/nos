@@ -52,7 +52,7 @@ export default async function HabitDetailPage({ params, searchParams }: {
           <p className="ui-kicker">A história deste combinado</p><h2 id="habit-history-heading">Momentos registrados</h2>
           <p className="ui-copy">Vivências compartilhadas com integrantes do Núcleo, sem medir desempenho.</p>
           {visibleMoments.length ? <ol className="agreement-timeline">{visibleMoments.map(moment => <li key={moment.id}>
-            <p className="agreement-history-author">{moment.authorship_hidden ? "Autoria oculta" : moment.author_id === user.id ? "Seu registro" : "Registro de outra pessoa"}<span>{formatMomentDate(moment.created_at)}</span></p>
+            <p className="agreement-history-author">{moment.author_id === null && !moment.authorship_hidden ? "Conta excluída" : moment.authorship_hidden ? "Autoria oculta" : moment.author_id === user.id ? "Seu registro" : "Registro de outra pessoa"}<span>{formatMomentDate(moment.created_at)}</span></p>
             <h3>{habitMoodLabels[moment.mood] ?? "Humor indisponível"}</h3>
             {moment.note && <p className="agreement-description">{moment.note}</p>}
           </li>)}</ol> : <p className="ui-empty">{cursor ? "Não há registros mais antigos." : "Ainda não há momentos registrados para este hábito."}</p>}

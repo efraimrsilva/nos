@@ -33,6 +33,17 @@
 .control-check input { width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px; }
 .control-form .ui-button { justify-self: start; }
 .ui-button-danger { background: #943c40 !important; border-color: #943c40 !important; color: #fff !important; }
+.account-deletion-trigger .account-row { border: 1px solid #e2c3c5; border-radius: 8px; background: #fcf2f2; padding: 14px; }
+.account-deletion-trigger .account-row strong, .account-deletion-trigger .account-row small, .account-deletion-trigger .account-row-icon, .account-deletion-trigger .account-row > svg { color: #86333a; }
+.account-deletion-trigger .account-row-icon { background: #f5dfe1; }
+.account-deletion-warning { padding: 16px; border: 1px solid #e2c3c5; border-left: 3px solid #943c40; border-radius: 8px; background: #fcf2f2; }
+.account-deletion-warning h3 { display: flex; align-items: center; gap: 8px; color: #86333a; }
+.account-deletion-warning p { color: #743239; }
+.account-deletion-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.account-deletion-actions button { min-height: 44px; }
+.account-deletion-actions .ui-button-danger { white-space: normal; text-align: center; }
+.account-deletion-form { min-width: 0; }
+.account-deletion-form fieldset { padding: 0; border: 0; }
 .ui-feedback { padding: 13px 15px; border: 1px solid #cbd9c7; border-left: 3px solid var(--color-leaf); border-radius: 6px; background: #f1f5ec; color: var(--color-forest); font-size: 13px; line-height: 1.7; }
 .ui-feedback[role=alert] { border-color: #e2c3c5; border-left-color: #943c40; background: #fcf2f2; color: #86333a; }
 .ui-text-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--color-leaf); font-size: 13px; text-decoration: underline; text-underline-offset: 4px; }

@@ -1,5 +1,9 @@
 # Histórico de andamento
 
+## 2026-10-23 — v3.1.0 — exclusão da própria conta
+
+Opção vermelha e confirmação APAGAR CONTA; exclusão transacional de acesso/identificação, saída dos Núcleos e histórico preservado como Conta excluída. 130 testes gerais, 12 autenticados relacionados e 143 verificações SQL aprovados; tipos/build e revisão independente. Atlas, contratos e galeria alinhados. Migração remota aplicada após autorização de produção; deploy/prova online em andamento. [Registro](registros/registro-v3.1.0-2026-10-23-imp-conta-fun-exclusao-propria.md).
+
 ## 2026-10-21 — v3.0.3 — consolidação documental no GitHub
 
 Publicação autorizada dos registros de SMTP Brevo e recuperação, sem novas mudanças funcionais. Descrição do commit resume layout, Conta, Acordos, Agenda, Atlas, deploy e autenticação, distinguindo as entregas já commitadas do fechamento atual. [Registro](registros/registro-v3.0.3-2026-10-21-imp-publicacao-github-fun-consolidacao-entrega.md).

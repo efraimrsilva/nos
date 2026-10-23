@@ -1,5 +1,9 @@
 # Brag document — Projeto Nós
 
+## 2026-10-23 — v3.1.0 — autonomia para excluir a própria conta
+
+**Problema:** exclusão dependia de suporte e referências obrigatórias de autoria impediam preservar histórico sem manter a conta. **Contribuição:** exclusão transacional da conta autenticada com confirmação por frase, aviso vermelho e preservação de conteúdo; sucessão e encerramento existentes; histórico separado da presença atual na agenda. **Resultado verificado:** 143 verificações SQL, 130 testes gerais, 12 autenticados relacionados, tipos/build e revisões; rollback provocado preservou a conta e os vínculos. **Benefício esperado:** maior autonomia e menor dependência operacional do suporte. Migração remota aplicada; prova online em andamento. [Evidências](../_andamento/registros/registro-v3.1.0-2026-10-23-imp-conta-fun-exclusao-propria.md).
+
 ## 2026-10-20 — v3.0.3 — envio externo pela Brevo
 
 **Problema:** espera pela senha de aplicativo Google impedia comprovar o envio externo; recuperação também carecia do segredo do servidor. **Contribuição:** configuração Brevo/Supabase, segredo protegido em produção e novo deploy sem alterar fontes. **Resultado verificado:** confirmação recebida na caixa de entrada pelo responsável; recuperação solicitada na tela real, registrada como enviada e também recebida na caixa de entrada. Troca de senha pelo link ainda não certificada. Fixture removida e confirmação de cadastro preservada. **Benefício esperado:** permitir o acesso por confirmação externa sem depender de SMTP Gmail. [Evidências e limites](../_andamento/registros/registro-v3.0.3-2026-10-20-03-imp-envio-brevo-fun-autenticacao-email.md).
