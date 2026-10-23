@@ -210,3 +210,5 @@ Conta → Seus Núcleos → Início escolhido. Sem associação, criar ou confer
 ## Atualização — v3.1.0 — 23/10/2026
 
 Tela69/Conta e segurança: exclusão da própria conta implementada e validada localmente, opção vermelha, confirmação exata APAGAR CONTA e modal identificado no inventário. Tela01 recebe o resultado; Telas24/28/33 preservam momentos com autoria Conta excluída; Agenda14/15 separa resposta histórica de presença atual. Configurações66, Privacidade67 e Ajuda70 orientam o novo fluxo. Histórico compartilhado mantido, sucessão/encerramento existentes reutilizados. Nova migração apenas no Docker local; produção pendente. [Contrato](../_andamento/funcionalidades/exclusao-conta.md) · [galeria](comparacoes/v3.1.0-2026-10-23-exclusao-conta/index.html).
+
+**Produção v3.1.0 — 23/10/2026:** migração e código8afecb2 publicados, deploy6adae350fa2928885a0de2c8. Exclusão da conta validada online em desktop/celular; quatro contas descartáveis removidas e dados anteriores preservados em15 tabelas. O status remoto pendente do bloco anterior foi concluído.

@@ -14,4 +14,4 @@ Desenho aprovado em 23/10/2026: opção vermelha em Conta e segurança; confirma
 
 A migração não apaga conteúdo compartilhado nem dados de outras contas. Falhas devem reverter a transação. Tokens emitidos podem durar até expirar, mas vínculos são removidos e operações sem associação precisam negar conta inexistente. Storage não é utilizado pelo aplicativo; caso exista objeto associado, a restrição do Supabase deve abortar a exclusão sem limpar objetos por SQL. Backup e retenção externa não são apagados por este fluxo.
 
-Publicação autorizada: migração remota aplicada antes do código; conferir deploy e hashes dos dados existentes no fechamento.
+Publicação concluída: migração remota aplicada antes do código; deploy6adae350fa2928885a0de2c8/8afecb2 e hashes dos dados existentes conferidos. Prova online desktop/mobile aprovada; fixtures removidas.

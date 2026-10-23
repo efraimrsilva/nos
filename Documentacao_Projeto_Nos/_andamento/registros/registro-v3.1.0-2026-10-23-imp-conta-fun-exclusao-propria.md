@@ -1,6 +1,6 @@
 # Registro — v3.1.0 — 2026-10-23 — Imp. de conta com Fun. de exclusão própria
 
-**Status:** concluído e validado localmente; publicação e migração remota pendentes.
+**Status:** publicado e validado em produção em23/10/2026; migração remota aplicada e dados anteriores preservados.
 
 ## Objetivo, contexto e requisitos
 
@@ -31,14 +31,18 @@ Oferecer exclusão da própria conta em Conta e segurança. O usuário pediu sin
 
 Entrega local funcional. Galeria inspecionada em desktop/celular: [capturas](../../wireframes/comparacoes/v3.1.0-2026-10-23-exclusao-conta/index.html). [Contrato e roteiro manual](../funcionalidades/exclusao-conta.md).
 
-Banco do Docker restaurado e migração aplicada/transacionada localmente; histórico de migração local registrado. Nenhuma conta real ou banco remoto alterado. Sem commit, push ou deploy. Textos podem identificar a pessoa; retenção e backups não são apagados imediatamente. Exclusões simultâneas com múltiplas conexões não foram certificadas especificamente; regras existentes de saída concorrente passaram.
+Banco do Docker restaurado e migração aplicada/transacionada localmente; histórico local registrado. Após autorização de produção, migração aplicada também no Supabase remoto e código publicado. Nenhuma conta real de uso apagada. Textos podem identificar a pessoa; retenção e backups não são apagados imediatamente. Exclusões simultâneas com múltiplas conexões não foram certificadas especificamente; regras existentes de saída concorrente passaram.
 
-Próximo passo: mediante autorização, publicar a unidade e aplicar a migração remota antes do código que consome o novo retorno da agenda, atualizar cache de esquema e conferir o fluxo com contas descartáveis online. Não testar apagando conta real de uso.
+Próximo passo: uso acompanhado e evolução separada dos procedimentos de retenção/backups. Publicação, atualização de esquema e prova com contas descartáveis concluídas conforme evidências abaixo. Não testar apagando conta real de uso.
 
 ## Ferramentas
 
 Superpowers: entendimento, planejamento proporcional, TDD, depuração, revisão e verificação. Context7: documentação oficial Supabase sobre exclusão de Auth, sessões/JWT e tratamento de Storage, sem correspondência exata de versão do SDK 2.117.2 indexada. Octocode19.1.0 já configurado; ferramenta não exposta nesta sessão, sem pesquisa avançada entre repositórios necessária. Não houve instalação adicional de dependências do projeto.
 
-## Publicação autorizada em23/10/2026 — em andamento
+## Publicação autorizada e concluída em23/10/2026
 
-Usuário autorizou produção. Projeto Netlify noslife e Supabase vinculado conferidos. Referência de preservação de15 tabelas salva somente com contagens/hashes; nova migração era a única pendente no dry-run e foi aplicada com sucesso no remoto, totalizando dez. Código ainda aguardando commit/push/deploy e verificação com contas descartáveis. Verificador online exige --production e referência do projeto; não imprime credenciais e limita limpeza aos identificadores criados nesta execução.
+Usuário autorizou produção. Projeto Netlify noslife e Supabase vinculado conferidos. Referência de preservação de15 tabelas salva somente com contagens/hashes; nova migração era a única pendente no dry-run e foi aplicada com sucesso no remoto, totalizando dez. Código8afecb27da700bc064112713dea0268a5caf0d93 enviado para origin/main e hash remoto confirmado. Netlify publicou deploy6adae350fa2928885a0de2c8, contexto production, estado ready, sem erro, às04:32:53UTC (01:32:53 no fuso do usuário). Commit do deploy conferido. Verificador online exige --production e referência do projeto; não imprime credenciais e limita limpeza aos identificadores criados nesta execução.
+
+**Prova online final:** script executado com autorização, --production, TLS com certificados do sistema e credenciais somente em memória. Desktop e celular aprovados: opção vermelha, frase exata, frase incorreta bloqueada, cancelamento, exclusão pelo formulário, mensagem final, rota protegida bloqueada, sucessão administrativa, momento como Conta excluída e agenda confirmada sem interferência da resposta histórica recusada. Quatro contas descartáveis foram criadas e removidas. Núcleos/dados descartáveis limpos por UUIDs específicos. Contagens/hashes das15 tabelas coincidiram com a referência anterior à migração. Dez migrações, RPC presente, authenticated permitido e anon negado. Capturas de produção incluídas na galeria.
+
+**Revisão do verificador online:** revisão independente identificou que uma falha inicial de limpeza impediria as seguintes; corrigido antes da execução, tentando todas as limpezas e preservando UUIDs descartáveis para recuperação dirigida. Execução concluiu sem erro e sem resíduos. As evidências documentais finais são commitadas separadamente com [skip netlify], pois não alteram o código publicado.

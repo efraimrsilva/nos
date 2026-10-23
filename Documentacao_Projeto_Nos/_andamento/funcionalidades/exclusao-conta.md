@@ -30,7 +30,7 @@ O aplicativo ainda não oferece uploads. Como SQL direto não verifica a proprie
 
 Testes pgTAP verificam autorização, frase, rollback, sucessão, fechamento, preservação de respostas, duas exclusões sucessivas, sessões e token antigo. O teste autenticado usa duas contas locais em computador e celular e verifica exclusão pelo formulário, cancelamento, limpeza ao reabrir, bloqueio posterior e história disponível à outra pessoa. Dados temporários são removidos por identificadores específicos.
 
-Migração: `supabase/migrations/20261023120000_delete_own_account.sql`. Aplicada somente ao Docker local. Para produção, aplicar a migração antes de publicar o código que usa o novo retorno da agenda; conferir a atualização do cache de esquema. Não executar a exclusão de uma conta real como teste. Publicação, migração remota e prova online dependem de autorização específica.
+Migração: `supabase/migrations/20261023120000_delete_own_account.sql`. Aplicada ao Docker local e, após autorização em23/10/2026, ao Supabase de produção. Para produção, aplicar a migração antes de publicar o código que usa o novo retorno da agenda; conferir a atualização do cache de esquema. Não executar a exclusão de uma conta real como teste. Publicação e migração remota foram autorizadas e concluídas em23/10/2026; nova execução de verificação destrutiva depende de autorização própria.
 
 ## Roteiro manual
 
@@ -40,3 +40,7 @@ Migração: `supabase/migrations/20261023120000_delete_own_account.sql`. Aplicad
 4. Cancelar ou pressionar Escape; reabrir e conferir o campo vazio e a conta preservada.
 5. Confirmar a exclusão; conferir mensagem de sucesso e bloqueio de rotas protegidas.
 6. Pela outra conta do Núcleo, conferir a sucessão, o histórico como Conta excluída e a agenda sem presença atual da conta apagada.
+
+## Evidência de produção — 23/10/2026
+
+Commit8afecb2, deploy Netlify6adae350fa2928885a0de2c8 em noslife.netlify.app. Dez migrações remotas. Duas jornadas online (desktop/celular) aprovadas, quatro contas descartáveis removidas e dados anteriores preservados em15 tabelas. Verificador: scripts/verify-account-deletion-online.mjs; exige --production, projeto fixo e referência prévia de hashes. Nenhuma conta real apagada.

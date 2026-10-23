@@ -47,3 +47,5 @@ Evidências:106 testes gerais com compilação local de produção; quatro auten
 ## Evolução — v3.1.0 — 23/10/2026
 
 A exclusão da própria conta deixa de ser apenas uma solicitação manual: Conta e segurança oferece ação vermelha, diálogo de consequências e frase APAGAR CONTA. Somente a conta da sessão pode ser excluída. Identificação e acesso removidos; histórico compartilhado preservado como Conta excluída. Participação, sucessão e encerramento seguem o contrato atual; dados textuais e backups têm limites explícitos. Implementação e banco local validados, sem aplicação remota ou deploy. Este bloco substitui a orientação histórica de exclusão exclusivamente por suporte. [Contrato completo](exclusao-conta.md).
+
+**Produção v3.1.0 — 23/10/2026:** migração e código8afecb2 publicados, deploy6adae350fa2928885a0de2c8. Exclusão da conta validada online em desktop/celular; quatro contas descartáveis removidas e dados anteriores preservados em15 tabelas. O status remoto pendente do bloco anterior foi concluído.
