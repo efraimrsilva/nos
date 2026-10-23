@@ -212,3 +212,7 @@ Conta → Seus Núcleos → Início escolhido. Criação e convite são alternat
 ## Identificação permanente de modais — decisão de 2026-10-18
 
 Toda ação que abre diálogo deve aparecer como **Modal** no Atlas e nas fichas/documentações correspondentes. Registrar gatilho, objetivo, conteúdo, permissões, resultado/fechamento e integração real ou esboço. A galeria de cada entrega deve identificar os modais abertos e suas telas de origem. Navegação para rota não é modal. Consultar e manter o [inventário e contrato permanente](../_andamento/funcionalidades/modais-interface.md).
+
+## Testes manuais por funcionalidade — v3.1.1 — 2026-10-23
+
+Cada funcionalidade nova ou alterada deve gerar/revisar teste manual ligado à etapa MVP ou Expansão deste Atlas, com ID estável, caminho, ação e esperado, uma linha iniciada por []. Manter execução e retestes separados das expectativas. Consulte o [processo permanente](../_andamento/testes-manuais/README.md), o [MVP01](../_andamento/testes-manuais/mvp-01.md) e o [controle de resultados](../_andamento/testes-manuais/resultados.md). Nenhum teste é aprovado somente por existir no roteiro.

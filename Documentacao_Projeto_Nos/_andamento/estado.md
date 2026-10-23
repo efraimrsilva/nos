@@ -1,5 +1,29 @@
 # Estado do Projeto Nós
 
+## Publicação GitHub autorizada — v3.1.1 — 2026-10-23 — testes manuais
+
+**Objetivo:** commit e push de todas as alterações pendentes autorizados pelo usuário, com descrição abrangente da entrega. Branch main/base2186586, sincronizada com origin/main antes da operação. Versão funcional3.1.1 preservada.
+
+**Escopo:** dez arquivos: processo permanente,62 testes MVP01, controle de resultados/retestes, registro versionado, guia e fichas do Atlas, estado/histórico/Brag. Autorrevisão documental; sem mudança de aplicação ou banco. Testes manuais continuam Não executados.
+
+**Contador:**159; último marco100/próximo200. **Unidades prontas para commit:** nenhuma pendência restante desta entrega. Inclusão dos dez arquivos comprovada no objeto inicial 79ae45e92c8facf548b5ea659c056e903c4539a6; controle de fechamento incorporado ao mesmo commit antes do push. **Validação:** sintaxe dos dois scripts,62 IDs sequenciais/campos obrigatórios, links locais e diff do índice; conferir conteúdo/hash remoto após push. Superpowers de verificação aplicado; sem consulta tecnológica ou pesquisa avançada que exija Context7/Octocode nesta publicação.
+
+**Próximo passo:** concluir conferência do commit/push e receber resultados por ID para atualizar testes-manuais/resultados.md. GitHub não comprova deploy. Sem nova execução da aplicação ou envio de e-mail nesta rodada. [Registro](registros/registro-v3.1.1-2026-10-23-imp-roteiro-manual-fun-cobertura-mvp-01.md) · [roteiro](testes-manuais/mvp-01.md) · [resultados](testes-manuais/resultados.md).
+
+
+## Testes manuais por etapa — v3.1.1 — 2026-10-23
+
+**Objetivo/aceite:** testar o sistema em partes pelo Atlas, nesta entrega MVP01; cada funcionalidade passa a exigir teste manual com ID, etapa, caminho e esperado. DOCS_DIR: Documentacao_Projeto_Nos. Main/base2186586; Git limpo na abertura. Versão funcional3.1.1 preservada (documentação).
+
+**Situação:**62 testes preparados para Telas01–05/72; nenhum executado/relatado. Processo permanente, roteiro e histórico de resultados criados. Evidência Brevo/segredo de20/10 corrigida na etapa01/fichas03/04 do Atlas. Demais MVPs/expansões ainda não detalhados. Sem alteração funcional, banco ou operação externa.
+
+**Validação:** fontes/contratos conferidos, IDs e links locais verificados, sintaxe dos scripts e diff conferidos. Autorrevisão documental; nenhuma aprovação manual atribuída. Context7 dispensado: sem geração de código ou consulta tecnológica; Octocode indisponível na sessão, sem pesquisa avançada necessária. Superpowers de planejamento proporcional e verificação aplicados; configuração das ferramentas preservada.
+
+**Contador:**158; último marco100/próximo200. **Unidade documental:** incorporada ao commit de publicação descrito no marco acima, com inclusão comprovada no objeto Git. Pendência de commit encerrada; sem comprovação de deploy. Trabalho anterior consta no commit2186586; nenhuma pendência anterior acrescida por suposição.
+
+**Bloqueios:** nenhum para entregar roteiro; execução depende do usuário e ambiente. **Próximo passo:** executar os testes e enviar ID/resultado; registrar em resultados.md, investigar falhas e manter histórico de retestes. **Índice:** [processo](testes-manuais/README.md) · [MVP01](testes-manuais/mvp-01.md) · [resultados](testes-manuais/resultados.md) · [registro](registros/registro-v3.1.1-2026-10-23-imp-roteiro-manual-fun-cobertura-mvp-01.md).
+
+
 ## Entrega e publicação GitHub autorizada — v3.1.1 — 2026-10-23 — cadastro com e-mail existente
 
 **Objetivo/aceite:** conta existente avisa no formulário, sem prometer confirmação; cadastro válido/pendente e destino interno preservados. DOCS_DIR: Documentacao_Projeto_Nos. Branch main, base 6ecebdc; árvore limpa antes desta entrega.

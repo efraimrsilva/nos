@@ -1,5 +1,15 @@
 # Histórico de andamento
 
+## 2026-10-23 — v3.1.1 — publicação GitHub dos testes manuais
+
+Commit e push de todas as alterações documentais autorizados pelo usuário: processo permanente,62 casos MVP01, resultados/retestes e sincronização do Atlas com a evidência Brevo. Versão funcional preservada; execução manual pendente. Verificações documentais e autorrevisão; conferir hash remoto no fechamento. [Registro](registros/registro-v3.1.1-2026-10-23-imp-roteiro-manual-fun-cobertura-mvp-01.md).
+
+
+## 2026-10-23 — v3.1.1 — processo e roteiro manual MVP01 (documentação)
+
+Criados62 casos das Telas01–05/72, regra permanente por funcionalidade e controle de resultados/retestes. Nenhuma execução recebida. Atlas etapa01/fichas03/04 corrigido pela evidência Brevo de20/10; sem alteração funcional. [Roteiro](testes-manuais/mvp-01.md) · [Registro](registros/registro-v3.1.1-2026-10-23-imp-roteiro-manual-fun-cobertura-mvp-01.md).
+
+
 ## 2026-10-23 — v3.1.1 — cadastro com e-mail existente
 
 Cadastro repetido avisa no formulário sem prometer confirmação; cadastro válido e destino interno preservados. 142 testes gerais, tipos, build e Visão global aprovados; autorrevisão e revisão independente concluídas. Commit e push de todas as alterações autorizados em 23/10/2026, com descrição abrangendo código, testes, Atlas, documentação e versão. Conferir hash remoto após publicação; nenhuma alteração no banco remoto. [Registro](registros/registro-v3.1.1-2026-10-23-imp-cadastro-fun-email-existente.md).

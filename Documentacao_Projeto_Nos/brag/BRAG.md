@@ -1,5 +1,10 @@
 # Brag document — Projeto Nós
 
+## 2026-10-23 — v3.1.1 — rastreabilidade manual do acesso
+
+**Problema:** faltava controle consolidado dos testes manuais por etapa do Atlas. **Contribuição:**62 casos de acesso, IDs estáveis e histórico de execução/reteste; regra permanente por funcionalidade. **Resultado verificado:** roteiro documentado, sem aprovação manual. **Benefício esperado:** facilitar reprodução e evitar perda de falhas entre rodadas. [Processo e evidências](../_andamento/registros/registro-v3.1.1-2026-10-23-imp-roteiro-manual-fun-cobertura-mvp-01.md).
+
+
 ## 2026-10-23 — v3.1.1 — orientação no cadastro repetido
 
 **Problema:** conta existente seguia para confirmação sem envio de e-mail. **Contribuição:** interpretar resposta ofuscada/códigos do Supabase e exibir aviso com caminhos de acesso existentes. **Resultado verificado:** regressão reproduzida e corrigida; 142 testes gerais, tipos/build e Atlas aprovados. **Benefício esperado:** evitar espera por mensagem que não será enviada. [Registro](../_andamento/registros/registro-v3.1.1-2026-10-23-imp-cadastro-fun-email-existente.md).
