@@ -1,5 +1,9 @@
 # Histórico de andamento
 
+## 2026-10-24 — v3.3.0 — totais pessoais na navegação
+
+Totais globais autenticados, números discretos desktop/mobile, Pessoas deduplicadas, aceite vigente e Agenda atual. Função agregada sem exposição de listas/autoria, cache por requisição e falha sem zero fictício.162 gerais,153 SQL,12 cenários autenticados cobertos (11 na rodada ampliada + dois retestes do caso de erro), tipos/build/Atlas aprovados. Revisão independente e P2 de limpeza online corrigido. Produção autorizada; conferência remota e prova online pendentes neste marco. [Registro](registros/registro-v3.3.0-2026-10-24-imp-navegacao-fun-totais-pessoais.md).
+
 ## 2026-10-24 — v3.2.1 — publicação GitHub da aparência autorizada
 
 Usuário autorizou commit/push de todas as alterações acumuladas, com descrição abrangente. Destino:codex/temas-conta; main preservada. Código, testes, nove temas, navegação, ícones, Atlas,68 capturas e registros na mesma unidade lógica.158 gerais, tipos/build e Atlas conferidos nesta publicação; testes manuais seguem Não executados. Inclusão/hash remoto conferidos no fechamento. [Registro](registros/registro-v3.2.1-2026-10-24-imp-publicacao-github-fun-consolidacao-aparencia.md).

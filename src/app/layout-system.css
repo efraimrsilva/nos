@@ -18,7 +18,11 @@ html { scroll-behavior:smooth; scroll-padding-top:24px; }
 .navigation-link { display:flex; align-items:center; gap:10px; width:100%; padding:12px; min-height:45px; border-radius:7px; font-size:14px; color:var(--color-muted); margin-bottom:2px; }
 /* Gatilhos de diálogo e links compartilham o mesmo item visual nos menus desktop e Mais. */
 button.navigation-link { border:0; background:none; text-align:start; }
-.navigation-link>span:not(.nav-planned) { flex:1; }
+.navigation-link>span:not(.nav-planned):not(.nav-count) { flex:1; }
+.nav-count { flex:none; font-size:12px; font-weight:400; font-variant-numeric:tabular-nums; color:var(--color-muted); }
+.mobile-nav-label { display:flex; align-items:baseline; justify-content:center; gap:4px; white-space:nowrap; }
+.mobile-nav-label .nav-count { font-size:9px; }
+.mobile-nav-label .nav-count::before { content:"·"; margin-right:4px; }
 .navigation-link:hover { background:var(--theme-soft,#edf1e7); }
 .navigation-link[aria-current=page] { background:var(--accent-soft); color:var(--color-leaf); font-weight:700; }
 .nav-planned { font-size:13px; }

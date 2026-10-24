@@ -222,6 +222,11 @@ for(const [from,to,label] of [[38,40,'Explorar Memórias · esboço'],[40,38,'Vo
 screens.find(screen=>screen.id===18).dependency='Layout atual: Kanban · Fluxo, Painéis · Lado a lado e lista móvel sobre os registros reais. Categorias do modelo atual não comprovam evolução individual. Proposta → Hábito → Experiência → Essência continua planejado; critérios, consentimento e passagens não desenvolvidos.';
 screens.find(screen=>screen.id===13).dependency='Layout atual com propósito real, acesso a Acordos, agenda, pessoas e convites; módulos futuros abrem esboços protegidos. Sem indicadores de crescimento, estágio ou evolução inventados.';
 
+// Navegação compartilhada: exemplos no Atlas, totais próprios autenticados no aplicativo.
+for (const id of [12,13,14,18,73]) {
+ const screen=screens.find(item=>item.id===id);
+ screen.rule+=' v3.3.0: navegação mostra totais gerais dos Núcleos atuais da pessoa. Acordos com aceite vigente e não encerrados; Agenda com inclusão pendente/aceita e término futuro; Pessoas distintas sem a própria conta. Números discretos desktop/mobile; falha não vira zero. Exemplos do Atlas não consultam contas.';
+}
 const journeys = [
  {name:'Voltar a um Núcleo existente',ids:[1,12,13,18],rule:'Login → lista de associações reais → seleção explícita → Início → área escolhida. Não exigir nova criação.'},
  {name:'Primeiro acesso · criar um Núcleo',ids:[1,12,6,7,8,9,58,59,13],steps:['Entrar com conta confirmada','Seus Núcleos','Escolha opcional de caminho','Selecionar vínculo','Propósito e conferência sem gravar','Criar explicitamente','Copiar ou compartilhar código · opcional','Gerenciar/revogar · opcional','Abrir Início'],rule:'Conta confirmada → lista → criação → convite → Início. Cadastro/confirmação (02/03) são ramificações da Conta. Lista pode ir direto ao Tipo; Escolher caminho é alternativa. 09/58 são estados da mesma rota. Convidar/gerenciar são opcionais e acessíveis pelo Início. Outra pessoa segue o Percurso 04: código → prévia → aceite explícito. Revogar impede novos aceites, preservando participantes existentes. QR/link e histórico por aceite reservados.'},

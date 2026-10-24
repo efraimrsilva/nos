@@ -43,3 +43,9 @@ body{font-family:Arial,sans-serif}.sidebar{background:#f5f7f1}.edition{color:#34
 .live-account-tree{display:block;width:160px;max-width:100%;height:auto;margin:0 auto 18px}
 @container(min-width:701px){.live-account-tree{width:280px;margin-bottom:24px}}
 @media print{.reference-controls,.preview-origin{display:none!important}.approved-stage .nos-scroll{overflow:hidden!important}.atlas-live-dialog{display:none!important}}
+
+/* Totais textuais de exemplo, sem sinal visual de notificação. */
+.current-atlas-nav-group>button>.live-nav-count{flex:none;font-size:12px;font-weight:400;color:var(--muted);font-variant-numeric:tabular-nums}
+.live-mobile-nav-label{display:flex;gap:4px;align-items:baseline;justify-content:center;white-space:nowrap}
+.live-mobile-nav-label .live-nav-count{font-size:9px;color:var(--muted)}
+.live-mobile-nav-label .live-nav-count::before{content:"·";margin-right:4px}

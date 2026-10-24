@@ -1,5 +1,9 @@
 # Brag document — Projeto Nós
 
+## 2026-10-24 — v3.3.0 — presença atual visível na navegação
+
+**Problema:** menus não indicavam os vínculos atuais da pessoa. **Contribuição:** quatro totais autenticados, sem aparência de notificação; mesma informação no desktop/mobile, sem duplicar Pessoas e sem contar registros históricos indevidos. **Resultado verificado:** regras testadas no banco, navegação em320px e valor1201 no navegador;162 testes gerais e153 SQL aprovados. **Benefício esperado:** consultar a própria participação com menos navegação, sem métrica de uso inventada. [Evidências](../_andamento/registros/registro-v3.3.0-2026-10-24-imp-navegacao-fun-totais-pessoais.md).
+
 ## 2026-10-23 — v3.2.1 — diversidade visual com consistência
 
 **Problema:** usuário solicitou maior diversidade e apontou Aparência desalinhada nos dois menus; ícones escuros eram uniformizados. **Contribuição:** Solar/Âmbar e Noturno/Neon, variante de navegação compartilhada e cores originais dos ícones independentes do tema. **Resultado verificado:** nove opções e estilos comparados em desktop/mobile;158 gerais,16 focados e fluxos autenticados aprovados. **Benefício esperado:** ampliar escolha sem perder reconhecimento visual; sem métrica de satisfação inventada. [Evidências](../_andamento/registros/registro-v3.2.1-2026-10-23-imp-catalogo-temas-fun-solar-neon.md).

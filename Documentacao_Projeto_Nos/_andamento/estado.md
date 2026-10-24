@@ -1,5 +1,21 @@
 # Estado do Projeto Nós
 
+## Totais pessoais na navegação — v3.3.0 — 2026-10-24
+
+**Objetivo/aceite:** quatro totais gerais atuais da própria pessoa nos menus desktop/mobile, discretos e acessíveis. Regras aprovadas; publicação completa autorizada pelo usuário. DOCS_DIR:Documentacao_Projeto_Nos. Branch codex/temas-conta, base aea5ccd; Git limpo na abertura, além do registro de investigação desta tarefa. MINOR3.3.0 nos manifestos.
+
+**Situação/decisões:** código e Atlas concluídos localmente; RPC get_navigation_counts sem parâmetro usa auth.uid e retorna só números. Associação atual/Núcleo aberto, aceite vigente e não encerrado, Agenda pendente/aceita ainda não terminada, Pessoas distintas sem self. Um cache por renderização; sem tempo real. Falha mostra travessão com descrição. Links continuam contextuais, totais globais explicados. Nenhum privilégio da Agenda ampliado.
+
+**Validações:**162 gerais;153 SQL; quatro fluxos autenticados iniciais e rodada ampliada com11 aprovados/um seletor ambíguo de teste corrigido, depois dois retestes do caso de erro aprovados. Tipos/build padrão e webpack autenticado SHA-256 aprovados. Atlas totais/Visão global73 sem erro/rede. Autorrevisão e revisão independente, P2 da limpeza online resolvido.12 testes manuais Não executados.
+
+**Produção:** site noslife0c9957c7-6b60-4a77-9b93-ce3dca577d7c e Supabase pyvohqgcwkcfzbtkmbvx conferidos. Dry-run: somente20261024120000; dez migrações remotas anteriores. Referência de contagens/hashes das15 tabelas salva antes da publicação. Migração20261024120000 aplicada remotamente em24/10, sem alteração de dados. **Próximo passo:** commit/push, publicar fontes no Netlify e verificar totais online com contas descartáveis e limpeza. Publicação/prova online ainda não concluídas neste marco.
+
+**Contador:**165; último marco100/próximo200. Mensagem de autorização de produção durante a execução incorporada à mesma interação. **Unidade pronta para commit:** totais pessoais, migração, testes, Atlas, galeria, versão e registros; commit/push/deploy autorizados. Sugestão: feat(navegacao): exibir totais pessoais no desktop e celular.
+
+**Ferramentas:** Superpowers entendimento/TDD/depuração/revisão/verificação, sincronização Atlas, checklist React e Netlify deploy. Context7 Supabase JS consultado, versão exata ausente no catálogo, tipos locais complementam. Octocode19.1.0 configurado, não exposto nesta sessão; sem pesquisa avançada necessária. Bloqueios: nenhum técnico atual.
+
+**Índice:** [registro](registros/registro-v3.3.0-2026-10-24-imp-navegacao-fun-totais-pessoais.md) · [contrato](funcionalidades/totais-navegacao.md) · [manual](testes-manuais/totais-navegacao.md) · [resultados](testes-manuais/resultados.md) · [galeria](../wireframes/comparacoes/v3.3.0-2026-10-24-totais-navegacao/index.html) · [histórico](historico.md) · [Brag](../brag/BRAG.md). Marcos abaixo preservam o histórico.
+
 ## Publicação GitHub autorizada — v3.2.1 — 2026-10-24
 
 **Objetivo/aceite:** commit e push de todas as alterações da unidade de aparência, com descrição abrangente. Versão3.2.1 preservada; branch codex/temas-conta/base34d0598, origin/main conferida na mesma referência. Sem merge/main ou deploy. DOCS_DIR:Documentacao_Projeto_Nos.

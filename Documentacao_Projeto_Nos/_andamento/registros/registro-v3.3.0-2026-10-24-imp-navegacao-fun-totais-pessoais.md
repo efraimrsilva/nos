@@ -1,0 +1,19 @@
+# Registro — v3.3.0 — 2026-10-24 — Imp. de navegação com Fun. totais pessoais
+
+**Status:** implementação local validada; publicação autorizada em execução. MINOR: nova funcionalidade compatível. Versão anterior3.2.1; base aea5ccd, branch codex/temas-conta. DOCS_DIR:Documentacao_Projeto_Nos.
+
+**Objetivo/contexto:** mostrar a presença atual da pessoa em Núcleos, Acordos, compromissos e Pessoas nos menus desktop/mobile, sem linguagem de notificação. Usuário aprovou desenho/regras e autorizou colocar toda a entrega em produção.
+
+**Requisitos/decisões:** totais globais da própria pessoa; associação atual + Núcleo aberto; Acordos aceitos nos termos vigentes e não encerrados; Agenda futura/em andamento com inclusão pendente/aceita; Pessoas distintas sem self. RPC agregada por identidade da sessão evita listas/paginação e preserva restrição da Agenda. Descrição acessível explica alcance global apesar de destinos contextuais. Desktop textual à direita, celular junto ao rótulo; formato compacto mantém descrição exata. Erro não vira zero. [Contrato completo](../funcionalidades/totais-navegacao.md).
+
+**Arquivos/integrações:** migração20261024120000; src/features/navigation/counts.ts; OnboardingShell/ApplicationShell/layout-system.css; testes gerais, autenticados e SQL; verificadores Atlas/online. Atlas product-ui.js/product.css com exemplos; guia/cobertura/fichas, galeria datada, roteiro manual, resultados, estado/histórico/Brag, manifestos.
+
+**Validações:** SQL RED antes da função (`not ok`/função ausente), depois10 novos checks aprovados e153 totais SQL em cinco arquivos. Serviço: dois testes novos por projeto, resposta válida/zero/grande, falha/rede/estrutura inválida.162 testes gerais aprovados. Quatro fluxos autenticados iniciais aprovados; rodada ampliada de12 teve11 aprovados e um erro de seletor ambíguo no teste desktop, corrigido para rótulo exato; dois retestes desktop/mobile aprovados. Fluxos incluem alcance entre Núcleos, deduplicação, saída, aceite antigo, recusa, zero,1201 acordos,320px e indisponibilidade real local com restauração. Tipos e build padrão Turbopack aprovados após ajustar a tipagem de elemento de captura no teste. Build webpack autenticado em cópia SHA-256 aprovado. Atlas: quatro totais desktop/três mobile/Mais verificados,73 fichas na Visão global, sem erro/requisição externa. Capturas desktop/mobile/320/Mais inspecionadas.
+
+**Revisão:** autorrevisão + independente do código/banco/testes; nenhum problema funcional bloqueante. Revisão complementar identificou P2 na limpeza de fixtures do verificador online; corrigido para tentar todos os recursos independentemente e agregar UUIDs pendentes sem segredos; correção conferida pela revisão independente. Checklist React aplicado: fronteira servidor/cliente, cache por requisição, acessibilidade, valores grandes e temas.
+
+**Ferramentas:** Superpowers entendimento/TDD/depuração/revisão/verificação; sincronização Atlas; Netlify deploy. Context7 Supabase JS v2 consultado; catálogo não cobre exatamente2.117.2, complementado por cliente/tipos locais. Octocode19.1.0 configurado, não exposto nesta sessão; sem pesquisa avançada necessária, buscas locais delimitadas.
+
+**Produção:** projeto Netlify noslife/site0c9957c7-6b60-4a77-9b93-ce3dca577d7c e Supabase pyvohqgcwkcfzbtkmbvx conferidos. Dez migrações remotas existentes; dry-run contém apenas20261024120000. Referência de preservação das15 tabelas salva como contagens/hashes em artefato ignorado. Migração20261024120000 aplicada remotamente em24/10; a função não altera dados. Publicação do código e prova online ainda pendentes neste marco; não inferir sucesso de testes locais.
+
+**Limitações/próximos passos:** publicar código, confirmar deploy/hash e executar prova online com fixtures removidas.12 casos manuais preparados e Não executados. Atualiza na renderização/navegação/reload; sem tempo real. Evidências e fechamento serão acrescentados abaixo.

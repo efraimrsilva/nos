@@ -1,6 +1,10 @@
-# Resultados dos testes manuais — v3.2.1
+# Resultados dos testes manuais — v3.3.0
 
 Controle iniciado em 2026-10-23. Referência do roteiro: [MVP 01](mvp-01.md). Nenhum resultado manual foi recebido nesta entrega.
+
+## Totais da navegação — MVP02/03/04 — v3.3.0
+
+[12 casos NAV](totais-navegacao.md):12 Não executados manualmente. Automação local/online e inspeção visual do agente não substituem execução manual relatada.
 
 ## Aparência — MVP05 — v3.2.1
 
