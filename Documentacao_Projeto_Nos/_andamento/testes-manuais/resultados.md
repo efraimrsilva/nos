@@ -1,6 +1,10 @@
-# Resultados dos testes manuais — v3.1.1
+# Resultados dos testes manuais — v3.2.1
 
 Controle iniciado em 2026-10-23. Referência do roteiro: [MVP 01](mvp-01.md). Nenhum resultado manual foi recebido nesta entrega.
+
+## Aparência — MVP05 — v3.2.1
+
+[16 casos de aparência](aparencia-conta.md):16 Não executados manualmente; nenhuma execução recebida. A validação automatizada local permanece separada.
 
 ## Situação inicial
 

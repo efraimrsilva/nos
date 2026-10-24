@@ -1,5 +1,20 @@
 # Histórico de andamento
 
+## 2026-10-24 — v3.2.1 — publicação GitHub da aparência autorizada
+
+Usuário autorizou commit/push de todas as alterações acumuladas, com descrição abrangente. Destino:codex/temas-conta; main preservada. Código, testes, nove temas, navegação, ícones, Atlas,68 capturas e registros na mesma unidade lógica.158 gerais, tipos/build e Atlas conferidos nesta publicação; testes manuais seguem Não executados. Inclusão/hash remoto conferidos no fechamento. [Registro](registros/registro-v3.2.1-2026-10-24-imp-publicacao-github-fun-consolidacao-aparencia.md).
+
+
+## 2026-10-23 — v3.2.1 — Solar/Neon, navegação uniforme e ícones preservados
+
+Catálogo ampliado para nove temas; Aparência segue o item vizinho no desktop e Mais mobile. Ícones mantêm cores originais em todos os temas; localização usa texto/fundo/marcador.158 gerais,16 focados, seis autenticados e repetição final de temas; revisão independente. Sem publicação. [Registro](registros/registro-v3.2.1-2026-10-23-imp-catalogo-temas-fun-solar-neon.md).
+
+
+## 2026-10-23 — v3.2.0 — temas por conta e localização na navegação
+
+Sete temas em Aparência no Mais/navegação desktop/Configurações; aplicação imediata e salvamento autenticado por conta. Entrada sempre clara. Cor de localização por tema com faixa desktop e indicador móvel. 154 testes gerais,12 focados e oito autenticados locais aprovados; revisão independente e capturas. Sem publicação ou migração; testes manuais pendentes. [Registro](registros/registro-v3.2.0-2026-10-23-imp-aparencia-conta-fun-temas-persistentes.md).
+
+
 ## 2026-10-23 — v3.1.1 — publicação GitHub dos testes manuais
 
 Commit e push de todas as alterações documentais autorizados pelo usuário: processo permanente,62 casos MVP01, resultados/retestes e sincronização do Atlas com a evidência Brevo. Versão funcional preservada; execução manual pendente. Verificações documentais e autorrevisão; conferir hash remoto no fechamento. [Registro](registros/registro-v3.1.1-2026-10-23-imp-roteiro-manual-fun-cobertura-mvp-01.md).

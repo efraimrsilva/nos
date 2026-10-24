@@ -1,5 +1,52 @@
 # Estado do Projeto Nós
 
+## Publicação GitHub autorizada — v3.2.1 — 2026-10-24
+
+**Objetivo/aceite:** commit e push de todas as alterações da unidade de aparência, com descrição abrangente. Versão3.2.1 preservada; branch codex/temas-conta/base34d0598, origin/main conferida na mesma referência. Sem merge/main ou deploy. DOCS_DIR:Documentacao_Projeto_Nos.
+
+**Escopo:**108 arquivos previstos: nove temas por conta, aplicação imediata/erro/reenvio, entrada pública clara, navegação destacada, Aparência uniforme, ícones preservados; código/testes/Atlas/contratos/roteiro/galerias/registros.68 imagens nas duas galerias. Índice por caminhos explícitos, com conferência de conteúdo e diff.
+
+**Validação:**158 testes gerais reexecutados; tipos e build padrão aprovados; sintaxe e aparência do Atlas aprovadas, Visão global conferida no fechamento. Revisão independente e testes autenticados anteriores preservados como evidência da implementação, sem nova alegação de execução. Autorrevisão desta publicação; sem alteração funcional nova.
+
+**Contador:**163; último marco100/próximo200. **Unidades prontas para commit:** nenhuma pendência. Inclusão dos108 caminhos e correspondência do conteúdo comprovadas no objeto Git; fechamento incorporado ao mesmo commit antes do primeiro push. A confirmação remota será apresentada ao usuário após conferir SHA, divergência e estado limpo.
+
+**Ferramentas/limites:** Superpowers de verificação/fechamento; sem consulta tecnológica ou pesquisa avançada nova que exija Context7/Octocode. Sem migração ou operação em conta real.16 testes manuais Não executados. GitHub não comprova deploy.
+
+**Próximo passo:** após a conferência remota desta publicação, executar [roteiro manual](testes-manuais/aparencia-conta.md). [Registro de publicação](registros/registro-v3.2.1-2026-10-24-imp-publicacao-github-fun-consolidacao-aparencia.md) · [Contrato](funcionalidades/aparencia-conta.md) · [Histórico](historico.md). Os marcos abaixo preservam a situação histórica anterior à autorização.
+
+
+## Ampliação e padronização da aparência — v3.2.1 — 2026-10-23
+
+**Objetivo/aceite:** nove temas, incluindo Solar/Âmbar e Noturno/Neon; Aparência no padrão dos links desktop/More; cores originais dos ícones coloridos invariantes em todos os temas, inclusive item ativo. Salvar conta, aplicação imediata e boas-vindas/login claros preservados. DOCS_DIR:Documentacao_Projeto_Nos. Branch codex/temas-conta/base34d0598; trabalho3.2.0 anterior sem commit preservado. PATCH3.2.1 nos manifestos.
+
+**Situação/decisões:** implementado e revisado. Variante navigation evita classes de ação; estilos compartilhados respeitam desktop/celular e foco. Temas mudam texto/superfícies/destaque sem uniformizar ícones; regra permanente no contrato. Sem migração/dependência/API nova. Atlas, ficha66, MVP05, percurso, galeria e manual sincronizados.16 casos manuais Não executados.
+
+**Validações:**158 gerais;16 focados, incluindo contraste e17 amostras SVG por nove temas; seis autenticados de temas/navegação e rodada de temas repetida após ajustes finais. Tipos, build Turbopack e build webpack autenticado SHA-256 aprovados. Autorrevisão/revisão independente; lacunas Agenda/Conta resolvidas. Atlas Aparência9/Visão global73 sem erro/requisição externa. Galeria36 app+2Atlas. Testes iniciais RED documentados no registro. Nenhuma conta real alterada; fixtures locais limpas pelo processo.
+
+**Contador:**162; último marco100/próximo200. Solicitações de ajuste desktop/mobile/ícones durante a mesma execução não contadas como conclusões separadas. **Unidade pronta para commit:** aparência da conta com nove temas, navegação padronizada e ícones preservados, incluindo entrega3.2.0 e esta ampliação. Sugestão: feat(aparencia): oferecer nove temas por conta e padronizar navegação. Sem commit/push/deploy autorizado ou realizado.
+
+**Ferramentas/limites:** Superpowers entendimento/TDD/depuração/revisão/verificação; checklist React. Context7 Supabase anterior reutilizado; sem integração nova. Octocode configurado, indisponível na sessão; sem pesquisa avançada necessária. Bloqueios: nenhum local. Outra aba recebe preferência externa no próximo carregamento. Publicação/prova online pendentes.
+
+**Próximo passo/índice:** usuário executar [manual](testes-manuais/aparencia-conta.md); depois, mediante autorização, commit e publicação. [Registro](registros/registro-v3.2.1-2026-10-23-imp-catalogo-temas-fun-solar-neon.md) · [Contrato](funcionalidades/aparencia-conta.md) · [Galeria](../wireframes/comparacoes/v3.2.1-2026-10-23-temas-solar-neon/index.html) · [Resultados](testes-manuais/resultados.md) · [Histórico](historico.md) · [Brag](../brag/BRAG.md).
+
+
+## Aparência por conta — v3.2.0 — 2026-10-23
+
+**Objetivo/aceite:** sete temas em uma opção Aparência no menu Mais, com acesso desktop/Configurações; aplicação imediata, persistência por conta e feedback real de falha/reenvio. Login/boas-vindas sempre claros. Área atual destacada por cor própria, faixa desktop e indicador móvel/Mais ativo. DOCS_DIR:Documentacao_Projeto_Nos. Branch codex/temas-conta, base34d0598; Git limpo no início. Versão3.2.0 nos manifestos.
+
+**Situação:** implementação local concluída; user_metadata.appearance_theme, ação autenticada e validação da conta antes de gravar. Sem migração/dependência/localStorage. Gravações serializadas preservam a última escolha. Outra aba aberta recebe mudança no próximo carregamento; sem sincronização em tempo real. Atlas/Visão global/Tela66/percurso/MVP05 e documentação sincronizados;13 casos manuais preparados, nenhum aprovado manualmente.
+
+**Validações:**154 testes gerais,12 focados incluídos; oito autenticados desktop/mobile (temas, persistência, sessão, falha/reenvio, cliques rápidos, navegação e composição existentes). Tipos e build padrão Turbopack aprovados; build webpack autenticado em cópia SHA-256 aprovado. Autorrevisão e revisão independente; dois P2 de contraste corrigidos com testes de estilo real. Capturas de viewport substituem artefato Chromium fullPage em diálogos:28 imagens do app, mais evidências do Atlas. Sintaxe do Atlas e verificador de Aparência aprovados (sete temas, Mais, desktop, prévia sem gravação); Visão global73 telas aprovada, sem erro ou requisição externa. Quatro testes autenticados de temas repetidos após mapear áreas de origem (Ajuda/criação incluídas); revisão independente verificou27 rotas sem duplicidade de seleção. Links de12 documentos conferidos, sem destinos ausentes. Diff sem erro de espaços.
+
+**Contador:**161 nesta conclusão:159 registrado antes da proposta,160 proposta inicial e161 implementação; mensagens de direcionamento durante a execução não contadas separadamente. Último marco100/próximo200. **Unidade pronta para commit:** aparência persistente da conta, sete temas e destaque de navegação, com testes/Atlas/versão/registros. Sugestão: feat(aparencia): adicionar temas por conta e destacar navegação. Nenhum commit/push/deploy autorizado ou realizado.
+
+**Ferramentas:** Superpowers entendimento/planejamento proporcional/TDD/depuração/revisão/verificação/fechamento e checklist React; Context7 Supabase com tipos instalados. Octocode19.1.0 configurado, ferramenta indisponível nesta sessão; buscas locais delimitadas, sem pesquisa avançada/reinstalação. Docker iniciado para Supabase local; fixtures de teste removidas pelo processo. Nenhuma conta real alterada.
+
+**Bloqueios:** nenhum para a entrega local; publicação/prova online dependem de autorização própria. **Próximo passo:** usuário executar roteiro manual e informar ID/resultado; após autorização, commit atômico e publicação. Não confundir testes locais com deploy.
+
+**Índice:** [registro](registros/registro-v3.2.0-2026-10-23-imp-aparencia-conta-fun-temas-persistentes.md) · [contrato](funcionalidades/aparencia-conta.md) · [plano](planos/temas-conta-2026-10-23.md) · [manual](testes-manuais/aparencia-conta.md) · [resultados](testes-manuais/resultados.md) · [galeria](../wireframes/comparacoes/v3.2.0-2026-10-23-temas-conta/index.html) · [histórico](historico.md) · [Brag](../brag/BRAG.md).
+
+
 ## Publicação GitHub autorizada — v3.1.1 — 2026-10-23 — testes manuais
 
 **Objetivo:** commit e push de todas as alterações pendentes autorizados pelo usuário, com descrição abrangente da entrega. Branch main/base2186586, sincronizada com origin/main antes da operação. Versão funcional3.1.1 preservada.

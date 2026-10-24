@@ -3,9 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ArrowRight, Bell, BookHeart, CalendarDays, ChevronDown, Heart, House, Leaf, LockKeyhole, Menu, Search, Settings2, ShieldCheck, Sparkles, Sprout, Trees, UsersRound, X, type LucideIcon } from "lucide-react";
 import { AccountReflections } from "@/features/onboarding/components/account-reflections";
+import { AppearanceOption } from "@/features/appearance/theme-picker";
 
 type NavItem = { label: string; href: string; icon: LucideIcon; tone: string; planned?: boolean };
 type ShellProps = { children: ReactNode; showTree?: boolean; nucleusName?: string };
@@ -13,6 +14,8 @@ const footer = <p>© 2026 Nós - Vínculos reais, Pequenos cuidados, No tempo de
 
 export function ApplicationShell({ children, showTree = false, nucleusName }: ShellProps) {
   const pathname = usePathname();
+  const [ready, setReady] = useState(false);
+  useEffect(() => { setReady(true); }, []);
   const menu = useRef<HTMLDialogElement>(null);
   const searchDialog = useRef<HTMLDialogElement>(null);
   const notices = useRef<HTMLDialogElement>(null);
@@ -42,7 +45,17 @@ export function ApplicationShell({ children, showTree = false, nucleusName }: Sh
     ] },
   ];
   const allItems = groups.flatMap(group => group.items);
-  const isActive = (item: NavItem) => [base, "/nucleos", "/conta"].includes(item.href) ? pathname === item.href : pathname.startsWith(item.href);
+  const isActive = (item: NavItem) => {
+    // Subpáginas mantêm destacada a área de origem, mesmo sem um atalho próprio no menu.
+    if (item.href === "/nucleos" && pathname.startsWith("/comecar")) return true;
+    if (item.href === "/configuracoes" && pathname === "/ajuda") return true;
+    if (nucleusId) {
+      const section = pathname.slice(base.length + 1).split("/")[0];
+      const parentArea = ({ convites: "pessoas", sair: "pessoas", memorias: "arvore", perfis: "conexoes", cuidado: "manifesto" } as Record<string, string>)[section];
+      if (parentArea && item.href === to(parentArea)) return true;
+    }
+    return [base, "/nucleos", "/conta"].includes(item.href) ? pathname === item.href : pathname.startsWith(item.href);
+  };
   const active = allItems.find(isActive)?.label ?? (pathname.startsWith("/comecar") ? "Um novo vínculo" : pathname === "/ajuda" ? "Ajuda" : "Seu espaço");
   const mobileItems: NavItem[] = nucleusId ? [
     { label: "Início", href: base, icon: House, tone: "green" },
@@ -50,11 +63,13 @@ export function ApplicationShell({ children, showTree = false, nucleusName }: Sh
     { label: "Agenda", href: to("agenda"), icon: CalendarDays, tone: "orange" },
     { label: "Pessoas", href: to("pessoas"), icon: UsersRound, tone: "blue" },
   ] : [{ label: "Núcleos", href: "/nucleos", icon: UsersRound, tone: "blue" }];
+  const moreActive = !mobileItems.some(isActive);
   // O menu Mais complementa a barra inferior; a navegação lateral mantém todas as áreas.
   const links = (inDialog = false) => (inDialog && nucleusId ? groups
     .map(group => ({ ...group, items: group.items.filter(item => !mobileItems.some(mobile => mobile.href === item.href)) }))
     .filter(group => group.items.length > 0) : groups).map(group => <section className="navigation-group" key={group.title}>
     <h2>{group.title}</h2>{group.items.map(item => <Link key={item.label} href={item.href} prefetch={false} aria-current={isActive(item) ? "page" : undefined} onClick={() => { if (inDialog) menu.current?.close(); }} className="navigation-link"><item.icon size={20} strokeWidth={2.5} aria-hidden="true" className={`nav-icon tone-${item.tone}`} /><span>{item.label}</span>{item.planned && <span className="nav-planned" aria-label="Esboço">○</span>}</Link>)}
+    {group.title === "Conta e preferências" && <AppearanceOption />}
   </section>);
   const brand = <Link href={publicEntry ? "/boas-vindas" : base} className="current-brand" aria-label="Nós — início"><span><Leaf size={26} strokeWidth={2.3} aria-hidden="true" /></span>nós<span className="brand-period">.</span></Link>;
 
@@ -78,7 +93,7 @@ export function ApplicationShell({ children, showTree = false, nucleusName }: Sh
       <main key={pathname} id="conteudo" tabIndex={-1} className={`current-content ${/^\/(?:comecar|configuracoes|ajuda|conta)(?:\/|$)/.test(pathname) || /\/(?:registrar|confirmar|revisar|sair)$/.test(pathname) ? "current-content-focused" : ""}`}>{children}</main>
       <footer className="current-footer"><span><LockKeyhole size={13} aria-hidden="true" /> {nucleusName ? `${nucleusName} · espaço privado` : "Seus vínculos, no seu tempo"}</span>{footer}</footer>
     </div>
-    <nav className="mobile-navigation" aria-label="Navegação móvel">{mobileItems.map(item => <Link key={item.label} href={item.href} prefetch={false} aria-current={isActive(item) ? "page" : undefined}><item.icon size={22} strokeWidth={2.5} className={`tone-${item.tone}`} aria-hidden="true" /><span>{item.label}</span></Link>)}<button type="button" onClick={() => menu.current?.showModal()} aria-haspopup="dialog" aria-label="Mais áreas e preferências"><Menu size={23} aria-hidden="true" /><span>Mais</span></button></nav>
+    <nav className="mobile-navigation" aria-label="Navegação móvel">{mobileItems.map(item => <Link key={item.label} href={item.href} prefetch={false} aria-current={isActive(item) ? "page" : undefined}><item.icon size={22} strokeWidth={2.5} className={`tone-${item.tone}`} aria-hidden="true" /><span>{item.label}</span></Link>)}<button type="button" disabled={!ready} aria-current={moreActive ? "page" : undefined} onClick={() => menu.current?.showModal()} aria-haspopup="dialog" aria-label="Mais áreas e preferências"><Menu size={23} className="tone-neutral" aria-hidden="true" /><span>Mais</span></button></nav>
     <dialog ref={menu} className="navigation-dialog" aria-labelledby="navigation-dialog-title"><div className="dialog-heading"><h2 id="navigation-dialog-title">Todos os seus caminhos</h2><button type="button" aria-label="Fechar menu" onClick={() => menu.current?.close()}><X aria-hidden="true" /></button></div><nav aria-label="Todas as áreas">{links(true)}</nav></dialog>
     <dialog ref={searchDialog} className="current-dialog" aria-labelledby="search-dialog-title"><div className="dialog-heading"><h2 id="search-dialog-title">Encontre seu caminho</h2><button type="button" aria-label="Fechar busca" onClick={() => searchDialog.current?.close()}><X aria-hidden="true" /></button></div><label htmlFor="navigation-search">Buscar uma área do Nós</label><div className="navigation-search"><Search size={20} aria-hidden="true" /><input id="navigation-search" type="search" value={search} onChange={event => setSearch(event.target.value)} placeholder="Acordos, agenda, privacidade…" /></div><p className="text-sm text-muted">{nucleusId ? "Busque pelos caminhos deste espaço." : "Escolha um Núcleo para abrir suas áreas compartilhadas."}</p><div className="search-results">{results.map(item => <Link key={item.label} href={item.href} onClick={() => searchDialog.current?.close()}><item.icon className={`tone-${item.tone}`} size={21} aria-hidden="true" /><span>{item.label}{item.planned && <small>Esboço de funcionalidade</small>}</span><ArrowRight size={16} aria-hidden="true" /></Link>)}</div>{!results.length && <p role="status">Nenhuma área encontrada. Tente outro nome.</p>}</dialog>
     <dialog ref={notices} className="current-dialog" aria-labelledby="notice-dialog-title"><div className="dialog-heading"><span className="color-icon tone-orange"><Bell aria-hidden="true" /></span><button type="button" aria-label="Fechar notificações" onClick={() => notices.current?.close()}><X aria-hidden="true" /></button></div><p className="prototype-notice">Esboço de funcionalidade · ainda não desenvolvido</p><h2 id="notice-dialog-title">Novidades, no seu tempo.</h2><p>Este será o lugar para acompanhar convites, propostas e cuidados que pedem sua atenção. A central de notificações ainda não consulta nem envia avisos.</p><Link href={nucleusId ? to("acordos") : "/nucleos"} onClick={() => notices.current?.close()} className="secondary-action">{nucleusId ? "Consultar Acordos" : "Abrir Seus Núcleos"}<ArrowRight size={17} aria-hidden="true" /></Link></dialog>

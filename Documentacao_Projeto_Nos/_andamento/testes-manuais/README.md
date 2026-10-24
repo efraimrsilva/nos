@@ -1,4 +1,7 @@
-# Processo permanente de testes manuais — v3.1.1
+# Processo permanente de testes manuais — v3.2.1
+
+**Versão vigente:3.2.0.** Novo roteiro: [MVP05 — Aparência da conta —16 casos](aparencia-conta.md). Todos Não executados manualmente. As demais etapas continuam no escopo histórico documentado.
+
 
 Criado em 2026-10-23 por solicitação do usuário.
 
@@ -6,7 +9,7 @@ Criado em 2026-10-23 por solicitação do usuário.
 
 Cada funcionalidade criada ou alterada deve ter ao menos um teste manual rastreável ao MVP ou Expansão do Atlas vivo, no mesmo conjunto lógico da entrega. Inclua caminho, pré-condição quando necessária, ação e resultado esperado; separe cenários positivos, negativos, permissões, persistência, acessibilidade e falhas quando relevantes. Não confunda representação offline do Atlas com integração executada. Revise Atlas, contratos e código antes de gerar ou atualizar a lista; divergências devem ser resolvidas por evidências e decisões vigentes.
 
-Use uma linha por teste, iniciada por `[]`, com ID estável. Planejado não entra como funcionalidade concluída: registre etapa/expansão, contrato pendente e bloqueio de execução. Não invente resultados. Novos MVPs serão detalhados em partes conforme a sequência do Atlas; esta entrega detalha somente o MVP 01.
+Use uma linha por teste, iniciada por `[]`, com ID estável. Planejado não entra como funcionalidade concluída: registre etapa/expansão, contrato pendente e bloqueio de execução. Não invente resultados. Novos MVPs serão detalhados em partes conforme a sequência do Atlas; o roteiro inicial detalhou o MVP01 e a v3.2.1 acrescenta Aparência no MVP05.
 
 ## Execução e resultados
 
@@ -18,4 +21,5 @@ Formato de retorno: `M01-013 | Falhou | ambiente/navegador/dispositivo | observa
 
 - [MVP 01 — 62 testes](mvp-01.md).
 - [Resultados e histórico de execuções](resultados.md).
-- MVP 02–05 e expansões: detalhamento futuro, sem afirmar cobertura já criada.
+- [MVP05 — Aparência —16 testes](aparencia-conta.md).
+- MVP02–04, demais funcionalidades do MVP05 e expansões: detalhamento futuro, sem afirmar cobertura já criada.

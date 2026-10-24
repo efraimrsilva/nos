@@ -1,5 +1,11 @@
 # Wireframe completo do Projeto Nós
 
+**Entrega local — v3.2.1 —23/10/2026:** nove temas, incluindo Solar/Âmbar e Noturno/Neon. Aparência padronizada no desktop e menu Mais; ícones preservam as cores originais em todos os temas. Login/boas-vindas claros. Sem deploy. [Galeria](comparacoes/v3.2.1-2026-10-23-temas-solar-neon/index.html) · [Contrato](../_andamento/funcionalidades/aparencia-conta.md).
+
+
+**Entrega local — v3.2.0 — 2026-10-23:** Aparência reúne sete temas em Mais, navegação lateral e Configurações66; aplica imediatamente e salva por conta. Login/boas-vindas permanecem claros. Cor própria por tema destaca a área atual com faixa desktop e indicador móvel; Mais ativo nas demais áreas. Validação local e revisão concluídas; publicação pendente. [Contrato](../_andamento/funcionalidades/aparencia-conta.md) · [galeria](comparacoes/v3.2.0-2026-10-23-temas-conta/index.html) · [teste manual](../_andamento/testes-manuais/aparencia-conta.md).
+
+
 **Publicação vigente — v3.0.3 — 20/10/2026:** layout completo em [produção](https://noslife.netlify.app/conta), deploy6ad7eeb747e9c9a82835d3b5/main@8b529e8. Build Netlify aprovado;27 rotas autenticadas verificadas com fixtures removidas. Atlas preserva73 fichas,39 recortes existentes/34 planejadas e20 contextos modais, sem promover esboços a funcionalidades. [Registro](../_andamento/registros/registro-v3.0.3-2026-10-20-02-imp-deploy-netlify-fun-publicacao-producao.md) · [prints](comparacoes/v3.0.3-2026-10-20-producao-netlify/index.html). Marcos abaixo são históricos; SMTP/piloto completo mantêm pendências.
 
 **Atualização vigente — v3.0.1 — 20/10/2026:** por autorização explícita, a árvore original retorna somente ao painel público da Conta; Atlas01/02 usam a mesma imagem. A composição3.0.0 permanece a base; demais telas e modais preservados. Validação pontual:12 testes, tipos, três larguras e prévias de cadastro/login. [Registro](../_andamento/registros/registro-v3.0.1-2026-10-20-imp-conta-fun-restauracao-arvore.md) · [galeria](comparacoes/v3.0.1-2026-10-20-conta-arvore/index.html).

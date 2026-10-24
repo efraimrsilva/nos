@@ -1,5 +1,11 @@
 # Projeto Nós
 
+**Entrega local — v3.2.1 —23/10/2026:** nove temas, com Solar/Âmbar e Noturno/Neon; Aparência no padrão da navegação desktop/mobile e cores dos ícones preservadas. Sem publicação. [Contrato](Documentacao_Projeto_Nos/_andamento/funcionalidades/aparencia-conta.md) · [Galeria](Documentacao_Projeto_Nos/wireframes/comparacoes/v3.2.1-2026-10-23-temas-solar-neon/index.html).
+
+
+**Entrega local — v3.2.0 —23/10/2026:** sete temas da conta em Mais → Aparência, com aplicação imediata e salvamento automático. A área atual recebe cor própria e marcador desktop/mobile; telas públicas permanecem claras. Sem deploy desta entrega. [Contrato](Documentacao_Projeto_Nos/_andamento/funcionalidades/aparencia-conta.md) · [galeria](Documentacao_Projeto_Nos/wireframes/comparacoes/v3.2.0-2026-10-23-temas-conta/index.html).
+
+
 **Entrega local — v3.1.1 — 23/10/2026:** cadastro com e-mail existente permanece no formulário e orienta entrar ou recuperar senha, sem prometer confirmação. Cadastro válido e retorno interno preservados; 142 testes gerais, tipos, build e Atlas aprovados. Commit e push desta correção autorizados em 23/10/2026; deploy correspondente ainda não certificado. [Registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.1.1-2026-10-23-imp-cadastro-fun-email-existente.md).
 
 
@@ -33,7 +39,7 @@
 
 **Marco histórico MVP05 — v0.16.0:** Configurações, Privacidade, Conta e segurança, Ajuda e orientação de saída disponíveis com acesso protegido. Recuperação/logout reusados; logout conserva vínculos. Saída efetiva, transferência, retenção/direitos, suporte/termos e operação ainda pendentes: etapa parcial, piloto não liberado. [Contrato/manual](Documentacao_Projeto_Nos/_andamento/funcionalidades/autonomia-protecao.md), [registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.16.0-2026-10-13-imp-controles-autonomia-fun-mvp-05.md) e [galeria](Documentacao_Projeto_Nos/wireframes/comparacoes/v0.16.0-2026-10-13-mvp-05-tela_66-tela_67-tela_69-tela_70-tela_71/index.html). Entrega incluída no commit atômico de publicação Git autorizado em14/10/2026; confirmação remota reportada no encerramento. Sem deploy certificado.
 
-**Versão vigente do projeto:**3.0.1
+**Versão vigente do projeto:**3.2.1
 
 **MVP 04 — v0.15.2:** agenda interna conferida localmente; confirmação de remoção, cancelamento sem gravação, feedback de presença/remoção e reservas futuras. Sequência14 →16 →15 →17 opcional →14; são seções da mesma rota. Duas contas desktop/mobile validam criação, respostas, edição/remarcação, paginação, exclusão e isolamento. [Contrato/manual](Documentacao_Projeto_Nos/_andamento/funcionalidades/agenda-interna.md), [registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.15.2-2026-10-13-imp-agenda-interna-fun-mvp-04.md) e [galeria](Documentacao_Projeto_Nos/wireframes/comparacoes/v0.15.2-2026-10-13-mvp-04-tela_14-tela_16-tela_15-tela_17/index.html). Entrega incluída no commit atômico de publicação Git autorizado em13/10/2026; confirmação remota reportada no encerramento. Prova online pendente.
 
