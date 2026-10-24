@@ -1,5 +1,7 @@
 # Brag document — Projeto Nós
 
+**Evidência de produção — v3.3.0 — 24/10/2026:** totais e navegação conferidos online em desktop/mobile; Mais liberado de selo sobreposto. Migração/deploy confirmados, varredura sem ocorrências e15 tabelas preexistentes preservadas após limpeza das fixtures. [Fechamento](../_andamento/registros/registro-v3.3.0-2026-10-24-imp-navegacao-fun-totais-pessoais.md#fechamento-de-produção--24102026).
+
 ## 2026-10-24 — v3.3.0 — presença atual visível na navegação
 
 **Problema:** menus não indicavam os vínculos atuais da pessoa. **Contribuição:** quatro totais autenticados, sem aparência de notificação; mesma informação no desktop/mobile, sem duplicar Pessoas e sem contar registros históricos indevidos. **Resultado verificado:** regras testadas no banco, navegação em320px e valor1201 no navegador;162 testes gerais e153 SQL aprovados. **Benefício esperado:** consultar a própria participação com menos navegação, sem métrica de uso inventada. [Evidências](../_andamento/registros/registro-v3.3.0-2026-10-24-imp-navegacao-fun-totais-pessoais.md).

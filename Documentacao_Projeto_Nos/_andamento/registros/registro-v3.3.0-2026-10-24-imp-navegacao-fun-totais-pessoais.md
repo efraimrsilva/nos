@@ -1,6 +1,6 @@
 # Registro — v3.3.0 — 2026-10-24 — Imp. de navegação com Fun. totais pessoais
 
-**Status:** implementação local validada; publicação autorizada em execução. MINOR: nova funcionalidade compatível. Versão anterior3.2.1; base aea5ccd, branch codex/temas-conta. DOCS_DIR:Documentacao_Projeto_Nos.
+**Status:** concluído e publicado em produção, com prova online desktop/mobile. MINOR: nova funcionalidade compatível. Versão anterior3.2.1; base aea5ccd, branch codex/temas-conta. DOCS_DIR:Documentacao_Projeto_Nos.
 
 **Objetivo/contexto:** mostrar a presença atual da pessoa em Núcleos, Acordos, compromissos e Pessoas nos menus desktop/mobile, sem linguagem de notificação. Usuário aprovou desenho/regras e autorizou colocar toda a entrega em produção.
 
@@ -23,3 +23,15 @@
 Código48b1bd3 publicado na branch e conferido com remoto0/0. Primeira preparação de upload interrompida ainda no empacotamento; adotada cópia isolada de143 arquivos versionados, conferidos contra o commit, com diferenças apenas de finais de linha Windows. Sem .env local, artefatos ou caches enviados. Deploy6adc365ec5b54f620ad86538 recebeu a cópia, mas falhou antes de publicar: varredura detectou valor de AUTH_RECOVERY_SECRET no cache Turbopack gerado no build remoto (.netlify/.next/cache/turbopack/*.sst). Nenhum valor secreto registrado; produção permaneceu no deploy anterior.
 
 Correção: netlify.toml executa build e scripts/clean-build-cache.mjs, removendo somente os caches descartáveis .next/cache e .netlify/.next/cache. Verificação de destinos absolutos dentro do workspace; servidor/public preservados. Varredura de segredos continua ativa, sem exclusões de chaves/caminhos. Teste RED antes do script e seis focados aprovados depois, cobrindo remoção dos dois caches e preservação do runtime. Novo build completo e tipos aprovados; revisão independente do complemento concluída sem impedimento. Sem alteração de comportamento do produto ou nova migração; versão3.3.0 mantida enquanto a entrega em produção não terminou.
+
+## Fechamento de produção — 24/10/2026
+
+Correção de build publicada no commit70414a98cc1e9a82054f9afd476fce6e8ebb8dad. Pacote isolado de145 arquivos conferido byte a byte contra esse commit; sem ambiente local/caches/artefatos. Deploy6adc3759fc570b50b060aaf0 em produção no Netlify, ready e publicado em2026-10-24T04:44:11.810Z (01:44 Brasília), sem erro. Varredura:21366 arquivos, zero ocorrências nas duas modalidades de detecção. Por ser upload, commit_ref do Netlify é nulo; a correspondência com o Git é comprovada pela cópia conferida, não por metadado de integração Git. CLI local encerrou com assertion do Windows depois do recebimento; consulta independente do estado remoto confirmou a publicação.
+
+Primeira prova online passou no desktop e revelou selo injetado pela hospedagem cobrindo Mais no celular. Duas contas e Núcleos descartáveis limpos mesmo com falha; comparação das15 tabelas preservada. Configuração oficial General → Powered by Netlify badge desativada no projeto; painel confirmou The badge is not shown on this project. Não houve mudança de plano/custo/permissões. Fonte oficial: https://docs.netlify.com/manage/projects/powered-by-netlify-badge/.
+
+Reteste online completo aprovado: desktop e mobile, RPC autenticada com resultado2/1/1/1, contagens gerais em outro Núcleo, Pessoas deduplicadas, descrição acessível, destinos preservados, Mais/Seus Núcleos por clique real e ausência de transbordamento. Duas contas e dois Núcleos da execução removidos; contagens/hashes das15 tabelas anteriores idênticos à referência antes da migração. Cumulativamente quatro contas descartáveis removidas nas duas execuções. Capturas finais em galeria, com animações desativadas e viewport preservado para evidência legível.
+
+Validação final:162 gerais;153 SQL;12 cenários autenticados cobertos (um seletor de teste corrigido/retestado), seis focados após correção de build, tipos/build padrão e webpack autenticado, Atlas/Visão global e duas provas online de dispositivo na rodada final.12 casos manuais continuam Não executados. Autorrevisão e revisão independente concluídas; nenhum achado aberto. Código funcional48b1bd3 e correção de publicação70414a9 publicados na branch codex/temas-conta. Fechamento documental/evidências incorporados em commit próprio sem alterar fontes publicados.
+
+Próximo passo: executar o roteiro manual com a própria conta e registrar ID/ambiente/dispositivo, sem inferir aprovação da automação. Atualização dos totais por navegação/renderização/reload, sem tempo real. Cópias locais de envio preservadas em artifacts/ ignorado pelo Git após recusa automática da exclusão recursiva; alternativa reversível concluída.

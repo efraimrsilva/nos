@@ -1,6 +1,6 @@
 # Cobertura e pendências do wireframe
 
-**v3.3.0 — 24/10/2026:** totais pessoais globais integrados à navegação compartilhada, desktop e mobile/Mais; fichas12/13/14/18/73 atualizadas. Nenhuma tela/rota nova ou área planejada promovida. Regras, estados e limites no [contrato](../_andamento/funcionalidades/totais-navegacao.md); [12 testes manuais](../_andamento/testes-manuais/totais-navegacao.md), todos Não executados.162 gerais,153 SQL, fluxos autenticados e Atlas validados localmente. Publicação autorizada em execução.
+**v3.3.0 — 24/10/2026:** totais pessoais globais integrados à navegação compartilhada, desktop e mobile/Mais; fichas12/13/14/18/73 atualizadas. Nenhuma tela/rota nova ou área planejada promovida. Regras, estados e limites no [contrato](../_andamento/funcionalidades/totais-navegacao.md); [12 testes manuais](../_andamento/testes-manuais/totais-navegacao.md), todos Não executados.162 gerais,153 SQL, fluxos autenticados e Atlas validados localmente. Publicado e conferido online desktop/mobile; deploy6adc3759fc570b50b060aaf0, sem ampliar escopo planejado.
 
 **Entrega local — v3.2.1 —23/10/2026:** nove temas, incluindo Solar/Âmbar e Noturno/Neon. Aparência padronizada no desktop e menu Mais; ícones preservam as cores originais em todos os temas. Login/boas-vindas claros. Sem deploy. [Galeria](comparacoes/v3.2.1-2026-10-23-temas-solar-neon/index.html) · [Contrato](../_andamento/funcionalidades/aparencia-conta.md).
 

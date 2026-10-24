@@ -1,5 +1,9 @@
 # Histórico de andamento
 
+## 2026-10-24 — v3.3.0 — publicação e prova online concluídas
+
+Migração20261024120000 aplicada (11 remotas); código48b1bd3 e ajuste de build70414a9 publicados. Deploy6adc3759fc570b50b060aaf0 ready, sem segredos detectados. Cache descartável removido sem desativar varredura. Selo da hospedagem desativado para liberar Mais no mobile. Prova final desktop/mobile aprovada; quatro contas descartáveis limpas nas duas execuções,15 tabelas preexistentes preservadas. [Registro](registros/registro-v3.3.0-2026-10-24-imp-navegacao-fun-totais-pessoais.md).
+
 ## 2026-10-24 — v3.3.0 — totais pessoais na navegação
 
 Totais globais autenticados, números discretos desktop/mobile, Pessoas deduplicadas, aceite vigente e Agenda atual. Função agregada sem exposição de listas/autoria, cache por requisição e falha sem zero fictício.162 gerais,153 SQL,12 cenários autenticados cobertos (11 na rodada ampliada + dois retestes do caso de erro), tipos/build/Atlas aprovados. Revisão independente e P2 de limpeza online corrigido. Produção autorizada; conferência remota e prova online pendentes neste marco. [Registro](registros/registro-v3.3.0-2026-10-24-imp-navegacao-fun-totais-pessoais.md).

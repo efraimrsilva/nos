@@ -68,7 +68,7 @@ try {
     for (const key of ["agreements", "events", "people"]) await expect(nav.locator(`[data-count=${key}]`)).toHaveText("1");
     await expect(nav.getByRole("link", { name: "Acordos", exact: true })).toHaveAccessibleDescription(/todos os seus Núcleos/);
     const gallery = process.env.NOS_ONLINE_GALLERY;
-    if (gallery) { mkdirSync(gallery, { recursive: true }); await page.screenshot({ path: path.join(gallery, `producao-${device}.png`), fullPage: true }); }
+    if (gallery) { mkdirSync(gallery, { recursive: true }); await page.screenshot({ path: path.join(gallery, `producao-${device}.png`), animations: "disabled" }); }
     if (device === "mobile") {
       await nav.getByRole("button", { name: "Mais áreas e preferências" }).click();
       await expect(page.getByRole("dialog").locator("[data-count=nuclei]")).toHaveText("2");
