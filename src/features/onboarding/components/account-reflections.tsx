@@ -1,6 +1,6 @@
 "use client";
 
-import { Pause, Play } from "lucide-react";
+import { Heart, Pause, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { reflectionPhrases } from "@/features/onboarding/reflection-phrases";
 
@@ -49,14 +49,14 @@ export function AccountReflections() {
     };
   }, [deck, paused]);
 
-  const phrase = deck.order[deck.index];
+  const phrase = deck.order[deck.index] ?? reflectionPhrases[0];
   return (
-    <section aria-label="Uma reflexão para começar" className="account-reflections mx-auto mt-5 max-w-96" data-paused={paused}>
-      {phrase && <div key={phrase}>
+    <section aria-label="Uma reflexão para começar" className="account-reflections" data-paused={paused}>
+      <div className="public-story-mark">
+        <span className="color-icon"><Heart size={24} aria-hidden="true" /></span>
         {/* Uma única frase no documento; sem anúncios automáticos que interrompam o formulário. */}
-        <p data-reflection-phrase className="reflection-phrase text-sm leading-7 text-muted" aria-live="off">{phrase}</p>
-        <div className="reflection-track mx-auto mt-3" aria-hidden="true"><span className="reflection-progress" /></div>
-      </div>}
+        <span key={phrase} data-reflection-phrase className="reflection-phrase" aria-live="off">{phrase}</span>
+      </div>
       {phrase && <button type="button" onClick={() => setPaused(!paused)} aria-label={paused ? "Retomar frases" : "Pausar frases"} className="mx-auto mt-1 inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg px-3 text-[11px] text-muted hover:text-leaf">
         {paused ? <Play size={12} aria-hidden="true" /> : <Pause size={12} aria-hidden="true" />}
         {paused ? "Retomar" : "Pausar"}

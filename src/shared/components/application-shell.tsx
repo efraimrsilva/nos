@@ -9,7 +9,7 @@ import { AccountReflections } from "@/features/onboarding/components/account-ref
 
 type NavItem = { label: string; href: string; icon: LucideIcon; tone: string; planned?: boolean };
 type ShellProps = { children: ReactNode; showTree?: boolean; nucleusName?: string };
-const footer = <p>© 2026 Nós - Vínculos reais, Pequenos cuidados, No tempo de vocês. Desenvolvido com 💖 por <a href="https://sintagmasoftware.netlify.app/">Sintagma Software</a>. Todos os direitos reservados.</p>;
+const footer = <p className="site-footer-copy"><span>© 2026 Nós - Pequenos gestos. Vínculos reais.</span>{" "}<span className="site-footer-credits">Desenvolvido com 💖 por <a href="https://sintagmasoftware.netlify.app/">Sintagma Software</a>. Todos os direitos reservados.</span></p>;
 
 export function ApplicationShell({ children, showTree = false, nucleusName }: ShellProps) {
   const pathname = usePathname();
@@ -22,6 +22,7 @@ export function ApplicationShell({ children, showTree = false, nucleusName }: Sh
   const base = nucleusId ? `/nucleos/${nucleusId}` : "/nucleos";
   const to = (area: string) => nucleusId ? `${base}/${area}` : "/nucleos";
   const publicEntry = (pathname === "/conta" && showTree) || pathname.startsWith("/conta/") || pathname === "/boas-vindas";
+  const showFooter = pathname === "/conta" || pathname === "/boas-vindas";
   const groups: { title: string; items: NavItem[] }[] = [
     { title: "Meu espaço", items: [
       ...(nucleusId ? [{ label: "Início", href: base, icon: House, tone: "green" }] : []),
@@ -62,12 +63,12 @@ export function ApplicationShell({ children, showTree = false, nucleusName }: Sh
     <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <header className="public-header">{brand}<span><ShieldCheck size={17} aria-hidden="true" /> Um lugar seguro para seus vínculos</span></header>
     <div className={`public-grid ${showTree ? "public-grid-with-art" : "public-grid-form"}`}>
-      {showTree && <aside className="public-story"><p className="eyebrow"><Sprout size={16} aria-hidden="true" /> CULTIVAR COMEÇA COM PRESENÇA</p><h2>Pequenos gestos.<br /><em>Vínculos reais.</em></h2>
+      {showTree && <aside className="public-story"><h2>Pequenos gestos.<br /><em>Vínculos reais.</em></h2>
         {/* A Conta fornece showTree a partir da sessão; a restauração fica restrita a esta rota. */}
         {pathname === "/conta" && <div className="account-tree"><Image src="/brand/nos-tree.png" alt="Árvore com troncos entrelaçados, símbolo dos vínculos que cultivamos" width={877} height={875} sizes="(max-width: 700px) 160px, 280px" preload /></div>}
-        <div className="public-story-mark"><span className="color-icon"><Heart size={24} aria-hidden="true" /></span><span>Presença. Escolha. Cuidado.</span></div><AccountReflections /></aside>}
+        <AccountReflections /></aside>}
       <main id="conteudo" tabIndex={-1} className="public-content">{children}</main>
-    </div><footer className="public-footer">{footer}</footer>
+    </div>{showFooter && <footer className="public-footer">{footer}</footer>}
   </div>;
 
   const results = allItems.filter(item => item.label.toLocaleLowerCase("pt-BR").includes(search.toLocaleLowerCase("pt-BR")));
@@ -76,7 +77,7 @@ export function ApplicationShell({ children, showTree = false, nucleusName }: Sh
     <aside className="desktop-navigation">{brand}<Link href="/nucleos" className="current-nucleus-switch"><span className="nucleus-letter">{nucleusName?.slice(0, 1).toLocaleUpperCase("pt-BR") ?? <Sprout size={22} aria-hidden="true" />}</span><span><strong>{nucleusName ?? "Seus Núcleos"}</strong><small>{nucleusId ? "Seu espaço compartilhado" : "Escolha um espaço para cuidar"}</small></span><ChevronDown size={15} aria-hidden="true" /></Link><p className="navigation-caption">CULTIVAR JUNTOS</p><nav aria-label="Áreas do Nós">{links()}</nav><div className="navigation-bottom"><div className="navigation-purpose"><Sprout className="tone-green" size={23} aria-hidden="true" /><p>Pequenos gestos.<br />Vínculos reais.</p></div><Link href="/configuracoes/privacidade"><ShieldCheck size={17} aria-hidden="true" /> Sua privacidade importa</Link></div></aside>
     <div className="current-body"><header className="current-header"><div className="desktop-breadcrumb"><Link href="/nucleos">{nucleusName ?? "Meu espaço"}</Link><span>/</span><span>{active}</span></div><div className="mobile-current-brand">{brand}<span>{nucleusName ?? "Seu espaço"}</span></div><div className="current-header-actions"><button type="button" aria-haspopup="dialog" aria-label="Buscar uma área" onClick={() => searchDialog.current?.showModal()}><Search size={20} aria-hidden="true" /></button><button type="button" aria-haspopup="dialog" aria-label="Notificações — esboço" onClick={() => notices.current?.showModal()}><Bell size={20} className="tone-orange" aria-hidden="true" /><span className="notification-dot" /></button><Link href="/conta" aria-label="Minha conta"><span className="account-avatar"><Heart size={17} aria-hidden="true" /></span></Link></div></header>
       <main key={pathname} id="conteudo" tabIndex={-1} className={`current-content ${/^\/(?:comecar|configuracoes|ajuda|conta)(?:\/|$)/.test(pathname) || /\/(?:registrar|confirmar|revisar|sair)$/.test(pathname) ? "current-content-focused" : ""}`}>{children}</main>
-      <footer className="current-footer"><span><LockKeyhole size={13} aria-hidden="true" /> {nucleusName ? `${nucleusName} · espaço privado` : "Seus vínculos, no seu tempo"}</span>{footer}</footer>
+      {showFooter && <footer className="current-footer">{footer}</footer>}
     </div>
     <nav className="mobile-navigation" aria-label="Navegação móvel">{mobileItems.map(item => <Link key={item.label} href={item.href} prefetch={false} aria-current={isActive(item) ? "page" : undefined}><item.icon size={22} strokeWidth={2.5} className={`tone-${item.tone}`} aria-hidden="true" /><span>{item.label}</span></Link>)}<button type="button" onClick={() => menu.current?.showModal()} aria-haspopup="dialog" aria-label="Mais áreas e preferências"><Menu size={23} aria-hidden="true" /><span>Mais</span></button></nav>
     <dialog ref={menu} className="navigation-dialog" aria-labelledby="navigation-dialog-title"><div className="dialog-heading"><h2 id="navigation-dialog-title">Todos os seus caminhos</h2><button type="button" aria-label="Fechar menu" onClick={() => menu.current?.close()}><X aria-hidden="true" /></button></div><nav aria-label="Todas as áreas">{links(true)}</nav></dialog>

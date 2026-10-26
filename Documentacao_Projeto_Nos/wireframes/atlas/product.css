@@ -40,6 +40,15 @@ body{font-family:Arial,sans-serif}.sidebar{background:#f5f7f1}.edition{color:#34
 @keyframes live-shimmer{to{background-position:-200% 0}}@keyframes live-arrive{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:no-preference){.current-atlas-main,.atlas-live-dialog[open]{animation:live-arrive .22s ease-out}.live-button,.live-path,.live-nucleus-card{transition:background .15s,border-color .15s,transform .15s}.live-path:hover,.live-nucleus-card:hover{border-color:var(--leaf);transform:translateY(-2px)}}
 @media(prefers-reduced-motion:reduce){.product-phone *,.atlas-live-dialog *{animation:none!important;transition:none!important}}
+.live-public-story>h4:first-child{margin-top:0}
+.live-story-mark{display:flex;align-items:center;gap:12px;color:var(--leaf);font-size:17px;line-height:1.6}
+.live-reflection-heart{display:inline-grid;place-items:center;flex-shrink:0;width:35px;height:35px;border-radius:8px;background:var(--soft);color:var(--leaf)}
+.live-account-reflections>[data-live-reflection-pause]{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin-top:4px;padding:0 12px;border:0;border-radius:8px;background:none;color:var(--muted);font-size:11px}
+.current-atlas-footer{display:block;letter-spacing:normal}
+.current-atlas-footer .live-footer-copy,.live-public-footer .live-footer-copy{margin:0;text-align:center;font-size:10px;line-height:1.8}
+.live-footer-copy a{text-decoration:underline;color:inherit}
+.live-footer-credits{display:block}
+@container(min-width:701px){.live-footer-copy{white-space:nowrap}.live-footer-credits{display:inline}.current-atlas-footer .live-footer-copy{font-size:clamp(8px,.8cqw,10px)}}
 .live-account-tree{display:block;width:160px;max-width:100%;height:auto;margin:0 auto 18px}
 @container(min-width:701px){.live-account-tree{width:280px;margin-bottom:24px}}
 @media print{.reference-controls,.preview-origin{display:none!important}.approved-stage .nos-scroll{overflow:hidden!important}.atlas-live-dialog{display:none!important}}
