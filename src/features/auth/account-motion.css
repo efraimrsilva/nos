@@ -338,15 +338,6 @@
   animation: account-rise .45s .06s var(--account-ease) backwards;
 }
 
-.account-experience .ui-dialog .ui-icon-button {
-  transition: transform .3s var(--account-spring), background .25s;
-}
-
-.account-experience .ui-dialog .ui-icon-button:hover {
-  transform: rotate(90deg);
-  background: var(--accent-soft);
-}
-
 @media (hover: hover) and (pointer: fine) {
   .account-experience .auth-panel:hover,
   .account-experience .account-panel:hover {

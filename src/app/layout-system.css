@@ -94,6 +94,8 @@ dialog::backdrop { background:#203e3066; backdrop-filter:blur(4px); }
 .ui-dialog-header h2,.dialog-heading h2 { font:500 28px/1.25 Georgia,serif; letter-spacing:-.5px; margin:0; }
 .ui-dialog-description { color:var(--color-muted); font-size:14px; line-height:1.9; margin:0 0 24px; }
 .ui-dialog-body { min-width:0; }
+button[aria-label^="Fechar" i] { transition:background-color .25s ease,color .25s ease,border-color .25s ease; }
+button[aria-label^="Fechar" i]:is(:hover,:focus-visible) { background-color:#c43d40; border-color:#c43d40; color:#fff; }
 .dialog-heading>button { border:0; background:none; color:var(--color-muted); min-height:36px; min-width:36px; display:grid; place-items:center; }
 .current-dialog>h2 { font:500 28px/1.25 Georgia,serif; letter-spacing:-.5px; margin:22px 0 14px; }
 .current-dialog>p:not(.prototype-notice) { color:var(--color-muted); font-size:14px; line-height:1.9; margin:0 0 22px; }

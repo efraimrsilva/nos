@@ -54,7 +54,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
       </section>
       <section className="ui-panel account-panel"><h2>Entrar e recuperar</h2>
         <Link href={next}><AccountRow icon={LockKeyhole} title="Continuar para o Nós" description="Acessar seus vínculos com a conta conectada" /></Link>
-        <AccountAccessDialog kind="recovery" next={next} defaultOpen={initialAccess === "recovery"} className="account-dialog-trigger" trigger={<AccountRow icon={KeyRound} title="Recuperar acesso" description="Link de recuperação e nova senha" />} />
+        <AccountAccessDialog kind="recovery" next={next} accountEmail={user.email} defaultOpen={initialAccess === "recovery"} className="account-dialog-trigger" trigger={<AccountRow icon={KeyRound} title="Recuperar acesso" description="Link de recuperação e nova senha" />} />
         <ActionDialog variant="text" className="account-dialog-trigger" title="Sair da conta" description="Encerrar o acesso desta conta." trigger={<AccountRow icon={LogOut} title="Sair da conta" description="Encerrar acesso com segurança" />}><p className="settings-copy">Sair encerra a sessão e não remove sua participação em nenhum Núcleo. Para voltar, entre novamente com sua conta.</p><form action={signOut} className="mt-5"><SignOutButton /></form></ActionDialog>
       </section>
     </div> : <AuthForm next={next} initialMode={params.resultado === "senha" || params.modo === "login" ? "login" : "signup"} initialAccess={initialAccess} />}

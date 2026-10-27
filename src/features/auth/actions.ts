@@ -8,7 +8,7 @@ import { isValidEmail, isValidPassword, safeAuthNext, withAuthNext } from "./inp
 import { recoveryCookie } from "./recovery-proof";
 import { isAuthRetryableFetchError } from "@supabase/supabase-js";
 
-export type AuthFormState = { message: string; success: boolean; revision: number; retryAt?: number };
+export type AuthFormState = { message: string; success: boolean; revision: number; retryAt?: number; submittedEmail?: string };
 
 export async function submitAuth(previous: AuthFormState, formData: FormData): Promise<AuthFormState> {
   const mode = formData.get("mode") === "login" ? "login" : "signup";

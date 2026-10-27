@@ -27,8 +27,8 @@ export function EmailActionForm({ kind, next, embedded = false, accountEmail = "
   return <form action={action} noValidate className={embedded ? "auth-fields" : "ui-panel auth-panel auth-fields"} aria-busy={pending}>
     <input type="hidden" name="kind" value={kind} /><input type="hidden" name="next" value={next} />
     <div className="auth-field"><label htmlFor={emailId}>E-mail da conta</label><input id={emailId} name="email" type="email" autoComplete="email" value={email} onChange={event => setEmail(event.target.value)} maxLength={254} className="ui-field" disabled={pending} /></div>
-    <p className="auth-help">{kind === "recovery" ? "Se houver uma conta para este e-mail, enviaremos as instruções. A mensagem não revela se alguém está cadastrado." : "Vamos verificar se este e-mail já está confirmado. Se a confirmação estiver pendente, enviaremos um novo link. Nunca compartilhe o link de acesso."}</p>
-    <Feedback state={state} />
+    <p className="auth-help">{kind === "recovery" ? "Vamos verificar se este e-mail possui uma conta. Se existir, enviaremos as instruções para recuperar o acesso. Nunca compartilhe o link recebido." : "Vamos verificar se este e-mail já está confirmado. Se a confirmação estiver pendente, enviaremos um novo link. Nunca compartilhe o link de acesso."}</p>
+    {!pending && state.submittedEmail === email.trim().toLowerCase() && <Feedback state={state} />}
     <button type="submit" disabled={pending || remaining > 0} className="ui-button">{pending ? "Solicitando…" : kind === "recovery" ? "Solicitar link" : "Reenviar confirmação"}</button>
     {remaining > 0 && <p className="auth-help" role="status">Você pode solicitar outro link em {remaining} segundos.</p>}
   </form>;

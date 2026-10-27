@@ -221,7 +221,14 @@ document.addEventListener('submit',event=>{
       feedback.textContent='Senha atualizada. Entre com sua nova senha. · exemplo';
     }else{
       if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.elements['access-email'].value.trim())){feedback.textContent='Informe um e-mail válido.';feedback.setAttribute('role','alert');return;}
-      feedback.textContent=kind==='recovery'?'Se houver uma conta para este e-mail, enviaremos as instruções de recuperação. Confira também o spam.':'Enviamos a confirmação para o seu e-mail. Confira sua caixa de entrada e também o spam. · exemplo';
+      if(kind==='recovery'){
+        const scenario=form.elements['recovery-example-state']?.value||'existing';
+        const messages={existing:'Encontramos uma conta para este e-mail. Enviamos as instruções de recuperação. Confira sua caixa de entrada e também o spam. Nunca compartilhe o link recebido.',missing:'Não encontramos uma conta para este e-mail. Confira o endereço ou crie sua conta.',failure:'Encontramos uma conta para este e-mail, mas não foi possível enviar a recuperação. Tente novamente em instantes.',limited:'Encontramos uma conta para este e-mail. Aguarde o intervalo de 60 segundos antes de solicitar outro link.'};
+        feedback.textContent=messages[scenario]+' · exemplo';
+        feedback.setAttribute('role',scenario==='existing'?'status':'alert');
+        showToast('Prévia local. Nenhuma conta foi consultada e nenhum e-mail foi enviado.');return;
+      }
+      feedback.textContent='Enviamos a confirmação para o seu e-mail. Confira sua caixa de entrada e também o spam. · exemplo';
     }
     feedback.setAttribute('role','status');showToast('Prévia local. Nenhum e-mail foi enviado, nenhuma senha ou sessão foi alterada.');
   }
