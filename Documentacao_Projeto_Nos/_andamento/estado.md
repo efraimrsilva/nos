@@ -2,7 +2,7 @@
 
 ## Publicação autorizada — v3.1.2 — 2026-10-27 — confirmação de e-mail
 
-Consulta com/sem sessão e feedback no mesmo modal implementados. Tipos, build,64 testes focados,14 cenários visuais do aplicativo e quatro do Atlas aprovados. Playwright/Chromium instalado. Migração20261027173526 aplicada no nos-dev;12 migrações remotas, permissões conferidas e três contas preservadas. Publicação GitHub/Netlify em andamento.
+Consulta com/sem sessão e feedback no mesmo modal implementados. Tipos, build,64 testes focados,14 cenários visuais do aplicativo e quatro do Atlas aprovados. Playwright/Chromium instalado. Migração20261027173526 aplicada no nos-dev;12 migrações remotas, permissões conferidas e três contas preservadas. Código4ba6b46 publicado em origin/main, hash remoto conferido e fluxo público validado em https://noslife.netlify.app em desktop/celular; migração precedeu o push. Sem certificação de envio externo ou sessão real nesta alteração.
 
 Testes manuais agrupados no MVP01:18 novos casos M01-063–080 e revisão019/021/025;80 casos totais, todos Não executados. [Roteiro](testes-manuais/mvp-01.md) · [resultados](testes-manuais/resultados.md) · [registro](registros/registro-v3.1.2-2026-10-27-imp-confirmacao-fun-estado-email.md).
 

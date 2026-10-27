@@ -1,6 +1,6 @@
 # Comparações de telas — procedimento permanente
 
-**Entrega local — v3.1.2 — 27/10/2026:** [Confirmação de e-mail](2026-10-27-confirmacao-email/index.html): 14 capturas de modais do aplicativo com transporte simulado e quatro do Atlas, desktop/celular. Confirmado, pendente, ausência e falhas; comparação pública histórica preservada. Publicação e migração remota pendentes.
+**Entrega local — v3.1.2 — 27/10/2026:** [Confirmação de e-mail](2026-10-27-confirmacao-email/index.html): 14 capturas de modais do aplicativo com transporte simulado e quatro do Atlas, desktop/celular. Confirmado, pendente, ausência e falhas; comparação pública histórica preservada. Migração aplicada e código4ba6b46 publicado; duas capturas adicionais de produção comprovam o fluxo de endereço inexistente em computador/celular, sem envio externo.
 
 **Galeria vigente — v3.0.1:** [árvore da Conta](v3.0.1-2026-10-20-conta-arvore/index.html), nove prints com antes/depois em1440/390px, depois em640px e Atlas01/02. Somente telas; nenhum modal criado ou alterado.
 

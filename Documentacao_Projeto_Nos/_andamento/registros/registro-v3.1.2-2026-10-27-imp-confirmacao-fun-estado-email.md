@@ -1,6 +1,6 @@
 # Registro — v3.1.2 — 2026-10-27 — Confirmação de e-mail no próprio modal
 
-**Status:** implementação e validação locais concluídas. Publicação completa autorizada pelo usuário em 27/10/2026. Migração remota aplicada; publicação GitHub e deploy em andamento.
+**Status:** publicado no GitHub e verificado no site de produção em 27/10/2026. Código 4ba6b46ec7ccb498e9b4dd228b0b0f7e8d078f5e enviado a origin/main, hash remoto conferido. Migração remota aplicada antes do push.
 
 **Pedido:** em /conta/confirmar-email, informar se o e-mail já está confirmado, com ou sem login. Só anunciar envio quando houver confirmação pendente e solicitação de envio bem-sucedida.
 
@@ -17,3 +17,7 @@
 **Documentação/evidências:** ficha 03 e contexto 69, MVP, Visão global, inventário de modais e [galeria](../../wireframes/comparacoes/2026-10-27-confirmacao-email/index.html) sincronizados. Capturas usam dados de teste e indicam o transporte simulado; não comprovam entrega externa nem funcionamento em produção. Nenhuma conta real alterada. O banco remoto recebeu somente a nova função e suas permissões.
 
 **Testes manuais solicitados:** 18 novos casos M01-063 a M01-080 incorporados ao roteiro existente do MVP01; M01-019, M01-021 e M01-025 revisados. Total80, IDs únicos e links conferidos. Resultados manuais permanecem Não executados. [Roteiro](../testes-manuais/mvp-01.md) · [controle](../testes-manuais/resultados.md).
+
+**Prova online:** publicação automática em https://noslife.netlify.app confirmada pelo conteúdo novo e por duas jornadas reais de navegador (desktop/celular). Rota direta abre o modal, ação consulta a RPC real, endereço de teste inexistente recebe alerta sem anunciar envio; endereço e next preservados e fechamento aprovado. Sem e-mail externo ou alteração de conta. Duas capturas de produção acrescentadas à galeria. Conferência do banco após migração preservou contagem e hash das três contas. Recebimento externo e sessão autenticada real desta alteração não foram certificados; testes com sessão continuam baseados no transporte isolado. O conector Netlify ainda requer reautenticação, então ID/log de build não foram consultados; o comportamento publicado foi verificado diretamente no site.
+
+**Fechamento documental:** roteiro, controle de resultados, Atlas e registros incluídos no GitHub. Os80 testes manuais permanecem Não executados; validação automatizada online não preenche resultados manuais. Commit de documentação usa [skip netlify], pois não altera o aplicativo já publicado.

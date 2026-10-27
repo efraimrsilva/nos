@@ -2,7 +2,7 @@
 
 ## 2026-10-27 — v3.1.2 — confirmação de e-mail e testes manuais
 
-Resultado no mesmo modal com ou sem sessão; só anuncia envio para confirmação pendente após sucesso. Migração aplicada no Supabase antes de publicar; três contas preservadas. Playwright/Chromium instalado;64 testes focados, tipos, build e18 cenários visuais aprovados. Roteiro MVP01 ampliado de62 para80 casos, preservando IDs e sem atribuir aprovação manual. Publicação completa autorizada; GitHub/Netlify em andamento. [Registro](registros/registro-v3.1.2-2026-10-27-imp-confirmacao-fun-estado-email.md) · [testes](testes-manuais/mvp-01.md).
+Resultado no mesmo modal com ou sem sessão; só anuncia envio para confirmação pendente após sucesso. Migração aplicada no Supabase antes de publicar; três contas preservadas. Playwright/Chromium instalado;64 testes focados, tipos, build e18 cenários visuais aprovados. Roteiro MVP01 ampliado de62 para80 casos, preservando IDs e sem atribuir aprovação manual. Publicação completa autorizada e concluída: código4ba6b46 em origin/main e fluxo público conferido no site real em desktop/celular. [Registro](registros/registro-v3.1.2-2026-10-27-imp-confirmacao-fun-estado-email.md) · [testes](testes-manuais/mvp-01.md).
 
 ## 2026-10-23 — v3.1.1 — publicação GitHub dos testes manuais
 
