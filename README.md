@@ -59,27 +59,31 @@ Um espaço privado para cultivar vínculos saudáveis.
 
 ## Executar o aplicativo
 
-Use Node.js 24 LTS (ambiente validado: 24.15.0). Os scripts dev e start habilitam --use-system-ca para confiar também nos certificados do Windows e evitar a falha local UNABLE_TO_VERIFY_LEAF_SIGNATURE ao acessar o Supabase, mantendo a validação TLS. [Correção e auditoria do banco v2.0.2](Documentacao_Projeto_Nos/_andamento/registros/registro-v2.0.2-2026-10-18-imp-conexao-supabase-fun-correcao-login-local.md).
+Use Node.js 24 LTS, versão 24.15.0 ou superior. Os scripts dev e start habilitam --use-system-ca para confiar também nos certificados do Windows e evitar a falha local UNABLE_TO_VERIFY_LEAF_SIGNATURE ao acessar o Supabase, mantendo a validação TLS. [Correção e auditoria do banco v2.0.2](Documentacao_Projeto_Nos/_andamento/registros/registro-v2.0.2-2026-10-18-imp-conexao-supabase-fun-correcao-login-local.md).
 
 
 **Visão global e sincronização obrigatória:** a aba [Visão global](Documentacao_Projeto_Nos/wireframes/atlas/index.html#visao-global), acima de Todas as áreas, reaproveita as mesmas telas, fichas e percursos. Em qualquer alteração, conferir impacto no projeto inteiro e sincronizar aplicativo/Atlas vivo/Visão global/contratos no mesmo recorte. Toda tela criada ou alterada deve acrescentar evidência em [comparacoes](Documentacao_Projeto_Nos/wireframes/comparacoes/README.md), preservando galerias anteriores. Seguir o [procedimento permanente](Documentacao_Projeto_Nos/wireframes/GUIA.md#visão-global-sincronização-e-comparações--procedimento-permanente).
 
 **Regra de desenvolvimento — prioridade alta:** antes de criar, implementar, alterar ou revisar uma tela, abrir o **Atlas vivo** e conferir seu aspecto visual, abas, ícones, hierarquia, navegação e estados. A implementação deve se guiar prioritariamente por esse desenho; a composição histórica serve à comparação. Confrontar a interface real com o atlas antes de concluir e atualizar ambos na mesma entrega, respeitando contratos e permissões. Procedimento obrigatório no [guia do atlas](Documentacao_Projeto_Nos/wireframes/GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05).
 
-Na raiz de um clone deste repositório, instale as dependências e inicie o aplicativo:
+**Em casa e no trabalho, use o mesmo comando na pasta que contém `package.json`:**
 
 ```powershell
-npm ci
 npm run dev
 ```
 
-Neste workspace local, entre primeiro na pasta do aplicativo:
+O comando instala automaticamente as dependências quando faltam neste computador, usando `package-lock.json`, e inicia o Next.js. A primeira instalação precisa de internet; nas próximas execuções, as dependências já instaladas são reutilizadas.
+
+No Windows, o comando consulta o proxy manual ativo nas configurações de rede a cada execução. Na rede do trabalho, utiliza esse proxy para o npm e as chamadas ao Supabase; em casa, com o proxy desativado no Windows, utiliza a conexão direta. `HTTP_PROXY`/`HTTPS_PROXY` definidos no terminal têm prioridade. O endereço do proxy não é salvo no projeto. Após trocar de rede, encerre com `Ctrl+C` e execute `npm run dev` novamente. Configurações automáticas por PAC e proxies que exigem autenticação adicional precisam da configuração fornecida pela equipe de TI.
+
+Neste computador, a pasta do aplicativo é:
 
 ```powershell
-cd "G:\Efraim\Dev\PROJETOS\Projeto Nós"
-cd .\nos
+cd D:\Proj\nos
 npm run dev
 ```
+
+No outro computador, entre na pasta onde clonou o repositório. Mantenha uma cópia local de `.env.local` em cada computador, conforme `.env.example`: esse arquivo não é transferido pelo Git. Não copie `node_modules` ou `.next` entre os computadores.
 
 Mantenha o terminal aberto para acompanhar as alterações em tempo real; `Ctrl+C` encerra o servidor. Se aparecer aviso de que já existe um servidor Next.js, use o que está em `http://127.0.0.1:3000` ou encerre a instância anterior no terminal em que ela foi aberta antes de iniciar outra.
 

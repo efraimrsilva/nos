@@ -2,9 +2,9 @@ import { existsSync, readFileSync } from "node:fs";
 import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import { getDevEnvironment } from "./dev-network.mjs";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
-const env = { ...process.env, NODE_USE_SYSTEM_CA: "1" };
 const manifest = JSON.parse(readFileSync(path.join(root, "package.json"), "utf8"));
 
 function run(args) {
@@ -20,9 +20,15 @@ function run(args) {
   });
 }
 
-if (Number(process.versions.node.split(".")[0]) < 24) {
-  console.error("Use Node.js 24 LTS ou superior neste computador. Depois, execute npm run dev novamente.");
+const [nodeMajor, nodeMinor] = process.versions.node.split(".").map(Number);
+if (nodeMajor < 24 || (nodeMajor === 24 && nodeMinor < 15)) {
+  console.error("Use Node.js 24 LTS (24.15.0 ou superior) neste computador. Depois, execute npm run dev novamente.");
   process.exit(1);
+}
+
+const env = getDevEnvironment();
+if (env.NODE_USE_ENV_PROXY === "1") {
+  console.log("Usando o proxy da rede para acessar o npm e o Supabase; localhost permanece direto.");
 }
 
 const dependencies = Object.keys({ ...manifest.dependencies, ...manifest.devDependencies });
@@ -36,7 +42,7 @@ if (missing) {
     console.error("Inicie o projeto com npm run dev na pasta que contém package.json.");
     process.exit(1);
   }
-  const result = await run([npm, "ci", "--include=dev", "--no-audit", "--no-fund", "--fetch-retries=0", "--fetch-timeout=20000"]);
+  const result = await run([npm, "ci", "--include=dev", "--no-audit", "--no-fund", "--prefer-offline", "--fetch-retries=2", "--fetch-timeout=60000"]);
   if (result !== 0) {
     console.error("Não foi possível instalar as dependências. Confira o acesso ao registro do npm e o proxy exigido pela sua rede. Depois, execute apenas npm run dev novamente.");
     process.exit(result);

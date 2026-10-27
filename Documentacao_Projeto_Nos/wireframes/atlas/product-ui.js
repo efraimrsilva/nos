@@ -2,21 +2,30 @@
 'use strict';
 const icon = (name, size = 24) => (atlasIcons[name] || atlasIcons.Sprout).replace(/width="24" height="24"/, `width="${size}" height="${size}"`);
 function liveFooterCopy(){return '<p class="live-footer-copy"><span>© 2026 Nós - Pequenos gestos. Vínculos reais.</span> <span class="live-footer-credits">Desenvolvido com 💖 por <a href="https://sintagmasoftware.netlify.app/">Sintagma Software</a>. Todos os direitos reservados.</span></p>';}
-function liveAccountReflection(){return `<section class="live-account-reflections" aria-label="Uma reflexão para começar"><div class="live-story-mark"><span class="live-reflection-heart">${icon('Heart',24)}</span><span data-live-reflection-phrase aria-live="off">${escapeHtml(atlasReflectionPhrases[Math.floor(Math.random()*atlasReflectionPhrases.length)])}</span></div><button type="button" data-live-reflection-pause aria-label="Pausar frases">${icon('Pause',12)} Pausar</button></section>`;}
+function liveAccountReflection(){return `<section class="live-account-reflections" aria-label="Uma reflexão para começar"><div class="live-story-mark"><span class="live-reflection-heart">${icon('Heart',24)}</span><span data-live-reflection-phrase aria-live="off">${escapeHtml(atlasReflectionPhrases[Math.floor(Math.random()*atlasReflectionPhrases.length)])}</span></div><div class="live-reflection-track" aria-hidden="true"><span data-live-reflection-progress></span></div><button type="button" data-live-reflection-pause aria-label="Pausar frases">${icon('Pause',12)} Pausar</button></section>`;}
 const liveReflectionDecks = new WeakMap();
 setInterval(()=>{
+ const now=performance.now();
  document.querySelectorAll('[data-live-reflection-phrase]').forEach(element=>{
-  if(element.closest('.live-account-reflections').dataset.paused==='true')return;
-  let deck=liveReflectionDecks.get(element);
-  if(!deck?.length){
-   deck=[...atlasReflectionPhrases];
-   for(let i=deck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]];}
-   if(deck.at(-1)===element.textContent)[deck[0],deck[deck.length-1]]=[deck[deck.length-1],deck[0]];
-   liveReflectionDecks.set(element,deck);
+  const section=element.closest('.live-account-reflections');
+  let state=liveReflectionDecks.get(element);
+  if(!state){state={deck:[],elapsed:0,updated:now,phase:0};liveReflectionDecks.set(element,state);}
+  if(section.dataset.paused!=='true')state.elapsed+=now-state.updated;
+  state.updated=now;
+  if(state.elapsed>=10000){
+   if(!state.deck.length){
+    state.deck=[...atlasReflectionPhrases];
+    for(let i=state.deck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[state.deck[i],state.deck[j]]=[state.deck[j],state.deck[i]];}
+    if(state.deck.at(-1)===element.textContent)[state.deck[0],state.deck[state.deck.length-1]]=[state.deck[state.deck.length-1],state.deck[0]];
+   }
+   element.textContent=state.deck.pop();
+   state.elapsed=0;
+   state.phase=(state.phase+1)%3;
   }
-  element.textContent=deck.pop();
+  section.querySelector('.live-reflection-track').dataset.phase=String(state.phase);
+  section.querySelector('[data-live-reflection-progress]').style.transform=`scaleX(${state.elapsed/10000})`;
  });
-},10000);
+},100);
 const nucleusOptions = [
   ['casal','Casal','Construir um relacionamento presente e carinhoso.','Heart'],
   ['familia','Família','União, respeito e apoio mútuo no dia a dia.','House'],

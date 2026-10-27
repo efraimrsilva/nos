@@ -20,13 +20,13 @@ function shufflePhrases(previous?: string) {
 }
 
 export function AccountReflections() {
-  const [deck, setDeck] = useState<{ order: string[]; index: number }>({ order: [], index: 0 });
+  const [deck, setDeck] = useState<{ order: string[]; index: number; phase: number }>({ order: [], index: 0, phase: 0 });
   const [paused, setPaused] = useState(false);
   const remaining = useRef(DISPLAY_DURATION);
 
   useEffect(() => {
     // Sorteia só no navegador: cada montagem tem sua ordem, sem divergência de hidratação.
-    setDeck({ order: shufflePhrases(), index: 0 });
+    setDeck({ order: shufflePhrases(), index: 0, phase: 0 });
   }, []);
 
   useEffect(() => {
@@ -37,10 +37,11 @@ export function AccountReflections() {
       completed = true;
       remaining.current = DISPLAY_DURATION;
       const finished = deck.index === deck.order.length - 1;
+      const phase = (deck.phase + 1) % 3;
       // Ao completar a lista, inicia outro sorteio sem repetir a frase na fronteira dos ciclos.
       setDeck(finished
-        ? { order: shufflePhrases(deck.order[deck.index]), index: 0 }
-        : { order: deck.order, index: deck.index + 1 });
+        ? { order: shufflePhrases(deck.order[deck.index]), index: 0, phase }
+        : { order: deck.order, index: deck.index + 1, phase });
     }, remaining.current);
     return () => {
       window.clearTimeout(timer);
@@ -57,7 +58,10 @@ export function AccountReflections() {
         {/* Uma única frase no documento; sem anúncios automáticos que interrompam o formulário. */}
         <span key={phrase} data-reflection-phrase className="reflection-phrase" aria-live="off">{phrase}</span>
       </div>
-      {phrase && <button type="button" onClick={() => setPaused(!paused)} aria-label={paused ? "Retomar frases" : "Pausar frases"} className="mx-auto mt-1 inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg px-3 text-[11px] text-muted hover:text-leaf">
+      <div className="reflection-track" data-phase={deck.phase} aria-hidden="true">
+        <span key={`${deck.order.length}:${deck.index}:${phrase}`} className="reflection-progress" />
+      </div>
+      {phrase && <button type="button" onClick={() => setPaused(!paused)} aria-label={paused ? "Retomar frases" : "Pausar frases"} className="reflection-pause mx-auto mt-1 flex min-h-11 items-center justify-center gap-1.5 rounded-lg px-3 text-[11px] text-muted hover:text-leaf">
         {paused ? <Play size={12} aria-hidden="true" /> : <Pause size={12} aria-hidden="true" />}
         {paused ? "Retomar" : "Pausar"}
       </button>}
