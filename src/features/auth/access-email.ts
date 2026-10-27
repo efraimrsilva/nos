@@ -1,4 +1,4 @@
-type Kind = "confirmation" | "recovery";
+type Kind = "recovery";
 type EmailResult = { error: { status?: number } | null };
 
 export async function sendAccessEmail(kind: Kind, send: () => Promise<EmailResult>, reportFailure: () => void) {
@@ -8,7 +8,5 @@ export async function sendAccessEmail(kind: Kind, send: () => Promise<EmailResul
     const { error } = await send();
     if (error) reportFailure();
   } catch { reportFailure(); }
-  return kind === "recovery"
-    ? "Se houver uma conta para este e-mail, enviaremos as instruções de recuperação. Confira também o spam."
-    : "Se este e-mail precisar de confirmação, enviaremos um novo link. Confira também o spam.";
+  return "Se houver uma conta para este e-mail, enviaremos as instruções de recuperação. Confira também o spam.";
 }

@@ -16,7 +16,7 @@ test("recuperação rejeita parâmetros repetidos, misturados ou de outro tipo a
 });
 
 test("erro SMTP exclusivo de conta existente não revela cadastro", async () => {
-  for (const kind of ["recovery", "confirmation"] as const) {
+  for (const kind of ["recovery"] as const) {
     let failures = 0;
     const report = () => { failures++; };
     const missing = await sendAccessEmail(kind, async () => ({ error: null }), report);

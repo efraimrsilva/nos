@@ -12,8 +12,9 @@ function Feedback({ state }: { state: AuthFormState }) {
   return state.message ? <p role={state.success ? "status" : "alert"} className="ui-feedback">{state.message}</p> : null;
 }
 
-export function EmailActionForm({ kind, next, embedded = false }: { kind: "recovery" | "confirmation"; next: string; embedded?: boolean }) {
+export function EmailActionForm({ kind, next, embedded = false, accountEmail = "" }: { kind: "recovery" | "confirmation"; next: string; embedded?: boolean; accountEmail?: string }) {
   const emailId = useId();
+  const [email, setEmail] = useState(accountEmail);
   const [state, action, pending] = useActionState(requestAccessEmail, initial);
   const [remaining, setRemaining] = useState(0);
   // O relógio local informa o intervalo; o servidor e o Auth controlam cada solicitação.
@@ -25,8 +26,8 @@ export function EmailActionForm({ kind, next, embedded = false }: { kind: "recov
   }, [state.retryAt]);
   return <form action={action} noValidate className={embedded ? "auth-fields" : "ui-panel auth-panel auth-fields"} aria-busy={pending}>
     <input type="hidden" name="kind" value={kind} /><input type="hidden" name="next" value={next} />
-    <div className="auth-field"><label htmlFor={emailId}>E-mail da conta</label><input id={emailId} name="email" type="email" autoComplete="email" maxLength={254} className="ui-field" disabled={pending} /></div>
-    <p className="auth-help">{kind === "recovery" ? "Se houver uma conta para este e-mail, enviaremos as instruções. A mensagem não revela se alguém está cadastrado." : "Abra o link enviado ao cadastrar sua conta. Confira também o spam. Nunca compartilhe o link de acesso."}</p>
+    <div className="auth-field"><label htmlFor={emailId}>E-mail da conta</label><input id={emailId} name="email" type="email" autoComplete="email" value={email} onChange={event => setEmail(event.target.value)} maxLength={254} className="ui-field" disabled={pending} /></div>
+    <p className="auth-help">{kind === "recovery" ? "Se houver uma conta para este e-mail, enviaremos as instruções. A mensagem não revela se alguém está cadastrado." : "Vamos verificar se este e-mail já está confirmado. Se a confirmação estiver pendente, enviaremos um novo link. Nunca compartilhe o link de acesso."}</p>
     <Feedback state={state} />
     <button type="submit" disabled={pending || remaining > 0} className="ui-button">{pending ? "Solicitando…" : kind === "recovery" ? "Solicitar link" : "Reenviar confirmação"}</button>
     {remaining > 0 && <p className="auth-help" role="status">Você pode solicitar outro link em {remaining} segundos.</p>}

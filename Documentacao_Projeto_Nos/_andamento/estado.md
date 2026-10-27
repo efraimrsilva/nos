@@ -1,5 +1,11 @@
 # Estado do Projeto Nós
 
+## Publicação autorizada — v3.1.2 — 2026-10-27 — confirmação de e-mail
+
+Consulta com/sem sessão e feedback no mesmo modal implementados. Tipos, build,64 testes focados,14 cenários visuais do aplicativo e quatro do Atlas aprovados. Playwright/Chromium instalado. Migração20261027173526 aplicada no nos-dev;12 migrações remotas, permissões conferidas e três contas preservadas. Publicação GitHub/Netlify em andamento.
+
+Testes manuais agrupados no MVP01:18 novos casos M01-063–080 e revisão019/021/025;80 casos totais, todos Não executados. [Roteiro](testes-manuais/mvp-01.md) · [resultados](testes-manuais/resultados.md) · [registro](registros/registro-v3.1.2-2026-10-27-imp-confirmacao-fun-estado-email.md).
+
 ## Publicação GitHub autorizada — v3.1.1 — 2026-10-23 — testes manuais
 
 **Objetivo:** commit e push de todas as alterações pendentes autorizados pelo usuário, com descrição abrangente da entrega. Branch main/base2186586, sincronizada com origin/main antes da operação. Versão funcional3.1.1 preservada.

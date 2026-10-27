@@ -1,5 +1,7 @@
 # Comparações de telas — procedimento permanente
 
+**Entrega local — v3.1.2 — 27/10/2026:** [Confirmação de e-mail](2026-10-27-confirmacao-email/index.html): 14 capturas de modais do aplicativo com transporte simulado e quatro do Atlas, desktop/celular. Confirmado, pendente, ausência e falhas; comparação pública histórica preservada. Publicação e migração remota pendentes.
+
 **Galeria vigente — v3.0.1:** [árvore da Conta](v3.0.1-2026-10-20-conta-arvore/index.html), nove prints com antes/depois em1440/390px, depois em640px e Atlas01/02. Somente telas; nenhum modal criado ou alterado.
 
 **Entrega vigente — v3.0.0:** [Layout novo integral](v3.0.0-2026-10-18-layout-novo-integral/index.html). 170 capturas do aplicativo (85 modais, 27 rotas autenticadas, sete páginas públicas e larguras de 390/640/768/1024/1440 px), 176 do Atlas (86 telas/contextos e 90 modais), 40 da referência e 20 anteriores: 406 imagens e 20 comparações por área/dispositivo. Modais têm título, gatilho e origem no manifesto; a captura é recortada no diálogo. Cada modal identifica título, gatilho e origem; filtre **Modal** para consultar também os diálogos do Atlas e da referência. Preservar versões anteriores sem substituir seus arquivos. [Contrato permanente](../../_andamento/funcionalidades/modais-interface.md).

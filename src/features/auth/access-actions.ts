@@ -18,6 +18,18 @@ export async function requestAccessEmail(previous: AuthFormState, formData: Form
   const kind = formData.get("kind") === "confirmation" ? "confirmation" : "recovery";
   const supabase = await createSupabaseServerClient();
   if (!supabase) return fail("A autenticação ainda não está configurada neste ambiente.");
+  if (kind === "confirmation") {
+    // O reenvio do Auth também retorna sucesso para endereços já confirmados
+    // ou inexistentes. Consultar antes evita prometer um envio que não ocorreu.
+    try {
+      const { data, error } = await supabase.rpc("get_email_confirmation_status", { account_email: email });
+      if (error || !["confirmed", "pending", "missing"].includes(data)) return fail("Não foi possível verificar a confirmação deste e-mail. Tente novamente em instantes.");
+      if (data === "confirmed") return { message: "Este e-mail já está confirmado. Você já pode entrar na sua conta.", success: true, revision };
+      if (data === "missing") return fail("Não encontramos uma conta para este e-mail. Confira o endereço ou crie sua conta.");
+    } catch {
+      return fail("Não foi possível verificar a confirmação deste e-mail. Tente novamente em instantes.");
+    }
+  }
   if (!process.env.APP_ORIGIN || (kind === "recovery" && !recoverySecret())) return fail("O envio de links ainda não está configurado neste ambiente.");
   const next = safeAuthNext(formData.get("next"));
   const jar = await cookies();
@@ -28,9 +40,16 @@ export async function requestAccessEmail(previous: AuthFormState, formData: Form
   // Intervalo por navegador complementa o rate limit autoritativo do Auth; não o substitui.
   jar.set(cooldown, String(newRetryAt), { ...authCookieOptions, path: "/", maxAge: 60 });
   const callback = new URL(withAuthNext(kind === "recovery" ? "/auth/recovery" : "/auth/confirm", next), process.env.APP_ORIGIN).toString();
-  const message = await sendAccessEmail(kind, async () => kind === "recovery"
-      ? await supabase.auth.resetPasswordForEmail(email, { redirectTo: callback })
-      : await supabase.auth.resend({ type: "signup", email, options: { emailRedirectTo: callback } }),
+  if (kind === "confirmation") {
+    try {
+      const { error } = await supabase.auth.resend({ type: "signup", email, options: { emailRedirectTo: callback } });
+      if (error) return { ...fail(error.status === 429 ? "Muitas solicitações. Aguarde um pouco antes de tentar novamente." : "Não foi possível enviar a confirmação. Tente novamente em instantes."), retryAt: newRetryAt };
+    } catch {
+      return { ...fail("Não foi possível enviar a confirmação. Tente novamente em instantes."), retryAt: newRetryAt };
+    }
+    return { message: "Enviamos a confirmação para o seu e-mail. Confira sua caixa de entrada e também o spam.", success: true, revision, retryAt: newRetryAt };
+  }
+  const message = await sendAccessEmail(kind, async () => await supabase.auth.resetPasswordForEmail(email, { redirectTo: callback }),
     // Diagnóstico sem endereço, corpo de erro, URL ou credenciais.
     () => console.warn(`[auth-email] Falha na solicitação de ${kind}.`));
   return { message, success: true, revision, retryAt: newRetryAt };

@@ -1,4 +1,4 @@
-# Processo permanente de testes manuais — v3.1.1
+# Processo permanente de testes manuais — v3.1.2
 
 Criado em 2026-10-23 por solicitação do usuário.
 
@@ -16,6 +16,6 @@ Formato de retorno: `M01-013 | Falhou | ambiente/navegador/dispositivo | observa
 
 ## Índice
 
-- [MVP 01 — 62 testes](mvp-01.md).
+- [MVP 01 — 80 testes](mvp-01.md): inclui confirmação de e-mail com e sem login, casos M01-063 a M01-080; M01-019, M01-021 e M01-025 atualizados para o fluxo vigente.
 - [Resultados e histórico de execuções](resultados.md).
 - MVP 02–05 e expansões: detalhamento futuro, sem afirmar cobertura já criada.

@@ -68,7 +68,7 @@ function accountStateHtml(screen){
     empty:screen.id<=2?'Informe seu nome, e-mail e uma senha.':screen.id===5?'Pelo menos 8 caracteres, com letra, número e símbolo. Use até 128 caracteres.':'Informe um e-mail válido.',
     error:screen.id===5?'Não foi possível salvar a senha. Use uma senha diferente da anterior ou solicite outro link.':'A autenticação ainda não está configurada neste ambiente.',
     blocked:screen.id<=2?'Não foi possível entrar. Confira o e-mail e a senha.':'Aguarde o intervalo de 60 segundos antes de solicitar outro link.',
-    success:screen.id===4?'Se houver uma conta para este e-mail, enviaremos as instruções de recuperação. Confira também o spam.':screen.id===3?'Se este e-mail precisar de confirmação, enviaremos um novo link. Confira também o spam.':'Senha atualizada. Entre com sua nova senha.'
+    success:screen.id===4?'Se houver uma conta para este e-mail, enviaremos as instruções de recuperação. Confira também o spam.':screen.id===3?'Enviamos a confirmação para o seu e-mail. Confira sua caixa de entrada e também o spam. · exemplo':'Senha atualizada. Entre com sua nova senha.'
   };
   const success=previewState==='success';
   return content+'<p class="state-message '+(success?'access-note':'access-error')+'" role="'+(success?'status':'alert')+'">'+messages[previewState]+'</p>';
@@ -221,7 +221,7 @@ document.addEventListener('submit',event=>{
       feedback.textContent='Senha atualizada. Entre com sua nova senha. · exemplo';
     }else{
       if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.elements['access-email'].value.trim())){feedback.textContent='Informe um e-mail válido.';feedback.setAttribute('role','alert');return;}
-      feedback.textContent=kind==='recovery'?'Se houver uma conta para este e-mail, enviaremos as instruções de recuperação. Confira também o spam.':'Se este e-mail precisar de confirmação, enviaremos um novo link. Confira também o spam.';
+      feedback.textContent=kind==='recovery'?'Se houver uma conta para este e-mail, enviaremos as instruções de recuperação. Confira também o spam.':'Enviamos a confirmação para o seu e-mail. Confira sua caixa de entrada e também o spam. · exemplo';
     }
     feedback.setAttribute('role','status');showToast('Prévia local. Nenhum e-mail foi enviado, nenhuma senha ou sessão foi alterada.');
   }

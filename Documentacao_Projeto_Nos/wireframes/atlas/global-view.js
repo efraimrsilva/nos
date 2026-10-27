@@ -1,7 +1,7 @@
 /* O mapa referencia IDs; conteúdo, desenhos, ações e percursos continuam nas fontes do atlas. */
 'use strict';
 const globalAreaNotes=[
-  'Conta é a entrada. Cadastro, confirmação e recuperação são caminhos alternativos; a Tela 72 é acolhimento opcional.',
+  'Conta é a entrada. Cadastro, confirmação e recuperação são caminhos alternativos; a Tela 72 é acolhimento opcional. Confirmação informa o estado no modal com ou sem sessão: confirmado não reenvia; pendente só anuncia envio após sucesso. Recuperação mantém resposta neutra.',
   'Após login, Seus Núcleos reúne associações reais e abre o Início escolhido. Sem associações, oferece criação ou convite. Escolher caminho é uma alternativa protegida; não há rascunho antes do login.',
   'O Início é o retorno do Núcleo. Agenda14 → criação16 → evento/respostas15 → edição17 opcional → agenda14. Evento existente abre15 diretamente; os quatro estados compartilham a rota. Remover exige confirmação; manter não grava. Mês/recorrência/local/integrações são planejados.',
   'Publicar, participar individualmente, testar e registrar são etapas distintas; administrador gerencia o ciclo sem votação. Revisão, encerramento e experiências são ramificações.',
