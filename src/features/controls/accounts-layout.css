@@ -58,6 +58,7 @@
 .auth-fields > .ui-button { width: 100%; justify-content: center; }
 .auth-assistance { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; margin-top: 16px; }
 .auth-assistance a { font-size: 12px; }
+.auth-assistance .auth-access-trigger { padding:0; min-height:44px; font-size:12px; text-decoration:underline; }
 .account-auth-heading { max-width: 650px; }
 .account-auth-heading .ui-title { margin-top: 10px; }
 .onboarding-workspace { width: 100%; max-width: 960px; margin-inline: auto; }

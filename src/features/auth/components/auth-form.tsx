@@ -1,25 +1,25 @@
 "use client";
 
 import { useActionState, useState } from "react";
-import Link from "next/link";
 import { LoadingIndicator } from "@/shared/components/loading-indicator";
-import { passwordHelp, withAuthNext } from "@/features/auth/input";
+import { passwordHelp } from "@/features/auth/input";
+import { AccountAccessDialog, type AccountAccessKind } from "./account-access-dialog";
 import { submitAuth, type AuthFormState } from "@/features/auth/actions";
 import "@/features/controls/accounts-layout.css";
 
 const initialState: AuthFormState = { message: "", success: false, revision: 0 };
 
-export function AuthForm({ next = "/nucleos", initialMode = "signup" }: { next?: string; initialMode?: "signup" | "login" }) {
+export function AuthForm({ next = "/nucleos", initialMode = "signup", initialAccess }: { next?: string; initialMode?: "signup" | "login"; initialAccess?: AccountAccessKind }) {
   const [mode, setMode] = useState<"signup" | "login">(initialMode);
 
-  return <section data-auth-panel className="ui-panel auth-panel">
+  return <section data-auth-panel data-auth-mode={mode} className="ui-panel auth-panel">
     <div className="auth-tabs" aria-label="Modo de acesso">
       <button type="button" onClick={() => setMode("signup")} aria-pressed={mode === "signup"}>Criar conta</button>
       <button type="button" onClick={() => setMode("login")} aria-pressed={mode === "login"}>Já tenho conta</button>
     </div>
     {/* A troca de modo reinicia apenas o formulário; destino e ações protegidas permanecem. */}
     <CredentialsForm key={mode} mode={mode} next={next} />
-    <div className="auth-assistance"><Link href={withAuthNext("/conta/recuperar", next)} className="ui-text-link">Esqueci minha senha</Link><Link href={withAuthNext("/conta/confirmar-email", next)} className="ui-text-link">Preciso confirmar meu e-mail</Link></div>
+    <div className="auth-assistance"><AccountAccessDialog kind="recovery" next={next} defaultOpen={initialAccess === "recovery"} /><AccountAccessDialog kind="confirmation" next={next} defaultOpen={initialAccess === "confirmation"} /></div>
   </section>;
 }
 

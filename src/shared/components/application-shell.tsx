@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useRef, useState, type ReactNode } from "react";
 import { ArrowRight, Bell, BookHeart, CalendarDays, ChevronDown, Heart, House, Leaf, LockKeyhole, Menu, Search, Settings2, ShieldCheck, Sparkles, Sprout, Trees, UsersRound, X, type LucideIcon } from "lucide-react";
 import { AccountReflections } from "@/features/onboarding/components/account-reflections";
+import { AccountTreeLights } from "@/features/onboarding/components/account-tree-lights";
 
 type NavItem = { label: string; href: string; icon: LucideIcon; tone: string; planned?: boolean };
 type ShellProps = { children: ReactNode; showTree?: boolean; nucleusName?: string };
@@ -65,7 +66,10 @@ export function ApplicationShell({ children, showTree = false, nucleusName }: Sh
     <div className={`public-grid ${showTree ? "public-grid-with-art" : "public-grid-form"}`}>
       {showTree && <aside className="public-story"><h2>Pequenos gestos.<br /><em>Vínculos reais.</em></h2>
         {/* A Conta fornece showTree a partir da sessão; a restauração fica restrita a esta rota. */}
-        {pathname === "/conta" && <div className="account-tree"><Image src="/brand/nos-tree.png" alt="Árvore com troncos entrelaçados, símbolo dos vínculos que cultivamos" width={877} height={875} sizes="(max-width: 700px) 160px, 280px" preload /></div>}
+        {pathname === "/conta" && <div className="account-tree">
+          <Image src="/brand/nos-tree.png" alt="Árvore com troncos entrelaçados, símbolo dos vínculos que cultivamos" width={877} height={875} sizes="(max-width: 700px) 160px, 280px" preload />
+          <AccountTreeLights />
+        </div>}
         <AccountReflections /></aside>}
       <main id="conteudo" tabIndex={-1} className="public-content">{children}</main>
     </div>{showFooter && <footer className="public-footer">{footer}</footer>}

@@ -1,0 +1,309 @@
+/* Espelho das animações de /conta para as composições interativas do Atlas Vivo. */
+.live-account-motion,
+.live-public-shell:has(.live-account-motion) {
+  --account-ease: cubic-bezier(.22, 1, .36, 1);
+  --account-spring: cubic-bezier(.2, .8, .25, 1.15);
+}
+
+@keyframes account-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes account-unfold {
+  from { opacity: 0; transform: translateY(18px) scale(.98); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes account-tree-welcome {
+  0% { opacity: 0; transform: scale(.9); }
+  35% { opacity: 1; transform: scale(1.015); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes account-halo {
+  from { opacity: 0; transform: scale(.7); }
+  45% { opacity: .75; }
+  to { opacity: 0; transform: scale(1.15); }
+}
+
+@keyframes account-glint {
+  from { opacity: 0; background-position: 200% 0; }
+  20%, 60% { opacity: .6; }
+  to { opacity: 0; background-position: -100% 0; }
+}
+
+@keyframes account-backdrop {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* A entrada termina rapidamente; nenhum efeito decorativo fica em repetição. */
+.live-public-shell:has(.live-account-motion) .live-public-header {
+  animation: account-rise .6s var(--account-ease) both;
+}
+
+.live-public-shell:has(.live-account-motion) .live-public-story {
+  position: relative;
+  isolation: isolate;
+  animation: account-unfold .85s var(--account-ease) both;
+}
+
+.live-public-shell:has(.live-account-motion) .live-public-story > h4 {
+  animation: account-rise .8s .1s var(--account-ease) both;
+}
+
+.live-public-shell:has(.live-account-motion) .live-account-tree-frame {
+  position: relative;
+  transform-origin: center;
+  animation: account-tree-welcome 3.6s var(--account-ease) both;
+}
+
+.live-public-shell:has(.live-account-motion) .live-account-tree-frame::before {
+  content: "";
+  position: absolute;
+  inset: -8%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, #fffefa90, #c8d8b438 50%, transparent 72%);
+  opacity: 0;
+  pointer-events: none;
+  animation: account-halo 3.6s .15s ease-out both;
+}
+
+.live-public-shell:has(.live-account-motion) .live-account-reflections {
+  animation: account-rise .8s .25s var(--account-ease) both;
+}
+
+.live-public-shell:has(.live-account-motion) [data-live-reflection-pause] {
+  transition: background .25s, color .25s, transform .25s var(--account-spring);
+}
+
+.live-public-shell:has(.live-account-motion) [data-live-reflection-pause]:is(:hover, :focus-visible) {
+  background: #fffefa80;
+  transform: translateY(-2px);
+}
+
+.live-account-motion > .live-back,
+.live-account-motion .live-kicker,
+.live-account-motion .live-page-heading h3,
+.live-account-motion .live-copy {
+  animation: account-rise .7s var(--account-ease) both;
+}
+
+.live-account-motion .live-kicker { animation-delay: .06s; }
+.live-account-motion .live-page-heading h3 { animation-delay: .12s; }
+.live-account-motion .live-copy { animation-delay: .18s; }
+
+.live-account-motion .live-auth-panel,
+.live-account-motion .live-panel {
+  position: relative;
+  isolation: isolate;
+  animation: account-unfold .8s .14s var(--account-ease) backwards;
+  transition: border-color .3s, box-shadow .3s;
+}
+
+.live-account-motion .live-panel:nth-child(2) { animation-delay: .24s; }
+
+.live-account-motion .live-auth-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 25%, #e6eddf70 50%, transparent 75%);
+  background-size: 250% 100%;
+  opacity: 0;
+  animation: account-glint 1.1s .45s var(--account-ease) both;
+}
+
+.live-account-motion .live-auth-panel:focus-within,
+.live-account-motion .live-panel:focus-within {
+  border-color: #b2c4a8;
+  box-shadow: 0 10px 32px #293e3509;
+}
+
+/* O indicador acompanha o modo sem remontar os botões ou perder o foco. */
+.live-account-motion .live-auth-tabs {
+  position: relative;
+  isolation: isolate;
+}
+
+.live-account-motion .live-auth-tabs::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--leaf);
+  transition: transform .45s var(--account-ease);
+  pointer-events: none;
+}
+
+.live-account-motion [data-auth-mode="login"] .live-auth-tabs::before { transform: translateX(100%); }
+.live-account-motion .live-auth-tabs button[aria-pressed="true"] { border-bottom-color: transparent; }
+.live-account-motion .live-auth-tabs button { transition: color .25s, background .25s; }
+.live-account-motion .live-auth-tabs button:hover { background: #e6eddf45; }
+
+.live-account-motion form > .product-field {
+  animation: account-rise .5s var(--account-ease) backwards;
+}
+
+.live-account-motion form > .product-field:nth-of-type(2) { animation-delay: .055s; }
+.live-account-motion form > .product-field:nth-of-type(3) { animation-delay: .11s; }
+
+.live-account-motion .product-field .product-field-label {
+  transform-origin: left center;
+  transition: color .25s, transform .3s var(--account-ease);
+}
+
+.live-account-motion .product-field:focus-within label {
+  color: var(--leaf);
+  transform: translateX(3px);
+}
+
+.live-account-motion .product-field input {
+  transition: border-color .25s, background .25s, box-shadow .3s;
+}
+
+.live-account-motion .product-field input:hover { border-color: #b2c4a8; }
+.live-account-motion .product-field input:focus {
+  border-color: var(--leaf);
+  background: #fcfdf8;
+  box-shadow: 0 0 0 4px #345d4410;
+}
+
+.live-account-motion .live-button,
+.live-account-motion .live-button-secondary {
+  transition: transform .25s var(--account-spring), background .25s, box-shadow .25s;
+}
+
+.live-account-motion :is(.live-button, .live-button-secondary):is(:hover, :focus-visible):not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 18px #345d4424;
+}
+
+.live-account-motion :is(.live-button, .live-button-secondary):active:not(:disabled) {
+  transform: translateY(1px) scale(.985);
+  box-shadow: 0 2px 5px #345d4415;
+}
+
+.live-account-motion .live-auth-assistance {
+  animation: account-rise .65s .3s var(--account-ease) backwards;
+}
+
+.live-account-motion :is(.live-auth-assistance button, .live-back) {
+  text-underline-offset: 4px;
+  transition: color .25s, text-underline-offset .25s, background .25s;
+}
+
+.live-account-motion :is(.live-auth-assistance button, .live-back):hover { text-underline-offset: 7px; }
+.live-account-motion .live-back svg { transition: transform .3s var(--account-ease); }
+.live-account-motion .live-back:hover svg { transform: translateX(-4px); }
+
+.live-account-motion .local-feedback:not(:empty) {
+  animation: account-rise .4s var(--account-ease) both;
+}
+
+.live-account-motion .live-account-profile .live-portrait {
+  animation: account-unfold .7s .2s var(--account-spring) backwards;
+  transition: transform .35s var(--account-spring), box-shadow .35s;
+}
+
+.live-account-motion .live-account-profile:hover .live-portrait {
+  transform: rotate(-4deg) scale(1.04);
+  box-shadow: 0 0 0 6px #e6eddf65;
+}
+
+.live-account-motion .live-row {
+  transition: background .25s, color .25s;
+}
+
+.live-account-motion .live-row-icon {
+  transition: transform .35s var(--account-spring), background .25s;
+}
+
+.live-account-motion .live-row > svg { transition: transform .3s var(--account-ease); }
+.live-account-motion :is(a, button):is(:hover, :focus-visible) .live-row { background: #e6eddf40; }
+.live-account-motion :is(a, button):is(:hover, :focus-visible) .live-row-icon {
+  transform: translateY(-2px) rotate(-6deg);
+  background: #dbe7d1;
+}
+.live-account-motion :is(a, button):is(:hover, :focus-visible) .live-row > svg { transform: translateX(4px); }
+
+.atlas-live-dialog.live-account-motion[open] {
+  animation: account-unfold .45s var(--account-ease) both;
+}
+
+.atlas-live-dialog.live-account-motion[open]::backdrop {
+  animation: account-backdrop .3s ease-out both;
+}
+
+.atlas-live-dialog.live-account-motion[open] :is(.live-copy, form) {
+  animation: account-rise .45s .06s var(--account-ease) backwards;
+}
+
+.atlas-live-dialog.live-account-motion .live-icon-button {
+  transition: transform .3s var(--account-spring), background .25s;
+}
+
+.atlas-live-dialog.live-account-motion .live-icon-button:hover {
+  transform: rotate(90deg);
+  background: var(--soft);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .live-account-motion .live-auth-panel:hover,
+  .live-account-motion .live-panel:hover {
+    border-color: #b2c4a8;
+    box-shadow: 0 12px 36px #293e350c;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live-account-motion,
+  .live-account-motion *,
+  .live-account-motion *::before,
+  .live-account-motion *::after,
+  .atlas-live-dialog.live-account-motion::backdrop,
+  .live-public-shell:has(.live-account-motion) *,
+  .live-public-shell:has(.live-account-motion) *::before,
+  .live-public-shell:has(.live-account-motion) *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .live-account-motion :is(button, a, label, .live-portrait, .live-row-icon, svg):is(:hover, :active, :focus-visible),
+  .live-account-motion .product-field:focus-within label,
+  .live-account-motion .live-account-profile:hover .live-portrait,
+  .live-account-motion :is(a, button):is(:hover, :focus-visible) :is(.live-row-icon, svg),
+  .live-public-shell:has(.live-account-motion) [data-live-reflection-pause] {
+    transform: none;
+  }
+}
+
+/* O campo Nome tem um invólucro próprio na prévia. */
+.live-account-motion form > [data-signup-field]:not([hidden]) {
+  animation: account-rise .5s var(--account-ease) backwards;
+}
+.live-account-motion form > [data-signup-field] > .product-field { margin-top: 0; }
+.live-account-tree-frame { width: fit-content; max-width: 100%; margin-inline: auto; }
+.live-account-motion .live-auth-tabs { display: grid; grid-template-columns: 1fr 1fr; }
+.live-account-motion .live-auth-assistance button { text-underline-offset: 4px; }
+.live-account-motion .live-back { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-bottom: 20px; }
+.live-account-motion .product-field input:focus-visible { outline: 3px solid #7955a5; outline-offset: 4px; }
+.live-account-motion .local-feedback:not(:empty) { border-radius: 6px; padding: 13px 15px; background: #f1f5ec; border: 1px solid #cbd9c7; border-left: 3px solid var(--leaf); }
+.live-account-motion .local-feedback[role="alert"]:not(:empty) { background: #fcf2f2; border-color: #e2c3c5; border-left-color: #943c40; color: #86333a; }
+.live-account-motion .live-access-preview-dialog { animation: account-unfold .45s var(--account-ease) both; }
+.live-access-preview.live-account-motion { animation: account-backdrop .3s ease-out both; }
+@media (prefers-reduced-motion: reduce) {
+  .live-account-motion form > [data-signup-field],
+  .live-account-motion .live-access-preview-dialog,
+  .live-access-preview.live-account-motion { animation: none !important; }
+}
+
+.live-account-motion .product-field-label { display: block; }

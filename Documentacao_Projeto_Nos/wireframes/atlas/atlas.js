@@ -168,13 +168,20 @@ document.addEventListener('click',event=>{
   if(target.dataset.reference){referenceMode=target.dataset.reference==='approved';documentLayoutKey='';previewState='content';renderPrototype();return;}
   if(target.dataset.layout){documentLayoutKey=target.dataset.layout;renderPrototype();return;}
   if(target.dataset.auth){
+    if(target.getAttribute('aria-pressed')==='true')return;
     // O formulário pode estar na página ou no modal; o escopo semântico acompanha ambos.
     const content=target.closest('[data-local-content]');
     const signup=target.dataset.auth==='signup';
+    const panel=target.closest('.live-auth-panel');
+    if(panel)panel.dataset.authMode=target.dataset.auth;
     content.querySelectorAll('[data-auth]').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));
     content.querySelectorAll('[data-signup-field]').forEach(el=>el.hidden=!signup);
-    content.querySelector('form[data-local-form="account"]').reset();
+    const form=content.querySelector('form[data-local-form="account"]');
+    form.reset();
+    // Remonta somente os campos para repetir a entrada suave, como na aplicação.
+    form.replaceWith(form.cloneNode(true));
     content.querySelector('[data-auth-submit]').textContent=signup?'Criar conta':'Entrar';
+    content.querySelectorAll('.local-feedback').forEach(feedback=>feedback.textContent='');
     return;
   }
   // O escopo semântico acompanha as composições pública e interna, independentemente do CSS.

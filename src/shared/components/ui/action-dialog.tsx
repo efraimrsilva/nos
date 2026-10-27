@@ -12,6 +12,7 @@ type Props = {
   variant?: "primary" | "secondary" | "text" | "card";
   size?: "default" | "wide";
   className?: string;
+  defaultOpen?: boolean;
 };
 
 function CloseAfterNavigation({ dialog }: { dialog: RefObject<HTMLDialogElement | null> }) {
@@ -29,14 +30,17 @@ function CloseAfterNavigation({ dialog }: { dialog: RefObject<HTMLDialogElement 
 }
 
 // O diálogo só gerencia apresentação/foco. Formulários filhos mantêm suas ações e permissões de servidor.
-export function ActionDialog({ trigger, title, description, children, variant = "secondary", size = "default", className = "" }: Props) {
+export function ActionDialog({ trigger, title, description, children, variant = "secondary", size = "default", className = "", defaultOpen = false }: Props) {
   const dialog = useRef<HTMLDialogElement>(null);
   const origin = useRef<HTMLButtonElement>(null);
   const id = useId();
+  useEffect(() => {
+    if (defaultOpen && !dialog.current?.open) dialog.current?.showModal();
+  }, [defaultOpen]);
   return <>
     <button ref={origin} type="button" className={`ui-dialog-trigger ui-trigger-${variant} ${className}`} aria-haspopup="dialog" onClick={() => dialog.current?.showModal()}>{trigger}</button>
     <dialog ref={dialog} className={`ui-dialog ui-dialog-${size}`} aria-labelledby={`${id}-title`} aria-describedby={description ? `${id}-description` : undefined} onClose={() => origin.current?.focus()}>
-      <header className="ui-dialog-header"><div><p className="ui-kicker">NO SEU TEMPO</p><h2 id={`${id}-title`}>{title}</h2></div><button type="button" className="ui-icon-button" aria-label={`Fechar ${title}`} onClick={() => dialog.current?.close()} autoFocus><X size={21} aria-hidden="true" /></button></header>
+      <header className="ui-dialog-header"><div><h2 id={`${id}-title`}>{title}</h2></div><button type="button" className="ui-icon-button" aria-label={`Fechar ${title}`} onClick={() => dialog.current?.close()} autoFocus><X size={21} aria-hidden="true" /></button></header>
       {description && <p id={`${id}-description`} className="ui-dialog-description">{description}</p>}
       <div className="ui-dialog-body">{children}</div>
     </dialog>

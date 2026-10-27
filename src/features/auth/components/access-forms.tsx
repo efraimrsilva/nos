@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useEffect, useState } from "react";
+import { useActionState, useEffect, useId, useState } from "react";
 import { requestAccessEmail, resetPassword } from "@/features/auth/access-actions";
 import type { AuthFormState } from "@/features/auth/actions";
 import { passwordHelp } from "@/features/auth/input";
@@ -12,7 +12,8 @@ function Feedback({ state }: { state: AuthFormState }) {
   return state.message ? <p role={state.success ? "status" : "alert"} className="ui-feedback">{state.message}</p> : null;
 }
 
-export function EmailActionForm({ kind, next }: { kind: "recovery" | "confirmation"; next: string }) {
+export function EmailActionForm({ kind, next, embedded = false }: { kind: "recovery" | "confirmation"; next: string; embedded?: boolean }) {
+  const emailId = useId();
   const [state, action, pending] = useActionState(requestAccessEmail, initial);
   const [remaining, setRemaining] = useState(0);
   // O relógio local informa o intervalo; o servidor e o Auth controlam cada solicitação.
@@ -22,9 +23,9 @@ export function EmailActionForm({ kind, next }: { kind: "recovery" | "confirmati
     const timer = setInterval(tick, 1000);
     return () => clearInterval(timer);
   }, [state.retryAt]);
-  return <form action={action} noValidate className="ui-panel auth-panel auth-fields" aria-busy={pending}>
+  return <form action={action} noValidate className={embedded ? "auth-fields" : "ui-panel auth-panel auth-fields"} aria-busy={pending}>
     <input type="hidden" name="kind" value={kind} /><input type="hidden" name="next" value={next} />
-    <div className="auth-field"><label htmlFor="access-email">E-mail da conta</label><input id="access-email" name="email" type="email" autoComplete="email" maxLength={254} className="ui-field" disabled={pending} /></div>
+    <div className="auth-field"><label htmlFor={emailId}>E-mail da conta</label><input id={emailId} name="email" type="email" autoComplete="email" maxLength={254} className="ui-field" disabled={pending} /></div>
     <p className="auth-help">{kind === "recovery" ? "Se houver uma conta para este e-mail, enviaremos as instruções. A mensagem não revela se alguém está cadastrado." : "Abra o link enviado ao cadastrar sua conta. Confira também o spam. Nunca compartilhe o link de acesso."}</p>
     <Feedback state={state} />
     <button type="submit" disabled={pending || remaining > 0} className="ui-button">{pending ? "Solicitando…" : kind === "recovery" ? "Solicitar link" : "Reenviar confirmação"}</button>
