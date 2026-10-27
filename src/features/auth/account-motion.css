@@ -17,7 +17,7 @@
 
 @keyframes account-tree-welcome {
   0% { opacity: 0; transform: scale(.9); }
-  35% { opacity: 1; transform: scale(1.015); }
+  35% { opacity: 1; transform: scale(1.06); }
   100% { opacity: 1; transform: scale(1); }
 }
 
