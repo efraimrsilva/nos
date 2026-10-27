@@ -1,5 +1,9 @@
 # Estado do Projeto Nós
 
+## E-mails personalizados — v3.1.3 — 2026-10-27
+
+13 modelos e26 renderizações locais aprovados. 13 assuntos e13 HTMLs publicados e conferidos na API oficial, com credencial da CLI2.118.0 reutilizada em memória. Payload restrito aos modelos;217 campos restantes estáveis na comparação posterior e sete avisos mantidos desativados. Nenhum e-mail externo enviado. Roteiro MVP01 ampliado para97 testes, com17 novos M01-081–097; execução manual pendente. [Registro](registros/registro-v3.1.3-2026-10-27-imp-emails-fun-modelos-personalizados.md) · [prévias](../wireframes/comparacoes/2026-10-27-emails-personalizados/index.html).
+
 ## Publicação autorizada — v3.1.2 — 2026-10-27 — confirmação de e-mail
 
 Consulta com/sem sessão e feedback no mesmo modal implementados. Tipos, build,64 testes focados,14 cenários visuais do aplicativo e quatro do Atlas aprovados. Playwright/Chromium instalado. Migração20261027173526 aplicada no nos-dev;12 migrações remotas, permissões conferidas e três contas preservadas. Código4ba6b46 publicado em origin/main, hash remoto conferido e fluxo público validado em https://noslife.netlify.app em desktop/celular; migração precedeu o push. Sem certificação de envio externo ou sessão real nesta alteração.

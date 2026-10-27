@@ -1,4 +1,4 @@
-# Processo permanente de testes manuais — v3.1.2
+# Processo permanente de testes manuais — v3.1.3
 
 Criado em 2026-10-23 por solicitação do usuário.
 
@@ -16,6 +16,6 @@ Formato de retorno: `M01-013 | Falhou | ambiente/navegador/dispositivo | observa
 
 ## Índice
 
-- [MVP 01 — 80 testes](mvp-01.md): inclui confirmação de e-mail com e sem login, casos M01-063 a M01-080; M01-019, M01-021 e M01-025 atualizados para o fluxo vigente.
+- [MVP 01 — 97 testes](mvp-01.md): confirmação com e sem login em M01-063 a M01-080; e-mails personalizados em M01-081 a M01-097. Modelos de fluxos futuros não significam funcionalidade ativada; conferir a aplicação no Supabase antes de testar recebimento real.
 - [Resultados e histórico de execuções](resultados.md).
 - MVP 02–05 e expansões: detalhamento futuro, sem afirmar cobertura já criada.

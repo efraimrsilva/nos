@@ -1,5 +1,9 @@
 # Conta e entrada — v0.14.1
 
+## v3.1.3 — Identidade dos e-mails — 2026-10-27
+
+13 modelos em português com a identidade do Nós, um por situação de autenticação/segurança. Confirmação e recuperação mantêm os links e os fluxos existentes; modelos de convite administrativo, link de entrada, mudança de endereço e verificação não ativam novas funcionalidades. Avisos preservam a configuração de envio vigente. 13 assuntos e13 HTMLs aplicados e conferidos remotamente pela API oficial. Credencial da CLI reutilizada somente em memória; avisos desativados preservados. Prévias e leitura de configuração não comprovam recebimento. [Catálogo e operação](../../../supabase/templates/README.md) · [registro](../registros/registro-v3.1.3-2026-10-27-imp-emails-fun-modelos-personalizados.md) · [prévias](../../wireframes/comparacoes/2026-10-27-emails-personalizados/index.html).17 novos testes manuais M01-081 a M01-097 integrados ao roteiro MVP01, ainda Não executados.
+
 ## v0.14.1 — Operação online Netlify — 2026-10-13
 
 https://noslife.netlify.app conectado ao nos-dev. Netlify Production configurado com endereço/chave pública do Supabase e APP_ORIGIN; Supabase Site URL e retornos /auth/confirm e /auth/recovery online aplicados, preservando retornos locais. Deploy 6ace48f47aa1bb0b8a70bc68 publicado em main a219fb4. Login, acesso privado por cookies, saída e proteção após sair validados por HTTP com fixture confirmada e posteriormente removida. Contratos/telas mantidos.

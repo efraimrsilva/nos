@@ -14,3 +14,58 @@ enable_confirmations = true
 
 [db.seed]
 enabled = false
+
+# BEGIN NOS AUTH EMAILS
+# Modelos não ativam notificações nem novos fluxos de acesso.
+[auth.email.template.confirmation]
+subject = "Confirme seu e-mail para começar no Nós"
+content_path = "./supabase/templates/confirmation.html"
+
+[auth.email.template.recovery]
+subject = "Recupere seu acesso ao Nós"
+content_path = "./supabase/templates/recovery.html"
+
+[auth.email.template.invite]
+subject = "Você recebeu um convite para o Nós"
+content_path = "./supabase/templates/invite.html"
+
+[auth.email.template.magic_link]
+subject = "Seu link para entrar no Nós"
+content_path = "./supabase/templates/magic_link.html"
+
+[auth.email.template.email_change]
+subject = "Confirme a mudança do seu e-mail no Nós"
+content_path = "./supabase/templates/email_change.html"
+
+[auth.email.template.reauthentication]
+subject = "Confirme que é você no Nós"
+content_path = "./supabase/templates/reauthentication.html"
+
+[auth.email.notification.password_changed]
+subject = "A senha da sua conta no Nós foi alterada"
+content_path = "./supabase/templates/password_changed.html"
+
+[auth.email.notification.email_changed]
+subject = "O e-mail de acesso ao Nós foi alterado"
+content_path = "./supabase/templates/email_changed.html"
+
+[auth.email.notification.phone_changed]
+subject = "O telefone da sua conta no Nós foi alterado"
+content_path = "./supabase/templates/phone_changed.html"
+
+[auth.email.notification.identity_linked]
+subject = "Uma forma de acesso foi adicionada ao Nós"
+content_path = "./supabase/templates/identity_linked.html"
+
+[auth.email.notification.identity_unlinked]
+subject = "Uma forma de acesso foi removida do Nós"
+content_path = "./supabase/templates/identity_unlinked.html"
+
+[auth.email.notification.mfa_factor_enrolled]
+subject = "Uma verificação adicional foi adicionada ao Nós"
+content_path = "./supabase/templates/mfa_factor_enrolled.html"
+
+[auth.email.notification.mfa_factor_unenrolled]
+subject = "Uma verificação adicional foi removida do Nós"
+content_path = "./supabase/templates/mfa_factor_unenrolled.html"
+# END NOS AUTH EMAILS

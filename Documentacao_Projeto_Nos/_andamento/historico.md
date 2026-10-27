@@ -1,5 +1,9 @@
 # Histórico de andamento
 
+## 2026-10-27 — v3.1.3 — E-mails personalizados por situação
+
+Preparados13 modelos com identidade do Nós, assuntos e textos próprios, sem modificar links nem ativar recursos.26 renderizações locais aprovadas;13 assuntos e13 HTMLs aplicados no Supabase e lidos de volta iguais às fontes. Sete avisos mantidos desativados; recebimento externo não certificado.17 novos casos manuais incorporados ao roteiro existente, total97, sem aprovação manual atribuída. [Registro](registros/registro-v3.1.3-2026-10-27-imp-emails-fun-modelos-personalizados.md) · [galeria](../wireframes/comparacoes/2026-10-27-emails-personalizados/index.html).
+
 ## 2026-10-27 — v3.1.2 — confirmação de e-mail e testes manuais
 
 Resultado no mesmo modal com ou sem sessão; só anuncia envio para confirmação pendente após sucesso. Migração aplicada no Supabase antes de publicar; três contas preservadas. Playwright/Chromium instalado;64 testes focados, tipos, build e18 cenários visuais aprovados. Roteiro MVP01 ampliado de62 para80 casos, preservando IDs e sem atribuir aprovação manual. Publicação completa autorizada e concluída: código4ba6b46 em origin/main e fluxo público conferido no site real em desktop/celular. [Registro](registros/registro-v3.1.2-2026-10-27-imp-confirmacao-fun-estado-email.md) · [testes](testes-manuais/mvp-01.md).

@@ -1,0 +1,119 @@
+[
+  {
+    "id": "confirmation", "label": "Confirmação de cadastro", "category": "template", "status": "Fluxo existente",
+    "subject": "Confirme seu e-mail para começar no Nós",
+    "preheader": "Falta um pequeno passo para cuidar dos seus vínculos com o Nós.",
+    "eyebrow": "BOAS-VINDAS AO NÓS", "title": "Seu próximo passo começa aqui.",
+    "paragraphs": ["Que bom ter você por aqui. Confirme seu e-mail para concluir esta etapa do cadastro e acessar sua conta no Nós.", "Depois, você poderá criar um Núcleo ou entrar com um convite, no seu tempo."],
+    "action": "Confirmar meu e-mail", "href": "{{ .ConfirmationURL }}",
+    "notice": "Se você não iniciou este cadastro, pode ignorar esta mensagem. Não compartilhe este link: ele é pessoal e temporário."
+  },
+  {
+    "id": "recovery", "label": "Recuperação de senha", "category": "template", "status": "Fluxo existente",
+    "subject": "Recupere seu acesso ao Nós",
+    "preheader": "Escolha uma nova senha e volte ao seu espaço com segurança.",
+    "eyebrow": "RECUPERAR ACESSO", "title": "Vamos ajudar você a voltar.",
+    "paragraphs": ["Recebemos um pedido para redefinir a senha da sua conta no Nós. Use o botão abaixo para escolher uma nova senha.", "Sua senha só será alterada depois que você concluir essa etapa no aplicativo."],
+    "action": "Redefinir minha senha", "href": "{{ .ConfirmationURL }}",
+    "notice": "Se você não solicitou a recuperação, ignore esta mensagem. Não compartilhe o link de recuperação: ele é pessoal e temporário."
+  },
+  {
+    "id": "invite", "label": "Convite de acesso", "category": "template", "status": "Modelo preparado; sem fluxo no aplicativo",
+    "subject": "Você recebeu um convite para o Nós",
+    "preheader": "Um convite para criar seu acesso e começar uma nova história.",
+    "eyebrow": "UM CONVITE PARA COMEÇAR", "title": "Há espaço para você no Nós.",
+    "paragraphs": ["Você recebeu um convite para criar seu acesso ao Nós, um espaço para cultivar presença, respeito e cuidado nas suas relações.", "Este convite dá acesso ao aplicativo. Participar de um Núcleo é uma escolha separada, feita por você."],
+    "action": "Conferir meu convite", "href": "{{ .ConfirmationURL }}",
+    "notice": "Se você não reconhece este convite, pode ignorar a mensagem. O link é pessoal e temporário; não o encaminhe para outras pessoas."
+  },
+  {
+    "id": "magic_link", "label": "Link de entrada", "category": "template", "status": "Modelo preparado; sem fluxo no aplicativo",
+    "subject": "Seu link para entrar no Nós",
+    "preheader": "Use este link pessoal para acessar sua conta.",
+    "eyebrow": "SEU ACESSO AO NÓS", "title": "Um caminho para o seu espaço.",
+    "paragraphs": ["Você solicitou um link de entrada para sua conta no Nós. Use o botão abaixo para continuar seu acesso com segurança."],
+    "action": "Entrar na minha conta", "href": "{{ .ConfirmationURL }}",
+    "notice": "Se você não pediu este acesso, ignore a mensagem. Não compartilhe este link: ele pode dar acesso à sua conta e é temporário."
+  },
+  {
+    "id": "email_change", "label": "Confirmação de troca de e-mail", "category": "template", "status": "Modelo preparado; sem fluxo no aplicativo",
+    "subject": "Confirme a mudança do seu e-mail no Nós",
+    "preheader": "Confira a mudança de endereço antes de confirmar.",
+    "eyebrow": "SEUS DADOS DE ACESSO", "title": "Vamos conferir essa mudança.",
+    "paragraphs": ["Recebemos uma solicitação para mudar o e-mail de acesso da sua conta no Nós para {{ .NewEmail }}.", "Se você fez esse pedido, use o botão abaixo para confirmar esta etapa. A mudança pode exigir confirmação nos dois endereços, conforme a configuração da conta."],
+    "action": "Confirmar mudança de e-mail", "href": "{{ .ConfirmationURL }}",
+    "notice": "Se você não solicitou essa mudança, não confirme. Acesse sua conta pelo aplicativo e procure ajuda pelo contato abaixo."
+  },
+  {
+    "id": "reauthentication", "label": "Código de verificação", "category": "template", "status": "Modelo preparado; sem fluxo no aplicativo",
+    "subject": "Confirme que é você no Nós",
+    "preheader": "Uma etapa de verificação para proteger sua conta.",
+    "eyebrow": "VERIFICAÇÃO DE SEGURANÇA", "title": "Um cuidado a mais com seu acesso.",
+    "paragraphs": ["Para continuar a ação solicitada na sua conta, informe o código abaixo na tela de verificação do Nós."],
+    "code": "{{ .Token }}",
+    "notice": "Se você não iniciou esta ação, não use nem compartilhe o código. Ele é temporário. Nossa equipe não pede códigos de acesso por mensagem."
+  },
+  {
+    "id": "password_changed", "label": "Senha alterada", "category": "notification", "status": "Aviso preparado; ativação preservada no servidor",
+    "subject": "A senha da sua conta no Nós foi alterada",
+    "preheader": "Um aviso de segurança sobre a sua conta.",
+    "eyebrow": "SEGURANÇA DA SUA CONTA", "title": "Sua senha foi atualizada.",
+    "paragraphs": ["A senha da sua conta no Nós foi alterada. Se foi você quem fez a mudança, não precisa fazer mais nada por aqui.", "Se você não reconhece essa alteração, solicite a recuperação do acesso pelo aplicativo e entre em contato com a nossa equipe."],
+    "action": "Recuperar meu acesso", "href": "{{ .SiteURL }}/conta/recuperar",
+    "notice": "Este é apenas um aviso. Nunca envie sua senha ou códigos de verificação para a nossa equipe."
+  },
+  {
+    "id": "email_changed", "label": "E-mail alterado", "category": "notification", "status": "Aviso preparado; ativação preservada no servidor",
+    "subject": "O e-mail de acesso ao Nós foi alterado",
+    "preheader": "Confira a atualização do endereço da sua conta.",
+    "eyebrow": "SEGURANÇA DA SUA CONTA", "title": "Seu endereço de acesso mudou.",
+    "paragraphs": ["O e-mail da sua conta no Nós foi alterado de {{ .OldEmail }} para {{ .Email }}.", "Se você fez essa mudança, este aviso é só uma confirmação. Se não reconhece a alteração, entre em contato com a nossa equipe para receber orientação."],
+    "action": "Abrir minha conta", "href": "{{ .SiteURL }}/conta",
+    "notice": "Não responda com senhas ou códigos de acesso. Este aviso não solicita uma nova confirmação de e-mail."
+  },
+  {
+    "id": "phone_changed", "label": "Telefone alterado", "category": "notification", "status": "Aviso preparado; ativação preservada no servidor",
+    "subject": "O telefone da sua conta no Nós foi alterado",
+    "preheader": "Um aviso sobre a atualização do telefone da sua conta.",
+    "eyebrow": "SEGURANÇA DA SUA CONTA", "title": "Seu telefone foi atualizado.",
+    "paragraphs": ["O telefone associado à sua conta no Nós mudou de {{ .OldPhone }} para {{ .Phone }}.", "Se você reconhece essa mudança, não precisa fazer mais nada. Caso contrário, procure nossa equipe para receber orientação."],
+    "action": "Abrir minha conta", "href": "{{ .SiteURL }}/conta",
+    "notice": "Este é um aviso de segurança. Nossa equipe não pede senhas nem códigos de verificação por mensagem."
+  },
+  {
+    "id": "identity_linked", "label": "Forma de acesso adicionada", "category": "notification", "status": "Aviso preparado; ativação preservada no servidor",
+    "subject": "Uma forma de acesso foi adicionada ao Nós",
+    "preheader": "Confira a nova forma de entrar na sua conta.",
+    "eyebrow": "SEGURANÇA DA SUA CONTA", "title": "Seu acesso tem uma nova opção.",
+    "paragraphs": ["Uma conta do serviço {{ .Provider }} foi vinculada como forma de acesso à sua conta no Nós.", "Se você fez essa vinculação, este aviso confirma a mudança. Se não reconhece a ação, procure nossa equipe."],
+    "action": "Revisar minha conta", "href": "{{ .SiteURL }}/conta",
+    "notice": "Não compartilhe senhas nem códigos de verificação. Este e-mail não pede autorização para uma nova vinculação."
+  },
+  {
+    "id": "identity_unlinked", "label": "Forma de acesso removida", "category": "notification", "status": "Aviso preparado; ativação preservada no servidor",
+    "subject": "Uma forma de acesso foi removida do Nós",
+    "preheader": "Confira a mudança nas formas de entrar na sua conta.",
+    "eyebrow": "SEGURANÇA DA SUA CONTA", "title": "Uma opção de acesso foi removida.",
+    "paragraphs": ["A conta do serviço {{ .Provider }} foi desvinculada das formas de acesso à sua conta no Nós.", "Se você não fez essa alteração ou está com dificuldade para entrar, procure nossa equipe para receber orientação."],
+    "action": "Abrir minha conta", "href": "{{ .SiteURL }}/conta",
+    "notice": "Este aviso não exclui sua conta no Nós. Nunca envie senhas ou códigos de verificação por mensagem."
+  },
+  {
+    "id": "mfa_factor_enrolled", "label": "Verificação adicional ativada", "category": "notification", "status": "Aviso preparado; ativação preservada no servidor",
+    "subject": "Uma verificação adicional foi adicionada ao Nós",
+    "preheader": "Confira uma mudança na segurança do seu acesso.",
+    "eyebrow": "SEGURANÇA DA SUA CONTA", "title": "Um novo método de verificação.",
+    "paragraphs": ["Um método de verificação do tipo {{ .FactorType }} foi adicionado à sua conta no Nós.", "Se você fez essa mudança, este aviso confirma a configuração. Se não reconhece a ação, procure nossa equipe."],
+    "action": "Revisar minha conta", "href": "{{ .SiteURL }}/conta",
+    "notice": "Não compartilhe códigos de verificação nem códigos de recuperação. Nossa equipe não solicita esses dados por mensagem."
+  },
+  {
+    "id": "mfa_factor_unenrolled", "label": "Verificação adicional removida", "category": "notification", "status": "Aviso preparado; ativação preservada no servidor",
+    "subject": "Uma verificação adicional foi removida do Nós",
+    "preheader": "Confira uma mudança na segurança do seu acesso.",
+    "eyebrow": "SEGURANÇA DA SUA CONTA", "title": "Um método de verificação foi removido.",
+    "paragraphs": ["Um método de verificação do tipo {{ .FactorType }} foi removido da sua conta no Nós.", "Se você não reconhece essa alteração, procure nossa equipe para receber orientação sobre a proteção do seu acesso."],
+    "action": "Revisar minha conta", "href": "{{ .SiteURL }}/conta",
+    "notice": "Este é apenas um aviso. Não compartilhe senhas, códigos de verificação ou códigos de recuperação."
+  }
+]
