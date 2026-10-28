@@ -7,6 +7,7 @@ import { AccountRow } from "@/features/controls/components/account-row";
 import { HelpContent, PrivacyContent, SecurityContent } from "@/features/controls/components/settings-content";
 import { ActionDialog } from "@/shared/components/ui/action-dialog";
 import { routes } from "@/shared/routes";
+import { AppearanceOption } from "@/features/appearance/theme-picker";
 
 export const metadata: Metadata = { title: "Configurações" };
 
@@ -17,6 +18,7 @@ export default async function SettingsPage() {
 
   return <ControlsShell title="Privacidade com clareza." subtitle="Preferências, segurança e ajuda sem caminhos escondidos." back={routes.nucleus} showBack={false}>
     <div className="settings-grid">
+      <section className="ui-panel settings-panel"><h2>Aparência</h2><p>Escolha as cores do seu espaço. A preferência é salva na sua conta.</p><AppearanceOption className="ui-button-secondary" /></section>
       <section className="ui-panel settings-panel"><h2>Privacidade</h2>
         <ActionDialog variant="text" className="account-dialog-trigger" title="Privacidade e visibilidade" description="Escolhas claras sobre seu histórico compartilhado." size="wide" trigger={<AccountRow icon={LockKeyhole} title="Visibilidade das próximas saídas" description="Uma escolha para as próximas ações" />}><PrivacyContent hidden={Boolean(hidden)} /></ActionDialog>
         <ActionDialog variant="text" className="account-dialog-trigger" title="Dados e autonomia" description="Orientações e limites do produto." size="wide" trigger={<AccountRow icon={BookOpen} title="Dados e autonomia" description="Orientações e limites do produto" />}><HelpContent /></ActionDialog>

@@ -1,5 +1,17 @@
 # Histórico de andamento
 
+## 2026-10-28 — publicação integral e alinhamento de banco
+
+Conjunto completo autorizado para origin/main. Supabase remoto e local com13 migrações;43 funções da aplicação e15 tabelas conferidas. Correção reproduzível de bloqueios da agenda em checkouts CRLF, sem mudança dos dados remotos. [Registro integral](registros/registro-v3.3.0-2026-10-28-publicacao-integral-github-supabase.md).
+
+## 2026-10-28 — ambiente Supabase local e testes autenticados
+
+CLI fixada, 12 migrações locais, 160 testes SQL e 10 testes autenticados de temas/navegação aprovados. Cadastro, confirmação e recuperação por e-mail local concluídos no navegador. Aplicativo na porta 3001, Studio 54323 e Mailpit 54324. Projeto remoto preservado. [Registro](registros/registro-v3.3.0-2026-10-28-supabase-local.md).
+
+## 2026-10-28 — integração dos temas à main atual
+
+Integração local da branch `origin/codex/temas-conta` à base atual de `main`, preservando mudanças locais de acesso, árvore/reflexões, rodapé e transporte com proxy. Nove temas, preferência por conta, navegação e totais pessoais restaurados. Sem commit, push, deploy ou operação no banco remoto nesta rodada.
+
 ## 2026-10-27 — v3.1.3 — E-mails personalizados por situação
 
 Preparados13 modelos com identidade do Nós, assuntos e textos próprios, sem modificar links nem ativar recursos.26 renderizações locais aprovadas;13 assuntos e13 HTMLs aplicados no Supabase e lidos de volta iguais às fontes. Sete avisos mantidos desativados; recebimento externo não certificado.17 novos casos manuais incorporados ao roteiro existente, total97, sem aprovação manual atribuída. [Registro](registros/registro-v3.1.3-2026-10-27-imp-emails-fun-modelos-personalizados.md) · [galeria](../wireframes/comparacoes/2026-10-27-emails-personalizados/index.html).
@@ -7,6 +19,29 @@ Preparados13 modelos com identidade do Nós, assuntos e textos próprios, sem mo
 ## 2026-10-27 — v3.1.2 — confirmação de e-mail e testes manuais
 
 Resultado no mesmo modal com ou sem sessão; só anuncia envio para confirmação pendente após sucesso. Migração aplicada no Supabase antes de publicar; três contas preservadas. Playwright/Chromium instalado;64 testes focados, tipos, build e18 cenários visuais aprovados. Roteiro MVP01 ampliado de62 para80 casos, preservando IDs e sem atribuir aprovação manual. Publicação completa autorizada e concluída: código4ba6b46 em origin/main e fluxo público conferido no site real em desktop/celular. [Registro](registros/registro-v3.1.2-2026-10-27-imp-confirmacao-fun-estado-email.md) · [testes](testes-manuais/mvp-01.md).
+
+## 2026-10-24 — v3.3.0 — publicação e prova online concluídas
+
+Migração20261024120000 aplicada (11 remotas); código48b1bd3 e ajuste de build70414a9 publicados. Deploy6adc3759fc570b50b060aaf0 ready, sem segredos detectados. Cache descartável removido sem desativar varredura. Selo da hospedagem desativado para liberar Mais no mobile. Prova final desktop/mobile aprovada; quatro contas descartáveis limpas nas duas execuções,15 tabelas preexistentes preservadas. [Registro](registros/registro-v3.3.0-2026-10-24-imp-navegacao-fun-totais-pessoais.md).
+
+## 2026-10-24 — v3.3.0 — totais pessoais na navegação
+
+Totais globais autenticados, números discretos desktop/mobile, Pessoas deduplicadas, aceite vigente e Agenda atual. Função agregada sem exposição de listas/autoria, cache por requisição e falha sem zero fictício.162 gerais,153 SQL,12 cenários autenticados cobertos (11 na rodada ampliada + dois retestes do caso de erro), tipos/build/Atlas aprovados. Revisão independente e P2 de limpeza online corrigido. Produção autorizada; conferência remota e prova online pendentes neste marco. [Registro](registros/registro-v3.3.0-2026-10-24-imp-navegacao-fun-totais-pessoais.md).
+
+## 2026-10-24 — v3.2.1 — publicação GitHub da aparência autorizada
+
+Usuário autorizou commit/push de todas as alterações acumuladas, com descrição abrangente. Destino:codex/temas-conta; main preservada. Código, testes, nove temas, navegação, ícones, Atlas,68 capturas e registros na mesma unidade lógica.158 gerais, tipos/build e Atlas conferidos nesta publicação; testes manuais seguem Não executados. Inclusão/hash remoto conferidos no fechamento. [Registro](registros/registro-v3.2.1-2026-10-24-imp-publicacao-github-fun-consolidacao-aparencia.md).
+
+
+## 2026-10-23 — v3.2.1 — Solar/Neon, navegação uniforme e ícones preservados
+
+Catálogo ampliado para nove temas; Aparência segue o item vizinho no desktop e Mais mobile. Ícones mantêm cores originais em todos os temas; localização usa texto/fundo/marcador.158 gerais,16 focados, seis autenticados e repetição final de temas; revisão independente. Sem publicação. [Registro](registros/registro-v3.2.1-2026-10-23-imp-catalogo-temas-fun-solar-neon.md).
+
+
+## 2026-10-23 — v3.2.0 — temas por conta e localização na navegação
+
+Sete temas em Aparência no Mais/navegação desktop/Configurações; aplicação imediata e salvamento autenticado por conta. Entrada sempre clara. Cor de localização por tema com faixa desktop e indicador móvel. 154 testes gerais,12 focados e oito autenticados locais aprovados; revisão independente e capturas. Sem publicação ou migração; testes manuais pendentes. [Registro](registros/registro-v3.2.0-2026-10-23-imp-aparencia-conta-fun-temas-persistentes.md).
+
 
 ## 2026-10-23 — v3.1.1 — publicação GitHub dos testes manuais
 

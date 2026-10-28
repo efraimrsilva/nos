@@ -4,7 +4,7 @@ test("rascunho não é renderizado antes de entrar na conta", async ({ page }) =
   await page.goto("/comecar/proposito?tipo=familia");
   await expect(page.getByRole("heading", { name: "Sua conta no Nós" })).toBeVisible();
   await expect(page.getByRole("textbox", { name: "Nome do Núcleo" })).toHaveCount(0);
-  await expect(page.locator('input[name="next"]')).toHaveValue("/comecar/proposito?tipo=familia");
+  await expect(page.locator('form:has(input[name="mode"]) input[name="next"]')).toHaveValue("/comecar/proposito?tipo=familia");
 });
 
 test("convite inicial exige uma conta e um Núcleo real", async ({ page }) => {
@@ -22,5 +22,5 @@ test("gestão dos convites pede login e preserva destino privado", async ({ page
   await page.goto("/nucleos/11111111-1111-4111-8111-111111111111/convites");
   await expect(page).toHaveURL(/\/conta\?modo=login&next=/);
   await expect(page.getByRole("heading", { name: "Gerenciar convites" })).toHaveCount(0);
-  await expect(page.locator('input[name="next"]')).toHaveValue("/nucleos/11111111-1111-4111-8111-111111111111/convites");
+  await expect(page.locator('form:has(input[name="mode"]) input[name="next"]')).toHaveValue("/nucleos/11111111-1111-4111-8111-111111111111/convites");
 });

@@ -6,16 +6,16 @@ import path from "node:path";
 import os from "node:os";
 import { fileURLToPath } from "node:url";
 import { Entry, findCredentials } from "@napi-rs/keyring";
-import { getDevEnvironment } from "./dev-network.mjs";
 import { messages, managementPayload, renderEmail } from "./generate-auth-emails.mjs";
 
 const project = "pyvohqgcwkcfzbtkmbvx";
-const env = getDevEnvironment();
+const env = { ...process.env, NODE_USE_SYSTEM_CA: "1", NODE_USE_ENV_PROXY: "1" };
 const args = process.argv.slice(2);
 if (args.some(arg => !["--check", "--apply", "--login"].includes(arg)) || args.length > 1) throw new Error("Use --check, --apply ou --login.");
-// A opção do proxy precisa estar presente quando o Node inicia, também no Windows.
-if (env.NODE_USE_ENV_PROXY === "1" && process.env.NODE_USE_ENV_PROXY !== "1") {
-  const child = spawnSync(process.execPath, ["--use-system-ca", fileURLToPath(import.meta.url), ...args], { env, stdio: "inherit", windowsHide: true });
+// Usa a configuração local fixa; os certificados e o proxy são lidos ao iniciar o Node.
+if (!process.execArgv.includes("--use-system-ca") || !process.execArgv.includes("--use-env-proxy")) {
+  const localEnv = fileURLToPath(new URL("../.env.local", import.meta.url));
+  const child = spawnSync(process.execPath, ["--use-system-ca", "--use-env-proxy", `--env-file-if-exists=${localEnv}`, fileURLToPath(import.meta.url), ...args], { env, stdio: "inherit", windowsHide: true });
   process.exit(child.status ?? 1);
 }
 function findCLI() {

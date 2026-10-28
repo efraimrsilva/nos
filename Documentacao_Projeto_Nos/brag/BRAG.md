@@ -1,5 +1,21 @@
 # Brag document — Projeto Nós
 
+**Evidência de produção — v3.3.0 — 24/10/2026:** totais e navegação conferidos online em desktop/mobile; Mais liberado de selo sobreposto. Migração/deploy confirmados, varredura sem ocorrências e15 tabelas preexistentes preservadas após limpeza das fixtures. [Fechamento](../_andamento/registros/registro-v3.3.0-2026-10-24-imp-navegacao-fun-totais-pessoais.md#fechamento-de-produção--24102026).
+
+## 2026-10-24 — v3.3.0 — presença atual visível na navegação
+
+**Problema:** menus não indicavam os vínculos atuais da pessoa. **Contribuição:** quatro totais autenticados, sem aparência de notificação; mesma informação no desktop/mobile, sem duplicar Pessoas e sem contar registros históricos indevidos. **Resultado verificado:** regras testadas no banco, navegação em320px e valor1201 no navegador;162 testes gerais e153 SQL aprovados. **Benefício esperado:** consultar a própria participação com menos navegação, sem métrica de uso inventada. [Evidências](../_andamento/registros/registro-v3.3.0-2026-10-24-imp-navegacao-fun-totais-pessoais.md).
+
+## 2026-10-23 — v3.2.1 — diversidade visual com consistência
+
+**Problema:** usuário solicitou maior diversidade e apontou Aparência desalinhada nos dois menus; ícones escuros eram uniformizados. **Contribuição:** Solar/Âmbar e Noturno/Neon, variante de navegação compartilhada e cores originais dos ícones independentes do tema. **Resultado verificado:** nove opções e estilos comparados em desktop/mobile;158 gerais,16 focados e fluxos autenticados aprovados. **Benefício esperado:** ampliar escolha sem perder reconhecimento visual; sem métrica de satisfação inventada. [Evidências](../_andamento/registros/registro-v3.2.1-2026-10-23-imp-catalogo-temas-fun-solar-neon.md).
+
+
+## 2026-10-23 — v3.2.0 — preferência visual e orientação de navegação
+
+**Problema:** o aplicativo tinha apenas aparência clara e não oferecia escolha por conta. **Contribuição:** sete temas persistentes, aplicação imediata com recuperação de falha e localização destacada por cor/forma em computador e celular. **Resultado verificado:**154 testes gerais, oito autenticados locais e inspeção visual; contraste corrigido após revisão independente. **Benefício esperado:** mais conforto e facilidade para identificar a área atual; sem medição de satisfação ou desempenho de uso. [Evidências](../_andamento/registros/registro-v3.2.0-2026-10-23-imp-aparencia-conta-fun-temas-persistentes.md).
+
+
 ## 2026-10-23 — v3.1.1 — rastreabilidade manual do acesso
 
 **Problema:** faltava controle consolidado dos testes manuais por etapa do Atlas. **Contribuição:**62 casos de acesso, IDs estáveis e histórico de execução/reteste; regra permanente por funcionalidade. **Resultado verificado:** roteiro documentado, sem aprovação manual. **Benefício esperado:** facilitar reprodução e evitar perda de falhas entre rodadas. [Processo e evidências](../_andamento/registros/registro-v3.1.1-2026-10-23-imp-roteiro-manual-fun-cobertura-mvp-01.md).

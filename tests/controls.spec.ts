@@ -18,6 +18,6 @@ test("controles exigem login e preservam retorno antes de renderizar", async ({ 
   for (const destination of destinations) {
     await page.goto(destination);
     await expect(page.getByRole("heading", { name: "Sua conta no Nós" })).toBeVisible();
-    await expect(page.locator('input[name="next"]')).toHaveValue(destination);
+    await expect(page.locator('form:has(input[name="mode"]) input[name="next"]')).toHaveValue(destination);
   }
 });

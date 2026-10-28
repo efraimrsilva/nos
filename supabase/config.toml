@@ -5,7 +5,7 @@ auto_expose_new_tables = false
 
 [auth]
 site_url = "http://127.0.0.1:3000"
-additional_redirect_urls = ["http://127.0.0.1:3000/auth/confirm", "http://127.0.0.1:3000/auth/confirm?next=**", "http://127.0.0.1:3000/auth/recovery", "http://127.0.0.1:3000/auth/recovery?next=**", "http://127.0.0.1:3200/auth/**"]
+additional_redirect_urls = ["http://127.0.0.1:3000/auth/confirm", "http://127.0.0.1:3000/auth/confirm?next=**", "http://127.0.0.1:3000/auth/recovery", "http://127.0.0.1:3000/auth/recovery?next=**", "http://127.0.0.1:3001/auth/**", "http://127.0.0.1:3200/auth/**"]
 minimum_password_length = 8
 
 [auth.email]
@@ -13,6 +13,10 @@ enable_signup = true
 enable_confirmations = true
 
 [db.seed]
+enabled = false
+
+# O coletor de logs no Windows exige a API TCP do Docker; o desenvolvimento usa os logs dos contêineres.
+[analytics]
 enabled = false
 
 # BEGIN NOS AUTH EMAILS

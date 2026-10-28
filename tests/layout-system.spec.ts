@@ -12,11 +12,16 @@ test("entrada usa a identidade nova e mantém acesso, ajuda e teclado", async ({
   expect(await tree.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
   await page.getByRole("button", { name: "Já tenho conta" }).click();
   await expect(page.getByRole("button", { name: "Entrar", exact: true })).toBeVisible();
-  await page.getByRole("link", { name: "Esqueci minha senha" }).click();
-  await expect(page).toHaveURL(/\/conta\/recuperar/);
+  await page.getByRole("button", { name: "Esqueci minha senha" }).click();
+  const recovery = page.getByRole("dialog", { name: "Recuperar acesso", exact: true });
+  await expect(recovery).toBeVisible();
+  await expect(recovery.getByRole("textbox", { name: "E-mail da conta" })).toBeVisible();
   await expect(page.locator("[data-layout='current']")).toBeVisible();
   await expect(page.getByRole("main")).toHaveCount(1);
-  await expect(tree).toHaveCount(0);
+  await expect(tree).toHaveCount(1);
+  await page.keyboard.press("Escape");
+  await expect(recovery).not.toBeVisible();
+  await expect(page.getByRole("button", { name: "Esqueci minha senha" })).toBeFocused();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 

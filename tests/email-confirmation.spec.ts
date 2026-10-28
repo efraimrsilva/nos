@@ -36,7 +36,7 @@ function confirmationRequest({ status = "pending", lookupError = false, lookupTh
           if (sendThrows) throw new Error("SMTP indisponível");
           return { error: sendError };
         },
-        resetPasswordForEmail: async () => ({ error: null }),
+        resetPasswordForEmail: async (...args: unknown[]) => { sends.push(args); return { error: null }; },
       },
     }),
   });
@@ -48,7 +48,7 @@ function confirmationRequest({ status = "pending", lookupError = false, lookupTh
 
 test("confirmação já concluída responde na mesma tela sem envio nem intervalo", async () => {
   const request = confirmationRequest({ status: "confirmed", retryAt: Date.now() + 60_000, origin: "" });
-  expect(await request.submit()).toEqual({ message: "Este e-mail já está confirmado. Você já pode entrar na sua conta.", success: true, revision: 5 });
+  expect(await request.submit()).toEqual({ message: "Este e-mail já está confirmado. Você já pode entrar na sua conta.", success: true, revision: 5, submittedEmail: "pessoa@example.test" });
   expect(request.queries).toEqual([["get_email_confirmation_status", { account_email: "pessoa@example.test" }]]);
   expect(request.sends).toHaveLength(0);
   expect(request.writes).toHaveLength(0);
@@ -112,9 +112,18 @@ test("endereço inválido não consulta estado nem envia", async () => {
   expect(request.sends).toHaveLength(0);
 });
 
-test("recuperação continua neutra e não consulta confirmação", async () => {
+test("recuperação verifica existência antes de enviar instruções", async () => {
   const request = confirmationRequest();
   request.form.set("kind", "recovery");
-  expect((await request.submit()).message).toContain("Se houver uma conta");
-  expect(request.queries).toHaveLength(0);
+  expect((await request.submit()).message).toContain("Encontramos uma conta para este e-mail. Enviamos as instruções");
+  expect(request.queries).toEqual([["get_email_confirmation_status", { account_email: "pessoa@example.test" }]]);
+  expect(request.sends).toHaveLength(1);
+});
+
+test("recuperação de conta inexistente não solicita envio", async () => {
+  const request = confirmationRequest({ status: "missing" });
+  request.form.set("kind", "recovery");
+  expect((await request.submit()).message).toContain("Não encontramos uma conta");
+  expect(request.sends).toHaveLength(0);
+  expect(request.writes).toHaveLength(0);
 });

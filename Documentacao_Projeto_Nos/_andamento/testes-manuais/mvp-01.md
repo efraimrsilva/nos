@@ -144,6 +144,20 @@ Casos novos: M01-081 a M01-097. Use conta e caixa postal próprias de teste, sem
 [] M01-096 | MVP 01 · confirmação/recuperação · link alternativo | Em mensagens próprias de teste, comparar o destino do botão com o link alternativo e testar a cópia do link completo sem registrar seu valor | Esperado: botão e alternativa usam a mesma URL segura gerada pelo Auth, preservando parâmetros; em link vencido/usado, aplicar o tratamento existente e solicitar outro, sem promessa de validade ilimitada.
 [] M01-097 | MVP 01 · publicação dos modelos · configuração | Com acesso autorizado ao painel, comparar antes/depois da publicação dos modelos os assuntos/conteúdos, SMTP, origem, retornos e ativação dos avisos | Esperado: apenas os13 modelos e seus assuntos personalizados; SMTP, origem, retornos, métodos de login e avisos habilitados/desabilitados preservados. Sem acesso administrativo, registrar Bloqueado sem copiar segredos para o controle.
 
+## Rede do ambiente local — 2026-10-28
+
+Dois novos casos M01-098 e M01-099; total atual: 99. Reinicie `npm run dev` após alterar a inicialização de rede. Use apenas conta e caixa postal próprias. Registre o recebimento separadamente da aceitação do pedido pelo Supabase.
+
+[] M01-098 | MVP 01 · Tela 03 · ambiente local com proxy | Com HTTP_PROXY/HTTPS_PROXY e certificados do sistema configurados, iniciar o servidor local e consultar um e-mail próprio já confirmado em `/conta/confirmar-email`; repetir após reiniciar o servidor | Esperado: informar que o e-mail já está confirmado, sem tentar reenviar nem exibir falha de consulta; verificar desktop e celular separadamente.
+[] M01-099 | MVP 01 · Tela 04 · recuperação no ambiente local com proxy | Com conta própria existente, abrir `/conta/recuperar` no servidor local, solicitar o link uma vez e conferir a caixa postal | Esperado: a consulta não expira, o sucesso só aparece após aceitação do envio e o e-mail personalizado chega; registrar separadamente o resultado da solicitação e o recebimento, respeitando o intervalo de 60 segundos. Senha não é alterada apenas por solicitar o link.
+
+## Supabase inteiramente local — 2026-10-28
+
+Dois novos casos M01-100 e M01-101; total atual: 101. Use contas temporárias do banco local. Os usuários do projeto hospedado não existem automaticamente neste ambiente.
+
+[] M01-100 | MVP 01 · ambiente local · cadastro/confirmar e-mail | Iniciar Docker, executar `npm run supabase:start` e `npm run dev:supabase`; cadastrar conta de teste em `http://127.0.0.1:3001` e confirmar pelo e-mail em `http://127.0.0.1:54324` | Esperado: mensagem personalizada somente na caixa local, confirmação abre a porta 3001 e inicia sessão; o servidor da porta 3000 e a configuração remota não são alterados.
+[] M01-101 | MVP 01 · ambiente local · recuperação | Na porta 3001, solicitar recuperação de conta local, abrir o link na caixa local, definir senha nova e entrar | Esperado: fluxo conclui no aplicativo local, senha nova funciona, dados e e-mails externos não são usados; parar/iniciar normalmente o Supabase preserva a conta local.
+
 ## Rastreabilidade e aceite
 
 Tela72: entrada; Tela01: abas/login/sessão; Tela02: cadastro; Tela03: confirmação; Tela04: solicitação; Tela05: redefinição. Retorno seguro, revogação, acessibilidade e falhas atravessam essas telas. Fontes: Atlas mvp-plan.js/screens.js; src/app/conta/; src/app/boas-vindas/page.tsx; src/app/page.tsx; src/features/auth/; contrato funcionalidades/conta-entrada.md; correção de cadastro repetido v3.1.1. Expectativas descrevem o contrato, sem atestar execução ou ausência de defeitos. Conclusão exige avaliar resultados, resolver falhas, repetir casos afetados e explicitar bloqueios.

@@ -4,9 +4,8 @@ import { cpSync, mkdtempSync, symlinkSync, rmSync, unlinkSync, mkdirSync, readdi
 import { createHash } from "node:crypto";
 import { tmpdir } from "node:os";
 import path from "node:path";
-const cli = process.env.SUPABASE_CLI_PATH;
-if (!cli) throw new Error("Defina SUPABASE_CLI_PATH com a CLI do Supabase.");
-const config = JSON.parse(execFileSync(cli, ["status", "-o", "json"], { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }));
+import { localSupabaseConfig } from "./local-supabase.mjs";
+const config = localSupabaseConfig();
 if (!/^http:\/\/(?:127\.0\.0\.1|localhost):/.test(config.API_URL)) throw new Error("Somente Supabase local permitido.");
 const authContainer = JSON.parse(execFileSync("docker", ["inspect", "supabase_auth_nos"], { encoding: "utf8" }))[0];
 const signingKeys = authContainer.Config.Env.find(entry => entry.startsWith("GOTRUE_JWT_KEYS="))?.slice("GOTRUE_JWT_KEYS=".length);

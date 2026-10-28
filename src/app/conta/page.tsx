@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Check, KeyRound, LockKeyhole, LogOut, UsersRound } from "lucide-react";
+import { ArrowRight, Check, KeyRound, LockKeyhole, LogOut, UsersRound } from "lucide-react";
 import { AuthForm } from "@/features/auth/components/auth-form";
 import { AccountAccessDialog } from "@/features/auth/components/account-access-dialog";
 import { signOut } from "@/features/auth/actions";
@@ -33,9 +33,8 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
   const initials = name ? name.split(/\s+/).slice(0, 2).map((part: string) => part[0]).join("").toLocaleUpperCase("pt-BR") : "N";
 
   return <OnboardingShell showTree={!user}><div className={`account-experience ${user ? "account-workspace" : "account-auth-heading"}`}>
-    {!user && <Link href="/boas-vindas" className="ui-text-link mb-5"><ArrowLeft size={16} aria-hidden="true" />Voltar às boas-vindas</Link>}
     <header className="ui-page-header"><div>
-      <p className="ui-kicker">{user ? "Sua conta" : "Um lugar seguro para seus vínculos"}</p>
+      {user && <p className="ui-kicker">Sua conta</p>}
       <h1 className="ui-title">{user ? "Seu espaço também merece cuidado." : "Sua conta no Nós"}</h1>
       <p className="ui-copy">{user ? "Seu acesso, seus dados e os caminhos para cuidar da sua conta." : "Crie uma conta ou entre para cuidar dos seus Núcleos com privacidade."}</p>
     </div></header>

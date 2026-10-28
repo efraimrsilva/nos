@@ -1,8 +1,20 @@
 # Projeto Nós
 
+**Consolidação v3.3.0 — 28/10/2026:** temas, totais pessoais, correções locais de acesso/rede, Supabase local e documentação reunidos. Banco remoto/local sincronizados com13 migrações; correção de bloqueios da agenda reproduzível em Windows. [Descrição integral e validações](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.3.0-2026-10-28-publicacao-integral-github-supabase.md).
+
+**Integração local — v3.3.0 — 28/10/2026:**
+
+Integração local da branch `origin/codex/temas-conta` à base atual de `main`, preservando mudanças locais de acesso, árvore/reflexões, rodapé e transporte com proxy. Nove temas, preferência por conta, navegação e totais pessoais restaurados. Sem commit, push, deploy ou operação no banco remoto nesta rodada.
+
 **E-mails aplicados — v3.1.3 — 27/10/2026:** 13 e-mails personalizados, com identidade do Nós e textos por situação.26 prévias desktop/celular verificadas; links e configuração de ativação preservados. 13 assuntos e13 HTMLs aplicados e conferidos no Supabase; sete avisos continuam desativados. Recebimento externo ainda exige teste manual.17 novos casos manuais M01-081–097 agrupados no MVP01, total97, ainda Não executados. [Prévias](Documentacao_Projeto_Nos/wireframes/comparacoes/2026-10-27-emails-personalizados/index.html) · [registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.1.3-2026-10-27-imp-emails-fun-modelos-personalizados.md).
 
 **Publicado — v3.1.2 — 27/10/2026:** confirmação de e-mail informa o estado no próprio modal, com ou sem sessão; só anuncia envio para pendência após sucesso. Playwright/Chromium instalado. Tipos, build, 64 testes focados e 18 cenários visuais aprovados; consulta SQL validada em PostgreSQL isolado. Migração aplicada no Supabase e código4ba6b46 publicado no GitHub; fluxo público conferido no site real em desktop/celular. Roteiro manual MVP01 ampliado para80 casos, incluindo18 novos de confirmação, ainda Não executados. [Registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.1.2-2026-10-27-imp-confirmacao-fun-estado-email.md) · [galeria](Documentacao_Projeto_Nos/wireframes/comparacoes/2026-10-27-confirmacao-email/index.html).
+
+**Entrega local — v3.2.1 —23/10/2026:** nove temas, com Solar/Âmbar e Noturno/Neon; Aparência no padrão da navegação desktop/mobile e cores dos ícones preservadas. Sem publicação. [Contrato](Documentacao_Projeto_Nos/_andamento/funcionalidades/aparencia-conta.md) · [Galeria](Documentacao_Projeto_Nos/wireframes/comparacoes/v3.2.1-2026-10-23-temas-solar-neon/index.html).
+
+
+**Entrega local — v3.2.0 —23/10/2026:** sete temas da conta em Mais → Aparência, com aplicação imediata e salvamento automático. A área atual recebe cor própria e marcador desktop/mobile; telas públicas permanecem claras. Sem deploy desta entrega. [Contrato](Documentacao_Projeto_Nos/_andamento/funcionalidades/aparencia-conta.md) · [galeria](Documentacao_Projeto_Nos/wireframes/comparacoes/v3.2.0-2026-10-23-temas-conta/index.html).
+
 
 **Entrega local — v3.1.1 — 23/10/2026:** cadastro com e-mail existente permanece no formulário e orienta entrar ou recuperar senha, sem prometer confirmação. Cadastro válido e retorno interno preservados; 142 testes gerais, tipos, build e Atlas aprovados. Commit e push desta correção autorizados em 23/10/2026; deploy correspondente ainda não certificado. [Registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.1.1-2026-10-23-imp-cadastro-fun-email-existente.md).
 
@@ -37,7 +49,7 @@
 
 **Marco histórico MVP05 — v0.16.0:** Configurações, Privacidade, Conta e segurança, Ajuda e orientação de saída disponíveis com acesso protegido. Recuperação/logout reusados; logout conserva vínculos. Saída efetiva, transferência, retenção/direitos, suporte/termos e operação ainda pendentes: etapa parcial, piloto não liberado. [Contrato/manual](Documentacao_Projeto_Nos/_andamento/funcionalidades/autonomia-protecao.md), [registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.16.0-2026-10-13-imp-controles-autonomia-fun-mvp-05.md) e [galeria](Documentacao_Projeto_Nos/wireframes/comparacoes/v0.16.0-2026-10-13-mvp-05-tela_66-tela_67-tela_69-tela_70-tela_71/index.html). Entrega incluída no commit atômico de publicação Git autorizado em14/10/2026; confirmação remota reportada no encerramento. Sem deploy certificado.
 
-**Versão vigente do projeto:**3.0.1
+**Versão vigente do projeto:**3.3.0
 
 **MVP 04 — v0.15.2:** agenda interna conferida localmente; confirmação de remoção, cancelamento sem gravação, feedback de presença/remoção e reservas futuras. Sequência14 →16 →15 →17 opcional →14; são seções da mesma rota. Duas contas desktop/mobile validam criação, respostas, edição/remarcação, paginação, exclusão e isolamento. [Contrato/manual](Documentacao_Projeto_Nos/_andamento/funcionalidades/agenda-interna.md), [registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.15.2-2026-10-13-imp-agenda-interna-fun-mvp-04.md) e [galeria](Documentacao_Projeto_Nos/wireframes/comparacoes/v0.15.2-2026-10-13-mvp-04-tela_14-tela_16-tela_15-tela_17/index.html). Entrega incluída no commit atômico de publicação Git autorizado em13/10/2026; confirmação remota reportada no encerramento. Prova online pendente.
 
@@ -61,6 +73,29 @@ Um espaço privado para cultivar vínculos saudáveis.
 
 **MVP aprovado em 2026-10-12:** [guia MVP](Documentacao_Projeto_Nos/wireframes/atlas/index.html#mvp), acima da Visão global, e [roteiro documental](Documentacao_Projeto_Nos/_andamento/planos/mvp.md). Começar pelo login existente; 13 etapas cobrem todas as 72 telas/estados, com 37 no primeiro marco e expansões até plataformas/integrações. Aprovação orienta prioridade; situações/contratos/pendências continuam obrigatórios. Atualizar o MVP junto de qualquer mudança no aplicativo/atlas. [Registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.14.0-2026-10-12-imp-mvp-atlas-fun-roteiro-aprovado.md) e [comparação](Documentacao_Projeto_Nos/wireframes/comparacoes/v0.14.0-2026-10-12-mvp-atlas-tela_01-a-tela_72/index.html).
 
+## Supabase local
+
+Requer Docker Desktop em execução. A CLI 2.118.0 está fixada nas dependências de desenvolvimento. Na primeira inicialização, o Docker baixa os serviços e a CLI aplica as migrações existentes ao banco local.
+
+```powershell
+npm run supabase:start
+npm run dev:supabase
+```
+
+O aplicativo local abre em http://127.0.0.1:3001; Studio em http://127.0.0.1:54323 e a caixa de e-mails local em http://127.0.0.1:54324. Cadastros e recuperações nesse modo entregam as mensagens na caixa local. Use contas de teste próprias desse banco: os usuários do projeto hospedado não são copiados.
+
+`dev:supabase` obtém URL/chave pública da CLI e substitui essas variáveis somente no processo do aplicativo. Não altera `.env.local`. O comando `npm run dev` mantém a configuração existente e a porta 3000. A saída `.next-supabase` evita disputa com esse servidor. A chave de recuperação local fica em `supabase/.temp`, ignorada pelo Git. Logs centralizados (Analytics/Vector) estão desativados neste Windows: o coletor exigia uma API TCP do Docker que não está habilitada. Os logs dos serviços continuam acessíveis por `docker logs`.
+
+```powershell
+npm run test:db
+npm run test:calendar-locks
+npm run test:authenticated
+npm run supabase:status
+npm run supabase:stop
+```
+
+Os testes autenticados criam e removem contas temporárias exclusivamente no banco local e usam a porta 3200, com build de produção em uma cópia conferida por hash. Para conferir apenas temas e totais: `npm run test:authenticated -- themes.spec.ts navigation-counts.spec.ts`. A parada normal preserva os volumes; não use opções de apagar/resetar dados para o uso diário. Nenhum comando desta seção publica no Supabase hospedado.
+
 ## Executar o aplicativo
 
 Use Node.js 24 LTS, versão 24.15.0 ou superior. Os scripts dev e start habilitam --use-system-ca para confiar também nos certificados do Windows e evitar a falha local UNABLE_TO_VERIFY_LEAF_SIGNATURE ao acessar o Supabase, mantendo a validação TLS. [Correção e auditoria do banco v2.0.2](Documentacao_Projeto_Nos/_andamento/registros/registro-v2.0.2-2026-10-18-imp-conexao-supabase-fun-correcao-login-local.md).
@@ -70,24 +105,18 @@ Use Node.js 24 LTS, versão 24.15.0 ou superior. Os scripts dev e start habilita
 
 **Regra de desenvolvimento — prioridade alta:** antes de criar, implementar, alterar ou revisar uma tela, abrir o **Atlas vivo** e conferir seu aspecto visual, abas, ícones, hierarquia, navegação e estados. A implementação deve se guiar prioritariamente por esse desenho; a composição histórica serve à comparação. Confrontar a interface real com o atlas antes de concluir e atualizar ambos na mesma entrega, respeitando contratos e permissões. Procedimento obrigatório no [guia do atlas](Documentacao_Projeto_Nos/wireframes/GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05).
 
-**Em casa e no trabalho, use o mesmo comando na pasta que contém `package.json`:**
-
-```powershell
-npm run dev
-```
-
-O comando instala automaticamente as dependências quando faltam neste computador, usando `package-lock.json`, e inicia o Next.js. A primeira instalação precisa de internet; nas próximas execuções, as dependências já instaladas são reutilizadas.
-
-No Windows, o comando consulta o proxy manual ativo nas configurações de rede a cada execução. Na rede do trabalho, utiliza esse proxy para o npm e as chamadas ao Supabase; em casa, com o proxy desativado no Windows, utiliza a conexão direta. `HTTP_PROXY`/`HTTPS_PROXY` definidos no terminal têm prioridade. O endereço do proxy não é salvo no projeto. Após trocar de rede, encerre com `Ctrl+C` e execute `npm run dev` novamente. Configurações automáticas por PAC e proxies que exigem autenticação adicional precisam da configuração fornecida pela equipe de TI.
-
-Neste computador, a pasta do aplicativo é:
+**Neste computador do trabalho, inicie o aplicativo na pasta `D:\Proj\nos`:**
 
 ```powershell
 cd D:\Proj\nos
 npm run dev
 ```
 
-No outro computador, entre na pasta onde clonou o repositório. Mantenha uma cópia local de `.env.local` em cada computador, conforme `.env.example`: esse arquivo não é transferido pelo Git. Não copie `node_modules` ou `.next` entre os computadores.
+O comando usa apenas o Node e o Next.js: o Node lê `.env.local` e executa a etapa interna `dev:local`, sem comandos adicionais para você. Essa separação evita que o Next.js repasse a opção de leitura do arquivo ao seu processo servidor, que não a aceita. Os arquivos `dev.mjs` e `dev-network.mjs`, que preparavam dependências e detectavam redes, foram removidos. As dependências já estão instaladas neste computador; se precisarem ser reinstaladas, execute `npm ci` separadamente.
+
+A configuração fixa da rede do trabalho fica somente em `.env.local`, ignorado pelo Git: `HTTP_PROXY` e `HTTPS_PROXY` indicam o proxy autorizado da empresa; `NO_PROXY=localhost,127.0.0.1,::1` mantém o acesso local direto. O endereço do proxy e as credenciais do Supabase não são publicados no repositório. O comando mantém a validação dos certificados do Windows. Após alterar `.env.local`, reinicie o servidor. O desenvolvimento está configurado e validado somente neste computador/rede.
+
+O script operacional `configure-auth-emails.mjs` também lê essa configuração local com as opções nativas do Node, sem depender dos scripts removidos.
 
 Mantenha o terminal aberto para acompanhar as alterações em tempo real; `Ctrl+C` encerra o servidor. Se aparecer aviso de que já existe um servidor Next.js, use o que está em `http://127.0.0.1:3000` ou encerre a instância anterior no terminal em que ela foi aberta antes de iniciar outra.
 

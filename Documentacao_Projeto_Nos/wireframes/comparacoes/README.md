@@ -63,3 +63,7 @@ Capturas devem usar exemplos sem informações privadas, tokens ou códigos reai
 - [v0.15.0 — 2026-10-13 — MVP 02, Telas 09/13/58/59](v0.15.0-2026-10-13-mvp-02-tela_09-tela_13-tela_58-tela_59/index.html): antes real do Atlas desktop; depois Atlas/app desktop e celular, convite mascarado, gestão/revogados/Início. Rota de gestão nova, sem aplicativo anterior.
 
 - [v2.0.0 — 2026-10-18 — Layout atual, fichas01 a73](v2.0.0-2026-10-18-layout-atual-tela_01-a-tela_73/index.html):83 capturas do aplicativo,76 doAtlas,4 anteriores e2 da referência; rotas reais e esboços distinguidos, fonte/viewport/limites documentados.
+
+- [2026-10-28 — Integração de temas e navegação](2026-10-28-integracao-temas/index.html): quatro capturas novas da prévia local do Atlas; persistência autenticada não reexecutada nesta rodada.
+
+- [2026-10-28 — Supabase local e temas autenticados](2026-10-28-supabase-local/index.html): 42 capturas reais de seletor e navegação em desktop/celular, com persistência no Auth local.

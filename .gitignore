@@ -8,6 +8,7 @@ node_modules/
 .next-playwright/
 .next-verify/
 .next-authenticated/
+.next-supabase/
 artifacts/
 next-env.d.ts
 out/

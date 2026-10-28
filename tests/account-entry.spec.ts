@@ -23,7 +23,7 @@ test("entrada afetiva opcional conduz a cadastro e login sem esperar", async ({ 
   await page.getByRole("link", { name: "Entrar na minha conta" }).click();
   await expect(page.getByRole("button", { name: "Entrar", exact: true })).toBeVisible();
   await expect(page.getByRole("link", { name: "Conheça o Nós" })).toHaveCount(0);
-  await page.getByRole("link", { name: "Voltar às boas-vindas" }).click();
+  await page.getByRole("link", { name: "Nós — início" }).click();
   await page.getByRole("link", { name: "Começar agora" }).click();
   await expect(page.locator("form").getByRole("button", { name: "Criar conta", exact: true })).toBeVisible();
 });

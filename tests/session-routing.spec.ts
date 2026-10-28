@@ -12,7 +12,7 @@ test("páginas privadas pedem login antes de renderizar e preservam o destino", 
     const url = new URL(page.url());
     expect(url.pathname).toBe("/conta");
     expect(url.searchParams.get("modo")).toBe("login");
-    await expect(page.locator('input[name="next"]')).toHaveValue(destination);
+    await expect(page.locator('form:has(input[name="mode"]) input[name="next"]')).toHaveValue(destination);
     await expect(page.getByRole("button", { name: "Entrar", exact: true })).toBeVisible();
   }
   for (const area of ["arvore", "memorias", "conexoes", "perfis", "manifesto", "cuidado"]) {
