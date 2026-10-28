@@ -36,7 +36,7 @@ button.navigation-link { border:0; background:none; text-align:start; }
 .desktop-breadcrumb>span:nth-child(2) { opacity:.45; }
 .current-header-actions { display:flex; align-items:center; gap:20px; }
 .current-header-actions button { border:0; background:none; color:var(--color-muted); display:grid; place-items:center; width:30px; height:36px; }
-.account-avatar { display:grid; place-items:center; width:32px; height:32px; border-radius:50%; background:#ead9cb; color:#77523f; }
+.account-avatar { display:grid; place-items:center; width:32px; height:32px; border-radius:50%; background:#ead9cb; color:#77523f; font-size:11px; font-weight:600; }
 .current-content { padding:35px 34px 0; max-width:1700px; margin:0 auto; animation:page-arrive .25s ease-out; }
 .current-content-focused { max-width:1450px; }
 .current-footer { display:block; border-top:1px solid var(--color-line); margin:42px 34px 0; padding:19px 0 23px; font-size:clamp(8px,.8vw,10px); color:var(--color-muted); }

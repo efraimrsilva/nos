@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Check, KeyRound, LockKeyhole, LogOut, UsersRound } from "lucide-react";
 import { AuthForm } from "@/features/auth/components/auth-form";
+import { profileLetters } from "@/shared/profile-letters";
 import { AccountAccessDialog } from "@/features/auth/components/account-access-dialog";
 import { signOut } from "@/features/auth/actions";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
@@ -30,7 +31,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
   const unavailable = isNucleusAuthUnavailable(session?.error ?? null) || (!user && error === "servico");
   const name = typeof user?.user_metadata?.name === "string" ? user.user_metadata.name.trim() : "";
   const displayName = name || "Sua conta";
-  const initials = name ? name.split(/\s+/).slice(0, 2).map((part: string) => part[0]).join("").toLocaleUpperCase("pt-BR") : "N";
+  const initials = profileLetters(name);
 
   return <OnboardingShell showTree={!user}><div className={`account-experience ${user ? "account-workspace" : "account-auth-heading"}`}>
     <header className="ui-page-header"><div>
