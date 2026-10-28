@@ -43,7 +43,7 @@ export function ActionDialog({ trigger, title, description, children, variant = 
   return <>
     {/* Na navegação, o gatilho usa somente o estilo dos demais itens, sem herdar o botão de ação. */}
     <button ref={origin} type="button" disabled={!ready} className={variant === "navigation" ? className : `ui-dialog-trigger ui-trigger-${variant} ${className}`} aria-haspopup="dialog" onClick={() => dialog.current?.showModal()}>{trigger}</button>
-    <dialog ref={dialog} className={`ui-dialog ui-dialog-${size}`} aria-labelledby={`${id}-title`} aria-describedby={description ? `${id}-description` : undefined} onClose={() => origin.current?.focus()}>
+    <dialog ref={dialog} className={`ui-dialog ui-dialog-${size}`} aria-labelledby={`${id}-title`} aria-describedby={description ? `${id}-description` : undefined} onClose={() => origin.current?.focus()} onClick={event => { if (event.target instanceof Element && event.target.closest('a[href^="/conta#"]')) dialog.current?.close(); }}>
       <header className="ui-dialog-header"><div><h2 id={`${id}-title`}>{title}</h2></div><button type="button" className="ui-icon-button" aria-label={`Fechar ${title}`} onClick={() => dialog.current?.close()} autoFocus><X size={21} aria-hidden="true" /></button></header>
       {description && <p id={`${id}-description`} className="ui-dialog-description">{description}</p>}
       <div className="ui-dialog-body">{children}</div>

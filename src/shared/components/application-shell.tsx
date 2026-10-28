@@ -4,10 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { ArrowRight, Bell, BookHeart, CalendarDays, ChevronDown, Heart, House, Leaf, LockKeyhole, Menu, Search, Settings2, ShieldCheck, Sparkles, Sprout, Trees, UsersRound, X, type LucideIcon } from "lucide-react";
+import { ArrowRight, Bell, BookHeart, CalendarDays, ChevronDown, Heart, House, Leaf, LockKeyhole, Menu, PanelLeftClose, PanelLeftOpen, Search, ShieldCheck, Sparkles, Sprout, Trees, UsersRound, X, type LucideIcon } from "lucide-react";
 import { AccountReflections } from "@/features/onboarding/components/account-reflections";
 import { AccountTreeLights } from "@/features/onboarding/components/account-tree-lights";
-import { AppearanceOption } from "@/features/appearance/theme-picker";
+
 import type { NavigationCounts } from "@/features/navigation/counts";
 
 type NavItem = { label: string; href: string; icon: LucideIcon; tone: string; planned?: boolean };
@@ -19,7 +19,9 @@ const footer = <p className="site-footer-copy"><span>© 2026 Nós - Pequenos ges
 export function ApplicationShell({ children, showTree = false, nucleusName, counts, profileLabel }: ShellProps) {
   const pathname = usePathname();
   const [ready, setReady] = useState(false);
+  const [sidebarHidden, setSidebarHidden] = useState(false);
   useEffect(() => { setReady(true); }, []);
+  useEffect(() => { setSidebarHidden(false); }, [pathname]);
   const menu = useRef<HTMLDialogElement>(null);
   const searchDialog = useRef<HTMLDialogElement>(null);
   const notices = useRef<HTMLDialogElement>(null);
@@ -44,16 +46,16 @@ export function ApplicationShell({ children, showTree = false, nucleusName, coun
       { label: "Conexões e perfis", href: to("conexoes"), icon: Sparkles, tone: "purple", planned: true },
       { label: "Manifesto e cuidado", href: to("manifesto"), icon: BookHeart, tone: "orange", planned: true },
     ] }] : []),
-    { title: "Conta e preferências", items: [
-      { label: "Conta", href: "/conta", icon: LockKeyhole, tone: "blue" },
-      { label: "Preferências e ajuda", href: "/configuracoes", icon: Settings2, tone: "purple" },
+    { title: "Sua conta", items: [
+      { label: "Conta, Preferências e Ajuda", href: "/conta", icon: LockKeyhole, tone: "blue" },
+
     ] },
   ];
   const allItems = groups.flatMap(group => group.items);
   const isActive = (item: NavItem) => {
     // Subpáginas mantêm destacada a área de origem, mesmo sem um atalho próprio no menu.
     if (item.href === "/nucleos" && pathname.startsWith("/comecar")) return true;
-    if (item.href === "/configuracoes" && pathname === "/ajuda") return true;
+    if (item.href === "/conta" && (pathname.startsWith("/configuracoes") || pathname === "/ajuda")) return true;
     if (nucleusId) {
       const section = pathname.slice(base.length + 1).split("/")[0];
       const parentArea = ({ convites: "pessoas", sair: "pessoas", memorias: "arvore", perfis: "conexoes", cuidado: "manifesto" } as Record<string, string>)[section];
@@ -80,9 +82,9 @@ export function ApplicationShell({ children, showTree = false, nucleusName, coun
   // O menu Mais complementa a barra inferior; a navegação lateral mantém todas as áreas.
   const links = (inDialog = false) => (inDialog && nucleusId ? groups
     .map(group => ({ ...group, items: group.items.filter(item => !mobileItems.some(mobile => mobile.href === item.href)) }))
-    .filter(group => group.items.length > 0) : groups).map(group => <section className="navigation-group" key={group.title}>
+    .filter(group => group.items.length > 0) : groups).map(group => <section className="navigation-group" data-navigation-group={group.title === "Sua conta" ? "account" : undefined} key={group.title}>
     <h2>{group.title}</h2>{group.items.map(item => <Link key={item.label} href={item.href} prefetch={false} aria-describedby={countDescriptionId(item.label)} aria-current={isActive(item) ? "page" : undefined} onClick={() => { if (inDialog) menu.current?.close(); }} className="navigation-link"><item.icon size={20} strokeWidth={2.5} aria-hidden="true" className={`nav-icon tone-${item.tone}`} /><span>{item.label}</span>{count(item.label)}{item.planned && <span className="nav-planned" aria-label="Esboço">○</span>}</Link>)}
-    {group.title === "Conta e preferências" && <AppearanceOption />}
+
   </section>);
   const brand = <Link href={publicEntry ? "/boas-vindas" : base} className="current-brand" aria-label="Nós — início"><span><Leaf size={26} strokeWidth={2.3} aria-hidden="true" /></span>nós<span className="brand-period">.</span></Link>;
 
@@ -102,11 +104,11 @@ export function ApplicationShell({ children, showTree = false, nucleusName, coun
   </div>;
 
   const results = allItems.filter(item => item.label.toLocaleLowerCase("pt-BR").includes(search.toLocaleLowerCase("pt-BR")));
-  return <div className="current-shell" data-layout="current" data-layout-revision="3">
+  return <div className={`current-shell${sidebarHidden ? " current-shell-sidebar-hidden" : ""}`} data-layout="current" data-layout-revision="3">
     {counts !== undefined && (Object.keys(countDescriptions) as (keyof NavigationCounts)[]).map(key => <p className="sr-only" id={`navigation-total-${key}`} key={key}>{counts ? `${counts[key].toLocaleString("pt-BR")} · ${countDescriptions[key]}.` : "Total indisponível. Tente atualizar a página."}</p>)}
     <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
-    <aside className="desktop-navigation">{brand}<Link href="/nucleos" className="current-nucleus-switch"><span className="nucleus-letter">{nucleusName?.slice(0, 1).toLocaleUpperCase("pt-BR") ?? <Sprout size={22} aria-hidden="true" />}</span><span><strong>{nucleusName ?? "Seus Núcleos"}</strong><small>{nucleusId ? "Seu espaço compartilhado" : "Escolha um espaço para cuidar"}</small></span><ChevronDown size={15} aria-hidden="true" /></Link><p className="navigation-caption">CULTIVAR JUNTOS</p><nav aria-label="Áreas do Nós">{links()}</nav><div className="navigation-bottom"><div className="navigation-purpose"><Sprout className="tone-green" size={23} aria-hidden="true" /><p>Pequenos gestos.<br />Vínculos reais.</p></div><Link href="/configuracoes/privacidade"><ShieldCheck size={17} aria-hidden="true" /> Sua privacidade importa</Link></div></aside>
-    <div className="current-body"><header className="current-header"><div className="desktop-breadcrumb"><Link href="/nucleos">{nucleusName ?? "Meu espaço"}</Link><span>/</span><span>{active}</span></div><div className="mobile-current-brand">{brand}<span>{nucleusName ?? "Seu espaço"}</span></div><div className="current-header-actions"><button type="button" aria-haspopup="dialog" aria-label="Buscar uma área" onClick={() => searchDialog.current?.showModal()}><Search size={20} aria-hidden="true" /></button><button type="button" aria-haspopup="dialog" aria-label="Notificações — esboço" onClick={() => notices.current?.showModal()}><Bell size={20} className="tone-orange" aria-hidden="true" /><span className="notification-dot" /></button><Link href="/conta" aria-label="Minha conta"><span className="account-avatar">{profileLabel ?? <Heart size={17} aria-hidden="true" />}</span></Link></div></header>
+    <aside id="desktop-navigation" className="desktop-navigation" inert={sidebarHidden}>{brand}<Link href="/nucleos" className="current-nucleus-switch"><span className="nucleus-letter">{nucleusName?.slice(0, 1).toLocaleUpperCase("pt-BR") ?? <Sprout size={22} aria-hidden="true" />}</span><span><strong>{nucleusName ?? "Seus Núcleos"}</strong><small>{nucleusId ? "Seu espaço compartilhado" : "Escolha um espaço para cuidar"}</small></span><ChevronDown size={15} aria-hidden="true" /></Link><p className="navigation-caption">CULTIVAR JUNTOS</p><nav aria-label="Áreas do Nós">{links()}</nav></aside>
+    <div className="current-body"><header className="current-header"><div className="desktop-header-start"><button type="button" className="desktop-sidebar-toggle" aria-label={sidebarHidden ? "Mostrar barra lateral" : "Ocultar barra lateral"} title={sidebarHidden ? "Mostrar barra lateral" : "Ocultar barra lateral"} aria-controls="desktop-navigation" aria-expanded={!sidebarHidden} onClick={() => setSidebarHidden(hidden => !hidden)}>{sidebarHidden ? <PanelLeftOpen size={20} aria-hidden="true" /> : <PanelLeftClose size={20} aria-hidden="true" />}</button><div className="desktop-breadcrumb"><Link href="/nucleos">{nucleusName ?? "Meu espaço"}</Link><span>/</span><span>{active}</span></div></div><div className="mobile-current-brand">{brand}<span>{nucleusName ?? "Seu espaço"}</span></div><div className="current-header-actions"><button type="button" aria-haspopup="dialog" aria-label="Buscar uma área" onClick={() => searchDialog.current?.showModal()}><Search size={20} aria-hidden="true" /></button><button type="button" aria-haspopup="dialog" aria-label="Notificações — esboço" onClick={() => notices.current?.showModal()}><Bell size={20} className="tone-orange" aria-hidden="true" /><span className="notification-dot" /></button><Link href="/conta" aria-label="Minha conta"><span className="account-avatar">{profileLabel ?? <Heart size={17} aria-hidden="true" />}</span></Link></div></header>
       <main key={pathname} id="conteudo" tabIndex={-1} className={`current-content ${/^\/(?:comecar|configuracoes|ajuda|conta)(?:\/|$)/.test(pathname) || /\/(?:registrar|confirmar|revisar|sair)$/.test(pathname) ? "current-content-focused" : ""}`}>{children}</main>
       {showFooter && <footer className="current-footer">{footer}</footer>}
     </div>

@@ -13,6 +13,7 @@ export async function savePrivacyPreference(_previous: ControlActionState, form:
   const { error } = await supabase.rpc("set_my_privacy_preference", { hide_authorship: form.get("hideAuthorship") === "on" });
   if (error) return { error: "Não foi possível salvar sua preferência. Tente novamente." };
   revalidatePath("/configuracoes/privacidade");
+  revalidatePath("/conta");
   return { error: "", success: "Preferência salva. Ela será aplicada às suas próximas saídas." };
 }
 

@@ -34,6 +34,18 @@ button.navigation-link { border:0; background:none; text-align:start; }
 .current-header { height:69px; display:flex; align-items:center; justify-content:space-between; gap:18px; border-bottom:1px solid var(--color-line); background:var(--surface); padding:0 34px; }
 .desktop-breadcrumb { display:flex; align-items:center; gap:15px; color:var(--color-muted); font-size:14px; }
 .desktop-breadcrumb>span:nth-child(2) { opacity:.45; }
+.desktop-header-start { display:none; }
+.desktop-sidebar-toggle { display:grid; place-items:center; flex-shrink:0; width:36px; height:36px; border:1px solid var(--color-line); border-radius:7px; background:var(--surface); color:var(--color-muted); }
+.desktop-sidebar-toggle:hover { background:var(--accent-soft); color:var(--color-leaf); }
+@media(min-width:701px) {
+  .current-shell { --sidebar-width:206px; grid-template-columns:var(--sidebar-width) minmax(0,1fr); transition:grid-template-columns .3s cubic-bezier(.22,1,.36,1); }
+  .desktop-navigation { width:var(--sidebar-width); transition:transform .3s cubic-bezier(.22,1,.36,1),opacity .22s ease,visibility 0s; }
+  .desktop-header-start { display:flex; align-items:center; gap:16px; min-width:0; }
+  .desktop-navigation [data-navigation-group="account"] .navigation-link { border-radius:12px; overflow:hidden; background-clip:padding-box; }
+  .current-shell.current-shell-sidebar-hidden { grid-template-columns:0px minmax(0,1fr); }
+  .current-shell-sidebar-hidden>.desktop-navigation { transform:translateX(-100%); opacity:0; visibility:hidden; transition-delay:0s,0s,.3s; }
+}
+@media(min-width:701px) and (max-width:900px) { .current-shell { --sidebar-width:185px; } }
 .current-header-actions { display:flex; align-items:center; gap:20px; }
 .current-header-actions button { border:0; background:none; color:var(--color-muted); display:grid; place-items:center; width:30px; height:36px; }
 .account-avatar { display:grid; place-items:center; width:32px; height:32px; border-radius:50%; background:#ead9cb; color:#77523f; font-size:11px; font-weight:600; }

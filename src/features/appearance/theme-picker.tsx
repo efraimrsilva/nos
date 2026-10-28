@@ -5,6 +5,7 @@ import { Check, Palette } from "lucide-react";
 import { themes } from "./themes";
 import { useTheme } from "./theme-provider";
 import { ActionDialog } from "@/shared/components/ui/action-dialog";
+import { AccountRow } from "@/features/controls/components/account-row";
 
 export function ThemePicker() {
   const { theme, select, saving, message, error } = useTheme();
@@ -29,5 +30,5 @@ export function AppearanceOption({ className = "navigation-link" }: { className?
   const { available } = useTheme();
   if (!available) return null;
   // Reutiliza o diálogo nativo para conter foco, fechar com Escape e devolver foco ao gatilho.
-  return <span className="appearance-option"><ActionDialog title="Aparência" description="Seu espaço, com as suas cores." size="wide" variant={className === "navigation-link" ? "navigation" : "text"} className={className} trigger={<><Palette className="nav-icon tone-purple" size={20} aria-hidden="true" /><span>Aparência</span></>}><ThemePicker /></ActionDialog></span>;
+  return <span className="appearance-option"><ActionDialog title="Aparência" description="Seu espaço, com as suas cores." size="wide" variant={className === "navigation-link" ? "navigation" : "text"} className={className} trigger={className === "account-dialog-trigger" ? <AccountRow icon={Palette} title="Aparência" description="Escolher as cores do seu espaço" /> : <><Palette className="nav-icon tone-purple" size={20} aria-hidden="true" /><span>Aparência</span></>}><ThemePicker /></ActionDialog></span>;
 }
