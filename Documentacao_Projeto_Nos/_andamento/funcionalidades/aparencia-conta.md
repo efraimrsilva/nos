@@ -1,5 +1,7 @@
 # Aparência da conta — v3.2.1
 
+Atualização v3.3.1 — 29/10/2026: Aparência abre no painel do perfil desktop ou na seção de /conta, acessível também pelo menu mobile. O seletor mantém nove temas e feedback após operação; descrições redundantes e espaço vazio removidos. Indicações anteriores de atalho independente na navegação são históricas. [Registro](../registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md).
+
 Integração em 28/10/2026: código recuperado da branch `codex/temas-conta` e conciliado com a main atual, incluindo mudanças locais. Tipos, build, testes gerais/retestes e Atlas aprovados; sem nova validação autenticada ou publicação nesta rodada. [Registro](../registros/registro-v3.3.0-2026-10-28-integracao-temas-main.md).
 
 Status: implementada e validada localmente em 2026-10-23. Publicação pendente. Atlas: MVP05, Tela66 e navegação compartilhada. Design aprovado no chat; ajustes posteriores: login/boas-vindas sempre claros e destaque da localização por tema no computador/celular.

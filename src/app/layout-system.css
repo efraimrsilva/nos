@@ -47,7 +47,7 @@ button.navigation-link { border:0; background:none; text-align:start; }
 }
 @media(min-width:701px) and (max-width:900px) { .current-shell { --sidebar-width:185px; } }
 .current-header-actions { display:flex; align-items:center; gap:20px; }
-.current-header-actions button { border:0; background:none; color:var(--color-muted); display:grid; place-items:center; width:30px; height:36px; }
+.current-header-actions > button { border:0; background:none; color:var(--color-muted); display:grid; place-items:center; width:30px; height:36px; }
 .account-avatar { display:grid; place-items:center; width:32px; height:32px; border-radius:50%; background:#ead9cb; color:#77523f; font-size:11px; font-weight:600; }
 .current-content { padding:35px 34px 0; max-width:1700px; margin:0 auto; animation:page-arrive .25s ease-out; }
 .current-content-focused { max-width:1450px; }
@@ -118,10 +118,6 @@ button[aria-label^="Fechar" i]:is(:hover,:focus-visible) { background-color:#c43
 .current-dialog>h2 { font:500 28px/1.25 Georgia,serif; letter-spacing:-.5px; margin:22px 0 14px; }
 .current-dialog>p:not(.prototype-notice) { color:var(--color-muted); font-size:14px; line-height:1.9; margin:0 0 22px; }
 .current-dialog>label { font-size:14px; font-weight:600; }
-.navigation-search { display:flex; align-items:center; gap:10px; border:1px solid var(--color-line); border-radius:6px; padding:10px 12px; margin:12px 0; }
-.navigation-search input { border:0; background:none; min-width:0; width:100%; outline:none; }
-.search-results a { display:flex; align-items:center; gap:12px; padding:13px 0; font-size:14px; border-bottom:1px solid var(--color-line); }
-.search-results a>span { flex:1; }.search-results small { display:block; color:var(--color-muted); font-size:11px; }
 /* Entrada pública reconstruída como uma área de acesso do sistema novo. */
 .public-shell { min-height:100svh; }
 .public-header { height:83px; border-bottom:1px solid var(--color-line); padding:0 5vw; background:var(--surface); display:flex; align-items:center; justify-content:space-between; gap:20px; }
@@ -174,3 +170,30 @@ button[aria-label^="Fechar" i]:is(:hover,:focus-visible) { background-color:#c43
 .tone-neutral { color:#657368; }
 .color-icon:not([class*="tone-"]) { color:#345d44; }
 .current-brand>span:first-child,.nucleus-letter>svg { color:#345d44; }
+
+/* Conta flutuante: mantém o conteúdo e as ações no contexto atual. */
+.account-mobile-link { display:none; }
+.current-header-actions > .account-desktop-trigger { width:40px; height:40px; border-radius:50%; cursor:pointer; transition:box-shadow .2s,transform .2s; }
+.account-desktop-trigger:hover { box-shadow:0 0 0 5px var(--accent-soft); transform:translateY(-1px); }
+.account-desktop-trigger:focus-visible { outline:2px solid var(--color-leaf); outline-offset:4px; }
+.account-popover { position:fixed; inset:80px 24px auto auto; margin:0; width:min(720px,calc(100vw - 48px)); max-height:calc(100dvh - 104px); padding:0; overflow:auto; overscroll-behavior:contain; border:1px solid var(--color-line); border-radius:22px; background:var(--surface); color:var(--color-forest); box-shadow:0 24px 80px #152c352b,0 4px 16px #152c3512; }
+.account-popover::backdrop { background:transparent; }
+.account-popover-heading { position:sticky; top:0; z-index:2; display:flex; align-items:flex-start; justify-content:space-between; gap:16px; padding:24px; border-bottom:1px solid var(--color-line); background:var(--surface); }
+.account-popover-heading p { margin:0 0 7px; font-size:10px; letter-spacing:1.8px; color:var(--color-leaf); }
+.account-popover-heading h2 { margin:0 0 8px; font-size:23px; font-weight:500; letter-spacing:-.7px; }
+.account-popover-heading span { font-size:13px; color:var(--color-muted); }
+.account-popover-heading > button { flex-shrink:0; }
+.account-popover-content { padding:20px; }
+.account-popover .settings-grid { gap:14px; }
+.account-popover .account-panel { padding:18px; border-radius:14px; }
+.account-popover .account-panel > h2 { margin-bottom:14px; font-size:17px; }
+.account-popover .account-profile .ui-avatar { width:52px; height:52px; font-size:20px; }
+.account-popover .account-profile h2 { font-size:20px; margin:12px 0 8px; }
+.account-popover .account-row { min-height:70px; padding:13px 0; gap:10px; }
+.account-popover .account-row small { font-size:11px; }
+.account-popover .account-deletion-trigger .account-row { padding:12px; }
+.account-popover .ui-badge { white-space:normal; }
+
+@keyframes account-popover-arrive { from { opacity:0; transform:translateY(-8px) scale(.98); } to { opacity:1; transform:none; } }
+@media(prefers-reduced-motion:no-preference) { .account-popover:popover-open { transform-origin:top right; animation:account-popover-arrive .26s cubic-bezier(.22,1,.36,1); } }
+@media(max-width:700px) { .current-header-actions > .account-desktop-trigger { display:none; } .current-header-actions > .account-mobile-link { display:block; } .account-popover { display:none; } }

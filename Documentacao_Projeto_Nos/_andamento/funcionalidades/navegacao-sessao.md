@@ -1,5 +1,7 @@
 # Navegação e sessão — v0.13.0
 
+Atualização v3.3.1 — 29/10/2026: conta preserva o último Núcleo por pessoa neste navegador, por cookie de contexto revalidado no servidor; vínculo removido não restaura nome nem atalhos. Perfil desktop abre painel nativo com seis seções e ações em modais; no mobile abre /conta. Busca do topo removida. Destinos continuam protegidos no servidor; a lembrança local não concede acesso. [Registro](../registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md).
+
 O usuário aprovou em 2026-10-07 retirar o acesso pré-login às etapas de criação e convite e usar a Tela 12 — Seus Núcleos como entrada padrão. [Registro](../registros/registro-v0.13.0-2026-10-07-05-imp-navegacao-protegida-fun-sessao-seus-nucleos.md).
 
 ## Entrada e caminhos

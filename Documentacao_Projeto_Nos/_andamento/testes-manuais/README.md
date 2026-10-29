@@ -24,3 +24,5 @@ Formato de retorno: `M01-013 | Falhou | ambiente/navegador/dispositivo | observa
 - [MVP05 — Aparência —16 testes](aparencia-conta.md).
 - [Totais pessoais da navegação —12 testes](totais-navegacao.md).
 - MVP02–04, demais funcionalidades do MVP05 e expansões: detalhamento futuro, sem afirmar cobertura já criada.
+
+- [MVP05 — Conta e perfil — v3.3.1](conta-perfil.md): oito casos M05-PER-001–008, todos Não executados pelo usuário; evidência automatizada separada no registro.

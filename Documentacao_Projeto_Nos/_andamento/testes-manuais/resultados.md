@@ -28,3 +28,7 @@ Atualização de 2026-10-27: adicionados M01-063 a M01-080 para confirmação de
 Tabela sem linhas porque ainda não houve execução relatada. Acrescentar uma linha por execução ou reteste. Não preencher Aprovado com base em leitura de código, testes automatizados ou ausência de relato.
 
 Preparação do Supabase local em 28/10/2026: adicionados M01-100 e M01-101. As verificações técnicas de SQL, temas, navegação e acesso com e-mail local não aprovam automaticamente os testes manuais do usuário.
+
+## 2026-10-29 — v3.3.1 — conta e perfil
+
+M05-PER-001–008 criados, status Não executado pelo usuário. Testes automatizados locais e capturas não constituem aprovação manual. Consultar [registro](../registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md) para resultados e retestes automatizados.

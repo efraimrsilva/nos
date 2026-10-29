@@ -1,5 +1,19 @@
 # Estado do Projeto Nós
 
+## Publicação de conta e perfil — v3.3.1 — 2026-10-29
+
+**DOCS_DIR:** `Documentacao_Projeto_Nos`. **Branch:** main; base ead6494. **Objetivo:** publicar as melhorias solicitadas de conta/perfil e as diretrizes pendentes, com descrição completa. **Escopo:** último Núcleo preservado por conta neste navegador; painel desktop com seis seções; página completa com oito e exclusão própria; Conta e segurança e busca do topo removidas; animações, Aparência e Atlas sincronizados. [Registro](registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md) · [Galeria](../wireframes/comparacoes/v3.3.1-2026-10-29-conta-perfil-tela_13-tela_66-tela_69/index.html) · [Manual](testes-manuais/conta-perfil.md).
+
+**Verificações:** tipos/build aprovados, seleção de 54 testes aprovada, rodada final autenticada desktop/celular com 2 testes aprovada, incluindo perda de vínculo, 160 testes de banco local e verificadores Atlas/MVP/Visão global aprovados. Suíte geral: 184 aprovados após estabilizar esperas dos testes; falhas anteriores preservadas no registro. Revisão independente encontrou P2 de seleção sem vínculo, corrigido e aprovado na segunda leitura. Testes manuais do usuário não executados; deploy não certificado. **Ferramentas:** Superpowers 7.0.1 e Context7 1.0.2 globais conferidos no cache após aviso do usuário. Skills Superpowers aplicadas; ferramentas Context7 ainda ausentes nesta sessão, consulta/autenticação não comprovadas. Octocode indisponível; tentativa npm com timeout registrada. [Registro das ferramentas globais](registros/registro-v3.3.1-2026-10-29-imp-ferramentas-globais-fun-superpowers-context7.md).
+
+**Unidades Git:** diretrizes e registro incorporados ao objeto c6e1516, conferido antes da entrega. Conta/perfil, testes, evidências e acompanhamento conferidos no objeto Git do commit feat(conta): abrir preferências no perfil e preservar o Núcleo selecionado; fechamento incorporado ao mesmo commit antes do primeiro push. Nenhuma unidade pronta para commit permanece pendente. Publicação na main autorizada; a igualdade com origin/main é conferida no encerramento da interação. A pendência documental abaixo refere-se ao marco anterior. **Contagem:** última evidência histórica 165; lacuna entre sessões impede inferir o total atual. Esta conclusão inicia acompanhamento adicional de 1 interação, sem declarar atingido o marco 200. **Próximo passo:** verificar o deploy correspondente e executar o roteiro manual; confirmar o hash remoto com git rev-parse origin/main quando retomar.
+
+## Diretrizes permanentes consolidadas — 2026-10-29
+
+`AGENTS.md` ampliado com preparação, precedência de contratos, integridade do produto, validação proporcional, documentação, testes manuais, evidências visuais, ambiente, dados e publicação. Regras anteriores de versão/Atlas preservadas integralmente. Mudança documental na versão de código 3.3.1, sem incremento, execução funcional ou publicação. Alterações locais preexistentes de aplicativo/Atlas/manifestos preservadas. [Registro](registros/registro-v3.3.1-2026-10-29-imp-diretrizes-permanentes-fun-continuidade-e-validacao.md).
+
+**Unidade documental pendente de commit:** AGENTS.md e este acompanhamento (estado, histórico e registro). Nenhum commit/push/deploy realizado nesta tarefa. **Próximo passo:** aplicar as diretrizes nas próximas entregas e publicar esta unidade junto ao conjunto autorizado quando solicitado. Contador histórico preservado, sem inferir interações não registradas entre sessões.
+
 ## Consolidação para GitHub e banco sincronizado — 2026-10-28
 
 Conjunto completo autorizado para origin/main. Supabase remoto e local com13 migrações;43 funções da aplicação e15 tabelas conferidas. Correção reproduzível de bloqueios da agenda em checkouts CRLF, sem mudança dos dados remotos. [Registro integral](registros/registro-v3.3.0-2026-10-28-publicacao-integral-github-supabase.md).
@@ -1079,3 +1093,9 @@ Usuário autorizou commit/push abrangentes para main, incluindo a revisão docum
 
 
 **Controle da publicação:** suíte repetida com 108/108 aprovados. Objeto inicial e árvore preparada conferidos; captura histórica da tela 72 corrigida após inspeção visual e incorporada ao mesmo commit. Conjunto final: 74 arquivos. Push normal autorizado para origin/main; comparar hash remoto ao HEAD no encerramento e reportar resultado. Removida pendência de commit após comprovar inclusão dos arquivos, sem novo desenvolvimento ou deploy.
+
+## Ferramentas globais — 2026-10-29 — v3.3.1
+
+Superpowers 7.0.1 já instalado e habilitado (15 skills); Context7 1.0.2 instalado e habilitado via marketplace oficial. Uso global explícito em `C:/Users/efraimsilva/.codex/AGENTS.md`. Configuração não comprova consulta autenticada: abrir novo chat e autenticar Context7 se solicitado. [Registro](registros/registro-v3.3.1-2026-10-29-imp-ferramentas-globais-fun-superpowers-context7.md). Este marco atualiza as indicações antigas de disponibilidade acima, preservadas como histórico.
+
+**Contagem:** uma conclusão nesta tarefa de configuração global; direcionamentos intermediários não contam separadamente. Total histórico não inferido devido à lacuna já registrada; último marco 100 preservado. **Pendência de commit desta tarefa:** somente este acompanhamento (estado, histórico e registro); plugins e AGENTS global ficam fora do repositório. Sugestão: `docs: registrar configuração global de Superpowers e Context7`. Alterações concorrentes e pendências anteriores preservadas. Próximo passo executável: validar consulta Context7 em novo chat.

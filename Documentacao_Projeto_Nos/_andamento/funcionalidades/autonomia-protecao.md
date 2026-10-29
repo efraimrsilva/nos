@@ -1,5 +1,7 @@
 # Autonomia e proteção — MVP 05 — v1.0.0
 
+Atualização v3.3.1 — 29/10/2026: Conta e segurança removida. Exclusão fica no bloco Apagar minha conta em /conta#apagar-minha-conta, fora do painel do perfil; confirmação e ação de servidor preservadas. Página completa contém oito seções; painel desktop contém seis, sem Notificações e exclusão. [Registro](../registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md).
+
 **Modelo implementado localmente — v1.0.0 — 14/10/2026:** [administração e participação](administracao-participacao.md) é o contrato vigente. Administração compartilhada, escolha individual, novo aceite por versão, saída com história preservada e preferência de autoria estão implementados. Sem votação coletiva ou cancelamento de acordo por saída. [Manual de teste](administracao-manual.md). Publicação, migração remota e operação do piloto permanecem pendentes.
 
 ## Histórico do modelo anterior — até v0.16.0

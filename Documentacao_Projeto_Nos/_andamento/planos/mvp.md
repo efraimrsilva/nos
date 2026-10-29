@@ -1,5 +1,7 @@
 # MVP e caminho de implementação — Projeto Nós
 
+**Atualização de interface MVP05 — v3.3.1 — 29/10/2026:** perfil desktop abre painel com seis seções; Conta66 mantém oito e exclusão em bloco próprio (modal69). Memória de Núcleo por conta no navegador e busca do topo removida. Etapas, critérios do piloto e funções planejadas permanecem. [Registro](../registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md).
+
 **Migração visual validada localmente — 18/10/2026 — v2.0.0:** [Layout atual](../../Telas/Layout%20novo/index.html) é a referência de todas as áreas. A navegação lateral/inferior inclui esboços protegidos de Árvore/Memórias, Conexões/Perfis e Manifesto/Cuidado. As seis rotas não persistem dados e não concluem etapas07–11. Mantêm-se73 fichas,39 recortes existentes e34 planejadas. Kanban/Painéis/lista móvel de Acordos organiza o modelo atual; a evolução individual aprovada continua pendente de critérios, dados e consentimento. Versão2.0.0 e evidência visual estão no [registro da migração](../registros/registro-v2.0.0-2026-10-18-imp-layout-atual-fun-migracao-integral.md).
 
 **Fluxo completo aprovado — v1.1.0 — 18/10/2026:** a expansão deverá implementar [Proposta → Hábito → Experiência → Essência](../funcionalidades/fluxo-proposta-habito-experiencia-essencia.md), sequência obrigatória por pessoa. Antes de implementar, fechar critérios das três passagens, confirmação/consentimento, dados, agrupamento, Essência e legado. A decisão documental não altera o status de conclusão do MVP nem restaura votação coletiva.

@@ -3,9 +3,13 @@ import path from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {chromium} from '@playwright/test';
 
+// Miniaturas recebem inert em momentos diferentes; IDs do popover são únicos por renderização.
+const composition=html=>html.replace(/ inert=""/g,'').replace(/live-profile-popover-\d+/g,'live-profile-popover-ID');
 const browser=await chromium.launch();
 try{
   const page=await browser.newPage({viewport:{width:1440,height:1000}});
+  // A comparação estrutural congela apenas a escolha e o relógio das frases ilustrativas.
+  await page.addInitScript(()=>{Math.random=()=>.5;window.setInterval=()=>0;});
   const errors=[],external=[];
   page.on('pageerror',error=>errors.push(error.message));
   page.on('request',request=>{if(/^https?:/.test(request.url()))external.push(request.url());});
@@ -37,7 +41,7 @@ try{
   assert.match(await page.locator('#mvp-preview-access .tile-caption h3').first().innerText(),/Conta/);
   for(const id of [1,2,3,4,5,72]){
     const content=await page.locator('#mvp-tile-'+String(id).padStart(2,'0')+' .phone').evaluate(node=>node.querySelector('[data-thumbnail]').innerHTML);
-    assert.equal(content,await page.locator('#tile-'+String(id).padStart(2,'0')+' .phone').evaluate(node=>node.querySelector('[data-thumbnail]').innerHTML),'Composição compartilhada '+id);
+    assert.equal(composition(content),composition(await page.locator('#tile-'+String(id).padStart(2,'0')+' .phone').evaluate(node=>node.querySelector('[data-thumbnail]').innerHTML)),'Composição compartilhada '+id);
   }
   await page.locator('.mvp-stage-nav [data-mvp-stage="habit"]').focus();await page.keyboard.press('Enter');
   assert.equal(await page.locator('#mvp-phase-habit').getAttribute('open'),'');

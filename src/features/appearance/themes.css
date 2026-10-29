@@ -90,7 +90,7 @@
 .theme-option-title svg { visibility:hidden; color:var(--color-leaf); flex-shrink:0; }
 .theme-option:has(input:checked) .theme-option-title svg { visibility:visible; }
 .theme-option small { display:block; font-size:12px; line-height:1.7; color:var(--color-muted); margin-top:4px; }
-.theme-save-feedback { min-height:65px; margin-top:20px; }
+.theme-save-feedback { margin-top:20px; }
 .theme-save-feedback p { margin:0 0 12px; color:var(--color-muted); font-size:13px; }
 .theme-save-feedback [role="alert"] { color:var(--danger-ink); }
 @media(max-width:600px) { .theme-options { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; } .theme-option-title { font-size:12px; } }

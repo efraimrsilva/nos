@@ -196,6 +196,24 @@
 
 .account-experience .account-panel:nth-child(2) { animation-delay: .24s; }
 
+@keyframes account-preferences-arrive {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .account-experience.account-workspace .account-preferences-sections > .account-panel {
+    animation: account-preferences-arrive .48s cubic-bezier(.22, 1, .36, 1) .06s backwards;
+  }
+  .account-experience.account-workspace .account-preferences-sections > .account-panel:nth-child(2) { animation-delay: .10s; }
+  .account-experience.account-workspace .account-preferences-sections > .account-panel:nth-child(3) { animation-delay: .14s; }
+  .account-experience.account-workspace .account-preferences-sections > .account-panel:nth-child(4) { animation-delay: .18s; }
+  .account-experience.account-workspace .account-preferences-sections > .account-panel:nth-child(5) { animation-delay: .22s; }
+  .account-experience.account-workspace .account-preferences-sections > .account-panel:nth-child(6) { animation-delay: .26s; }
+  .account-experience.account-workspace .account-preferences-sections > .account-panel:nth-child(7) { animation-delay: .30s; }
+  .account-experience.account-workspace .account-preferences-sections > .account-panel:nth-child(8) { animation-delay: .34s; }
+}
+
 .account-experience .auth-panel::after {
   content: "";
   position: absolute;

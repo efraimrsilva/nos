@@ -18,7 +18,7 @@ Diálogo nativo com título acessível, foco contido, botão Fechar, Escape e re
 
 | Origem | Modal / gatilho | Conteúdo e situação | Condição e resultado |
 |---|---|---|---|
-| Navegação global | Buscar uma área | Busca real de caminhos, sem busca em dados privados | Abre rota escolhida e fecha |
+| Navegação global | Buscar uma área — removido em v3.3.1 | Lupa, modal e busca do topo removidos | Sem gatilho vigente |
 | Navegação móvel | Mais áreas e preferências | Menu real | Navega e fecha |
 | Navegação global | Notificações | Esboço; não consulta nem envia avisos | Fecha sem gravação |
 | /nucleos | Criar um núcleo | Escolha real entre criar e entrar com convite | Encaminha para o fluxo protegido |
@@ -43,7 +43,7 @@ Diálogo nativo com título acessível, foco contido, botão Fechar, Escape e re
 | Acordo / termos | Alterar termos | Publicação real de versão | Novo aceite individual; histórico permanece |
 | /conta conectada | Dados da conta | Dados reais da sessão | Somente própria conta |
 | /conta com ou sem sessão; /conta/confirmar-email abre o diálogo | Confirmar e-mail / Preciso confirmar meu e-mail | Estado real do endereço; confirmado informa no próprio modal; pendente solicita envio; falha e conta inexistente exibem alerta | Com sessão, confirmado aparece ao abrir e pendente vem preenchido; sem sessão, consulta após informar endereço. Fecha por botão/Escape sem navegar; preserva next. Migração aplicada e código4ba6b46 publicado em 27/10/2026; fluxo público conferido em produção no computador/celular. [Evidência desktop/celular](../../wireframes/comparacoes/2026-10-27-confirmacao-email/index.html) |
-| /conta conectada | Conta e segurança | Orientação real; sessões/dispositivos sinalizados como esboço | Recuperação por rota existente |
+| /conta conectada | Conta e segurança — removido em v3.3.1 | Recuperação e saída seguem em Entrar e recuperar; exclusão em bloco próprio | Rotas antigas preservadas |
 | /conta conectada | Sair da conta | Encerramento real da sessão | Vínculos preservados |
 | /configuracoes | Visibilidade das próximas saídas | Preferência real de autoria | Salva preferência da própria pessoa |
 | /configuracoes | Dados e autonomia | Orientação de dados; automações pendentes sinalizadas | Não simula exportação/exclusão |
@@ -65,3 +65,7 @@ Implementação compartilhada: src/shared/components/ui/action-dialog.tsx. Naveg
 **Apagar minha conta:** gatilho vermelho e com alerta dentro de Conta e segurança, nas origens /conta conectada, /configuracoes e /configuracoes/conta. Finalidade: apresentar consequências e coletar APAGAR CONTA. Permissão: somente titular autenticado; servidor e banco revalidam. Resultado real: exclusão da conta e identificação, saída de todos os Núcleos e preservação do histórico como Conta excluída. Situação: implementado e testado localmente; banco remoto e publicação pendentes. Cancelar/X/Escape limpam a frase. Atlas oferece somente demonstração, sem exclusão real. Substitui a informação anterior de que toda exclusão dependeria de suporte; exportação/correção e tratamento de arquivos permanecem pelo atendimento. [Contrato](exclusao-conta.md) · [galeria](../../wireframes/comparacoes/v3.1.0-2026-10-23-exclusao-conta/index.html).
 
 **Produção v3.1.0 — 23/10/2026:** migração e código8afecb2 publicados, deploy6adae350fa2928885a0de2c8. Exclusão da conta validada online em desktop/celular; quatro contas descartáveis removidas e dados anteriores preservados em15 tabelas. O status remoto pendente do bloco anterior foi concluído.
+
+## Atualização v3.3.1 — perfil e conta
+
+Perfil desktop: popover não modal com seis seções, gatilho no avatar, sessão necessária, fechamento nativo por Escape/clique fora/botão e retorno ao Núcleo. Dados da conta, recuperação, confirmação, saída, Aparência, privacidade e ajuda reutilizam os diálogos existentes dentro do painel; ao fechar retornam ao gatilho. Notificações e exclusão ficam apenas na página completa. Exclusão mantém APAGAR CONTA; nenhuma exclusão real foi executada na verificação. Tela 69 do Atlas representa essa confirmação. [Galeria e resultados](../registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md).

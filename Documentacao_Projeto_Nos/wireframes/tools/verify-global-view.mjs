@@ -4,9 +4,13 @@ import path from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {chromium} from '@playwright/test';
 
+// Miniaturas recebem inert em momentos diferentes; IDs do popover são únicos por renderização.
+const composition=html=>html.replace(/ inert=""/g,'').replace(/live-profile-popover-\d+/g,'live-profile-popover-ID');
 const browser=await chromium.launch();
 try {
   const page=await browser.newPage({viewport:{width:1440,height:1000}});
+  // A comparação estrutural congela apenas a escolha e o relógio das frases ilustrativas.
+  await page.addInitScript(()=>{Math.random=()=>.5;window.setInterval=()=>0;});
   const errors=[],external=[];
   page.on('pageerror',error=>errors.push(error.message));
   page.on('request',request=>{if(/^https?:/.test(request.url()))external.push(request.url());});
@@ -32,7 +36,7 @@ try {
     assert.equal(await tile.locator('[data-destination]').count(),screen.actions.length);
     const globalPhone=await tile.locator('.phone').evaluate(el=>el.querySelector('[data-thumbnail]').innerHTML);
     const atlasPhone=await page.locator(`#tile-${String(screen.id).padStart(2,'0')} .phone`).evaluate(el=>el.querySelector('[data-thumbnail]').innerHTML);
-    assert.equal(globalPhone,atlasPhone,`Mesma composição viva ${screen.id}`);
+    assert.equal(composition(globalPhone),composition(atlasPhone),`Mesma composição viva ${screen.id}`);
   }
   await page.locator('#global-tile-07 .tile-open').click();
   assert.equal(await page.locator('#screen-spec h2').innerText(),'Tipo de Núcleo');

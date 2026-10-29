@@ -75,3 +75,40 @@ button:is([aria-label^="Fechar" i],[data-atlas-close]):is(:hover,:focus-visible)
 .live-mobile-nav-label{display:flex;gap:4px;align-items:baseline;justify-content:center;white-space:nowrap}
 .live-mobile-nav-label .live-nav-count{font-size:9px;color:var(--muted)}
 .live-mobile-nav-label .live-nav-count::before{content:"·";margin-right:4px}
+
+/* Entrada da área de conta, espelhada da implementação. */
+@keyframes live-account-preferences-arrive { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
+@media(prefers-reduced-motion:no-preference) {
+  .live-account-preferences > .live-panel { animation:live-account-preferences-arrive .48s cubic-bezier(.22,1,.36,1) .06s backwards; }
+  .live-account-preferences > .live-panel:nth-child(2) { animation-delay:.10s; }
+  .live-account-preferences > .live-panel:nth-child(3) { animation-delay:.14s; }
+  .live-account-preferences > .live-panel:nth-child(4) { animation-delay:.18s; }
+  .live-account-preferences > .live-panel:nth-child(5) { animation-delay:.22s; }
+  .live-account-preferences > .live-panel:nth-child(6) { animation-delay:.26s; }
+  .live-account-preferences > .live-panel:nth-child(7) { animation-delay:.30s; }
+  .live-account-preferences > .live-panel:nth-child(8) { animation-delay:.34s; }
+}
+.live-account-preferences [data-live-delete-account] { border:1px solid #e9b5b5; border-radius:8px; background:#fff1f0; padding:14px; color:#86333a; }
+.live-account-preferences [data-live-delete-account] .live-row-icon { color:#86333a; background:#fff1f0; }
+
+/* Perfil desktop abre todas as ações no contexto da prévia. */
+.live-profile-trigger { border:0; background:none; padding:0; border-radius:50%; cursor:pointer; }
+.live-profile-trigger:hover { box-shadow:0 0 0 5px var(--soft); }
+.live-profile-popover { position:fixed; inset:80px 24px auto auto; margin:0; width:min(720px,calc(100vw - 48px)); max-height:calc(100dvh - 104px); padding:0; overflow:auto; overscroll-behavior:contain; border:1px solid var(--line,#dce3d6); border-radius:22px; background:var(--card,#fffefa); color:var(--ink,#293e35); box-shadow:0 24px 80px #152c352b,0 4px 16px #152c3512; }
+.live-profile-popover-heading { position:sticky; top:0; z-index:2; display:flex; justify-content:space-between; gap:16px; padding:24px; background:var(--card,#fffefa); border-bottom:1px solid var(--line,#dce3d6); }
+.live-profile-popover-heading p { margin:0 0 7px; font-size:10px; letter-spacing:1.8px; color:var(--leaf,#345d44); }
+.live-profile-popover-heading h2 { margin:0 0 8px; font:500 23px Arial,sans-serif; letter-spacing:-.7px; }
+.live-profile-popover-heading span { font-size:13px; color:var(--muted,#657368); }
+.live-profile-popover-content { padding:20px; }
+.live-profile-popover-content > .live-page-heading { display:none; }
+.live-profile-popover .live-account-preferences { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.live-profile-popover .live-panel { padding:18px; border-radius:14px; }
+.live-profile-popover .live-row { min-height:70px; padding:13px 0; }
+.live-profile-popover .live-portrait { width:52px; height:52px; font-size:20px; }
+
+@keyframes live-profile-arrive { from { opacity:0; transform:translateY(-8px) scale(.98); } to { opacity:1; transform:none; } }
+@media(prefers-reduced-motion:no-preference) { .live-profile-popover:popover-open { transform-origin:top right; animation:live-profile-arrive .26s cubic-bezier(.22,1,.36,1); } }
+.product-phone.is-mobile .live-profile-trigger,.product-phone.is-mobile .live-profile-popover { display:none; }
+.preview-wrap.mobile .live-profile-trigger,.preview-wrap.mobile .live-profile-popover { display:none; }
+.live-profile-popover-heading button[aria-label^="Fechar"] { transition:background-color .25s,color .25s; border-radius:8px; }
+.live-profile-popover-heading button[aria-label^="Fechar"]:is(:hover,:focus-visible) { background:#c43d40; color:white; }

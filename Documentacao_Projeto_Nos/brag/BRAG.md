@@ -1,5 +1,9 @@
 # Brag document — Projeto Nós
 
+## 2026-10-29 — v3.3.1 — ajustes de conta sem perder o Núcleo
+
+**Problema:** ajustes de conta descartavam o contexto visual do Núcleo e exigiam nova seleção. **Contribuição:** seleção por pessoa neste navegador, painel de perfil com ações diretas, retirada de controles redundantes e Atlas sincronizado. **Resultado verificado:** cenário autenticado em desktop/celular, persistência e troca de Núcleo, tema salvo na conta temporária e 160 testes do banco local aprovados. **Benefício esperado:** menos navegação repetitiva; sem medição de tempo ou uso. [Evidências e limites](../_andamento/registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md).
+
 **Evidência de produção — v3.3.0 — 24/10/2026:** totais e navegação conferidos online em desktop/mobile; Mais liberado de selo sobreposto. Migração/deploy confirmados, varredura sem ocorrências e15 tabelas preexistentes preservadas após limpeza das fixtures. [Fechamento](../_andamento/registros/registro-v3.3.0-2026-10-24-imp-navegacao-fun-totais-pessoais.md#fechamento-de-produção--24102026).
 
 ## 2026-10-24 — v3.3.0 — presença atual visível na navegação

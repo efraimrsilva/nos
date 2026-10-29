@@ -1,5 +1,13 @@
 # Histórico de andamento
 
+## 2026-10-29 — v3.3.1 — conta e perfil com contexto preservado
+
+Painel desktop com seis seções e ações diretas, último Núcleo por conta no navegador, página completa com exclusão própria, remoção da busca e duplicações, entrada suave e Aparência simplificada. Tipos/build, banco local, jornadas autenticadas e Atlas conferidos; limites e retestes no [registro](registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md). Publicação Git autorizada, sem certificação de deploy.
+
+## 2026-10-29 — v3.3.1 — diretrizes permanentes de entrega
+
+Consolidação do AGENTS.md com preparação, precedência documental, validação, testes manuais, Atlas, evidências, continuidade e cuidados de ambiente/publicação. Regras anteriores de versão preservadas; mudança exclusivamente documental, sem incremento ou publicação. [Registro](registros/registro-v3.3.1-2026-10-29-imp-diretrizes-permanentes-fun-continuidade-e-validacao.md).
+
 ## 2026-10-28 — publicação integral e alinhamento de banco
 
 Conjunto completo autorizado para origin/main. Supabase remoto e local com13 migrações;43 funções da aplicação e15 tabelas conferidas. Correção reproduzível de bloqueios da agenda em checkouts CRLF, sem mudança dos dados remotos. [Registro integral](registros/registro-v3.3.0-2026-10-28-publicacao-integral-github-supabase.md).
@@ -731,3 +739,7 @@ Removidas quatro duplicações da navegação móvel; grupos vazios ocultados e 
 
 ## 2026-10-21 — v3.0.6 — Publicação integral autorizada
 Três unidades: execução local1e6fb0d, destaque1c8be96 e menu móvel complementar, com Atlas/testes/manifestos/registros. Tipos, dez testes, verificação isolada, sintaxe e build padrão aprovados. Conferência remota no fechamento; deploy não certificado. Registro: registros/registro-v3.0.6-2026-10-21-02-imp-publicacao-github-fun-consolidacao-ajustes.md.
+
+## 2026-10-29 — Configuração global de ferramentas — v3.3.1
+
+Superpowers 7.0.1 existente preservado; Context7 1.0.2 instalado pelo marketplace oficial. Ambos habilitados conforme `codex plugin list --json`; orientação global persistida no AGENTS do usuário. Consulta autenticada Context7 depende de novo chat/primeiro uso. Evento de ambiente/documentação, sem alteração de produto ou versão. [Registro](registros/registro-v3.3.1-2026-10-29-imp-ferramentas-globais-fun-superpowers-context7.md).
