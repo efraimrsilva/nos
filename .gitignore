@@ -18,4 +18,3 @@ playwright-report/
 *.tsbuildinfo
 .env*
 !.env.example
-AGENTS.md

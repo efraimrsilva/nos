@@ -1,5 +1,7 @@
 # Projeto Nós
 
+**Regra permanente:** versionar cada entrega do sistema e manter o Atlas vivo como espelho da implementação atual, com a mesma versão. Critérios e arquivos a sincronizar em AGENTS.md.
+
 **Consolidação v3.3.0 — 28/10/2026:** temas, totais pessoais, correções locais de acesso/rede, Supabase local e documentação reunidos. Banco remoto/local sincronizados com13 migrações; correção de bloqueios da agenda reproduzível em Windows. [Descrição integral e validações](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.3.0-2026-10-28-publicacao-integral-github-supabase.md).
 
 **Integração local — v3.3.0 — 28/10/2026:**
@@ -12,12 +14,9 @@ Integração local da branch `origin/codex/temas-conta` à base atual de `main`,
 
 **Entrega local — v3.2.1 —23/10/2026:** nove temas, com Solar/Âmbar e Noturno/Neon; Aparência no padrão da navegação desktop/mobile e cores dos ícones preservadas. Sem publicação. [Contrato](Documentacao_Projeto_Nos/_andamento/funcionalidades/aparencia-conta.md) · [Galeria](Documentacao_Projeto_Nos/wireframes/comparacoes/v3.2.1-2026-10-23-temas-solar-neon/index.html).
 
-
 **Entrega local — v3.2.0 —23/10/2026:** sete temas da conta em Mais → Aparência, com aplicação imediata e salvamento automático. A área atual recebe cor própria e marcador desktop/mobile; telas públicas permanecem claras. Sem deploy desta entrega. [Contrato](Documentacao_Projeto_Nos/_andamento/funcionalidades/aparencia-conta.md) · [galeria](Documentacao_Projeto_Nos/wireframes/comparacoes/v3.2.0-2026-10-23-temas-conta/index.html).
 
-
 **Entrega local — v3.1.1 — 23/10/2026:** cadastro com e-mail existente permanece no formulário e orienta entrar ou recuperar senha, sem prometer confirmação. Cadastro válido e retorno interno preservados; 142 testes gerais, tipos, build e Atlas aprovados. Commit e push desta correção autorizados em 23/10/2026; deploy correspondente ainda não certificado. [Registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.1.1-2026-10-23-imp-cadastro-fun-email-existente.md).
-
 
 **Entrega vigente — v3.1.0 — 23/10/2026:** exclusão da própria conta em Conta e segurança, opção vermelha e frase APAGAR CONTA. Identificação/acesso removidos, histórico compartilhado preservado como Conta excluída e sucessão/encerramento reutilizados. 130 testes gerais, 12 autenticados relacionados, 143 verificações SQL, tipos e build padrão aprovados. Publicado em https://noslife.netlify.app no deploy6adae350fa2928885a0de2c8, commit8afecb2; migração remota aplicada (dez migrações). Prova online desktop/mobile aprovada com quatro contas descartáveis removidas e dados anteriores preservados. [Contrato](Documentacao_Projeto_Nos/_andamento/funcionalidades/exclusao-conta.md) · [registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.1.0-2026-10-23-imp-conta-fun-exclusao-propria.md) · [galeria](Documentacao_Projeto_Nos/wireframes/comparacoes/v3.1.0-2026-10-23-exclusao-conta/index.html). Os marcos abaixo são históricos.
 
@@ -100,7 +99,6 @@ Os testes autenticados criam e removem contas temporárias exclusivamente no ban
 
 Use Node.js 24 LTS, versão 24.15.0 ou superior. Os scripts dev e start habilitam --use-system-ca para confiar também nos certificados do Windows e evitar a falha local UNABLE_TO_VERIFY_LEAF_SIGNATURE ao acessar o Supabase, mantendo a validação TLS. [Correção e auditoria do banco v2.0.2](Documentacao_Projeto_Nos/_andamento/registros/registro-v2.0.2-2026-10-18-imp-conexao-supabase-fun-correcao-login-local.md).
 
-
 **Visão global e sincronização obrigatória:** a aba [Visão global](Documentacao_Projeto_Nos/wireframes/atlas/index.html#visao-global), acima de Todas as áreas, reaproveita as mesmas telas, fichas e percursos. Em qualquer alteração, conferir impacto no projeto inteiro e sincronizar aplicativo/Atlas vivo/Visão global/contratos no mesmo recorte. Toda tela criada ou alterada deve acrescentar evidência em [comparacoes](Documentacao_Projeto_Nos/wireframes/comparacoes/README.md), preservando galerias anteriores. Seguir o [procedimento permanente](Documentacao_Projeto_Nos/wireframes/GUIA.md#visão-global-sincronização-e-comparações--procedimento-permanente).
 
 **Regra de desenvolvimento — prioridade alta:** antes de criar, implementar, alterar ou revisar uma tela, abrir o **Atlas vivo** e conferir seu aspecto visual, abas, ícones, hierarquia, navegação e estados. A implementação deve se guiar prioritariamente por esse desenho; a composição histórica serve à comparação. Confrontar a interface real com o atlas antes de concluir e atualizar ambos na mesma entrega, respeitando contratos e permissões. Procedimento obrigatório no [guia do atlas](Documentacao_Projeto_Nos/wireframes/GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05).
@@ -170,6 +168,7 @@ Código: `src/app` (rotas), `src/features/onboarding` (componentes do fluxo) e `
 A documentação está organizada em três categorias principais:
 
 ### 1.x - Visão e Regras de Negócio
+
 Documentos que definem a filosofia, as regras de negócio e os conceitos fundamentais do projeto.
 
 - [v1.1 - Visão e Regras de Negócio](Documentacao_Projeto_Nos/Projeto_Nos_v1.1_Visao_e_Regras_de_Negocio.md)
@@ -184,6 +183,7 @@ Documentos que definem a filosofia, as regras de negócio e os conceitos fundame
 - [v1.10 - Sistema de Conversas Guiadas e Mediação Afetiva](Documentacao_Projeto_Nos/Projeto_Nos_v1.10_Sistema_de_Conversas_Guiadas_e_Mediacao_Afetiva.md)
 
 ### 2.x - Interface e Implementação
+
 Documentos que definem as telas, fluxos, design system e regras de implementação.
 
 - [v2.0 - Alinhamento das Telas com a Documentação](Documentacao_Projeto_Nos/Projeto_Nos_v2.0_Alinhamento_das_Telas_com_a_Documentacao.md)
@@ -197,17 +197,19 @@ Documentos que definem as telas, fluxos, design system e regras de implementaç�
 - [v2.8 - Autenticação e Segurança](Documentacao_Projeto_Nos/Projeto_Nos_v2.8_Autenticacao_e_Seguranca.md)
 
 ### 3.x - Técnica e Arquitetura
+
 Documentos técnicos sobre arquitetura, infraestrutura e implementação.
 
-*(Ainda não há documentos nesta categoria)*
+_(Ainda não há documentos nesta categoria)_
 
 ### Andamento
+
 Registro persistente das decisões, do estado atual e das próximas ações do projeto.
 
 - [Índice de andamento](Documentacao_Projeto_Nos/_andamento/README.md)
 - [Estado atual](Documentacao_Projeto_Nos/_andamento/estado.md)
 - [v0.1.0 — Escolher caminho](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.1.0-2026-09-24-imp-tela-escolher-caminho-fun-entrada-nucleo.md)
-- [v0.2.0 — Tipo de Núcleo](<Documentacao_Projeto_Nos/_andamento/registros/registro-v0.2.0-2026-09-25-01-imp-tela-tipo-nucleo-fun-selecao-vinculo.md>)
+- [v0.2.0 — Tipo de Núcleo](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.2.0-2026-09-25-01-imp-tela-tipo-nucleo-fun-selecao-vinculo.md)
 - [v0.3.0 — Propósito do Núcleo](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.3.0-2026-09-27-imp-tela-proposito-nucleo-fun-rascunho-local.md)
 - [v0.4.0 — Autenticação, criação e convite](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.4.0-2026-09-27-imp-integracao-supabase-fun-criacao-convite.md)
 - [v0.5.0 — Home do Núcleo](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.5.0-2026-09-27-imp-home-nucleo-fun-resumo-protegido.md)
@@ -251,7 +253,6 @@ Definir os dados reais da Tela 07 — Nossa Árvore a partir do catálogo v2.1, 
 [Contrato e configuração](Documentacao_Projeto_Nos/_andamento/funcionalidades/conta-entrada.md), [registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.12.0-2026-10-07-imp-conta-entrada-fun-recuperacao-integrada.md) e [diferenças antes/atlas/aplicação](Documentacao_Projeto_Nos/wireframes/comparacoes/v0.12.0-2026-10-07-conta-entrada-tela_01-tela_02-tela_03-tela_04-tela_05-tela_72/index.html). A decisão do usuário exige atualizar os dois lados e mostrar sempre a diferença.
 
 Para reproduzir a jornada de e-mails no Supabase local, configure SUPABASE_CLI_PATH e execute `node scripts/verify-account-local.mjs`. O script aceita somente backend local, usa porta 3200/.next-verify, cria/remove conta e e-mails temporários e encerra o servidor isolado. Não executa envio remoto ou deploy. Verificação visual: `node Documentacao_Projeto_Nos/wireframes/tools/verify-account-fidelity.mjs` com app na porta 3000.
-
 
 ## v0.13.0 — Sequência e sessão
 
