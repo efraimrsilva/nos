@@ -39,3 +39,6 @@ Envio de formulário com sessão expirada é bloqueado antes da ação. POST con
 
 ## v3.4.2 — barra lateral — 30/10/2026
 Cartão de contexto com nome/Seu espaço compartilhado removido da barra lateral global. Cabeçalho mantém nome/contexto e Seus Núcleos continua abrindo /nucleos. Cookie por conta e revalidação de vínculo preservados.
+
+## Identificação histórica v3.4.3 — espera ao selecionar Núcleo
+/nucleos e /nucleos/[id] mantêm indicadores e textos de carregamento sem os dois atalhos dos informes. Erros mantêm tentativa/saídas; navegação global e autenticação permanecem iguais.

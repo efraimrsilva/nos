@@ -79,3 +79,5 @@ Capturas devem usar exemplos sem informações privadas, tokens ou códigos reai
 - [v3.4.2 — Barra lateral — tela13](v3.4.2-2026-10-30-barra-lateral-tela_13/index.html): cartão do Núcleo removido do componente global, antes/depois aplicativo e Atlas desktop/celular.
 
 - [v3.4.2 — Retestes da publicação — telas12/13/66](v3.4.2-2026-10-30-publicacao-tela_12-tela_13-tela_66/index.html):18 capturas novas, separadas dos antes/depois históricos preservados.
+
+- [v3.4.3 — Informe de espera — tela13](v3.4.3-2026-10-30-carregamento-tela_12-tela_13/index.html): antes/depois do componente isolado e Atlas Web/Celular; não certifica jornada autenticada/rede.
