@@ -1,5 +1,9 @@
 # Brag document — Projeto Nós
 
+## 2026-10-30 — v3.4.2 — evidências e prioridades de segurança
+
+**Problema:** segurança precisava ser reavaliada além dos testes verdes e das decisões anteriores de experiência. **Contribuição:** revisão das fronteiras do aplicativo/banco, leitura dos controles efetivos locais/remotos, experimentos locais com limpeza confirmada, revisão independente e plano rastreável de mitigação. **Resultado verificado:** enumeração pública de contas confirmada, riscos locais e limitação de sessão demonstrados;160 testes de banco e70 públicos aprovados,52 autenticados com36 aprovados/15 falhas/1 ignorado, falhas investigadas sem anunciar aprovação integral. **Benefício esperado:** orientar contenção e correções verificáveis; não se mediu redução de incidentes nem se aplicou mitigação nesta auditoria. [Relatório e limites](../_andamento/registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md).
+
 ## 2026-10-30 — v3.4.0 — autonomia para corrigir o nome
 
 **Problema:** Dados da conta só consultava o nome e encaminhava correções ao suporte. **Contribuição:** edição pelo lápis no próprio modal, compartilhada pela página e painel do perfil, com validação autenticada e Atlas alinhado. **Resultado verificado:** gravação e recarga em desktop/celular, cancelamento sem gravação, preservação de metadados e recuperação após falha simulada de transporte;4 testes da ação e2 cenários autenticados aprovados. **Benefício esperado:** corrigir o próprio nome sem depender do suporte; não houve medição de atendimento/uso. [Evidências](../_andamento/registros/registro-v3.4.0-2026-10-30-imp-conta-fun-nome-perfil.md).

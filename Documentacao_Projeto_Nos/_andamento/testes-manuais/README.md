@@ -1,4 +1,4 @@
-# Processo permanente de testes manuais — v3.3.0
+# Processo permanente de testes manuais — v3.4.2
 
 Roteiro de aparência: [MVP05 — Aparência da conta —16 casos](aparencia-conta.md). Execução manual pendente.
 

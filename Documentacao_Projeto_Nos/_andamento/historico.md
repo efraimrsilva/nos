@@ -766,3 +766,12 @@ Cartão de contexto removido do componente global e do Atlas; cabeçalho, víncu
 Consolidação do perfil, aparência Meia-noite e navegação/convites em três commits com descrições completas. Tipos/build,192 gerais,12 autenticados e Atlas aprovados; revisão independente sem achados. [Registro](registros/registro-v3.4.2-2026-10-30-imp-publicacao-github-fun-consolidacao-entregas.md). Push será conferido no encerramento; deploy não certificado.
 
 Conferência da publicação:148 arquivos incorporados aos objetos Git, versões3.4.0/3.4.1/3.4.2 distribuídas nos três commits. Pendências atuais de commit encerradas após comparação do conteúdo; confirmação de push e SHA na resposta final.
+
+## 2026-10-30 — v3.4.3 — Informe de carregamento
+Atalhos Seus Núcleos/Minha conta removidos somente da espera ao selecionar um Núcleo; ações de erro mantidas. Tipos/build e14 testes focados aprovados. [Registro](registros/registro-v3.4.3-2026-10-30-imp-carregamento-fun-informe-sem-atalhos.md). Sem publicação.
+
+Complemento v3.4.3: remoção também no carregamento de Seus Núcleos; somente os dois atalhos deixam de ser renderizados. Tipos/build finais e16 testes aprovados.
+
+## 2026-10-30 — v3.4.2 — Auditoria rigorosa de segurança e documentação
+
+Revisão de código/configuração, 13 migrações, catálogos locais e remotos e avisos oficiais. Enumeração pública de e-mails confirmada; exposição administrativa local condicionada ao alcance da rede, política local de senha divergente, janela conhecida de JWT após logout e ausência local de CSP documentadas com limites e prioridades.160 testes de banco e70 públicos aprovados; quatro rotinas da agenda respeitam trava.52 autenticados:36 aprovados,15 falhas investigadas de seletores/verificador Atlas e1 ignorado; build isolado webpack aprovado. Dependências inconclusivas por falha do npm; HTTPS hospedado não verificado. Revisão independente estática/documental, contrato de conta atualizado. Nenhuma correção de produto, mutação remota ou publicação; versão preservada por natureza documental. [Relatório, evidências e próximos passos](registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md).

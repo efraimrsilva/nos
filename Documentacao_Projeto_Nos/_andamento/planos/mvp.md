@@ -46,6 +46,8 @@ Objetivos, funcionalidades detalhadas, dependências e critérios de avanço fic
 
 ## Critérios de fechamento
 
+**Conferência de segurança — v3.4.2 — 30/10/2026:** [auditoria rigorosa](../registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md) identificou riscos abertos de enumeração, operação local, política de senha e janela de sessão, além de verificações pendentes. Esse relatório não fecha o critério operacional do MVP. Corrigir evidências interrompidas e concluir dependências/configuração hospedada antes de afirmar segurança integral.
+
 Cada recorte deve concluir sua jornada com dados reais, validação de permissões, retornos e estados vazio/carregando/erro/sucesso. Testar celular/web, teclado, movimento reduzido, isolamento entre Núcleos e falhas reais. Atualizar aplicativo, Atlas, MVP, fichas, percursos, cobertura e comparações no mesmo conjunto lógico.
 
 MVP fecha somente com fluxo central compartilhado, saída/revogação, tratamento de dados e operação do piloto comprovados. SMTP/recebimento externo, origem HTTPS, segredos do ambiente e backup/restauração exigem evidência própria. Teste local não certifica lançamento público.

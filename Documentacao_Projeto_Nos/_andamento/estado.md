@@ -1,5 +1,38 @@
 # Estado do Projeto Nós
 
+## Auditoria rigorosa de segurança — v3.4.2 — 2026-10-30
+
+**Objetivo/aceite:** auditar fronteiras de segurança existentes, conferir banco local/remoto, executar verificações disponíveis e documentar evidências, limites e correções propostas. **DOCS_DIR:** `Documentacao_Projeto_Nos`. Branch `main`, base `e77da4b58cb6c583442ab875434a9bc4ff877468`; versão vigente **3.4.2**. Alterações anteriores de carregamento, testes, Atlas e versão preservadas.
+
+**Situação:** relatório concluído; segurança integral e lançamento **não certificados**. Enumeração pública de e-mails confirmada também no Supabase hospedado; ambiente local expõe portas administrativas em todas as interfaces, aceita senha fora da política da interface e admite token não expirado após logout na API de dados; CSP ausente no servidor isolado. Alcance externo das portas, configuração de Auth remoto e cabeçalhos hospedados não comprovados. Nenhuma mitigação de produto/infraestrutura aplicada nesta auditoria.
+
+**Validações:** 160 testes de banco e70 públicos aprovados; quatro operações da agenda serializam sob trava. Seleção autenticada de52: **36 aprovados,15 falharam,1 ignorado**; falhas investigadas em seletores antigos e verificador Atlas tela03, discriminadas no relatório. Build webpack da cópia autenticada aprovado; tipos/build padrão não executados separadamente. Banco remoto lido somente em metadados:15 tabelas RLS,13 migrações; avisos triados sem transformar funções privilegiadas intencionais em vulnerabilidades automáticas. Varredura direcionada de segredos:557 arquivos textuais, zero candidatos; não é certificação de todo histórico. npm audit inconclusivo por falha de acesso. Revisão independente estática e autorrevisão; testes manuais do usuário não executados.
+
+**Decisões/bloqueios:** preservar requisito histórico de transparência de e-mail enquanto se registra seu risco, sem mudar comportamento silenciosamente. Priorizar contenção local e mitigação da enumeração. Falta acesso ao endpoint de advisories npm e verificação HTTPS hospedada; ferramentas administrativas/rede/backups e configuração de Auth remoto precisam validação própria.
+
+**Ferramentas:** Superpowers7.0.1 revisão/depuração/verificação; skill Supabase e consulta Context7 efetivas, complementadas por docs Next instalados. Octocode tentou CLI oficial e falhou com timeout no npm; instalação/ativação não comprovadas. **Contagem adicional:**9 conclusões desde reinício de29/10; esta auditoria e pedido complementar de documentação são uma entrega. Histórico165 com lacuna e marco100 preservados, sem inferir auditoria200.
+
+**Unidades Git:** carregamento conferido no objeto `b84817e`, incluindo fontes, teste existente, Atlas, contrato e galeria. Relatório e acompanhamento da auditoria conferidos no objeto do segundo commit documental; este fechamento é incorporado ao mesmo commit antes do primeiro push. Nenhuma unidade pronta para commit permanece pendente. Versão vigente3.4.2; registro/galeria3.4.3 preservam identificação histórica. Push autorizado para origin/main; nenhuma mutação remota de banco ou deploy certificado.
+
+**Validação para publicação:** tipos e build padrão aprovados com `NOS_LOCAL_VERIFY=1`, saída isolada em `.next-verify`; nenhuma suíte reexecutada, nenhum teste ou documento novo criado para a publicação. Revisão independente final sem novos bloqueios de código/segurança.
+
+**Próximo passo executável:** tratar SEG-002 e definir mitigação de SEG-001 conforme relatório; preservar volumes e dados, testar a API direta e só publicar quando autorizado. Corrigir testes interrompidos antes de afirmar validação integral.
+
+**Índice:** [relatório completo e prioridades](registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md) · [resultados](testes-manuais/resultados.md) · [contrato de conta atualizado](funcionalidades/conta-entrada.md) · [histórico](historico.md). Seções seguintes são marcos históricos e preservam sua situação na data.
+
+## Informe de carregamento sem atalhos — v3.4.3 — 2026-10-30
+
+**Objetivo/aceite:** remover Seus Núcleos e Minha conta dos informes Carregando seu Núcleo… e Carregando seus Núcleos…; manter texto/indicador e ações de erro. **DOCS_DIR:** Documentacao_Projeto_Nos. Branch main, base e77da4b; versão vigente3.4.3. Git limpo no início; entrega anterior publicada em origin/main, conferida na interação de publicação.
+
+**Situação:** RouteState com ações opcionais e loadings12/13 sem ações. Tipos/build e16 testes focados desktop/mobile aprovados; Atlas12/13 conferido sem botões/links no estado de espera. Capturas do componente isolado, sem certificação de jornada autenticada/rede. Autorrevisão do diff; sem revisão independente. Manual não executado pelo usuário.
+
+**Unidade pronta para commit:** remoção dos atalhos no carregamento, teste, versão/Atlas e documentação. Sem commit/push/deploy nesta entrega; autorização anterior de publicação abrangeu o conjunto até3.4.2. Sugestão: fix(nucleos): remover atalhos do informe de carregamento. **Contagem adicional:**8 conclusões desde reinício de29/10; histórico165 com lacuna e marco100 preservados.
+
+**Ferramentas:** Superpowers entendimento/verificação; Context7 React19.3.0 consultado; compilador Next instalado reutilizado; Octocode não exposto e pesquisa avançada desnecessária. **Próximo passo:** executar M02-LAY-003 na própria conta; commit/push quando solicitado.
+
+**Índice:** [registro](registros/registro-v3.4.3-2026-10-30-imp-carregamento-fun-informe-sem-atalhos.md) · [manual](testes-manuais/nucleos-layout.md) · [galeria](../wireframes/comparacoes/v3.4.3-2026-10-30-carregamento-tela_12-tela_13/index.html). Marcos abaixo preservam o histórico.
+
+
 ## Consolidação para GitHub — v3.4.2 — 2026-10-30
 
 **Objetivo/aceite:** commit e push de todo o conjunto desenvolvido desde07e4bbb em origin/main, com descrição abrangente. **DOCS_DIR:** Documentacao_Projeto_Nos. Repositório efraimrsilva/nos, branch main. Versão vigente3.4.2.

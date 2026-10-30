@@ -1,3 +1,7 @@
+**Auditoria de segurança — v3.4.2 — 30/10/2026:** riscos, evidências, prioridades e limitações registrados; segurança integral não certificada.160 testes de banco e70 públicos aprovados; seleção autenticada com36 aprovados,15 falhas de seletores/verificadores e1 ignorado. Nenhuma mitigação funcional ou publicação nesta auditoria. [Relatório completo](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md).
+
+**Carregamento do Núcleo — identificação histórica v3.4.3 — 30/10/2026:** os dois atalhos do informe de espera removidos ao abrir a lista e ao selecionar um Núcleo. Texto/indicador e controles de erro preservados. Tipos/build e16 testes focados aprovados; registro e galeria preservam a identificação histórica. Versão vigente mantida em3.4.2 por orientação do usuário.
+
 **Consolidação para GitHub — v3.4.2 — 30/10/2026:** edição do nome, atalhos de convite, remoção dos painéis de Núcleos/barra lateral e Meia-noite com preto à frente. Tipos/build,192 testes gerais e12 autenticados aprovados; Atlas sincronizado. Commit/push autorizados em main; confirmação remota no encerramento. Deploy não certificado. [Descrição completa](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.4.2-2026-10-30-imp-publicacao-github-fun-consolidacao-entregas.md).
 
 **Barra lateral — v3.4.2 — 30/10/2026:** cartão com nome do Núcleo e Seu espaço compartilhado removido; cabeçalho e navegação preservados. Tipos/build,16 testes de aparência e quatro autenticados aprovados. Sem publicação.

@@ -50,3 +50,10 @@ M05-PER-014: Não executado pelo usuário. Quatro testes autenticados desktop/mo
 
 ## 2026-10-30 — Consolidação GitHub v3.4.2
 Rodada automatizada final:192 gerais e12 autenticados aprovados; tipos/build e Atlas aprovados. Esses resultados não aprovam nenhum caso manual do usuário. Evidência e comandos no registro de publicação.
+
+## 2026-10-30 — v3.4.3 — Informe de espera
+M02-LAY-003 Não executado pelo usuário.16 verificações automatizadas focadas aprovadas; componentes reais renderizado isoladamente, sem afirmar jornada autenticada completa.
+
+## 2026-10-30 — v3.4.2 — Auditoria de segurança
+
+Resultado automatizado da auditoria:160 testes locais do banco e70 públicos aprovados; quatro verificações de bloqueio concorrente aprovadas. Seleção autenticada52:36 aprovados,15 falharam e1 ignorado. Falhas de seletores antigos e verificador de fidelidade foram investigadas, preservadas e detalhadas no [relatório](../registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md); não converter casos interrompidos em aprovação de isolamento ou retomada. Experimentos locais comprovaram divergência de senha e janela de token após logout; não constituem mitigação nem aprovação manual. Dependências e validação hospedada permanecem incompletas.

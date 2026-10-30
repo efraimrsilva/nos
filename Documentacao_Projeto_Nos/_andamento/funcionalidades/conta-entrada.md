@@ -1,4 +1,10 @@
-# Conta e entrada — v0.14.1
+# Conta e entrada — v3.4.2
+
+## Conferência de segurança — 2026-10-30
+
+O comportamento atual de confirmação/recuperação informa se o e-mail existe e está confirmado, inclusive sem sessão. A RPC pública `get_email_confirmation_status` permite essa consulta direta. As declarações históricas de mensagens neutras abaixo descrevem versões anteriores e foram substituídas por esse comportamento. A auditoria classifica a enumeração como risco de privacidade; o intervalo por cookie não controla a chamada direta. Nenhuma mitigação funcional foi aplicada nesta entrega documental. [Evidência, limites e correção proposta — SEG-001](../registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md).
+
+No Supabase local, cadastro direto aceitou senha de oito letras, embora o formulário exija letra, número e símbolo. A política do provedor precisa ser alinhada; configuração remota não foi aferida. Logout revoga renovação, mas token não expirado ainda acessou uma RPC local; não prometer encerramento instantâneo. [SEG-003/004 no relatório](../registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md). Recebimento externo, backups/restauração e configuração hospedada continuam exigindo evidência própria.
 
 ## v3.1.3 — Identidade dos e-mails — 2026-10-27
 
@@ -33,7 +39,7 @@ Atualizado em 2026-10-07. Escopo: telas 01–05 e 72 do Atlas vivo, funcionais e
 - `/` abre `/conta` sem sessão e `/nucleos` autenticada. Login sem destino específico abre Seus Núcleos. Cadastro e login compartilham as abas existentes; sessão validada oferece continuar e sair.
 - Cadastro valida nome, e-mail e senha no servidor e segue para `/conta/confirmar-email`. Criar conta não cria Núcleo.
 - Confirmação aceita código PKCE (Proof Key for Code Exchange) no navegador de origem ou template direto `token_hash&type=email`. Rejeita parâmetros repetidos/misturados. `/auth/confirm` preserva retorno interno seguro. Link inválido oferece reenvio.
-- `/conta/confirmar-email` reenvia confirmação; `/conta/recuperar` solicita recuperação. Ambas usam mensagem neutra, inclusive quando SMTP (Simple Mail Transfer Protocol) falha somente para conta existente. Diagnóstico operacional não inclui e-mail, URL ou token.
+- `/conta/confirmar-email` e `/conta/recuperar` encaminham aos modais de confirmação/recuperação da Conta. A ação consulta existência e confirmação antes do envio e apresenta estados distintos, inclusive em falha SMTP (protocolo de envio de e-mail). A divulgação atual está registrada como risco SEG-001; o helper antigo de mensagem neutra é exercitado em testes, mas não é chamado pela ação ativa. Diagnóstico operacional não deve incluir e-mail, URL ou token.
 - `/auth/recovery` verifica token direto com `type=recovery` ou código PKCE com método `recovery` no JWT (JSON Web Token) validado pelo Auth. Retira credenciais da URL antes da página.
 - `/conta/nova-senha` exige sessão validada e prova HMAC (Hash-based Message Authentication Code) assinada, vinculada a pessoa/sessão e com prazo de 15 minutos após validar o link. Login comum, cookie adulterado e prova vencida não autorizam o formulário nem a ação de escrita.
 - Senha e confirmação são validadas no servidor. Sucesso revoga globalmente refresh tokens, elimina a prova e orienta novo login. Falha de revogação exige entrar novamente, voltar a Conta e sair para tentar outra vez. JWT já emitido continua sujeito à expiração; não prometemos encerramento instantâneo de todo acesso.
