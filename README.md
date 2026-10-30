@@ -1,3 +1,5 @@
+# Projeto Nós
+
 **Auditoria de segurança — v3.4.2 — 30/10/2026:** riscos, evidências, prioridades e limitações registrados; segurança integral não certificada.160 testes de banco e70 públicos aprovados; seleção autenticada com36 aprovados,15 falhas de seletores/verificadores e1 ignorado. Nenhuma mitigação funcional ou publicação nesta auditoria. [Relatório completo](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md).
 
 **Carregamento do Núcleo — identificação histórica v3.4.3 — 30/10/2026:** os dois atalhos do informe de espera removidos ao abrir a lista e ao selecionar um Núcleo. Texto/indicador e controles de erro preservados. Tipos/build e16 testes focados aprovados; registro e galeria preservam a identificação histórica. Versão vigente mantida em3.4.2 por orientação do usuário.
@@ -13,8 +15,6 @@
 **Atalhos de convite — v3.3.3 — 30/10/2026:** Entrar com convite à esquerda da criação em `/nucleos` e em Conta e Núcleos no perfil e na página completa. Tipos/build e quatro testes autenticados aprovados. Sem publicação.
 
 **Ajuste local — v3.3.2 — 30/10/2026:** painel lateral de `/nucleos` removido; cartões usam a largura disponível. Sem publicação.
-
-# Projeto Nós
 
 **Conta e perfil — v3.3.1 — 29/10/2026:** painel do perfil desktop com seis seções, último Núcleo preservado e página completa com exclusão própria. Busca do topo e Conta e segurança removidas; Atlas alinhado. [Registro, validações e limites](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md). Deploy ainda não certificado.
 
