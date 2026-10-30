@@ -743,3 +743,6 @@ Três unidades: execução local1e6fb0d, destaque1c8be96 e menu móvel complemen
 ## 2026-10-29 — Configuração global de ferramentas — v3.3.1
 
 Superpowers 7.0.1 existente preservado; Context7 1.0.2 instalado pelo marketplace oficial. Ambos habilitados conforme `codex plugin list --json`; orientação global persistida no AGENTS do usuário. Consulta autenticada Context7 depende de novo chat/primeiro uso. Evento de ambiente/documentação, sem alteração de produto ou versão. [Registro](registros/registro-v3.3.1-2026-10-29-imp-ferramentas-globais-fun-superpowers-context7.md).
+
+## 2026-10-30 — v3.4.0 — Edição do nome do perfil
+Lápis em Dados da conta para editar, salvar ou cancelar o nome da própria conta, com validação de sessão e persistência. Interface compartilhada pelo perfil e página de Conta; Atlas e testes correspondentes. Preparação da publicação autorizada.

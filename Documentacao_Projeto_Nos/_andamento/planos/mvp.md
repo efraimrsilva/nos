@@ -1,5 +1,7 @@
 # MVP e caminho de implementação — Projeto Nós
 
+**MVP05 — v3.4.0 — 30/10/2026:** edição do próprio nome por lápis em Dados da conta (Tela66/painel desktop), validada localmente com cancelamento, persistência e erros. [Contrato](../funcionalidades/nome-perfil.md) e manual M05-PER-010 a013. Não conclui perfil afetivo da expansão, operação do piloto ou publicação.
+
 **Atualização de interface MVP05 — v3.3.1 — 29/10/2026:** perfil desktop abre painel com seis seções; Conta66 mantém oito e exclusão em bloco próprio (modal69). Memória de Núcleo por conta no navegador e busca do topo removida. Etapas, critérios do piloto e funções planejadas permanecem. [Registro](../registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md).
 
 **Migração visual validada localmente — 18/10/2026 — v2.0.0:** [Layout atual](../../Telas/Layout%20novo/index.html) é a referência de todas as áreas. A navegação lateral/inferior inclui esboços protegidos de Árvore/Memórias, Conexões/Perfis e Manifesto/Cuidado. As seis rotas não persistem dados e não concluem etapas07–11. Mantêm-se73 fichas,39 recortes existentes e34 planejadas. Kanban/Painéis/lista móvel de Acordos organiza o modelo atual; a evolução individual aprovada continua pendente de critérios, dados e consentimento. Versão2.0.0 e evidência visual estão no [registro da migração](../registros/registro-v2.0.0-2026-10-18-imp-layout-atual-fun-migracao-integral.md).

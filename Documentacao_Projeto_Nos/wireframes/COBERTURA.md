@@ -1,5 +1,7 @@
 # Cobertura e pendências do wireframe
 
+**v3.4.0 — 30/10/2026:** Dados da conta na Tela66 e perfil desktop recebe lápis, formulário de nome e salvar/cancelar no modal existente. Aplicativo persiste somente o nome da própria conta; Atlas demonstra sem gravação. Mesmos73 IDs; perfil afetivo49–54 continua planejado. [Contrato e limites](../_andamento/funcionalidades/nome-perfil.md).
+
 **Atualização v3.3.1 — 29/10/2026:** Conta66 com oito seções; perfil desktop com seis, sem Notificações/exclusão. Tela69 representa o modal Apagar minha conta. Último Núcleo preservado, busca do topo removida, temas/animações alinhados. IDs e etapas existentes preservados, sem promover esboços. [Registro e galeria](../_andamento/registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md).
 
 **v3.3.0 — 24/10/2026:** totais pessoais globais integrados à navegação compartilhada, desktop e mobile/Mais; fichas12/13/14/18/73 atualizadas. Nenhuma tela/rota nova ou área planejada promovida. Regras, estados e limites no [contrato](../_andamento/funcionalidades/totais-navegacao.md); [12 testes manuais](../_andamento/testes-manuais/totais-navegacao.md), todos Não executados.162 gerais,153 SQL, fluxos autenticados e Atlas validados localmente. Publicado e conferido online desktop/mobile; deploy6adc3759fc570b50b060aaf0, sem ampliar escopo planejado.

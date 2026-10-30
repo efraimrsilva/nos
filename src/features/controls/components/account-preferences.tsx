@@ -10,19 +10,17 @@ import { AccountRow } from "./account-row";
 import { HelpContent, PrivacyContent } from "./settings-content";
 import { DeleteAccountOption } from "./delete-account-option";
 import { SignOutButton } from "./sign-out-button";
+import { AccountDataDialog } from "./account-data-dialog";
 
-export function AccountPreferences({ name, email, emailConfirmed, next, initialAccess, privacyHidden, embedded = false }: {
-  name: string; email?: string; emailConfirmed: boolean; next: string;
+export function AccountPreferences({ name, userId, email, emailConfirmed, next, initialAccess, privacyHidden, embedded = false }: {
+  name: string; userId: string; email?: string; emailConfirmed: boolean; next: string;
   initialAccess?: AccountAccessKind; privacyHidden?: boolean; embedded?: boolean;
 }) {
   const sectionId = (id: string) => embedded ? `profile-popover-${id}` : id;
   return <div className="settings-grid account-preferences-sections">
     <section id={sectionId("perfil")} className="ui-panel account-panel"><h2>Perfil</h2>
       <div className="account-profile"><span className="ui-avatar" aria-hidden="true">{profileLetters(name)}</span><h2>{name || "Sua conta"}</h2><p>Você está conectado como {email ?? "membro do Nós"}.</p></div>
-      <ActionDialog variant="text" className="account-dialog-trigger" title="Dados da conta" description="Nome e identificação do seu acesso." trigger={<AccountRow icon={UsersRound} title="Dados da conta" description="Nome e identificação" />}>
-        <dl className="wizard-summary"><div><dt>Nome</dt><dd>{name || "Nome não informado"}</dd></div><div><dt>E-mail</dt><dd>{email ?? "E-mail não disponível"}</dd></div><div><dt>Confirmação de e-mail</dt><dd>{emailConfirmed ? "E-mail confirmado" : "Confirmação pendente"}</dd></div></dl>
-        <p className="settings-copy">Para solicitar correção dos seus dados, consulte a responsável pelo aplicativo na área de ajuda.</p><Link href="/conta#ajuda-e-suporte" className="ui-button-secondary mt-5">Ajuda sobre meus dados</Link>
-      </ActionDialog>
+      <AccountDataDialog key={userId} name={name} userId={userId} email={email} emailConfirmed={emailConfirmed} />
     </section>
     <section id={sectionId("entrar-e-recuperar")} className="ui-panel account-panel"><h2>Entrar e recuperar</h2>
       <AccountAccessDialog kind="recovery" next={next} accountEmail={email} defaultOpen={initialAccess === "recovery"} className="account-dialog-trigger" trigger={<AccountRow icon={KeyRound} title="Recuperar acesso" description="Link de recuperação e nova senha" />} />

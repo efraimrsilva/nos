@@ -47,6 +47,6 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
     {!user && params.resultado === "conta-excluida" && <p role="status" className="ui-feedback mb-5">Sua conta foi apagada. Seu acesso e seus vínculos foram removidos. O histórico compartilhado permanece com autoria “Conta excluída”.</p>}
     {error === "revogacao" && <p role="alert" className="ui-feedback mb-5">A senha foi alterada, mas não foi possível encerrar todas as sessões. Entre com a nova senha, volte à Conta e use Sair da conta para tentar encerrar as outras sessões.</p>}
     {error === "saida" && <p role="alert" className="ui-feedback mb-5">Não foi possível sair agora. Tente novamente.</p>}
-    {user ? <AccountPreferences name={name} email={user.email} emailConfirmed={Boolean(user.email_confirmed_at)} next={next} initialAccess={initialAccess} privacyHidden={privacyHidden} /> : <AuthForm next={next} initialMode={params.resultado === "senha" || params.modo === "login" ? "login" : "signup"} initialAccess={initialAccess} />}
+    {user ? <AccountPreferences userId={user.id} name={name} email={user.email} emailConfirmed={Boolean(user.email_confirmed_at)} next={next} initialAccess={initialAccess} privacyHidden={privacyHidden} /> : <AuthForm next={next} initialMode={params.resultado === "senha" || params.modo === "login" ? "login" : "signup"} initialAccess={initialAccess} />}
   </div></OnboardingShell>;
 }

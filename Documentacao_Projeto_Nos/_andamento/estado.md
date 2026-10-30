@@ -1,5 +1,12 @@
 # Estado do Projeto Nós
 
+## Edição do nome do perfil — v3.4.0 — 2026-10-30
+
+DOCS_DIR: Documentacao_Projeto_Nos. Branch main; base 07e4bbb. Lápis em Dados da conta para editar, salvar ou cancelar o nome da própria conta, com validação de sessão e persistência. Interface compartilhada pelo perfil e página de Conta; Atlas e testes correspondentes.
+
+Unidade preparada para commit/publicação autorizada em 30/10/2026; confirmar inclusão no objeto Git antes de limpar a pendência. Validações da consolidação final serão registradas no fechamento v3.4.2. Testes manuais não executados; deploy não certificado. Próximo passo: concluir a publicação conjunta autorizada. Demais alterações locais preservadas.
+
+
 ## Publicação de conta e perfil — v3.3.1 — 2026-10-29
 
 **DOCS_DIR:** `Documentacao_Projeto_Nos`. **Branch:** main; base ead6494. **Objetivo:** publicar as melhorias solicitadas de conta/perfil e as diretrizes pendentes, com descrição completa. **Escopo:** último Núcleo preservado por conta neste navegador; painel desktop com seis seções; página completa com oito e exclusão própria; Conta e segurança e busca do topo removidas; animações, Aparência e Atlas sincronizados. [Registro](registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md) · [Galeria](../wireframes/comparacoes/v3.3.1-2026-10-29-conta-perfil-tela_13-tela_66-tela_69/index.html) · [Manual](testes-manuais/conta-perfil.md).

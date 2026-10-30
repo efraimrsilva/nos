@@ -1,5 +1,9 @@
 # Brag document — Projeto Nós
 
+## 2026-10-30 — v3.4.0 — autonomia para corrigir o nome
+
+**Problema:** Dados da conta só consultava o nome e encaminhava correções ao suporte. **Contribuição:** edição pelo lápis no próprio modal, compartilhada pela página e painel do perfil, com validação autenticada e Atlas alinhado. **Resultado verificado:** gravação e recarga em desktop/celular, cancelamento sem gravação, preservação de metadados e recuperação após falha simulada de transporte;4 testes da ação e2 cenários autenticados aprovados. **Benefício esperado:** corrigir o próprio nome sem depender do suporte; não houve medição de atendimento/uso. [Evidências](../_andamento/registros/registro-v3.4.0-2026-10-30-imp-conta-fun-nome-perfil.md).
+
 ## 2026-10-29 — v3.3.1 — ajustes de conta sem perder o Núcleo
 
 **Problema:** ajustes de conta descartavam o contexto visual do Núcleo e exigiam nova seleção. **Contribuição:** seleção por pessoa neste navegador, painel de perfil com ações diretas, retirada de controles redundantes e Atlas sincronizado. **Resultado verificado:** cenário autenticado em desktop/celular, persistência e troca de Núcleo, tema salvo na conta temporária e 160 testes do banco local aprovados. **Benefício esperado:** menos navegação repetitiva; sem medição de tempo ou uso. [Evidências e limites](../_andamento/registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md).
