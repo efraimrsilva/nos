@@ -1,4 +1,4 @@
-# Aparência da conta — v3.2.1
+# Aparência da conta — v3.4.1
 
 Atualização v3.3.1 — 29/10/2026: Aparência abre no painel do perfil desktop ou na seção de /conta, acessível também pelo menu mobile. O seletor mantém nove temas e feedback após operação; descrições redundantes e espaço vazio removidos. Indicações anteriores de atalho independente na navegação são históricas. [Registro](../registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md).
 
@@ -41,3 +41,6 @@ O layout raiz lê a preferência antes da primeira renderização e identifica o
 ## Complemento de validação — 28/10/2026
 
 Supabase local preparado e persistência real revalidada. Dez cenários autenticados de temas/navegação aprovados em desktop/celular, incluindo nove temas, reload, outra sessão, falha/reenvio e cliques rápidos. Recuperação com sessão abre modal na conta interna e conserva o tema; apenas as telas públicas permanecem claras. [Registro do ambiente e resultados](../registros/registro-v3.3.0-2026-10-28-supabase-local.md) · [galeria real](../../wireframes/comparacoes/2026-10-28-supabase-local/index.html). Sem nova publicação.
+
+## v3.4.1 — Meia-noite — 30/10/2026
+Fundo cinza escuro #101312; cartões/painéis e coluna lateral pretos #000000. Prévia do seletor e Atlas acompanham as camadas. Identificador black, textos, acentos e persistência preservados.

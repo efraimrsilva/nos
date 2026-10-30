@@ -12,7 +12,7 @@
 }
 :root[data-theme="black"] {
   --navigation-accent:#d6b4ff;
-  color-scheme:dark; --color-canvas:#000000; --surface:#101312; --color-forest:#f1f3f2; --color-muted:#b2bab6; --color-leaf:#a8dfbc; --color-line:#414a45; --accent-soft:#1d3024; --hero:#16251c; --nav-surface:#080a09;
+  color-scheme:dark; --color-canvas:#101312; --surface:#000000; --color-forest:#f1f3f2; --color-muted:#b2bab6; --color-leaf:#a8dfbc; --color-line:#414a45; --accent-soft:#1d3024; --hero:#16251c; --nav-surface:#000000;
 }
 :root[data-theme="rose"] {
   --navigation-accent:#9d365d;

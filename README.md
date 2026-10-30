@@ -1,3 +1,5 @@
+**Meia-noite com preto à frente — v3.4.1 — 30/10/2026:** Fundo cinza escuro #101312 e superfícies/coluna lateral pretas #000000. Prévia do seletor e Atlas sincronizados; identificador black e preferências existentes preservados. Publicação Git pendente de conferência; deploy não certificado.
+
 **Edição do nome do perfil — v3.4.0 — 30/10/2026:** Lápis em Dados da conta para editar, salvar ou cancelar o nome da própria conta, com validação de sessão e persistência. Interface compartilhada pelo perfil e página de Conta; Atlas e testes correspondentes. Publicação Git pendente de conferência; deploy não certificado.
 
 # Projeto Nós
@@ -52,7 +54,7 @@ Integração local da branch `origin/codex/temas-conta` à base atual de `main`,
 
 **Marco histórico MVP05 — v0.16.0:** Configurações, Privacidade, Conta e segurança, Ajuda e orientação de saída disponíveis com acesso protegido. Recuperação/logout reusados; logout conserva vínculos. Saída efetiva, transferência, retenção/direitos, suporte/termos e operação ainda pendentes: etapa parcial, piloto não liberado. [Contrato/manual](Documentacao_Projeto_Nos/_andamento/funcionalidades/autonomia-protecao.md), [registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.16.0-2026-10-13-imp-controles-autonomia-fun-mvp-05.md) e [galeria](Documentacao_Projeto_Nos/wireframes/comparacoes/v0.16.0-2026-10-13-mvp-05-tela_66-tela_67-tela_69-tela_70-tela_71/index.html). Entrega incluída no commit atômico de publicação Git autorizado em14/10/2026; confirmação remota reportada no encerramento. Sem deploy certificado.
 
-**Versão vigente do projeto:**3.4.0
+**Versão vigente do projeto:**3.4.1
 
 **MVP 04 — v0.15.2:** agenda interna conferida localmente; confirmação de remoção, cancelamento sem gravação, feedback de presença/remoção e reservas futuras. Sequência14 →16 →15 →17 opcional →14; são seções da mesma rota. Duas contas desktop/mobile validam criação, respostas, edição/remarcação, paginação, exclusão e isolamento. [Contrato/manual](Documentacao_Projeto_Nos/_andamento/funcionalidades/agenda-interna.md), [registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v0.15.2-2026-10-13-imp-agenda-interna-fun-mvp-04.md) e [galeria](Documentacao_Projeto_Nos/wireframes/comparacoes/v0.15.2-2026-10-13-mvp-04-tela_14-tela_16-tela_15-tela_17/index.html). Entrega incluída no commit atômico de publicação Git autorizado em13/10/2026; confirmação remota reportada no encerramento. Prova online pendente.
 

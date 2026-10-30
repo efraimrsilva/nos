@@ -247,7 +247,7 @@ function currentArea(screen){if([58,59,71,73].includes(screen.id))return 73;if(s
 const liveAppearanceThemes=[
  ['light','Claro — Jardim','#f5f7f1','#fffefa','#345d44','#293e35'],
  ['dark','Escuro — Anoitecer','#111916','#1a2420','#a3d7b5','#e6eee8','#83cbd0'],
- ['black','Preto — Meia-noite','#000000','#101312','#a8dfbc','#f1f3f2','#d6b4ff'],
+ ['black','Preto — Meia-noite','#101312','#000000','#a8dfbc','#f1f3f2','#d6b4ff'],
  ['rose','Rosé — Aurora','#fff5f7','#fffafd','#9d365d','#492932'],
  ['lavender','Lilás — Lavanda','#f6f3ff','#fffcff','#705099','#342947'],
  ['ocean','Azul — Oceano','#eef6fc','#fbfdff','#23658e','#213d52'],
@@ -376,7 +376,7 @@ document.addEventListener('click',event=>{
  if(target.hasAttribute('data-live-reflection-pause')){const section=target.closest('.live-account-reflections');const paused=section.dataset.paused!=='true';section.dataset.paused=String(paused);target.setAttribute('aria-label',paused?'Retomar frases':'Pausar frases');target.innerHTML=`${icon(paused?'Play':'Pause',12)} ${paused?'Retomar':'Pausar'}`;return;}
  if(target.hasAttribute('data-live-close')){document.querySelector('#atlas-live-dialog')?.close();return;}
  if(target.hasAttribute('data-live-appearance')){showLiveDialog(liveAppearanceContent(),'Aparência');return;}
- if(target.dataset.liveTheme){const theme=liveAppearanceThemes.find(item=>item[0]===target.dataset.liveTheme);if(!theme)return;const dialog=target.closest('dialog');dialog.querySelectorAll('[data-live-theme]').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));document.querySelectorAll('.current-atlas-phone').forEach(preview=>preview.style.setProperty('--atlas-navigation-accent',theme[6]||theme[4]));dialog.querySelector('[data-theme-feedback]').hidden=false;dialog.querySelector('[data-theme-feedback]').textContent=`${theme[1]} · prévia local, nenhuma preferência salva`;return;}
+ if(target.dataset.liveTheme){const theme=liveAppearanceThemes.find(item=>item[0]===target.dataset.liveTheme);if(!theme)return;const dialog=target.closest('dialog');dialog.querySelectorAll('[data-live-theme]').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));document.querySelectorAll('.current-atlas-phone').forEach(preview=>{preview.style.setProperty('--atlas-navigation-accent',theme[6]||theme[4]);preview.dataset.previewTheme=theme[0];});dialog.dataset.previewTheme=theme[0];dialog.querySelector('[data-theme-feedback]').hidden=false;dialog.querySelector('[data-theme-feedback]').textContent=`${theme[1]} · prévia local, nenhuma preferência salva`;return;}
  if(target.dataset.go)document.querySelector('#atlas-live-dialog')?.close();
  if(target.dataset.liveDialog){const screen=byId(target.dataset.liveDialog);showLiveDialog(liveContextContent(screen),screen.id===15?'Sua participação':screen.title,screen.status==='Planejada');return;}
  if(target.hasAttribute('data-live-create-nucleus')){showLiveDialog(`<p class="live-copy">Cada espaço começa com o vínculo e o propósito de vocês.</p>${liveRow('Criar um núcleo','Escolher vínculo, nome e propósito',7,'Sprout')}${liveRow('Entrar com um convite','Abrir um espaço que já existe',10,'UsersRound')}`,'Começar com intenção');return;}

@@ -1,5 +1,12 @@
 # Estado do Projeto Nós
 
+## Meia-noite com preto à frente — v3.4.1 — 2026-10-30
+
+DOCS_DIR: Documentacao_Projeto_Nos. Branch main; base 07e4bbb. Fundo cinza escuro #101312 e superfícies/coluna lateral pretas #000000. Prévia do seletor e Atlas sincronizados; identificador black e preferências existentes preservados.
+
+Unidade preparada para commit/publicação autorizada em 30/10/2026; confirmar inclusão no objeto Git antes de limpar a pendência. Validações da consolidação final serão registradas no fechamento v3.4.2. Testes manuais não executados; deploy não certificado. Próximo passo: concluir a publicação conjunta autorizada. Demais alterações locais preservadas.
+
+
 ## Edição do nome do perfil — v3.4.0 — 2026-10-30
 
 DOCS_DIR: Documentacao_Projeto_Nos. Branch main; base 07e4bbb. Lápis em Dados da conta para editar, salvar ou cancelar o nome da própria conta, com validação de sessão e persistência. Interface compartilhada pelo perfil e página de Conta; Atlas e testes correspondentes.

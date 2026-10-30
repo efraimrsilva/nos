@@ -121,3 +121,9 @@ button:is([aria-label^="Fechar" i],[data-atlas-close]):is(:hover,:focus-visible)
 .live-name-actions { display:flex; flex-wrap:wrap; gap:10px; }
 @media(prefers-reduced-motion:no-preference) { .live-name-form:not([hidden]) { animation:live-name-arrive .15s ease-out; } }
 @keyframes live-name-arrive { from { opacity:0; transform:translateY(-3px); } to { opacity:1; transform:translateY(0); } }
+
+/* A prévia Meia-noite espelha as camadas do tema no aplicativo, sem salvar preferência. */
+[data-preview-theme="black"]{--paper:#101312;--card:#000000;--ink:#f1f3f2;--muted:#b2bab6;--leaf:#a8dfbc;--line:#414a45;--soft:#1d3024;color:var(--ink);background:var(--paper)}
+.current-atlas-phone[data-preview-theme="black"] .current-atlas-sidebar{background:var(--card)}
+.current-atlas-phone[data-preview-theme="black"] .current-atlas-main{background:var(--paper)}
+#atlas-live-dialog[data-preview-theme="black"]{background:var(--card);color:var(--ink)}

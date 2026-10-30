@@ -25,3 +25,7 @@ Pré-condição: usar a versão atual com a integração dos temas em ambiente c
 | [] M05-TEM-016 | Em cada tema, conferir ícones de navegação, Agenda, Pessoas/convites e exclusão | Cores originais preservadas, inclusive no item ativo; localização continua destacada por texto/fundo/faixa. |
 
 Enviar resultado por ID, ambiente, observado e evidência opcional conforme [processo](README.md). Não apagar falhas anteriores: cada reteste tem registro próprio.
+
+## v3.4.1 — Meia-noite
+
+[] M05-TEM-017 | Não executado | MVP05, conta autenticada → Aparência → Preto — Meia-noite | Conferir fundo cinza escuro, cartões/painéis pretos e coluna lateral preta no desktop; conferir conta/modal no celular; recarregar. Esperado: escolha preservada, mesma inversão de camadas e texto legível.

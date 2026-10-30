@@ -48,7 +48,7 @@ test("Aparência agrupa nove temas, aplica imediatamente e recupera a escolha da
     await dialog.getByRole("radio", { name, exact: true }).check();
     await expect(page.locator("html")).toHaveAttribute("data-theme", id);
     await expect(dialog.getByRole("status")).toHaveText("Tema salvo na sua conta.");
-    if (id === "black") await expect(page.locator("body")).toHaveCSS("background-color", "rgb(0, 0, 0)");
+    if (id === "black") await expect(page.locator("body")).toHaveCSS("background-color", "rgb(16, 19, 18)");
     if (["solar", "neon"].includes(id)) {
       await page.reload();
       await expect(page.locator("html")).toHaveAttribute("data-theme", id);
