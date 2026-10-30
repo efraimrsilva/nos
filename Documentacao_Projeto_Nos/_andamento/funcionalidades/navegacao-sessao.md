@@ -1,4 +1,6 @@
-# Navegação e sessão — v0.13.0
+# Navegação e sessão — v3.4.2
+
+Atualização v3.3.3 — 30/10/2026: Entrar com convite disponível à esquerda da criação no cabeçalho de /nucleos e em Conta e Núcleos do painel de perfil desktop e da página /conta. Todos navegam para /comecar/convite, sem associação automática; conferir convite e consentir continuam necessários.
 
 Atualização v3.3.1 — 29/10/2026: conta preserva o último Núcleo por pessoa neste navegador, por cookie de contexto revalidado no servidor; vínculo removido não restaura nome nem atalhos. Perfil desktop abre painel nativo com seis seções e ações em modais; no mobile abre /conta. Busca do topo removida. Destinos continuam protegidos no servidor; a lembrança local não concede acesso. [Registro](../registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md).
 
@@ -34,3 +36,6 @@ No ambiente desta entrega, Windows reservou as portas padrão54321–54324; as p
 
 
 Envio de formulário com sessão expirada é bloqueado antes da ação. POST convencional recebe 303; Server Actions por fetch recebem 303 com x-action-redirect, sem Location, para abrir login por navegação e preservar next. O teste confere também que nenhum Núcleo foi criado.
+
+## v3.4.2 — barra lateral — 30/10/2026
+Cartão de contexto com nome/Seu espaço compartilhado removido da barra lateral global. Cabeçalho mantém nome/contexto e Seus Núcleos continua abrindo /nucleos. Cookie por conta e revalidação de vínculo preservados.

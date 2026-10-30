@@ -32,3 +32,21 @@ Preparação do Supabase local em 28/10/2026: adicionados M01-100 e M01-101. As 
 ## 2026-10-29 — v3.3.1 — conta e perfil
 
 M05-PER-001–008 criados, status Não executado pelo usuário. Testes automatizados locais e capturas não constituem aprovação manual. Consultar [registro](../registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md) para resultados e retestes automatizados.
+
+## 2026-10-30 — v3.3.2 — Núcleos
+M02-LAY-001: Não executado pelo usuário. Dois cenários automatizados desktop/mobile aprovados separadamente; não equivalem à execução manual.
+
+## 2026-10-30 — v3.3.3 — Convites
+M02-LAY-002 e M05-PER-009: Não executados pelo usuário. Quatro testes automatizados aprovados separadamente em desktop/mobile; tipos/build aprovados e capturas inspecionadas.
+# 2026-10-30 — v3.4.0 — nome do perfil
+
+M05-PER-010 a013: **Não executados pelo usuário**. Evidência separada:2 cenários automatizados autenticados em Supabase local (desktop/celular),4 testes da ação e Atlas aprovados. Cancelamento, validação, gravação/reload e erro de transporte provocado; conta original/sessão divergente cobertas no teste da ação. Não converter automação em aprovação manual. [Registro](../registros/registro-v3.4.0-2026-10-30-imp-conta-fun-nome-perfil.md).
+
+## 2026-10-30 — v3.4.1 — Meia-noite
+M05-TEM-017: Não executado pelo usuário.16 testes gerais e dois autenticados finais aprovados; Atlas e capturas desktop/mobile conferidos. Rodada intermediária desktop falhou ao testar coluna lateral em cópia criada antes do ajuste; reteste final aprovado, sem apagar essa evidência.
+
+## 2026-10-30 — v3.4.2 — Barra lateral
+M05-PER-014: Não executado pelo usuário. Quatro testes autenticados desktop/mobile e16 de aparência aprovados; tipos/build e verificadores Atlas aprovados. Capturas novas na galeria3.4.2; galeria histórica3.3.1 preservada.
+
+## 2026-10-30 — Consolidação GitHub v3.4.2
+Rodada automatizada final:192 gerais e12 autenticados aprovados; tipos/build e Atlas aprovados. Esses resultados não aprovam nenhum caso manual do usuário. Evidência e comandos no registro de publicação.

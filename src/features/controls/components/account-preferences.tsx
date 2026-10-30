@@ -29,6 +29,8 @@ export function AccountPreferences({ name, userId, email, emailConfirmed, next, 
     </section>
     <section id={sectionId("conta-e-nucleos")} className="ui-panel account-panel"><h2>Conta e Núcleos</h2>
       <Link href={routes.nucleus}><AccountRow icon={UsersRound} title="Seus Núcleos" description="Escolher um vínculo ou criar e entrar em um Núcleo" /></Link>
+      {/* O mesmo componente atende à página completa e ao painel do perfil. */}
+      <Link href={routes.invitation}><AccountRow icon={UsersRound} title="Entrar com convite" description="Conferir um convite e escolher se deseja participar" /></Link>
       <ActionDialog variant="text" className="account-dialog-trigger" title="Sair de um Núcleo" description="Confira as consequências antes de decidir." trigger={<AccountRow icon={LogOut} title="Sair de um Núcleo" description="Escolher o vínculo e conferir a saída" />}><div className="settings-copy"><p>Abra o Núcleo do qual deseja sair e selecione a opção de saída. Você poderá conferir sua preferência de autoria e as consequências antes de confirmar.</p><p className="mt-3">O histórico compartilhado permanece para as pessoas que continuarem. Sair de um Núcleo não exclui sua conta.</p><Link href={routes.nucleus} className="ui-button mt-5">Escolher um Núcleo</Link></div></ActionDialog>
     </section>
     {!embedded && <section id={sectionId("notificacoes")} className="ui-panel account-panel"><h2>Notificações</h2><span className="ui-badge">Esboço de funcionalidade · ainda não desenvolvido</span>

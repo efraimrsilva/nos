@@ -1,5 +1,7 @@
 # Comparações de telas — procedimento permanente
 
+- [v3.4.0 — Nome do perfil — Telas13/66](v3.4.0-2026-10-30-nome-perfil-tela_13-tela_66/index.html): antes real, edição, erro provocado e sucesso do modal Dados da conta; aplicativo local e Atlas em1440/390px. Persistência em conta descartável; nenhum modal novo, sem publicação.
+
 **E-mails — v3.1.3 — 27/10/2026:** [13 mensagens e26 capturas](2026-10-27-emails-personalizados/index.html), com dados fictícios e links sem validade. Identidade consistente em computador/celular; 13 assuntos e13 HTMLs aplicados e conferidos no Supabase, sem certificar entrega externa. Nenhum modal criado ou alterado.
 
 **Entrega local — v3.1.2 — 27/10/2026:** [Confirmação de e-mail](2026-10-27-confirmacao-email/index.html): 14 capturas de modais do aplicativo com transporte simulado e quatro do Atlas, desktop/celular. Confirmado, pendente, ausência e falhas; comparação pública histórica preservada. Migração aplicada e código4ba6b46 publicado; duas capturas adicionais de produção comprovam o fluxo de endereço inexistente em computador/celular, sem envio externo.
@@ -67,3 +69,13 @@ Capturas devem usar exemplos sem informações privadas, tokens ou códigos reai
 - [2026-10-28 — Integração de temas e navegação](2026-10-28-integracao-temas/index.html): quatro capturas novas da prévia local do Atlas; persistência autenticada não reexecutada nesta rodada.
 
 - [2026-10-28 — Supabase local e temas autenticados](2026-10-28-supabase-local/index.html): 42 capturas reais de seletor e navegação em desktop/celular, com persistência no Auth local.
+
+- [v3.3.2 — Núcleos, tela 12](v3.3.2-2026-10-30-nucleos-tela_12/index.html): painel removido; antes do Atlas, depois Atlas/aplicativo desktop e celular; sem captura anterior do aplicativo.
+
+- [v3.3.3 — Convite no cabeçalho, tela 12](v3.3.3-2026-10-30-convites-tela_12-tela_13-tela_66/index.html): antes/depois aplicativo e Atlas desktop/celular.
+
+- [v3.4.1 — Meia-noite — tela66](v3.4.1-2026-10-30-meia-noite-tela_66/index.html): preto à frente e na coluna lateral, fundo cinza; antes/depois aplicativo e Atlas.
+
+- [v3.4.2 — Barra lateral — tela13](v3.4.2-2026-10-30-barra-lateral-tela_13/index.html): cartão do Núcleo removido do componente global, antes/depois aplicativo e Atlas desktop/celular.
+
+- [v3.4.2 — Retestes da publicação — telas12/13/66](v3.4.2-2026-10-30-publicacao-tela_12-tela_13-tela_66/index.html):18 capturas novas, separadas dos antes/depois históricos preservados.

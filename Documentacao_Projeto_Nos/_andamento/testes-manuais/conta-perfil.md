@@ -1,4 +1,4 @@
-# MVP05 — Conta e perfil — v3.3.1
+# MVP05 — Conta e perfil — v3.4.0
 
 Todos os casos abaixo estão **Não executados pelo usuário**. Automação local é evidência separada no registro da entrega. Usar conta de teste; não confirmar exclusão de conta pessoal.
 
@@ -14,3 +14,20 @@ Todos os casos abaixo estão **Não executados pelo usuário**. Automação loca
 | [] M05-PER-008 | Celular, sessão ativa | Tocar perfil; abrir e cancelar modais | Página completa da conta, sem painel desktop ou transbordamento horizontal; retorno e Núcleo preservados. |
 
 Enviar resultados por ID, ambiente, observado e evidência opcional, conforme o processo permanente.
+
+## Edição do nome — MVP05 — v3.4.0
+
+| ID | Caminho e pré-condição | Ação | Resultado esperado | Situação |
+|---|---|---|---|---|
+| M05-PER-010 | /conta → Perfil → Dados da conta, sessão de teste, desktop/celular | Lápis ao lado do nome; alterar e Salvar nome; recarregar | Foco no campo; confirma após gravação; nome/iniciais atualizados e persistentes; e-mail/tema preservados | Não executado pelo usuário |
+| M05-PER-011 | Perfil desktop → Dados da conta, sessão ativa | Lápis; alterar; Cancelar. Repetir fechando com Escape antes de enviar | Não grava; ao reabrir mantém nome anterior e retorna foco ao gatilho | Não executado pelo usuário |
+| M05-PER-012 | Dados da conta, edição aberta | Informar espaços; tentar salvar; depois nome válido. Simular indisponibilidade de rede e reenviar | Inválido não grava; falha mantém rascunho sem sucesso falso; nova tentativa disponível | Não executado pelo usuário |
+| M05-PER-013 | Duas abas com conta descartável A; abrir edição em uma | Trocar a sessão para conta B na outra aba e tentar salvar pelo formulário antigo | Operação recusada; não altera B; orienta atualizar/entrar novamente | Não executado pelo usuário |
+
+## v3.3.3 — atalho de convite
+
+[] M05-PER-009 | Não executado | MVP05/integração MVP02, sessão válida. Abrir perfil desktop → Conta e Núcleos → Entrar com convite. Repetir na página Conta, Preferências e Ajuda em desktop e celular. Esperado: abre /comecar/convite; painel de perfil fecha; nenhuma associação ocorre sem conferir e aceitar o convite.
+
+## v3.4.2 — barra lateral
+
+[] M05-PER-014 | Não executado | MVP05/integração MVP02, sessão com Núcleo ativo | Abrir Início e Conta em desktop: cartão com nome/Seu espaço compartilhado ausente, nome continua no cabeçalho; ocultar/mostrar barra e usar Seus Núcleos. Repetir acesso à lista via Mais no celular. Esperado: lista abre /nucleos e contexto não muda apenas por remover o cartão.

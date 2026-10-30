@@ -24,14 +24,14 @@ test("paletas Solar e Neon são aceitas como preferências da conta", () => {
 });
 
 test("ícones conservam suas cores originais em todos os temas, inclusive na área ativa", async ({ page }) => {
-  await page.setContent('<nav><a class="navigation-link" aria-current="page"><svg class="nav-icon tone-blue"></svg><span>Área atual</span></a></nav><div id="icon-colors"><svg class="tone-green"></svg><svg class="tone-blue"></svg><svg class="tone-purple"></svg><svg class="tone-orange"></svg><svg class="tone-amber"></svg><svg class="tone-rose"></svg></div><div class="calendar-detail-label"><svg></svg></div><div class="calendar-detail-time"><svg></svg></div><div class="calendar-participants"><svg></svg></div><div class="calendar-own-response"><svg></svg></div><div class="calendar-all-events"><button><svg></svg></button></div><div class="calendar-list-event"><svg></svg></div><div class="account-deletion-trigger"><span class="account-row"><span class="account-row-icon"><svg></svg></span><svg></svg></span></div><a class="current-brand"><span><svg></svg></span></a><span class="nucleus-letter"><svg></svg></span>');
+  await page.setContent('<nav><a class="navigation-link" aria-current="page"><svg class="nav-icon tone-blue"></svg><span>Área atual</span></a></nav><div id="icon-colors"><svg class="tone-green"></svg><svg class="tone-blue"></svg><svg class="tone-purple"></svg><svg class="tone-orange"></svg><svg class="tone-amber"></svg><svg class="tone-rose"></svg></div><div class="calendar-detail-label"><svg></svg></div><div class="calendar-detail-time"><svg></svg></div><div class="calendar-participants"><svg></svg></div><div class="calendar-own-response"><svg></svg></div><div class="calendar-all-events"><button><svg></svg></button></div><div class="calendar-list-event"><svg></svg></div><div class="account-deletion-trigger"><span class="account-row"><span class="account-row-icon"><svg></svg></span><svg></svg></span></div><a class="current-brand"><span><svg></svg></span></a>');
   for (const file of ["src/app/layout-system.css", "src/features/appearance/themes.css", "src/features/calendar/components/calendar-workspace.css", "src/features/controls/accounts-layout.css"]) {
     await page.addStyleTag({ content: readFileSync(file, "utf8") });
   }
   for (const id of ["light", "dark", "black", "rose", "lavender", "ocean", "forest", "solar", "neon"]) {
     await page.evaluate(theme => { document.documentElement.dataset.theme = theme; }, id);
     const actual = await page.locator("svg").evaluateAll(elements => elements.map(element => getComputedStyle(element).color));
-    expect(actual, id).toEqual(["rgb(64, 119, 166)", "rgb(59, 121, 77)", "rgb(64, 119, 166)", "rgb(121, 85, 165)", "rgb(174, 119, 55)", "rgb(174, 119, 55)", "rgb(187, 97, 121)", "rgb(69, 107, 86)", "rgb(66, 110, 139)", "rgb(116, 94, 140)", "rgb(52, 93, 68)", "rgb(52, 93, 68)", "rgb(52, 93, 68)", "rgb(134, 51, 58)", "rgb(134, 51, 58)", "rgb(52, 93, 68)", "rgb(52, 93, 68)"]);
+    expect(actual, id).toEqual(["rgb(64, 119, 166)", "rgb(59, 121, 77)", "rgb(64, 119, 166)", "rgb(121, 85, 165)", "rgb(174, 119, 55)", "rgb(174, 119, 55)", "rgb(187, 97, 121)", "rgb(69, 107, 86)", "rgb(66, 110, 139)", "rgb(116, 94, 140)", "rgb(52, 93, 68)", "rgb(52, 93, 68)", "rgb(52, 93, 68)", "rgb(134, 51, 58)", "rgb(134, 51, 58)", "rgb(52, 93, 68)"]);
   }
 });
 

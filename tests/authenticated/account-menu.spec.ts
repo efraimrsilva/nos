@@ -3,7 +3,7 @@ import { randomUUID } from "node:crypto";
 import { mkdirSync } from "node:fs";
 import path from "node:path";
 
-const gallery = path.resolve("Documentacao_Projeto_Nos/wireframes/comparacoes/v3.3.1-2026-10-29-conta-perfil-tela_13-tela_66-tela_69");
+const gallery = path.resolve("Documentacao_Projeto_Nos/wireframes/comparacoes/v3.4.2-2026-10-30-barra-lateral-tela_13");
 
 test("conta preserva o Núcleo e oferece ações diretas no perfil desktop", async ({ page, account }, info) => {
   test.setTimeout(90_000);
@@ -64,6 +64,6 @@ test("conta preserva o Núcleo e oferece ações diretas no perfil desktop", asy
   localSql(`delete from public.nucleus_members where nucleus_id='${second}' and user_id='${account.id}'`);
   await page.reload();
   await expect(nav.getByRole("link", { name: "Início", exact: true })).toHaveCount(0);
-  await expect(page.locator(".current-nucleus-switch")).not.toContainText("Jardim Horizonte");
+  await expect(page.locator(".desktop-breadcrumb")).not.toContainText("Jardim Horizonte");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

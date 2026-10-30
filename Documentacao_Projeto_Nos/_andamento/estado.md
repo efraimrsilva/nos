@@ -1,18 +1,78 @@
 # Estado do Projeto Nós
 
-## Meia-noite com preto à frente — v3.4.1 — 2026-10-30
+## Consolidação para GitHub — v3.4.2 — 2026-10-30
 
-DOCS_DIR: Documentacao_Projeto_Nos. Branch main; base 07e4bbb. Fundo cinza escuro #101312 e superfícies/coluna lateral pretas #000000. Prévia do seletor e Atlas sincronizados; identificador black e preferências existentes preservados.
+**Objetivo/aceite:** commit e push de todo o conjunto desenvolvido desde07e4bbb em origin/main, com descrição abrangente. **DOCS_DIR:** Documentacao_Projeto_Nos. Repositório efraimrsilva/nos, branch main. Versão vigente3.4.2.
 
-Unidade preparada para commit/publicação autorizada em 30/10/2026; confirmar inclusão no objeto Git antes de limpar a pendência. Validações da consolidação final serão registradas no fechamento v3.4.2. Testes manuais não executados; deploy não certificado. Próximo passo: concluir a publicação conjunta autorizada. Demais alterações locais preservadas.
+**Escopo:** perfil com edição do próprio nome, paleta Meia-noite, remoção dos painéis de /nucleos e da barra lateral, atalhos de convite no cabeçalho/perfil/conta, Atlas e documentação/evidências correspondentes. .vscode/settings.json vazio permanece local e fora da publicação.
+
+**Validações atuais:** tipos/build,192 testes gerais e12 autenticados locais aprovados; três verificadores específicos do Atlas, Visão global e MVP aprovados. Autorrevisão e revisão independente sem achados relevantes. Evidências anteriores preservadas;18 capturas dos retestes separadas. Sem esquema/banco remoto ou deploy certificado; testes manuais do usuário não executados.
+
+**Unidades Git:** perfil conferido em b6a9379; Meia-noite em04e1bb0; navegação/fechamento conferidos no objeto do terceiro commit, fix(navegacao): simplificar Núcleos e ampliar atalhos de convite. Os148 arquivos do conjunto desde07e4bbb correspondem ao conteúdo de trabalho após canonicalização do Git. Nenhuma unidade pronta para commit permanece pendente; este fechamento é incorporado ao mesmo terceiro commit antes do primeiro push. Push e igualdade com origin/main serão conferidos no encerramento. **Contagem adicional:**7 conclusões desde reinício documentado em29/10; histórico165 com lacuna e marco100 preservados.
+
+**Ferramentas:** Superpowers fechamento/revisão/verificação; Context7 disponível, sem consulta nova necessária para Git; Octocode não exposto, sem pesquisa avançada necessária. **Próximo passo:** conferir o hash remoto no encerramento; depois verificar deploy e executar manuais quando solicitado.
+
+**Índice:** [registro integral](registros/registro-v3.4.2-2026-10-30-imp-publicacao-github-fun-consolidacao-entregas.md) · [retestes](../wireframes/comparacoes/v3.4.2-2026-10-30-publicacao-tela_12-tela_13-tela_66/index.html) · [histórico](historico.md). Seções abaixo preservam os marcos anteriores, inclusive suas pendências na data de cada entrega.
+
+
+## Barra lateral sem cartão do Núcleo — v3.4.2 — 2026-10-30
+
+**Objetivo/aceite:** remover cartão nome/Seu espaço compartilhado da barra lateral, preservar nome no cabeçalho e navegação por Seus Núcleos. Componente global aplicado a todas as rotas internas; Atlas sincronizado. **DOCS_DIR:** Documentacao_Projeto_Nos; branch main, base07e4bbb. Versão vigente3.4.2. Alterações locais anteriores e .vscode/ preservadas.
+
+**Situação:** tipos/build e16 testes de aparência aprovados; Atlas específico desktop/mobile aprovado; quatro testes autenticados desktop/mobile aprovados, incluindo preservação do Núcleo na conta, link Seus Núcleos e ocultar/mostrar; Visão global73 sem erros. Capturas inspecionadas. Sem alteração de banco remoto, autenticação ou cookie de contexto. **Ferramentas:** Superpowers entendimento/revisão/verificação; consulta tecnológica nova desnecessária; Context7 disponível, Octocode não exposto, sem pesquisa avançada necessária.
+
+**Contagem adicional:**6 conclusões desde reinício documentado em29/10; histórico165 com lacuna e marco100 preservados. **Unidades para commit:** remoção do cartão lateral com Atlas/teste/versão/documentação validados; pendências3.3.2/3.3.3/3.4.0/3.4.1 preservadas. Sem publicação. **Próximo passo:** conferir manual M05-PER-014, commitar somente quando autorizado.
+
+**Índice:** [registro](registros/registro-v3.4.2-2026-10-30-imp-barra-lateral-fun-remocao-cartao-nucleo.md) · [contrato](funcionalidades/navegacao-sessao.md) · [manual](testes-manuais/conta-perfil.md) · [galeria](../wireframes/comparacoes/v3.4.2-2026-10-30-barra-lateral-tela_13/index.html). Seções abaixo preservam os marcos anteriores.
+
+
+## Meia-noite: preto à frente — v3.4.1 — 2026-10-30
+
+**Objetivo/aceite:** fundo cinza escuro #101312, superfícies e coluna lateral pretas #000000 no tema Preto — Meia-noite, prévia sincronizada, textos e acentos preservados. **DOCS_DIR:** Documentacao_Projeto_Nos; branch main, base07e4bbb. Versão vigente3.4.1. Alterações locais3.3.2/3.3.3/3.4.0 e .vscode/ preservadas.
+
+**Situação:** paleta implementada; tipos/build e16 testes de aparência aprovados; Atlas Meia-noite desktop/mobile aprovado. Dois testes autenticados finais aprovados (desktop/mobile, persistência após recarregar, coluna lateral preta); Visão global73 sem erros; capturas inspecionadas. **Ferramentas:** Superpowers aplicado; Context7 disponível, consulta de API desnecessária; Octocode não exposto, sem pesquisa avançada necessária.
+
+**Contagem adicional:**5 conclusões desde reinício de29/10, histórico165 com lacuna e marco100 preservados. **Unidades para commit:** ajuste Meia-noite com teste, Atlas, versão e documentação validado; unidades anteriores permanecem pendentes. Sem commit/push/deploy. **Próximo passo:** conferir manual M05-TEM-017 com a própria conta.
+
+**Índice:** [registro](registros/registro-v3.4.1-2026-10-30-imp-aparencia-fun-meia-noite-camadas.md) · [contrato](funcionalidades/aparencia-conta.md) · [manual](testes-manuais/aparencia-conta.md). [Galeria](../wireframes/comparacoes/v3.4.1-2026-10-30-meia-noite-tela_66/index.html). Seções abaixo preservam os marcos anteriores.
 
 
 ## Edição do nome do perfil — v3.4.0 — 2026-10-30
 
-DOCS_DIR: Documentacao_Projeto_Nos. Branch main; base 07e4bbb. Lápis em Dados da conta para editar, salvar ou cancelar o nome da própria conta, com validação de sessão e persistência. Interface compartilhada pelo perfil e página de Conta; Atlas e testes correspondentes.
+**Objetivo/aceite:** lápis ao lado do nome em Dados da conta; editar/salvar/cancelar no mesmo modal, própria conta, nome1–80 caracteres, persistência e feedback corretos em desktop/celular. **DOCS_DIR:** Documentacao_Projeto_Nos. Branch main, base07e4bbb; versão vigente3.4.0 (MINOR por funcionalidade compatível).
 
-Unidade preparada para commit/publicação autorizada em 30/10/2026; confirmar inclusão no objeto Git antes de limpar a pendência. Validações da consolidação final serão registradas no fechamento v3.4.2. Testes manuais não executados; deploy não certificado. Próximo passo: concluir a publicação conjunta autorizada. Demais alterações locais preservadas.
+**Situação:** implementação e Atlas sincronizados; dois cenários autenticados locais e quatro testes da ação aprovados; Atlas desktop/celular e Visão global aprovados. Tipos aprovados após versionamento; build final aprovado após versionamento (ver registro). Autorrevisão e revisão independente focal sem achados remanescentes. Alterações preexistentes3.3.2/3.3.3 e .vscode/ preservadas. Nenhuma publicação/migração remota.
 
+**Arquivos/decisões:** profile-name-action.ts valida identidade e grava apenas metadata.name; account-data-dialog.tsx controla rascunho e feedback; AccountPreferences reutilizado em conta/painel. Mesmo limite do cadastro; sem migração/dependência/modal novo. Nome não decide acesso. Demais preferências preservadas; revalidação atualiza nome/iniciais. Atlas apenas demonstra. **Ferramentas:** Superpowers7.0.1, Context7 com complemento de fontes/tipos locais; Octocode não exposto, sem pesquisa avançada necessária. Changelog externo indisponível; API instalada conferida.
+
+**Contagem adicional:**4 conclusões desde reinício documentado em29/10; histórico165 com lacuna e último marco100 preservados. Não inferir total anterior.
+
+**Unidades prontas para commit:** edição de nome com testes/Atlas/versão/documentação; pendências anteriores de remoção do painel e convites mantidas, além do registro de ferramentas globais. Nenhum commit criado; não limpar pendências sem verificar inclusão no objeto Git. Sugestão desta entrega: `feat(conta): permitir editar o nome do perfil`.
+
+**Bloqueios/próximo passo:** sem bloqueio funcional local. Executar M05-PER-010 a013 pelo usuário e conferir aparência com a própria conta; commit/push/deploy somente quando autorizados. Testes automatizados não aprovam testes manuais nem certificam produção.
+
+**Índice:** [registro e evidências](registros/registro-v3.4.0-2026-10-30-imp-conta-fun-nome-perfil.md) · [contrato](funcionalidades/nome-perfil.md) · [plano](planos/nome-perfil.md) · [manual](testes-manuais/conta-perfil.md) · [galeria](../wireframes/comparacoes/v3.4.0-2026-10-30-nome-perfil-tela_13-tela_66/index.html). Seções seguintes são marcos históricos.
+
+## Convite no cabeçalho — v3.3.3 — 2026-10-30
+
+**Objetivo/aceite:** Entrar com convite à esquerda de Criar um núcleo em /nucleos, desktop/celular, mantendo navegação e modal; também em Conta e Núcleos do perfil e da página completa. **DOCS_DIR:** Documentacao_Projeto_Nos; branch main, base 07e4bbb. Versão vigente 3.3.3. Alterações anteriores de v3.3.2 e .vscode/ preservadas.
+
+**Situação/validação:** tipos/build aprovados; quatro testes autenticados desktop/mobile aprovados; capturas inspecionadas; Atlas conferido. Sem banco remoto/publicação. **Ferramentas:** Superpowers aplicado; Context7 disponível, consulta tecnológica nova desnecessária; Octocode não exposto, sem pesquisa avançada necessária. **Contagem adicional:** 3 desde o reinício documentado em 29/10; histórico 165 com lacuna e último marco 100 preservados.
+
+**Unidades para commit:** remoção do painel de Núcleos (v3.3.2) e atalhos de convite no cabeçalho, perfil e conta (v3.3.3), com Atlas, versão, teste e documentação. Nenhum commit criado. **Próximo passo:** conferir visualmente /nucleos e testar novo atalho; commitar quando autorizado.
+
+**Índice:** [registro](registros/registro-v3.3.3-2026-10-30-imp-nucleos-fun-convite-cabecalho.md) · [manual](testes-manuais/nucleos-layout.md) · [galeria](../wireframes/comparacoes/v3.3.3-2026-10-30-convites-tela_12-tela_13-tela_66/index.html). [Registro complementar](registros/registro-v3.3.3-2026-10-30-imp-conta-fun-atalhos-convite.md) · [Manual da conta](testes-manuais/conta-perfil.md). Seções abaixo preservam os marcos anteriores.
+
+
+## Remoção do painel de Núcleos — v3.3.2 — 2026-10-30
+
+**Objetivo/aceite:** retirar o painel lateral de /nucleos e liberar largura dos cartões; aplicativo/Atlas tela 12 sincronizados. **DOCS_DIR:** Documentacao_Projeto_Nos. Branch main; referência inicial 07e4bbb (conferir Git no encerramento). Versão atual 3.3.2.
+
+**Situação:** alteração implementada; tipos/build aprovados; 2 testes autenticados desktop/mobile e verificador da Visão global aprovados; capturas inspecionadas. Sem banco remoto ou publicação. .vscode/ preexistente preservada. **Contagem adicional:** 2 interações desde o reinício documentado em 29/10; histórico 165 com lacuna, último marco 100; nenhum marco novo inferido. **Ferramentas:** Superpowers disponível; Context7 exposto, consulta não necessária; Octocode não exposto, pesquisa avançada não necessária.
+
+**Unidade pronta para commit:** remoção do painel de Núcleos, versão, Atlas, testes e documentação correspondentes, com validações concluídas. **Próximo passo:** conferir manualmente /nucleos desktop/celular e criar commit quando autorizado.
+
+**Índice:** [registro](registros/registro-v3.3.2-2026-10-30-imp-nucleos-fun-remocao-painel.md) · [manual](testes-manuais/nucleos-layout.md) · [galeria](../wireframes/comparacoes/v3.3.2-2026-10-30-nucleos-tela_12/index.html). Marcos abaixo são históricos.
 
 ## Publicação de conta e perfil — v3.3.1 — 2026-10-29
 

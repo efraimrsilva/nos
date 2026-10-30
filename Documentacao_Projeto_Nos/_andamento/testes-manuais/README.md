@@ -26,3 +26,10 @@ Formato de retorno: `M01-013 | Falhou | ambiente/navegador/dispositivo | observa
 - MVP02–04, demais funcionalidades do MVP05 e expansões: detalhamento futuro, sem afirmar cobertura já criada.
 
 - [MVP05 — Conta e perfil — v3.3.1](conta-perfil.md): oito casos M05-PER-001–008, todos Não executados pelo usuário; evidência automatizada separada no registro.
+
+- [MVP02 — distribuição dos Núcleos — v3.3.2](nucleos-layout.md): M02-LAY-001, Não executado.
+# Nome do perfil — v3.4.0
+
+MVP05: [M05-PER-010 a013 em conta-perfil.md](conta-perfil.md). Edição do próprio nome, persistência, cancelamento, falha/reenvio e formulário após troca de conta. Todos **Não executados pelo usuário**; automação local registrada separadamente em resultados.md.
+
+- v3.4.2: [Conta/perfil — M05-PER-014](conta-perfil.md), remoção do cartão da barra lateral, Não executado pelo usuário.

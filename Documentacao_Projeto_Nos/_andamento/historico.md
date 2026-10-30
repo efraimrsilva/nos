@@ -1,5 +1,9 @@
 # Histórico de andamento
 
+## 2026-10-30 — v3.4.0 — edição do nome da própria conta
+
+Dados da conta recebe lápis e edição no próprio modal; ação autenticada valida sessão/conta original, nome de1–80 caracteres e confirmação antes do sucesso. Preserva metadados, atualiza nome/iniciais; Atlas ilustrativo sincronizado. Dois testes autenticados desktop/celular, quatro testes da ação e verificadores do Atlas aprovados; revisão independente focal sem achados. [Registro](registros/registro-v3.4.0-2026-10-30-imp-conta-fun-nome-perfil.md). Sem commit/push/deploy; anteriores preservados.
+
 ## 2026-10-29 — v3.3.1 — conta e perfil com contexto preservado
 
 Painel desktop com seis seções e ações diretas, último Núcleo por conta no navegador, página completa com exclusão própria, remoção da busca e duplicações, entrada suave e Aparência simplificada. Tipos/build, banco local, jornadas autenticadas e Atlas conferidos; limites e retestes no [registro](registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md). Publicação Git autorizada, sem certificação de deploy.
@@ -744,8 +748,21 @@ Três unidades: execução local1e6fb0d, destaque1c8be96 e menu móvel complemen
 
 Superpowers 7.0.1 existente preservado; Context7 1.0.2 instalado pelo marketplace oficial. Ambos habilitados conforme `codex plugin list --json`; orientação global persistida no AGENTS do usuário. Consulta autenticada Context7 depende de novo chat/primeiro uso. Evento de ambiente/documentação, sem alteração de produto ou versão. [Registro](registros/registro-v3.3.1-2026-10-29-imp-ferramentas-globais-fun-superpowers-context7.md).
 
-## 2026-10-30 — v3.4.0 — Edição do nome do perfil
-Lápis em Dados da conta para editar, salvar ou cancelar o nome da própria conta, com validação de sessão e persistência. Interface compartilhada pelo perfil e página de Conta; Atlas e testes correspondentes. Preparação da publicação autorizada.
+## 2026-10-30 — v3.3.2 — Núcleos
+Remoção do painel lateral de /nucleos e da coluna reservada, sincronizada no Atlas tela 12. Tipos/build aprovados; evidências e limites no [registro](registros/registro-v3.3.2-2026-10-30-imp-nucleos-fun-remocao-painel.md). Sem publicação.
 
-## 2026-10-30 — v3.4.1 — Meia-noite com preto à frente
-Fundo cinza escuro #101312 e superfícies/coluna lateral pretas #000000. Prévia do seletor e Atlas sincronizados; identificador black e preferências existentes preservados. Preparação da publicação autorizada.
+## 2026-10-30 — v3.3.3 — Convite no cabeçalho
+Atalho de convite acrescentado à esquerda da criação em /nucleos, com ajustes responsivos e Atlas. [Registro](registros/registro-v3.3.3-2026-10-30-imp-nucleos-fun-convite-cabecalho.md). Sem publicação.
+
+2026-10-30 — Complemento v3.3.3: atalho Entrar com convite incluído no componente compartilhado Conta e Núcleos, atendendo perfil desktop e página completa. [Registro](registros/registro-v3.3.3-2026-10-30-imp-conta-fun-atalhos-convite.md).
+
+## 2026-10-30 — v3.4.1 — Meia-noite
+Inversão de fundo/superfície e coluna lateral preta, com prévia sincronizada. [Registro](registros/registro-v3.4.1-2026-10-30-imp-aparencia-fun-meia-noite-camadas.md);16 testes de aparência aprovados; sem publicação.
+
+## 2026-10-30 — v3.4.2 — Barra lateral
+Cartão de contexto removido do componente global e do Atlas; cabeçalho, vínculo e links preservados. [Registro](registros/registro-v3.4.2-2026-10-30-imp-barra-lateral-fun-remocao-cartao-nucleo.md). Sem publicação.
+
+## 2026-10-30 — Publicação GitHub autorizada — v3.4.2
+Consolidação do perfil, aparência Meia-noite e navegação/convites em três commits com descrições completas. Tipos/build,192 gerais,12 autenticados e Atlas aprovados; revisão independente sem achados. [Registro](registros/registro-v3.4.2-2026-10-30-imp-publicacao-github-fun-consolidacao-entregas.md). Push será conferido no encerramento; deploy não certificado.
+
+Conferência da publicação:148 arquivos incorporados aos objetos Git, versões3.4.0/3.4.1/3.4.2 distribuídas nos três commits. Pendências atuais de commit encerradas após comparação do conteúdo; confirmação de push e SHA na resposta final.
