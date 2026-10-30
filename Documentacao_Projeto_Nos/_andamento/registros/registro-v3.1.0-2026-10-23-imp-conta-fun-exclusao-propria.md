@@ -29,7 +29,7 @@ Oferecer exclusão da própria conta em Conta e segurança. O usuário pediu sin
 
 ## Resultado, limites e próximos passos
 
-Entrega local funcional. Galeria inspecionada em desktop/celular: [capturas](../../wireframes/comparacoes/v3.1.0-2026-10-23-exclusao-conta/index.html). [Contrato e roteiro manual](../funcionalidades/exclusao-conta.md).
+Entrega local funcional. Galeria inspecionada em desktop/celular: [capturas](../../wireframes/comparacoes/v3.1.0-2026-10-23-exclusao-conta/index.html). [Contrato e roteiro de testes de caixa preta](../funcionalidades/exclusao-conta.md).
 
 Banco do Docker restaurado e migração aplicada/transacionada localmente; histórico local registrado. Após autorização de produção, migração aplicada também no Supabase remoto e código publicado. Nenhuma conta real de uso apagada. Textos podem identificar a pessoa; retenção e backups não são apagados imediatamente. Exclusões simultâneas com múltiplas conexões não foram certificadas especificamente; regras existentes de saída concorrente passaram.
 

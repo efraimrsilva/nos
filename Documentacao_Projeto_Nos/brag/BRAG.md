@@ -28,9 +28,9 @@
 **Problema:** o aplicativo tinha apenas aparência clara e não oferecia escolha por conta. **Contribuição:** sete temas persistentes, aplicação imediata com recuperação de falha e localização destacada por cor/forma em computador e celular. **Resultado verificado:**154 testes gerais, oito autenticados locais e inspeção visual; contraste corrigido após revisão independente. **Benefício esperado:** mais conforto e facilidade para identificar a área atual; sem medição de satisfação ou desempenho de uso. [Evidências](../_andamento/registros/registro-v3.2.0-2026-10-23-imp-aparencia-conta-fun-temas-persistentes.md).
 
 
-## 2026-10-23 — v3.1.1 — rastreabilidade manual do acesso
+## 2026-10-23 — v3.1.1 — rastreabilidade dos testes de caixa preta do acesso
 
-**Problema:** faltava controle consolidado dos testes manuais por etapa do Atlas. **Contribuição:**62 casos de acesso, IDs estáveis e histórico de execução/reteste; regra permanente por funcionalidade. **Resultado verificado:** roteiro documentado, sem aprovação manual. **Benefício esperado:** facilitar reprodução e evitar perda de falhas entre rodadas. [Processo e evidências](../_andamento/registros/registro-v3.1.1-2026-10-23-imp-roteiro-manual-fun-cobertura-mvp-01.md).
+**Problema:** faltava controle consolidado dos testes de caixa preta por etapa do Atlas. **Contribuição:**62 casos de acesso, IDs estáveis e histórico de execução/reteste; regra permanente por funcionalidade. **Resultado verificado:** roteiro documentado, sem aprovação manual. **Benefício esperado:** facilitar reprodução e evitar perda de falhas entre rodadas. [Processo e evidências](../_andamento/registros/registro-v3.1.1-2026-10-23-imp-roteiro-caixa-preta-fun-cobertura-mvp-01.md).
 
 
 ## 2026-10-23 — v3.1.1 — orientação no cadastro repetido

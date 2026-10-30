@@ -14,7 +14,7 @@ Validações: teste de retorno inicialmente falhou para /configuracoes e passou 
 
 Revisão: autorrevisão completa e independente funcional. P2 de pontos de entrada12/13 no Atlas corrigido; verificador clica12→66 e13→71→13. Sem achado funcional remanescente. MVP geral, Visão global, MVP05 e sintaxe aprovados; links/imagens/diff reconferidos no encerramento.
 
-Resultado:72 telas/16 percursos/38 recortes existentes/34 planejadas. Cinco páginas acessíveis; configurações são ramificações, saída é contextual. Galeria antes/depois de Atlas e app autenticado desktop/mobile; sem aplicativo antes das novas rotas. [Contrato/manual](../funcionalidades/autonomia-protecao.md), [plano](../planos/mvp-05-controles.md), [galeria](../../wireframes/comparacoes/v0.16.0-2026-10-13-mvp-05-tela_66-tela_67-tela_69-tela_70-tela_71/index.html).
+Resultado:72 telas/16 percursos/38 recortes existentes/34 planejadas. Cinco páginas acessíveis; configurações são ramificações, saída é contextual. Galeria antes/depois de Atlas e app autenticado desktop/mobile; sem aplicativo antes das novas rotas. [Contrato/testes de caixa preta](../funcionalidades/autonomia-protecao.md), [plano](../planos/mvp-05-controles.md), [galeria](../../wireframes/comparacoes/v0.16.0-2026-10-13-mvp-05-tela_66-tela_67-tela_69-tela_70-tela_71/index.html).
 
 Limitações/próximo passo: aprovar contrato de saída/transferência/retenção/direitos, definir suporte/termos e certificar operação externa. SMTP/segredo e demais condições são pendências registradas, sem nova inspeção remota. Preferências/dispositivos/exportação/exclusão reservados. Nenhum encerramento do MVP global alegado. Unidade pronta para commit: controles e orientação MVP05; título sugerido feat(controls): implementar orientação e proteção do MVP 05.
 

@@ -32,7 +32,7 @@ Testes pgTAP verificam autorização, frase, rollback, sucessão, fechamento, pr
 
 Migração: `supabase/migrations/20261023120000_delete_own_account.sql`. Aplicada ao Docker local e, após autorização em23/10/2026, ao Supabase de produção. Para produção, aplicar a migração antes de publicar o código que usa o novo retorno da agenda; conferir a atualização do cache de esquema. Não executar a exclusão de uma conta real como teste. Publicação e migração remota foram autorizadas e concluídas em23/10/2026; nova execução de verificação destrutiva depende de autorização própria.
 
-## Roteiro manual
+## Roteiro de testes de caixa preta
 
 1. Usar uma conta descartável em ambiente local com a migração aplicada.
 2. Abrir Conta → Conta e segurança → Apagar minha conta; conferir vermelho, ícone e consequências.

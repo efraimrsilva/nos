@@ -35,7 +35,7 @@ Sessão e preferência de privacidade reutilizam o cliente existente e a funçã
 - Verificadores `verify-mvp-view.mjs` e `verify-global-view.mjs`: aprovados após corrigir o comparador estrutural para considerar IDs únicos e atributos inertes de miniaturas e congelar frases aleatórias/relógio no ambiente do teste. A primeira falha e sua causa ficam preservadas neste registro; não houve ocultação de diferenças de conteúdo funcional.
 - Autorrevisão de código/diff; revisão independente solicitada pela skill Superpowers, resultado registrado no fechamento. Sintaxe de scripts, CSS e diff conferidos. Resultado da suíte geral adicional será registrado no fechamento.
 
-[Galeria](../../wireframes/comparacoes/v3.3.1-2026-10-29-conta-perfil-tela_13-tela_66-tela_69/index.html): aplicativo real com contas locais descartáveis e Atlas ilustrativo em 1440×1000 e 390×844. Não há captura anterior preservada desta composição; não foi fabricado um antes. Testes manuais do usuário continuam Não executados no [roteiro](../testes-manuais/conta-perfil.md).
+[Galeria](../../wireframes/comparacoes/v3.3.1-2026-10-29-conta-perfil-tela_13-tela_66-tela_69/index.html): aplicativo real com contas locais descartáveis e Atlas ilustrativo em 1440×1000 e 390×844. Não há captura anterior preservada desta composição; não foi fabricado um antes. Testes de caixa preta do usuário continuam Não executados no [roteiro](../testes-caixa-preta/conta-perfil.md).
 
 ## Ferramentas e limites
 
@@ -45,7 +45,7 @@ Context7 e Octocode não estavam disponíveis entre as ferramentas da sessão. T
 
 ## Resultado e próximo passo
 
-Conjunto preparado para publicação na main, com evidência local. Confirmar objetos Git e igualdade com origin/main após o push; depois conferir o deploy e executar o roteiro manual com a própria conta. Push não comprova deploy ou fluxo em produção. Agenda e regras de domínio não foram alteradas; teste de bloqueios da agenda não se aplica a este recorte.
+Conjunto preparado para publicação na main, com evidência local. Confirmar objetos Git e igualdade com origin/main após o push; depois conferir o deploy e executar o roteiro de testes de caixa preta com a própria conta. Push não comprova deploy ou fluxo em produção. Agenda e regras de domínio não foram alteradas; teste de bloqueios da agenda não se aplica a este recorte.
 
 ### Atualização de ferramentas durante o fechamento
 
@@ -63,6 +63,6 @@ Segunda leitura independente: correção do P2 aprovada, sem novos achados impor
 
 ### Fechamento da validação
 
-Build isolado e tipos repetidos após a correção do vínculo: aprovados. O teste autenticado precisou trocar a espera por um botão do menu mobile por uma espera da seleção persistida: no desktop, esse botão está oculto e o streaming pode manter temporariamente duas composições. Foram falhas do seletor de prontidão do teste; rodada final dos dois projetos aprovada. Suíte geral anterior: 184 aprovados; banco: 160 aprovados. Atlas/MVP/Visão global aprovados e 12 imagens locais preservadas. Testes manuais do usuário continuam não executados. Nenhum servidor do usuário foi encerrado, banco remoto alterado ou deploy certificado.
+Build isolado e tipos repetidos após a correção do vínculo: aprovados. O teste autenticado precisou trocar a espera por um botão do menu mobile por uma espera da seleção persistida: no desktop, esse botão está oculto e o streaming pode manter temporariamente duas composições. Foram falhas do seletor de prontidão do teste; rodada final dos dois projetos aprovada. Suíte geral anterior: 184 aprovados; banco: 160 aprovados. Atlas/MVP/Visão global aprovados e 12 imagens locais preservadas. Testes de caixa preta do usuário continuam não executados. Nenhum servidor do usuário foi encerrado, banco remoto alterado ou deploy certificado.
 
 Unidade de diretrizes incluída separadamente no commit c6e1516. Nenhuma pendência de commit deste conjunto permanece após comprovar a inclusão no Git. A situação de deploy e a execução manual seguem independentes da publicação dos fontes.

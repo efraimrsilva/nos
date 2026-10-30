@@ -42,6 +42,6 @@ Operação online requer publicação autorizada, conferência do histórico de 
 
 Próximo recorte funcional: MVP 04, agenda interna, mediante solicitação; próximo passo operacional depende de autorização para publicação e das credenciais/integrações já registradas nas etapas 01/02.
 
-[Contrato e roteiro manual](../funcionalidades/ciclo-habito.md) · [Plano executado](../planos/mvp-03-habito.md) · [Comparação](../../wireframes/comparacoes/v0.15.1-2026-10-13-mvp-03-tela_24-tela_28-tela_33/index.html).
+[Contrato e roteiro de testes de caixa preta](../funcionalidades/ciclo-habito.md) · [Plano executado](../planos/mvp-03-habito.md) · [Comparação](../../wireframes/comparacoes/v0.15.1-2026-10-13-mvp-03-tela_24-tela_28-tela_33/index.html).
 
 **Limpeza final:** zero contas temporárias routing/cycle/trial consultadas; Supabase local encerrado com backup, sem reset. Cópia isolada em C:/Users/Efraim/AppData/Local/Temp/nos-mvp03-20261013 mantida fora do repositório: exclusão bloqueada pela revisão automática de permissões (blocked by policy), sem motivo adicional informado. Evidências copiadas para a galeria. Nenhuma configuração ou migração remota alterada.

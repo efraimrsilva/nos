@@ -1,6 +1,6 @@
 # Ciclo real de Hábito — MVP 03 — v1.0.0
 
-**Modelo implementado localmente — v1.0.0 — 14/10/2026:** [administração e participação](administracao-participacao.md) é o contrato vigente. Administração compartilhada, escolha individual, novo aceite por versão, saída com história preservada e preferência de autoria estão implementados. Sem votação coletiva ou cancelamento de acordo por saída. [Manual de teste](administracao-manual.md). Publicação, migração remota e operação do piloto permanecem pendentes.
+**Modelo implementado localmente — v1.0.0 — 14/10/2026:** [administração e participação](administracao-participacao.md) é o contrato vigente. Administração compartilhada, escolha individual, novo aceite por versão, saída com história preservada e preferência de autoria estão implementados. Sem votação coletiva ou cancelamento de acordo por saída. [Roteiro de testes de caixa preta](administracao-caixa-preta.md). Publicação, migração remota e operação do piloto permanecem pendentes.
 
 ## Histórico do modelo anterior — até v0.16.0
 
@@ -39,7 +39,7 @@ Estado vazio, carregamento e erro reutilizam os limites do Núcleo; formulários
 
 No detalhe e Atlas vivo: reflexões/Impacto/Linguagens de cuidado (autoria, destinatários, consentimento, retenção); fotos/mídia protegida (armazenamento/acesso/remoção); evento associado (vínculo autorizado com agenda); Essência/Árvore (fontes e critérios próprios). Também permanecem planejados necessidade/compreensão guiadas, seleção individual, central unificada/notificações, conversa de cuidado e contexto adicional do encerramento. A interface registra intenção de encerrar; não persiste um motivo separado. Essas expansões são posteriores ao ciclo central.
 
-## Teste manual
+## Teste de caixa preta
 
 1. Duas contas confirmadas e associadas ao mesmo Núcleo abrem Acordos. Propor Hábito de 7–30 dias, conferir, editar e enviar. Conferir que apenas enviar grava.
 2. Outra pessoa aceita. Conferir termos e datas no detalhe/confirmação. Antes do fim, o botão de confirmação permanece ausente.

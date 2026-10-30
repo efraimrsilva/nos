@@ -1,4 +1,4 @@
-# Processo permanente de testes manuais — v3.4.2
+# Processo permanente de testes de caixa preta — v3.4.2
 
 Roteiro de aparência: [MVP05 — Aparência da conta —16 casos](aparencia-conta.md). Execução manual pendente.
 
@@ -7,13 +7,13 @@ Criado em 2026-10-23 por solicitação do usuário.
 
 ## Regra de manutenção
 
-Cada funcionalidade criada ou alterada deve ter ao menos um teste manual rastreável ao MVP ou Expansão do Atlas vivo, no mesmo conjunto lógico da entrega. Inclua caminho, pré-condição quando necessária, ação e resultado esperado; separe cenários positivos, negativos, permissões, persistência, acessibilidade e falhas quando relevantes. Não confunda representação offline do Atlas com integração executada. Revise Atlas, contratos e código antes de gerar ou atualizar a lista; divergências devem ser resolvidas por evidências e decisões vigentes.
+Cada funcionalidade criada ou alterada deve ter ao menos um teste de caixa preta rastreável ao MVP ou Expansão do Atlas vivo, no mesmo conjunto lógico da entrega. Inclua caminho, pré-condição quando necessária, ação e resultado esperado; separe cenários positivos, negativos, permissões, persistência, acessibilidade e falhas quando relevantes. Não confunda representação offline do Atlas com integração executada. Revise Atlas, contratos e código antes de gerar ou atualizar a lista; divergências devem ser resolvidas por evidências e decisões vigentes.
 
 Use uma linha por teste, iniciada por `[]`, com ID estável. Planejado não entra como funcionalidade concluída: registre etapa/expansão, contrato pendente e bloqueio de execução. Não invente resultados. Novos MVPs serão detalhados em partes conforme a sequência do Atlas; o roteiro inicial detalhou o MVP01 e a v3.2.1 acrescenta Aparência no MVP05.
 
 ## Execução e resultados
 
-O usuário executa e envia ID, resultado e observação. Ao receber, atualizar resultados.md e a continuidade no mesmo atendimento. Estados: Não executado, Aprovado, Falhou, Bloqueado e Não se aplica (sempre com justificativa). Cada execução/reteste tem linha própria; não apagar falha anterior nem aprovar todos os dispositivos com uma execução. Corrigir um bug não aprova automaticamente o reteste manual.
+O usuário executa e envia ID, resultado e observação. Ao receber, atualizar resultados.md e a continuidade no mesmo atendimento. Estados: Não executado, Aprovado, Falhou, Bloqueado e Não se aplica (sempre com justificativa). Cada execução/reteste tem linha própria; não apagar falha anterior nem aprovar todos os dispositivos com uma execução. Corrigir um bug não aprova automaticamente o reteste de caixa preta.
 
 Formato de retorno: `M01-013 | Falhou | ambiente/navegador/dispositivo | observado | evidência opcional`. Se contexto faltar, registrar Não informado; se relato for ambíguo, pedir esclarecimento sem inventar aprovação. Nunca incluir senha, token, link completo de autenticação ou dados pessoais em evidências. Priorizar correção de bloqueios do acesso e exposição de dados.
 

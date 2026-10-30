@@ -21,7 +21,7 @@ Ação no servidor consulta getUser e compara user.id à conta exibida originalm
 - src/features/controls/accounts-layout.css: disposição de nome/lápis, botões e movimento reduzido.
 - Atlas: product-ui.js/product.css/icons.js, screens.js/mvp-plan.js e index.html; composição compartilhada da Tela66 e perfil, edição somente ilustrativa.
 - tests/profile-name.spec.ts, tests/authenticated/profile-name.spec.ts e scripts/verify-profile-name-atlas.mjs.
-- Manifestos, README, contrato nome-perfil.md, inventário de modais, MVP, cobertura, testes manuais, brag, continuidade e galeria vinculada abaixo.
+- Manifestos, README, contrato nome-perfil.md, inventário de modais, MVP, cobertura, testes de caixa preta, brag, continuidade e galeria vinculada abaixo.
 
 Alterações locais anteriores de v3.3.2/v3.3.3, suas galerias e .vscode/ foram preservadas. Branch main, base07e4bbb. Sem commit nesta entrega. MINOR por nova funcionalidade compatível, após validação funcional.
 
@@ -40,7 +40,7 @@ Alterações locais anteriores de v3.3.2/v3.3.3, suas galerias e .vscode/ foram 
 
 Superpowers7.0.1 e checklist React aplicados proporcionalmente. Context7 consultado; versão próxima2.117.1 sem resposta, consulta geral supabase-js complementada pelos tipos/fontes instalados2.117.2. Guias locais Next16.3.6 confirmam revalidatePath. Changelog remoto não recuperado (ferramenta web não aceitou text/markdown; tentativa Node recusou conexão); nenhuma migração de versão efetuada. Octocode não exposto; pesquisa avançada de dependências não necessária, buscas locais delimitadas suficientes.
 
-Nome de outras pessoas não é atualizado em tempo real em páginas já abertas; aparece nas próximas leituras. Reabrir Atlas restaura o exemplo, sem persistência real. Não houve alteração remota, commit, push ou deploy. Próximo passo: usuário executar os casos manuais e autorizar commit quando desejar; pendências anteriores preservadas.
+Nome de outras pessoas não é atualizado em tempo real em páginas já abertas; aparece nas próximas leituras. Reabrir Atlas restaura o exemplo, sem persistência real. Não houve alteração remota, commit, push ou deploy. Próximo passo: usuário executar os casos de caixa preta e autorizar commit quando desejar; pendências anteriores preservadas.
 
 [Galeria — modal Dados da conta, origem e estados](../../wireframes/comparacoes/v3.4.0-2026-10-30-nome-perfil-tela_13-tela_66/index.html) · [Contrato](../funcionalidades/nome-perfil.md) · [Plano](../planos/nome-perfil.md).
 

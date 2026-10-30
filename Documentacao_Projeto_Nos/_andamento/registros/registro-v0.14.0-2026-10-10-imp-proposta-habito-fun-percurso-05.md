@@ -36,7 +36,7 @@ Caminho real 18 → 22 → 23 → 24; 18/22/23 compartilham rota. Autor aceita a
 
 ## Resultado, limites e próximos passos
 
-Recorte disponível concluído e verificável localmente; etapas guiadas não concluídas. [Contrato e roteiro manual](../funcionalidades/proposta-habito.md), [galeria](../../wireframes/comparacoes/v0.14.0-2026-10-10-proposta-habito-tela_18-tela_19-tela_20-tela_21-tela_22-tela_23-tela_24/index.html).
+Recorte disponível concluído e verificável localmente; etapas guiadas não concluídas. [Contrato e roteiro de testes de caixa preta](../funcionalidades/proposta-habito.md), [galeria](../../wireframes/comparacoes/v0.14.0-2026-10-10-proposta-habito-tela_18-tela_19-tela_20-tela_21-tela_22-tela_23-tela_24/index.html).
 
 Conferência depende de JavaScript; autorização/validação no servidor preservadas. Necessidade, compreensão, seleção, idempotência persistente, central unificada, notificações e conversa ficam reservadas. Reflexões/impacto/evento do detalhe permanecem fora deste escopo. Sem validação remota, commit, push ou deploy.
 

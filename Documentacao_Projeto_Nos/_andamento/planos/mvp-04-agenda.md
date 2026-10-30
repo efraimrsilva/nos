@@ -12,7 +12,7 @@
 - [x] Componentes em `src/features/calendar/components/` e página agenda: confirmação com título/consequência, checkbox explícito validado na Server Action, botões com estado pending, reserva de futuro e âncoras de navegação. Reexecutar teste.
 - [x] Sincronizar `screens.js`, `product-ui.js`, `mvp-plan.js`, `global-view.js`, fichas/cobertura/MVP: duas escolhas de resposta e estado pendente, campos atuais, remarcação e quatro estados da mesma rota. Percurso de agenda sem alterar numeração histórica dos percursos existentes. Capturas antes reais de06edf58 e depois em duas larguras; imagens reais do app autenticado.
 - [x] Validar suíte geral, tipos, build, verificadores Atlas, diff e revisão independente. Usar cópia C: para build conforme evidência de limitações do volume G:, comprovando identidade de fontes por SHA-256. Supabase exclusivamente local; limpar fixtures e encerrar ambiente iniciado para testes.
-- [x] Após aceite, concluir PATCH0.15.2 nos manifestos, registro versionado, contrato/manual, histórico, brag e estado. Contador104, último marco100. Registrar única unidade pendente de commit.
+- [x] Após aceite, concluir PATCH0.15.2 nos manifestos, registro versionado, contrato/testes de caixa preta, histórico, brag e estado. Contador104, último marco100. Registrar única unidade pendente de commit.
 
 **Reservas:** visão mensal/dia, recorrência, local estruturado, resposta Ainda não sei, sugestão de horário, seleção individual/visibilidade restrita, notificações, vínculos com acordo/Experiência/conversa, memória e calendário externo. Exigem contratos próprios; não usar botões que simulem persistência.
 

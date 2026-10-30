@@ -16,7 +16,7 @@ Tipos e build de produção (Turbopack, saída isolada em `.next-verify`) aprova
 
 Os testes antigos de acesso foram adaptados aos modais já existentes na main: seletor do formulário de login, retorno pelo logotipo, resposta com submittedEmail e consulta de conta na recuperação. Incluída verificação de que conta inexistente não recebe pedido de recuperação.
 
-Supabase local indisponível: a persistência real após recarregar e as suítes autenticadas/SQL não foram reexecutadas. A ação real de temas é exercitada com transporte isolado na suíte geral; isso não certifica a integração com Auth real. Os resultados históricos da branch não são resultados desta rodada. Testes manuais permanecem Não executados.
+Supabase local indisponível: a persistência real após recarregar e as suítes autenticadas/SQL não foram reexecutadas. A ação real de temas é exercitada com transporte isolado na suíte geral; isso não certifica a integração com Auth real. Os resultados históricos da branch não são resultados desta rodada. Testes de caixa preta permanecem Não executados.
 
 Resultado final: a primeira execução geral teve 166 aprovados e 16 falhas de expectativas antigas. Após atualizar os seis arquivos de testes afetados, todos os 58 cenários desse recorte passaram, incluindo dois novos casos (desktop/celular). Cobertura combinada: 184 cenários aprovados entre execução geral e retestes; nenhuma falha remanescente. Verificação de tipos repetida após os testes: aprovada. `git diff --check`: aprovado. Arquivos locais preexistentes fora da integração conferidos byte a byte com o backup: inalterados.
 

@@ -1,6 +1,6 @@
 # Núcleo compartilhado — v1.0.0
 
-**Modelo implementado localmente — v1.0.0 — 14/10/2026:** [administração e participação](administracao-participacao.md) é o contrato vigente. Administração compartilhada, escolha individual, novo aceite por versão, saída com história preservada e preferência de autoria estão implementados. Sem votação coletiva ou cancelamento de acordo por saída. [Manual de teste](administracao-manual.md). Publicação, migração remota e operação do piloto permanecem pendentes.
+**Modelo implementado localmente — v1.0.0 — 14/10/2026:** [administração e participação](administracao-participacao.md) é o contrato vigente. Administração compartilhada, escolha individual, novo aceite por versão, saída com história preservada e preferência de autoria estão implementados. Sem votação coletiva ou cancelamento de acordo por saída. [Roteiro de testes de caixa preta](administracao-caixa-preta.md). Publicação, migração remota e operação do piloto permanecem pendentes.
 
 ## Histórico do modelo anterior — até v0.16.0
 
@@ -32,7 +32,7 @@ QR/câmera/link, destinatários individuais, administradores e histórico de uso
 
 Migração `20261013150000_manage_nucleus_invitations.sql` aplicada somente no contêiner local; histórico local alinhado após aplicação SQL com `migration repair --local`. Antes de usar online: revisar migração em ambiente de desenvolvimento autorizado, aplicar via CLI, publicar aplicação e repetir jornada com duas contas. Sem alteração remota nesta entrega. SMTP/recebimento externo e recuperação continuam com dependências próprias.
 
-## Validação e teste manual
+## Validação e teste de caixa preta
 
 Testes locais cobrem duas identidades, conferência sem escrita, aceite/retorno/F5/isolamento, cancelamento/revogação/novo código, geração paralela, paginação 20/1/20 e duas ordens de concorrência com bloqueios comprovados por `pg_stat_activity`. Banco confirma privilégios, expiração, contexto e preservação de data/membros. Não foi provocada indisponibilidade real de banco ou clipboard do dispositivo; tratamento verificado por leitura e Atlas.
 

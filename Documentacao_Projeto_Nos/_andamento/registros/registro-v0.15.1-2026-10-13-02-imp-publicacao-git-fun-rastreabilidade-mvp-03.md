@@ -10,7 +10,7 @@ Usuário autorizou commit e push com descrição que abrange toda a entrega. Um 
 
 Título: `fix(habits): concluir MVP 03 e acompanhamento do ciclo real`.
 
-Descrição detalha paginação de vinte revisões com cursor data/ID, pendência independente da página e consulta ordenada contra estados contraditórios; ciclo principal e alternativas de legado/ajuste/encerramento; espaços reservados de reflexões/Impacto/Linguagens/fotos/evento/Essência/Árvore; preservação das regras de consentimento e dos históricos. Inclui testes autenticados, verificador/captura do Atlas, 22 imagens, contrato/manual, plano/registro, estado/histórico/Brag e versão PATCH 0.15.1.
+Descrição detalha paginação de vinte revisões com cursor data/ID, pendência independente da página e consulta ordenada contra estados contraditórios; ciclo principal e alternativas de legado/ajuste/encerramento; espaços reservados de reflexões/Impacto/Linguagens/fotos/evento/Essência/Árvore; preservação das regras de consentimento e dos históricos. Inclui testes autenticados, verificador/captura do Atlas, 22 imagens, contrato/testes de caixa preta, plano/registro, estado/histórico/Brag e versão PATCH 0.15.1.
 
 ## Validação e controle
 
@@ -24,4 +24,4 @@ Publicação GitHub não comprova deploy concluído ou funcionamento online. Pip
 
 Cópia temporária de validação continua fora do repositório; limpeza foi bloqueada na implementação e não foi tentada novamente nesta publicação. Nenhum arquivo de ambiente, credencial, trace ou build faz parte do conjunto. Próximo passo: implantação/prova online quando autorizadas e operacionalmente viáveis; MVP 04 mediante solicitação.
 
-[Entrega funcional](registro-v0.15.1-2026-10-13-imp-ciclo-habito-fun-mvp-03.md) · [Estado](../estado.md) · [Contrato/manual](../funcionalidades/ciclo-habito.md).
+[Entrega funcional](registro-v0.15.1-2026-10-13-imp-ciclo-habito-fun-mvp-03.md) · [Estado](../estado.md) · [Contrato/testes de caixa preta](../funcionalidades/ciclo-habito.md).

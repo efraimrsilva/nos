@@ -8,7 +8,7 @@ Usuário autorizou commit e push com descrição abrangendo tudo desenvolvido ne
 
 **Título:** `fix(calendar): concluir MVP 04 e confirmação de remoção`.
 
-**Descrição:** concluir o fluxo Agenda14 → Novo16 → Evento/respostas15 → edição17 opcional → Agenda14 na mesma rota. Confirmar remoção com nome, consequência e ciência também exigida no servidor; manter sem gravação e devolver foco. Compartilhar processamento dos botões de presença, bloquear repetição e esclarecer criação/participantes e conservação/remarcação das respostas. Acrescentar links internos e reservas futuras. Sincronizar MVP, Visão global, fichas, desenhos vivos, cobertura e guias, preservando exemplos identificados e referências históricas. Incluir testes autenticados, verificador/captura, 26 imagens antes/depois desktop/mobile, contrato/manual, plano, registros, estado/histórico/Brag, README e manifestos v0.15.2.
+**Descrição:** concluir o fluxo Agenda14 → Novo16 → Evento/respostas15 → edição17 opcional → Agenda14 na mesma rota. Confirmar remoção com nome, consequência e ciência também exigida no servidor; manter sem gravação e devolver foco. Compartilhar processamento dos botões de presença, bloquear repetição e esclarecer criação/participantes e conservação/remarcação das respostas. Acrescentar links internos e reservas futuras. Sincronizar MVP, Visão global, fichas, desenhos vivos, cobertura e guias, preservando exemplos identificados e referências históricas. Incluir testes autenticados, verificador/captura, 26 imagens antes/depois desktop/mobile, contrato/testes de caixa preta, plano, registros, estado/histórico/Brag, README e manifestos v0.15.2.
 
 Ampliações reservadas: mês/dia, recorrência, local, Ainda não sei, sugestão de horário, seleção individual/acesso restrito, notificações, histórico/cancelamento com retenção, eventos associados, memórias e calendários externos. Não são implementações concluídas.
 
@@ -24,4 +24,4 @@ Sem migração remota ou deploy manual. Pipeline automático pode reagir ao push
 
 Próximo passo: implantação/prova online mediante autorização e conferência das dependências; próximo recorte funcional MVP05, quando solicitado.
 
-[Entrega funcional](registro-v0.15.2-2026-10-13-imp-agenda-interna-fun-mvp-04.md) · [Estado](../estado.md) · [Contrato/manual](../funcionalidades/agenda-interna.md).
+[Entrega funcional](registro-v0.15.2-2026-10-13-imp-agenda-interna-fun-mvp-04.md) · [Estado](../estado.md) · [Contrato/testes de caixa preta](../funcionalidades/agenda-interna.md).

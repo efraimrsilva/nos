@@ -31,7 +31,7 @@ Remover exige primeiro abrir a confirmação com nome/consequência. Checkbox ob
 
 Aplicativo e Atlas reservam visão mensal/dia, recorrência, local, terceiro estado de resposta, sugestão de horário, participantes individuais e acesso restrito, notificações, vínculos com Hábitos/Experiências/conversas, memória e calendários externos. Sem campos persistidos, contas conectadas ou sucesso simulado. Definir autoria/visibilidade/consentimento/retenção e conflitos antes de cada ampliação. Conversa de cuidado restrita não deve entrar na agenda atual de leitura pelo Núcleo.
 
-## Evidências e teste manual
+## Evidências e teste de caixa preta
 
 `tests/authenticated/calendar.spec.ts`: três casos em desktop/mobile, seis aprovados. Confirmação/ausência de ciência no servidor; paginação51 futuros mais1 passado; retorno sem criar; criação com término inválido; autor aceito/membro pendente; recusa/aceite; edição textual conservando resposta; remarcação redefinindo resposta; cancelar/confirmar remoção; RPC negada a membro sem autoria e a membro de outro Núcleo. Fixtures locais removidas. Suíte geral102 aprovada; tipos e build no registro de fechamento. [Atlas verificado](../../wireframes/tools/verify-mvp-agenda.mjs) e [galeria](../../wireframes/comparacoes/v0.15.2-2026-10-13-mvp-04-tela_14-tela_16-tela_15-tela_17/index.html).
 

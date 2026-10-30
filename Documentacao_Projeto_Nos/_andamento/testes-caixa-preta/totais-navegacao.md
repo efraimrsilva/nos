@@ -1,4 +1,4 @@
-# Testes manuais — totais da navegação — v3.3.0
+# Testes de caixa preta — totais da navegação — v3.3.0
 
 Escopo transversal: MVP02 (Núcleos/Pessoas), MVP03 (Acordos), MVP04 (Agenda). Executar em desktop e celular, registrando ambiente e versão em [resultados](resultados.md). Todos os casos começam **Não executados manualmente**; automação local/online não equivale a aceite manual.
 
@@ -15,4 +15,4 @@ Escopo transversal: MVP02 (Núcleos/Pessoas), MVP03 (Acordos), MVP04 (Agenda). E
 [] NAV-011 | MVP 02 | Conferir navegação por teclado/leitor de tela e celular de 320 px | Esperado: descrição informa alcance geral; total exato acessível; sem corte ou sobreposição.
 [] NAV-012 | MVP 02 | Conferir tema claro e escuro, alternar de conta e atualizar | Esperado: texto legível, ícones preservados e totais próprios de cada conta.
 
-Falha da função é coberta por teste automatizado no banco local. Não provocar indisponibilidade no ambiente de produção para reproduzir um teste manual.
+Falha da função é coberta por teste automatizado no banco local. Não provocar indisponibilidade no ambiente de produção para reproduzir um teste de caixa preta.

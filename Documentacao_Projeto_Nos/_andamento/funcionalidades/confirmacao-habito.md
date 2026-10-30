@@ -1,12 +1,12 @@
 # Continuidade — confirmação do Hábito após teste — v1.0.0
 
-**Modelo implementado localmente — v1.0.0 — 14/10/2026:** [administração e participação](administracao-participacao.md) é o contrato vigente. Administração compartilhada, escolha individual, novo aceite por versão, saída com história preservada e preferência de autoria estão implementados. Sem votação coletiva ou cancelamento de acordo por saída. [Manual de teste](administracao-manual.md). Publicação, migração remota e operação do piloto permanecem pendentes.
+**Modelo implementado localmente — v1.0.0 — 14/10/2026:** [administração e participação](administracao-participacao.md) é o contrato vigente. Administração compartilhada, escolha individual, novo aceite por versão, saída com história preservada e preferência de autoria estão implementados. Sem votação coletiva ou cancelamento de acordo por saída. [Roteiro de testes de caixa preta](administracao-caixa-preta.md). Publicação, migração remota e operação do piloto permanecem pendentes.
 
 ## Histórico do modelo anterior — até v0.16.0
 
 Os contratos e marcos abaixo são preservados para rastreabilidade; não representam as regras atuais dos Núcleos/acordos.
 
-**Conferência vigente v0.15.1 — 2026-10-13:** confirmação/legado/maioria/isolamento reconferidos localmente no MVP 03. [Ciclo completo e teste manual](ciclo-habito.md). Nenhuma regra de voto alterada; operação online exige evidência própria.
+**Conferência vigente v0.15.1 — 2026-10-13:** confirmação/legado/maioria/isolamento reconferidos localmente no MVP 03. [Ciclo completo e teste de caixa preta](ciclo-habito.md). Nenhuma regra de voto alterada; operação online exige evidência própria.
 
 **Versão vigente:** 0.15.1. **Atualizado:** 2026-10-13. Implementação inicial v0.11.0, preservada nos marcos históricos abaixo.
 **Status:** implementação concluída e validada; contrato aprovado em 2026-10-03 com limiar proporcional para confirmação pós-teste.

@@ -2,7 +2,7 @@
 
 Atualização v3.3.1 — 29/10/2026: Conta e segurança removida. Exclusão fica no bloco Apagar minha conta em /conta#apagar-minha-conta, fora do painel do perfil; confirmação e ação de servidor preservadas. Página completa contém oito seções; painel desktop contém seis, sem Notificações e exclusão. [Registro](../registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md).
 
-**Modelo implementado localmente — v1.0.0 — 14/10/2026:** [administração e participação](administracao-participacao.md) é o contrato vigente. Administração compartilhada, escolha individual, novo aceite por versão, saída com história preservada e preferência de autoria estão implementados. Sem votação coletiva ou cancelamento de acordo por saída. [Manual de teste](administracao-manual.md). Publicação, migração remota e operação do piloto permanecem pendentes.
+**Modelo implementado localmente — v1.0.0 — 14/10/2026:** [administração e participação](administracao-participacao.md) é o contrato vigente. Administração compartilhada, escolha individual, novo aceite por versão, saída com história preservada e preferência de autoria estão implementados. Sem votação coletiva ou cancelamento de acordo por saída. [Roteiro de testes de caixa preta](administracao-caixa-preta.md). Publicação, migração remota e operação do piloto permanecem pendentes.
 
 ## Histórico do modelo anterior — até v0.16.0
 
@@ -42,7 +42,7 @@ Pendências para fechar esta etapa e o piloto:
 4. Definir responsável/canal de suporte, termos de uso e informações do tratamento de dados.
 5. Comprovar no ambiente de uso: SMTP/recebimento, segredo de recuperação, origens/HTTPS (conexão segura), limites de tentativas, logs sem segredos, backup/restauração e duas contas online. O estado operacional não foi atualizado remotamente nesta entrega.
 
-Teste manual: entrar → Seus Núcleos → Configurações; abrir três alternativas e retornar; conferir reservas; Conta69 → recuperação com retorno; sair e tentar abrir Configurações novamente. Num Núcleo próprio, abrir orientação71 e voltar: vínculo deve permanecer. Com outra conta sem associação, acessar a URL da orientação: nenhum contexto privado deve aparecer. Participante não vê mensagem exclusiva do criador. Usar teclado e celular; logout deve bloquear repetição enquanto processa.
+Teste de caixa preta: entrar → Seus Núcleos → Configurações; abrir três alternativas e retornar; conferir reservas; Conta69 → recuperação com retorno; sair e tentar abrir Configurações novamente. Num Núcleo próprio, abrir orientação71 e voltar: vínculo deve permanecer. Com outra conta sem associação, acessar a URL da orientação: nenhum contexto privado deve aparecer. Participante não vê mensagem exclusiva do criador. Usar teclado e celular; logout deve bloquear repetição enquanto processa.
 
 Evidências:106 testes gerais com compilação local de produção; quatro autenticados desktop/mobile com duas contas, recuperação/retorno/logout, vínculo preservado e isolamento; tipos/build webpack; verificadores MVP05/MVP/Visão global; capturas reais fictícias e antes extraído de c40594f. Autorrevisão e revisão independente; P2 de entradas no Atlas corrigido. Não foi provocada indisponibilidade real do Auth, nem realizada restauração ou prova externa.
 

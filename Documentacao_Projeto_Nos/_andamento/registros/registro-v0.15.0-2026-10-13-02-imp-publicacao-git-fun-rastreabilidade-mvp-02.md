@@ -22,7 +22,7 @@ Conferir lista preparada, `git diff --cached --check`, manifestos, referências 
 
 Migração versionada publicada no Git não equivale a aplicação no banco remoto. QR/link/destinatários/administradores/histórico por aceite continuam reservados. SMTP/recebimento externo e recuperação online continuam pendentes. Um pipeline automático associado ao push pode iniciar deploy; esta operação não certifica seu resultado.
 
-Próximo passo: revisar/aplicar migração no ambiente autorizado e validar a etapa 02 online com duas contas; continuar dependências operacionais da etapa 01. [Entrega funcional](registro-v0.15.0-2026-10-13-imp-nucleo-compartilhado-fun-mvp-02-gestao-convites.md), [contrato/manual](../funcionalidades/nucleo-compartilhado.md).
+Próximo passo: revisar/aplicar migração no ambiente autorizado e validar a etapa 02 online com duas contas; continuar dependências operacionais da etapa 01. [Entrega funcional](registro-v0.15.0-2026-10-13-imp-nucleo-compartilhado-fun-mvp-02-gestao-convites.md), [contrato/testes de caixa preta](../funcionalidades/nucleo-compartilhado.md).
 
 
 **Controle do objeto:** 59 arquivos, incluindo 19 imagens, e árvore inicial 2b332e7fcf7d942cd9b37cd1c2ce0dd6acf26a2b igual ao índice preparado. Código/migração/testes/Atlas/documentação/manifestos comprovados no objeto; pendência removida após essa prova e controle incorporado ao mesmo commit lógico. Identificador definitivo e igualdade remota são conferidos após o push normal e reportados no encerramento. Sem alteração de código nesta incorporação.

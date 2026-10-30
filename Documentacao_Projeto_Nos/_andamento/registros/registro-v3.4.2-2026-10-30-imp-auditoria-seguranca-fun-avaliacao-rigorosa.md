@@ -154,7 +154,7 @@ Falhas da seleção autenticada, todas presentes no estado de trabalho anterior 
 
 Os 36 aprovados incluem exclusão própria, agenda, sete cenários funcionais de convites por dispositivo e parte dos controles de sessão; não compensam os casos interrompidos. Avisos de cookie/token inválido no terminal foram provocados pelos testes negativos e não expuseram valores de credenciais na síntese.
 
-Artefatos locais de falha ficam em `test-results-authenticated/`, ignorados pelo Git e sujeitos a substituição por outra execução. Não versionar traces de sessão; este registro guarda somente a descrição sanitizada das falhas. Os experimentos não substituem os testes manuais do usuário.
+Artefatos locais de falha ficam em `test-results-authenticated/`, ignorados pelo Git e sujeitos a substituição por outra execução. Não versionar traces de sessão; este registro guarda somente a descrição sanitizada das falhas. Os experimentos não substituem os testes de caixa preta do usuário.
 
 ## Cobertura e limites materiais
 

@@ -8,4 +8,4 @@ Persistência: ação no servidor verifica a identidade pelo Auth e compara com 
 
 Atlas reutiliza a composição compartilhada em Tela66, painel13, MVP e Visão global. Nome editado somente no diálogo de demonstração, com aviso explícito de ausência de gravação real. Reabrir a prévia restaura o exemplo. Mesmos73 IDs e cobertura funcional planejada preservados.
 
-Validação e limites finais: consultar registro da entrega no estado canônico. Manual M05-PER-010 a013; automação não aprova execução manual pelo usuário.
+Validação e limites finais: consultar registro da entrega no estado canônico. Teste de caixa preta M05-PER-010 a013; automação não aprova execução manual pelo usuário.

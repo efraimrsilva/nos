@@ -6,7 +6,7 @@ Design aprovado no chat em 2026-10-23: sete temas (Claro/Jardim, Escuro/Anoitece
 
 - [x] Preferência e interface: catálogo validado, ação autenticada que atualiza somente appearance_theme em user_metadata, tema inicial renderizado no servidor e seletor acessível. Arquivos em src/features/appearance; integração em src/app/layout.tsx, src/shared/components/application-shell.tsx e src/app/configuracoes/page.tsx. Teste inicial em tests/authenticated/themes.spec.ts deve falhar pela ausência de Aparência. Sem migração SQL ou dependência nova. Não usar metadados de aparência para autorização.
 - [x] Paletas: variáveis para fundos, superfícies, textos, ações e estados; preservar semântica de alertas e contraste em todas as famílias existentes. CSS de aparência e ajuste dos estilos de Conta, Acordos, Pessoas e Agenda. Preto tem fundo #000000. Conferir contraste, teclado, movimento reduzido, largura móvel e sete capturas por dispositivo.
-- [x] Fechamento: testes da ação real com transporte externo isolado, suíte autenticada com contas descartáveis locais, regressões sem backend, tipos/build, autorrevisão e revisão independente; sincronizar Atlas, contrato, roteiro manual, cobertura, registro versionado, estado/histórico/Brag e manifestos. Incrementar MINOR somente depois da validação. Nenhum commit/push/deploy autorizado.
+- [x] Fechamento: testes da ação real com transporte externo isolado, suíte autenticada com contas descartáveis locais, regressões sem backend, tipos/build, autorrevisão e revisão independente; sincronizar Atlas, contrato, roteiro de testes de caixa preta, cobertura, registro versionado, estado/histórico/Brag e manifestos. Incrementar MINOR somente depois da validação. Nenhum commit/push/deploy autorizado.
 
 ## Decisões
 

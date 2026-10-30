@@ -8,6 +8,6 @@ Correção em src/instrumentation.ts: na inicialização do runtime Node de dese
 
 Após reiniciar o servidor, o transporte foi EnvHttpProxyAgent e a consulta respondeu normalmente. Playwright conferiu o resultado de conta confirmada em desktop e celular. Foi solicitada uma única recuperação ao endereço fornecido pelo usuário: a ação exibiu sucesso e recovery_sent_at foi atualizado para 28/10/2026 às10h29 de Brasília. A asserção do verificador de recuperação encontrou dois elementos role=status (resultado e contador); o seletor foi corrigido, sem repetir o envio só para corrigir o verificador. Aceitação do envio não comprova recebimento na caixa postal nem conclusão da troca de senha.
 
-Verificação de tipos e build de produção em .next-verify aprovados. Rotas temporárias de diagnóstico removidas. Sem alteração de banco, SMTP, modelos ou produção; alterações preexistentes no checkout preservadas. Dois casos manuais novos, M01-098 e M01-099, agrupados no roteiro existente; total99, sem aprovação manual atribuída.
+Verificação de tipos e build de produção em .next-verify aprovados. Rotas temporárias de diagnóstico removidas. Sem alteração de banco, SMTP, modelos ou produção; alterações preexistentes no checkout preservadas. Dois casos de caixa preta novos, M01-098 e M01-099, agrupados no roteiro existente; total99, sem aprovação manual atribuída.
 
 Referência: [API nativa do Node24.19](https://nodejs.org/download/release/v24.19.0/docs/api/http.html#httpsetglobalproxyfromenvproxyenv).

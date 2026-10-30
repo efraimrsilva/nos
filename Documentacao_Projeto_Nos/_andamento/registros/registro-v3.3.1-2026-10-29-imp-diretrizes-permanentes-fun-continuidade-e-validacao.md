@@ -12,7 +12,7 @@ Reunir no AGENTS.md o essencial para desenvolver, validar, documentar e manter o
 - Protocolo de `_andamento/README.md`, estado canônico, histórico, planos e registros: rastreabilidade por entrega, fontes por tema, preservação dos marcos e distinção entre aprovação, implementação e evidência.
 - Documentos conceituais 1.x/2.x e contratos: princípios de cuidado, consentimento, privacidade, ausência de ranking/chat e precedência da administração/participação individual sobre votações históricas. Evolução individual permanece sujeita ao contrato e às adequações pendentes.
 - GUIA, FIDELIDADE, COBERTURA, comparações e contrato de modais: referência visual viva, sincronização das visões, IDs, estados, evidência antes/depois e padrão de galerias.
-- Processo e resultados dos testes manuais: casos estáveis por MVP/Expansão, preservação de falhas e retestes, sem aprovação manual derivada de automação.
+- Processo e resultados dos testes de caixa preta: casos estáveis por MVP/Expansão, preservação de falhas e retestes, sem aprovação manual derivada de automação.
 - README, frontend, scripts de package.json e documentação de e-mails/testes legados: ambiente reproduzível, verificações proporcionais, separação local/remoto e limites de publicação.
 
 As regras anteriores de versionamento e Atlas foram mantidas. Não foi adotada infraestrutura nova nem presumida disponibilidade de ferramentas citadas no histórico. O AGENTS.md aponta os procedimentos responsáveis por detalhes operacionais, evitando copiar contratos completos.
@@ -23,7 +23,7 @@ AGENTS.md, `_andamento/estado.md`, `_andamento/historico.md` e este registro. Se
 
 ## Validações, resultado e limites
 
-Revisão textual das diretrizes, conferência dos caminhos citados, comparação com o protocolo documental e `git diff --check` no conjunto documental. Build, tipos, testes do aplicativo, verificação interativa do Atlas e testes manuais não se aplicam a esta mudança textual e não foram executados.
+Revisão textual das diretrizes, conferência dos caminhos citados, comparação com o protocolo documental e `git diff --check` no conjunto documental. Build, tipos, testes do aplicativo, verificação interativa do Atlas e testes de caixa preta não se aplicam a esta mudança textual e não foram executados.
 
 Não foi feita auditoria integral da implementação nem certificação de produção. Divergências históricas de versões e situações em outros documentos não foram reclassificadas como verificações atuais. As fontes antigas continuam preservadas.
 

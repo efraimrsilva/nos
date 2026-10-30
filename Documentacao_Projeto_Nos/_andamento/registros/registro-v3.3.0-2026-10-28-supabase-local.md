@@ -25,7 +25,7 @@ O helper scripts/local-supabase.mjs resolve a CLI instalada, obtém as credencia
 - Jornada real via navegador na porta 3001: cadastro, entrega da confirmação em Mailpit, confirmação PKCE, sessão, pedido de recuperação, entrega local, redefinição e login com senha nova. Navegador bloqueou acessos HTTP externos durante essa jornada. Conta e duas mensagens temporárias removidas.
 - 42 capturas reais na [galeria](../../wireframes/comparacoes/2026-10-28-supabase-local/index.html).
 
-Os roteiros manuais continuam pendentes: M01-100/101 adicionados para o ambiente local (101 casos totais no MVP01), e M05-TEM-007 esclarece a recuperação com sessão. Resultados automáticos não equivalem à aprovação manual do usuário. Fontes e documentação seguem locais, sem commit/push/deploy nesta rodada.
+Os roteiros de testes de caixa preta continuam pendentes: M01-100/101 adicionados para o ambiente local (101 casos totais no MVP01), e M05-TEM-007 esclarece a recuperação com sessão. Resultados automáticos não equivalem à aprovação manual do usuário. Fontes e documentação seguem locais, sem commit/push/deploy nesta rodada.
 
 ## Ajuste operacional de logs no Windows
 

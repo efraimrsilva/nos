@@ -1,4 +1,4 @@
-# Testes manuais — Aparência da conta — v3.2.1
+# Testes de caixa preta — Aparência da conta — v3.2.1
 
 MVP05 · Tela66 e navegação compartilhada. Todos os casos abaixo estão **Não executados manualmente**. A aprovação automatizada registrada no contrato não aprova estes testes do usuário.
 

@@ -36,7 +36,7 @@ O layout raiz lê a preferência antes da primeira renderização e identifica o
 - [Galeria](../../wireframes/comparacoes/v3.2.1-2026-10-23-temas-solar-neon/index.html):36 capturas reais de seletor/navegação e duas capturas da prévia do Atlas. Diálogos capturados pela área visível; fullPage do Chromium produziu artefato de composição reproduzido separadamente.
 - Atlas oferece prévia local sem salvar preferência na conta. Nenhuma conta real foi alterada. Outra aba já aberta mantém a escolha atual até novo carregamento; não há sincronização em tempo real entre dispositivos/abas.
 
-[Roteiro manual](../testes-manuais/aparencia-conta.md) · [Plano](../planos/temas-conta-2026-10-23.md).
+[Roteiro de testes de caixa preta](../testes-caixa-preta/aparencia-conta.md) · [Plano](../planos/temas-conta-2026-10-23.md).
 
 ## Complemento de validação — 28/10/2026
 

@@ -17,4 +17,4 @@ Os quatro totais são **gerais da pessoa**, mesmo dentro de um Núcleo. Links co
 
 Atualiza ao renderizar/navegar/recarregar, inclusive após as ações que renovam a página. Não há assinatura em tempo real nem relógio para remover imediatamente um compromisso que terminou com a página parada; nesse caso atualizar a página obtém novo total.
 
-Atlas usa exemplos identificados e permanece offline. Não altera telas planejadas, jornada, número de fichas ou permissões. [Registro](../registros/registro-v3.3.0-2026-10-24-imp-navegacao-fun-totais-pessoais.md) · [manual](../testes-manuais/totais-navegacao.md) · [galeria](../../wireframes/comparacoes/v3.3.0-2026-10-24-totais-navegacao/index.html).
+Atlas usa exemplos identificados e permanece offline. Não altera telas planejadas, jornada, número de fichas ou permissões. [Registro](../registros/registro-v3.3.0-2026-10-24-imp-navegacao-fun-totais-pessoais.md) · [Testes de caixa preta](../testes-caixa-preta/totais-navegacao.md) · [galeria](../../wireframes/comparacoes/v3.3.0-2026-10-24-totais-navegacao/index.html).

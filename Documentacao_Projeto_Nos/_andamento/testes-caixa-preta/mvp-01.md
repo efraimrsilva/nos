@@ -1,4 +1,4 @@
-# Testes manuais — MVP 01 — v3.1.3
+# Testes de caixa preta — MVP 01 — v3.1.3
 
 Criado em 2026-10-23. Status: roteiro revisado; execução manual pendente. Referência: [Atlas MVP](../../wireframes/atlas/index.html#mvp), etapa Começar pelo login existente; Telas 01, 02, 03, 04, 05 e 72. MVP significa Produto Mínimo Viável. Nenhum item foi executado nesta entrega.
 

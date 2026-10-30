@@ -10,7 +10,7 @@ Usuário autorizou commit e push do conjunto acumulado para o GitHub, com descri
 - Correção do transporte de desenvolvimento no Windows com proxy e certificados do sistema; inicialização nativa pelo Node, retirada dos scripts antigos dev/dev-network e adaptação do configurador de e-mails.
 - Supabase inteiramente local: CLI 2.118.0 fixada, comandos de iniciar/parar/status/testes, aplicativo isolado na porta3001, Studio54323, e-mails54324, chave local de recuperação ignorada pelo Git e saída .next-supabase própria. Analytics/Vector desativados neste Windows por dependência da API TCP do Docker; os serviços do produto permanecem habilitados.
 - Ajuste de build Netlify: remove somente caches descartáveis antes da varredura, preservando servidor, arquivos públicos e verificação de segredos.
-- Atlas, contratos, histórico, plano, roteiros manuais e galerias incluídos; MVP01 com101 casos, aparência com16 e navegação com12. Resultados manuais continuam Não executados.
+- Atlas, contratos, histórico, plano, roteiros de testes de caixa preta e galerias incluídos; MVP01 com101 casos, aparência com16 e navegação com12. Resultados dos testes de caixa preta continuam Não executados.
 
 ## Sincronização de banco
 

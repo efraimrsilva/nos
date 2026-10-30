@@ -10,7 +10,7 @@ Painel desktop com seis seções e ações diretas, último Núcleo por conta no
 
 ## 2026-10-29 — v3.3.1 — diretrizes permanentes de entrega
 
-Consolidação do AGENTS.md com preparação, precedência documental, validação, testes manuais, Atlas, evidências, continuidade e cuidados de ambiente/publicação. Regras anteriores de versão preservadas; mudança exclusivamente documental, sem incremento ou publicação. [Registro](registros/registro-v3.3.1-2026-10-29-imp-diretrizes-permanentes-fun-continuidade-e-validacao.md).
+Consolidação do AGENTS.md com preparação, precedência documental, validação, testes de caixa preta, Atlas, evidências, continuidade e cuidados de ambiente/publicação. Regras anteriores de versão preservadas; mudança exclusivamente documental, sem incremento ou publicação. [Registro](registros/registro-v3.3.1-2026-10-29-imp-diretrizes-permanentes-fun-continuidade-e-validacao.md).
 
 ## 2026-10-28 — publicação integral e alinhamento de banco
 
@@ -26,11 +26,11 @@ Integração local da branch `origin/codex/temas-conta` à base atual de `main`,
 
 ## 2026-10-27 — v3.1.3 — E-mails personalizados por situação
 
-Preparados13 modelos com identidade do Nós, assuntos e textos próprios, sem modificar links nem ativar recursos.26 renderizações locais aprovadas;13 assuntos e13 HTMLs aplicados no Supabase e lidos de volta iguais às fontes. Sete avisos mantidos desativados; recebimento externo não certificado.17 novos casos manuais incorporados ao roteiro existente, total97, sem aprovação manual atribuída. [Registro](registros/registro-v3.1.3-2026-10-27-imp-emails-fun-modelos-personalizados.md) · [galeria](../wireframes/comparacoes/2026-10-27-emails-personalizados/index.html).
+Preparados13 modelos com identidade do Nós, assuntos e textos próprios, sem modificar links nem ativar recursos.26 renderizações locais aprovadas;13 assuntos e13 HTMLs aplicados no Supabase e lidos de volta iguais às fontes. Sete avisos mantidos desativados; recebimento externo não certificado.17 novos casos de caixa preta incorporados ao roteiro existente, total97, sem aprovação manual atribuída. [Registro](registros/registro-v3.1.3-2026-10-27-imp-emails-fun-modelos-personalizados.md) · [galeria](../wireframes/comparacoes/2026-10-27-emails-personalizados/index.html).
 
-## 2026-10-27 — v3.1.2 — confirmação de e-mail e testes manuais
+## 2026-10-27 — v3.1.2 — confirmação de e-mail e testes de caixa preta
 
-Resultado no mesmo modal com ou sem sessão; só anuncia envio para confirmação pendente após sucesso. Migração aplicada no Supabase antes de publicar; três contas preservadas. Playwright/Chromium instalado;64 testes focados, tipos, build e18 cenários visuais aprovados. Roteiro MVP01 ampliado de62 para80 casos, preservando IDs e sem atribuir aprovação manual. Publicação completa autorizada e concluída: código4ba6b46 em origin/main e fluxo público conferido no site real em desktop/celular. [Registro](registros/registro-v3.1.2-2026-10-27-imp-confirmacao-fun-estado-email.md) · [testes](testes-manuais/mvp-01.md).
+Resultado no mesmo modal com ou sem sessão; só anuncia envio para confirmação pendente após sucesso. Migração aplicada no Supabase antes de publicar; três contas preservadas. Playwright/Chromium instalado;64 testes focados, tipos, build e18 cenários visuais aprovados. Roteiro MVP01 ampliado de62 para80 casos, preservando IDs e sem atribuir aprovação manual. Publicação completa autorizada e concluída: código4ba6b46 em origin/main e fluxo público conferido no site real em desktop/celular. [Registro](registros/registro-v3.1.2-2026-10-27-imp-confirmacao-fun-estado-email.md) · [testes](testes-caixa-preta/mvp-01.md).
 
 ## 2026-10-24 — v3.3.0 — publicação e prova online concluídas
 
@@ -42,7 +42,7 @@ Totais globais autenticados, números discretos desktop/mobile, Pessoas deduplic
 
 ## 2026-10-24 — v3.2.1 — publicação GitHub da aparência autorizada
 
-Usuário autorizou commit/push de todas as alterações acumuladas, com descrição abrangente. Destino:codex/temas-conta; main preservada. Código, testes, nove temas, navegação, ícones, Atlas,68 capturas e registros na mesma unidade lógica.158 gerais, tipos/build e Atlas conferidos nesta publicação; testes manuais seguem Não executados. Inclusão/hash remoto conferidos no fechamento. [Registro](registros/registro-v3.2.1-2026-10-24-imp-publicacao-github-fun-consolidacao-aparencia.md).
+Usuário autorizou commit/push de todas as alterações acumuladas, com descrição abrangente. Destino:codex/temas-conta; main preservada. Código, testes, nove temas, navegação, ícones, Atlas,68 capturas e registros na mesma unidade lógica.158 gerais, tipos/build e Atlas conferidos nesta publicação; testes de caixa preta seguem Não executados. Inclusão/hash remoto conferidos no fechamento. [Registro](registros/registro-v3.2.1-2026-10-24-imp-publicacao-github-fun-consolidacao-aparencia.md).
 
 
 ## 2026-10-23 — v3.2.1 — Solar/Neon, navegação uniforme e ícones preservados
@@ -52,17 +52,17 @@ Catálogo ampliado para nove temas; Aparência segue o item vizinho no desktop e
 
 ## 2026-10-23 — v3.2.0 — temas por conta e localização na navegação
 
-Sete temas em Aparência no Mais/navegação desktop/Configurações; aplicação imediata e salvamento autenticado por conta. Entrada sempre clara. Cor de localização por tema com faixa desktop e indicador móvel. 154 testes gerais,12 focados e oito autenticados locais aprovados; revisão independente e capturas. Sem publicação ou migração; testes manuais pendentes. [Registro](registros/registro-v3.2.0-2026-10-23-imp-aparencia-conta-fun-temas-persistentes.md).
+Sete temas em Aparência no Mais/navegação desktop/Configurações; aplicação imediata e salvamento autenticado por conta. Entrada sempre clara. Cor de localização por tema com faixa desktop e indicador móvel. 154 testes gerais,12 focados e oito autenticados locais aprovados; revisão independente e capturas. Sem publicação ou migração; testes de caixa preta pendentes. [Registro](registros/registro-v3.2.0-2026-10-23-imp-aparencia-conta-fun-temas-persistentes.md).
 
 
-## 2026-10-23 — v3.1.1 — publicação GitHub dos testes manuais
+## 2026-10-23 — v3.1.1 — publicação GitHub dos testes de caixa preta
 
-Commit e push de todas as alterações documentais autorizados pelo usuário: processo permanente,62 casos MVP01, resultados/retestes e sincronização do Atlas com a evidência Brevo. Versão funcional preservada; execução manual pendente. Verificações documentais e autorrevisão; conferir hash remoto no fechamento. [Registro](registros/registro-v3.1.1-2026-10-23-imp-roteiro-manual-fun-cobertura-mvp-01.md).
+Commit e push de todas as alterações documentais autorizados pelo usuário: processo permanente,62 casos MVP01, resultados/retestes e sincronização do Atlas com a evidência Brevo. Versão funcional preservada; execução manual pendente. Verificações documentais e autorrevisão; conferir hash remoto no fechamento. [Registro](registros/registro-v3.1.1-2026-10-23-imp-roteiro-caixa-preta-fun-cobertura-mvp-01.md).
 
 
-## 2026-10-23 — v3.1.1 — processo e roteiro manual MVP01 (documentação)
+## 2026-10-23 — v3.1.1 — processo e roteiro de testes de caixa preta MVP01 (documentação)
 
-Criados62 casos das Telas01–05/72, regra permanente por funcionalidade e controle de resultados/retestes. Nenhuma execução recebida. Atlas etapa01/fichas03/04 corrigido pela evidência Brevo de20/10; sem alteração funcional. [Roteiro](testes-manuais/mvp-01.md) · [Registro](registros/registro-v3.1.1-2026-10-23-imp-roteiro-manual-fun-cobertura-mvp-01.md).
+Criados62 casos das Telas01–05/72, regra permanente por funcionalidade e controle de resultados/retestes. Nenhuma execução recebida. Atlas etapa01/fichas03/04 corrigido pela evidência Brevo de20/10; sem alteração funcional. [Roteiro](testes-caixa-preta/mvp-01.md) · [Registro](registros/registro-v3.1.1-2026-10-23-imp-roteiro-caixa-preta-fun-cobertura-mvp-01.md).
 
 
 ## 2026-10-23 — v3.1.1 — cadastro com e-mail existente
