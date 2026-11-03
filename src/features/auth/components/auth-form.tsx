@@ -2,6 +2,7 @@
 
 import { useActionState, useState } from "react";
 import { LoadingIndicator } from "@/shared/components/loading-indicator";
+import { PasswordInput } from "./password-input";
 import { passwordHelp } from "@/features/auth/input";
 import { AccountAccessDialog, type AccountAccessKind } from "./account-access-dialog";
 import { submitAuth, type AuthFormState } from "@/features/auth/actions";
@@ -30,7 +31,7 @@ function CredentialsForm({ mode, next }: { mode: "signup" | "login"; next: strin
     <input type="hidden" name="next" value={next} />
     {mode === "signup" && <div data-signup-extra className="auth-field"><label htmlFor="account-name">Nome</label><input id="account-name" name="name" autoComplete="name" maxLength={80} className="ui-field" /></div>}
     <div className="auth-field"><label htmlFor="account-email">E-mail</label><input id="account-email" name="email" type="email" autoComplete="email" className="ui-field" /></div>
-    <div className="auth-field"><label htmlFor="account-password">Senha</label><input key={state.revision} id="account-password" name="password" type="password" autoComplete={mode === "signup" ? "new-password" : "current-password"} aria-describedby={mode === "signup" ? "account-password-help" : undefined} className="ui-field" />{mode === "signup" && <p data-signup-extra id="account-password-help">{passwordHelp}</p>}</div>
+    <div className="auth-field"><label htmlFor="account-password">Senha</label><PasswordInput key={state.revision} id="account-password" name="password" autoComplete={mode === "signup" ? "new-password" : "current-password"} aria-describedby={mode === "signup" ? "account-password-help" : undefined} className="ui-field" />{mode === "signup" && <p data-signup-extra id="account-password-help">{passwordHelp}</p>}</div>
     {state.message && <p role={state.success ? "status" : "alert"} className="ui-feedback">{state.message}</p>}
     <button disabled={pending} aria-busy={pending} type="submit" className="ui-button">{pending ? <LoadingIndicator>Aguarde…</LoadingIndicator> : mode === "signup" ? "Criar conta" : "Entrar"}</button>
   </form>;

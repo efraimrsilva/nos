@@ -1,5 +1,23 @@
 import { expect, test } from "@playwright/test";
 
+test("mostrar senha funciona por toque e reinicia ao trocar o formulário", async ({ page, isMobile }) => {
+  await page.goto("/conta?modo=login");
+  const password = page.getByLabel("Senha", { exact: true });
+  await password.fill("Exemplo1!teste");
+  const show = page.getByRole("button", { name: "Mostrar senha", exact: true });
+  await expect(show).toBeVisible();
+  if (isMobile) await show.tap();
+  else await show.click();
+  await expect(password).toHaveAttribute("type", "text");
+  await expect(password).toHaveValue("Exemplo1!teste");
+  await page.getByRole("button", { name: "Ocultar senha", exact: true }).click();
+  await expect(password).toHaveAttribute("type", "password");
+  await show.click();
+  await page.getByRole("button", { name: "Criar conta", exact: true }).first().click();
+  await expect(password).toHaveAttribute("type", "password");
+  await expect(password).toHaveValue("");
+});
+
 test("cadastro valida os campos antes de tentar autenticar", async ({ page }) => {
   await page.goto("/conta");
   await expect(page.getByRole("heading", { name: "Sua conta no Nós" })).toBeVisible();
@@ -7,7 +25,7 @@ test("cadastro valida os campos antes de tentar autenticar", async ({ page }) =>
   await expect(page.locator("form").getByRole("alert")).toContainText("Informe seu nome, e-mail e uma senha");
   await page.getByRole("textbox", { name: "Nome" }).fill("Ana");
   await page.getByRole("textbox", { name: "E-mail" }).fill("ana@example.com");
-  await page.getByLabel("Senha").fill("senha-curta");
+  await page.getByLabel("Senha", { exact: true }).fill("senha-curta");
   await page.locator("form").getByRole("button", { name: "Criar conta" }).click();
   await expect(page.locator("form").getByRole("alert")).toContainText("8 caracteres");
 });
@@ -16,11 +34,11 @@ test("sem serviço configurado, a conta não é simulada", async ({ page }) => {
   await page.goto("/conta");
   await page.getByRole("textbox", { name: "Nome" }).fill("Ana");
   await page.getByRole("textbox", { name: "E-mail" }).fill("ana@example.com");
-  await page.getByLabel("Senha").fill("SenhaSegura1!");
+  await page.getByLabel("Senha", { exact: true }).fill("SenhaSegura1!");
   await page.locator("form").getByRole("button", { name: "Criar conta" }).click();
   await expect(page.locator("form").getByRole("alert")).toContainText("autenticação ainda não está configurada");
   await expect(page).toHaveURL(/\/conta$/);
-  await expect(page.getByLabel("Senha")).toHaveValue("");
+  await expect(page.getByLabel("Senha", { exact: true })).toHaveValue("");
 });
 
 test("alterna para entrada e mantém a página acessível em 320px", async ({ page }) => {

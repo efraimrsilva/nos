@@ -105,8 +105,8 @@
 @media (max-width: 680px) { .account-workspace .ui-grid, .settings-grid, .onboarding-choices { grid-template-columns: minmax(0, 1fr); } .account-panel, .settings-panel, .auth-panel, .wizard-panel { padding: 20px; } .wizard-types { grid-template-columns: minmax(0, 1fr); } .onboarding-steps li { font-size: 10px; gap: 6px; } .onboarding-steps li::after { margin-inline: 2px 7px; } .onboarding-steps li span { width: 23px; height: 23px; } .wizard-actions .ui-button, .welcome-actions > a { width: 100%; justify-content: center; } }
 @media (prefers-reduced-motion: reduce) { .account-row, .onboarding-path, .wizard-type { transition: none; } }
 
-/* Ícones de exclusão preservam o vermelho original, independente da cor temática do texto. */
-.account-deletion-trigger .account-row-icon,.account-deletion-trigger .account-row>svg,.account-deletion-warning h3>svg { color:#86333a; }
+/* O aviso de exclusão mantém sua própria indicação de perigo. */
+.account-deletion-warning h3>svg { color:#86333a; }
 
 .account-name-value { display:flex; align-items:center; gap:8px; }
 .account-name-value>span { min-width:0; overflow-wrap:anywhere; }
@@ -115,3 +115,18 @@
 .account-name-actions { display:flex; flex-wrap:wrap; gap:10px; }
 @media(prefers-reduced-motion:no-preference) { .account-name-form { animation:account-name-arrive .15s ease-out; } }
 @keyframes account-name-arrive { from { opacity:0; transform:translateY(-3px); } to { opacity:1; transform:translateY(0); } }
+
+/* Espacejamento reservado mantém o texto da senha separado do alvo de toque. */
+.auth-password-control { position:relative; min-width:0; }
+.auth-password-control > input { width:100%; padding-right:88px; }
+.auth-password-control > input::-ms-reveal { display:none; }
+.auth-password-toggle { position:absolute; right:4px; top:50%; transform:translateY(-50%); min-width:76px; min-height:44px; padding:8px; border:0; border-radius:6px; background:transparent; color:var(--color-leaf); font-size:12px; cursor:pointer; }
+.auth-password-toggle:focus-visible { outline:2px solid var(--color-leaf); outline-offset:-2px; }
+
+/* Exclusão usa vermelho próprio; o tema nunca converte o destaque de perigo em verde. */
+.account-experience .account-deletion-trigger .account-row{border-color:#ff2846;transition:background-color .25s,box-shadow .25s,border-color .25s;box-shadow:0 0 0 1px #ff284614}
+:root .account-deletion-trigger .account-row-icon,:root .account-deletion-trigger .account-row>svg{color:#ff2846}
+.account-experience .account-deletion-trigger:is(:hover,:focus-visible,:active) .account-row{border-color:#ff2846;background:color-mix(in srgb,#ff2846 12%,var(--danger-bg));color:var(--danger-ink);box-shadow:0 0 0 2px #ff28462b,0 0 20px #ff284659}
+.account-experience .account-deletion-trigger:is(:hover,:focus-visible,:active) .account-row-icon{background:color-mix(in srgb,#ff2846 18%,var(--danger-bg));box-shadow:0 0 10px #ff28464d}
+.account-deletion-trigger:focus-visible{outline:2px solid #ff2846;outline-offset:3px;border-radius:8px}
+@media(prefers-reduced-motion:reduce){.account-experience .account-deletion-trigger .account-row{transition:none}}

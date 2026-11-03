@@ -1,4 +1,4 @@
-/* Movimento exclusivo de /conta, inclusive quando o CSS persiste após navegação. */
+/* Movimento de acesso e preferências, compartilhado com o menu suspenso da conta. */
 .account-experience,
 .public-shell:has(.account-experience) {
   --account-ease: cubic-bezier(.22, 1, .36, 1);
@@ -202,16 +202,16 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .account-experience.account-workspace .account-preferences-sections > .account-panel {
+  :is(.account-experience.account-workspace,.account-popover:popover-open) .account-preferences-sections > .account-panel {
     animation: account-preferences-arrive .48s cubic-bezier(.22, 1, .36, 1) .06s backwards;
   }
-  .account-experience.account-workspace .account-preferences-sections > .account-panel:nth-child(2) { animation-delay: .10s; }
-  .account-experience.account-workspace .account-preferences-sections > .account-panel:nth-child(3) { animation-delay: .14s; }
-  .account-experience.account-workspace .account-preferences-sections > .account-panel:nth-child(4) { animation-delay: .18s; }
-  .account-experience.account-workspace .account-preferences-sections > .account-panel:nth-child(5) { animation-delay: .22s; }
-  .account-experience.account-workspace .account-preferences-sections > .account-panel:nth-child(6) { animation-delay: .26s; }
-  .account-experience.account-workspace .account-preferences-sections > .account-panel:nth-child(7) { animation-delay: .30s; }
-  .account-experience.account-workspace .account-preferences-sections > .account-panel:nth-child(8) { animation-delay: .34s; }
+  :is(.account-experience.account-workspace,.account-popover:popover-open) .account-preferences-sections > .account-panel:nth-child(2) { animation-delay: .10s; }
+  :is(.account-experience.account-workspace,.account-popover:popover-open) .account-preferences-sections > .account-panel:nth-child(3) { animation-delay: .14s; }
+  :is(.account-experience.account-workspace,.account-popover:popover-open) .account-preferences-sections > .account-panel:nth-child(4) { animation-delay: .18s; }
+  :is(.account-experience.account-workspace,.account-popover:popover-open) .account-preferences-sections > .account-panel:nth-child(5) { animation-delay: .22s; }
+  :is(.account-experience.account-workspace,.account-popover:popover-open) .account-preferences-sections > .account-panel:nth-child(6) { animation-delay: .26s; }
+  :is(.account-experience.account-workspace,.account-popover:popover-open) .account-preferences-sections > .account-panel:nth-child(7) { animation-delay: .30s; }
+  :is(.account-experience.account-workspace,.account-popover:popover-open) .account-preferences-sections > .account-panel:nth-child(8) { animation-delay: .34s; }
 }
 
 .account-experience .auth-panel::after {
@@ -383,5 +383,18 @@
   .account-experience :is(a, button):is(:hover, :focus-visible) :is(.account-row-icon, svg),
   .public-shell:has(.account-experience) .reflection-pause {
     transform: none;
+  }
+}
+
+/* No celular, luzes maiores mantêm o efeito perceptível sobre a árvore reduzida. */
+@media (max-width: 700px) {
+  .public-shell:has(.account-experience) .account-tree-lights {
+    -webkit-mask-image:radial-gradient(ellipse at center,#000 60%,transparent 96%);
+    mask-image:radial-gradient(ellipse at center,#000 60%,transparent 96%);
+  }
+  .public-shell:has(.account-experience) .account-light-mote {
+    width:calc(var(--light-size) + 2px); height:calc(var(--light-size) + 2px);
+    background:radial-gradient(circle,#fff8ce 20%,#e9bd59 65%,transparent 85%);
+    box-shadow:0 0 7px 2px var(--light-color), 0 0 18px 5px #edc97566;
   }
 }

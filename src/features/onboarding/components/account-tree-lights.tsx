@@ -28,7 +28,7 @@ export function AccountTreeLights() {
 
   useEffect(() => {
     // Sorteia após a hidratação e novamente a cada passagem, sem relógio adicional.
-    setLights(Array.from({ length: 5 }, randomLight));
+    setLights(Array.from({ length: 8 }, randomLight));
   }, []);
 
   function renewLight(event: AnimationEvent<HTMLSpanElement>, index: number) {
@@ -39,7 +39,7 @@ export function AccountTreeLights() {
 
   return <span className="account-tree-lights" aria-hidden="true">
     {lights.map((light, index) => <span key={index} className="account-light-flight"
-      style={{ ...light, "--light-delay": `${index * .45}s` } as LightStyle}
+      style={{ ...light, "--light-delay": `${-2 - index * 1.15}s` } as LightStyle}
       onAnimationIteration={event => renewLight(event, index)}>
       <span className="account-light-mote" />
     </span>)}

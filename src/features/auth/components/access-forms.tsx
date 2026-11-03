@@ -3,6 +3,7 @@
 import { useActionState, useEffect, useId, useState } from "react";
 import { requestAccessEmail, resetPassword } from "@/features/auth/access-actions";
 import type { AuthFormState } from "@/features/auth/actions";
+import { PasswordInput } from "./password-input";
 import { passwordHelp } from "@/features/auth/input";
 import "@/features/controls/accounts-layout.css";
 
@@ -38,8 +39,8 @@ export function PasswordResetForm({ next }: { next: string }) {
   const [state, action, pending] = useActionState(resetPassword, initial);
   return <form action={action} noValidate className="ui-panel auth-panel auth-fields" aria-busy={pending}>
     <input type="hidden" name="next" value={next} />
-    <div className="auth-field"><label htmlFor="new-password">Nova senha</label><input key={`password-${state.revision}`} id="new-password" name="password" type="password" autoComplete="new-password" maxLength={128} aria-describedby="password-help" className="ui-field" /></div>
-    <div className="auth-field"><label htmlFor="confirm-password">Confirmar nova senha</label><input key={`confirmation-${state.revision}`} id="confirm-password" name="confirmation" type="password" autoComplete="new-password" maxLength={128} className="ui-field" /></div>
+    <div className="auth-field"><label htmlFor="new-password">Nova senha</label><PasswordInput key={`password-${state.revision}`} id="new-password" name="password" autoComplete="new-password" maxLength={128} aria-describedby="password-help" className="ui-field" /></div>
+    <div className="auth-field"><label htmlFor="confirm-password">Confirmar nova senha</label><PasswordInput key={`confirmation-${state.revision}`} id="confirm-password" name="confirmation" autoComplete="new-password" maxLength={128} className="ui-field" /></div>
     <p id="password-help" className="auth-help">{passwordHelp} Use até 128 caracteres.</p>
     <p className="auth-help">Ao salvar, encerraremos as sessões da sua conta. Depois, entre com a nova senha.</p>
     <Feedback state={state} />
