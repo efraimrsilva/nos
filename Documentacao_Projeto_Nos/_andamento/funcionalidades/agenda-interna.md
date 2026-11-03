@@ -1,4 +1,14 @@
-# Agenda interna — v1.0.0
+# Agenda interna — v3.5.0
+
+## Atualização vigente — 03/11/2026
+
+Agenda já possui seletor mensal completo no computador e no celular, com `react-day-picker` 9.14.0, português do Brasil, semanas de segunda a domingo, seis linhas e dias adjacentes. Selecionar um dia abre a semana correspondente; mês e semana conservam sincronização quando atravessam meses. A grade semanal é apresentada acima de 900 pixels; até 900 pixels os eventos usam lista. Isso adapta a apresentação e conserva criação, detalhe, presença e gestão conforme as permissões.
+
+Mês/ano são selecionáveis e as setas atravessam 2030. A janela de anos acompanha o mês escolhido com cem anos anteriores e posteriores, limitada aos anos 1–9999; não existe corte fixo em 2030. Calendário e grade usam UTC (tempo universal coordenado) para manter a seleção estável. Dias sublinhados indicam eventos da página consultada, não uma busca integral de todos os eventos. Dias e opções dos seletores receberam contraste nos temas escuros.
+
+Esta atualização substitui a indicação antiga de visão mensal exclusivamente futura. Recorrência, calendários externos e as demais expansões continuam planejadas. Não altera regras de presença, consentimento, horários, remoção ou paginação. [Registro](../registros/registro-v3.5.0-2026-11-03-02-imp-agenda-fun-calendario-mensal.md) · [casos M04-CAL-001–004](../testes-caixa-preta/ajustes-v3-5.md), Não executados pelo usuário.
+
+## Marcos históricos
 
 **Atualização v1.0.0 — 14/10/2026:** [contrato administrativo](administracao-participacao.md) implementado localmente. Convites são geridos por administradores; Núcleos fechados não aceitam convites. Agenda usa consulta que protege autoria após saída e conserva a própria presença na reentrada. Autor associado ou administrador pode gerir eventos. Regras de criação, horários e respostas individuais permanecem.
 

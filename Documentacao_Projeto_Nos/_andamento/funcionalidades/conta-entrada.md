@@ -1,4 +1,14 @@
-# Conta e entrada — v3.4.2
+# Conta e entrada — v3.5.0
+
+## Atualização vigente — Conta e entrada — v3.5.0 — 03/11/2026
+
+Login, cadastro e definição de nova senha reutilizam `PasswordInput`, com botão próprio Mostrar/Ocultar, acionável por toque ou teclado. A alternância muda somente a visibilidade do valor atual, sem enviar formulário, apagar o campo ou alterar validação/autocomplete. O controle é desabilitado junto do campo durante processamento. Não enfraquece política de senha nem comprova mitigação dos riscos de autenticação registrados na auditoria anterior.
+
+A composição da árvore passa de cinco para oito luzes decorativas, sorteadas após hidratação e renovadas em cada passagem, com atrasos negativos para distribuição inicial. A decoração não recebe foco nem nome acessível. As animações da conta respeitam movimento reduzido. O painel desktop do perfil recebe a mesma entrada suave das seções da conta; a página `/conta` continua acessível no computador e no celular, e o painel menor não passa a existir no celular.
+
+O gatilho Apagar minha conta passa a ter texto, ícone e realce vermelhos nos nove temas, com foco visível. Isso não altera a confirmação `APAGAR CONTA`, autorização, retenção, impedimentos por Storage ou operação da exclusão. [Registro](../registros/registro-v3.5.0-2026-11-03-04-imp-conta-fun-feedback-e-acessibilidade.md) · [casos M01-AJU-001, M05-AJU-001–003](../testes-caixa-preta/ajustes-v3-5.md), Não executados pelo usuário.
+
+## Marcos e contratos históricos
 
 ## Conferência de segurança — 2026-10-30
 

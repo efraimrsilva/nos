@@ -1,4 +1,16 @@
-# Proposta de Hábito — Percurso 05 — v1.0.0
+# Proposta de Hábito — Percurso 05 — v3.5.0
+
+## Contrato vigente — 03/11/2026
+
+Nova proposta não oferece seleção de categoria. O formulário e a ação de servidor iniciam sempre como `habit`, em situação de proposta pendente; alterar o campo enviado pelo navegador não permite criar diretamente uma Experiência. O prazo continua inteiro entre 7 e 30 dias. Após publicar, a navegação usa `categoria=all&filtro=pending`. Publicar não aceita participação por outra pessoa nem implementa progressão automática para Hábito, Experiência ou Essência. Prevalece o [contrato administrativo](administracao-participacao.md) sobre as regras antigas de unanimidade preservadas abaixo.
+
+Acordos apresenta busca sobre a página carregada, sem seletor de categoria nem diálogo de filtro de situação. Computador oferece Kanban/Painéis; celular oferece lista e diálogo de detalhe com as mesmas ações permitidas para a pessoa. Essência continua explicitamente planejada.
+
+Cartões e detalhes exibem totais de aceites, recusas e pessoas a decidir. Uma consulta agrupada por página ocorre a cada três segundos, sem sobrepor pedidos, pausa com documento oculto e retoma ao ficar visível. A atualização não recarrega a página nem desmonta rascunhos. Em erro conserva o último total disponível com aviso; sem total mostra indisponibilidade. Não anuncia identidade nem resposta individual de terceiros. A RPC (chamada de função no banco) `get_nucleus_agreement_response_counts` exige sessão, vínculo atual e Núcleo aberto, aceita até 50 IDs e só retorna acordos do Núcleo autorizado. Conta integrantes atuais; aceite em versão antiga dos termos entra como pendente.
+
+A migração `20261103122309_agreement_response_counts.sql` foi preparada e testada localmente; aplicação remota não comprovada nesta entrega. O botão Enviar convite de Acordos aparece somente para administradores e usa a geração já existente, com autorização mantida no servidor/banco. [Registro e evidências](../registros/registro-v3.5.0-2026-11-03-01-imp-acordos-fun-propostas-e-respostas.md). Casos M03-AJU-001–005 no [roteiro](../testes-caixa-preta/ajustes-v3-5.md), Não executados pelo usuário.
+
+## Marcos históricos
 
 **Fluxo completo aprovado — v1.1.0 — 18/10/2026:** [Proposta → Hábito → Experiência → Essência](fluxo-proposta-habito-experiencia-essencia.md) é a sequência obrigatória da evolução da pessoa. Propor Experiência diretamente pertence ao modelo implementado anterior. Critérios das três passagens, dados individuais, adequação do código e legado pendentes; marcos históricos abaixo preservados.
 

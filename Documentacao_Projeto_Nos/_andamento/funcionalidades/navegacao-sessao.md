@@ -1,4 +1,16 @@
-# Navegação e sessão — v3.4.2
+# Navegação e sessão — v3.5.0
+
+## Atualização vigente — 03/11/2026
+
+Os destinos da barra lateral são acessíveis no celular pela barra inferior e pelo menu Mais. O rótulo Início acrescenta o nome do Núcleo atual, abreviado visualmente a 18 caracteres no computador e 12 no celular, com reticências quando necessário; o nome completo permanece no título e no nome acessível. A versão visível é importada de `package.json`, exibida ao final de Sua conta na barra lateral e no Mais, sem linha inferior sobrando.
+
+**Obrigação permanente de release:** atualizar a versão central, manifestos/lockfile, indicação do Atlas e documentação vigente no mesmo conjunto. Conferir também a versão efetivamente exibida no aplicativo em computador e no menu Mais do celular. Editar somente a documentação ou o número no Atlas não comprova a versão servida; build e implantação precisam de evidência própria.
+
+O Início removeu a exposição visual de propósito acima dos blocos, os links secundários de rodapé da página e separadores finais dos cartões. Propósito continua armazenado e disponível em seu fluxo de gestão; remoção visual não apaga dados. O cartão Um lugar à mesa foi removido da lista de Núcleos e de Pessoas; os caminhos de convite permanecem nos controles apropriados.
+
+A auditoria de paridade identifica apresentações diferentes com ações/destinos equivalentes: Acordos usa Kanban/Painéis no computador e lista no celular; Agenda usa o mesmo calendário mensal e adapta grade/lista; perfil do computador abre painel menor, enquanto `/conta` oferece a página completa nos dois tamanhos. Não interpretar ausência intencional do painel desktop no celular como perda de acesso à conta.
+
+Sessão: os testes locais de renovação exercitam o proxy e a biblioteca SSR (renderização no servidor) com transporte Auth simulado. Não houve correção de código de sessão neste conjunto; a causa de eventual desconexão hospedada não foi comprovada. O novo inicializador `scripts/dev.mjs` carrega `.env.local` antes de iniciar o Next.js com certificados/proxy do ambiente; não demonstra mudança em cookies, expiração ou revogação no serviço remoto. [Registro de paridade e limites](../registros/registro-v3.5.0-2026-11-03-05-imp-validacao-fun-paridade-e-rastreabilidade.md). [Casos NAV-AJU-001–004 e M01-AJU-002](../testes-caixa-preta/ajustes-v3-5.md), Não executados pelo usuário.
 
 Atualização v3.3.3 — 30/10/2026: Entrar com convite disponível à esquerda da criação no cabeçalho de /nucleos e em Conta e Núcleos do painel de perfil desktop e da página /conta. Todos navegam para /comecar/convite, sem associação automática; conferir convite e consentir continuam necessários.
 

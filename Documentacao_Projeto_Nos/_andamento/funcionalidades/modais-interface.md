@@ -1,6 +1,19 @@
 # Contrato permanente — identificação de modais na interface e no Atlas
 
-Status: vigente por decisão do usuário em 2026-10-18. Inventário vigente em v3.0.1, sem alterações de modais nesta correção; integrado e validado na reconstrução v3.0.0.
+Status: regra permanente vigente por decisão do usuário em 2026-10-18. Inventário atualizado para v3.5.0 em 03/11/2026; a reconstrução v3.0.0 permanece como evidência histórica.
+
+## Atualização vigente — v3.5.0
+
+| Origem | Modal / gatilho | Conteúdo e permissão | Resultado, cancelamento e situação |
+|---|---|---|---|
+| Acordos | Nova proposta | Formulário real sem seleção de categoria; servidor força início como Hábito pendente | Conferir/editar preserva campos; fechar antes de enviar não publica; publicar não aceita por terceiros |
+| Acordos | Enviar convite | Geração existente; gatilho somente para administrador, autorização no servidor/banco | Código real após sucesso, sem envio externo simulado; fechar não aceita convite |
+| Acordos | Cartão de acordo / linha móvel | Termos, situação e ações da própria participação; totais agregados atualizados | Mesmas ações autorizadas nas duas apresentações; fechar não responde nem apaga rascunho da proposta |
+| Acordos | Opções de visualização — removido | Seletor de categoria e diálogo de filtro retirados | Sem gatilho vigente; busca da página permanece |
+| Perfil desktop | Conta, Preferências e Ajuda | Painel nativo real, seis seções, agora com entrada suave e movimento reduzido | Fechar, Escape ou clique fora preserva rota/Núcleo; no celular o perfil navega para `/conta`, sem painel desktop |
+| Navegação móvel | Mais áreas e preferências | Menu real com destinos complementares e versão do manifesto ao final de Sua conta | Selecionar destino fecha o diálogo; versão não é ação |
+
+Calendário mensal e Mostrar/Ocultar senha são controles na própria composição, não modais. A remoção visual do propósito no cabeçalho não remove o diálogo O que nos reúne. Casos e limites estão no [roteiro v3.5.0](../testes-caixa-preta/ajustes-v3-5.md); [registros desta entrega](../registros/registro-v3.5.0-2026-11-03-05-imp-validacao-fun-paridade-e-rastreabilidade.md). Capturas/Atlas finais devem ser vinculados no fechamento; os números históricos abaixo não comprovam esses novos estados.
 
 ## Regra permanente
 
@@ -37,7 +50,7 @@ Diálogo nativo com título acessível, foco contido, botão Fechar, Escape e re
 | /nucleos/[id]/convites | Revogar convite | Confirmação contextual real | Administração; revoga somente convite escolhido |
 | /nucleos/[id]/acordos | Nova proposta | Formulário real de proposta | Publicar não aceita participação |
 | /nucleos/[id]/acordos | Cartão de acordo | Termos, situação e participação reais | Somente Núcleo autorizado |
-| /nucleos/[id]/acordos | Opções de visualização | Filtro real de situação | Navega com filtro validado |
+| /nucleos/[id]/acordos | Opções de visualização — removido em v3.5.0 | Filtro histórico retirado | Sem gatilho vigente |
 | Acordo / detalhe | Registrar momento | Registro real de momento | Participação nos termos vigentes |
 | Acordo / detalhe e período | Administrar acordo | Ativar/encerrar conforme situação | Administração, confirmação e versão |
 | Acordo / termos | Alterar termos | Publicação real de versão | Novo aceite individual; histórico permanece |

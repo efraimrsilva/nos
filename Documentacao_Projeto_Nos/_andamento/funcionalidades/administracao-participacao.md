@@ -1,4 +1,12 @@
-# Administração e participação — contrato implementado — v1.1.0
+# Administração e participação — contrato implementado — v3.5.0
+
+## Atualização vigente — Administração e participação — v3.5.0 — 03/11/2026
+
+Sem mudança na autonomia individual: publicar proposta não aceita por terceiros; administração não pode responder pela pessoa; recusa/saída não cancela coletivamente o acordo; revisão de termos exige novo aceite. Novas propostas do aplicativo iniciam em `habit` e situação pendente, sem seleção de categoria. Progressão individual completa continua planejada.
+
+Acordos oferece Enviar convite somente para administrador, reaproveitando a geração existente. Totais agregados de participação são consultados pela nova RPC `get_nucleus_agreement_response_counts`: somente sessão com vínculo atual em Núcleo aberto, no máximo cinquenta acordos, sem identidades ou respostas individuais de terceiros. Integrante atual que ainda não respondeu ou aceitou termos antigos conta como pendente; saídas não integram o total. Banco e servidor continuam responsáveis por autorização, independentemente de ocultar controles na interface. Migração nova comprovada somente no ambiente local. [Contrato de propostas](proposta-habito.md) e [registro](../registros/registro-v3.5.0-2026-11-03-01-imp-acordos-fun-propostas-e-respostas.md).
+
+## Marcos e contratos históricos
 
 **Fluxo aprovado, adequação pendente — v1.1.0 — 18/10/2026:** [Proposta → Hábito → Experiência → Essência](fluxo-proposta-habito-experiencia-essencia.md) é a sequência obrigatória da evolução da pessoa. A direção substitui categorias independentes e saltos no desenho futuro, mas não reintroduz votação coletiva nem altera os aceites individuais. Critérios de cada passagem e compatibilização de Essência pendentes. O código atual ainda permite proposta direta de Experiência; isso exige adequação posterior.
 

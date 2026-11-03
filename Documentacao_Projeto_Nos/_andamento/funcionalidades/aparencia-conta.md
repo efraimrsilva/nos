@@ -1,4 +1,12 @@
-# Aparência da conta — v3.4.1
+# Aparência da conta — v3.5.0
+
+## Atualização vigente — Aparência — v3.5.0 — 03/11/2026
+
+Preservados os nove temas e o salvamento por conta. O gatilho Apagar minha conta usa sinalização vermelha consistente em todos os temas (texto, ícone, borda/fundo de interação e foco), sem alterar a regra de exclusão. Dias e opções do calendário mensal receberam contraste nos temas escuros. O painel de perfil desktop herda a animação de entrada das seções, e `prefers-reduced-motion` (preferência do sistema por movimento reduzido) elimina os movimentos aplicáveis. A árvore apresenta oito luzes decorativas; o recurso não adiciona estado de domínio.
+
+[Registro de conta](../registros/registro-v3.5.0-2026-11-03-04-imp-conta-fun-feedback-e-acessibilidade.md) · [registro de Agenda](../registros/registro-v3.5.0-2026-11-03-02-imp-agenda-fun-calendario-mensal.md) · [roteiro de caixa preta](../testes-caixa-preta/ajustes-v3-5.md). Resultados automatizados e execução manual permanecem separados. Histórico abaixo preservado.
+
+## Marcos e contratos históricos
 
 Atualização v3.3.1 — 29/10/2026: Aparência abre no painel do perfil desktop ou na seção de /conta, acessível também pelo menu mobile. O seletor mantém nove temas e feedback após operação; descrições redundantes e espaço vazio removidos. Indicações anteriores de atalho independente na navegação são históricas. [Registro](../registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md).
 

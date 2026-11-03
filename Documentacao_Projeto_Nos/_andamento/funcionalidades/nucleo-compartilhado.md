@@ -1,4 +1,14 @@
-# Núcleo compartilhado — v1.0.0
+# Núcleo compartilhado — v3.5.0
+
+## Atualização vigente — Núcleos — v3.5.0 — 03/11/2026
+
+Em `/nucleos`, cada cartão inteiro é um link para o espaço e apresenta tipo, nome e integrantes com iniciais, usando a RPC existente `get_nucleus_management` sob a sessão atual. Consulta uma vez por Núcleo da página, até vinte cartões; falha de integrantes apresenta erro e não nomes simulados. A lista de pessoas tem rolagem interna quando necessário. Propósito deixa de aparecer no cartão, mas continua armazenado. O cartão adicional Um lugar à mesa foi removido; Entrar com convite permanece no cabeçalho.
+
+A partir de 1200 pixels os cartões têm 300 pixels de largura; entre 600 e 1199 pixels distribuem-se em duas colunas; até 599 pixels ficam em uma coluna. A altura acompanha o conteúdo. Nome longo quebra e é limitado visualmente a duas linhas, com nome completo no título/nome acessível; nomes dos integrantes são abreviados visualmente quando necessário. O foco por teclado identifica o link, e movimento reduzido retira a transição de elevação.
+
+[Registro](../registros/registro-v3.5.0-2026-11-03-03-imp-nucleos-fun-cartoes-e-navegacao.md) · [casos M02-LAY-004–006](../testes-caixa-preta/nucleos-layout.md), Não executados pelo usuário. As seções seguintes preservam o histórico; prevalece o [contrato administrativo](administracao-participacao.md) sobre modelos anteriores.
+
+## Marcos e contratos históricos
 
 **Modelo implementado localmente — v1.0.0 — 14/10/2026:** [administração e participação](administracao-participacao.md) é o contrato vigente. Administração compartilhada, escolha individual, novo aceite por versão, saída com história preservada e preferência de autoria estão implementados. Sem votação coletiva ou cancelamento de acordo por saída. [Roteiro de testes de caixa preta](administracao-caixa-preta.md). Publicação, migração remota e operação do piloto permanecem pendentes.
 

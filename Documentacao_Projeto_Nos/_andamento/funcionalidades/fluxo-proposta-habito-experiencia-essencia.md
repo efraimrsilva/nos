@@ -1,4 +1,10 @@
-# Fluxo de evolução — Proposta → Hábito → Experiência → Essência — v1.1.0
+# Fluxo de evolução — Proposta → Hábito → Experiência → Essência — v3.5.0
+
+## Atualização de implementação — v3.5.0 — 03/11/2026
+
+Entrada da sequência aplicada às novas propostas do aplicativo: categoria deixa de ser escolhida e a ação de servidor força `habit`, retornando à situação pendente após publicar. Essa adequação impede início direto em Experiência pela ação alterada, inclusive por campo de categoria adulterado. Não migra acordos antigos, não altera a categoria por pessoa e não implementa as passagens completas Proposta → Hábito → Experiência → Essência. A situação operacional pendente e a categoria técnica `habit` não comprovam que uma pessoa evoluiu de etapa. Critérios, dados individuais e consentimentos previstos no contrato abaixo continuam pendentes. [Contrato atual de proposta](proposta-habito.md) · [registro](../registros/registro-v3.5.0-2026-11-03-01-imp-acordos-fun-propostas-e-respostas.md).
+
+## Marcos e contratos históricos
 
 **Decisão aprovada:** 2026-10-18. **Status:** direção de produto aprovada e documentada; adequação funcional, migração e validação pendentes. **Versão do aplicativo:** 1.1.0, preservada por se tratar de entrega documental.
 

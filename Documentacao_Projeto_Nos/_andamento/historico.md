@@ -1,5 +1,12 @@
 # Histórico de andamento
 
+## 2026-11-03 — v3.5.0 — interface responsiva, auditoria e consolidação
+
+Calendário mensal contínuo, propostas sem Categoria, contagens compartilhadas a cada3s, cartões com integrantes, navegação limpa e versão visível, controles/animações da Conta e oito vagalumes. Auditoria corrigiu nomes/títulos longos e área segura, mantendo diferenças úteis de layout e as mesmas ações. Tipos/build finais,20 testes públicos,7 pgTAP,25 cenários autenticados únicos e cinco verificadores do Atlas aprovados;1 cenário intencionalmente ignorado. Falhas/retestes preservados.54 capturas e24 casos novos de caixa preta não executados pelo usuário. [Registro integral e limites](registros/registro-v3.5.0-2026-11-03-05-imp-validacao-fun-paridade-e-rastreabilidade.md). Sem certificação de Auth remoto, migração remota, Safari físico ou deploy.
+
+**Documentação/publicação:** suspensão documental encerrada por autorização explícita; cinco registros, contratos, Brag, caixa preta e Atlas sincronizados. Commits de aplicação/testes conferidos em f350f4a,00c37aa,eb4a7ef,534f8c8 e cc7c146. Unidade documental conferida no objeto Git, com87 arquivos/54 capturas; fechamento incorporado ao mesmo commit antes do primeiro push. Igualdade com origin/main será conferida no encerramento, sem confundir publicação Git com implantação ou aplicação da RPC hospedada.
+
+
 ## 2026-10-30 — v3.4.0 — edição do nome da própria conta
 
 Dados da conta recebe lápis e edição no próprio modal; ação autenticada valida sessão/conta original, nome de1–80 caracteres e confirmação antes do sucesso. Preserva metadados, atualiza nome/iniciais; Atlas ilustrativo sincronizado. Dois testes autenticados desktop/celular, quatro testes da ação e verificadores do Atlas aprovados; revisão independente focal sem achados. [Registro](registros/registro-v3.4.0-2026-10-30-imp-conta-fun-nome-perfil.md). Sem commit/push/deploy; anteriores preservados.

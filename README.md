@@ -4,7 +4,7 @@ Aplicação web full stack para organizar espaços compartilhados, construir aco
 
 **[Acessar o aplicativo no Netlify](https://noslife.netlify.app)** · **[Tela de acesso](https://noslife.netlify.app/conta)** · **[Código-fonte](src)** · **[Documentação](Documentacao_Projeto_Nos/_andamento/estado.md)**
 
-**Versão do código: 3.4.2.** Projeto em evolução, com fluxos centrais implementados e áreas futuras identificadas como esboços. O endereço hospedado pode apresentar uma versão diferente do repositório; a revisão deste README não certifica um novo deploy.
+**Versão do código: 3.5.0.** Projeto em evolução, com fluxos centrais implementados e áreas futuras identificadas como esboços. O endereço hospedado pode apresentar uma versão diferente do repositório; a revisão deste README não certifica um novo deploy.
 
 ## O problema e a proposta
 
@@ -25,10 +25,12 @@ Por exemplo, o desejo de ter mais tempo de qualidade em família pode se transfo
 | Convites | Geração e gestão de convites, entrada por código, prévia antes do aceite e revogação de convites. |
 | Administração | Múltiplos administradores, nomeação com aceite, gestão de participantes, saída individual e encerramento do Núcleo com preservação do histórico armazenado. |
 | Acordos e Hábitos | Propostas, respostas individuais, gestão do período de teste, registro de momentos, histórico, revisão de termos e encerramento. |
-| Agenda compartilhada | Criação, consulta, edição e remoção de eventos, respostas de participação e organização visual de eventos sobrepostos. |
+| Agenda compartilhada | Calendário mensal com navegação contínua de anos, grade semanal no desktop e lista em telas menores; criação, edição, remoção e respostas de participação. |
 | Perfil e preferências | Edição do próprio nome, nove temas visuais com preferência salva por conta, navegação contextual e totais pessoais. |
 | Exclusão da própria conta | Confirmação explícita, remoção da identificação e do acesso, com tratamento do histórico compartilhado. |
 | Interface | Navegação para computador e celular, componentes compartilhados, estados de carregamento, vazio, erro e sucesso e microinterações com tratamento de movimento reduzido. |
+
+A versão 3.5.0 também consolida propostas sem seleção de categoria, contagens de respostas atualizadas a cada três segundos, cartões de Núcleos com integrantes e correções de nomes/títulos longos e área segura móvel. A versão mostrada na lateral e em Mais vem de `package.json`; conferir manifestos e versão renderizada faz parte de cada publicação. A nova função de contagens exige a migração `20261103122309_agreement_response_counts.sql` no banco de destino; a validação desta entrega comprova somente sua aplicação local. Evidências, matriz mobile/desktop e limites estão no [registro de validação](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.5.0-2026-11-03-05-imp-validacao-fun-paridade-e-rastreabilidade.md).
 
 As funcionalidades possuem diferentes evidências locais e hospedadas, registradas na documentação. Esta tabela descreve a implementação; não equivale à aprovação integral do piloto ou de todos os testes manuais.
 
@@ -51,6 +53,7 @@ As versões dos pacotes abaixo são as fixadas no `package-lock.json`. Os interv
 | Execução | Node.js | Requisito `>=24.15.0`; `.nvmrc` indica a família 24. |
 | Framework web | Next.js | 16.3.6, com App Router. |
 | Interface | React e React DOM | 19.3.0. |
+| Calendário mensal | React Day Picker | 9.14.0, localização em português e janela de anos dinâmica. |
 | Linguagem | TypeScript | 7.0.2, com verificação estrita. |
 | Estilos | Tailwind CSS | 4.3.3, combinado com CSS próprio. |
 | Processamento de estilos | `@tailwindcss/postcss` | 4.3.3. |
@@ -157,6 +160,8 @@ npm run dev
 
 Abra [127.0.0.1:3000](http://127.0.0.1:3000). Sem configuração válida do backend, as rotas privadas bloqueiam o acesso e não simulam persistência. Os scripts preservam a validação dos certificados e usam os certificados confiáveis do sistema; configurações particulares de proxy devem permanecer no ambiente local.
 
+Execute o comando dentro da pasta `nos`, onde está o `package.json`. O script `dev` carrega `.env.local` antes de iniciar o Next.js diretamente: isso também disponibiliza o proxy ao Node.js e evita a falha de localização do pacote observada com `node --run` em caminhos com acentos no Windows.
+
 Para executar uma construção de produção local, use `npm run build` e depois `npm start`. O comando `npm start` serve o último build; para acompanhar alterações nos arquivos, use `npm run dev`.
 
 ### Comandos de verificação
@@ -219,4 +224,4 @@ Nossa Árvore, Memórias, Conexões, Perfis, Manifesto e Cuidado possuem recorte
 
 Há achados de segurança e pendências operacionais abertos, incluindo ajustes de testes autenticados, configuração de proteção local e comprovação de backup/restauração. Consulte a [auditoria de segurança](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md) e o [estado atual](Documentacao_Projeto_Nos/_andamento/estado.md) para prioridades e evidências. A presença de RLS e testes não constitui certificação integral de segurança ou de lançamento.
 
-O histórico operacional anteriormente apresentado nesta página foi preservado em [README anterior — arquivo histórico](Documentacao_Projeto_Nos/_andamento/arquivos/readme-anterior-2026-11-03.md).
+Consulte o [histórico operacional](Documentacao_Projeto_Nos/_andamento/historico.md) e os registros versionados vinculados ao estado atual para acompanhar as entregas anteriores.

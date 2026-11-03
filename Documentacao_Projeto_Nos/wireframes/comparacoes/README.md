@@ -1,5 +1,7 @@
 # Comparações de telas — procedimento permanente
 
+- [v3.5.0 — Consolidação e paridade Atlas desktop/mobile — Telas01/05/12/13/14/18/66/73](v3.5.0-2026-11-03-paridade-tela_01-tela_05-tela_12-tela_13-tela_14-tela_18-tela_66-tela_73/index.html):36capturas Atlas:32 antes/depois e4 recortes de modais depois. Fontes locais sincronizadas; verificadores do Atlas aprovados. Limites da comparação autenticada e do seletor offline explícitos na galeria.
+
 - [v3.4.0 — Nome do perfil — Telas13/66](v3.4.0-2026-10-30-nome-perfil-tela_13-tela_66/index.html): antes real, edição, erro provocado e sucesso do modal Dados da conta; aplicativo local e Atlas em1440/390px. Persistência em conta descartável; nenhum modal novo, sem publicação.
 
 **E-mails — v3.1.3 — 27/10/2026:** [13 mensagens e26 capturas](2026-10-27-emails-personalizados/index.html), com dados fictícios e links sem validade. Identidade consistente em computador/celular; 13 assuntos e13 HTMLs aplicados e conferidos no Supabase, sem certificar entrega externa. Nenhum modal criado ou alterado.

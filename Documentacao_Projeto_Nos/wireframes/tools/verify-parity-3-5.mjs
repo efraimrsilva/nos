@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {chromium} from '@playwright/test';
+import {pathToFileURL} from 'node:url';
+import path from 'node:path';
+const browser=await chromium.launch();try{
+const page=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce'}),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(pathToFileURL(path.resolve('Documentacao_Projeto_Nos/wireframes/atlas/index.html')).href);
+const open=async id=>page.evaluate(id=>{document.querySelectorAll('dialog[open]').forEach(d=>d.close());openScreen(id)},id);
+await open(1);assert.equal(await page.locator('#screen-preview .live-firefly').count(),8);await page.locator('#screen-preview [data-live-password]').click();assert.equal(await page.locator('#screen-preview input[name="password"]').getAttribute('type'),'text');
+await open(18);assert.equal(await page.locator('#screen-preview [data-live-filter]').count(),0);const search=page.locator('#screen-preview [data-live-search]');await search.fill('sem-correspondencia');assert.equal(await page.locator('#screen-preview .live-search-empty').isVisible(),true);assert.match(await page.locator('#screen-preview [data-live-result-count]').innerText(),/^0 acordos/);await search.fill('conversar');assert.equal(await page.locator('#screen-preview .live-search-empty').isVisible(),false);await search.fill('');await page.locator('#screen-preview [data-live-proposal]').first().click();assert.equal(await page.locator('#atlas-live-dialog select[name="category"]').count(),0);await page.keyboard.press('Escape');
+await open(12);await page.locator('[data-width="mobile"]').click();assert.equal(await page.locator('#screen-preview .current-atlas-main').evaluate(el=>getComputedStyle(el).marginLeft),'0px','Main da miniatura isolado da ferramenta');assert.equal(await page.locator('#screen-preview .live-nucleus-members').count(),2);assert.equal(await page.locator('#screen-preview .live-nucleus-invite').count(),0);
+await open(73);assert.ok(!(await page.locator('#screen-preview').innerText()).includes('Um lugar à mesa'));
+await open(14);assert.equal(await page.locator('#screen-preview [data-live-year] option').count(),201);await page.locator('#screen-preview [data-live-year]').selectOption('2126');assert.equal(await page.locator('#screen-preview [data-live-year] option').last().innerText(),'2226');await page.locator('#screen-preview [data-live-day="10"]').click();assert.match(await page.locator('#screen-preview .live-calendar-toolbar strong').innerText(),/2126/);
+for(const width of [320,390,640,768,900,1024,1440]){await page.setViewportSize({width,height:1000});await open(13);await page.locator('[data-width="'+(width>700?'desktop':'mobile')+'"]').click();assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'Sem overflow '+width);}
+assert.deepEqual(errors,[]);console.log(JSON.stringify({password:true,lights:8,proposalCategoryRemoved:true,globalFiltersRemoved:true,localSearch:true,membersCards:2,monthlyWindow:201,dynamicYear:true,widths:[320,390,640,768,900,1024,1440],errors}));
+}finally{await browser.close();}
