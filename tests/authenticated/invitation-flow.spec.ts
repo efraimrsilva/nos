@@ -136,5 +136,5 @@ test("aceite explícito abre Início e lista sem duplicar nem elevar o papel", a
   expect(localSql(`select count(*) from public.nucleus_members where nucleus_id='${invitation.nucleusId}' and user_id='${account.id}' and role='member';`).trim()).toBe("1");
   expect(localSql(`select role from public.nucleus_members where nucleus_id='${invitation.nucleusId}' and user_id='${invitation.ownerId}';`).trim()).toBe("admin");
   await page.getByRole("main").getByRole("link", { name: "Seus Núcleos", exact: true }).click();
-  await expect(page.getByRole("link", { name: "Abrir Núcleo Jardim do convite", exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Jardim do convite", exact: true })).toBeVisible();
 });

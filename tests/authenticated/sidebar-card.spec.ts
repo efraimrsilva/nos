@@ -3,7 +3,7 @@ import { mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { test, expect, localSql } from './fixtures';
 
-const gallery = path.resolve('Documentacao_Projeto_Nos/wireframes/comparacoes/v3.4.2-2026-10-30-barra-lateral-tela_13');
+const gallery = path.resolve('artifacts/sidebar-card');
 test('barra lateral sem cartão do Núcleo preserva contexto e navegação', async ({ page, account }, info) => {
   const desktop = info.project.name === 'desktop';
   await page.setViewportSize(desktop ? { width: 1440, height: 1000 } : { width: 390, height: 844 });
@@ -20,7 +20,7 @@ test('barra lateral sem cartão do Núcleo preserva contexto e navegação', asy
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   if (desktop) {
     const nav = page.getByRole('navigation', { name: 'Áreas do Nós', exact: true });
-    await expect(nav.getByRole('link', { name: 'Início', exact: true })).toHaveAttribute('href', `/nucleos/${nucleus}`);
+    await expect(nav.getByRole('link', { name: 'Início · Jardim de teste', exact: true })).toHaveAttribute('href', `/nucleos/${nucleus}`);
     await page.getByRole('button', { name: 'Ocultar barra lateral', exact: true }).click();
     await expect(page.locator('.desktop-navigation')).toHaveAttribute('inert', '');
     await page.getByRole('button', { name: 'Mostrar barra lateral', exact: true }).click();

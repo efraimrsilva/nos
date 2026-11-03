@@ -3,7 +3,7 @@ import { mkdirSync } from "node:fs";
 import path from "node:path";
 import { test, expect, localSql } from "./fixtures";
 
-test("layout vigente integra áreas reais, esboços, busca, menu e isolamento", async ({ page, account }, testInfo) => {
+test("layout vigente integra áreas reais, esboços, menu e isolamento", async ({ page, account }, testInfo) => {
   test.setTimeout(180_000);
   await page.setViewportSize(testInfo.project.name === "desktop" ? { width: 1440, height: 1000 } : { width: 390, height: 844 });
   const nucleus = randomUUID(), habit = randomUUID(), proposal = randomUUID(), event = randomUUID();
@@ -13,22 +13,20 @@ test("layout vigente integra áreas reais, esboços, busca, menu e isolamento", 
   localSql(`insert into public.nucleus_agreement_participants(agreement_id,user_id,response,accepted_version,responded_at) values('${habit}','${account.id}','accepted',1,now()) on conflict(agreement_id,user_id) do update set response='accepted',accepted_version=1,responded_at=now();`);
   await page.goto(base);
   await expect(page.getByRole("main").getByRole("heading", { name: "Nosso jardim de teste", exact: true })).toBeVisible();
-  await page.getByRole("button", { name: "Buscar uma área" }).click();
-  const searchDialog = page.getByRole("dialog", { name: "Encontre seu caminho" });
-  await expect(searchDialog).toBeVisible();
-  await searchDialog.getByLabel("Buscar uma área do Nós").fill("Agenda");
-  await searchDialog.getByRole("link", { name: "Agenda", exact: true }).click();
+  // A busca global foi retirada; ambas as navegações mantêm acesso direto à Agenda.
+  const navigation = page.getByRole('navigation', { name: testInfo.project.name === 'mobile' ? 'Navegação móvel' : 'Áreas do Nós', exact: true });
+  await navigation.getByRole('link', { name: 'Agenda', exact: true }).click();
   await expect(page).toHaveURL(`${testInfo.project.use.baseURL ?? "http://127.0.0.1:3200"}${base}/agenda`);
   await expect(page.getByRole("heading", { name: "Tempo para o que importa.", exact: true })).toBeVisible();
   if (testInfo.project.name === "mobile") {
     const bottomNavigation = page.getByRole("navigation", { name: "Navegação móvel" });
     for (const label of ["Início", "Acordos", "Agenda", "Pessoas"]) {
-      await expect(bottomNavigation.getByRole("link", { name: label, exact: true })).toBeVisible();
+      await expect(bottomNavigation.getByRole("link", { name: label === "Início" ? /^Início ·/ : label, exact: true })).toBeVisible();
     }
     await page.getByRole("button", { name: "Mais áreas e preferências" }).click();
     const moreMenu = page.getByRole("dialog", { name: "Todos os seus caminhos" });
     for (const label of ["Início", "Acordos", "Agenda", "Pessoas"]) {
-      await expect(moreMenu.getByRole("link", { name: label, exact: true })).toHaveCount(0);
+      await expect(moreMenu.getByRole("link", { name: label === "Início" ? /^Início ·/ : label, exact: true })).toHaveCount(0);
     }
     await expect(moreMenu.getByRole("heading", { name: "Cultivar juntos", exact: true })).toHaveCount(0);
     await expect(moreMenu.getByRole("link", { name: "Seus Núcleos", exact: true })).toBeVisible();
@@ -65,12 +63,15 @@ test("layout vigente integra áreas reais, esboços, busca, menu e isolamento", 
   const titles: Record<string, string> = {
     nucleos:"Seus Núcleos", inicio:"Nosso jardim de teste", agenda:"Tempo para o que importa.", pessoas:"Cada pessoa tem seu lugar.", convites:"Um convite para estar perto.", acordos:"Cada combinado no seu tempo.", habito:"Uma refeição com presença", registrar:"Registrar momento", revisar:"Termos e histórico do acordo", confirmar:"Período e administração do hábito",
     arvore:"Raízes no que vivemos.", memorias:"Há instantes que ficam.", conexoes:"Conhecer para cuidar.", perfis:"Um jeito único de estar no Nós.", manifesto:"O que escolhemos cultivar.", cuidado:"Conversar também é um cuidado.",
-    comecar:"Como você quer começar?", tipo:"Que relação vocês têm?", proposito:"Qual o propósito de vocês?", convite:"Você recebeu um convite?", conta:"Seu espaço também merece cuidado.", configuracoes:"Privacidade com clareza.", privacidade:"Privacidade e visibilidade", seguranca:"Conta e segurança", ajuda:"Ajuda e suporte", sair:"Sair de um Núcleo",
+    comecar:"Como você quer começar?", tipo:"Que relação vocês têm?", proposito:"Qual o propósito de vocês?", convite:"Você recebeu um convite?", conta:"Conta, Preferências e Ajuda", configuracoes:"Conta, Preferências e Ajuda", privacidade:"Conta, Preferências e Ajuda", seguranca:"Conta, Preferências e Ajuda", ajuda:"Conta, Preferências e Ajuda", sair:"Sair de um Núcleo",
   };
   await page.emulateMedia({ reducedMotion: "reduce" });
   for (const [label, route] of routes) {
     await page.goto(route);
     await expect(page.getByRole("main").getByRole("heading", { level: 1 })).toHaveText(titles[label]);
+    // Endereços antigos continuam compatíveis e encaminham à seção da Conta consolidada.
+    const legacyDestination: Record<string, string> = { configuracoes: '/conta', privacidade: '/conta#privacidade', seguranca: '/conta#entrar-e-recuperar', ajuda: '/conta#ajuda-e-suporte' };
+    if (legacyDestination[label]) await expect(page).toHaveURL(new URL(legacyDestination[label], 'http://127.0.0.1:3200').href);
     // O Next pode manter um fallback oculto durante o streaming; conte a estrutura realmente visível.
     await expect(page.locator("[data-layout='current']:visible")).toHaveCount(1);
     await expect(page.getByRole("main")).toHaveCount(1);

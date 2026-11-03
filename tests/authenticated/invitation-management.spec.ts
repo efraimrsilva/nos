@@ -97,7 +97,7 @@ test("criação, convite, aceite e revogação preservam vínculo e isolamento",
     expect(localSql(`select code from public.nucleus_invitations where nucleus_id='${nucleusId}' and revoked_at is null;`).trim()).not.toBe(code);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await generation.getByRole("button", { name: "Fechar Preparar convite", exact: true }).click();
-    await page.getByRole("link", { name: "Início", exact: true }).click();
+    await page.getByRole("link", { name: /^Início ·/ }).click();
     await expect(page.getByRole("heading", { name: "Jardim compartilhado" })).toBeVisible();
     await page.screenshot({ path: `${gallery}/app-inicio-${testInfo.project.name}.png`, fullPage: true });
   } finally {

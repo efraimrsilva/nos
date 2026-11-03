@@ -1,5 +1,7 @@
 "use client";
 
+// A versão exibida acompanha o manifesto também nas telas de carregamento e erro.
+import projectManifest from "../../../package.json";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -10,6 +12,8 @@ import { AccountTreeLights } from "@/features/onboarding/components/account-tree
 
 import { AccountPopover } from "@/features/controls/components/account-popover";
 import type { NavigationCounts } from "@/features/navigation/counts";
+
+const buildVersion = projectManifest.version;
 
 type NavItem = { label: string; href: string; icon: LucideIcon; tone: string; planned?: boolean };
 type ShellProps = { children: ReactNode; accountMenuContent?: ReactNode; lastNucleus?: { id: string; name: string } | null; showTree?: boolean; nucleusName?: string; userId?: string; counts?: NavigationCounts | null; profileLabel?: string };
@@ -41,6 +45,12 @@ export function ApplicationShell({ children, accountMenuContent, lastNucleus, sh
   const previousNucleus = userId && !showTree ? lastNucleus : null;
   const nucleusId = routeNucleusId ?? previousNucleus?.id;
   const nucleusName = routeNucleusName ?? previousNucleus?.name;
+  const fullNucleusName = nucleusName?.replace(/\s+/g, " ").trim() ?? "";
+  const shortNucleusName = (limit: number) => {
+    const characters = Array.from(fullNucleusName);
+    return characters.length > limit ? characters.slice(0, limit - 1).join("") + "…" : fullNucleusName;
+  };
+  const homeLabel = fullNucleusName ? "Início · " + fullNucleusName : "Início";
   const base = nucleusId ? `/nucleos/${nucleusId}` : "/nucleos";
   const to = (area: string) => nucleusId ? `${base}/${area}` : "/nucleos";
   const publicEntry = (pathname === "/conta" && showTree) || pathname.startsWith("/conta/") || pathname === "/boas-vindas";
@@ -96,8 +106,9 @@ export function ApplicationShell({ children, accountMenuContent, lastNucleus, sh
   const links = (inDialog = false) => (inDialog && nucleusId ? groups
     .map(group => ({ ...group, items: group.items.filter(item => !mobileItems.some(mobile => mobile.href === item.href)) }))
     .filter(group => group.items.length > 0) : groups).map(group => <section className="navigation-group" data-navigation-group={group.title === "Sua conta" ? "account" : undefined} key={group.title}>
-    <h2>{group.title}</h2>{group.items.map(item => <Link key={item.label} href={item.href} prefetch={false} aria-describedby={countDescriptionId(item.label)} aria-current={isActive(item) ? "page" : undefined} onClick={() => { if (inDialog) menu.current?.close(); }} className="navigation-link"><item.icon size={20} strokeWidth={2.5} aria-hidden="true" className={`nav-icon tone-${item.tone}`} /><span>{item.label}</span>{count(item.label)}{item.planned && <span className="nav-planned" aria-label="Esboço">○</span>}</Link>)}
+    <h2>{group.title}</h2>{group.items.map(item => <Link key={item.label} href={item.href} prefetch={false} aria-label={item.label === "Início" ? homeLabel : undefined} aria-describedby={countDescriptionId(item.label)} aria-current={isActive(item) ? "page" : undefined} onClick={() => { if (inDialog) menu.current?.close(); }} className="navigation-link"><item.icon size={20} strokeWidth={2.5} aria-hidden="true" className={`nav-icon tone-${item.tone}`} /><span>{item.label}{item.label === "Início" && fullNucleusName && <small className="nav-nucleus-name" title={fullNucleusName}>{shortNucleusName(18)}</small>}</span>{count(item.label)}{item.planned && <span className="nav-planned" aria-label="Esboço">○</span>}</Link>)}
 
+    {group.title === "Sua conta" && <p className="navigation-build-version">Versão {buildVersion}</p>}
   </section>);
   const brand = <Link href={publicEntry ? "/boas-vindas" : base} className="current-brand" aria-label="Nós — início"><span><Leaf size={26} strokeWidth={2.3} aria-hidden="true" /></span>nós<span className="brand-period">.</span></Link>;
 
@@ -124,7 +135,7 @@ export function ApplicationShell({ children, accountMenuContent, lastNucleus, sh
       <main key={pathname} id="conteudo" tabIndex={-1} className={`current-content ${/^\/(?:comecar|configuracoes|ajuda|conta)(?:\/|$)/.test(pathname) || /\/(?:registrar|confirmar|revisar|sair)$/.test(pathname) ? "current-content-focused" : ""}`}>{children}</main>
       {showFooter && <footer className="current-footer">{footer}</footer>}
     </div>
-    <nav className="mobile-navigation" aria-label="Navegação móvel">{mobileItems.map(item => <Link key={item.label} href={item.href} prefetch={false} aria-describedby={countDescriptionId(item.label)} aria-current={isActive(item) ? "page" : undefined}><item.icon size={22} strokeWidth={2.5} className={`tone-${item.tone}`} aria-hidden="true" /><span className="mobile-nav-label">{item.label}{count(item.label, true)}</span></Link>)}<button type="button" disabled={!ready} aria-current={moreActive ? "page" : undefined} onClick={() => menu.current?.showModal()} aria-haspopup="dialog" aria-label="Mais áreas e preferências"><Menu size={23} className="tone-neutral" aria-hidden="true" /><span>Mais</span></button></nav>
+    <nav className="mobile-navigation" aria-label="Navegação móvel">{mobileItems.map(item => <Link key={item.label} href={item.href} prefetch={false} aria-label={item.label === "Início" ? homeLabel : undefined} aria-describedby={countDescriptionId(item.label)} aria-current={isActive(item) ? "page" : undefined}><item.icon size={22} strokeWidth={2.5} className={`tone-${item.tone}`} aria-hidden="true" /><span className="mobile-nav-label">{item.label}{item.label === "Início" && fullNucleusName && <small className="nav-nucleus-name" title={fullNucleusName}>{shortNucleusName(12)}</small>}{count(item.label, true)}</span></Link>)}<button type="button" disabled={!ready} aria-current={moreActive ? "page" : undefined} onClick={() => menu.current?.showModal()} aria-haspopup="dialog" aria-label="Mais áreas e preferências"><Menu size={23} className="tone-neutral" aria-hidden="true" /><span>Mais</span></button></nav>
     <dialog ref={menu} className="navigation-dialog" aria-labelledby="navigation-dialog-title"><div className="dialog-heading"><h2 id="navigation-dialog-title">Todos os seus caminhos</h2><button type="button" aria-label="Fechar menu" onClick={() => menu.current?.close()}><X aria-hidden="true" /></button></div><nav aria-label="Todas as áreas">{links(true)}</nav></dialog>
     <dialog ref={notices} className="current-dialog" aria-labelledby="notice-dialog-title"><div className="dialog-heading"><span className="color-icon tone-orange"><Bell aria-hidden="true" /></span><button type="button" aria-label="Fechar notificações" onClick={() => notices.current?.close()}><X aria-hidden="true" /></button></div><p className="prototype-notice">Esboço de funcionalidade · ainda não desenvolvido</p><h2 id="notice-dialog-title">Novidades, no seu tempo.</h2><p>Este será o lugar para acompanhar convites, propostas e cuidados que pedem sua atenção. A central de notificações ainda não consulta nem envia avisos.</p><Link href={nucleusId ? to("acordos") : "/nucleos"} onClick={() => notices.current?.close()} className="secondary-action">{nucleusId ? "Consultar Acordos" : "Abrir Seus Núcleos"}<ArrowRight size={17} aria-hidden="true" /></Link></dialog>
   </div>;

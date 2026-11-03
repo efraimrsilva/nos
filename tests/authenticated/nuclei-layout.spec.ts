@@ -7,7 +7,7 @@ test('Núcleos sem painel lateral mantém criação e convite acessíveis', asyn
   await page.goto('/nucleos');
   await expect(page.getByRole('heading', { name: 'Seus Núcleos', exact: true })).toBeVisible();
   await expect(page.locator('.nuclei-intention')).toHaveCount(0);
-  await expect(page.getByRole('link', { name: /Um lugar à mesa/ })).toBeVisible();
+  await expect(page.getByRole('link', { name: /Um lugar à mesa/ })).toHaveCount(0);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   const invitation = page.locator('.nuclei-header-actions').getByRole('link', { name: 'Entrar com convite', exact: true });
   const creation = page.getByRole('button', { name: 'Criar um núcleo', exact: true });
@@ -18,7 +18,7 @@ test('Núcleos sem painel lateral mantém criação e convite acessíveis', asyn
   expect(left!.x + left!.width).toBeLessThanOrEqual(right!.x);
   expect(Math.abs(left!.y - right!.y)).toBeLessThan(2);
   // Evidência da rota protegida com conta descartável criada e removida pela fixture local.
-  const output = path.resolve('Documentacao_Projeto_Nos/wireframes/comparacoes/v3.3.3-2026-10-30-convites-tela_12-tela_13-tela_66');
+  const output = path.resolve('artifacts/nuclei-layout');
   mkdirSync(output, { recursive: true });
   await page.screenshot({ path: path.join(output, `depois-app-${info.project.name}.png`), fullPage: true });
   await page.getByRole('button', { name: 'Criar um núcleo', exact: true }).click();
