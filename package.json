@@ -6,7 +6,7 @@
     "node": ">=24.15.0"
   },
   "scripts": {
-    "dev": "node --env-file-if-exists=.env.local --run dev:local --",
+    "dev": "node scripts/dev.mjs",
     "dev:local": "node --use-system-ca --use-env-proxy node_modules/next/dist/bin/next dev --hostname 127.0.0.1",
     "dev:supabase": "node scripts/local-supabase.mjs",
     "supabase:start": "supabase start",
