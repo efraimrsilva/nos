@@ -10,7 +10,12 @@ export function AccountPopover({ children, profileLabel }: { children: ReactNode
   const id = useId();
   const panel = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
-  useEffect(() => { panel.current?.hidePopover(); }, [pathname]);
+  const previousPath = useRef(pathname);
+  useEffect(() => {
+    // O popover nativo pode abrir antes dos efeitos; só uma navegação deve encerrá-lo.
+    if (previousPath.current !== pathname) panel.current?.hidePopover();
+    previousPath.current = pathname;
+  }, [pathname]);
   useEffect(() => {
     const mobile = window.matchMedia("(max-width: 700px)");
     const close = () => { if (mobile.matches) panel.current?.hidePopover(); };

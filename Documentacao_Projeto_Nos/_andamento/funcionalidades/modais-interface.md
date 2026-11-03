@@ -98,3 +98,7 @@ Todas as funções abaixo são reais no aplicativo; o Atlas usa exemplos offline
 | Conta66/popover/Mais, abaixo saída | Encerrar Núcleo para todos | Administrador; close_nucleus valida nome atual e ciência | Mesmos avisos/efeitos; estilo vermelho e animação de Apagar minha conta; sucesso /nucleos?resultado=encerrado; cancelar não grava |
 
 Removidos: gatilho combinado Nome e propósito e acesso Pessoas na navegação. Entrada por convite da Conta retirada, mas rota e atalho em Seus Núcleos preservados. Conta/popover/Mais reutilizam AccountPreferences com IDs distintos. Links no Mais encerram a camada anterior, inclusive ao navegar para preferências de autoria. Diálogos, microinterações e movimento reduzido seguem os componentes existentes.
+
+## Fechamento externo — v3.6.1
+
+Todos os modais atuais e futuros fecham por clique ou toque externo, além de X e Escape. DialogBackdropDismiss, inscrito uma vez no layout raiz, cobre ActionDialog, notificações, Mais e diálogos nativos criados depois da hidratação. Gesto deve começar e terminar fora do mesmo diálogo; padding/conteúdo e arraste iniciado dentro não fecham. Somente a camada superior fecha. close() mantém foco, onClose e regras próprias de reset/cancelamento; fechar não equivale a confirmar uma operação. Popover mantém comportamento externo nativo. Atlas replica a regra offline. [Registro](../registros/registro-v3.6.1-2026-11-03-imp-modais-fun-fechamento-externo.md).

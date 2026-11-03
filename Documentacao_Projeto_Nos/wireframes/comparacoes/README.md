@@ -85,3 +85,5 @@ Capturas devem usar exemplos sem informações privadas, tokens ou códigos reai
 - [v3.4.3 — Informe de espera — tela13](v3.4.3-2026-10-30-carregamento-tela_12-tela_13/index.html): antes/depois do componente isolado e Atlas Web/Celular; não certifica jornada autenticada/rede.
 
 - [v3.6.0 — 03/11/2026 — organização do Núcleo, Telas13/66/71/73](v3.6.0-2026-11-03-nucleo-tela_13-tela_66-tela_71-tela_73/index.html): antes/Atlas/depois; identidade, integrantes e controles da Conta/Mais, exemplos locais e limites explicitados na galeria.
+
+- [v3.6.1 — 03/11/2026 — fechamento externo de modais](v3.6.1-2026-11-03-modais-tela_01-tela_13-tela_66/index.html): Atlas antes/depois e modais reais; clique/toque externo, padding, camadas e foco.

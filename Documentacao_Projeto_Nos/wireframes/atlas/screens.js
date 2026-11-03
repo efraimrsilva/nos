@@ -267,3 +267,6 @@ for(const id of [58,59])screens.find(s=>s.id===id).rule+=' v3.6.0: acesso admini
 screens.find(s=>s.id===71).rule+=' v3.6.0: saída também disponível em modal real na Conta, popover e Mais; rota direta preservada como alternativa.';
 const autonomy=journeys.find(j=>j.name==='Autonomia e proteção');
 if(autonomy){autonomy.ids=[13,73,66,71,12,67,69,70];autonomy.rule='v3.6.0: Início13 → Ver integrantes73 (modal de gestão); Conta66 → convites59, saída71 ou encerramento administrativo → Seus Núcleos12. Aparência, privacidade, exclusão da conta e ajuda permanecem. Nomeação depende de aceite; saída individual não cancela acordos. Último administrador é substituído por sorteio; último participante fecha o Núcleo. Encerramento exige nome e ciência, preserva história e contas. /pessoas é somente compatibilidade.';}
+
+// Regra compartilhada da interface atual, inclusive modais futuros.
+for(const screen of screens)screen.rule+=' v3.6.1: Modais fecham por clique/toque iniciado e concluído fora da caixa, além de X/Escape; padding e arraste iniciado dentro não fecham. Em camadas, fecha somente o diálogo superior; foco e regras próprias de cancelamento preservados.';

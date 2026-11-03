@@ -82,3 +82,7 @@ Não é execução dos casos de caixa preta pelo usuário. M02-ORG-001–008 e M
 ## 2026-11-03 — v3.6.0 — reparo técnico de M02-ORG-002/003
 
 Usuário informou falha ao editar nome e propósito, sem dados suficientes para registrar dispositivo/caso específico como execução completa. Preservado relato: ambos não salvavam. Diagnóstico técnico confirmou RPC ausente no banco hospedado configurado (404/PGRST202). Migração específica aplicada; gravação remota com administrador temporário, preservação do outro campo e rejeição de participante/vazio aprovadas em transação desfeita. API passou a reconhecer função, negando chamada anônima como esperado. [Evidências e limites](../registros/registro-v3.6.0-2026-11-03-imp-banco-hospedado-fun-edicao-identidade.md). Casos manuais continuam aguardando execução/reteste explícito pelo usuário; não registrar aprovação presumida.
+
+## 2026-11-03 — v3.6.1 — evidência automatizada de fechamento externo
+
+M05-MOD-001–005 em [modais-fechamento.md](modais-fechamento.md) Não executados pelo usuário. TDD:4 falhas esperadas antes/4 aprovados depois. Suíte pública:210 aprovados/2 falhas em expectativa antiga de vermelho; ajuste de teste seguido de212 aprovados. Autenticados:17 aprovados/2 falhas na abertura inicial/1 ignorado; proteção de hidratação corrigida, reteste13 aprovados/1 ignorado intencionalmente. [Registro](../registros/registro-v3.6.1-2026-11-03-imp-modais-fun-fechamento-externo.md). Sem certificar aparelho físico/Safari/deploy.

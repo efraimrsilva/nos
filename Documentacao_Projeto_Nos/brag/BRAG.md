@@ -340,3 +340,10 @@ Problema: start servia compilação com layout antigo. Contribuição: diagnóst
 - **Contribuição:** diagnóstico por HTTP/metadados e aplicação apenas da migração ausente com integridade/histórico transacionais, preservando permissões.
 - **Resultado verificado:** função reconhecida pela API; nome/propósito independentes gravados por administrador em transação de teste desfeita; participante e nome vazio bloqueados; dados existentes preservados por comparação de hashes. Reteste na conta do usuário pendente.
 - **Evidência:** [registro do reparo](../_andamento/registros/registro-v3.6.0-2026-11-03-imp-banco-hospedado-fun-edicao-identidade.md). Sem medição de impacto de usabilidade ou novo deploy.
+
+## 2026-11-03 — v3.6.1 — fechamento externo compartilhado
+
+- **Problema:** modais exigiam X/Escape e novos diálogos poderiam divergir; abertura inicial também podia ser encerrada por efeito de hidratação.
+- **Contribuição:** listener único no layout, cobrindo diálogos atuais/futuros, com gesto externo validado e prevenção de fechamento por arraste interno; Atlas e regra permanente sincronizados; navegação fecha janelas somente em mudança real de rota.
+- **Resultado verificado:** quatro testes públicos específicos e suíte212 aprovados;13 cenários autenticados aprovados/1 ignorado intencionalmente após correção, incluindo Mais/notificações/Conta/camadas e animações. Benefício esperado: fechamento consistente com menos deslocamento do ponteiro; sem métrica de usabilidade inventada.
+- **Evidência:** [registro](../_andamento/registros/registro-v3.6.1-2026-11-03-imp-modais-fun-fechamento-externo.md). Testes de caixa preta do usuário permanecem pendentes.

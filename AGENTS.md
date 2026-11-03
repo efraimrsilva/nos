@@ -73,3 +73,9 @@
 - Informar ao usuário o resultado, as validações realizadas, as pendências reais e a situação de publicação. Referenciar os arquivos e registros relevantes; não anunciar como concluído o que depende de uma ação ou comprovação ainda pendente.
 
 Estas diretrizes permanecem válidas para as próximas entregas, salvo orientação explícita diferente do usuário.
+
+## Regra permanente de fechamento dos modais
+
+- Todos os modais atuais e futuros devem fechar por clique ou toque fora da caixa, além de X e Escape. Reutilizar ActionDialog e o comportamento global DialogBackdropDismiss, montado no layout raiz; diálogos nativos novos recebem automaticamente a mesma regra.
+- Um gesto deve começar e terminar fora do mesmo diálogo. Conteúdo/padding e arraste iniciado dentro não fecham; modais aninhados fecham somente o superior. Manter foco e callbacks/regras de cancelamento já definidos por cada formulário, sem executar confirmação destrutiva por fechar.
+- Qualquer nova implementação de modal deve ser conferida em desktop/celular e sincronizada no Atlas com essa regra. Não criar um modal paralelo que ignore o comportamento compartilhado.

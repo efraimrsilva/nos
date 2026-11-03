@@ -233,7 +233,7 @@ function habitProposalLayout(screen,interactive){
 const currentAreas=[['Início',13,'House'],['Acordos',18,'Heart'],['Agenda',14,'CalendarDays'],['Árvore e memórias',38,'TreeDeciduous'],['Conexões e perfis',44,'Network'],['Manifesto e cuidado',55,'Heart']];
 const livePlannedLabel='Esboço de funcionalidade · ainda não desenvolvido';
 const liveBadge=(label,tone='')=>`<span class="live-badge ${tone}">${escapeHtml(label)}</span>`;
-const liveBuildVersion='3.6.0';
+const liveBuildVersion='3.6.1';
 const liveModalLabel='<small class="live-modal-label">Modal</small>';
 const liveProposalButton=()=>`<button class="live-button" data-atlas-modal data-live-proposal>Nova proposta ${liveModalLabel}</button>`;
 const liveCreateNucleusButton=()=>`<button class="live-button" data-atlas-modal data-live-create-nucleus>Criar Núcleo ${liveModalLabel}</button>`;
@@ -456,3 +456,10 @@ document.addEventListener('click',event=>{const target=event.target.closest('[da
 // A busca é local aos exemplos carregados, sem filtros por categoria ou situação.
 function filterLiveAgreements(workspace){const query=workspace.querySelector('[data-live-search]').value.trim().toLocaleLowerCase('pt-BR');let visible=0;workspace.querySelectorAll('.live-agreement-card').forEach(card=>{card.hidden=!card.textContent.toLocaleLowerCase('pt-BR').includes(query);if(!card.hidden)visible++;});workspace.querySelector('.current-atlas-panel-layout').hidden=visible===0;workspace.querySelector('.live-search-empty').hidden=visible>0;workspace.querySelector('[data-live-result-count]').textContent=visible+' '+(visible===1?'acordo nesta página':'acordos nesta página')+' · a busca considera os registros carregados.';}
 document.addEventListener('input',event=>{if(event.target.hasAttribute('data-live-search'))filterLiveAgreements(event.target.closest('.current-atlas-agreements'));});
+
+// No Atlas offline, todos os diálogos seguem a mesma regra de clique/toque externo do aplicativo.
+let atlasDialogPressedOutside=null;
+const atlasDialogOutside=(dialog,event)=>{const box=dialog.getBoundingClientRect();return event.clientX<box.left||event.clientX>box.right||event.clientY<box.top||event.clientY>box.bottom;};
+document.addEventListener('pointerdown',event=>{atlasDialogPressedOutside=event.isPrimary&&event.button===0&&event.target instanceof HTMLDialogElement&&event.target.open&&atlasDialogOutside(event.target,event)?event.target:null;},true);
+document.addEventListener('pointercancel',()=>{atlasDialogPressedOutside=null;},true);
+document.addEventListener('click',event=>{const dialog=atlasDialogPressedOutside;atlasDialogPressedOutside=null;if(dialog?.open&&event.target===dialog&&event.detail>0&&atlasDialogOutside(dialog,event))dialog.close();},true);

@@ -1,5 +1,18 @@
 # Estado do Projeto Nós
 
+## Fechamento externo de modais e publicação — v3.6.1 — 2026-11-03
+
+**Escopo autorizado:** concluir fechamento externo atual/futuro e publicar todas as alterações anteriores no GitHub. Reorganização3.6.0 registrada no commit16f47bd, fontes/identidade/migração conferidos no objeto Git. Unidade de modais3.6.1 confirmada no objeto Git pelo título fix(modais): fechar por clique ou toque fora da caixa; este fechamento é incorporado ao mesmo commit antes do push. **DOCS_DIR:**Documentacao_Projeto_Nos, branch main.
+
+**Implementado:** DialogBackdropDismiss no layout raiz; click/toque começa e termina fora, padding/arraste interno preservados; aninhados fecham só superior. X/Escape/foco e regras próprias de reset continuam. Atlas e AGENTS incluem regra permanente. Corrigida condição de hidratação: diálogos/popover só fecham automaticamente em mudança real de rota, notificações aguardam hidratação.
+
+**Validação:** quatro falhas TDD esperadas, quatro testes novos aprovados depois; suíte completa212 aprovada após corrigir expectativa antiga de vermelho. Rodada autenticada20:17 aprovados/2 falhas de hidratação/1 ignorado; após correção13 aprovados/1 ignorado na seleção final. Tipos e build3.6.1 aprovados. Verificadores Atlas de modais/Visão global/MVP aprovados. Revisão independente estática e releitura final dos guards sem bloqueios. Nenhuma migração nova/remota nesta unidade.
+
+**Git:** fontes do fechamento externo conferidos no objeto do commit; nenhuma unidade pronta para commit anterior permanece pendente. Push autorizado para origin/main, igualdade remota a conferir no encerramento. Não repetir publicação da migração já aplicada. Próximo passo após publicação: aproximar seta Ver integrantes e substituir cartões por lista compacta com Nome/Papel/Nomeação, sem botão Ver participação; nome abre detalhes e ações. Pedidos posteriores tratados como unidade local, sem inferir nova publicação.
+
+**Contador:**12 conclusões anteriores desde29/10; atual em execução, com histórico165/marco100 preservados. [Registro](registros/registro-v3.6.1-2026-11-03-imp-modais-fun-fechamento-externo.md). Blocos abaixo são históricos.
+
+
 ## Reparo da edição de nome e propósito no banco configurado — v3.6.0 — 2026-11-03
 
 **Objetivo/resultado:** restaurar gravação de identidade relatada pelo usuário. Servidor3000 usa Supabase hospedado pyvohqgcwkcfzbtkmbvx. Causa reproduzida:404/PGRST202 e função update_nucleus_identity ausente; a migração20261103160000 só existia localmente. Dependências administrativas conferidas e migração específica aplicada no destino, com função/permissões/histórico na mesma transação e recarga do esquema. Nenhuma outra migração, reset, commit/push/deploy.

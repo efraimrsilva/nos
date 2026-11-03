@@ -28,8 +28,14 @@ export function ApplicationShell({ children, accountMenuContent, mobileAccountMe
   useEffect(() => { setReady(true); }, []);
   const menu = useRef<HTMLDialogElement>(null);
   const notices = useRef<HTMLDialogElement>(null);
+  const previousPath = useRef(pathname);
   // Links dos controles compartilhados também encerram a camada móvel ao mudar de rota.
-  useEffect(() => { setSidebarHidden(false); menu.current?.close(); notices.current?.close(); }, [pathname]);
+  useEffect(() => {
+    setSidebarHidden(false);
+    // A hidratação inicial não deve fechar um diálogo que a pessoa acabou de abrir.
+    if (previousPath.current !== pathname) { menu.current?.close(); notices.current?.close(); }
+    previousPath.current = pathname;
+  }, [pathname]);
   // O endereço fornece apenas contexto visual; a sessão e o vínculo são validados em cada página/ação.
   const routeNucleusId = /^\/nucleos\/([0-9a-f-]{36})(?:\/|$)/i.exec(pathname)?.[1];
   useEffect(() => {
@@ -131,7 +137,7 @@ export function ApplicationShell({ children, accountMenuContent, mobileAccountMe
     {counts !== undefined && (Object.keys(countDescriptions) as (keyof NavigationCounts)[]).map(key => <p className="sr-only" id={`navigation-total-${key}`} key={key}>{counts ? `${counts[key].toLocaleString("pt-BR")} · ${countDescriptions[key]}.` : "Total indisponível. Tente atualizar a página."}</p>)}
     <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <aside id="desktop-navigation" className="desktop-navigation" inert={sidebarHidden}>{brand}<p className="navigation-caption">CULTIVAR JUNTOS</p><nav aria-label="Áreas do Nós">{links()}</nav></aside>
-    <div className="current-body"><header className="current-header"><div className="desktop-header-start"><button type="button" className="desktop-sidebar-toggle" aria-label={sidebarHidden ? "Mostrar barra lateral" : "Ocultar barra lateral"} title={sidebarHidden ? "Mostrar barra lateral" : "Ocultar barra lateral"} aria-controls="desktop-navigation" aria-expanded={!sidebarHidden} onClick={() => setSidebarHidden(hidden => !hidden)}>{sidebarHidden ? <PanelLeftOpen size={20} aria-hidden="true" /> : <PanelLeftClose size={20} aria-hidden="true" />}</button><div className="desktop-breadcrumb"><Link href={base}>{nucleusName ?? "Meu espaço"}</Link><span>/</span><span>{active}</span></div></div><div className="mobile-current-brand">{brand}<span>{nucleusName ?? "Seu espaço"}</span></div><div className="current-header-actions"><button type="button" aria-haspopup="dialog" aria-label="Notificações — esboço" onClick={() => notices.current?.showModal()}><Bell size={20} className="tone-orange" aria-hidden="true" /><span className="notification-dot" /></button>{accountMenuContent ? <AccountPopover profileLabel={profileLabel}>{accountMenuContent}</AccountPopover> : <Link href="/conta" aria-label="Minha conta"><span className="account-avatar">{profileLabel ?? <Heart size={17} aria-hidden="true" />}</span></Link>}</div></header>
+    <div className="current-body"><header className="current-header"><div className="desktop-header-start"><button type="button" className="desktop-sidebar-toggle" aria-label={sidebarHidden ? "Mostrar barra lateral" : "Ocultar barra lateral"} title={sidebarHidden ? "Mostrar barra lateral" : "Ocultar barra lateral"} aria-controls="desktop-navigation" aria-expanded={!sidebarHidden} onClick={() => setSidebarHidden(hidden => !hidden)}>{sidebarHidden ? <PanelLeftOpen size={20} aria-hidden="true" /> : <PanelLeftClose size={20} aria-hidden="true" />}</button><div className="desktop-breadcrumb"><Link href={base}>{nucleusName ?? "Meu espaço"}</Link><span>/</span><span>{active}</span></div></div><div className="mobile-current-brand">{brand}<span>{nucleusName ?? "Seu espaço"}</span></div><div className="current-header-actions"><button type="button" disabled={!ready} aria-haspopup="dialog" aria-label="Notificações — esboço" onClick={() => notices.current?.showModal()}><Bell size={20} className="tone-orange" aria-hidden="true" /><span className="notification-dot" /></button>{accountMenuContent ? <AccountPopover profileLabel={profileLabel}>{accountMenuContent}</AccountPopover> : <Link href="/conta" aria-label="Minha conta"><span className="account-avatar">{profileLabel ?? <Heart size={17} aria-hidden="true" />}</span></Link>}</div></header>
       <main key={pathname} id="conteudo" tabIndex={-1} className={`current-content ${/^\/(?:comecar|configuracoes|ajuda|conta)(?:\/|$)/.test(pathname) || /\/(?:registrar|confirmar|revisar|sair)$/.test(pathname) ? "current-content-focused" : ""}`}>{children}</main>
       {showFooter && <footer className="current-footer">{footer}</footer>}
     </div>

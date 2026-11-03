@@ -792,3 +792,7 @@ Revisão de código/configuração, 13 migrações, catálogos locais e remotos 
 ## 2026-11-03 — v3.6.0 — reparo operacional da edição de identidade
 
 Função update_nucleus_identity ausente no Supabase usado pelo servidor3000:404/PGRST202 reproduzido. Aplicada somente migração20261103160000, com histórico/permissões transacionais e recarga do esquema. Hashes das linhas existentes preservados;5 Núcleos/6 vínculos mantidos. Teste remoto descartável em transação confirmou nome/propósito independentes, rejeição de vazio/participante comum e ROLLBACK. Sem código novo, incremento de versão, commit/push/deploy ou aplicação de migrações alheias. [Registro](registros/registro-v3.6.0-2026-11-03-imp-banco-hospedado-fun-edicao-identidade.md). Reteste do usuário pendente.
+
+## 2026-11-03 — v3.6.1 — modais por clique/toque externo
+
+Regra global para modais atuais/futuros; fechamento somente com gesto iniciado e terminado fora, preservando padding/arraste e camada inferior. X/Escape/foco e callbacks existentes mantidos; navegação/popover protegidos contra fechamento na hidratação inicial. Suíte pública212 aprovada; seleção autenticada final13 aprovada/1 ignorada intencionalmente após correção; falhas anteriores preservadas no registro. [Registro](registros/registro-v3.6.1-2026-11-03-imp-modais-fun-fechamento-externo.md). Publicação em fechamento; ajustes posteriores de seta/lista aguardam esse passo.

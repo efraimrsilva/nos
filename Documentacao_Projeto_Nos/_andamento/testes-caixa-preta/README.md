@@ -37,3 +37,5 @@ Formato de retorno: `M01-013 | Falhou | ambiente/navegador/dispositivo | observa
 MVP05: [M05-PER-010 a013 em conta-perfil.md](conta-perfil.md). Edição do próprio nome, persistência, cancelamento, falha/reenvio e formulário após troca de conta. Todos **Não executados pelo usuário**; automação local registrada separadamente em resultados.md.
 
 - v3.4.2: [Conta/perfil — M05-PER-014](conta-perfil.md), remoção do cartão da barra lateral, Não executado pelo usuário.
+
+- [Fechamento externo de modais — v3.6.1](modais-fechamento.md): cinco casos transversais M05-MOD-001–005, Não executados pelo usuário.

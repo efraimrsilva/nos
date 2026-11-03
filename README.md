@@ -4,7 +4,7 @@ Aplicação web full stack para organizar espaços compartilhados, construir aco
 
 **[Acessar o aplicativo no Netlify](https://noslife.netlify.app)** · **[Tela de acesso](https://noslife.netlify.app/conta)** · **[Código-fonte](src)** · **[Documentação](Documentacao_Projeto_Nos/_andamento/estado.md)**
 
-**Versão do código: 3.6.0.** Projeto em evolução, com fluxos centrais implementados e áreas futuras identificadas como esboços. O endereço hospedado pode apresentar uma versão diferente do repositório; a revisão deste README não certifica um novo deploy.
+**Versão do código: 3.6.1.** Projeto em evolução, com fluxos centrais implementados e áreas futuras identificadas como esboços. O endereço hospedado pode apresentar uma versão diferente do repositório; a revisão deste README não certifica um novo deploy.
 
 ## O problema e a proposta
 

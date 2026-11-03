@@ -230,3 +230,5 @@ Toda ação que abre diálogo deve aparecer como **Modal** no Atlas e nas fichas
 ## Testes de caixa preta por funcionalidade — v3.1.1 — 2026-10-23
 
 Cada funcionalidade nova ou alterada deve gerar/revisar teste de caixa preta ligado à etapa MVP ou Expansão deste Atlas, com ID estável, caminho, ação e esperado, uma linha iniciada por []. Manter execução e retestes separados das expectativas. Consulte o [processo permanente](../_andamento/testes-caixa-preta/README.md), o [MVP01](../_andamento/testes-caixa-preta/mvp-01.md) e o [controle de resultados](../_andamento/testes-caixa-preta/resultados.md). Nenhum teste é aprovado somente por existir no roteiro.
+
+**Regra transversal v3.6.1:** todos os modais atuais/futuros fecham por clique/toque iniciado e concluído fora, além de X/Escape; padding/arraste interno mantidos e apenas camada superior fechada. [Contrato](../_andamento/funcionalidades/modais-interface.md) e [galeria](comparacoes/v3.6.1-2026-11-03-modais-tela_01-tela_13-tela_66/index.html).
