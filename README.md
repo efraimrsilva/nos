@@ -8,9 +8,13 @@ Aplicação web full stack para organizar espaços compartilhados, construir aco
 
 ## O problema e a proposta
 
-O Nós propõe um espaço para transformar intenções de convivência em combinados explícitos e práticas compartilhadas. Cada **Núcleo** reúne pessoas, propósito, acordos e agenda, com acesso condicionado ao vínculo de cada participante.
+Na convivência de casais e famílias, desejos como passar mais tempo juntos, dividir responsabilidades ou demonstrar cuidado podem permanecer implícitos. Quando as expectativas não são conversadas e os combinados se perdem na rotina, fica difícil saber o que cada pessoa espera, o que foi aceito e o que precisa ser revisto.
 
-O produto trata consentimento como parte do domínio: administrar um Núcleo não significa aceitar um acordo por outra pessoa. A participação é individual, mudanças de termos exigem novo aceite e a saída de um participante não cancela automaticamente os acordos de quem permanece.
+O **Nós** nasce para apoiar esse caminho entre a intenção e a prática. A plataforma organiza pessoas em **Núcleos**: espaços compartilhados com um propósito, nos quais é possível propor acordos, escolher participar, registrar momentos da prática e organizar encontros na agenda. O histórico permite retomar o que foi combinado e revisar os termos conforme as necessidades de quem participa.
+
+Por exemplo, o desejo de ter mais tempo de qualidade em família pode se transformar em uma proposta de encontro semanal. Cada pessoa decide se quer participar, o encontro pode ser organizado na agenda e os registros ajudam a trazer experiências concretas para a próxima conversa sobre o acordo.
+
+**A autonomia de cada pessoa faz parte da solução.** Administrar um Núcleo não permite aceitar acordos por outra pessoa; mudanças de termos exigem novo aceite, e a saída de alguém não cancela os acordos de quem permanece. O objetivo é oferecer estrutura para o diálogo e a construção de hábitos de cuidado, respeitando a liberdade de aceitar, recusar, rever ou encerrar a própria participação.
 
 ## Funcionalidades implementadas
 
