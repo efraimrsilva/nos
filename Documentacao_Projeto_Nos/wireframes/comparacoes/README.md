@@ -88,6 +88,8 @@ Capturas devem usar exemplos sem informações privadas, tokens ou códigos reai
 
 - [v3.6.1 — 03/11/2026 — fechamento externo de modais](v3.6.1-2026-11-03-modais-tela_01-tela_13-tela_66/index.html): Atlas antes/depois e modais reais; clique/toque externo, padding, camadas e foco.
 
-- [v3.6.2 — integrantes, telas13/73](v3.6.2-2026-11-03-integrantes-tela_13-tela_73/index.html): antes/Atlas/depois; lista Nome/Papel e nome abre detalhes.
+- [v3.6.2 — 03/11/2026 — integrantes em lista](v3.6.2-2026-11-03-integrantes-tela_13-tela_73/index.html): antes/Atlas/depois de cartões para lista e seta junto ao texto; detalhes pelo nome, sem botão adicional.
 
-- [v3.6.3 — identidade compartilhada](v3.6.3-2026-11-03-identidade-tela_13-tela_12-tela_66/index.html): estados anterior à edição/Atlas/sincronizado e limites.
+- [v3.6.3 — identidade compartilhada — telas13/12/66](v3.6.3-2026-11-03-identidade-tela_13-tela_12-tela_66/index.html): estados anterior à edição/Atlas/sincronizado; teste de duas sessões, desktop/mobile; composição visual preservada.
+
+- [v3.7.0 — suporte validado localmente — telas66/70/71](v3.7.0-2026-11-03-relatar-problema-tela_66-tela_70-tela_71/index.html): antes real desktop, Atlas antes/depois, modais desktop/mobile; SMTP local e autenticação real validados; implantação e recebimento externo não certificados.

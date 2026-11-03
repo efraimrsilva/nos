@@ -168,3 +168,5 @@ body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog:has(.live-memb
 body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog .live-member-table th:first-child{width:55%}
 body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog .live-member-table th:nth-child(2){width:45%}
 .atlas-live-dialog:has(.live-member-table){width:min(580px,calc(100vw - 32px))}
+.live-report-form{display:grid;gap:16px}
+.live-report-form p{font-size:14px;line-height:1.8;color:var(--current-muted,#657368)}

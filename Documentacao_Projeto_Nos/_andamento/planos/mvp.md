@@ -1,5 +1,11 @@
 # MVP e caminho de implementação — Projeto Nós
 
+**Suporte MVP05 — v3.7.0 —03/11/2026:** relato de problemas concluído localmente; nova chave SMTP validada por autenticação real, sem mensagem externa. Substitui pendência EAUTH do marco abaixo; implantação e nove casos manuais permanecem pendentes. [Registro](../registros/registro-v3.7.0-2026-11-03-imp-suporte-fun-relato-problemas.md).
+
+**Em andamento — suporte MVP05 — v3.6.3 —03/11/2026:** modal Relatar um problema implementado e validado em SMTP local; autenticação externa EAUTH requer chave SMTP válida. Nove casos M05-SUP-001–009 continuam Não executados. Não conclui operação de suporte/piloto. [Registro](../registros/registro-v3.7.0-2026-11-03-imp-suporte-fun-relato-problemas.md).
+
+**Correção MVP02/MVP05 — v3.6.3 — 03/11/2026:** sincronização de nome/propósito entre sessões em desktop/celular validada localmente; seis casos M02-SYNC-001–006 ainda Não executados pelo usuário. [Registro](../registros/registro-v3.6.3-2026-11-03-imp-identidade-fun-sincronizacao.md). Não conclui operação do piloto/publicação.
+
 **MVP05 — v3.4.0 — 30/10/2026:** edição do próprio nome por lápis em Dados da conta (Tela66/painel desktop), validada localmente com cancelamento, persistência e erros. [Contrato](../funcionalidades/nome-perfil.md) e teste de caixa preta M05-PER-010 a013. Não conclui perfil afetivo da expansão, operação do piloto ou publicação.
 
 **Atualização de interface MVP05 — v3.3.1 — 29/10/2026:** perfil desktop abre painel com seis seções; Conta66 mantém oito e exclusão em bloco próprio (modal69). Memória de Núcleo por conta no navegador e busca do topo removida. Etapas, critérios do piloto e funções planejadas permanecem. [Registro](../registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md).

@@ -1,8 +1,20 @@
 # Histórico de andamento
 
+## 2026-11-03 — v3.7.0 — commits e publicação GitHub
+
+Série em três commits: integrantes3.6.2 (de2d077), identidade3.6.3 (ee789e1) e suporte3.7.0.224 públicos/26 autenticados/6 retestes de identidade/92 SQL aprovados, tipos/build/Atlas e revisão independente. Push para origin/main autorizado; conferência remota no encerramento. Sem certificar migração remota, runtime ou deploy. [Registro](registros/registro-v3.7.0-2026-11-03-imp-github-fun-publicacao-consolidada.md).
+
+## 2026-11-03 — v3.7.0 — autenticação SMTP e fechamento local dos relatos
+
+Nova chave SMTP de relatos salva pelo usuário; normalizados nomes das variáveis e preservada chave de Auth separada, sem valores expostos ou alteração remota. npm run verify:support-mail aprovado (TLS/autenticação, sem envio). Funcionalidade finalizada localmente em MINOR3.7.0; publicação e recebimento externo não certificados. [Registro](registros/registro-v3.7.0-2026-11-03-imp-suporte-fun-relato-problemas.md).
+
+## 2026-11-03 — v3.6.3 — implementação local de relato de problemas
+
+Modal compartilhado em Ajuda, perfil, Mais e cabeçalho; destinatário somente servidor, limite por conta e envio SMTP testado em caixa local.16 testes autenticados,5 unitários,11 SQL, tipos/build e Atlas aprovados. SMTP externo recusou credencial; entrega Em andamento, sem incremento de versão/publicação. [Registro](registros/registro-v3.7.0-2026-11-03-imp-suporte-fun-relato-problemas.md).
+
 ## 2026-11-03 — v3.6.3 — sincronização da identidade
 
-Nome/propósito chegam às sessões por consulta autenticada3s e reconciliação sem reload, com retomada de falhas até a renderização confirmar a versão. [Registro](registros/registro-v3.6.3-2026-11-03-imp-identidade-fun-sincronizacao.md).
+Correção de atualização entre sessões com consultas autenticadas3s e reconciliação sem reload; Início/listas/contexto/seletores, desktop/mobile.10 testes locais aprovados, tipos/build e revisão independente; corrida entre leituras corrigida. Sem migração/publicação. [Registro](registros/registro-v3.6.3-2026-11-03-imp-identidade-fun-sincronizacao.md).
 
 ## 2026-11-03 — v3.5.0 — interface responsiva, auditoria e consolidação
 

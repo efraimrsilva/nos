@@ -1,8 +1,8 @@
-# Processo permanente de testes de caixa preta — v3.6.3
+# Processo permanente de testes de caixa preta — v3.7.0
 
-[Sincronização da identidade — v3.6.3](sincronizacao-identidade.md): seis casos manuais Não executados pelo usuário.
+[Relato de problemas — v3.7.0](relato-problemas.md): nove casos MVP05, Não executados pelo usuário; implementação local e autenticação SMTP real aprovadas, recebimento externo pendente.
 
-[Lista compacta de integrantes — v3.6.2](integrantes-lista.md): casos manuais permanecem Não executados pelo usuário.
+[Sincronização da identidade — v3.6.3](sincronizacao-identidade.md): seis casos MVP02/MVP05, todos Não executados pelo usuário.
 
 [Organização do Núcleo — v3.6.0](organizacao-nucleo.md):14 casos novos de MVP02/MVP05, todos Não executados pelo usuário.
 
@@ -43,3 +43,5 @@ MVP05: [M05-PER-010 a013 em conta-perfil.md](conta-perfil.md). Edição do próp
 - v3.4.2: [Conta/perfil — M05-PER-014](conta-perfil.md), remoção do cartão da barra lateral, Não executado pelo usuário.
 
 - [Fechamento externo de modais — v3.6.1](modais-fechamento.md): cinco casos transversais M05-MOD-001–005, Não executados pelo usuário.
+
+- [Lista compacta de integrantes — v3.6.2](integrantes-lista.md): três casos novos, Não executados pelo usuário.

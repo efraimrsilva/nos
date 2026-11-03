@@ -1,5 +1,15 @@
 # Contrato permanente — identificação de modais na interface e no Atlas
 
+## Modal de relato — v3.7.0 — validado localmente
+
+| Origem | Nome/gatilho | Conteúdo e permissão | Resultado/cancelamento/situação |
+|---|---|---|---|
+| Conta, perfil, Mais, orientação e cabeçalho autenticado | Relatar um problema; ícone Bug no cabeçalho | Descrição obrigatória e passos opcionais; conta com e-mail confirmado, sessão conferida no servidor | Pendente bloqueia duplicação, sucesso após aceite SMTP, erro preserva texto. X/Escape/fora seguem ActionDialog; cancelar antes de enviar não envia. Prova local e autenticação SMTP real aprovadas; implantação e recebimento externo não certificados. |
+
+[Contrato](relato-problemas.md) · [registro](../registros/registro-v3.7.0-2026-11-03-imp-suporte-fun-relato-problemas.md). Sem nova rota nem ficha artificial; representado nas fichas66/70 e navegação compartilhada. Limite de1min por conta no banco, sem persistência do conteúdo do relato.
+
+Status: regra permanente vigente por decisão do usuário em 2026-10-18. Inventário atualizado para v3.7.0 em 03/11/2026; a reconstrução v3.0.0 permanece como evidência histórica.
+
 ## Atualização vigente — v3.5.0
 
 | Origem | Modal / gatilho | Conteúdo e permissão | Resultado, cancelamento e situação |

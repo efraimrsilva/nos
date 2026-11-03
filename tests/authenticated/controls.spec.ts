@@ -54,7 +54,7 @@ test("nomeação exige aceite e saída confirmada sorteia administração", asyn
   });
 });
 
-test("gestão e saída exigem associação; suporte mostra contato aprovado", async ({ page }) => {
+test("gestão e saída exigem associação; suporte oferece formulário com contato oculto", async ({ page }) => {
   for (const suffix of ["pessoas", "sair"]) {
     await page.goto(`/nucleos/${randomUUID()}/${suffix}`);
     await expect(page.getByRole("heading", { name: "404", exact: true })).toBeVisible();
@@ -62,7 +62,8 @@ test("gestão e saída exigem associação; suporte mostra contato aprovado", as
   await page.goto("/ajuda");
   await page.locator(".account-workspace #ajuda-e-suporte").getByRole("button", { name: /Preciso de orientação/ }).click();
   await expect(page.locator("dialog[open]").last().getByText("Sintagma Software", { exact: true })).toBeVisible();
-  await expect(page.locator("dialog[open]").last().getByRole("link", { name: "sintagmasoftware@gmail.com", exact: true })).toHaveAttribute("href", "mailto:sintagmasoftware@gmail.com");
+  await expect(page.locator("dialog[open]").last().getByRole("button", { name: "Relatar um problema", exact: true })).toBeVisible();
+  await expect(page.locator("dialog[open]").last()).not.toContainText("sintagmasoftware@gmail.com");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 

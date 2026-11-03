@@ -1,5 +1,35 @@
 # Estado do Projeto Nós
 
+## Publicação consolidada no GitHub — v3.7.0 — 2026-11-03
+
+**Objetivo autorizado:** commit/push de todas as alterações acumuladas, com descrição abrangente e três unidades atômicas. **DOCS_DIR:** Documentacao_Projeto_Nos. main, base a17052c; remoto origin/main conferido igual no início. Versão3.7.0.
+
+**Objetos confirmados:** integrantes3.6.2 em de2d07783116701284b236c53c45ac1a627ca8a5; identidade3.6.3 em ee789e1f4f0cf6d810b59f1d10feb0e809ca4c66. Suporte3.7.0 incluído e conferido no objeto do terceiro commit desta série (título feat(suporte): adicionar relatos de problemas e consolidar v3.7.0). A atualização final deste registro integra o mesmo commit. **Nenhuma unidade pronta para commit permanece pendente.** Pendências históricas abaixo não prevalecem sobre este bloco.
+
+**Validação:**224 públicos,26 autenticados e6 retestes de identidade após correção aprovados;92 SQL; tipos/build e quatro verificadores Atlas aprovados. P2 de recuperação do refresh reproduzido/corrigido e reavaliado independentemente. Snapshots intermediários conferidos por tipos; valores privados fora do índice. Falhas iniciais de artefatos registradas, sem atribuição falsa à aplicação.
+
+**Publicação autorizada:** série de três commits para origin/main por push normal, sem force; verificação de encerramento compara HEAD à referência remota. Este marco registra os objetos e o procedimento; confirmação do envio é reportada após a consulta remota. Sem migração remota ou deploy manual autorizado nesta etapa.
+
+**Continuidade operacional:** depois do envio, provisionar variáveis de suporte e migração específica no destino somente com autorização. Confirmar recebimento externo em teste autorizado; casos manuais permanecem Não executados. Push não comprova deploy ou suporte hospedado operacional. **Contador:**17 conclusões adicionais desde29/10; histórico165 com lacuna/marco100 preservados, sem inferir marco200.
+
+**Índice:** [registro da publicação](registros/registro-v3.7.0-2026-11-03-imp-github-fun-publicacao-consolidada.md) · [suporte](registros/registro-v3.7.0-2026-11-03-imp-suporte-fun-relato-problemas.md) · [identidade](registros/registro-v3.6.3-2026-11-03-imp-identidade-fun-sincronizacao.md) · [integrantes](registros/registro-v3.6.2-2026-11-03-imp-integrantes-fun-lista-compacta.md).
+
+## Relato de problemas concluído localmente — v3.7.0 — 2026-11-03
+
+**Objetivo/resultado:** modal objetivo em Ajuda, orientação, perfil/Mais e cabeçalho autenticado; destinatário apenas servidor. **DOCS_DIR:** Documentacao_Projeto_Nos. **Versão vigente:**3.7.0 MINOR. Branch main/a17052c, alterações anteriores preservadas. Sem commit/push/deploy ou migração remota nesta etapa.
+
+**Credenciais:** usuário salvou duas chaves com identificações entre parênteses nos nomes. Nome esperado SUPPORT_SMTP_PASSWORD normalizado para chave de relatos; outra preservada como SUPABASE_AUTH_SMTP_PASSWORD (referência local não usada pelo formulário). Identificações em comentários. Valores não exibidos; .env.local ignorado pelo Git. SMTP do Supabase Auth remoto não alterado. npm run verify:support-mail APROVADO: conexão TLS/autenticação reais, nenhuma mensagem enviada. EAUTH anterior resolvido.
+
+**Implementação/validação:** descrição10–2000 e passos opcionais1000, contexto sem parâmetros/identificadores, contato da conta confirmada, quota atômica1min/conta sem guardar conteúdo, TLS/timeouts e destinatário fixo.16 autenticados com regressões,5 unitários,11 SQL aprovados na implementação; db advisors sem achados. Autorrevisão e revisão independente sem bloqueios. Manifestos/Atlas/docs3.7.0 atualizados; tipos/build finais aprovados,10 testes autenticados finais desktop/mobile aprovados com SMTP local isolado. Três verificadores Atlas aprovados;368 links locais e35 assets públicos conferidos, sem destinatário/configuração SMTP. Diff sem erros de whitespace.
+
+**Arquivos:** src/features/support/{input.ts,mail.ts,actions.ts,components/problem-report.tsx}, AccountPreferences/HelpContent/ApplicationShell, CSS, migração20261103191242 e SQL; scripts/test-problem-reports.mjs e verify-support-smtp.mjs; testes, Atlas e docs. Migração aplicada/registrada somente localmente. Serviços SMTP descartáveis encerrados após testes.
+
+**Próximo passo:** usuário testar formulário com conta confirmada no ambiente local; confirmar recebimento externo apenas em envio autorizado. Publicação requer autorização, provisionar variáveis no runtime e aplicar somente migração de suporte no ambiente correto. Autenticação não comprova recebimento Gmail. Não certificados produção, Safari/aparelho físico. Nove casos manuais continuam Não executados pelo usuário.
+
+**Unidades prontas para commit:** suporte3.7.0 (nova unidade) e anteriores de integrantes3.6.2/identidade3.6.3. Nenhum commit novo; preservar separação lógica e selecionar manifestos/documentos compartilhados com cuidado. Sugestão da nova unidade: feat(suporte): adicionar relato de problemas por email. **Contador:**16 conclusões adicionais desde29/10; histórico165 com lacuna e marco100 preservados, sem inferir marco200.
+
+**Ferramentas/índice:** Superpowers verificação aplicada nesta retomada; implementação/revisão/Context7/Supabase/Octocode documentados no registro. [Registro](registros/registro-v3.7.0-2026-11-03-imp-suporte-fun-relato-problemas.md) · [plano](planos/relatar-problema.md) · [contrato](funcionalidades/relato-problemas.md) · [casos](testes-caixa-preta/relato-problemas.md) · [galeria](../wireframes/comparacoes/v3.7.0-2026-11-03-relatar-problema-tela_66-tela_70-tela_71/index.html). Histórico EAUTH mantido nos registros, substituído por esta prova atual.
+
 ## Sincronização da identidade concluída localmente — v3.6.3 — 2026-11-03
 
 **Objetivo/aceite:** alterações administrativas de nome e propósito chegam a outras sessões sem reload do documento em desktop/mobile, incluindo Início, listas, contexto e seletores; modais/rascunhos preservados. **DOCS_DIR:** Documentacao_Projeto_Nos. **Versão vigente:**3.6.3 PATCH. Branch main, HEAD a17052c; alterações anteriores3.6.2 preservadas. Nenhuma publicação/migração remota nesta tarefa.

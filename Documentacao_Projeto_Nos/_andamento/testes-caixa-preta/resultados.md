@@ -1,8 +1,16 @@
 # Resultados dos testes de caixa preta — v3.5.0
 
-## 2026-11-03 — v3.6.3 — sincronização
+## 2026-11-03 — v3.7.0 — verificação real da conexão SMTP
 
-Duas sessões locais, nome/propósito/lista/contexto e recuperação de falha de atualização conferidos; automação não aprova caixa preta. [Registro](../registros/registro-v3.6.3-2026-11-03-imp-identidade-fun-sincronizacao.md).
+Após usuário salvar chave de relatos, nomes de variáveis corrigidos mantendo as duas chaves separadas. npm run verify:support-mail aprovado: TLS e autenticação, sem envio externo. M05-SUP-001–009 permanecem Não executados pelo usuário; autenticação não prova recebimento.
+
+## 2026-11-03 — relato de problemas — evidência automatizada v3.6.3
+
+Uma falha TDD por atalho ausente;6 testes autenticados iniciais, depois10 ampliados e16 com regressões de administração/suporte aprovados (desktop/mobile). Entrega real apenas na caixa SMTP local isolada, com destinatário/replyTo/conteúdo conferidos; falha de transporte, pendente, texto preservado e cancelamento exercitados.5 testes unitários e11 asserções SQL aprovados; db advisors local sem achados. Tipos/build/Atlas aprovados. SMTP externo retornou EAUTH; usuário orientado sobre chave SMTP distinta da API. Nenhum relato externo enviado; M05-SUP-001–009 permanecem Não executados pelo usuário. [Registro](../registros/registro-v3.7.0-2026-11-03-imp-suporte-fun-relato-problemas.md).
+
+## 2026-11-03 — evidência automatizada v3.6.3 (não aprova caixa preta)
+
+Sincronização:2 falhas esperadas antes da correção, depois8 aprovados e rodada final10 aprovados em Chromium desktop/Pixel7 com Supabase local. Conferidos nome/propósito entre sessões, lista/contexto, seletor aberto, falha de consulta/reconexão, modal e rascunho preservados, documento não recarregado. Abort intencional produziu aviso de stream no servidor; teste demonstrou recuperação. Tipos/build finais3.6.3,81 asserções SQL de identidade/administração e verificadores Atlas Visão global/MVP aprovados. M02-SYNC-001–006 permanecem Não executados pelo usuário. [Registro](../registros/registro-v3.6.3-2026-11-03-imp-identidade-fun-sincronizacao.md).
 
 Controle iniciado em 2026-10-23. Referência do roteiro: [MVP 01](mvp-01.md). Nenhum resultado manual foi recebido nesta entrega.
 
@@ -91,6 +99,10 @@ Usuário informou falha ao editar nome e propósito, sem dados suficientes para 
 
 M05-MOD-001–005 em [modais-fechamento.md](modais-fechamento.md) Não executados pelo usuário. TDD:4 falhas esperadas antes/4 aprovados depois. Suíte pública:210 aprovados/2 falhas em expectativa antiga de vermelho; ajuste de teste seguido de212 aprovados. Autenticados:17 aprovados/2 falhas na abertura inicial/1 ignorado; proteção de hidratação corrigida, reteste13 aprovados/1 ignorado intencionalmente. [Registro](../registros/registro-v3.6.1-2026-11-03-imp-modais-fun-fechamento-externo.md). Sem certificar aparelho físico/Safari/deploy.
 
-## 2026-11-03 — v3.6.2 — integrantes
+## 2026-11-03 — v3.6.2 — lista compacta automatizada
 
-Lista compacta validada localmente em desktop/mobile, preservando ações e foco. Casos manuais permanecem Não executados pelo usuário. [Registro](../registros/registro-v3.6.2-2026-11-03-imp-integrantes-fun-lista-compacta.md).
+M05-LIS-001/002 e M02-LIS-001 em integrantes-lista.md permanecem Não executados pelo usuário. TDD2falhas esperadas por ausência da tabela; reteste14autenticados aprovados, mais2checagens do X no viewport. Nomes abrem detalhes mantendo nomeação/aceite/destituição/saída;320–1280px sem overflow e altura da linha abaixo120px. Verificador Atlas aprovado. Revisão independente estática sem bloqueio; captura final usa viewport para evitar recorte da captura por elemento. [Registro](../registros/registro-v3.6.2-2026-11-03-imp-integrantes-fun-lista-compacta.md).
+
+Retestes finais3.6.2:8aprovados após remover Nomeação da lista;2aprovados após reduzir largura580px, incluindo nomes/detalhes/permissões/X/foco e320–1280px. Tipos/build finais aprovados. Casos manuais seguem Não executados pelo usuário. Sincronização automática de identidade adiada explicitamente.
+
+**Fechamento v3.7.0:** tipos/build e10 testes autenticados finais aprovados, além dos três verificadores Atlas. Não altera o status dos casos manuais; entrega externa continua não executada.

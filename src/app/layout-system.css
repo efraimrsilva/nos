@@ -278,3 +278,8 @@ button[aria-label^="Fechar" i]:is(:hover,:focus-visible) { background-color:#c43
 .nucleus-member-role .ui-badge{font-size:11px;gap:4px;padding:4px 5px}
 @media(max-width:600px){.nucleus-member-table th:first-child{width:55%;padding-left:4px}.nucleus-member-table th:nth-child(2){width:45%;padding-left:4px;padding-right:0}.nucleus-member-table td{padding:9px 0 9px 4px}.nucleus-member-name{gap:7px}.nucleus-member-role .ui-badge{font-size:10px}.nucleus-member-name strong{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.nucleus-member-row{transition:none}}
+.problem-report-form fieldset{display:grid;gap:16px;min-width:0}
+.problem-report-form textarea{width:100%;resize:vertical;min-height:80px}
+.problem-report-inline{display:inline-flex;align-items:center;gap:8px;min-height:44px}
+.current-header-actions .problem-report-header{color:var(--color-muted)}
+.problem-report-header:hover,.problem-report-header:focus-visible{color:var(--color-ink);background:var(--accent-soft)}

@@ -13,6 +13,7 @@ import { HelpContent, PrivacyContent } from "./settings-content";
 import { DeleteAccountOption } from "./delete-account-option";
 import { SignOutButton } from "./sign-out-button";
 import { AccountDataDialog } from "./account-data-dialog";
+import { ProblemReport } from "@/features/support/components/problem-report";
 
 export async function AccountPreferences({ name, userId, email, emailConfirmed, next, initialAccess, privacyHidden, embedded = false, idPrefix }: {
   name: string; userId: string; email?: string; emailConfirmed: boolean; next: string;
@@ -43,6 +44,7 @@ export async function AccountPreferences({ name, userId, email, emailConfirmed, 
       <ActionDialog variant="text" className="account-dialog-trigger" title="Dados e autonomia" description="Orientações e limites do produto." size="wide" trigger={<AccountRow icon={BookOpen} title="Dados e autonomia" description="Orientações e limites do produto" />}><HelpContent /></ActionDialog>
     </section>
     <section id={sectionId("ajuda-e-suporte")} className="ui-panel account-panel"><h2>Ajuda e suporte</h2>
+      <ProblemReport />
       <ActionDialog variant="text" className="account-dialog-trigger" title="Ajuda e suporte" description="Orientação e contato com a responsável pelo aplicativo." size="wide" trigger={<AccountRow icon={MessageSquare} title="Preciso de orientação" description="Responsável e canal de contato" />}><HelpContent /></ActionDialog>
       <ActionDialog variant="text" className="account-dialog-trigger" title="Entender os combinados" description="Participação, termos e administração." size="wide" trigger={<AccountRow icon={BookOpen} title="Entender os combinados" description="Participação, termos e administração" />}><HelpContent /></ActionDialog>
     </section>

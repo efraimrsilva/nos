@@ -1,5 +1,13 @@
 # Brag document — Projeto Nós
 
+## 2026-11-03 — v3.7.0 — integração SMTP autenticada
+
+**Problema:** nomes descritivos nos campos do ambiente impediam leitura da nova chave. **Contribuição:** normalizar nomes e preservar as duas credenciais separadamente; validar conexão sem enviar mensagem. **Resultado:** TLS e autenticação SMTP reais aprovados; suporte local pronto, sem alegar recebimento externo. [Evidência](../_andamento/registros/registro-v3.7.0-2026-11-03-imp-suporte-fun-relato-problemas.md).
+
+## 2026-11-03 — v3.6.3 — relato de problemas validado localmente
+
+**Problema:** ajuda expunha contato direto e exigia sair do aplicativo. **Contribuição:** formulário compartilhado objetivo, envio no servidor, destinatário oculto, contexto reduzido e proteção de intervalo por conta. **Resultado verificado:** recebimento em SMTP local, preservação de texto em falha e cancelamento corretos em16 testes autenticados com regressões;5 testes unitários e11 SQL. **Limite:** envio externo aguarda autenticação válida, sem benefício medido em produção. [Evidência](../_andamento/registros/registro-v3.7.0-2026-11-03-imp-suporte-fun-relato-problemas.md).
+
 ## 2026-11-03 — v3.6.3 — identidade consistente entre integrantes
 
 **Problema:** nome/propósito salvo pelo administrador permanecia antigo em outras sessões. **Contribuição:** conferência autenticada compartilhada, reconciliação sem reload, recuperação de falhas e preservação de formulários. **Resultado verificado:**10 testes locais desktop/mobile e81 asserções SQL aprovados, tipos/build finais3.6.3, Atlas e revisão independente; benefício esperado é reduzir divergência e atualização manual, sem métrica de produção. **Evidência:** [registro](../_andamento/registros/registro-v3.6.3-2026-11-03-imp-identidade-fun-sincronizacao.md) e tests/authenticated/nucleus-identity-sync.spec.ts.

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { savePrivacyPreference } from "@/features/controls/actions";
 import { ControlActionForm } from "./action-form";
 import { routes } from "@/shared/routes";
+import { ProblemReport } from "@/features/support/components/problem-report";
 
 // Rotas diretas e diálogos exibem os mesmos contratos; ações continuam validadas no servidor.
 export function PrivacyContent({ hidden }: { hidden: boolean }) {
@@ -16,12 +17,12 @@ export function PrivacyContent({ hidden }: { hidden: boolean }) {
 
 export function HelpContent() {
   return <div className="settings-copy">
-    <section className="control-section"><h3>Responsável e suporte</h3><p>Sintagma Software</p><a href="mailto:sintagmasoftware@gmail.com">sintagmasoftware@gmail.com</a><p>Informe o tipo de pedido e o e-mail da sua conta. Não envie senha, código, link de acesso ou conteúdo íntimo. O envio e recebimento dependem do e-mail e da disponibilidade do canal.</p></section>
+    <section className="control-section"><h3>Responsável e suporte</h3><p>Sintagma Software</p><p>Encontrou algo que não funcionou? Envie um relato direto à equipe, sem sair do aplicativo.</p><ProblemReport placement="inline" /></section>
     <section className="control-section"><h3>Como funcionam os Núcleos?</h3><p>Administradores convidam, gerenciam participantes e organizam acordos. A nomeação comum exige aceite. Se o último administrador sair, o aplicativo sorteia um participante restante. Se o último membro sair, o Núcleo é encerrado.</p><Link href={routes.nucleus}>Abrir Seus Núcleos</Link></section>
     <section className="control-section"><h3>Proposta, teste e acordo ativo</h3><p>Qualquer participante pode propor. Administradores iniciam o teste, ativam e encerram os acordos. Cada pessoa decide se participa. Uma recusa não encerra o acordo das outras pessoas. Alterar os termos exige novo aceite individual; o histórico permanece.</p></section>
     <section className="control-section"><h3>Informações sobre o tratamento de dados</h3><p>A conta permite autenticar você e proteger o acesso aos Núcleos. Participação, convites, acordos, agenda e momentos são usados para oferecer essas funções. O conteúdo compartilhado fica disponível às pessoas associadas, inclusive depois da saída de quem o registrou. A preferência pode ocultar a autoria nas próximas saídas.</p><Link href="/conta#privacidade">Conferir privacidade</Link></section>
-    <section className="control-section"><h3>Acesso, correção, exportação e exclusão</h3><p>Para acesso, correção e exportação, solicite atendimento no e-mail acima. Para apagar sua própria conta, abra o bloco Apagar minha conta. A exclusão retira seu acesso e identificação, preservando o histórico compartilhado como “Conta excluída”. Textos podem identificar você; retenção e cópias de segurança exigem tratamento próprio do serviço.</p><Link href="/conta#apagar-minha-conta">Abrir Apagar minha conta</Link></section>
+    <section className="control-section"><h3>Acesso, correção, exportação e exclusão</h3><p>Para acesso, correção e exportação, entre em contato pelo formulário de suporte acima. Para apagar sua própria conta, abra o bloco Apagar minha conta. A exclusão retira seu acesso e identificação, preservando o histórico compartilhado como “Conta excluída”. Textos podem identificar você; retenção e cópias de segurança exigem tratamento próprio do serviço.</p><Link href="/conta#apagar-minha-conta">Abrir Apagar minha conta</Link></section>
     <section className="control-section"><h3>Condições de uso do MVP</h3><p>Respeite a privacidade e os direitos das outras pessoas. Compartilhe apenas conteúdo que você pode disponibilizar aos participantes do Núcleo. Administrar não autoriza aceitar acordos por outra pessoa. Você pode sair a qualquer momento; a tela de saída explica as consequências antes da confirmação.</p></section>
-    <section className="control-section control-planned"><span className="ui-badge">Esboço de funcionalidade · ainda não desenvolvido</span><h3>Documentos e atendimento</h3><p>Os termos de uso e a política de dados completos, o procedimento operacional do suporte e a comprovação do ambiente de uso ainda precisam ser concluídos. A configuração de e-mail dependente do Google permanece adiada.</p></section>
+    <section className="control-section control-planned"><span className="ui-badge">Esboço de funcionalidade · ainda não desenvolvido</span><h3>Documentos e atendimento</h3><p>Os termos de uso e a política de dados completos, o procedimento operacional do suporte e a comprovação do ambiente de uso ainda precisam ser concluídos.</p></section>
   </div>;
 }
