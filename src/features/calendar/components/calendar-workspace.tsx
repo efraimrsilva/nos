@@ -4,6 +4,7 @@ import { useEffect, useState, type CSSProperties } from "react";
 import { ArrowRight, CalendarDays, Check, ChevronLeft, ChevronRight, Clock3, Pencil, Plus, UsersRound } from "lucide-react";
 import { calendarEventLanes } from "../calendar-lanes";
 import { formatCalendarEventDate } from "@/features/calendar/event-input";
+import { CalendarMonthPicker } from "./calendar-month-picker";
 import { CalendarEventForm } from "./calendar-event-form";
 import { CalendarPresenceForm, CalendarRemovalForm } from "./calendar-event-actions";
 import { ActionDialog } from "@/shared/components/ui/action-dialog";
@@ -95,6 +96,12 @@ export function CalendarWorkspace({ nucleusId, nucleusName, events, initialWeek,
     </header>
     <div className="calendar-workspace">
       <section className="calendar-main" aria-label="Agenda do Núcleo">
+        <CalendarMonthPicker weekStart={weekStart} eventRanges={events} onChooseDate={date => {
+          date.setUTCHours(0, 0, 0, 0);
+          date.setUTCDate(date.getUTCDate() - (date.getUTCDay() + 6) % 7);
+          setWeekStart(date.getTime());
+          setSelection(events.find(event => Date.parse(event.starts_at) < date.getTime() + 7 * dayDuration && Date.parse(event.ends_at) > date.getTime())?.id ?? null);
+        }} />
         <div className="calendar-toolbar">
           <button type="button" className="calendar-nav" aria-label="Semana anterior" onClick={() => moveWeek(-1)}><ChevronLeft size={17} aria-hidden="true" /></button>
           <h2>{month.format(new Date(weekStart))}</h2>
@@ -157,6 +164,6 @@ export function CalendarWorkspace({ nucleusId, nucleusName, events, initialWeek,
         </div> : <div className="calendar-empty-detail"><CalendarDays size={40} aria-hidden="true" /><p>Nada marcado por enquanto. Vocês podem criar um momento quando fizer sentido.</p><p>Escolha um evento na agenda para ver o convite e sua participação.</p></div>}
       </aside>
     </div>
-    <details className="calendar-future"><summary>Esboço de funcionalidade · ainda não desenvolvido</summary><p>Navegação mensal e por dia, recorrência, local, escolha de participantes, outras respostas e sincronização com calendários externos estão planejados. Os eventos atuais ficam disponíveis somente nesta agenda.</p></details>
+    <details className="calendar-future"><summary>Esboço de funcionalidade · ainda não desenvolvido</summary><p>Visão detalhada por dia, recorrência, local, escolha de participantes, outras respostas e sincronização com calendários externos estão planejados. Os eventos atuais ficam disponíveis somente nesta agenda.</p></details>
   </>;
 }
