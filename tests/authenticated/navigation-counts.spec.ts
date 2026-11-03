@@ -20,7 +20,7 @@ test("totais gerais discretos, acessíveis e atualizados no desktop e celular", 
     await page.setViewportSize(info.project.name === "desktop" ? { width: 1440, height: 1000 } : { width: 390, height: 844 });
     await page.goto(`/nucleos/${a}`);
     const nav = page.locator(info.project.name === "desktop" ? ".desktop-navigation" : ".mobile-navigation");
-    const expected = { agreements: "1", events: "1", people: "1" };
+    const expected = { nuclei: "2", agreements: "1", events: "1" };
     for (const [key, value] of Object.entries(expected)) {
       await expect(nav.locator(`[data-count=${key}]`)).toHaveText(value);
       await expect(nav.locator(`[data-count=${key}]`)).toHaveCSS("background-color", "rgba(0, 0, 0, 0)");
@@ -36,7 +36,7 @@ test("totais gerais discretos, acessíveis e atualizados no desktop e celular", 
     }
     if (info.project.name === "mobile") {
       await nav.getByRole("button", { name: "Mais áreas e preferências" }).click();
-      await expect(page.getByRole("dialog").locator("[data-count=nuclei]")).toHaveText("2");
+      await expect(nav.locator("[data-count=nuclei]")).toHaveText("2");
       if (gallery) await page.screenshot({ path: path.join(gallery, "app-mobile-mais.png") });
       await page.keyboard.press("Escape");
       await page.setViewportSize({ width: 320, height: 740 });
@@ -52,7 +52,7 @@ test("totais gerais discretos, acessíveis e atualizados no desktop e celular", 
     await page.reload();
     await expect(nav.locator("[data-count=agreements]")).toHaveText("0");
     await expect(nav.locator("[data-count=events]")).toHaveText("0");
-    await expect(nav.locator("[data-count=people]")).toHaveText("1");
+    await expect(nav.locator("[data-count=people]")).toHaveCount(0);
     await page.goto("/nucleos");
     await expect(nav.locator("[data-count=nuclei]")).toHaveText("1");
   });

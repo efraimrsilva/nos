@@ -1,4 +1,6 @@
-# Processo permanente de testes de caixa preta — v3.5.0
+# Processo permanente de testes de caixa preta — v3.6.0
+
+[Organização do Núcleo — v3.6.0](organizacao-nucleo.md):14 casos novos de MVP02/MVP05, todos Não executados pelo usuário.
 
 Roteiro vigente acrescentado em 03/11/2026: [ajustes e paridade v3.5.0 — 21 casos](ajustes-v3-5.md), mais [três casos de cartões/integrantes M02-LAY-004–006](nucleos-layout.md). Todos Não executados pelo usuário. Evidência automatizada fica separada em [resultados.md](resultados.md); resultados anteriores e seus ambientes permanecem preservados.
 

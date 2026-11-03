@@ -85,3 +85,7 @@ Agenda14 → Novo16 → Evento/respostas15 → edição17 opcional → agenda14;
 ## Etapa 05 — conferência em 13/10/2026 — v0.16.0
 
 Recorte local de orientação concluído; etapa parcial. Lista/Início→66;67/69/70 alternativas;13→71→13 contextual. Sem remoção/transferência/exclusão/preferências simuladas.106 testes gerais produção, quatro autenticados, tipos/build/Atlas e revisão aprovados. Saída/transferência/retenção/direitos/suporte/termos e operação continuam necessários para fechar o MVP. [Contrato](../funcionalidades/autonomia-protecao.md), [registro](../registros/registro-v0.16.0-2026-10-13-imp-controles-autonomia-fun-mvp-05.md).
+
+## Organização do Núcleo — v3.6.0 — validado localmente
+
+A redistribuição autorizada de Pessoas está em [organizacao-nucleo.md](../funcionalidades/organizacao-nucleo.md). MVP02 e MVP05 mantêm IDs/cobertura; integrante/administração da Tela73 passa ao modal no Início13. Identidade editada no cabeçalho13; convites/saída/encerramento na Conta66 e Mais. Não conclui etapas futuras ou certificação do piloto. [14 casos de caixa preta](../testes-caixa-preta/organizacao-nucleo.md), todos Não executados pelo usuário.

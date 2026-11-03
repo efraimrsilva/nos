@@ -30,28 +30,10 @@ test('Núcleos sem painel lateral mantém criação e convite acessíveis', asyn
 });
 
 
-test('convite acessível em Conta e Núcleos na página e no perfil', async ({ page }, info) => {
-  await page.setViewportSize(info.project.name === 'desktop' ? { width: 1440, height: 1000 } : { width: 390, height: 844 });
-  const output = path.resolve('Documentacao_Projeto_Nos/wireframes/comparacoes/v3.3.3-2026-10-30-convites-tela_12-tela_13-tela_66');
-  mkdirSync(output, { recursive: true });
-  await page.goto('/conta');
-  const section = page.locator('.account-workspace #conta-e-nucleos');
-  const invitation = section.getByRole('link', { name: /^Entrar com convite/ });
-  await expect(invitation).toBeVisible();
-  await expect(invitation).toHaveAttribute('href', '/comecar/convite');
-  await section.screenshot({ path: path.join(output, 'depois-app-conta-' + info.project.name + '.png') });
-  await invitation.click();
-  await expect(page).toHaveURL(/\/comecar\/convite$/);
-  if (info.project.name === 'desktop') {
-    await page.goto('/nucleos');
-    await page.getByRole('button', { name: 'Abrir Conta, Preferências e Ajuda', exact: true }).click();
-    const panel = page.locator('.account-popover:popover-open');
-    const profileSection = panel.locator('#profile-popover-conta-e-nucleos');
-    const profileInvitation = profileSection.getByRole('link', { name: /^Entrar com convite/ });
-    await expect(profileInvitation).toBeVisible();
-    await profileSection.screenshot({ path: path.join(output, 'depois-app-perfil-desktop.png') });
-    await profileInvitation.click();
-    await expect(page).toHaveURL(/\/comecar\/convite$/);
-    await expect(page.locator('.account-popover:popover-open')).toHaveCount(0);
-  }
+test('atalho de convite permanece em Seus Núcleos e sai da Conta', async ({ page }) => {
+await page.goto('/conta');
+await expect(page.locator('.account-workspace').getByRole('link', { name: /^Entrar com convite/ })).toHaveCount(0);
+await page.goto('/nucleos');
+await page.locator('.nuclei-header-actions').getByRole('link', { name: 'Entrar com convite', exact: true }).click();
+await expect(page).toHaveURL(/\/comecar\/convite$/);
 });

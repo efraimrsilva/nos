@@ -31,7 +31,7 @@ test("ícones conservam suas cores originais em todos os temas, inclusive na ár
   for (const id of ["light", "dark", "black", "rose", "lavender", "ocean", "forest", "solar", "neon"]) {
     await page.evaluate(theme => { document.documentElement.dataset.theme = theme; }, id);
     const actual = await page.locator("svg").evaluateAll(elements => elements.map(element => getComputedStyle(element).color));
-    expect(actual, id).toEqual(["rgb(64, 119, 166)", "rgb(59, 121, 77)", "rgb(64, 119, 166)", "rgb(121, 85, 165)", "rgb(174, 119, 55)", "rgb(174, 119, 55)", "rgb(187, 97, 121)", "rgb(69, 107, 86)", "rgb(66, 110, 139)", "rgb(116, 94, 140)", "rgb(52, 93, 68)", "rgb(52, 93, 68)", "rgb(52, 93, 68)", "rgb(134, 51, 58)", "rgb(134, 51, 58)", "rgb(52, 93, 68)"]);
+    expect(actual, id).toEqual(["rgb(64, 119, 166)", "rgb(59, 121, 77)", "rgb(64, 119, 166)", "rgb(121, 85, 165)", "rgb(174, 119, 55)", "rgb(174, 119, 55)", "rgb(187, 97, 121)", "rgb(69, 107, 86)", "rgb(66, 110, 139)", "rgb(116, 94, 140)", "rgb(52, 93, 68)", "rgb(52, 93, 68)", "rgb(52, 93, 68)", "rgb(255, 40, 70)", "rgb(255, 40, 70)", "rgb(52, 93, 68)"]);
   }
 });
 

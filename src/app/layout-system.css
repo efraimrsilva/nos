@@ -244,3 +244,18 @@ button[aria-label^="Fechar" i]:is(:hover,:focus-visible) { background-color:#c43
   .current-shell { padding-bottom:calc(80px + max(0px,calc(var(--mobile-safe-area) - 8px))); }
   .mobile-navigation { padding-bottom:max(8px,var(--mobile-safe-area)); }
 }
+
+/* A identidade reutiliza os controles locais; o texto longo cede espaço ao lápis sem transbordar. */
+.nucleus-identity-line{display:flex;align-items:center;gap:8px;min-width:0}
+.nucleus-identity-line>:first-child{min-width:0;overflow-wrap:anywhere}
+.nucleus-edit-trigger{flex:none;width:44px;height:44px;padding:10px;color:var(--color-leaf);border-radius:50%;transition:background-color .2s,transform .2s}
+.nucleus-edit-trigger:hover,.nucleus-edit-trigger:focus-visible{background:var(--color-soft);transform:translateY(-1px)}
+.nucleus-purpose-line{align-items:flex-start;margin:8px 0 12px}
+.nucleus-purpose-line .ui-copy{margin:8px 0;white-space:pre-wrap}
+.home-members-trigger{width:100%;justify-content:space-between;text-align:left;min-height:44px;margin-top:10px}
+.ui-dialog .people-cards{margin-top:20px;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.mobile-account-options{margin-top:20px}
+.mobile-account-options .account-preferences-sections{display:block}
+.mobile-account-options .account-panel{margin-bottom:16px}
+@media(max-width:700px){.mobile-nav-label{white-space:normal;flex-wrap:wrap;font-size:10px;line-height:1.15}.mobile-nav-label .nav-count{font-size:9px}.nucleus-identity-line .ui-title{font-size:clamp(24px,7vw,34px)}}
+@media(prefers-reduced-motion:reduce){.nucleus-edit-trigger{transition:none}.nucleus-edit-trigger:hover,.nucleus-edit-trigger:focus-visible{transform:none}}

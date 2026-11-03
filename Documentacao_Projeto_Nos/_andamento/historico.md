@@ -782,3 +782,13 @@ Complemento v3.4.3: remoção também no carregamento de Seus Núcleos; somente 
 ## 2026-10-30 — v3.4.2 — Auditoria rigorosa de segurança e documentação
 
 Revisão de código/configuração, 13 migrações, catálogos locais e remotos e avisos oficiais. Enumeração pública de e-mails confirmada; exposição administrativa local condicionada ao alcance da rede, política local de senha divergente, janela conhecida de JWT após logout e ausência local de CSP documentadas com limites e prioridades.160 testes de banco e70 públicos aprovados; quatro rotinas da agenda respeitam trava.52 autenticados:36 aprovados,15 falhas investigadas de seletores/verificador Atlas e1 ignorado; build isolado webpack aprovado. Dependências inconclusivas por falha do npm; HTTPS hospedado não verificado. Revisão independente estática/documental, contrato de conta atualizado. Nenhuma correção de produto, mutação remota ou publicação; versão preservada por natureza documental. [Relatório, evidências e próximos passos](registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md).
+
+## 2026-11-03 — v3.6.0 — organização do Núcleo
+
+**Produto:** guia Pessoas substituída por integrantes/administração em modal no Início; identidade em formulários independentes; convites, saída e encerramento na Conta/popover/Mais; ordem móvel reorganizada. Entrada por código preservada em Seus Núcleos.30 testes autenticados,20 públicos e118 SQL pertinentes aprovados; tipos/build local aprovados. Revisão independente estática e autorrevisão; sem publicação. [Registro](registros/registro-v3.6.0-2026-11-03-imp-nucleo-fun-mesclagem-pessoas.md).
+
+**Documentação:** Atlas/IDs/percursos/MVP/inventário de modais/contratos e galeria sincronizados;14 casos de caixa preta novos permanecem Não executados pelo usuário. Limitação anterior do banco local em confirmação de e-mail registrada, sem reset.
+
+## 2026-11-03 — v3.6.0 — reparo operacional da edição de identidade
+
+Função update_nucleus_identity ausente no Supabase usado pelo servidor3000:404/PGRST202 reproduzido. Aplicada somente migração20261103160000, com histórico/permissões transacionais e recarga do esquema. Hashes das linhas existentes preservados;5 Núcleos/6 vínculos mantidos. Teste remoto descartável em transação confirmou nome/propósito independentes, rejeição de vazio/participante comum e ROLLBACK. Sem código novo, incremento de versão, commit/push/deploy ou aplicação de migrações alheias. [Registro](registros/registro-v3.6.0-2026-11-03-imp-banco-hospedado-fun-edicao-identidade.md). Reteste do usuário pendente.

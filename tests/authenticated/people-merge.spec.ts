@@ -1,0 +1,88 @@
+import { randomUUID } from 'node:crypto';
+import { mkdirSync } from 'node:fs';
+import path from 'node:path';
+import { test, expect, localSql } from './fixtures';
+import { withPeer } from './peer';
+
+const gallery = path.resolve('Documentacao_Projeto_Nos/wireframes/comparacoes/v3.6.0-2026-11-03-nucleo-tela_13-tela_66-tela_71-tela_73');
+
+test('Início reúne identidade e integrantes sem a guia Pessoas', async ({ page, account }, info) => {
+  const id = randomUUID();
+  localSql(`insert into public.nuclei(id,type,name,purpose,created_by) values('${id}','familia','Jardim da integração','Cultivar presença','${account.id}'); insert into public.nucleus_members(nucleus_id,user_id,role) values('${id}','${account.id}','admin');`);
+  mkdirSync(gallery, { recursive: true });
+  await page.goto(`/nucleos/${id}`);
+  await expect(page.getByRole('heading', { name: 'Jardim da integração', exact: true })).toBeVisible();
+  await page.screenshot({ path: path.join(gallery, `${process.env.NOS_MERGE_STAGE || 'depois'}-app-inicio-${info.project.name}.png`), fullPage: true, animations: "disabled" });
+  await expect(page.getByRole('button', { name: 'Editar nome do Núcleo', exact: true })).toBeVisible();
+  await expect(page.locator('.desktop-navigation, .mobile-navigation').getByRole('link', { name: /^Pessoas/ })).toHaveCount(0);
+  const documentOrigin = await page.evaluate(() => performance.timeOrigin);
+  await page.getByRole('button', { name: 'Editar nome do Núcleo', exact: true }).click();
+  let dialog = page.getByRole('dialog', { name: 'Editar nome do Núcleo', exact: true });
+  await expect(dialog.getByRole('textbox')).toHaveCount(1);
+  await dialog.getByLabel('Nome do Núcleo', { exact: true }).fill('Jardim renovado');
+  await dialog.getByRole('checkbox').check();
+  await dialog.getByRole('button', { name: 'Salvar nome', exact: true }).click();
+  await expect(dialog.getByRole('status')).toContainText('Nome atualizado');
+  await expect(page.getByRole('heading', { name: 'Jardim renovado', exact: true })).toBeVisible();
+  expect(new URL(page.url()).pathname).toBe(`/nucleos/${id}`);
+  expect(await page.evaluate(() => performance.timeOrigin)).toBe(documentOrigin);
+  await dialog.screenshot({ path: path.join(gallery, `depois-app-nome-${info.project.name}.png`), animations: 'disabled' });
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('button', { name: 'Editar nome do Núcleo', exact: true })).toBeFocused();
+  await page.getByRole('button', { name: 'Editar propósito do Núcleo', exact: true }).click();
+  dialog = page.getByRole('dialog', { name: 'Editar propósito do Núcleo', exact: true });
+  await expect(dialog.getByRole('textbox')).toHaveCount(1);
+  await dialog.getByLabel('Propósito do Núcleo', { exact: true }).fill('Respeito e presença');
+  await dialog.getByRole('checkbox').check();
+  await dialog.getByRole('button', { name: 'Salvar propósito', exact: true }).click();
+  await expect(dialog.getByRole('status')).toContainText('Propósito atualizado');
+  await dialog.screenshot({ path: path.join(gallery, `depois-app-proposito-${info.project.name}.png`), animations: 'disabled' });
+  expect(localSql(`select name||'|'||purpose from public.nuclei where id='${id}'`).trim()).toBe('Jardim renovado|Respeito e presença');
+  await page.keyboard.press('Escape');
+  await page.getByRole('button', { name: 'Ver integrantes', exact: true }).click();
+  const members = page.getByRole('dialog', { name: 'Integrantes do Núcleo', exact: true });
+  await expect(members.locator('.person-card')).toHaveCount(1);
+  await members.screenshot({ path: path.join(gallery, `depois-app-integrantes-${info.project.name}.png`), animations: "disabled" });
+  await page.keyboard.press('Escape');
+  if (info.project.name === 'mobile') {
+    await expect(page.locator('.mobile-navigation a')).toHaveText([/Início/, /Seus Núcleos/, /Acordos/, /Agenda/]);
+    await page.getByRole('button', { name: 'Mais áreas e preferências' }).click();
+  } else await page.getByRole('button', { name: 'Abrir Conta, Preferências e Ajuda' }).click();
+  const menu = info.project.name === 'mobile' ? page.locator('.navigation-dialog[open]') : page.locator('.account-popover:popover-open');
+  await expect(menu.getByRole('link', { name: /^Entrar com convite/ })).toHaveCount(0);
+  await expect(menu.getByRole('button', { name: /^Gerenciar convites/ })).toBeVisible();
+  await expect(menu.getByRole('button', { name: /^Sair de um Núcleo/ })).toBeVisible();
+  await expect(menu.getByRole('button', { name: /^Encerrar Núcleo para todos/ })).toBeVisible();
+  const closureRow = menu.locator('.account-deletion-trigger .account-row');
+  await expect(closureRow).toHaveCSS('border-top-color', 'rgb(255, 40, 70)');
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await expect(closureRow).toHaveCSS('transition-duration', '0s');
+  await menu.screenshot({ path: path.join(gallery, `depois-app-menu-${info.project.name}.png`), animations: "disabled" });
+  await menu.locator('[id$="conta-e-nucleos"]').screenshot({ path: path.join(gallery, `depois-app-controles-${info.project.name}.png`), animations: 'disabled' });
+  await menu.getByRole('button', { name: /^Gerenciar convites/ }).click();
+  await page.getByRole('dialog', { name: 'Gerenciar convites', exact: true }).getByRole('link', { name: /Jardim renovado/ }).click();
+  await expect(page).toHaveURL(new RegExp(`/nucleos/${id}/convites$`));
+  await expect(page.locator('dialog[open], .account-popover:popover-open')).toHaveCount(0);
+});
+
+test('participante vê integrantes e saída, sem controles administrativos; cancelar mantém vínculo', async ({ page, account }, info) => {
+  const id = randomUUID();
+  await withPeer(page, async peer => {
+    localSql(`insert into public.nuclei(id,type,name,purpose,created_by) values('${id}','familia','Núcleo compartilhado','Escuta e respeito','${account.id}'); insert into public.nucleus_members(nucleus_id,user_id,role) values('${id}','${account.id}','admin'),('${id}','${peer.id}','member');`);
+    await peer.page.goto(`http://127.0.0.1:3200/nucleos/${id}`);
+    await expect(peer.page.getByRole('button', { name: /^Editar (nome|propósito) do Núcleo/ })).toHaveCount(0);
+    await peer.page.getByRole('button', { name: 'Ver integrantes', exact: true }).click();
+    await expect(peer.page.getByRole('dialog', { name: 'Integrantes do Núcleo', exact: true }).locator('.person-card')).toHaveCount(2);
+    await peer.page.keyboard.press('Escape');
+    await peer.page.goto('http://127.0.0.1:3200/conta');
+    const section = peer.page.locator('.account-workspace #conta-e-nucleos');
+    await expect(section.getByRole('button', { name: /^Gerenciar convites|^Encerrar Núcleo para todos/ })).toHaveCount(0);
+    await section.getByRole('button', { name: /^Sair de um Núcleo/ }).click();
+    const leave = peer.page.getByRole('dialog', { name: 'Sair de um Núcleo', exact: true });
+    await expect(leave).toContainText('A saída não cancela acordos');
+    await leave.screenshot({ path: path.join(gallery, `depois-app-saida-${info.project.name}.png`), animations: "disabled" });
+    await peer.page.keyboard.press('Escape');
+    expect(localSql(`select count(*) from public.nucleus_members where nucleus_id='${id}'`).trim()).toBe('2');
+    expect((await peer.client.rpc('update_nucleus_identity', { target_nucleus: id, identity_field: 'name', identity_value: 'Sem permissão' })).error?.code).toBe('42501');
+  });
+});

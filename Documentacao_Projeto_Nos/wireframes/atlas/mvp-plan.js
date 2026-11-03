@@ -94,3 +94,7 @@ window.addEventListener('beforeprint',()=>{
   mvpPrintState.forEach(({node})=>node.open=true);
 });
 window.addEventListener('afterprint',()=>{mvpPrintState.forEach(({node,open})=>node.open=open);mvpPrintState=[];});
+
+// v3.6.0: a cobertura mantém os IDs; gestão migra para o modal e Conta, sem ampliar o MVP.
+const nucleusOrganizationPhase=mvpPhases.find(phase=>phase.key==='controls');
+if(nucleusOrganizationPhase)nucleusOrganizationPhase.features.unshift(['Organização do Núcleo','Início13: identidade separada e integrantes73 em modal. Conta66/popover/Mais: convites, saída e encerramento com confirmação. Sem guia Pessoas; /pessoas preserva compatibilidade. Barra móvel Início, Seus Núcleos, Acordos, Agenda, Mais. Entrada por código permanece em Seus Núcleos12.']);

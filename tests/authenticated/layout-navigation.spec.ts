@@ -20,16 +20,16 @@ test("layout vigente integra áreas reais, esboços, menu e isolamento", async (
   await expect(page.getByRole("heading", { name: "Tempo para o que importa.", exact: true })).toBeVisible();
   if (testInfo.project.name === "mobile") {
     const bottomNavigation = page.getByRole("navigation", { name: "Navegação móvel" });
-    for (const label of ["Início", "Acordos", "Agenda", "Pessoas"]) {
+    for (const label of ["Início", "Seus Núcleos", "Acordos", "Agenda"]) {
       await expect(bottomNavigation.getByRole("link", { name: label === "Início" ? /^Início ·/ : label, exact: true })).toBeVisible();
     }
     await page.getByRole("button", { name: "Mais áreas e preferências" }).click();
     const moreMenu = page.getByRole("dialog", { name: "Todos os seus caminhos" });
-    for (const label of ["Início", "Acordos", "Agenda", "Pessoas"]) {
+    for (const label of ["Início", "Seus Núcleos", "Acordos", "Agenda"]) {
       await expect(moreMenu.getByRole("link", { name: label === "Início" ? /^Início ·/ : label, exact: true })).toHaveCount(0);
     }
     await expect(moreMenu.getByRole("heading", { name: "Cultivar juntos", exact: true })).toHaveCount(0);
-    await expect(moreMenu.getByRole("link", { name: "Seus Núcleos", exact: true })).toBeVisible();
+    await expect(moreMenu.getByRole("link", { name: /^Seus Núcleos/ })).toBeVisible();
     await page.getByRole("dialog").getByRole("link", { name: "Árvore e memórias" }).click();
   } else await page.getByRole("navigation", { name: "Áreas do Nós" }).getByRole("link", { name: "Árvore e memórias" }).click();
   await expect(page).toHaveURL(new RegExp(`${base}/arvore$`));
@@ -61,7 +61,7 @@ test("layout vigente integra áreas reais, esboços, menu e isolamento", async (
     ["comecar", "/comecar"], ["tipo", "/comecar/tipo"], ["proposito", "/comecar/proposito?tipo=familia"], ["convite", "/comecar/convite"], ["conta", "/conta"], ["configuracoes", "/configuracoes"], ["privacidade", "/configuracoes/privacidade"], ["seguranca", "/configuracoes/conta"], ["ajuda", "/ajuda"], ["sair", `${base}/sair`],
   ];
   const titles: Record<string, string> = {
-    nucleos:"Seus Núcleos", inicio:"Nosso jardim de teste", agenda:"Tempo para o que importa.", pessoas:"Cada pessoa tem seu lugar.", convites:"Um convite para estar perto.", acordos:"Cada combinado no seu tempo.", habito:"Uma refeição com presença", registrar:"Registrar momento", revisar:"Termos e histórico do acordo", confirmar:"Período e administração do hábito",
+    nucleos:"Seus Núcleos", inicio:"Nosso jardim de teste", agenda:"Tempo para o que importa.", pessoas:"Nosso jardim de teste", convites:"Um convite para estar perto.", acordos:"Cada combinado no seu tempo.", habito:"Uma refeição com presença", registrar:"Registrar momento", revisar:"Termos e histórico do acordo", confirmar:"Período e administração do hábito",
     arvore:"Raízes no que vivemos.", memorias:"Há instantes que ficam.", conexoes:"Conhecer para cuidar.", perfis:"Um jeito único de estar no Nós.", manifesto:"O que escolhemos cultivar.", cuidado:"Conversar também é um cuidado.",
     comecar:"Como você quer começar?", tipo:"Que relação vocês têm?", proposito:"Qual o propósito de vocês?", convite:"Você recebeu um convite?", conta:"Conta, Preferências e Ajuda", configuracoes:"Conta, Preferências e Ajuda", privacidade:"Conta, Preferências e Ajuda", seguranca:"Conta, Preferências e Ajuda", ajuda:"Conta, Preferências e Ajuda", sair:"Sair de um Núcleo",
   };

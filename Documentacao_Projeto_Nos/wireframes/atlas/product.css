@@ -147,3 +147,7 @@ button:is([aria-label^="Fechar" i],[data-atlas-close]):is(:hover,:focus-visible)
 /* O main interno não herda a margem da ferramenta de documentação. */
 .current-atlas-main{margin-left:0;max-width:none}
 .live-row strong,.live-home-agreements h4{overflow-wrap:anywhere}.current-atlas-nav-group>button>span{min-width:0}
+.live-closure-trigger{border:1px solid #ff2846;border-radius:8px;background:var(--danger-bg);padding:14px;color:var(--danger-ink);transition:background-color .25s,box-shadow .25s}
+.live-closure-trigger:is(:hover,:focus-visible){box-shadow:0 0 20px #ff284659;background:color-mix(in srgb,#ff2846 12%,var(--danger-bg))}
+.live-closure-trigger .live-row-icon{color:#ff2846}
+@media(prefers-reduced-motion:reduce){.live-closure-trigger{transition:none}}

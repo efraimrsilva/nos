@@ -4,7 +4,7 @@ Aplicação web full stack para organizar espaços compartilhados, construir aco
 
 **[Acessar o aplicativo no Netlify](https://noslife.netlify.app)** · **[Tela de acesso](https://noslife.netlify.app/conta)** · **[Código-fonte](src)** · **[Documentação](Documentacao_Projeto_Nos/_andamento/estado.md)**
 
-**Versão do código: 3.5.0.** Projeto em evolução, com fluxos centrais implementados e áreas futuras identificadas como esboços. O endereço hospedado pode apresentar uma versão diferente do repositório; a revisão deste README não certifica um novo deploy.
+**Versão do código: 3.6.0.** Projeto em evolução, com fluxos centrais implementados e áreas futuras identificadas como esboços. O endereço hospedado pode apresentar uma versão diferente do repositório; a revisão deste README não certifica um novo deploy.
 
 ## O problema e a proposta
 
@@ -15,6 +15,8 @@ O **Nós** nasce para apoiar esse caminho entre a intenção e a prática. A pla
 Por exemplo, o desejo de ter mais tempo de qualidade em família pode se transformar em uma proposta de encontro semanal. Cada pessoa decide se quer participar, o encontro pode ser organizado na agenda e os registros ajudam a trazer experiências concretas para a próxima conversa sobre o acordo.
 
 **A autonomia de cada pessoa faz parte da solução.** Administrar um Núcleo não permite aceitar acordos por outra pessoa; mudanças de termos exigem novo aceite, e a saída de alguém não cancela os acordos de quem permanece. O objetivo é oferecer estrutura para o diálogo e a construção de hábitos de cuidado, respeitando a liberdade de aceitar, recusar, rever ou encerrar a própria participação.
+
+A versão 3.6.0 redistribui a antiga guia Pessoas: integrantes e administração em modal no Início; nome e propósito editáveis separadamente; convites, saída e encerramento na Conta, no perfil desktop e em Mais no celular. Entrada por código permanece em Seus Núcleos. [Contrato e validação](Documentacao_Projeto_Nos/_andamento/funcionalidades/organizacao-nucleo.md). A nova migração de identidade precisa existir no banco de destino antes de publicar este código.
 
 ## Funcionalidades implementadas
 

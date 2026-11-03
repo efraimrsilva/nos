@@ -22,7 +22,7 @@ export async function manageNucleus(nucleusId: string, operation: ManagementOper
   if (!uuid.test(nucleusId) || (targetUser !== null && !uuid.test(targetUser))) return { error: "Identificador inválido." };
   if (!["details", "nominate", "accept", "decline", "demote", "remove", "leave", "close"].includes(operation)) return { error: "Ação inválida." };
   if (form.get("confirmed") !== "on") return { error: "Confirme que compreendeu a ação antes de continuar." };
-  const path = `/nucleos/${nucleusId}/${operation === "leave" ? "sair" : "pessoas"}`;
+  const path = `/nucleos/${nucleusId}${operation === "leave" ? "/sair" : ""}`;
   const { supabase } = await requireControlsSession(path);
   // A ação valida a entrada; a função no banco revalida o papel sob a trava do Núcleo.
   const name = String(form.get("name") ?? "").trim();
@@ -48,5 +48,19 @@ export async function manageNucleus(nucleusId: string, operation: ManagementOper
   revalidatePath("/nucleos", "layout");
   if (operation === "leave") redirect("/nucleos");
   if (operation === "close") redirect("/nucleos?resultado=encerrado");
-  redirect(`/nucleos/${nucleusId}/pessoas?resultado=salvo`);
+  return { error: "", success: "Alteração concluída." };
+}
+
+// A RPC altera um único campo sob trava, preservando edições concorrentes do outro campo.
+export async function updateNucleusIdentity(id: string, field: "name" | "purpose", _previous: ControlActionState, form: FormData): Promise<ControlActionState> {
+  if (!uuid.test(id) || !["name", "purpose"].includes(field)) return { error: "Identificador inválido." };
+  if (form.get("confirmed") !== "on") return { error: "Confirme que compreendeu a alteração." };
+  const value = String(form.get(field) ?? "").trim();
+  const max = field === "name" ? 80 : 500;
+  if (!value || Array.from(value).length > max) return { error: `Informe ${field === "name" ? "um nome" : "um propósito"} com até ${max} caracteres.` };
+  const { supabase } = await requireControlsSession(`/nucleos/${id}`);
+  const { error } = await supabase.rpc("update_nucleus_identity", { target_nucleus: id, identity_field: field, identity_value: value });
+  if (error) return { error: "Não foi possível salvar. Confira sua permissão e tente novamente." };
+  revalidatePath("/nucleos", "layout");
+  return { error: "", success: field === "name" ? "Nome atualizado." : "Propósito atualizado." };
 }

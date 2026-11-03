@@ -16,19 +16,20 @@ import type { NavigationCounts } from "@/features/navigation/counts";
 const buildVersion = projectManifest.version;
 
 type NavItem = { label: string; href: string; icon: LucideIcon; tone: string; planned?: boolean };
-type ShellProps = { children: ReactNode; accountMenuContent?: ReactNode; lastNucleus?: { id: string; name: string } | null; showTree?: boolean; nucleusName?: string; userId?: string; counts?: NavigationCounts | null; profileLabel?: string };
+type ShellProps = { children: ReactNode; accountMenuContent?: ReactNode; mobileAccountMenuContent?: ReactNode; lastNucleus?: { id: string; name: string } | null; showTree?: boolean; nucleusName?: string; userId?: string; counts?: NavigationCounts | null; profileLabel?: string };
 const countKeys: Record<string, keyof NavigationCounts> = { "Seus Núcleos": "nuclei", "Núcleos": "nuclei", Acordos: "agreements", Agenda: "events", Pessoas: "people" };
 const countDescriptions = { nuclei: "Núcleos dos quais você participa atualmente", agreements: "Acordos não encerrados com seu aceite dos termos atuais, em todos os seus Núcleos", events: "Compromissos ainda não terminados em que você está incluído, sem recusados, em todos os seus Núcleos", people: "Outras pessoas nos seus Núcleos atuais, sem contar a mesma pessoa duas vezes" };
 const footer = <p className="site-footer-copy"><span>© 2026 Nós - Pequenos gestos. Vínculos reais.</span>{" "}<span className="site-footer-credits">Desenvolvido com 💖 por <a href="https://sintagmasoftware.netlify.app/">Sintagma Software</a>. Todos os direitos reservados.</span></p>;
 
-export function ApplicationShell({ children, accountMenuContent, lastNucleus, showTree = false, nucleusName: routeNucleusName, userId, counts, profileLabel }: ShellProps) {
+export function ApplicationShell({ children, accountMenuContent, mobileAccountMenuContent, lastNucleus, showTree = false, nucleusName: routeNucleusName, userId, counts, profileLabel }: ShellProps) {
   const pathname = usePathname();
   const [ready, setReady] = useState(false);
   const [sidebarHidden, setSidebarHidden] = useState(false);
   useEffect(() => { setReady(true); }, []);
-  useEffect(() => { setSidebarHidden(false); }, [pathname]);
   const menu = useRef<HTMLDialogElement>(null);
   const notices = useRef<HTMLDialogElement>(null);
+  // Links dos controles compartilhados também encerram a camada móvel ao mudar de rota.
+  useEffect(() => { setSidebarHidden(false); menu.current?.close(); notices.current?.close(); }, [pathname]);
   // O endereço fornece apenas contexto visual; a sessão e o vínculo são validados em cada página/ação.
   const routeNucleusId = /^\/nucleos\/([0-9a-f-]{36})(?:\/|$)/i.exec(pathname)?.[1];
   useEffect(() => {
@@ -63,7 +64,7 @@ export function ApplicationShell({ children, accountMenuContent, lastNucleus, sh
     ...(nucleusId ? [{ title: "Cultivar juntos", items: [
       { label: "Acordos", href: to("acordos"), icon: Heart, tone: "rose" },
       { label: "Agenda", href: to("agenda"), icon: CalendarDays, tone: "orange" },
-      { label: "Pessoas", href: to("pessoas"), icon: UsersRound, tone: "blue" },
+
     ] }, { title: "História e vínculos", items: [
       { label: "Árvore e memórias", href: to("arvore"), icon: Trees, tone: "green", planned: true },
       { label: "Conexões e perfis", href: to("conexoes"), icon: Sparkles, tone: "purple", planned: true },
@@ -78,10 +79,10 @@ export function ApplicationShell({ children, accountMenuContent, lastNucleus, sh
   const isActive = (item: NavItem) => {
     // Subpáginas mantêm destacada a área de origem, mesmo sem um atalho próprio no menu.
     if (item.href === "/nucleos" && pathname.startsWith("/comecar")) return true;
-    if (item.href === "/conta" && (pathname.startsWith("/configuracoes") || pathname === "/ajuda")) return true;
+    if (item.href === "/conta" && (/\/(convites|sair)$/.test(pathname) || pathname.startsWith("/configuracoes") || pathname === "/ajuda")) return true;
     if (nucleusId) {
       const section = pathname.slice(base.length + 1).split("/")[0];
-      const parentArea = ({ convites: "pessoas", sair: "pessoas", memorias: "arvore", perfis: "conexoes", cuidado: "manifesto" } as Record<string, string>)[section];
+      const parentArea = ({ pessoas: "", convites: "conta", sair: "conta", memorias: "arvore", perfis: "conexoes", cuidado: "manifesto" } as Record<string, string>)[section];
       if (parentArea && item.href === to(parentArea)) return true;
     }
     return [base, "/nucleos", "/conta"].includes(item.href) ? pathname === item.href : pathname.startsWith(item.href);
@@ -89,10 +90,9 @@ export function ApplicationShell({ children, accountMenuContent, lastNucleus, sh
   const active = allItems.find(isActive)?.label ?? (pathname.startsWith("/comecar") ? "Um novo vínculo" : pathname === "/ajuda" ? "Ajuda" : "Seu espaço");
   const mobileItems: NavItem[] = nucleusId ? [
     { label: "Início", href: base, icon: House, tone: "green" },
+    { label: "Seus Núcleos", href: "/nucleos", icon: UsersRound, tone: "blue" },
     { label: "Acordos", href: to("acordos"), icon: Heart, tone: "rose" },
-    { label: "Agenda", href: to("agenda"), icon: CalendarDays, tone: "orange" },
-    { label: "Pessoas", href: to("pessoas"), icon: UsersRound, tone: "blue" },
-  ] : [{ label: "Núcleos", href: "/nucleos", icon: UsersRound, tone: "blue" }];
+    { label: "Agenda", href: to("agenda"), icon: CalendarDays, tone: "orange" },  ] : [{ label: "Núcleos", href: "/nucleos", icon: UsersRound, tone: "blue" }];
   const moreActive = !mobileItems.some(isActive);
   const countDescriptionId = (label: string) => counts !== undefined && countKeys[label] ? `navigation-total-${countKeys[label]}` : undefined;
   const count = (label: string, compact = false) => {
@@ -136,7 +136,7 @@ export function ApplicationShell({ children, accountMenuContent, lastNucleus, sh
       {showFooter && <footer className="current-footer">{footer}</footer>}
     </div>
     <nav className="mobile-navigation" aria-label="Navegação móvel">{mobileItems.map(item => <Link key={item.label} href={item.href} prefetch={false} aria-label={item.label === "Início" ? homeLabel : undefined} aria-describedby={countDescriptionId(item.label)} aria-current={isActive(item) ? "page" : undefined}><item.icon size={22} strokeWidth={2.5} className={`tone-${item.tone}`} aria-hidden="true" /><span className="mobile-nav-label">{item.label}{item.label === "Início" && fullNucleusName && <small className="nav-nucleus-name" title={fullNucleusName}>{shortNucleusName(12)}</small>}{count(item.label, true)}</span></Link>)}<button type="button" disabled={!ready} aria-current={moreActive ? "page" : undefined} onClick={() => menu.current?.showModal()} aria-haspopup="dialog" aria-label="Mais áreas e preferências"><Menu size={23} className="tone-neutral" aria-hidden="true" /><span>Mais</span></button></nav>
-    <dialog ref={menu} className="navigation-dialog" aria-labelledby="navigation-dialog-title"><div className="dialog-heading"><h2 id="navigation-dialog-title">Todos os seus caminhos</h2><button type="button" aria-label="Fechar menu" onClick={() => menu.current?.close()}><X aria-hidden="true" /></button></div><nav aria-label="Todas as áreas">{links(true)}</nav></dialog>
+    <dialog ref={menu} className="navigation-dialog" aria-labelledby="navigation-dialog-title"><div className="dialog-heading"><h2 id="navigation-dialog-title">Todos os seus caminhos</h2><button type="button" aria-label="Fechar menu" onClick={() => menu.current?.close()}><X aria-hidden="true" /></button></div><nav aria-label="Todas as áreas">{links(true)}</nav>{mobileAccountMenuContent && <div className="account-experience mobile-account-options" onClick={event => { if (event.target instanceof Element && event.target.closest("a[href]")) menu.current?.close(); }}>{mobileAccountMenuContent}</div>}</dialog>
     <dialog ref={notices} className="current-dialog" aria-labelledby="notice-dialog-title"><div className="dialog-heading"><span className="color-icon tone-orange"><Bell aria-hidden="true" /></span><button type="button" aria-label="Fechar notificações" onClick={() => notices.current?.close()}><X aria-hidden="true" /></button></div><p className="prototype-notice">Esboço de funcionalidade · ainda não desenvolvido</p><h2 id="notice-dialog-title">Novidades, no seu tempo.</h2><p>Este será o lugar para acompanhar convites, propostas e cuidados que pedem sua atenção. A central de notificações ainda não consulta nem envia avisos.</p><Link href={nucleusId ? to("acordos") : "/nucleos"} onClick={() => notices.current?.close()} className="secondary-action">{nucleusId ? "Consultar Acordos" : "Abrir Seus Núcleos"}<ArrowRight size={17} aria-hidden="true" /></Link></dialog>
   </div>;
 }

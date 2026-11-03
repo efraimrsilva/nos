@@ -12,19 +12,26 @@ try {
   assert.deepEqual(await page.evaluate(()=>globalReadingOrder[7]),[73,71,66,67,69,70,68]);
   assert.equal(await page.evaluate(()=>screens.filter(s=>s.status==='Recorte existente').length),39);
   await page.evaluate(()=>openScreen(12));
-  await page.locator('#screen-preview .phone [data-go="66"]').click();
+  await page.locator('[data-width="desktop"]').click();
+  await page.locator('#screen-preview .current-atlas-nav [data-go="66"]').click();
   assert.equal(await page.evaluate(()=>selectedId),66);
   await page.evaluate(()=>openScreen(13));
-  await page.locator('#screen-preview .phone [data-go="71"]').click();
-  assert.equal(await page.evaluate(()=>selectedId),71);
-  await page.locator('#screen-preview .phone [data-go="13"]').first().click();
+  await page.locator('#screen-preview .current-atlas-main [data-live-members]').click();
+  assert.match(await page.locator('#atlas-live-dialog').innerText(),/Integrantes do Núcleo/);
+  await page.keyboard.press('Escape');
+  await page.evaluate(()=>openScreen(66));
+  await page.locator('#screen-preview .current-atlas-main [data-live-choose-nucleus]').click();
+  assert.match(await page.locator('#atlas-live-dialog').innerText(),/Sair de um Núcleo/);
+  await page.keyboard.press('Escape');
+  await page.evaluate(()=>openScreen(13));
   assert.equal(await page.evaluate(()=>selectedId),13);
   for(const viewport of [{width:1440,height:1000},{width:390,height:844}]) {
     await page.setViewportSize(viewport);
     for(const id of [66,67,69,70,71]) {
       await page.evaluate(id=>openScreen(id),id);
       assert.equal(await page.evaluate(id=>byId(id).status,id),'Recorte existente');
-      assert.equal(await page.locator('#screen-preview input[type=checkbox]').count(),0);
+      // Confirmações reais coexistem com preferências futuras; não confundir ciência com toggle simulado.
+      assert.equal(await page.locator('#screen-preview input[role=switch]').count(),0);
       assert.match(await page.locator('#screen-preview').innerText(),/planejad|pendent|indisponível|administrador|preferência/i);
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
     }

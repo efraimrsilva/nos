@@ -1,6 +1,6 @@
 # Contrato permanente — identificação de modais na interface e no Atlas
 
-Status: regra permanente vigente por decisão do usuário em 2026-10-18. Inventário atualizado para v3.5.0 em 03/11/2026; a reconstrução v3.0.0 permanece como evidência histórica.
+Status: regra permanente vigente por decisão do usuário em 2026-10-18. Inventário atualizado para v3.6.0 em 03/11/2026; a reconstrução v3.0.0 permanece como evidência histórica.
 
 ## Atualização vigente — v3.5.0
 
@@ -82,3 +82,19 @@ Implementação compartilhada: src/shared/components/ui/action-dialog.tsx. Naveg
 ## Atualização v3.3.1 — perfil e conta
 
 Perfil desktop: popover não modal com seis seções, gatilho no avatar, sessão necessária, fechamento nativo por Escape/clique fora/botão e retorno ao Núcleo. Dados da conta, recuperação, confirmação, saída, Aparência, privacidade e ajuda reutilizam os diálogos existentes dentro do painel; ao fechar retornam ao gatilho. Notificações e exclusão ficam apenas na página completa. Exclusão mantém APAGAR CONTA; nenhuma exclusão real foi executada na verificação. Tela 69 do Atlas representa essa confirmação. [Galeria e resultados](../registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md).
+
+## Redistribuição de Pessoas — v3.6.0 — validado localmente
+
+Todas as funções abaixo são reais no aplicativo; o Atlas usa exemplos offline. [Contrato](organizacao-nucleo.md) e [roteiro](../testes-caixa-preta/organizacao-nucleo.md).
+
+| Origem / gatilho | Modal | Permissão / integração | Resultado / cancelamento |
+|---|---|---|---|
+| Início13, lápis junto ao nome | Editar nome do Núcleo | Administrador; update_nucleus_identity altera só name | Feedback local e cabeçalho atualizado; fechar sem salvar não grava; foco retorna ao lápis |
+| Início13, lápis junto ao propósito | Editar propósito do Núcleo | Administrador; mesma RPC altera só purpose | Nome preservado; confirmação e feedback locais; fechar não grava |
+| Início13, Núcleos onde estou / Ver integrantes | Integrantes do Núcleo (ID73 preservado) | Pessoa associada; get_nucleus_management retorna lista completa | Sem navegação ao abrir; fechar volta ao Início; /pessoas só redireciona |
+| Integrantes / Ver participação | Participação de pessoa | Nomeação, aceite/recusa, deixar/retirar administração e remoção, conforme papel | Mesmas permissões e confirmações anteriores; feedback não desaparece com seu formulário; cancelar não grava |
+| Conta66/popover/Mais, abaixo Seus Núcleos | Gerenciar convites | Administrador escolhe Núcleo; links para /convites | Gestão gera/revoga pelo contrato existente; navegar fecha menu e modal anteriores |
+| Conta66/popover/Mais | Sair de um Núcleo | Pessoa associada; avisos, autoria e ciência; leave_nucleus | Sucesso retorna /nucleos; cancelar mantém vínculo; troca de Núcleo reinicia confirmação |
+| Conta66/popover/Mais, abaixo saída | Encerrar Núcleo para todos | Administrador; close_nucleus valida nome atual e ciência | Mesmos avisos/efeitos; estilo vermelho e animação de Apagar minha conta; sucesso /nucleos?resultado=encerrado; cancelar não grava |
+
+Removidos: gatilho combinado Nome e propósito e acesso Pessoas na navegação. Entrada por convite da Conta retirada, mas rota e atalho em Seus Núcleos preservados. Conta/popover/Mais reutilizam AccountPreferences com IDs distintos. Links no Mais encerram a camada anterior, inclusive ao navegar para preferências de autoria. Diálogos, microinterações e movimento reduzido seguem os componentes existentes.

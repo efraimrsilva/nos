@@ -11,30 +11,32 @@ test("encerramento exige administrador e confirmação, preserva história e blo
     try {
       localSql(`insert into public.nuclei(id,type,name,purpose,created_by) values('${nucleus}','amigos','Jardim de encerramento','Presença','${account.id}'); insert into public.nucleus_members(nucleus_id,user_id,role) values('${nucleus}','${account.id}','admin'),('${nucleus}','${peer.id}','member');`);
       await peer.page.goto(`http://127.0.0.1:3200/nucleos/${nucleus}/pessoas`);
-      await expect(peer.page.getByRole("heading", { name: "Cada pessoa tem seu lugar.", exact: true })).toBeVisible();
-      await expect(peer.page.getByRole("button", { name: "Encerrar Núcleo para todos", exact: true })).toHaveCount(0);
+      await expect(peer.page.getByRole("dialog", { name: "Integrantes do Núcleo", exact: true })).toBeVisible();
+      await peer.page.keyboard.press("Escape");
+      await expect(peer.page.getByRole("button", { name: /^Encerrar Núcleo para todos/ })).toHaveCount(0);
       expect((await peer.client.rpc("close_nucleus", { target_nucleus: nucleus, confirmation_name: "Jardim de encerramento" })).error?.code).toBe("42501");
 
-      await page.goto(`/nucleos/${nucleus}/pessoas`);
-      await page.getByRole("button", { name: "Encerrar Núcleo para todos", exact: true }).click();
+      await page.goto(`/nucleos/${nucleus}`);
+      await page.goto("/conta");
+      await page.getByRole("button", { name: /^Encerrar Núcleo para todos/ }).click();
       const button = page.getByRole("button", { name: "Encerrar Núcleo", exact: true });
       await button.click();
       expect(localSql(`select closed_at is null from public.nuclei where id='${nucleus}'`).trim()).toBe("t");
-      await page.getByLabel(/Digite o nome do Núcleo para confirmar/).fill("Nome incorreto");
-      await page.getByLabel("Entendi que todos perderão acesso, os convites serão revogados e o histórico permanecerá armazenado.").check();
+      await page.locator("dialog[open]").last().getByLabel(/Digite o nome do Núcleo para confirmar/).fill("Nome incorreto");
+      await page.locator("dialog[open]").last().getByLabel("Entendi que todos perderão acesso, os convites serão revogados e o histórico permanecerá armazenado.").check();
       await button.click();
       await expect(page.getByRole("alert").filter({ hasText: "O nome informado não corresponde" })).toBeVisible();
       await page.keyboard.press("Escape");
       expect(localSql(`select count(*) from public.nucleus_members where nucleus_id='${nucleus}'`).trim()).toBe("2");
-      await page.getByRole("button", { name: "Encerrar Núcleo para todos", exact: true }).click();
-      await page.getByLabel(/Digite o nome do Núcleo para confirmar/).fill("Jardim de encerramento");
+      await page.getByRole("button", { name: /^Encerrar Núcleo para todos/ }).click();
+      await page.locator("dialog[open]").last().getByLabel(/Digite o nome do Núcleo para confirmar/).fill("Jardim de encerramento");
       // React reinicia os campos após a ação; a tentativa corrigida exige nova ciência explícita.
-      await page.getByLabel("Entendi que todos perderão acesso, os convites serão revogados e o histórico permanecerá armazenado.").check();
+      await page.locator("dialog[open]").last().getByLabel("Entendi que todos perderão acesso, os convites serão revogados e o histórico permanecerá armazenado.").check();
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       const gallery = process.env.NOS_CLOSURE_GALLERY;
       if (gallery) {
         mkdirSync(gallery, { recursive: true });
-        await page.screenshot({ path: path.join(gallery, `app-73-${testInfo.project.name}.png`), fullPage: true });
+        await page.locator('dialog[open]').last().screenshot({ path: path.join(gallery, `depois-app-encerramento-${testInfo.project.name}.png`), animations: 'disabled' });
       }
       await button.click();
       await expect(page).toHaveURL(/\/nucleos\?resultado=encerrado$/);

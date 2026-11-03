@@ -33,5 +33,6 @@ const navigationCounts = cache(async () => {
 export async function OnboardingShell({ children, showTree = false, nucleusName }: { children: ReactNode; showTree?: boolean; nucleusName?: string }) {
   const context = showTree ? undefined : await navigationCounts();
   const accountMenuContent = context ? <AccountPreferences embedded userId={context.userId} name={context.name} email={context.email} emailConfirmed={context.emailConfirmed} privacyHidden={context.privacy} next="/conta" /> : undefined;
-  return <ApplicationShell showTree={showTree} nucleusName={nucleusName} userId={context?.userId} lastNucleus={context?.lastNucleus} counts={context?.counts} profileLabel={context?.profileLabel} accountMenuContent={accountMenuContent}>{children}</ApplicationShell>;
+  const mobileAccountMenuContent = context ? <AccountPreferences embedded idPrefix="mobile-account" userId={context.userId} name={context.name} email={context.email} emailConfirmed={context.emailConfirmed} privacyHidden={context.privacy} next="/conta" /> : undefined;
+  return <ApplicationShell showTree={showTree} nucleusName={nucleusName} userId={context?.userId} lastNucleus={context?.lastNucleus} counts={context?.counts} profileLabel={context?.profileLabel} accountMenuContent={accountMenuContent} mobileAccountMenuContent={mobileAccountMenuContent}>{children}</ApplicationShell>;
 }

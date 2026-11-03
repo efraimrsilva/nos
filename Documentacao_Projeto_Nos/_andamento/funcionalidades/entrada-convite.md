@@ -41,3 +41,7 @@ SMTP (Simple Mail Transfer Protocol, envio de e-mail) público ainda depende da 
 
 
 **Gestão v0.15.0:** geração serializada pelo Núcleo; aceitar/revogar disputam o mesmo convite e validade é reconferida após o bloqueio. Permissões/datas/concorrência testadas localmente. [Contrato atual](nucleo-compartilhado.md).
+
+## Redistribuição — v3.6.0 — validado localmente
+
+A entrada por código continua necessária e está preservada em Seus Núcleos e /comecar/convite. Somente o atalho de Conta e Núcleos foi retirado. Gerenciar convites é um acesso administrativo distinto, movido para Conta/popover/Mais, abaixo de Seus Núcleos. Geração, prévia, aceite e revogação mantêm seus contratos. [Organização](organizacao-nucleo.md).

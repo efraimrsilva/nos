@@ -15,29 +15,30 @@ test("nomeação exige aceite e saída confirmada sorteia administração", asyn
       await page.locator(".person-card").filter({ has: page.getByLabel("Enviar nomeação; a pessoa precisará aceitar.") }).getByRole("button", { name: /Ver participação/ }).click();
       await page.getByLabel("Enviar nomeação; a pessoa precisará aceitar.").check();
       await page.getByRole("button", { name: "Convidar para administrar", exact: true }).click();
-      await expect(page).toHaveURL(/resultado=salvo/);
+      await expect(page.locator("dialog[open]").last().getByRole("status").first()).toContainText("Alteração concluída.");
       expect(localSql(`select role from public.nucleus_members where nucleus_id='${nucleus}' and user_id='${peer.id}'`).trim()).toBe("member");
       await peer.page.goto(`http://127.0.0.1:3200/nucleos/${nucleus}/pessoas`);
       await peer.page.locator(".person-card").filter({ has: peer.page.getByLabel("Desejo assumir a administração deste Núcleo.") }).getByRole("button", { name: /Ver participação/ }).click();
       await peer.page.getByLabel("Desejo assumir a administração deste Núcleo.").check();
       await peer.page.getByRole("button", { name: "Aceitar administração", exact: true }).click();
-      await expect(peer.page).toHaveURL(/resultado=salvo/);
+      await expect(peer.page.locator("dialog[open]").last().getByRole("status").first()).toContainText("Alteração concluída.");
       expect(localSql(`select role from public.nucleus_members where nucleus_id='${nucleus}' and user_id='${peer.id}'`).trim()).toBe("admin");
       // Retirar o papel preserva o vínculo; saída do único admin deve sortear o membro restante.
       await page.goto(`/nucleos/${nucleus}/pessoas`);
       await page.locator(".person-card").filter({ has: page.getByLabel("A pessoa permanecerá participante, sem poderes de administração.") }).getByRole("button", { name: /Ver participação/ }).click();
       await page.getByLabel("A pessoa permanecerá participante, sem poderes de administração.").check();
       await page.getByRole("button", { name: "Retirar administração", exact: true }).click();
-      await expect(page).toHaveURL(/resultado=salvo/);
+      await expect(page.locator("dialog[open]").last().getByRole("status").first()).toContainText("Alteração concluída.");
       await page.goto("/configuracoes/privacidade");
-      await page.getByLabel("Ocultar minha autoria nas interações após sair de um Núcleo").check();
-      await page.getByRole("button", { name: "Salvar preferência", exact: true }).click();
-      await expect(page.getByRole("status")).toContainText("Preferência salva");
+      await page.locator(".account-workspace #privacidade").getByRole("button", { name: /Visibilidade das próximas saídas/ }).click();
+      await page.locator("dialog[open]").last().getByLabel("Ocultar minha autoria nas interações após sair de um Núcleo").check();
+      await page.locator("dialog[open]").last().getByRole("button", { name: "Salvar preferência", exact: true }).click();
+      await expect(page.locator("dialog[open]").last().getByRole("status")).toContainText("Preferência salva");
       await page.goto(`/nucleos/${nucleus}/sair`);
-      await expect(page.getByText(/histórico compartilhado de conversas e interações permanecerá/)).toBeVisible();
+      await expect(page.getByRole("main").getByText(/histórico compartilhado de conversas e interações permanecerá/)).toBeVisible();
       expect(localSql(`select count(*) from public.nucleus_members where nucleus_id='${nucleus}'`).trim()).toBe("2");
       await page.getByRole("button", { name: "Revisar minha saída" }).click();
-      await page.getByLabel("Entendi que perderei acesso e que o histórico compartilhado permanecerá.").check();
+      await page.locator("dialog[open]").last().getByLabel("Entendi que perderei acesso e que o histórico compartilhado permanecerá.").check();
       await page.getByRole("button", { name: "Sair deste Núcleo", exact: true }).click();
       await expect(page).toHaveURL(/\/nucleos$/);
       expect(localSql(`select role from public.nucleus_members where nucleus_id='${nucleus}' and user_id='${peer.id}'`).trim()).toBe("admin");
@@ -45,7 +46,7 @@ test("nomeação exige aceite e saída confirmada sorteia administração", asyn
       await expect(page.getByRole("heading", { name: "404", exact: true })).toBeVisible();
       await peer.page.goto(`http://127.0.0.1:3200/nucleos/${nucleus}/sair`);
       await peer.page.getByRole("button", { name: "Revisar minha saída" }).click();
-      await peer.page.getByLabel("Entendi que perderei acesso e que o histórico compartilhado permanecerá.").check();
+      await peer.page.locator("dialog[open]").last().getByLabel("Entendi que perderei acesso e que o histórico compartilhado permanecerá.").check();
       await peer.page.getByRole("button", { name: "Sair deste Núcleo", exact: true }).click();
       await expect(peer.page).toHaveURL(/\/nucleos$/);
       expect(localSql(`select closed_at is not null from public.nuclei where id='${nucleus}'`).trim()).toBe("t");
@@ -59,8 +60,9 @@ test("gestão e saída exigem associação; suporte mostra contato aprovado", as
     await expect(page.getByRole("heading", { name: "404", exact: true })).toBeVisible();
   }
   await page.goto("/ajuda");
-  await expect(page.getByRole("main").locator("p").filter({ hasText: /^Sintagma Software$/ })).toBeVisible();
-  await expect(page.getByRole("link", { name: "sintagmasoftware@gmail.com", exact: true })).toHaveAttribute("href", "mailto:sintagmasoftware@gmail.com");
+  await page.locator(".account-workspace #ajuda-e-suporte").getByRole("button", { name: /Preciso de orientação/ }).click();
+  await expect(page.locator("dialog[open]").last().getByText("Sintagma Software", { exact: true })).toBeVisible();
+  await expect(page.locator("dialog[open]").last().getByRole("link", { name: "sintagmasoftware@gmail.com", exact: true })).toHaveAttribute("href", "mailto:sintagmasoftware@gmail.com");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
@@ -73,7 +75,7 @@ test("saídas concorrentes fecham Núcleo e autoria oculta permanece protegida n
       const gallery = process.env.NOS_ADMIN_GALLERY;
       if (gallery) {
         mkdirSync(gallery, { recursive: true });
-        for (const [id, route, title] of [[13,`/nucleos/${nucleus}`,"Privacidade em prática"],[73,`/nucleos/${nucleus}/pessoas`,"Cada pessoa tem seu lugar."],[67,"/configuracoes/privacidade","Privacidade e visibilidade"],[70,"/ajuda","Ajuda e suporte"],[71,`/nucleos/${nucleus}/sair`,"Sair de um Núcleo"]] as const) {
+        for (const [id, route, title] of [[13,`/nucleos/${nucleus}`,"Privacidade em prática"],[73,`/nucleos/${nucleus}/pessoas`,"Integrantes do Núcleo"],[67,"/configuracoes/privacidade","Conta, Preferências e Ajuda"],[70,"/ajuda","Conta, Preferências e Ajuda"],[71,`/nucleos/${nucleus}/sair`,"Sair de um Núcleo"]] as const) {
           await page.goto(route);
           await expect(page.getByRole("heading", { name: title, exact: true })).toBeVisible();
           await page.evaluate(() => document.fonts.ready);
@@ -82,9 +84,10 @@ test("saídas concorrentes fecham Núcleo e autoria oculta permanece protegida n
         }
       }
       await page.goto("/configuracoes/privacidade");
-      await page.getByLabel("Ocultar minha autoria nas interações após sair de um Núcleo").check();
-      await page.getByRole("button", { name: "Salvar preferência", exact: true }).click();
-      await expect(page.getByRole("status")).toContainText("Preferência salva");
+      await page.locator(".account-workspace #privacidade").getByRole("button", { name: /Visibilidade das próximas saídas/ }).click();
+      await page.locator("dialog[open]").last().getByLabel("Ocultar minha autoria nas interações após sair de um Núcleo").check();
+      await page.locator("dialog[open]").last().getByRole("button", { name: "Salvar preferência", exact: true }).click();
+      await expect(page.locator("dialog[open]").last().getByRole("status")).toContainText("Preferência salva");
       const own = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!, { auth: { persistSession: false } });
       expect((await own.auth.signInWithPassword({ email: account.email, password: account.password })).error).toBeNull();
       expect((await own.rpc("leave_nucleus", { target_nucleus: nucleus })).error).toBeNull();

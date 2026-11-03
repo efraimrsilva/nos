@@ -1,5 +1,40 @@
 # Estado do Projeto Nós
 
+## Reparo da edição de nome e propósito no banco configurado — v3.6.0 — 2026-11-03
+
+**Objetivo/resultado:** restaurar gravação de identidade relatada pelo usuário. Servidor3000 usa Supabase hospedado pyvohqgcwkcfzbtkmbvx. Causa reproduzida:404/PGRST202 e função update_nucleus_identity ausente; a migração20261103160000 só existia localmente. Dependências administrativas conferidas e migração específica aplicada no destino, com função/permissões/histórico na mesma transação e recarga do esquema. Nenhuma outra migração, reset, commit/push/deploy.
+
+**Validação:** hashes de nuclei/nucleus_members preservados durante aplicação;5 Núcleos/6 vínculos antes/depois. Teste remoto com dados temporários em transação: nome e propósito gravados separadamente, outro campo preservado; nome vazio e participante comum rejeitados. ROLLBACK dos dados de teste confirmado. Função registrada; authenticated executa com administração revalidada; anon não executa. API não retorna mais PGRST202. Sessão pessoal do usuário não operada; aguardar reteste, sem inferir aprovação de caixa preta.
+
+**Versão/arquivos:**3.6.0 mantida, sem código/interface novo; aplicação da migração já incluída nessa versão. **DOCS_DIR:**Documentacao_Projeto_Nos. Branch main, base7bd1eac; alterações anteriores preservadas. Build/tipos não repetidos porque nenhuma mudança de código. Atlas/manifestos permanecem3.6.0.
+
+**Pendência de commit:** reorganização do Núcleo e remoção de Pessoas, migração/testes, Atlas/versão/documentação/evidências, incluindo o registro deste reparo. Nenhum commit criado. Sugestão: feat(nucleos): integrar pessoas ao inicio e aos menus da conta.
+
+**Ferramentas/contador:** Superpowers depuração/TDD/verificação, Supabase, Context7 CLI2.118.0; conector indisponível, fallback CLI autenticada sem exposição de segredos. Octocode não exposto/sem pesquisa avançada necessária.12 conclusões adicionais desde29/10; histórico165 com lacuna e marco100 preservados, sem inferir marco200.
+
+**Próximo passo:** usuário reabrir modais e retestar nome/propósito; registrar resultado. Publicar conjunto apenas quando autorizado. Migração de contagens de respostas continua fora deste reparo. [Registro completo](registros/registro-v3.6.0-2026-11-03-imp-banco-hospedado-fun-edicao-identidade.md) · [contrato](funcionalidades/organizacao-nucleo.md) · [resultados](testes-caixa-preta/resultados.md). Blocos abaixo são históricos; a limitação anterior de identidade somente local foi resolvida neste marco.
+
+
+## Organização do Núcleo e remoção da guia Pessoas — v3.6.0 — 2026-11-03
+
+**Objetivo/aceite:** redistribuir Pessoas preservando integrantes/administração, convites, saída e encerramento; identidade em modais independentes; manter padrões, fluidez, foco e movimento reduzido. **DOCS_DIR:** Documentacao_Projeto_Nos. **Versão vigente:3.6.0** (MINOR compatível). Branch main, base7bd1eac; Git limpo no início. Sem commit, push, deploy ou banco remoto nesta entrega.
+
+**Concluído localmente:** Início13 exibe nome → propósito → papel; lápis separados para administrador. Núcleos onde estou → Ver integrantes abre lista completa e todas as ações anteriores. /pessoas redireciona para Início?integrantes=1 com acesso conferido no destino. Conta66/popover/Mais: Seus Núcleos → Gerenciar convites → Sair de um Núcleo → Encerrar Núcleo para todos, conforme permissão. Encerramento reutiliza vermelho/animação de Apagar minha conta e confirmações. Entrada por código permanece em /nucleos e /comecar/convite; só o atalho da Conta foi retirado. Mobile: Início → Seus Núcleos → Acordos → Agenda → Mais.
+
+**Integrações:** update_nucleus_identity altera um campo sob trava administrativa, preservando o outro. Salvar identidade/gestão revalida sem navegar, mantendo documento/modal/feedback. Feedback de gestão na lista sobrevive ao formulário removido. Links no Mais fecham camadas anteriores; confirmação reinicia ao trocar Núcleo. Reutilizados componentes/estilos existentes, sem dependências novas. IDs do Atlas preservados (73 passa a modal).
+
+**Validações:** tipos e build webpack final3.6.0 aprovados;30 cenários autenticados na rodada ampla aprovados; reteste final3.6.0 com11 aprovados/1 ignorado intencionalmente (popover desktop ausente no celular), incluindo animações/nove temas/capturas.20 testes públicos e118 SQL pertinentes aprovados (13 novos de identidade). Cinco verificadores Atlas aprovados: organização, controles, paridade3.5, MVP e Visão global. Galeria46 imagens antes/Atlas/depois e modais inspecionada. Autorrevisão e duas leituras de revisão independente estática sem bloqueios.14 novos testes de caixa preta permanecem Não executados pelo usuário.
+
+**Limites:** migração20261103160000 aplicada e função conferida somente localmente; CLI migration up recusou divergência de histórico anterior, sem reset/reaplicação de antigas. Suíte SQL total executou173 asserções, mas falhou em email_confirmation.sql por get_email_confirmation_status ausente neste banco local; não declarar suíte total aprovada. Falhas/retestes no registro. Não certificados Safari, aparelho físico ou produção. Aplicar/conferir migração no destino antes de implantar. Limpeza da cópia temporária C:/Users/Efraim/AppData/Local/Temp/nos-auth-3VgTQD recusada automaticamente (blocked by policy); pasta preservada, sem nova tentativa de exclusão.
+
+**Ferramentas/contador:** Superpowers entendimento, TDD, depuração, revisão/verificação; skill Supabase e checklist React. Context7 Next16.2.9 (indexado mais próximo do16.3.6 instalado), complementado por tipos/padrões locais. Octocode não exposto; sem pesquisa avançada entre repositórios/pacotes necessária.11 conclusões adicionais desde reinício29/10; histórico165 com lacuna e marco100 preservados, sem inferir total anterior ou marco200.
+
+**Unidade pronta para commit:** organização do Núcleo/remoção de Pessoas, migração/testes, Atlas/versão/documentação e evidências. Pendente; nenhum commit criado. Sugestão: feat(nucleos): integrar pessoas ao inicio e aos menus da conta.
+
+**Próximo passo:** executar os14 casos novos com a própria conta e registrar resultados. Publicação exige autorização específica e migração no destino antes do código. Lacuna anterior de confirmação de e-mail local exige investigação própria; os118 testes pertinentes passaram.
+
+**Índice:** [registro](registros/registro-v3.6.0-2026-11-03-imp-nucleo-fun-mesclagem-pessoas.md) · [contrato](funcionalidades/organizacao-nucleo.md) · [modais](funcionalidades/modais-interface.md) · [caixa preta](testes-caixa-preta/organizacao-nucleo.md) · [resultados](testes-caixa-preta/resultados.md) · [galeria](../wireframes/comparacoes/v3.6.0-2026-11-03-nucleo-tela_13-tela_66-tela_71-tela_73/index.html). Seções seguintes preservam marcos históricos.
+
 ## Consolidação de interface e auditoria mobile/desktop — v3.5.0 — 2026-11-03
 
 **Objetivo/aceite:** comparar funcionalidades e destinos entre celular e desktop, corrigir lacunas concretas de responsividade, consolidar toda a documentação autorizada, sincronizar o Atlas e publicar o conjunto no GitHub. **DOCS_DIR:** `Documentacao_Projeto_Nos`. **Versão vigente:3.5.0**, MINOR pelo calendário mensal e contagens compartilhadas compatíveis. Branch `main`, base `341353c`. A autorização de documentação substituiu a suspensão anterior; commit/push autorizados. Nenhuma migração remota ou implantação certificada.

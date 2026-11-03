@@ -69,3 +69,7 @@ Item5 operacional permanece adiado a pedido do usuário pelo impedimento do Goog
 ## Critérios implementados e validados
 
 Foram validados gestão com múltiplos administradores, aceite de nomeação comum, saída/remoção com revogação, sorteio do último administrador, fechamento do último membro, participação individual, mudança de termos com novo aceite, gestão do teste/ativo/encerramento sem votação, história preservada e preferência de autoria. Atualizar aplicação, banco, testes, Atlas/Visão global/MVP/fichas/galeria e documentos coerentemente. Fonte de verdade deste desenho: este contrato; registros antigos servem apenas de histórico.
+
+## Organização do Núcleo — v3.6.0 — validado localmente
+
+[Contrato atual](organizacao-nucleo.md): gestão de integrantes agora em Início → Ver integrantes; identidade no cabeçalho; convites, saída e encerramento na Conta/popover/Mais. Poderes, aceite de nomeação, autoria e preservação de história permanecem. A antiga guia Pessoas é retirada; sua rota é compatibilidade para abrir o modal no Início.

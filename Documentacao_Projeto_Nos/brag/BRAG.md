@@ -326,3 +326,17 @@ Problema: propósito exigia abrir um diálogo. Contribuição: propósito e vín
 
 ## 2026-10-21 — v3.0.4 — Execução local alinhada ao código atual
 Problema: start servia compilação com layout antigo. Contribuição: diagnóstico pela resposta HTTP e artefatos, isolamento seguro do build obsoleto e recompilação atual, sem exclusão de funcionalidades. Resultado verificado: dev e produção local com layout novo, build padrão aprovado, quatro testes de interface e21 capturas públicas sem overflow. Exclusão definitiva do isolamento bloqueada pelo controle automático.
+
+## 2026-11-03 — v3.6.0 — organização de integrantes e gestão do Núcleo
+
+- **Problema:** funções de Pessoas precisavam ser redistribuídas sem perder administração, convites ou saída; edição conjunta podia sobrescrever o campo que não estava sendo editado.
+- **Contribuição:** integrantes/administração em modal; identidade separada com atualização de um campo sob trava; controles de convites/saída/encerramento na Conta e Mais, mantendo padrões visuais, ciência e permissões. Navegação móvel reorganizada e entrada por código preservada.
+- **Resultado verificado:**30 cenários autenticados desktop/mobile,20 testes públicos e118 testes SQL pertinentes aprovados; tipos/build e revisão independente estática. Teste confirma salvamento sem recarregar o documento e retorno do foco. Benefício esperado: caminhos mais coerentes para gerir o Núcleo; sem medição de tempo/usabilidade.
+- **Evidência:** [registro](../_andamento/registros/registro-v3.6.0-2026-11-03-imp-nucleo-fun-mesclagem-pessoas.md), [contrato](../_andamento/funcionalidades/organizacao-nucleo.md) e galeria vinculada. Validação local; implantação não certificada. Suíte SQL completa tem lacuna preexistente de confirmação de e-mail.
+
+## 2026-11-03 — v3.6.0 — restauração da edição no ambiente configurado
+
+- **Problema:** modais não salvavam porque o banco hospedado não tinha a função da migração de identidade.
+- **Contribuição:** diagnóstico por HTTP/metadados e aplicação apenas da migração ausente com integridade/histórico transacionais, preservando permissões.
+- **Resultado verificado:** função reconhecida pela API; nome/propósito independentes gravados por administrador em transação de teste desfeita; participante e nome vazio bloqueados; dados existentes preservados por comparação de hashes. Reteste na conta do usuário pendente.
+- **Evidência:** [registro do reparo](../_andamento/registros/registro-v3.6.0-2026-11-03-imp-banco-hospedado-fun-edicao-identidade.md). Sem medição de impacto de usabilidade ou novo deploy.
