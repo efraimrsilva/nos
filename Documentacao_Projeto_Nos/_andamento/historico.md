@@ -1,5 +1,9 @@
 # Histórico de andamento
 
+## 2026-11-03 — v3.6.3 — sincronização da identidade
+
+Nome/propósito chegam às sessões por consulta autenticada3s e reconciliação sem reload, com retomada de falhas até a renderização confirmar a versão. [Registro](registros/registro-v3.6.3-2026-11-03-imp-identidade-fun-sincronizacao.md).
+
 ## 2026-11-03 — v3.5.0 — interface responsiva, auditoria e consolidação
 
 Calendário mensal contínuo, propostas sem Categoria, contagens compartilhadas a cada3s, cartões com integrantes, navegação limpa e versão visível, controles/animações da Conta e oito vagalumes. Auditoria corrigiu nomes/títulos longos e área segura, mantendo diferenças úteis de layout e as mesmas ações. Tipos/build finais,20 testes públicos,7 pgTAP,25 cenários autenticados únicos e cinco verificadores do Atlas aprovados;1 cenário intencionalmente ignorado. Falhas/retestes preservados.54 capturas e24 casos novos de caixa preta não executados pelo usuário. [Registro integral e limites](registros/registro-v3.5.0-2026-11-03-05-imp-validacao-fun-paridade-e-rastreabilidade.md). Sem certificação de Auth remoto, migração remota, Safari físico ou deploy.

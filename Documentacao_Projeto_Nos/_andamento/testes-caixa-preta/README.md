@@ -1,4 +1,6 @@
-# Processo permanente de testes de caixa preta — v3.6.2
+# Processo permanente de testes de caixa preta — v3.6.3
+
+[Sincronização da identidade — v3.6.3](sincronizacao-identidade.md): seis casos manuais Não executados pelo usuário.
 
 [Lista compacta de integrantes — v3.6.2](integrantes-lista.md): casos manuais permanecem Não executados pelo usuário.
 

@@ -1,4 +1,4 @@
-# Organização do Núcleo — v3.6.2 — validado localmente
+# Organização do Núcleo — v3.6.3 — validado localmente
 
 O desenho aprovado substitui a guia Pessoas por funções nos locais pertinentes. Nenhuma permissão de administração ou escolha individual é ampliada.
 
@@ -19,3 +19,5 @@ Formulários reutilizam ControlActionForm e ActionDialog. Salvar identidade e ge
 Integrações: sessão/RLS, get_nucleus_management, funções administrativas existentes e nova update_nucleus_identity. Migração20261103160000 aplicada e validada também no banco hospedado configurado em03/11/2026 após o relato de falha, sem alterar dados existentes; [registro do reparo](../registros/registro-v3.6.0-2026-11-03-imp-banco-hospedado-fun-edicao-identidade.md). Testes do usuário: [organização do Núcleo](../testes-caixa-preta/organizacao-nucleo.md).
 
 **Atualização3.6.2:** seta Ver integrantes com13px de espaço junto ao texto, como Ver Seus Núcleos. Lista sem cartões grandes, nome acionável por teclado, pequenos avatares e foco preservado. Não há coluna extra de ações.
+
+**Atualização3.6.3 — identidade compartilhada:** o shell autenticado confere um resumo SHA-256 de id/nome/propósito dos Núcleos acessíveis pela sessão/RLS a cada três segundos. Havendo alteração, router.refresh atualiza o conteúdo sem recarregar documento: Início, listas, contexto em Acordos/Agenda e seletores da Conta/Mais. Primeira conferência de cada versão/rota fecha a janela entre consultas concorrentes. Pausa com aba oculta/offline, retoma com visibilidade/conexão; falha não limpa dados. Nenhuma permissão nova, escrita pelo receptor, migração ou serviço adicional. Intervalo/rede/suspensão do navegador afetam a latência; não é push instantâneo. [Caixa preta](../testes-caixa-preta/sincronizacao-identidade.md).

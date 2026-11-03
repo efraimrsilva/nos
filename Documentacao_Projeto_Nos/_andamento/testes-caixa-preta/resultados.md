@@ -1,5 +1,9 @@
 # Resultados dos testes de caixa preta — v3.5.0
 
+## 2026-11-03 — v3.6.3 — sincronização
+
+Duas sessões locais, nome/propósito/lista/contexto e recuperação de falha de atualização conferidos; automação não aprova caixa preta. [Registro](../registros/registro-v3.6.3-2026-11-03-imp-identidade-fun-sincronizacao.md).
+
 Controle iniciado em 2026-10-23. Referência do roteiro: [MVP 01](mvp-01.md). Nenhum resultado manual foi recebido nesta entrega.
 
 ## Totais da navegação — MVP02/03/04 — v3.3.0

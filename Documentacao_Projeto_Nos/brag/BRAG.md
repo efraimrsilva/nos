@@ -1,5 +1,9 @@
 # Brag document — Projeto Nós
 
+## 2026-11-03 — v3.6.3 — identidade consistente entre integrantes
+
+**Problema:** nome/propósito salvo pelo administrador permanecia antigo em outras sessões. **Contribuição:** conferência autenticada compartilhada, reconciliação sem reload, recuperação de falhas e preservação de formulários. **Resultado verificado:**10 testes locais desktop/mobile e81 asserções SQL aprovados, tipos/build finais3.6.3, Atlas e revisão independente; benefício esperado é reduzir divergência e atualização manual, sem métrica de produção. **Evidência:** [registro](../_andamento/registros/registro-v3.6.3-2026-11-03-imp-identidade-fun-sincronizacao.md) e tests/authenticated/nucleus-identity-sync.spec.ts.
+
 ## 2026-11-03 — v3.5.0 — participação, calendário e interface responsiva
 
 

@@ -1,5 +1,23 @@
 # Estado do Projeto Nós
 
+## Sincronização da identidade concluída localmente — v3.6.3 — 2026-11-03
+
+**Objetivo/aceite:** alterações administrativas de nome e propósito chegam a outras sessões sem reload do documento em desktop/mobile, incluindo Início, listas, contexto e seletores; modais/rascunhos preservados. **DOCS_DIR:** Documentacao_Projeto_Nos. **Versão vigente:**3.6.3 PATCH. Branch main, HEAD a17052c; alterações anteriores3.6.2 preservadas. Nenhuma publicação/migração remota nesta tarefa.
+
+**Implementação:** leitor paginado de identidade sob sessão/RLS, resumo SHA-256, observador no OnboardingShell. Consulta3s somente visível/online, retomada por visibilidade/conexão, falhas preservam dados. router.refresh reconcilia componentes do servidor sem navegar; primeira conferência de cada versão/rota cobre janela entre leituras. Código em src/features/nuclei/{identity-version.ts,identity-actions.ts,components/nucleus-identity-sync.tsx}; integração em src/features/onboarding/components/onboarding-shell.tsx.
+
+**Validação:**2 falhas TDD esperadas;8 testes primeira rodada;10 aprovados rodada final desktop/mobile, incluindo erro/reconexão, Conta aberta, contexto/lista, preservação de modal/rascunho/checkbox e performance.timeOrigin. Tipos/build aprovados. Autorrevisão + revisão independente: condição de corrida corrigida e reavaliada, nenhum achado pendente. Tipos/build finais3.6.3 aprovados;81 asserções SQL de identidade/administração aprovadas. Verificadores Atlas Visão global/MVP aprovados (73 telas, sem erros); manifestos, links e seis capturas conferidos. Diff sem erros de whitespace. Não inferir teste manual/produção.
+
+**Ferramentas:** Superpowers/Supabase/checklist React; Context7 Next16.2.9 e supabase-js2.117.1, docs locais16.3.6. Octocode MCP configurado, CLI validada com ALLOWED_PATHS; grafo sintático com imports não resolvidos complementado por leitura local. Sem percentual de economia medido.
+
+**Unidades prontas para commit:** (1) unidade anterior de lista compacta3.6.2, ainda pendente conforme registro abaixo; (2) sincronização de identidade3.6.3 com código/testes/Atlas/versão/docs. Sugestão da nova unidade: fix(nucleos): sincronizar nome e proposito entre integrantes. Nenhum commit criado; campos compartilhados de manifestos/docs exigem seleção cuidadosa para preservar atomicidade.
+
+**Limites/próximo passo:** executar seis casos M02-SYNC-001–006 em duas sessões e registrar resultados. Sem certificação de Safari/dispositivo físico/hospedagem. Latência depende do ciclo3s/rede e aba ativa; builds antigos precisam receber esta versão. Pendência antes adiada está resolvida localmente por este pedido, sem alteração retroativa dos registros antigos.
+
+**Contador:**14 conclusões adicionais desde29/10; histórico165 com lacuna e marco100 preservados, sem inferir marco200. Sem auditoria periódica disparada nesta interação.
+
+**Índice:** [registro](registros/registro-v3.6.3-2026-11-03-imp-identidade-fun-sincronizacao.md) · [contrato](funcionalidades/organizacao-nucleo.md) · [caixa preta](testes-caixa-preta/sincronizacao-identidade.md) · [galeria](../wireframes/comparacoes/v3.6.3-2026-11-03-identidade-tela_13-tela_12-tela_66/index.html). Blocos seguintes preservam marcos históricos.
+
 ## Início — lista compacta de integrantes — v3.6.2 — 2026-11-03
 
 **Situação concluída localmente:** Ver integrantes com seta13px junto ao texto; tabela somente Nome/Papel, pequenos avatares, sem cartões grandes, sem botão Ver participação e sem Nomeação na lista. Nome abre detalhes com todas as ações e informações de nomeação preservadas. Modal horizontal580px desktop, limitado ao viewport móvel. Fechamento externo, X/Escape, foco e movimento reduzido mantidos.

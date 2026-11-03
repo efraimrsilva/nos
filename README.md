@@ -1,10 +1,12 @@
 # Nós — plataforma para cultivar vínculos
 
+Atualização local3.6.3: nome e propósito do Núcleo sincronizados entre sessões sem recarregar documento, em desktop/celular. Consulta autenticada a cada três segundos enquanto a página está visível e conectada; listas, navegação e seletores acompanham a mudança. [Registro](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.6.3-2026-11-03-imp-identidade-fun-sincronizacao.md). Publicação não realizada nesta entrega.
+
 Aplicação web full stack para organizar espaços compartilhados, construir acordos e acompanhar práticas de cuidado com participação voluntária. O projeto reúne interface responsiva, autenticação, regras de negócio no servidor e no banco, testes automatizados e documentação de produto.
 
 **[Acessar o aplicativo no Netlify](https://noslife.netlify.app)** · **[Tela de acesso](https://noslife.netlify.app/conta)** · **[Código-fonte](src)** · **[Documentação](Documentacao_Projeto_Nos/_andamento/estado.md)**
 
-**Versão do código: 3.6.2.** Projeto em evolução, com fluxos centrais implementados e áreas futuras identificadas como esboços. O endereço hospedado pode apresentar uma versão diferente do repositório; a revisão deste README não certifica um novo deploy.
+**Versão do código: 3.6.3.** Projeto em evolução, com fluxos centrais implementados e áreas futuras identificadas como esboços. O endereço hospedado pode apresentar uma versão diferente do repositório; a revisão deste README não certifica um novo deploy.
 
 ## O problema e a proposta
 
