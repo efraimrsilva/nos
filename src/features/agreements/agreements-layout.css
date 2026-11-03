@@ -196,3 +196,9 @@
   .agreement-context-actions>a,.agreement-context-actions>button { width:100%; }
 }
 @media(prefers-reduced-motion:reduce) { .agreement-layout-card { animation:none; } .agreement-moods span,.agreements-how-content,.agreements-how-toggle svg { transition:none; } }
+
+.agreements-heading-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.agreement-responses{display:block;font-size:12px;line-height:1.7;color:var(--color-muted);margin:8px 0}.agreement-responses small{display:block}
+
+/* Ações principais ficam no canto do cabeçalho, sem dividir metade da largura com o texto. */
+.agreements-heading>.agreements-heading-actions{flex:0 0 auto;justify-content:flex-end;align-self:flex-start;margin:0 0 0 auto}
+@media(max-width:700px){.agreements-heading>.agreements-heading-actions{width:100%;margin-top:18px}}

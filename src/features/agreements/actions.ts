@@ -22,13 +22,14 @@ export async function createAgreementProposal(nucleusId: string, _previous: Agre
   formData: FormData): Promise<AgreementActionState> {
   if (!uuid.test(nucleusId)) return { error: "Núcleo inválido." };
   const input = parseAgreementProposal({
-    category: String(formData.get("category") ?? ""),
+    // Novas propostas seguem o início do fluxo; a categoria enviada pelo navegador não pode pular etapas.
+    category: "habit",
     title: String(formData.get("title") ?? ""),
     description: String(formData.get("description") ?? ""),
     timing: String(formData.get("timing") ?? ""),
     frequency: String(formData.get("frequency") ?? ""),
   });
-  if (!input) return { error: "Preencha categoria, compromisso, descrição, momento e frequência." };
+  if (!input) return { error: "Preencha compromisso, descrição, momento e frequência." };
   const trialDays = input.category === "habit" ? parseTrialDays(formData.get("trialDays")) : null;
   if (input.category === "habit" && trialDays === null) return { error: "Escolha um período de teste inteiro entre 7 e 30 dias." };
   const { client: supabase, authUnavailable } = await authenticatedClient();
@@ -41,7 +42,7 @@ export async function createAgreementProposal(nucleusId: string, _previous: Agre
   });
   if (error) return { error: "Não foi possível criar a proposta. Atualize a página e tente novamente." };
   revalidatePath(`${routes.nucleus}/${nucleusId}/acordos`);
-  redirect(`${routes.nucleus}/${nucleusId}/acordos?categoria=${input.category}&filtro=all&resultado=proposta`);
+  redirect(`${routes.nucleus}/${nucleusId}/acordos?categoria=all&filtro=pending&resultado=proposta`);
 }
 
 export async function respondAgreementProposal(nucleusId: string, agreementId: string,

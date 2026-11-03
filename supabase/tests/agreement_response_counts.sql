@@ -1,0 +1,30 @@
+begin;
+create extension if not exists pgtap with schema extensions;
+set local search_path=public,extensions;
+select no_plan();
+select has_function('public','get_nucleus_agreement_response_counts',array['uuid','uuid[]'],'consulta agregada existe');
+insert into auth.users(id) select ('15000000-0000-4000-8000-'||lpad(i::text,12,'0'))::uuid from generate_series(1,3) i;
+insert into public.nuclei(id,type,name,purpose,created_by) values('25000000-0000-4000-8000-000000000001','familia','Respostas','Cuidado','15000000-0000-4000-8000-000000000001');
+insert into public.nucleus_members(nucleus_id,user_id,role) values
+('25000000-0000-4000-8000-000000000001','15000000-0000-4000-8000-000000000001','admin'),
+('25000000-0000-4000-8000-000000000001','15000000-0000-4000-8000-000000000002','member');
+insert into public.nucleus_agreements(id,nucleus_id,created_by,category,title,description,timing,frequency,status,trial_days,terms_version) values('35000000-0000-4000-8000-000000000001','25000000-0000-4000-8000-000000000001','15000000-0000-4000-8000-000000000001','habit','Conversar','Com cuidado','Noite','Semanal','pending',7,2);
+insert into public.nucleus_agreement_participants(agreement_id,user_id,response,accepted_version) values('35000000-0000-4000-8000-000000000001','15000000-0000-4000-8000-000000000002','accepted',2);
+select ok(not has_function_privilege('anon','public.get_nucleus_agreement_response_counts(uuid,uuid[])','execute'),'anônimo não executa');
+set local role authenticated;
+select set_config('request.jwt.claim.sub','15000000-0000-4000-8000-000000000001',true);
+select is((select accepted from public.get_nucleus_agreement_response_counts('25000000-0000-4000-8000-000000000001',array['35000000-0000-4000-8000-000000000001']::uuid[])),1::bigint,'outra pessoa aceitou os termos atuais');
+select is((select pending from public.get_nucleus_agreement_response_counts('25000000-0000-4000-8000-000000000001',array['35000000-0000-4000-8000-000000000001']::uuid[])),1::bigint,'ausência de aceite continua pendente');
+select set_config('request.jwt.claim.sub','15000000-0000-4000-8000-000000000003',true);
+select throws_ok($$select * from public.get_nucleus_agreement_response_counts('25000000-0000-4000-8000-000000000001',array['35000000-0000-4000-8000-000000000001']::uuid[])$$,'42501','not authorized','pessoa externa não consulta');
+reset role;
+update public.nucleus_agreements set terms_version=3 where id='35000000-0000-4000-8000-000000000001';
+set local role authenticated;
+select set_config('request.jwt.claim.sub','15000000-0000-4000-8000-000000000001',true);
+select is((select accepted from public.get_nucleus_agreement_response_counts('25000000-0000-4000-8000-000000000001',array['35000000-0000-4000-8000-000000000001']::uuid[])),0::bigint,'aceite antigo não confirma nova versão');
+reset role;
+update public.nuclei set closed_at=now() where id='25000000-0000-4000-8000-000000000001';
+set local role authenticated;
+select throws_ok($$select * from public.get_nucleus_agreement_response_counts('25000000-0000-4000-8000-000000000001',array['35000000-0000-4000-8000-000000000001']::uuid[])$$,'42501','not authorized','núcleo encerrado não divulga totais');
+select * from finish();
+rollback;

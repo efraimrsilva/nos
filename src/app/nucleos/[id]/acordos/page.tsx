@@ -5,6 +5,8 @@ import { ArrowRight, Clock3, MoreHorizontal, Plus } from "lucide-react";
 import { respondAgreementProposal } from "@/features/agreements/actions";
 import { AgreementsWorkspace } from "@/features/agreements/components/agreements-workspace";
 import { AgreementsHowItWorks } from "@/features/agreements/components/agreements-how-it-works";
+import { AgreementResponses, AgreementResponsesProvider } from "@/features/agreements/components/agreement-responses";
+import { InitialInvitation } from "@/features/invitations/components/initial-invitation";
 import { ProposalForm } from "@/features/agreements/components/proposal-form";
 import { AgreementAdministration } from "@/features/agreements/components/agreement-administration";
 import { HabitMomentForm } from "@/features/agreements/components/habit-moment-form";
@@ -23,9 +25,6 @@ type Agreement = {
   frequency: string; trial_days: number | null; status: string; created_at: string; terms_version: number;
   nucleus_agreement_participants: { response: string; accepted_version: number | null }[];
 };
-const categories = [{ key: "all", label: "Todos" }, { key: "habit", label: "Hábitos" }, { key: "experience", label: "Experiências" }, { key: "essence", label: "Essência" }] as const;
-const filters = [{ key: "all", label: "Todos" }, { key: "pending", label: "Aguardando" },
-  { key: "testing", label: "Em teste" }, { key: "active", label: "Ativos" }, { key: "declined", label: "Recusados" }, { key: "ended", label: "Encerrados" }] as const;
 const statusLabel: Record<string, string> = { active: "Acordo ativo", pending: "Proposta enviada", testing: "Em teste", declined: "Proposta recusada", ended: "Encerrado pela administração" };
 
 export default async function AgreementsPage({ params, searchParams }: {
@@ -35,12 +34,9 @@ export default async function AgreementsPage({ params, searchParams }: {
   const { id } = await params;
   const query = await searchParams;
   if (!uuid.test(id)) notFound();
-  const category = categories.find((item) => item.key === query.categoria)?.key ?? "all";
-  const filter = filters.find((item) => item.key === query.filtro)?.key ?? "all";
   const page = query.pagina && /^[1-9]\d*$/.test(query.pagina) ? Number(query.pagina) : 1;
   const safePage = Number.isSafeInteger(page) && page <= 1000 ? page : 1;
-  const href = (categoryKey: string, filterKey: string, pageNumber = 1) =>
-    `${routes.nucleus}/${id}/acordos?categoria=${categoryKey}&filtro=${filterKey}&pagina=${pageNumber}`;
+  const href = (pageNumber = 1) => `${routes.nucleus}/${id}/acordos?pagina=${pageNumber}`;
   const supabase = await createSupabaseServerClient();
   if (!supabase) redirect(routes.account);
   const { data: { user }, error: authError } = await supabase.auth.getUser();
@@ -54,21 +50,14 @@ export default async function AgreementsPage({ params, searchParams }: {
   if (nucleusError) throw new Error("Não foi possível consultar o Núcleo.");
   if (!nucleus) notFound();
 
-  let agreements: Agreement[] = [];
-  let hasNextPage = false;
-  if (category !== "essence") {
-    // RLS filtra por Núcleo e a tabela de respostas expõe apenas a resposta da própria pessoa.
-    let request = supabase.from("nucleus_agreements")
-      .select("id,category,title,description,timing,frequency,status,trial_days,created_at,terms_version,nucleus_agreement_participants(response,accepted_version)")
-      .eq("nucleus_id", id);
-    if (category !== "all") request = request.eq("category", category);
-    if (filter !== "all") request = request.eq("status", filter);
-    const { data, error } = await request.order("created_at", { ascending: false }).order("id")
-      .range((safePage - 1) * 50, safePage * 50);
-    if (error) throw new Error("Não foi possível consultar os acordos agora.");
-    agreements = ((data ?? []).slice(0, 50)) as Agreement[];
-    hasNextPage = (data ?? []).length > 50;
-  }
+  // A visão global ignora filtros de links antigos; a paginação continua estável.
+  const { data, error } = await supabase.from("nucleus_agreements")
+    .select("id,category,title,description,timing,frequency,status,trial_days,created_at,terms_version,nucleus_agreement_participants(response,accepted_version)")
+    .eq("nucleus_id", id).order("created_at", { ascending: false }).order("id")
+    .range((safePage - 1) * 50, safePage * 50);
+  if (error) throw new Error("Não foi possível consultar os acordos agora.");
+  const agreements = ((data ?? []).slice(0, 50)) as Agreement[];
+  const hasNextPage = (data ?? []).length > 50;
   const notice: Record<string, string> = { proposta: "Proposta enviada. Escolha se deseja participar; a administração organiza o próximo passo.",
     resposta: "Sua resposta foi registrada.", gestao: "Gestão do acordo concluída.", erro: "Não foi possível registrar a resposta. Atualize a página e tente novamente." };
 
@@ -84,6 +73,7 @@ export default async function AgreementsPage({ params, searchParams }: {
   </div>;
   const revision = (agreement: Agreement) => [agreement.id, agreement.status, agreement.terms_version, agreement.nucleus_agreement_participants?.[0]?.response, agreement.nucleus_agreement_participants?.[0]?.accepted_version].join(":");
   const details = (agreement: Agreement) => <div key={revision(agreement)} className="agreement-summary-detail">
+    <AgreementResponses agreementId={agreement.id} />
     <span className="ui-badge">{statusLabel[agreement.status] ?? "Estado indisponível"} · termos v{agreement.terms_version}</span>
     <p className="agreement-description">{agreement.description}</p>
     <dl className="agreement-facts">
@@ -104,6 +94,7 @@ export default async function AgreementsPage({ params, searchParams }: {
   const card = (agreement: Agreement, detail: ReturnType<typeof details>) => <ActionDialog key={revision(agreement)} title={agreement.title} description="Confira os termos e sua participação neste combinado." variant="card" size="wide" className="agreement-layout-card" trigger={<>
     <span className="agreement-card-top"><span className="agreement-category-badge">{agreement.status === "pending" ? "Proposta" : agreement.category === "habit" ? "Hábito" : "Experiência"}</span><MoreHorizontal size={18} aria-hidden="true" /></span>
     <span className="agreement-card-title">{agreement.title}</span>
+    <AgreementResponses agreementId={agreement.id} />
     <span className="agreement-card-description">{agreement.description}</span>
     <span className="agreement-card-time"><Clock3 size={13} aria-hidden="true" />{agreement.timing} · {agreement.frequency}</span>
     <span className="agreement-card-footer"><span>{responseLabel(agreement)}</span><span className="agreement-category-badge">{statusLabel[agreement.status] ?? "Indisponível"}</span></span>
@@ -120,28 +111,31 @@ export default async function AgreementsPage({ params, searchParams }: {
           <li><span aria-hidden="true">➜</span><span>Da Experiência à <strong>Essência:</strong> o reconhecimento da prática consolidada depende de critérios e consentimentos ainda a definir. Ninguém avança automaticamente pelo tempo.</span></li>
         </ol></AgreementsHowItWorks>
       </div>
+      <div className="agreements-heading-actions">
+      {membership.role === "admin" && <ActionDialog trigger="Enviar convite" title="Enviar convite" variant="secondary"><InitialInvitation nucleusId={id} initialCode="" /></ActionDialog>}
       <ActionDialog key={agreements.map(agreement => agreement.id).join(":")} title="Nova proposta" description="Uma conversa pode virar um combinado. Enviar a proposta não registra aceite." trigger={<><Plus size={17} aria-hidden="true" />Nova proposta</>} size="wide" variant="primary">
-        <p className="agreement-form-note"><strong>Evolução individual · esboço.</strong> As categorias disponíveis conservam os dados atuais. Cadastrar uma Experiência ainda não registra evolução individual a partir de um Hábito.</p>
-        <ProposalForm nucleusId={id} category={category === "experience" ? "experience" : "habit"} />
+        <p className="agreement-form-note">Todo combinado começa como Proposta. Cada pessoa escolhe se deseja participar. A evolução individual de Hábito para Experiência ainda será implementada.</p>
+        <ProposalForm nucleusId={id} />
       </ActionDialog>
+      </div>
     </header>
     {query.resultado && notice[query.resultado] && <p role="status" className="agreements-feedback">{notice[query.resultado]}</p>}
   </>;
   return <OnboardingShell nucleusName={nucleus.name}>
     <div className="agreements-page">
-      <AgreementsWorkspace initialStatus={filter} essenceOnly={category === "essence"} header={header}
-        categories={<nav aria-label="Categorias dos acordos" className="agreements-category-nav"><Link href={href("all", "all")} aria-current={category === "all" && filter === "all" ? "page" : undefined}>Todos</Link><Link href={href("all", "pending")} aria-current={category === "all" && filter === "pending" ? "page" : undefined}>Propostas</Link>{categories.filter(item => item.key !== "all").map(item => <Link key={item.key} href={href(item.key, "all")} aria-current={category === item.key && filter === "all" ? "page" : undefined}>{item.label}</Link>)}</nav>}
-        filters={<nav aria-label="Estado dos acordos" className="agreements-server-filters">{filters.map(item => <Link key={item.key} href={href(category, item.key)} aria-current={filter === item.key ? "page" : undefined}>{item.label}</Link>)}</nav>}
+      <AgreementResponsesProvider nucleusId={id} agreementIds={agreements.map(agreement => agreement.id)}>
+      <AgreementsWorkspace header={header}
         cards={agreements.map(agreement => {
           // Reutiliza o conteúdo de servidor nas duas visualizações; somente uma é montada.
           const detail = details(agreement);
           return { id: agreement.id, revision: revision(agreement), title: agreement.title, description: agreement.description, timing: agreement.timing, frequency: agreement.frequency, category: agreement.category, status: agreement.status, statusLabel: statusLabel[agreement.status] ?? "Indisponível", participationLabel: responseLabel(agreement), content: card(agreement, detail), detail, context: <><span className="ui-badge">{responseLabel(agreement)}</span><p className="ui-copy">Termos versão {agreement.terms_version}</p><p className="ui-copy">{["ended", "declined"].includes(agreement.status) ? "Este acordo permanece disponível para consulta do histórico." : participates(agreement) ? "Você aceitou participar dos termos atuais." : "Você pode escolher se participa dos termos atuais."}</p><p className="ui-copy">A administração organiza o ciclo e preserva o histórico.</p></> };
         })} />
+      </AgreementResponsesProvider>
       <p className="agreements-model-note">As colunas mostram propostas e categorias existentes. O percurso de evolução individual permanece planejado.</p>
-      {category !== "essence" && (safePage > 1 || hasNextPage) && <nav aria-label="Páginas dos acordos" className="agreements-pagination">
-        {safePage > 1 ? <Link href={href(category, filter, safePage - 1)} className="ui-button-secondary">Propostas anteriores</Link> : <span />}
+      {(safePage > 1 || hasNextPage) && <nav aria-label="Páginas dos acordos" className="agreements-pagination">
+        {safePage > 1 ? <Link href={href(safePage - 1)} className="ui-button-secondary">Propostas anteriores</Link> : <span />}
         <span>Página {safePage}</span>
-        {hasNextPage && <Link href={href(category, filter, safePage + 1)} className="ui-button-secondary">Mais propostas<ArrowRight size={15} aria-hidden="true" /></Link>}
+        {hasNextPage && <Link href={href(safePage + 1)} className="ui-button-secondary">Mais propostas<ArrowRight size={15} aria-hidden="true" /></Link>}
       </nav>}
     </div>
   </OnboardingShell>;

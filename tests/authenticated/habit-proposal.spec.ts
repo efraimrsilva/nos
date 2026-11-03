@@ -15,11 +15,10 @@ test("proposta pode ser criada sem outro membro; publicação não aceita termos
   await expect(page.getByRole("heading", { name: "Confira antes de propor" })).toBeFocused();
   await page.getByRole("button", { name: "Editar proposta", exact: true }).click();
   await expect(page.getByLabel("O que vamos fazer?")).toHaveValue("Conversar");
-  await page.getByRole("combobox", { name: "Categoria", exact: true }).selectOption("experience");
-  await expect(page.getByLabel("Duração do teste (dias)")).toHaveCount(0);
+  await expect(page.getByRole("combobox", { name: "Categoria", exact: true })).toHaveCount(0);
   await page.getByRole("button", { name: "Conferir proposta", exact: true }).click();
   await page.getByRole("button", { name: "Enviar proposta", exact: true }).click();
-  await expect(page).toHaveURL(/categoria=experience/);
+  await expect(page).toHaveURL(/filtro=pending/);
   expect(localSql(`select status from public.nucleus_agreements where nucleus_id='${nucleus}'`).trim()).toBe("pending");
   expect(localSql(`select count(*) from public.nucleus_agreement_participants p join public.nucleus_agreements a on a.id=p.agreement_id where a.nucleus_id='${nucleus}' and p.response='accepted'`).trim()).toBe("0");
   // O retorno do servidor limpa o rascunho concluído; reabrir não oferece reenvio da mesma proposta.

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { loadHabitContext } from "@/features/agreements/habit-access";
 import { HabitConsentGuidance } from "@/features/agreements/components/habit-consent-guidance";
 import { habitMoodLabels, parseHabitMomentCursor } from "@/features/agreements/habit-moment-input";
+import { AgreementResponses, AgreementResponsesProvider } from "@/features/agreements/components/agreement-responses";
 import { AgreementDetailShell } from "@/features/agreements/components/agreement-detail-shell";
 import { ActionDialog } from "@/shared/components/ui/action-dialog";
 import { HabitMomentForm } from "@/features/agreements/components/habit-moment-form";
@@ -32,7 +33,7 @@ export default async function HabitDetailPage({ params, searchParams }: {
     .format(new Date(date))} UTC`;
 
   const canRecord = ["testing", "active"].includes(habit.status) && habit.nucleus_agreement_participants?.[0]?.response === "accepted" && habit.nucleus_agreement_participants?.[0]?.accepted_version === habit.terms_version;
-  return <AgreementDetailShell nucleusName={nucleus.name} title={habit.title} subtitle="Um espaço para cultivar a prática e guardar o que vocês viveram." back={routes.nucleus + "/" + id + "/acordos?categoria=habit"}>
+  return <AgreementResponsesProvider nucleusId={id} agreementIds={[agreementId]}><AgreementDetailShell nucleusName={nucleus.name} title={habit.title} subtitle="Um espaço para cultivar a prática e guardar o que vocês viveram." back={routes.nucleus + "/" + id + "/acordos?categoria=habit"}>
     {query.resultado === "momento" && <p role="status" className="agreements-feedback">Momento registrado no histórico do hábito.</p>}
     <div className="agreement-detail-grid">
       <div className="agreement-detail-main">
@@ -46,6 +47,7 @@ export default async function HabitDetailPage({ params, searchParams }: {
             <div><dt>Proposta criada em</dt><dd>{createdAt}</dd></div>
             <div><dt>Sua resposta</dt><dd>{habit.nucleus_agreement_participants?.[0]?.response === "accepted" ? habit.nucleus_agreement_participants?.[0]?.accepted_version === habit.terms_version ? "Aceita · termos atuais" : "Aceite de versão anterior" : "A decidir"}</dd></div>
           </dl>
+          <AgreementResponses agreementId={agreementId} />
           <HabitConsentGuidance />
         </section>
         <section id="historico" aria-labelledby="habit-history-heading" className="ui-panel agreement-detail-section">
@@ -77,5 +79,5 @@ export default async function HabitDetailPage({ params, searchParams }: {
         <p className="agreements-private-note">Somente as pessoas deste Núcleo têm acesso.</p>
       </aside>
     </div>
-  </AgreementDetailShell>;
+  </AgreementDetailShell></AgreementResponsesProvider>;
 }
