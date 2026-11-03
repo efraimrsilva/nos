@@ -1,6 +1,6 @@
 # Registro — v3.6.1 — 2026-11-03 — Imp. de modais com Fun. fechamento externo
 
-**Status:** concluído e validado localmente; publicação autorizada em fechamento. Versão3.6.1 (PATCH). Usuário autorizou commit/push de todo o conjunto anterior e solicitou fechamento externo em todos os modais atuais/futuros. Pedido posterior, para depois da publicação atual: aproximar seta de Ver integrantes do texto, como Ver Seus Núcleos.
+**Status:** concluído e publicado no GitHub. Versão3.6.1 (PATCH). Usuário autorizou commit/push de todo o conjunto anterior e solicitou fechamento externo em todos os modais atuais/futuros. Pedido posterior, para depois da publicação atual: aproximar seta de Ver integrantes do texto, como Ver Seus Núcleos.
 
 ## Objetivo e decisões
 
@@ -26,3 +26,7 @@ Direcionamento posterior adicional: usuário pediu retirar o botão Ver particip
 ## Fechamento da implementação
 
 Tipos e build3.6.1 aprovados; seleção final13autenticados aprovados/1ignorado intencionalmente depois da proteção de hidratação. Suíte pública212aprovada; quatro testes novos específicos aprovados. Revisão independente final dos guards sem bloqueios, além da autorrevisão. Três verificadores Atlas aprovados (fechamento, Visão global, MVP). Galeria8imagens do Atlas antes/depois e modais reais desktop/mobile; sem mudança de aparência. Os testes de regressão regravaram capturas antigas com contas descartáveis; imagens históricas restauradas do commit16f47bd para preservar a evidência. Nenhum segredo ou arquivo artifacts será publicado.
+
+Publicação confirmada: commit a17052cf911b614170bcd5037773cfe45cc56dc8 em origin/main; igualdade conferida por git ls-remote. Commit anterior16f47bd93efe131561745f193a412ba013a6d063 inclui toda a reorganização3.6.0. Nenhum deploy certificado. Este fechamento documental é preservado na unidade posterior de continuidade.
+
+Pedido posterior adicional: sincronização de nome/propósito para todos os integrantes sem recarregar, desktop/mobile. Usuário pediu concluir primeiro a unidade atual de lista/seta; implementar sincronização depois, sem perder o escopo autorizado.

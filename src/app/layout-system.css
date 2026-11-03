@@ -252,10 +252,29 @@ button[aria-label^="Fechar" i]:is(:hover,:focus-visible) { background-color:#c43
 .nucleus-edit-trigger:hover,.nucleus-edit-trigger:focus-visible{background:var(--color-soft);transform:translateY(-1px)}
 .nucleus-purpose-line{align-items:flex-start;margin:8px 0 12px}
 .nucleus-purpose-line .ui-copy{margin:8px 0;white-space:pre-wrap}
-.home-members-trigger{width:100%;justify-content:space-between;text-align:left;min-height:44px;margin-top:10px}
-.ui-dialog .people-cards{margin-top:20px;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.home-members-trigger{width:100%;justify-content:flex-start;gap:13px;text-align:left;min-height:44px;margin-top:10px}
 .mobile-account-options{margin-top:20px}
 .mobile-account-options .account-preferences-sections{display:block}
 .mobile-account-options .account-panel{margin-bottom:16px}
 @media(max-width:700px){.mobile-nav-label{white-space:normal;flex-wrap:wrap;font-size:10px;line-height:1.15}.mobile-nav-label .nav-count{font-size:9px}.nucleus-identity-line .ui-title{font-size:clamp(24px,7vw,34px)}}
 @media(prefers-reduced-motion:reduce){.nucleus-edit-trigger{transition:none}.nucleus-edit-trigger:hover,.nucleus-edit-trigger:focus-visible{transform:none}}
+
+/* Lista de integrantes: linhas compactas e nomes acionáveis compartilham o estilo dos controles locais. */
+.nucleus-members{margin-top:18px;min-width:0}
+.nucleus-members-hint{font-size:12px;line-height:1.6;color:var(--color-muted);margin-bottom:12px}
+.nucleus-member-table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;text-align:left}
+.nucleus-member-table th,.nucleus-member-table td{padding:10px 8px;border-bottom:1px solid var(--color-line);overflow-wrap:anywhere;font-weight:400;vertical-align:middle}
+.nucleus-member-table thead th{background:var(--accent-soft);color:var(--color-muted);font-size:12px;font-weight:600}
+.nucleus-member-table th:first-child{width:65%;padding-left:8px}
+.nucleus-member-table th:nth-child(2){width:35%}
+.nucleus-member-row{transition:background-color .18s ease}
+.nucleus-member-row:hover,.nucleus-member-row:focus-within{background:var(--accent-soft)}
+.nucleus-member-name{display:flex;gap:10px;align-items:center;width:100%;min-height:40px;padding:0;border:0;text-align:left;color:var(--color-forest);border-radius:5px}
+.nucleus-member-name>.ui-avatar{flex:none;width:30px;height:30px;font:11px Arial,sans-serif}
+.nucleus-member-name>span:last-child{min-width:0}
+.nucleus-member-name strong{display:block;font-size:13px;font-weight:500;overflow-wrap:anywhere}
+.nucleus-member-name small{display:block;margin-top:3px;font-size:11px;color:var(--color-muted)}
+.nucleus-member-name:focus-visible{outline:2px solid var(--color-leaf);outline-offset:3px}
+.nucleus-member-role .ui-badge{font-size:11px;gap:4px;padding:4px 5px}
+@media(max-width:600px){.nucleus-member-table th:first-child{width:55%;padding-left:4px}.nucleus-member-table th:nth-child(2){width:45%;padding-left:4px;padding-right:0}.nucleus-member-table td{padding:9px 0 9px 4px}.nucleus-member-name{gap:7px}.nucleus-member-role .ui-badge{font-size:10px}.nucleus-member-name strong{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.nucleus-member-row{transition:none}}

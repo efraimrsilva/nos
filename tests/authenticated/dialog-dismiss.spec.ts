@@ -1,7 +1,7 @@
 import { test, expect } from './fixtures';
 import { mkdirSync } from 'node:fs';
 import path from 'node:path';
-const gallery=path.resolve('Documentacao_Projeto_Nos/wireframes/comparacoes/v3.6.1-2026-11-03-modais-tela_01-tela_13-tela_66');
+const gallery=path.resolve(process.env.NOS_DIALOG_DISMISS_GALLERY || 'artifacts/regression-captures/dialog-dismiss');
 test('notificações, conta e Mais fecham por fora; somente o modal superior é fechado', async ({ page }, info) => {
  mkdirSync(gallery,{recursive:true});
  await page.goto('/nucleos');

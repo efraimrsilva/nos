@@ -4,7 +4,7 @@ import path from 'node:path';
 import { test, expect, localSql } from './fixtures';
 import { withPeer } from './peer';
 
-const gallery = path.resolve('Documentacao_Projeto_Nos/wireframes/comparacoes/v3.6.0-2026-11-03-nucleo-tela_13-tela_66-tela_71-tela_73');
+const gallery = path.resolve(process.env.NOS_PEOPLE_MERGE_GALLERY || 'artifacts/regression-captures/people-merge');
 
 test('Início reúne identidade e integrantes sem a guia Pessoas', async ({ page, account }, info) => {
   const id = randomUUID();
@@ -41,7 +41,7 @@ test('Início reúne identidade e integrantes sem a guia Pessoas', async ({ page
   await page.keyboard.press('Escape');
   await page.getByRole('button', { name: 'Ver integrantes', exact: true }).click();
   const members = page.getByRole('dialog', { name: 'Integrantes do Núcleo', exact: true });
-  await expect(members.locator('.person-card')).toHaveCount(1);
+  await expect(members.locator('.nucleus-member-row')).toHaveCount(1);
   await members.screenshot({ path: path.join(gallery, `depois-app-integrantes-${info.project.name}.png`), animations: "disabled" });
   await page.keyboard.press('Escape');
   if (info.project.name === 'mobile') {
@@ -72,7 +72,7 @@ test('participante vê integrantes e saída, sem controles administrativos; canc
     await peer.page.goto(`http://127.0.0.1:3200/nucleos/${id}`);
     await expect(peer.page.getByRole('button', { name: /^Editar (nome|propósito) do Núcleo/ })).toHaveCount(0);
     await peer.page.getByRole('button', { name: 'Ver integrantes', exact: true }).click();
-    await expect(peer.page.getByRole('dialog', { name: 'Integrantes do Núcleo', exact: true }).locator('.person-card')).toHaveCount(2);
+    await expect(peer.page.getByRole('dialog', { name: 'Integrantes do Núcleo', exact: true }).locator('.nucleus-member-row')).toHaveCount(2);
     await peer.page.keyboard.press('Escape');
     await peer.page.goto('http://127.0.0.1:3200/conta');
     const section = peer.page.locator('.account-workspace #conta-e-nucleos');

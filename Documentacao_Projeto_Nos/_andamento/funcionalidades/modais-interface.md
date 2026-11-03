@@ -1,7 +1,5 @@
 # Contrato permanente — identificação de modais na interface e no Atlas
 
-Status: regra permanente vigente por decisão do usuário em 2026-10-18. Inventário atualizado para v3.6.0 em 03/11/2026; a reconstrução v3.0.0 permanece como evidência histórica.
-
 ## Atualização vigente — v3.5.0
 
 | Origem | Modal / gatilho | Conteúdo e permissão | Resultado, cancelamento e situação |
@@ -102,3 +100,9 @@ Removidos: gatilho combinado Nome e propósito e acesso Pessoas na navegação. 
 ## Fechamento externo — v3.6.1
 
 Todos os modais atuais e futuros fecham por clique ou toque externo, além de X e Escape. DialogBackdropDismiss, inscrito uma vez no layout raiz, cobre ActionDialog, notificações, Mais e diálogos nativos criados depois da hidratação. Gesto deve começar e terminar fora do mesmo diálogo; padding/conteúdo e arraste iniciado dentro não fecham. Somente a camada superior fecha. close() mantém foco, onClose e regras próprias de reset/cancelamento; fechar não equivale a confirmar uma operação. Popover mantém comportamento externo nativo. Atlas replica a regra offline. [Registro](../registros/registro-v3.6.1-2026-11-03-imp-modais-fun-fechamento-externo.md).
+
+## Integrantes em lista — v3.6.2
+
+Modal Integrantes do Núcleo73 apresenta lista Nome/Papel/Nomeação. Nome substitui o gatilho Ver participação e abre o mesmo diálogo individual com ações permitidas; nenhum botão extra. No mobile, nomeação pendente sob o nome. Sem mudança de autorização, confirmação ou fechamento externo. [Registro](../registros/registro-v3.6.2-2026-11-03-imp-integrantes-fun-lista-compacta.md).
+
+Atualização final3.6.2: lista somente Nome/Papel; Nomeação retirada também no mobile e mantida apenas nos detalhes. Largura horizontal do modal limitada ao padrão580px desktop, com limite de viewport no celular.

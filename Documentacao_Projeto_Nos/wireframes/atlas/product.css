@@ -151,3 +151,20 @@ button:is([aria-label^="Fechar" i],[data-atlas-close]):is(:hover,:focus-visible)
 .live-closure-trigger:is(:hover,:focus-visible){box-shadow:0 0 20px #ff284659;background:color-mix(in srgb,#ff2846 12%,var(--danger-bg))}
 .live-closure-trigger .live-row-icon{color:#ff2846}
 @media(prefers-reduced-motion:reduce){.live-closure-trigger{transition:none}}
+.live-members-hint{font-size:12px;color:var(--live-muted,#657368);margin:0 0 12px;line-height:1.6}
+.live-member-table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;text-align:left}
+.live-member-table th,.live-member-table td{padding:10px 8px;border-bottom:1px solid #dce3d6;font-weight:400;overflow-wrap:anywhere;vertical-align:middle}
+.live-member-table thead th{background:#e6eddf;color:#657368;font-size:12px;font-weight:600}
+.live-member-table th:first-child{width:65%}.live-member-table th:nth-child(2){width:35%}
+.live-member-table tbody tr:hover{background:#e6eddf40}
+.live-member-name{display:flex;align-items:center;gap:10px;width:100%;min-height:40px;padding:0;border:0;background:none;color:inherit;text-align:left}
+.live-member-name .live-avatar{flex:none;width:30px;height:30px;font:11px Arial,sans-serif}
+.live-member-name strong,.live-member-name small{display:block}.live-member-name small{font-size:11px;color:#657368;margin-top:3px}
+.live-member-table .live-badge{font-size:11px;padding:4px 5px;gap:4px}
+.preview-wrap:not(.desktop) .live-member-table th:first-child{width:55%}.preview-wrap:not(.desktop) .live-member-table th:nth-child(2){width:45%}
+@media(max-width:600px){.live-member-table th:first-child{width:55%}.live-member-table th:nth-child(2){width:45%}}
+/* A lista em modal respeita a moldura móvel selecionada no Atlas, mesmo na ferramenta desktop. */
+body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog:has(.live-member-table){width:min(402px,calc(100vw - 24px))}
+body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog .live-member-table th:first-child{width:55%}
+body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog .live-member-table th:nth-child(2){width:45%}
+.atlas-live-dialog:has(.live-member-table){width:min(580px,calc(100vw - 32px))}

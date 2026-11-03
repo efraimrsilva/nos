@@ -347,3 +347,10 @@ Problema: start servia compilação com layout antigo. Contribuição: diagnóst
 - **Contribuição:** listener único no layout, cobrindo diálogos atuais/futuros, com gesto externo validado e prevenção de fechamento por arraste interno; Atlas e regra permanente sincronizados; navegação fecha janelas somente em mudança real de rota.
 - **Resultado verificado:** quatro testes públicos específicos e suíte212 aprovados;13 cenários autenticados aprovados/1 ignorado intencionalmente após correção, incluindo Mais/notificações/Conta/camadas e animações. Benefício esperado: fechamento consistente com menos deslocamento do ponteiro; sem métrica de usabilidade inventada.
 - **Evidência:** [registro](../_andamento/registros/registro-v3.6.1-2026-11-03-imp-modais-fun-fechamento-externo.md). Testes de caixa preta do usuário permanecem pendentes.
+
+## 2026-11-03 — v3.6.2 — organização compacta dos integrantes
+
+- **Problema:** cartões ocupavam muito espaço e a seta de abertura ficava distante do texto.
+- **Contribuição:** tabela com cabeçalhos e linhas compactas, nome acionável em lugar de botão adicional, nomeação adaptada ao mobile e seta com13px de espaço.
+- **Resultado verificado:**14cenários autenticados aprovados, incluindo320/390/768/1280px sem overflow e linhas abaixo120px; ações anteriores e foco preservados.2checagens adicionais do X em viewport aprovadas. Benefício esperado: consulta mais compacta; sem métrica de usabilidade.
+- **Evidência:** [registro](../_andamento/registros/registro-v3.6.2-2026-11-03-imp-integrantes-fun-lista-compacta.md), [galeria](../wireframes/comparacoes/v3.6.2-2026-11-03-integrantes-tela_13-tela_73/index.html). Unidade local, sem publicação.

@@ -1,5 +1,21 @@
 # Estado do Projeto Nós
 
+## Início — lista compacta de integrantes — v3.6.2 — 2026-11-03
+
+**Situação concluída localmente:** Ver integrantes com seta13px junto ao texto; tabela somente Nome/Papel, pequenos avatares, sem cartões grandes, sem botão Ver participação e sem Nomeação na lista. Nome abre detalhes com todas as ações e informações de nomeação preservadas. Modal horizontal580px desktop, limitado ao viewport móvel. Fechamento externo, X/Escape, foco e movimento reduzido mantidos.
+
+**Versão:**3.6.2 (PATCH). **DOCS_DIR:**Documentacao_Projeto_Nos. Branch main. **Publicação anterior confirmada:**16f47bd93efe131561745f193a412ba013a6d063 (reorganização3.6.0/identidade/menus), a17052cf911b614170bcd5037773cfe45cc56dc8 (modais3.6.1). origin/main e HEAD confirmados iguais depois do push. Alterações de lista/seta posteriores permanecem locais; nenhuma publicação nova inferida. Nenhum deploy certificado.
+
+**Validações da unidade local:** TDD2falhas esperadas por tabela ausente;14autenticados aprovados na conversão inicial;8aprovados após retirar Nomeação;2finais aprovados após largura580. Tipos/build finais3.6.2 aprovados.320/390/768/1280px sem overflow, linhas abaixo120px, X no viewport e detalhe acessível pelo nome. Três verificadores Atlas aprovados (lista, Visão global, MVP). Revisão independente estática sem perda de ação/permissão; capturas finais de viewport mostram título/X, sem alterar CSS do diálogo por recorte de captura. Antes/Atlas/depois na galeria; casos manuais continuam Não executados pelo usuário.
+
+**Unidade pronta para commit:** lista compacta, remoção de Nomeação/botão, nome acionável, seta/largura, testes, Atlas/versão/docs/evidências e fechamento documental da publicação anterior. Pendente, sem commit novo. Sugestão: fix(nucleos): compactar lista de integrantes e acesso aos detalhes.
+
+**Pendência ADIADA pelo usuário:** sincronizar nome/propósito entre todos os integrantes sem recarregar, desktop/mobile. Nenhuma implementação iniciada; aguardar nova solicitação para retomar. A edição existente persiste no banco hospedado, mas outras sessões não recebem atualização automática por esta unidade.
+
+**Próximo passo executável:** usuário conferir Início → Ver integrantes e selecionar nome; testar aparência nos dois dispositivos. Commit/push dos ajustes posteriores somente com autorização específica. Sem bloqueio funcional local. Contador13conclusões adicionais desde29/10 ao encerrar esta interação; histórico165 com lacuna e marco100 preservados, sem inferir marco200.
+
+**Índice:** [registro](registros/registro-v3.6.2-2026-11-03-imp-integrantes-fun-lista-compacta.md) · [contrato](funcionalidades/organizacao-nucleo.md) · [modais](funcionalidades/modais-interface.md) · [caixa preta](testes-caixa-preta/integrantes-lista.md) · [galeria](../wireframes/comparacoes/v3.6.2-2026-11-03-integrantes-tela_13-tela_73/index.html). Blocos seguintes preservam marcos históricos.
+
 ## Fechamento externo de modais e publicação — v3.6.1 — 2026-11-03
 
 **Escopo autorizado:** concluir fechamento externo atual/futuro e publicar todas as alterações anteriores no GitHub. Reorganização3.6.0 registrada no commit16f47bd, fontes/identidade/migração conferidos no objeto Git. Unidade de modais3.6.1 confirmada no objeto Git pelo título fix(modais): fechar por clique ou toque fora da caixa; este fechamento é incorporado ao mesmo commit antes do push. **DOCS_DIR:**Documentacao_Projeto_Nos, branch main.

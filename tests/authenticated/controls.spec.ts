@@ -12,20 +12,20 @@ test("nomeação exige aceite e saída confirmada sorteia administração", asyn
     try {
       localSql(`insert into public.nuclei(id,type,name,purpose,created_by) values('${nucleus}','familia','Jardim de exemplo','Cultivar presença','${account.id}'); insert into public.nucleus_members(nucleus_id,user_id,role) values('${nucleus}','${account.id}','admin'),('${nucleus}','${peer.id}','member');`);
       await page.goto(`/nucleos/${nucleus}/pessoas`);
-      await page.locator(".person-card").filter({ has: page.getByLabel("Enviar nomeação; a pessoa precisará aceitar.") }).getByRole("button", { name: /Ver participação/ }).click();
+      await page.locator(".nucleus-member-row").filter({ has: page.getByLabel("Enviar nomeação; a pessoa precisará aceitar.") }).getByRole("button", { name: /Abrir detalhes de/ }).click();
       await page.getByLabel("Enviar nomeação; a pessoa precisará aceitar.").check();
       await page.getByRole("button", { name: "Convidar para administrar", exact: true }).click();
       await expect(page.locator("dialog[open]").last().getByRole("status").first()).toContainText("Alteração concluída.");
       expect(localSql(`select role from public.nucleus_members where nucleus_id='${nucleus}' and user_id='${peer.id}'`).trim()).toBe("member");
       await peer.page.goto(`http://127.0.0.1:3200/nucleos/${nucleus}/pessoas`);
-      await peer.page.locator(".person-card").filter({ has: peer.page.getByLabel("Desejo assumir a administração deste Núcleo.") }).getByRole("button", { name: /Ver participação/ }).click();
+      await peer.page.locator(".nucleus-member-row").filter({ has: peer.page.getByLabel("Desejo assumir a administração deste Núcleo.") }).getByRole("button", { name: /Abrir detalhes de/ }).click();
       await peer.page.getByLabel("Desejo assumir a administração deste Núcleo.").check();
       await peer.page.getByRole("button", { name: "Aceitar administração", exact: true }).click();
       await expect(peer.page.locator("dialog[open]").last().getByRole("status").first()).toContainText("Alteração concluída.");
       expect(localSql(`select role from public.nucleus_members where nucleus_id='${nucleus}' and user_id='${peer.id}'`).trim()).toBe("admin");
       // Retirar o papel preserva o vínculo; saída do único admin deve sortear o membro restante.
       await page.goto(`/nucleos/${nucleus}/pessoas`);
-      await page.locator(".person-card").filter({ has: page.getByLabel("A pessoa permanecerá participante, sem poderes de administração.") }).getByRole("button", { name: /Ver participação/ }).click();
+      await page.locator(".nucleus-member-row").filter({ has: page.getByLabel("A pessoa permanecerá participante, sem poderes de administração.") }).getByRole("button", { name: /Abrir detalhes de/ }).click();
       await page.getByLabel("A pessoa permanecerá participante, sem poderes de administração.").check();
       await page.getByRole("button", { name: "Retirar administração", exact: true }).click();
       await expect(page.locator("dialog[open]").last().getByRole("status").first()).toContainText("Alteração concluída.");

@@ -796,3 +796,9 @@ Função update_nucleus_identity ausente no Supabase usado pelo servidor3000:404
 ## 2026-11-03 — v3.6.1 — modais por clique/toque externo
 
 Regra global para modais atuais/futuros; fechamento somente com gesto iniciado e terminado fora, preservando padding/arraste e camada inferior. X/Escape/foco e callbacks existentes mantidos; navegação/popover protegidos contra fechamento na hidratação inicial. Suíte pública212 aprovada; seleção autenticada final13 aprovada/1 ignorada intencionalmente após correção; falhas anteriores preservadas no registro. [Registro](registros/registro-v3.6.1-2026-11-03-imp-modais-fun-fechamento-externo.md). Publicação em fechamento; ajustes posteriores de seta/lista aguardam esse passo.
+
+## 2026-11-03 — v3.6.2 — integrantes em lista (local)
+
+Após publicar3.6.1 em origin/main@a17052c, lista compacta e seta implementadas na unidade posterior. Nome substitui botão Ver participação; cabeçalhos Nome/Papel/Nomeação, mobile com pendência sob o nome.14autenticados e verificador Atlas aprovados; revisão independente sem perda de ação/permissão. Rechecagem do X no viewport aprovada2casos. Sem commit/push desta unidade; próxima funcionalidade autorizada: sincronizar nome/propósito entre integrantes sem reload.
+
+Fechamento3.6.2: usuário retirou Nomeação da lista e reduziu largura horizontal ao padrão580px.8testes após remoção/2finais de largura e tipos/build aprovados. Sincronização entre integrantes explicitamente adiada pelo usuário; nenhuma implementação iniciada. Unidade de lista pronta localmente, sem novo commit/push.

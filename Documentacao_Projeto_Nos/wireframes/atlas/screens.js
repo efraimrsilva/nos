@@ -270,3 +270,5 @@ if(autonomy){autonomy.ids=[13,73,66,71,12,67,69,70];autonomy.rule='v3.6.0: Iníc
 
 // Regra compartilhada da interface atual, inclusive modais futuros.
 for(const screen of screens)screen.rule+=' v3.6.1: Modais fecham por clique/toque iniciado e concluído fora da caixa, além de X/Escape; padding e arraste iniciado dentro não fecham. Em camadas, fecha somente o diálogo superior; foco e regras próprias de cancelamento preservados.';
+
+for(const id of [13,73])screens.find(s=>s.id===id).rule+=' v3.6.2: Ver integrantes tem seta a13px do texto; modal usa lista compacta somente Nome/Papel, sem cartões, botão Ver participação ou Nomeação na lista. Nome abre detalhes e ações permitidas, inclusive nomeação. Largura580px desktop, limitada ao viewport móvel.';

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, LogOut, ShieldCheck, UserRound, UsersRound } from "lucide-react";
+import { LogOut, ShieldCheck, UserRound, UsersRound } from "lucide-react";
 import { manageNucleus, type ManagementOperation, type ControlActionState } from "@/features/controls/actions";
 import { ControlActionForm } from "@/features/controls/components/action-form";
 import { ActionDialog } from "@/shared/components/ui/action-dialog";
@@ -18,17 +18,18 @@ export function NucleusMembers({ id, members, userId, isAdmin }: { id: string; m
     setFeedback(result.success ?? "");
     return result;
   };
-  return <section className="people-cards" aria-label="Participantes">
+  return <section className="nucleus-members" aria-label="Participantes">
     {feedback && <p role="status" className="ui-feedback">{feedback}</p>}
-        {members.map((member, index) => <article key={member.user_id} className="person-card">
-          <div aria-hidden="true" className={`person-portrait person-tone-${index % 3}`}>{initials(member.display_name) || <UserRound size={32} />}</div>
-          <h2>{member.display_name || "Participante"}</h2>
-          {member.user_id === userId && <span className="person-self">Você</span>}
-          <span className={`ui-badge ${member.role !== "admin" ? "person-role-participant" : ""}`}>{member.role === "admin" ? <ShieldCheck size={13} aria-hidden="true" /> : <UsersRound size={13} aria-hidden="true" />}{member.role === "admin" ? "Administrador" : "Participante"}</span>
-          <p>{member.nomination_pending ? "Nomeação para administrar aguardando aceite." : member.role === "admin" ? "Cuida dos convites e da organização do Núcleo." : "Decide sobre sua própria participação."}</p>
-          <ActionDialog trigger={<>Ver participação <ArrowRight size={15} aria-hidden="true" /></>} title={`Participação de ${member.display_name || "participante"}`}>
+    <p className="nucleus-members-hint">Selecione um nome para consultar os detalhes e as ações disponíveis.</p>
+    {members.length > 0 && <table className="nucleus-member-table" aria-label="Integrantes do Núcleo">
+      <thead><tr><th scope="col">Nome</th><th scope="col">Papel</th></tr></thead>
+      <tbody>{members.map((member, index) => <tr key={member.user_id} className="nucleus-member-row">
+        <th scope="row">
+          {/* O nome é o acesso aos detalhes; nenhuma ação administrativa depende de um botão adicional. */}
+          <ActionDialog variant="text" className="nucleus-member-name" trigger={<><span className="sr-only">Abrir detalhes de </span><span aria-hidden="true" className={`ui-avatar person-tone-${index % 3}`}>{initials(member.display_name) || <UserRound size={16} />}</span><span><strong>{member.display_name || "Participante"}</strong>{member.user_id === userId && <small>Você</small>}</span></>} title={`Participação de ${member.display_name || "participante"}`}>
             {feedback && <p role="status" className="ui-feedback">{feedback}</p>}
             <p className="ui-copy">Administradores têm os mesmos poderes. Cada nomeação depende do aceite da pessoa. Administrar não dá acesso a conteúdos pessoais privados.</p>
+            <p className="ui-copy">{member.nomination_pending ? "Nomeação para administrar aguardando aceite." : member.role === "admin" ? "Cuida dos convites e da organização do Núcleo." : "Decide sobre sua própria participação."}</p>
             {/* As permissões visuais refletem a participação atual; cada ação revalida o acesso no servidor. */}
             {member.user_id === userId && member.nomination_pending && <>
               <ControlActionForm action={act("accept", null)} label="Aceitar administração" confirmation="Desejo assumir a administração deste Núcleo." />
@@ -42,7 +43,10 @@ export function NucleusMembers({ id, members, userId, isAdmin }: { id: string; m
             </>}
             {member.user_id === userId && <Link href={`/nucleos/${id}/sair`} className="people-dialog-leave"><LogOut size={17} aria-hidden="true" />Sair deste Núcleo</Link>}
           </ActionDialog>
-        </article>)}
-        {members.length === 0 && <div className="ui-empty"><UsersRound size={30} aria-hidden="true" /><p>Não foi possível encontrar participantes para exibir.</p></div>}
-</section>;
+        </th>
+        <td className="nucleus-member-role"><span className={`ui-badge ${member.role !== "admin" ? "person-role-participant" : ""}`}>{member.role === "admin" ? <ShieldCheck size={13} aria-hidden="true" /> : <UsersRound size={13} aria-hidden="true" />}{member.role === "admin" ? "Administrador" : "Participante"}</span></td>
+      </tr>)}</tbody>
+    </table>}
+    {members.length === 0 && <div className="ui-empty"><UsersRound size={30} aria-hidden="true" /><p>Não foi possível encontrar participantes para exibir.</p></div>}
+  </section>;
 }

@@ -1,4 +1,6 @@
-# Processo permanente de testes de caixa preta — v3.6.0
+# Processo permanente de testes de caixa preta — v3.6.2
+
+[Lista compacta de integrantes — v3.6.2](integrantes-lista.md): casos manuais permanecem Não executados pelo usuário.
 
 [Organização do Núcleo — v3.6.0](organizacao-nucleo.md):14 casos novos de MVP02/MVP05, todos Não executados pelo usuário.
 

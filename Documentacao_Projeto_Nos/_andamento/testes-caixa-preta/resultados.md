@@ -86,3 +86,7 @@ Usuário informou falha ao editar nome e propósito, sem dados suficientes para 
 ## 2026-11-03 — v3.6.1 — evidência automatizada de fechamento externo
 
 M05-MOD-001–005 em [modais-fechamento.md](modais-fechamento.md) Não executados pelo usuário. TDD:4 falhas esperadas antes/4 aprovados depois. Suíte pública:210 aprovados/2 falhas em expectativa antiga de vermelho; ajuste de teste seguido de212 aprovados. Autenticados:17 aprovados/2 falhas na abertura inicial/1 ignorado; proteção de hidratação corrigida, reteste13 aprovados/1 ignorado intencionalmente. [Registro](../registros/registro-v3.6.1-2026-11-03-imp-modais-fun-fechamento-externo.md). Sem certificar aparelho físico/Safari/deploy.
+
+## 2026-11-03 — v3.6.2 — integrantes
+
+Lista compacta validada localmente em desktop/mobile, preservando ações e foco. Casos manuais permanecem Não executados pelo usuário. [Registro](../registros/registro-v3.6.2-2026-11-03-imp-integrantes-fun-lista-compacta.md).
