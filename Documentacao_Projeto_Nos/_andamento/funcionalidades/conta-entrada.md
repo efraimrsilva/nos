@@ -26,21 +26,13 @@ https://noslife.netlify.app conectado ao nos-dev. Netlify Production configurado
 
 Cadastro público com confirmação externa permanece pendente: SMTP próprio desabilitado e usuário reconfirmou que senha de aplicativo Gmail ainda não foi liberada. Recuperação online completa também requer AUTH_RECOVERY_SECRET no servidor, ainda não configurado no Netlify. [Registro operacional](../registros/registro-v0.14.1-2026-10-13-03-imp-conexao-netlify-fun-acesso-online.md). Não confundir teste com fixture confirmada com cadastro/recebimento de e-mail certificado.
 
+## v0.14.1 — Conferência MVP etapa 01 — 2026-10-13
+
+Login mantém resposta genérica para credenciais inválidas; status 429 orienta aguardar, transporte/5xx informa indisponibilidade. Conta e raiz não interpretam falha do Auth como prova de logout: sinalizam consulta indisponível. Mensagens neutras de recuperação/reenvio preservadas. 100 testes gerais, tipos/build e jornada de e-mail local aprovados; revisão independente sem achados relevantes. Revogação global impede renovação, não promete invalidar imediatamente JWT emitido. SMTP Gmail aguarda Google liberar senha de app, confirmado nesta data. Etapa 01 não fecha operacionalmente sem recebimento externo e conferência de origem/URLs/segredo do ambiente de uso. [Registro](../registros/registro-v0.14.1-2026-10-13-imp-acesso-existente-fun-mvp-etapa-01.md), [comparação](../../wireframes/comparacoes/v0.14.1-2026-10-13-acesso-indisponivel-tela_01/index.html).
+
 ## v0.13.3 — Percurso 04 Entrar por convite — 2026-10-10
 
 Chegada direta exige conta e retorna a Inserir convite, sem impor a lista antes da prévia. Cadastro/confirmação/recuperação preservam o destino; código fica fora das URLs atuais e precisa ser colado depois da autenticação. Prévia mostra tipo; Agora não retorna à lista sem vínculo. [Contrato](entrada-convite.md) e [registro](../registros/registro-v0.13.3-2026-10-10-imp-entrada-convite-fun-percurso-04.md). Sem alteração no contrato de autenticação ou aplicação SMTP remota.
-
-## v0.13.2 — Percurso 03 Recuperar acesso — 2026-10-09
-
-Sequência vigente: Conta (Já tenho conta) → Recuperar acesso → callback `/auth/recovery` validado, sem tela própria → Redefinir senha → Conta (novo login) → Seus Núcleos. Retorno interno específico é preservado e substitui a lista, sem aceitar convite automaticamente. Voltar para Conta nas telas 03–05 abre login. Callback rejeita parâmetros repetidos/misturados, inclusive vazios, antes de consultar Auth; JWT de PKCE ainda exige método recovery.
-
-Validação desta versão: 92 testes desktop/celular; tipos e build; recuperação real com e-mails locais, PKCE e token direto, senha antiga recusada, nova aceita, revogação de refresh token de outra sessão, link reutilizado/prova adulterada negados, link não consumido por entradas ambíguas, retorno específico e padrão; Atlas/Visão global e revisão independente sem P1–P3. Primeiras execuções tiveram espera insuficiente de compilação inicial; integrador passou após margem explícita e suíte completa passou na repetição. Não houve mudança em Boas-vindas.
-
-Remetente escolhido pelo usuário: `sintagmasoftware@gmail.com`. Conta criada em 2026-10-09; Google bloqueou geração de senha de app até confirmação com fator registrado por pelo menos sete dias. Configuração SMTP e comando de aplicação com prompt oculto preparados e conferidos em modo somente leitura. Falta a credencial após liberação, recebimento externo e ambiente HTTPS de publicação. [Roteiro](recuperacao-smtp-gmail.md), [registro](../registros/registro-v0.13.2-2026-10-09-imp-recuperacao-acesso-fun-percurso-03.md) e [comparação](../../wireframes/comparacoes/v0.13.2-2026-10-09-recuperar-acesso-tela_04-tela_05/index.html). A versão PATCH conclui as correções locais e preparação, sem afirmar conclusão da operação pública.
-
-Na v0.13.1, cadastro e login mantêm a largura e a posição da árvore/frases. Link inferior Conheça o Nós removido; Voltar às boas-vindas permanece. Respiro inferior preserva a composição do login. Alinhamento especial exige painel de autenticação; Conta autenticada mantém centralização. [Registro](../registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md) e [comparação](../../wireframes/comparacoes/v0.13.1-2026-10-07-conta-alinhamento-tela_01-tela_02/index.html).
-
-Atualizado em 2026-10-07. Escopo: telas 01–05 e 72 do Atlas vivo, funcionais e integradas ao Supabase Auth.
 
 ## Fluxos entregues
 
@@ -73,6 +65,10 @@ Paleta, tipografia, árvore, formulário em cartão, hierarquia e ações seguem
 
 [Comparação visual antes/atlas/aplicação](../../wireframes/comparacoes/v0.12.0-2026-10-07-conta-entrada-tela_01-tela_02-tela_03-tela_04-tela_05-tela_72/index.html). Conforme decisão do usuário, qualquer mudança futura de um lado exige atualizar o outro e apresentar a diferença, incluindo capturas quando houver mudança visual.
 
+## v0.13.0 — Navegação e sessão
+
+Raiz sem sessão abre Conta; autenticada abre Seus Núcleos. Login/confirmação sem retorno específico segue para /nucleos. Todo /comecar e /nucleos exige sessão validada, inclusive rascunho e convite. Lista real sob RLS, seleção explícita e retorno do Início à lista. Token expirado com renovação válida mantém acesso; sessão não renovável pede login preservando destino. Esta decisão substitui o retorno padrão ao onboarding e o rascunho pré-login dos marcos anteriores. [Contrato vigente](navegacao-sessao.md).
+
 ## Validação histórica da v0.12.0 e retomada
 
 108 testes Playwright desktop/mobile aprovados, análise de tipos e build. Jornada real local reproduzível em `scripts/verify-account-local.mjs`: cadastro, reenvio, confirmação, retorno de convite, recuperação PKCE/direta, validação, revogação de outra sessão, rejeição da senha antiga, novo login, link usado, prova adulterada e resposta neutra para e-mail inexistente. Contas/e-mails temporários removidos.
@@ -84,11 +80,14 @@ Próximo passo desta área: verificar entrega de e-mail com remetente aprovado n
 
 O Next.js omite os callbacks de confirmação/recuperação dos logs de requisição em desenvolvimento para não registrar credenciais da URL. Em publicação, o provedor/proxy deve redigir esses parâmetros nos próprios logs de acesso; a configuração local não controla logs externos.
 
-## v0.13.0 — Navegação e sessão
+## v0.13.2 — Percurso 03 Recuperar acesso — 2026-10-09
 
-Raiz sem sessão abre Conta; autenticada abre Seus Núcleos. Login/confirmação sem retorno específico segue para /nucleos. Todo /comecar e /nucleos exige sessão validada, inclusive rascunho e convite. Lista real sob RLS, seleção explícita e retorno do Início à lista. Token expirado com renovação válida mantém acesso; sessão não renovável pede login preservando destino. Esta decisão substitui o retorno padrão ao onboarding e o rascunho pré-login dos marcos anteriores. [Contrato vigente](navegacao-sessao.md).
+Sequência vigente: Conta (Já tenho conta) → Recuperar acesso → callback `/auth/recovery` validado, sem tela própria → Redefinir senha → Conta (novo login) → Seus Núcleos. Retorno interno específico é preservado e substitui a lista, sem aceitar convite automaticamente. Voltar para Conta nas telas 03–05 abre login. Callback rejeita parâmetros repetidos/misturados, inclusive vazios, antes de consultar Auth; JWT de PKCE ainda exige método recovery.
 
+Validação desta versão: 92 testes desktop/celular; tipos e build; recuperação real com e-mails locais, PKCE e token direto, senha antiga recusada, nova aceita, revogação de refresh token de outra sessão, link reutilizado/prova adulterada negados, link não consumido por entradas ambíguas, retorno específico e padrão; Atlas/Visão global e revisão independente sem P1–P3. Primeiras execuções tiveram espera insuficiente de compilação inicial; integrador passou após margem explícita e suíte completa passou na repetição. Não houve mudança em Boas-vindas.
 
-## v0.14.1 — Conferência MVP etapa 01 — 2026-10-13
+Remetente escolhido pelo usuário: `sintagmasoftware@gmail.com`. Conta criada em 2026-10-09; Google bloqueou geração de senha de app até confirmação com fator registrado por pelo menos sete dias. Configuração SMTP e comando de aplicação com prompt oculto preparados e conferidos em modo somente leitura. Falta a credencial após liberação, recebimento externo e ambiente HTTPS de publicação. [Roteiro](recuperacao-smtp-gmail.md), [registro](../registros/registro-v0.13.2-2026-10-09-imp-recuperacao-acesso-fun-percurso-03.md) e [comparação](../../wireframes/comparacoes/v0.13.2-2026-10-09-recuperar-acesso-tela_04-tela_05/index.html). A versão PATCH conclui as correções locais e preparação, sem afirmar conclusão da operação pública.
 
-Login mantém resposta genérica para credenciais inválidas; status 429 orienta aguardar, transporte/5xx informa indisponibilidade. Conta e raiz não interpretam falha do Auth como prova de logout: sinalizam consulta indisponível. Mensagens neutras de recuperação/reenvio preservadas. 100 testes gerais, tipos/build e jornada de e-mail local aprovados; revisão independente sem achados relevantes. Revogação global impede renovação, não promete invalidar imediatamente JWT emitido. SMTP Gmail aguarda Google liberar senha de app, confirmado nesta data. Etapa 01 não fecha operacionalmente sem recebimento externo e conferência de origem/URLs/segredo do ambiente de uso. [Registro](../registros/registro-v0.14.1-2026-10-13-imp-acesso-existente-fun-mvp-etapa-01.md), [comparação](../../wireframes/comparacoes/v0.14.1-2026-10-13-acesso-indisponivel-tela_01/index.html).
+Na v0.13.1, cadastro e login mantêm a largura e a posição da árvore/frases. Link inferior Conheça o Nós removido; Voltar às boas-vindas permanece. Respiro inferior preserva a composição do login. Alinhamento especial exige painel de autenticação; Conta autenticada mantém centralização. [Registro](../registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md) e [comparação](../../wireframes/comparacoes/v0.13.1-2026-10-07-conta-alinhamento-tela_01-tela_02/index.html).
+
+Atualizado em 2026-10-07. Escopo: telas 01–05 e 72 do Atlas vivo, funcionais e integradas ao Supabase Auth.

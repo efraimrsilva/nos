@@ -18,19 +18,11 @@
 
 **Atualização vigente — v3.0.1 — 20/10/2026:** por autorização explícita, a árvore original retorna somente ao painel público da Conta; Atlas01/02 usam a mesma imagem. A composição3.0.0 permanece a base; demais telas e modais preservados. Validação pontual:12 testes, tipos, três larguras e prévias de cadastro/login. [Registro](../_andamento/registros/registro-v3.0.1-2026-10-20-imp-conta-fun-restauracao-arvore.md) · [galeria](comparacoes/v3.0.1-2026-10-20-conta-arvore/index.html).
 
-## Referência visual vigente — v3.0.0 — 18/10/2026
+## Testes de caixa preta por funcionalidade — v3.1.1 — 2026-10-23
 
-**Reconstrução concluída e validada localmente — v3.0.0.** O [Layout novo](../Telas/Layout%20novo/index.html), seu [app.js](../Telas/Layout%20novo/app.js) e [styles.css](../Telas/Layout%20novo/styles.css) são a referência visual vigente para todas as rotas. A reformulação ampla foi validada e classificada como versão principal3.0.0. O antigo desenho está em [Layout inicial](../Telas/Layout%20inicial/Nos_App.dc.html); as galerias datadas conservam as evidências de cada marco.
+Cada funcionalidade nova ou alterada deve gerar/revisar teste de caixa preta ligado à etapa MVP ou Expansão deste Atlas, com ID estável, caminho, ação e esperado, uma linha iniciada por []. Manter execução e retestes separados das expectativas. Consulte o [processo permanente](../_andamento/testes-caixa-preta/README.md), o [MVP01](../_andamento/testes-caixa-preta/mvp-01.md) e o [controle de resultados](../_andamento/testes-caixa-preta/resultados.md). Nenhum teste é aprovado somente por existir no roteiro.
 
-O modo **Atlas vivo** usa Arial/Georgia, fundo #f5f7f1, texto #293e35, ação #345d44 e borda #dce3d6. A estrutura compartilha navegação lateral no desktop, título contextual, conteúdo e rodapé; no celular, barra inferior com Início, Acordos, Agenda, Pessoas e Mais. O menu contextual abre as demais áreas. Conta e recuperação mantêm uma composição de entrada própria. Os desenhos importados de approved-layouts.js aparecem somente no modo **desenho histórico do documento**.
-
-O inventário continua em **73 fichas, 39 recortes existentes e 34 planejadas**. Esboço visual não equivale a módulo funcional: as fichas38/40/44/49/55/61 registram, respectivamente, /nucleos/[id]/arvore, /memorias, /conexoes, /perfis, /manifesto e /cuidado. As seis rotas exigem sessão e vínculo no aplicativo, apresentam aviso visível e não persistem dados. Detalhes futuros permanecem nas fichas seguintes, sem criar rotas inexistentes ou alterar as contagens para sugerir conclusão.
-
-Acordos18 representa **Kanban · Fluxo**, **Painéis · Lado a lado** e lista móvel. O aplicativo utiliza dados reais e conserva ações e permissões. O Atlas continua offline e usa exemplos identificados. Propostas são agrupadas pela situação; Hábito e Experiência conservam a categoria do modelo atual. O percurso **Proposta → Hábito → Experiência → Essência** é uma direção aprovada por pessoa; as passagens individuais, critérios e consentimentos não foram desenvolvidos. Nenhum cartão comprova avanço individual ou coletivo. Essência permanece como esboço.
-
-A mesma função productPhoneHtml fornece Atlas, Visão global, MVP e inspeção; fichas vêm de screens.js. A nova composição não importa o CSS completo das variantes do protótipo. Ações do Atlas demonstram navegação e não chamam o banco de dados. Fichas futuras exibem aviso próprio e os contratos administrativos atuais continuam prevalecendo sobre desenhos históricos.
-
-**Limite de evidência:** esta atualização de composição não certifica fidelidade pixel a pixel, operação online, migração remota ou conclusão das funcionalidades futuras. A [galeria v3.0.0](comparacoes/v3.0.0-2026-10-18-layout-novo-integral/index.html) contém 406 imagens, incluindo 85 modais do aplicativo e90 do Atlas, além das telas, referência e capturas anteriores. Há busca por título/gatilho/origem e filtros Tela/Modal/Atlas/Referência/Anterior. Galerias anteriores não certificam a reconstrução atual.
+**Regra transversal v3.6.1:** todos os modais atuais/futuros fecham por clique/toque iniciado e concluído fora, além de X/Escape; padding/arraste interno mantidos e apenas camada superior fechada. [Contrato](../_andamento/funcionalidades/modais-interface.md) e [galeria](comparacoes/v3.6.1-2026-11-03-modais-tela_01-tela_13-tela_66/index.html).
 
 ## Histórico do guia e das composições anteriores
 
@@ -73,33 +65,23 @@ screens.js fornece títulos, situação, rota, regras, permissões, pendências 
 
 Mudanças de prioridade atualizam mvp-plan.js e a síntese do plano documental. Avançar por evidência da jornada com dados reais/permissões/estados, sem calcular conclusão por quantidade de telas. Direções anteriores de começar pela Árvore ou pelas etapas guiadas de proposta ficam substituídas como prioridade geral; seguem previstas em 07/06. [Comparação da ferramenta](comparacoes/v0.14.0-2026-10-12-mvp-atlas-tela_01-a-tela_72/index.html); não existe rota MVP equivalente no aplicativo.
 
-## Fidelidade às telas aprovadas — correção de 2026-10-04
+## Referência visual vigente — v3.0.0 — 18/10/2026
 
-O modelo inicial simplificava a interface em cartões genéricos e não preservava a hierarquia aprovada. A correção incorpora as **28 telas do documento Nos_App.dc.html**, com **52 composições e variações** de abas/vínculos, e reproduz as telas implementadas de Conta e onboarding. /comecar, /comecar/tipo e /comecar/convite foram comparadas ao aplicativo em execução, incluindo títulos, paleta e SVG dos nove tipos.
+**Reconstrução concluída e validada localmente — v3.0.0.** O [Layout novo](../Telas/Layout%20novo/index.html), seu [app.js](../Telas/Layout%20novo/app.js) e [styles.css](../Telas/Layout%20novo/styles.css) são a referência visual vigente para todas as rotas. A reformulação ampla foi validada e classificada como versão principal3.0.0. O antigo desenho está em [Layout inicial](../Telas/Layout%20inicial/Nos_App.dc.html); as galerias datadas conservam as evidências de cada marco.
 
-As cores de identidade são exatamente #F6F3EB (canvas), #2E4A20 (floresta), #4F7E2C (folha), #69725E (texto secundário), #E6E3D8 (contorno) e #6A3FD1 (lilás). As cores contextuais e os ícones do documento também foram preservados. Fredoka e Plus Jakarta Sans usam pesos locais correspondentes; não há carregamento remoto.
+O modo **Atlas vivo** usa Arial/Georgia, fundo #f5f7f1, texto #293e35, ação #345d44 e borda #dce3d6. A estrutura compartilha navegação lateral no desktop, título contextual, conteúdo e rodapé; no celular, barra inferior com Início, Acordos, Agenda, Pessoas e Mais. O menu contextual abre as demais áreas. Conta e recuperação mantêm uma composição de entrada própria. Os desenhos importados de approved-layouts.js aparecem somente no modo **desenho histórico do documento**.
 
-**Atlas vivo** mostra o layout vigente das telas de entrada e adapta as regras históricas ao contrato atual. **Ver desenho aprovado do documento** recupera a composição original, identificando exemplos e regras antigas. Essa separação preserva a direção visual sem transformar níveis, métricas, assinatura ou promoção ilustrativos em resultados reais. A procedência e os limites de cada composição estão em [Fidelidade e manutenção](FIDELIDADE.md).
+O inventário continua em **73 fichas, 39 recortes existentes e 34 planejadas**. Esboço visual não equivale a módulo funcional: as fichas38/40/44/49/55/61 registram, respectivamente, /nucleos/[id]/arvore, /memorias, /conexoes, /perfis, /manifesto e /cuidado. As seis rotas exigem sessão e vínculo no aplicativo, apresentam aviso visível e não persistem dados. Detalhes futuros permanecem nas fichas seguintes, sem criar rotas inexistentes ou alterar as contagens para sugerir conclusão.
 
-## Manutenção contínua — decisão de 2026-10-03
+Acordos18 representa **Kanban · Fluxo**, **Painéis · Lado a lado** e lista móvel. O aplicativo utiliza dados reais e conserva ações e permissões. O Atlas continua offline e usa exemplos identificados. Propostas são agrupadas pela situação; Hábito e Experiência conservam a categoria do modelo atual. O percurso **Proposta → Hábito → Experiência → Essência** é uma direção aprovada por pessoa; as passagens individuais, critérios e consentimentos não foram desenvolvidos. Nenhum cartão comprova avanço individual ou coletivo. Essência permanece como esboço.
 
-### Prioridade alta do atlas vivo — decisão de 2026-10-05
+A mesma função productPhoneHtml fornece Atlas, Visão global, MVP e inspeção; fichas vêm de screens.js. A nova composição não importa o CSS completo das variantes do protótipo. Ações do Atlas demonstram navegação e não chamam o banco de dados. Fichas futuras exibem aviso próprio e os contratos administrativos atuais continuam prevalecendo sobre desenhos históricos.
 
-**Consultar obrigatoriamente o atlas vivo antes de criar, implementar, alterar ou revisar qualquer tela. O modo Atlas vivo é a referência visual de prioridade alta do projeto.** Conferir o aspecto da tela: hierarquia, disposição, paleta, tipografia, ícones, abas, navegação, linguagem de cuidado e estados. A consulta apenas à ficha textual não substitui a inspeção do desenho.
+**Limite de evidência:** esta atualização de composição não certifica fidelidade pixel a pixel, operação online, migração remota ou conclusão das funcionalidades futuras. A [galeria v3.0.0](comparacoes/v3.0.0-2026-10-18-layout-novo-integral/index.html) contém 406 imagens, incluindo 85 modais do aplicativo e90 do Atlas, além das telas, referência e capturas anteriores. Há busca por título/gatilho/origem e filtros Tela/Modal/Atlas/Referência/Anterior. Galerias anteriores não certificam a reconstrução atual.
 
-1. **Antes de implementar:** localizar o ID e o percurso no atlas, abrir o modo Atlas vivo e ler situação, rota, permissões, contrato e pendências. Registrar no plano/registro a tela usada como referência e as decisões ainda abertas.
-2. **Durante a implementação:** seguir a composição viva e sua identidade, reutilizando padrões aprovados. O desenho anterior serve à comparação e à origem das decisões; não substituir o atlas vivo por ele ou por uma nova composição sem registrar a mudança de direção.
-3. **Ao resolver divergências:** confrontar atlas, comportamento real e regras vigentes. Prioridade visual não autoriza dados simulados, permissões indevidas ou regras históricas; corrigir e documentar a divergência no mesmo recorte. Mudança visual necessária deve ter motivo explícito e atualizar o atlas junto à implementação.
-4. **Antes de concluir:** comparar a interface real com o desenho vivo, em celular e web quando definidos, incluindo abas, destinos, acessibilidade e estados. Se a composição web ou um contrato estiver pendente, registrar e resolver no recorte; não apresentá-lo como aprovado ou implementado.
-5. **Na entrega:** sincronizar desenho, ficha, percursos, cobertura, limitações e registro. Marcar somente o recorte efetivamente implementado e validado. O atlas continua sendo a referência prioritária para o desenvolvimento atual e futuro.
+## Identificação permanente de modais — decisão de 2026-10-18
 
-**Interpretação dos sinais:** Planejada exige implementação/contrato; Recorte existente confirma uma base funcional com limites. Origem visual aprovada não significa funcionalidade concluída. O modo histórico é uma referência comparativa. As pendências da ficha e de COBERTURA.md precisam ser lidas antes de ativar ações reais.
-
-Este wireframe é uma **referência viva**: deve acompanhar todo o desenvolvimento atual e futuro. Consultá-lo no início de cada recorte e atualizar os desenhos, fichas, percursos, permissões e pendências afetados junto da implementação e sua documentação. Ao concluir, verificar a correspondência com o comportamento real; manter separados os recortes existentes e os elementos ainda planejados.
-
-Manter os IDs estáveis, registrar telas acrescentadas ou consolidadas e sincronizar o inventário de cobertura. Mudanças na versão funcional devem atualizar a referência do atlas; uma edição documental isolada não incrementa a versão do aplicativo. Conferir links, destinos e estados atingidos pela alteração, além da apresentação visual quando aplicável.
-
-O protótipo e suas extrações estão agora em **Documentacao_Projeto_Nos/Telas/**, após movimentação feita pelo usuário. Esses materiais preservam a origem histórica; o atlas acompanha a evolução vigente. Regras implementadas e decisões explícitas prevalecem sobre exemplos antigos.
+Toda ação que abre diálogo deve aparecer como **Modal** no Atlas e nas fichas/documentações correspondentes. Registrar gatilho, objetivo, conteúdo, permissões, resultado/fechamento e integração real ou esboço. A galeria de cada entrega deve identificar os modais abertos e suas telas de origem. Navegação para rota não é modal. Consultar e manter o [inventário e contrato permanente](../_andamento/funcionalidades/modais-interface.md).
 
 ## Resultado esperado e escopo
 
@@ -218,17 +200,34 @@ Decisão de 2026-10-07: **qualquer alteração deve conferir o impacto em todas 
 
 [Abrir Visão global](atlas/index.html#visao-global) · [Comparação da nova visão](comparacoes/v0.12.0-2026-10-07-visao-global-tela_01-a-tela_72/index.html).
 
-
 ## Navegação protegida — v0.13.0
 
 Conta → Seus Núcleos → Início escolhido. Criação e convite são alternativas explícitas da lista; /comecar continua protegido. Tela12 passou de planejada a recorte existente. 132 testes, tipos/build, 72 prévias/180 saídas/360 estados e Visão global aprovados. Comparação real autenticada em desktop/celular na [galeria desta entrega](comparacoes/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/index.html).
 
-## Identificação permanente de modais — decisão de 2026-10-18
+## Fidelidade às telas aprovadas — correção de 2026-10-04
 
-Toda ação que abre diálogo deve aparecer como **Modal** no Atlas e nas fichas/documentações correspondentes. Registrar gatilho, objetivo, conteúdo, permissões, resultado/fechamento e integração real ou esboço. A galeria de cada entrega deve identificar os modais abertos e suas telas de origem. Navegação para rota não é modal. Consultar e manter o [inventário e contrato permanente](../_andamento/funcionalidades/modais-interface.md).
+O modelo inicial simplificava a interface em cartões genéricos e não preservava a hierarquia aprovada. A correção incorpora as **28 telas do documento Nos_App.dc.html**, com **52 composições e variações** de abas/vínculos, e reproduz as telas implementadas de Conta e onboarding. /comecar, /comecar/tipo e /comecar/convite foram comparadas ao aplicativo em execução, incluindo títulos, paleta e SVG dos nove tipos.
 
-## Testes de caixa preta por funcionalidade — v3.1.1 — 2026-10-23
+As cores de identidade são exatamente #F6F3EB (canvas), #2E4A20 (floresta), #4F7E2C (folha), #69725E (texto secundário), #E6E3D8 (contorno) e #6A3FD1 (lilás). As cores contextuais e os ícones do documento também foram preservados. Fredoka e Plus Jakarta Sans usam pesos locais correspondentes; não há carregamento remoto.
 
-Cada funcionalidade nova ou alterada deve gerar/revisar teste de caixa preta ligado à etapa MVP ou Expansão deste Atlas, com ID estável, caminho, ação e esperado, uma linha iniciada por []. Manter execução e retestes separados das expectativas. Consulte o [processo permanente](../_andamento/testes-caixa-preta/README.md), o [MVP01](../_andamento/testes-caixa-preta/mvp-01.md) e o [controle de resultados](../_andamento/testes-caixa-preta/resultados.md). Nenhum teste é aprovado somente por existir no roteiro.
+**Atlas vivo** mostra o layout vigente das telas de entrada e adapta as regras históricas ao contrato atual. **Ver desenho aprovado do documento** recupera a composição original, identificando exemplos e regras antigas. Essa separação preserva a direção visual sem transformar níveis, métricas, assinatura ou promoção ilustrativos em resultados reais. A procedência e os limites de cada composição estão em [Fidelidade e manutenção](FIDELIDADE.md).
 
-**Regra transversal v3.6.1:** todos os modais atuais/futuros fecham por clique/toque iniciado e concluído fora, além de X/Escape; padding/arraste interno mantidos e apenas camada superior fechada. [Contrato](../_andamento/funcionalidades/modais-interface.md) e [galeria](comparacoes/v3.6.1-2026-11-03-modais-tela_01-tela_13-tela_66/index.html).
+## Manutenção contínua — decisão de 2026-10-03
+
+### Prioridade alta do atlas vivo — decisão de 2026-10-05
+
+**Consultar obrigatoriamente o atlas vivo antes de criar, implementar, alterar ou revisar qualquer tela. O modo Atlas vivo é a referência visual de prioridade alta do projeto.** Conferir o aspecto da tela: hierarquia, disposição, paleta, tipografia, ícones, abas, navegação, linguagem de cuidado e estados. A consulta apenas à ficha textual não substitui a inspeção do desenho.
+
+1. **Antes de implementar:** localizar o ID e o percurso no atlas, abrir o modo Atlas vivo e ler situação, rota, permissões, contrato e pendências. Registrar no plano/registro a tela usada como referência e as decisões ainda abertas.
+2. **Durante a implementação:** seguir a composição viva e sua identidade, reutilizando padrões aprovados. O desenho anterior serve à comparação e à origem das decisões; não substituir o atlas vivo por ele ou por uma nova composição sem registrar a mudança de direção.
+3. **Ao resolver divergências:** confrontar atlas, comportamento real e regras vigentes. Prioridade visual não autoriza dados simulados, permissões indevidas ou regras históricas; corrigir e documentar a divergência no mesmo recorte. Mudança visual necessária deve ter motivo explícito e atualizar o atlas junto à implementação.
+4. **Antes de concluir:** comparar a interface real com o desenho vivo, em celular e web quando definidos, incluindo abas, destinos, acessibilidade e estados. Se a composição web ou um contrato estiver pendente, registrar e resolver no recorte; não apresentá-lo como aprovado ou implementado.
+5. **Na entrega:** sincronizar desenho, ficha, percursos, cobertura, limitações e registro. Marcar somente o recorte efetivamente implementado e validado. O atlas continua sendo a referência prioritária para o desenvolvimento atual e futuro.
+
+**Interpretação dos sinais:** Planejada exige implementação/contrato; Recorte existente confirma uma base funcional com limites. Origem visual aprovada não significa funcionalidade concluída. O modo histórico é uma referência comparativa. As pendências da ficha e de COBERTURA.md precisam ser lidas antes de ativar ações reais.
+
+Este wireframe é uma **referência viva**: deve acompanhar todo o desenvolvimento atual e futuro. Consultá-lo no início de cada recorte e atualizar os desenhos, fichas, percursos, permissões e pendências afetados junto da implementação e sua documentação. Ao concluir, verificar a correspondência com o comportamento real; manter separados os recortes existentes e os elementos ainda planejados.
+
+Manter os IDs estáveis, registrar telas acrescentadas ou consolidadas e sincronizar o inventário de cobertura. Mudanças na versão funcional devem atualizar a referência do atlas; uma edição documental isolada não incrementa a versão do aplicativo. Conferir links, destinos e estados atingidos pela alteração, além da apresentação visual quando aplicável.
+
+O protótipo e suas extrações estão agora em **Documentacao_Projeto_Nos/Telas/**, após movimentação feita pelo usuário. Esses materiais preservam a origem histórica; o atlas acompanha a evolução vigente. Regras implementadas e decisões explícitas prevalecem sobre exemplos antigos.

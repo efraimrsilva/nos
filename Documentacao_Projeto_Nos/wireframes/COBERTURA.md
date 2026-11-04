@@ -18,25 +18,11 @@
 
 **Atualização vigente — v3.0.1 — 20/10/2026:** por autorização explícita, a árvore original retorna somente ao painel público da Conta; Atlas01/02 usam a mesma imagem. A composição3.0.0 permanece a base; demais telas e modais preservados. Validação pontual:12 testes, tipos, três larguras e prévias de cadastro/login. [Registro](../_andamento/registros/registro-v3.0.1-2026-10-20-imp-conta-fun-restauracao-arvore.md) · [galeria](comparacoes/v3.0.1-2026-10-20-conta-arvore/index.html).
 
-## Cobertura da reconstrução do Layout novo — 18/10/2026
+## Atualização — v3.1.0 — 23/10/2026
 
-**Reconstrução validada localmente — v3.0.0.** A composição viva das **73 fichas** usa a referência [Layout novo](../Telas/Layout%20novo/index.html). O inventário permanece em **39 recortes existentes e 34 planejadas**, com IDs históricos preservados. O shell visual não altera contratos, permissões ou conclusão dos módulos.
+Tela69/Conta e segurança: exclusão da própria conta implementada e validada localmente, opção vermelha, confirmação exata APAGAR CONTA e modal identificado no inventário. Tela01 recebe o resultado; Telas24/28/33 preservam momentos com autoria Conta excluída; Agenda14/15 separa resposta histórica de presença atual. Configurações66, Privacidade67 e Ajuda70 orientam o novo fluxo. Histórico compartilhado mantido, sucessão/encerramento existentes reutilizados. Nova migração apenas no Docker local; produção pendente. [Contrato](../_andamento/funcionalidades/exclusao-conta.md) · [galeria](comparacoes/v3.1.0-2026-10-23-exclusao-conta/index.html).
 
-| Fichas | Representação atual | Limite funcional |
-| --- | --- | --- |
-| 01–05 e72 | Entrada/Conta com a nova identidade | Sessão, confirmação e recuperação preservam contratos existentes |
-| 06–13;58–59 | Criação/entrada, Núcleos e convites com nova estrutura | Convites reais continuam sujeitos a papéis e validação; Atlas não grava |
-| 14–17 | Agenda com nova estrutura | Grade semanal, painel, lista/formulários/respostas reais; mês/dia/recorrência/externos planejados |
-| 18;22–33 | Acordos, participação, gestão e histórico com nova identidade | Kanban/Painéis/lista móvel organizam o modelo atual; não implementam evolução individual |
-| 38 e40 | Esboços protegidos de Árvore e Memórias | /nucleos/[id]/arvore e /memorias; sem crescimento, fotos, feed ou persistência |
-| 44 e49 | Esboços protegidos de Conexões e Perfis | /nucleos/[id]/conexoes e /perfis; sem métricas nem perfis afetivos persistidos |
-| 55 e61 | Esboços protegidos de Manifesto e Cuidado | /nucleos/[id]/manifesto e /cuidado; sem assinaturas ou conversas persistidas |
-| 66–71;73 | Preferências, ajuda, saída e administração com nova estrutura | Funções existentes preservadas; notificações68 permanecem planejadas |
-| Demais fichas planejadas | Desenhos de planejamento com shell atual e aviso explícito | A presença do desenho não cria a rota nem conclui o módulo |
-
-Árvore/Memórias, Conexões/Perfis e Manifesto/Cuidado são pares de esboços acessíveis pelo menu e pelos links do respectivo módulo. Os percursos detalhados preservam seus IDs, regras pendentes e ordem de planejamento. O modo histórico e as galerias anteriores estão preservados. A origem histórica reorganizada está em [Layout inicial](../Telas/Layout%20inicial/Nos_App.dc.html) e [PDFs](../Telas/Layout%20inicial/pdfs/source1.pdf).
-
-**Modais:** identificação no gatilho/ficha, origem e título; links para rotas e seleção inline não recebem esse rótulo. [Inventário permanente](../_andamento/funcionalidades/modais-interface.md) · [galeria 3.0.0](comparacoes/v3.0.0-2026-10-18-layout-novo-integral/index.html). 170 capturas do aplicativo (85 capturas de modais, 27 rotas autenticadas, sete páginas públicas e larguras de 390/640/768/1024/1440 px), 176 do Atlas (86 telas/contextos e 90 capturas de modais), 40 da referência e 20 anteriores: 406 imagens e 20 comparações por área/dispositivo. Modais têm título, gatilho e origem no manifesto; a captura é recortada no diálogo.
+**Produção v3.1.0 — 23/10/2026:** migração e código8afecb2 publicados, deploy6adae350fa2928885a0de2c8. Exclusão da conta validada online em desktop/celular; quatro contas descartáveis removidas e dados anteriores preservados em15 tabelas. O status remoto pendente do bloco anterior foi concluído.
 
 ## Cobertura histórica por marco
 
@@ -210,19 +196,32 @@ Conferência atualizada em 2026-10-13: as 72 fichas, situações e pendências c
 
 28 telas do documento importadas em 52 composições e variações; 41 pontos de acesso ao desenho histórico. As telas implementadas de entrada têm layout próprio. Paleta, textos e ícones das três rotas de onboarding comparados ao app com sessão validada; extensões e limites de web sinalizados. Consultar [origens e manutenção](FIDELIDADE.md).
 
+## Navegação e sessão — v0.13.0
+
+Conta → Seus Núcleos → Início escolhido. Sem associação, criar ou conferir convite; destino específico tem prioridade após login. Todo /comecar e /nucleos exige sessão validada antes de renderizar; token expirado com renovação válida mantém a sessão. Tela 12 tem listagem real protegida por RLS; nenhuma alteração em permissões do banco. Validação atual: 72 prévias, 180 saídas, 360 estados, 14 percursos e Visão global sincronizada; 132 testes do aplicativo, tipos/build e revisão independente aprovados. Métricas da seção histórica acima pertencem à entrega anterior.
+
 ## Verificação histórica do artefato — v0.12.0
 
 Inventário sem IDs duplicados ou destinos ausentes; 37 origens cobertas; 72 prévias, 178 saídas do contrato e 360 estados visuais verificados com Playwright; 52 composições aprovadas também renderizadas. Busca, filtros, teclado, 13 percursos, modo web, impressão CSS e ausência de transbordamento horizontal a 375 px conferidos. Nenhum erro JavaScript detectado. A impressão foi verificada por CSS, sem exportação ou inspeção de PDF.
 
 Esta validação comprova o funcionamento do atlas. Não valida novamente funcionalidades do aplicativo, integrações Supabase nem regras futuras ainda sem implementação.
 
+## Cobertura da reconstrução do Layout novo — 18/10/2026
 
-## Navegação e sessão — v0.13.0
+**Reconstrução validada localmente — v3.0.0.** A composição viva das **73 fichas** usa a referência [Layout novo](../Telas/Layout%20novo/index.html). O inventário permanece em **39 recortes existentes e 34 planejadas**, com IDs históricos preservados. O shell visual não altera contratos, permissões ou conclusão dos módulos.
 
-Conta → Seus Núcleos → Início escolhido. Sem associação, criar ou conferir convite; destino específico tem prioridade após login. Todo /comecar e /nucleos exige sessão validada antes de renderizar; token expirado com renovação válida mantém a sessão. Tela 12 tem listagem real protegida por RLS; nenhuma alteração em permissões do banco. Validação atual: 72 prévias, 180 saídas, 360 estados, 14 percursos e Visão global sincronizada; 132 testes do aplicativo, tipos/build e revisão independente aprovados. Métricas da seção histórica acima pertencem à entrega anterior.
+| Fichas | Representação atual | Limite funcional |
+| --- | --- | --- |
+| 01–05 e72 | Entrada/Conta com a nova identidade | Sessão, confirmação e recuperação preservam contratos existentes |
+| 06–13;58–59 | Criação/entrada, Núcleos e convites com nova estrutura | Convites reais continuam sujeitos a papéis e validação; Atlas não grava |
+| 14–17 | Agenda com nova estrutura | Grade semanal, painel, lista/formulários/respostas reais; mês/dia/recorrência/externos planejados |
+| 18;22–33 | Acordos, participação, gestão e histórico com nova identidade | Kanban/Painéis/lista móvel organizam o modelo atual; não implementam evolução individual |
+| 38 e40 | Esboços protegidos de Árvore e Memórias | /nucleos/[id]/arvore e /memorias; sem crescimento, fotos, feed ou persistência |
+| 44 e49 | Esboços protegidos de Conexões e Perfis | /nucleos/[id]/conexoes e /perfis; sem métricas nem perfis afetivos persistidos |
+| 55 e61 | Esboços protegidos de Manifesto e Cuidado | /nucleos/[id]/manifesto e /cuidado; sem assinaturas ou conversas persistidas |
+| 66–71;73 | Preferências, ajuda, saída e administração com nova estrutura | Funções existentes preservadas; notificações68 permanecem planejadas |
+| Demais fichas planejadas | Desenhos de planejamento com shell atual e aviso explícito | A presença do desenho não cria a rota nem conclui o módulo |
 
-## Atualização — v3.1.0 — 23/10/2026
+Árvore/Memórias, Conexões/Perfis e Manifesto/Cuidado são pares de esboços acessíveis pelo menu e pelos links do respectivo módulo. Os percursos detalhados preservam seus IDs, regras pendentes e ordem de planejamento. O modo histórico e as galerias anteriores estão preservados. A origem histórica reorganizada está em [Layout inicial](../Telas/Layout%20inicial/Nos_App.dc.html) e [PDFs](../Telas/Layout%20inicial/pdfs/source1.pdf).
 
-Tela69/Conta e segurança: exclusão da própria conta implementada e validada localmente, opção vermelha, confirmação exata APAGAR CONTA e modal identificado no inventário. Tela01 recebe o resultado; Telas24/28/33 preservam momentos com autoria Conta excluída; Agenda14/15 separa resposta histórica de presença atual. Configurações66, Privacidade67 e Ajuda70 orientam o novo fluxo. Histórico compartilhado mantido, sucessão/encerramento existentes reutilizados. Nova migração apenas no Docker local; produção pendente. [Contrato](../_andamento/funcionalidades/exclusao-conta.md) · [galeria](comparacoes/v3.1.0-2026-10-23-exclusao-conta/index.html).
-
-**Produção v3.1.0 — 23/10/2026:** migração e código8afecb2 publicados, deploy6adae350fa2928885a0de2c8. Exclusão da conta validada online em desktop/celular; quatro contas descartáveis removidas e dados anteriores preservados em15 tabelas. O status remoto pendente do bloco anterior foi concluído.
+**Modais:** identificação no gatilho/ficha, origem e título; links para rotas e seleção inline não recebem esse rótulo. [Inventário permanente](../_andamento/funcionalidades/modais-interface.md) · [galeria 3.0.0](comparacoes/v3.0.0-2026-10-18-layout-novo-integral/index.html). 170 capturas do aplicativo (85 capturas de modais, 27 rotas autenticadas, sete páginas públicas e larguras de 390/640/768/1024/1440 px), 176 do Atlas (86 telas/contextos e 90 capturas de modais), 40 da referência e 20 anteriores: 406 imagens e 20 comparações por área/dispositivo. Modais têm título, gatilho e origem no manifesto; a captura é recortada no diálogo.

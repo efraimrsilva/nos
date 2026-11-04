@@ -41,34 +41,26 @@ Tabela sem linhas porque ainda não houve execução relatada. Acrescentar uma l
 
 Preparação do Supabase local em 28/10/2026: adicionados M01-100 e M01-101. As verificações técnicas de SQL, temas, navegação e acesso com e-mail local não aprovam automaticamente os testes de caixa preta do usuário.
 
-## 2026-10-29 — v3.3.1 — conta e perfil
+## 2026-11-03 — v3.6.2 — lista compacta automatizada
 
-M05-PER-001–008 criados, status Não executado pelo usuário. Testes automatizados locais e capturas não constituem aprovação manual. Consultar [registro](../registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md) para resultados e retestes automatizados.
+M05-LIS-001/002 e M02-LIS-001 em integrantes-lista.md permanecem Não executados pelo usuário. TDD2falhas esperadas por ausência da tabela; reteste14autenticados aprovados, mais2checagens do X no viewport. Nomes abrem detalhes mantendo nomeação/aceite/destituição/saída;320–1280px sem overflow e altura da linha abaixo120px. Verificador Atlas aprovado. Revisão independente estática sem bloqueio; captura final usa viewport para evitar recorte da captura por elemento. [Registro](../registros/registro-v3.6.2-2026-11-03-imp-integrantes-fun-lista-compacta.md).
 
-## 2026-10-30 — v3.3.2 — Núcleos
-M02-LAY-001: Não executado pelo usuário. Dois cenários automatizados desktop/mobile aprovados separadamente; não equivalem à execução manual.
+Retestes finais3.6.2:8aprovados após remover Nomeação da lista;2aprovados após reduzir largura580px, incluindo nomes/detalhes/permissões/X/foco e320–1280px. Tipos/build finais aprovados. Casos manuais seguem Não executados pelo usuário. Sincronização automática de identidade adiada explicitamente.
 
-## 2026-10-30 — v3.3.3 — Convites
-M02-LAY-002 e M05-PER-009: Não executados pelo usuário. Quatro testes automatizados aprovados separadamente em desktop/mobile; tipos/build aprovados e capturas inspecionadas.
-# 2026-10-30 — v3.4.0 — nome do perfil
+**Fechamento v3.7.0:** tipos/build e10 testes autenticados finais aprovados, além dos três verificadores Atlas. Não altera o status dos casos manuais; entrega externa continua não executada.
 
-M05-PER-010 a013: **Não executados pelo usuário**. Evidência separada:2 cenários automatizados autenticados em Supabase local (desktop/celular),4 testes da ação e Atlas aprovados. Cancelamento, validação, gravação/reload e erro de transporte provocado; conta original/sessão divergente cobertas no teste da ação. Não converter automação em aprovação manual. [Registro](../registros/registro-v3.4.0-2026-10-30-imp-conta-fun-nome-perfil.md).
+## 2026-11-03 — v3.6.1 — evidência automatizada de fechamento externo
 
-## 2026-10-30 — v3.4.1 — Meia-noite
-M05-TEM-017: Não executado pelo usuário.16 testes gerais e dois autenticados finais aprovados; Atlas e capturas desktop/mobile conferidos. Rodada intermediária desktop falhou ao testar coluna lateral em cópia criada antes do ajuste; reteste final aprovado, sem apagar essa evidência.
+M05-MOD-001–005 em [modais-fechamento.md](modais-fechamento.md) Não executados pelo usuário. TDD:4 falhas esperadas antes/4 aprovados depois. Suíte pública:210 aprovados/2 falhas em expectativa antiga de vermelho; ajuste de teste seguido de212 aprovados. Autenticados:17 aprovados/2 falhas na abertura inicial/1 ignorado; proteção de hidratação corrigida, reteste13 aprovados/1 ignorado intencionalmente. [Registro](../registros/registro-v3.6.1-2026-11-03-imp-modais-fun-fechamento-externo.md). Sem certificar aparelho físico/Safari/deploy.
 
-## 2026-10-30 — v3.4.2 — Barra lateral
-M05-PER-014: Não executado pelo usuário. Quatro testes autenticados desktop/mobile e16 de aparência aprovados; tipos/build e verificadores Atlas aprovados. Capturas novas na galeria3.4.2; galeria histórica3.3.1 preservada.
+## 2026-11-03 — v3.6.0 — automação da organização do Núcleo
 
-## 2026-10-30 — Consolidação GitHub v3.4.2
-Rodada automatizada final:192 gerais e12 autenticados aprovados; tipos/build e Atlas aprovados. Esses resultados não aprovam nenhum caso de caixa preta do usuário. Evidência e comandos no registro de publicação.
+Não é execução dos casos de caixa preta pelo usuário. M02-ORG-001–008 e M05-ORG-001–006 permanecem Não executados. Evidência local:30 cenários autenticados aprovados na rodada ampla; reteste final3.6.0 com11 aprovados/1 ignorado intencionalmente,20 públicos e118 SQL pertinentes aprovados; tipos/build e cinco verificadores Atlas aprovados. [Falhas/retestes](../registros/registro-v3.6.0-2026-11-03-imp-nucleo-fun-mesclagem-pessoas.md). A suíte SQL total encontrou função anterior de confirmação de e-mail ausente no banco local; não foi certificada. Sem teste hospedado ou aparelho físico.
 
-## 2026-10-30 — v3.4.3 — Informe de espera
-M02-LAY-003 Não executado pelo usuário.16 verificações automatizadas focadas aprovadas; componentes reais renderizado isoladamente, sem afirmar jornada autenticada completa.
+## 2026-11-03 — v3.6.0 — reparo técnico de M02-ORG-002/003
 
-## 2026-10-30 — v3.4.2 — Auditoria de segurança
+Usuário informou falha ao editar nome e propósito, sem dados suficientes para registrar dispositivo/caso específico como execução completa. Preservado relato: ambos não salvavam. Diagnóstico técnico confirmou RPC ausente no banco hospedado configurado (404/PGRST202). Migração específica aplicada; gravação remota com administrador temporário, preservação do outro campo e rejeição de participante/vazio aprovadas em transação desfeita. API passou a reconhecer função, negando chamada anônima como esperado. [Evidências e limites](../registros/registro-v3.6.0-2026-11-03-imp-banco-hospedado-fun-edicao-identidade.md). Casos manuais continuam aguardando execução/reteste explícito pelo usuário; não registrar aprovação presumida.
 
-Resultado automatizado da auditoria:160 testes locais do banco e70 públicos aprovados; quatro verificações de bloqueio concorrente aprovadas. Seleção autenticada52:36 aprovados,15 falharam e1 ignorado. Falhas de seletores antigos e verificador de fidelidade foram investigadas, preservadas e detalhadas no [relatório](../registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md); não converter casos interrompidos em aprovação de isolamento ou retomada. Experimentos locais comprovaram divergência de senha e janela de token após logout; não constituem mitigação nem aprovação manual. Dependências e validação hospedada permanecem incompletas.
 ## 2026-11-03 — v3.5.0 — novos roteiros e automação separada
 
 Casos M01-AJU-001–002, M03-AJU-001–005, M04-CAL-001–004, M05-AJU-001–003, NAV-AJU-001–007 e M02-LAY-004–006: **Não executados pelo usuário**. A criação dos casos e correções de código não aprovam execução ou reteste manual.
@@ -87,22 +79,32 @@ Rodada seguinte v3.5.0: **23 aprovados, duas falhas e um ignorado em 2,3 minutos
 
 **Fechamento automatizado local v3.5.0:** reteste específico dos dois cenários de navegação aprovado, computador em 23,4 segundos e celular em 17,3 segundos (rodada de aproximadamente 1,2 minuto). O conjunto final de 26 casos únicos possui **25 aprovados e um ignorado intencional**: 23 aprovações da rodada anterior mais dois retestes aprovados; não se afirma uma única rodada com 26 aprovações. O ignorado é o painel de perfil exclusivamente desktop, sem correspondente móvel por decisão de interface. Tipos/build finais, vinte testes públicos, sete pgTAP locais e cinco verificadores do Atlas aprovados. [Galeria](../../wireframes/comparacoes/v3.5.0-2026-11-03-paridade-tela_01-tela_05-tela_12-tela_13-tela_14-tela_18-tela_66-tela_73/index.html#aplicativo-real): dezoito capturas reais (duas anteriores/dezesseis posteriores), 36 do Atlas, 54 no total. **Os 24 casos novos de caixa preta continuam Não executados pelo usuário**; falhas/retestes automatizados anteriores permanecem acima, sem certificar dispositivo físico/Safari, migração remota ou deploy.
 
-## 2026-11-03 — v3.6.0 — automação da organização do Núcleo
+## 2026-10-30 — v3.4.3 — Informe de espera
+M02-LAY-003 Não executado pelo usuário.16 verificações automatizadas focadas aprovadas; componentes reais renderizado isoladamente, sem afirmar jornada autenticada completa.
 
-Não é execução dos casos de caixa preta pelo usuário. M02-ORG-001–008 e M05-ORG-001–006 permanecem Não executados. Evidência local:30 cenários autenticados aprovados na rodada ampla; reteste final3.6.0 com11 aprovados/1 ignorado intencionalmente,20 públicos e118 SQL pertinentes aprovados; tipos/build e cinco verificadores Atlas aprovados. [Falhas/retestes](../registros/registro-v3.6.0-2026-11-03-imp-nucleo-fun-mesclagem-pessoas.md). A suíte SQL total encontrou função anterior de confirmação de e-mail ausente no banco local; não foi certificada. Sem teste hospedado ou aparelho físico.
+## 2026-10-30 — v3.4.2 — Barra lateral
+M05-PER-014: Não executado pelo usuário. Quatro testes autenticados desktop/mobile e16 de aparência aprovados; tipos/build e verificadores Atlas aprovados. Capturas novas na galeria3.4.2; galeria histórica3.3.1 preservada.
 
-## 2026-11-03 — v3.6.0 — reparo técnico de M02-ORG-002/003
+## 2026-10-30 — Consolidação GitHub v3.4.2
+Rodada automatizada final:192 gerais e12 autenticados aprovados; tipos/build e Atlas aprovados. Esses resultados não aprovam nenhum caso de caixa preta do usuário. Evidência e comandos no registro de publicação.
 
-Usuário informou falha ao editar nome e propósito, sem dados suficientes para registrar dispositivo/caso específico como execução completa. Preservado relato: ambos não salvavam. Diagnóstico técnico confirmou RPC ausente no banco hospedado configurado (404/PGRST202). Migração específica aplicada; gravação remota com administrador temporário, preservação do outro campo e rejeição de participante/vazio aprovadas em transação desfeita. API passou a reconhecer função, negando chamada anônima como esperado. [Evidências e limites](../registros/registro-v3.6.0-2026-11-03-imp-banco-hospedado-fun-edicao-identidade.md). Casos manuais continuam aguardando execução/reteste explícito pelo usuário; não registrar aprovação presumida.
+## 2026-10-30 — v3.4.2 — Auditoria de segurança
 
-## 2026-11-03 — v3.6.1 — evidência automatizada de fechamento externo
+Resultado automatizado da auditoria:160 testes locais do banco e70 públicos aprovados; quatro verificações de bloqueio concorrente aprovadas. Seleção autenticada52:36 aprovados,15 falharam e1 ignorado. Falhas de seletores antigos e verificador de fidelidade foram investigadas, preservadas e detalhadas no [relatório](../registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md); não converter casos interrompidos em aprovação de isolamento ou retomada. Experimentos locais comprovaram divergência de senha e janela de token após logout; não constituem mitigação nem aprovação manual. Dependências e validação hospedada permanecem incompletas.
 
-M05-MOD-001–005 em [modais-fechamento.md](modais-fechamento.md) Não executados pelo usuário. TDD:4 falhas esperadas antes/4 aprovados depois. Suíte pública:210 aprovados/2 falhas em expectativa antiga de vermelho; ajuste de teste seguido de212 aprovados. Autenticados:17 aprovados/2 falhas na abertura inicial/1 ignorado; proteção de hidratação corrigida, reteste13 aprovados/1 ignorado intencionalmente. [Registro](../registros/registro-v3.6.1-2026-11-03-imp-modais-fun-fechamento-externo.md). Sem certificar aparelho físico/Safari/deploy.
+## 2026-10-30 — v3.4.1 — Meia-noite
+M05-TEM-017: Não executado pelo usuário.16 testes gerais e dois autenticados finais aprovados; Atlas e capturas desktop/mobile conferidos. Rodada intermediária desktop falhou ao testar coluna lateral em cópia criada antes do ajuste; reteste final aprovado, sem apagar essa evidência.
 
-## 2026-11-03 — v3.6.2 — lista compacta automatizada
+# 2026-10-30 — v3.4.0 — nome do perfil
 
-M05-LIS-001/002 e M02-LIS-001 em integrantes-lista.md permanecem Não executados pelo usuário. TDD2falhas esperadas por ausência da tabela; reteste14autenticados aprovados, mais2checagens do X no viewport. Nomes abrem detalhes mantendo nomeação/aceite/destituição/saída;320–1280px sem overflow e altura da linha abaixo120px. Verificador Atlas aprovado. Revisão independente estática sem bloqueio; captura final usa viewport para evitar recorte da captura por elemento. [Registro](../registros/registro-v3.6.2-2026-11-03-imp-integrantes-fun-lista-compacta.md).
+M05-PER-010 a013: **Não executados pelo usuário**. Evidência separada:2 cenários automatizados autenticados em Supabase local (desktop/celular),4 testes da ação e Atlas aprovados. Cancelamento, validação, gravação/reload e erro de transporte provocado; conta original/sessão divergente cobertas no teste da ação. Não converter automação em aprovação manual. [Registro](../registros/registro-v3.4.0-2026-10-30-imp-conta-fun-nome-perfil.md).
 
-Retestes finais3.6.2:8aprovados após remover Nomeação da lista;2aprovados após reduzir largura580px, incluindo nomes/detalhes/permissões/X/foco e320–1280px. Tipos/build finais aprovados. Casos manuais seguem Não executados pelo usuário. Sincronização automática de identidade adiada explicitamente.
+## 2026-10-30 — v3.3.3 — Convites
+M02-LAY-002 e M05-PER-009: Não executados pelo usuário. Quatro testes automatizados aprovados separadamente em desktop/mobile; tipos/build aprovados e capturas inspecionadas.
 
-**Fechamento v3.7.0:** tipos/build e10 testes autenticados finais aprovados, além dos três verificadores Atlas. Não altera o status dos casos manuais; entrega externa continua não executada.
+## 2026-10-30 — v3.3.2 — Núcleos
+M02-LAY-001: Não executado pelo usuário. Dois cenários automatizados desktop/mobile aprovados separadamente; não equivalem à execução manual.
+
+## 2026-10-29 — v3.3.1 — conta e perfil
+
+M05-PER-001–008 criados, status Não executado pelo usuário. Testes automatizados locais e capturas não constituem aprovação manual. Consultar [registro](../registros/registro-v3.3.1-2026-10-29-imp-conta-perfil-fun-navegacao-contextual.md) para resultados e retestes automatizados.

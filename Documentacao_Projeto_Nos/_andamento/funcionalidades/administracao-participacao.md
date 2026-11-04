@@ -1,10 +1,8 @@
 # Administração e participação — contrato implementado — v3.5.0
 
-## Atualização vigente — Administração e participação — v3.5.0 — 03/11/2026
+## Organização do Núcleo — v3.6.0 — validado localmente
 
-Sem mudança na autonomia individual: publicar proposta não aceita por terceiros; administração não pode responder pela pessoa; recusa/saída não cancela coletivamente o acordo; revisão de termos exige novo aceite. Novas propostas do aplicativo iniciam em `habit` e situação pendente, sem seleção de categoria. Progressão individual completa continua planejada.
-
-Acordos oferece Enviar convite somente para administrador, reaproveitando a geração existente. Totais agregados de participação são consultados pela nova RPC `get_nucleus_agreement_response_counts`: somente sessão com vínculo atual em Núcleo aberto, no máximo cinquenta acordos, sem identidades ou respostas individuais de terceiros. Integrante atual que ainda não respondeu ou aceitou termos antigos conta como pendente; saídas não integram o total. Banco e servidor continuam responsáveis por autorização, independentemente de ocultar controles na interface. Migração nova comprovada somente no ambiente local. [Contrato de propostas](proposta-habito.md) e [registro](../registros/registro-v3.5.0-2026-11-03-01-imp-acordos-fun-propostas-e-respostas.md).
+[Contrato atual](organizacao-nucleo.md): gestão de integrantes agora em Início → Ver integrantes; identidade no cabeçalho; convites, saída e encerramento na Conta/popover/Mais. Poderes, aceite de nomeação, autoria e preservação de história permanecem. A antiga guia Pessoas é retirada; sua rota é compatibilidade para abrir o modal no Início.
 
 ## Marcos e contratos históricos
 
@@ -70,6 +68,8 @@ Item5 operacional permanece adiado a pedido do usuário pelo impedimento do Goog
 
 Foram validados gestão com múltiplos administradores, aceite de nomeação comum, saída/remoção com revogação, sorteio do último administrador, fechamento do último membro, participação individual, mudança de termos com novo aceite, gestão do teste/ativo/encerramento sem votação, história preservada e preferência de autoria. Atualizar aplicação, banco, testes, Atlas/Visão global/MVP/fichas/galeria e documentos coerentemente. Fonte de verdade deste desenho: este contrato; registros antigos servem apenas de histórico.
 
-## Organização do Núcleo — v3.6.0 — validado localmente
+## Atualização vigente — Administração e participação — v3.5.0 — 03/11/2026
 
-[Contrato atual](organizacao-nucleo.md): gestão de integrantes agora em Início → Ver integrantes; identidade no cabeçalho; convites, saída e encerramento na Conta/popover/Mais. Poderes, aceite de nomeação, autoria e preservação de história permanecem. A antiga guia Pessoas é retirada; sua rota é compatibilidade para abrir o modal no Início.
+Sem mudança na autonomia individual: publicar proposta não aceita por terceiros; administração não pode responder pela pessoa; recusa/saída não cancela coletivamente o acordo; revisão de termos exige novo aceite. Novas propostas do aplicativo iniciam em `habit` e situação pendente, sem seleção de categoria. Progressão individual completa continua planejada.
+
+Acordos oferece Enviar convite somente para administrador, reaproveitando a geração existente. Totais agregados de participação são consultados pela nova RPC `get_nucleus_agreement_response_counts`: somente sessão com vínculo atual em Núcleo aberto, no máximo cinquenta acordos, sem identidades ou respostas individuais de terceiros. Integrante atual que ainda não respondeu ou aceitou termos antigos conta como pendente; saídas não integram o total. Banco e servidor continuam responsáveis por autorização, independentemente de ocultar controles na interface. Migração nova comprovada somente no ambiente local. [Contrato de propostas](proposta-habito.md) e [registro](../registros/registro-v3.5.0-2026-11-03-01-imp-acordos-fun-propostas-e-respostas.md).

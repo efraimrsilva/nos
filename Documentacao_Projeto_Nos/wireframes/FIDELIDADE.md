@@ -163,6 +163,14 @@ O primeiro comando lê o HTML aprovado, resolve suas condições/listas, gera ap
 
 Atualizar product-ui.js/product.css quando a implementação mudar; atualizar screens.js, fichas, cobertura e jornadas junto ao contrato. O documento original preserva sua origem; o modo vivo adapta regras sem adulterar a fonte. Não promover indicadores históricos a regra de produto.
 
+## Validação vigente — 2026-10-07 — v0.13.0
+
+72 prévias, 180 saídas, 360 estados, 41 referências, 52 layouts e 14 percursos; zero erros JavaScript ou chamadas externas no atlas. Inventário: 41 planejadas e 31 recortes existentes. Sessão temporária em memória permite comparar as três rotas agora privadas. Executar node scripts/test-authenticated-local.mjs com SUPABASE_CLI_PATH local; verify-fidelity recebe NOS_VERIFY_ORIGIN e NOS_VERIFY_COOKIES somente do processo de teste. Galeria inclui Conta, Escolher caminho, Seus Núcleos e Início; dados de exemplo da listagem foram criados/removidos no backend local. Visão global certifica composição compartilhada e sincronização das 72 telas. [Contrato](../_andamento/funcionalidades/navegacao-sessao.md).
+
+## Validação histórica — 2026-10-07 — v0.12.0
+
+72 telas, 178 saídas, 360 estados, 41 referências e 13 percursos aprovados; zero erros de execução e chamadas externas no atlas. As seis telas de Conta e entrada foram comparadas ao aplicativo em duas larguras. Jornada funcional real validada separadamente no Supabase local, além dos 108 testes, tipos e build. Inventário atual: 42 telas planejadas e 30 recortes existentes. A validação de 2026-10-04 acima permanece como evidência histórica.
+
 ## Validação de 2026-10-04
 
 72 telas, 173 saídas, 360 estados, 41 referências, 52 layouts de 28 telas; três paletas/títulos reais e nove tipos/descrições/SVG conferidos. Rascunho, convite, abas, vínculos, teclado, filtros, 12 percursos, 375px, composição web, movimento reduzido e impressão CSS verificados. Zero erros de execução e zero chamadas HTTP externas no atlas. Revisão independente e reconferência dos achados concluídas.
@@ -170,13 +178,3 @@ Atualizar product-ui.js/product.css quando a implementação mudar; atualizar sc
 Não houve alteração ou nova validação funcional de banco, autenticação ou produto; o wireframe não executa persistência. Nenhuma exportação de PDF. As 45 telas planejadas e extensões dos 27 recortes existentes permanecem sinalizadas no [inventário de pendências](COBERTURA.md).
 
 A área Conta e entrada inclui também ID72. A versão viva apresenta somente botões implementados de cadastro/login; login social e consentimento jurídico históricos não foram ativados. [Comparação](comparacoes/v0.12.0-2026-10-07-conta-entrada-tela_01-tela_02-tela_03-tela_04-tela_05-tela_72/index.html).
-
-
-## Validação histórica — 2026-10-07 — v0.12.0
-
-72 telas, 178 saídas, 360 estados, 41 referências e 13 percursos aprovados; zero erros de execução e chamadas externas no atlas. As seis telas de Conta e entrada foram comparadas ao aplicativo em duas larguras. Jornada funcional real validada separadamente no Supabase local, além dos 108 testes, tipos e build. Inventário atual: 42 telas planejadas e 30 recortes existentes. A validação de 2026-10-04 acima permanece como evidência histórica.
-
-
-## Validação vigente — 2026-10-07 — v0.13.0
-
-72 prévias, 180 saídas, 360 estados, 41 referências, 52 layouts e 14 percursos; zero erros JavaScript ou chamadas externas no atlas. Inventário: 41 planejadas e 31 recortes existentes. Sessão temporária em memória permite comparar as três rotas agora privadas. Executar node scripts/test-authenticated-local.mjs com SUPABASE_CLI_PATH local; verify-fidelity recebe NOS_VERIFY_ORIGIN e NOS_VERIFY_COOKIES somente do processo de teste. Galeria inclui Conta, Escolher caminho, Seus Núcleos e Início; dados de exemplo da listagem foram criados/removidos no backend local. Visão global certifica composição compartilhada e sincronização das 72 telas. [Contrato](../_andamento/funcionalidades/navegacao-sessao.md).

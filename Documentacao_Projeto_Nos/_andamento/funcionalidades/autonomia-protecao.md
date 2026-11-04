@@ -4,6 +4,12 @@ Atualização v3.3.1 — 29/10/2026: Conta e segurança removida. Exclusão fica
 
 **Modelo implementado localmente — v1.0.0 — 14/10/2026:** [administração e participação](administracao-participacao.md) é o contrato vigente. Administração compartilhada, escolha individual, novo aceite por versão, saída com história preservada e preferência de autoria estão implementados. Sem votação coletiva ou cancelamento de acordo por saída. [Roteiro de testes de caixa preta](administracao-caixa-preta.md). Publicação, migração remota e operação do piloto permanecem pendentes.
 
+## Evolução — v3.1.0 — 23/10/2026
+
+A exclusão da própria conta deixa de ser apenas uma solicitação manual: Conta e segurança oferece ação vermelha, diálogo de consequências e frase APAGAR CONTA. Somente a conta da sessão pode ser excluída. Identificação e acesso removidos; histórico compartilhado preservado como Conta excluída. Participação, sucessão e encerramento seguem o contrato atual; dados textuais e backups têm limites explícitos. Implementação e banco local validados, sem aplicação remota ou deploy. Este bloco substitui a orientação histórica de exclusão exclusivamente por suporte. [Contrato completo](exclusao-conta.md).
+
+**Produção v3.1.0 — 23/10/2026:** migração e código8afecb2 publicados, deploy6adae350fa2928885a0de2c8. Exclusão da conta validada online em desktop/celular; quatro contas descartáveis removidas e dados anteriores preservados em15 tabelas. O status remoto pendente do bloco anterior foi concluído.
+
 ## Histórico do modelo anterior — até v0.16.0
 
 Os contratos e marcos abaixo são preservados para rastreabilidade; não representam as regras atuais dos Núcleos/acordos.
@@ -45,9 +51,3 @@ Pendências para fechar esta etapa e o piloto:
 Teste de caixa preta: entrar → Seus Núcleos → Configurações; abrir três alternativas e retornar; conferir reservas; Conta69 → recuperação com retorno; sair e tentar abrir Configurações novamente. Num Núcleo próprio, abrir orientação71 e voltar: vínculo deve permanecer. Com outra conta sem associação, acessar a URL da orientação: nenhum contexto privado deve aparecer. Participante não vê mensagem exclusiva do criador. Usar teclado e celular; logout deve bloquear repetição enquanto processa.
 
 Evidências:106 testes gerais com compilação local de produção; quatro autenticados desktop/mobile com duas contas, recuperação/retorno/logout, vínculo preservado e isolamento; tipos/build webpack; verificadores MVP05/MVP/Visão global; capturas reais fictícias e antes extraído de c40594f. Autorrevisão e revisão independente; P2 de entradas no Atlas corrigido. Não foi provocada indisponibilidade real do Auth, nem realizada restauração ou prova externa.
-
-## Evolução — v3.1.0 — 23/10/2026
-
-A exclusão da própria conta deixa de ser apenas uma solicitação manual: Conta e segurança oferece ação vermelha, diálogo de consequências e frase APAGAR CONTA. Somente a conta da sessão pode ser excluída. Identificação e acesso removidos; histórico compartilhado preservado como Conta excluída. Participação, sucessão e encerramento seguem o contrato atual; dados textuais e backups têm limites explícitos. Implementação e banco local validados, sem aplicação remota ou deploy. Este bloco substitui a orientação histórica de exclusão exclusivamente por suporte. [Contrato completo](exclusao-conta.md).
-
-**Produção v3.1.0 — 23/10/2026:** migração e código8afecb2 publicados, deploy6adae350fa2928885a0de2c8. Exclusão da conta validada online em desktop/celular; quatro contas descartáveis removidas e dados anteriores preservados em15 tabelas. O status remoto pendente do bloco anterior foi concluído.

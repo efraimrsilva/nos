@@ -15,6 +15,10 @@ Todos os casos abaixo estão **Não executados pelo usuário**. Automação loca
 
 Enviar resultados por ID, ambiente, observado e evidência opcional, conforme o processo permanente.
 
+## v3.4.2 — barra lateral
+
+[] M05-PER-014 | Não executado | MVP05/integração MVP02, sessão com Núcleo ativo | Abrir Início e Conta em desktop: cartão com nome/Seu espaço compartilhado ausente, nome continua no cabeçalho; ocultar/mostrar barra e usar Seus Núcleos. Repetir acesso à lista via Mais no celular. Esperado: lista abre /nucleos e contexto não muda apenas por remover o cartão.
+
 ## Edição do nome — MVP05 — v3.4.0
 
 | ID | Caminho e pré-condição | Ação | Resultado esperado | Situação |
@@ -27,7 +31,3 @@ Enviar resultados por ID, ambiente, observado e evidência opcional, conforme o 
 ## v3.3.3 — atalho de convite
 
 [] M05-PER-009 | Não executado | MVP05/integração MVP02, sessão válida. Abrir perfil desktop → Conta e Núcleos → Entrar com convite. Repetir na página Conta, Preferências e Ajuda em desktop e celular. Esperado: abre /comecar/convite; painel de perfil fecha; nenhuma associação ocorre sem conferir e aceitar o convite.
-
-## v3.4.2 — barra lateral
-
-[] M05-PER-014 | Não executado | MVP05/integração MVP02, sessão com Núcleo ativo | Abrir Início e Conta em desktop: cartão com nome/Seu espaço compartilhado ausente, nome continua no cabeçalho; ocultar/mostrar barra e usar Seus Núcleos. Repetir acesso à lista via Mais no celular. Esperado: lista abre /nucleos e contexto não muda apenas por remover o cartão.

@@ -1,5 +1,11 @@
 # Estado do Projeto Nós
 
+## Organização interna da documentação — v3.7.0 — 2026-11-04
+
+Blocos datados ou versionados reordenados em 20 documentos. Versão 3.7.0 mantida. [Registro](registros/registro-v3.7.0-2026-11-04-imp-documentacao-fun-ordem-interna.md). O próximo passo operacional segue no marco de publicação abaixo. Contador: 19 conclusões adicionais desde 29/10, considerando a entrega documental anterior, com lacuna histórica e marco 100 preservados.
+
+Unidade pronta para commit: ordenar os blocos internos da documentação. Sugestão: docs: ordenar blocos internos do mais recente ao mais antigo.
+
 ## Publicação consolidada no GitHub — v3.7.0 — 2026-11-03
 
 **Objetivo autorizado:** commit/push de todas as alterações acumuladas, com descrição abrangente e três unidades atômicas. **DOCS_DIR:** Documentacao_Projeto_Nos. main, base a17052c; remoto origin/main conferido igual no início. Versão3.7.0.
@@ -76,7 +82,6 @@
 
 **Contador:**12 conclusões anteriores desde29/10; atual em execução, com histórico165/marco100 preservados. [Registro](registros/registro-v3.6.1-2026-11-03-imp-modais-fun-fechamento-externo.md). Blocos abaixo são históricos.
 
-
 ## Reparo da edição de nome e propósito no banco configurado — v3.6.0 — 2026-11-03
 
 **Objetivo/resultado:** restaurar gravação de identidade relatada pelo usuário. Servidor3000 usa Supabase hospedado pyvohqgcwkcfzbtkmbvx. Causa reproduzida:404/PGRST202 e função update_nucleus_identity ausente; a migração20261103160000 só existia localmente. Dependências administrativas conferidas e migração específica aplicada no destino, com função/permissões/histórico na mesma transação e recarga do esquema. Nenhuma outra migração, reset, commit/push/deploy.
@@ -90,7 +95,6 @@
 **Ferramentas/contador:** Superpowers depuração/TDD/verificação, Supabase, Context7 CLI2.118.0; conector indisponível, fallback CLI autenticada sem exposição de segredos. Octocode não exposto/sem pesquisa avançada necessária.12 conclusões adicionais desde29/10; histórico165 com lacuna e marco100 preservados, sem inferir marco200.
 
 **Próximo passo:** usuário reabrir modais e retestar nome/propósito; registrar resultado. Publicar conjunto apenas quando autorizado. Migração de contagens de respostas continua fora deste reparo. [Registro completo](registros/registro-v3.6.0-2026-11-03-imp-banco-hospedado-fun-edicao-identidade.md) · [contrato](funcionalidades/organizacao-nucleo.md) · [resultados](testes-caixa-preta/resultados.md). Blocos abaixo são históricos; a limitação anterior de identidade somente local foi resolvida neste marco.
-
 
 ## Organização do Núcleo e remoção da guia Pessoas — v3.6.0 — 2026-11-03
 
@@ -132,6 +136,18 @@
 
 **Índice vigente:** [Acordos](registros/registro-v3.5.0-2026-11-03-01-imp-acordos-fun-propostas-e-respostas.md) · [Agenda](registros/registro-v3.5.0-2026-11-03-02-imp-agenda-fun-calendario-mensal.md) · [Núcleos/navegação](registros/registro-v3.5.0-2026-11-03-03-imp-nucleos-fun-cartoes-e-navegacao.md) · [Conta](registros/registro-v3.5.0-2026-11-03-04-imp-conta-fun-feedback-e-acessibilidade.md) · [Validação e matriz de paridade](registros/registro-v3.5.0-2026-11-03-05-imp-validacao-fun-paridade-e-rastreabilidade.md) · [Casos de caixa preta](testes-caixa-preta/ajustes-v3-5.md) · [Resultados e retestes](testes-caixa-preta/resultados.md) · [Galeria Atlas/aplicativo](../wireframes/comparacoes/v3.5.0-2026-11-03-paridade-tela_01-tela_05-tela_12-tela_13-tela_14-tela_18-tela_66-tela_73/index.html). Marcos abaixo preservam a situação histórica.
 
+## Informe de carregamento sem atalhos — v3.4.3 — 2026-10-30
+
+**Objetivo/aceite:** remover Seus Núcleos e Minha conta dos informes Carregando seu Núcleo… e Carregando seus Núcleos…; manter texto/indicador e ações de erro. **DOCS_DIR:** Documentacao_Projeto_Nos. Branch main, base e77da4b; versão vigente3.4.3. Git limpo no início; entrega anterior publicada em origin/main, conferida na interação de publicação.
+
+**Situação:** RouteState com ações opcionais e loadings12/13 sem ações. Tipos/build e16 testes focados desktop/mobile aprovados; Atlas12/13 conferido sem botões/links no estado de espera. Capturas do componente isolado, sem certificação de jornada autenticada/rede. Autorrevisão do diff; sem revisão independente. Teste de caixa preta não executado pelo usuário.
+
+**Unidade pronta para commit:** remoção dos atalhos no carregamento, teste, versão/Atlas e documentação. Sem commit/push/deploy nesta entrega; autorização anterior de publicação abrangeu o conjunto até3.4.2. Sugestão: fix(nucleos): remover atalhos do informe de carregamento. **Contagem adicional:**8 conclusões desde reinício de29/10; histórico165 com lacuna e marco100 preservados.
+
+**Ferramentas:** Superpowers entendimento/verificação; Context7 React19.3.0 consultado; compilador Next instalado reutilizado; Octocode não exposto e pesquisa avançada desnecessária. **Próximo passo:** executar M02-LAY-003 na própria conta; commit/push quando solicitado.
+
+**Índice:** [registro](registros/registro-v3.4.3-2026-10-30-imp-carregamento-fun-informe-sem-atalhos.md) · [Testes de caixa preta](testes-caixa-preta/nucleos-layout.md) · [galeria](../wireframes/comparacoes/v3.4.3-2026-10-30-carregamento-tela_12-tela_13/index.html). Marcos abaixo preservam o histórico.
+
 ## Auditoria rigorosa de segurança — v3.4.2 — 2026-10-30
 
 **Objetivo/aceite:** auditar fronteiras de segurança existentes, conferir banco local/remoto, executar verificações disponíveis e documentar evidências, limites e correções propostas. **DOCS_DIR:** `Documentacao_Projeto_Nos`. Branch `main`, base `e77da4b58cb6c583442ab875434a9bc4ff877468`; versão vigente **3.4.2**. Alterações anteriores de carregamento, testes, Atlas e versão preservadas.
@@ -152,19 +168,6 @@
 
 **Índice:** [relatório completo e prioridades](registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md) · [resultados](testes-caixa-preta/resultados.md) · [contrato de conta atualizado](funcionalidades/conta-entrada.md) · [histórico](historico.md). Seções seguintes são marcos históricos e preservam sua situação na data.
 
-## Informe de carregamento sem atalhos — v3.4.3 — 2026-10-30
-
-**Objetivo/aceite:** remover Seus Núcleos e Minha conta dos informes Carregando seu Núcleo… e Carregando seus Núcleos…; manter texto/indicador e ações de erro. **DOCS_DIR:** Documentacao_Projeto_Nos. Branch main, base e77da4b; versão vigente3.4.3. Git limpo no início; entrega anterior publicada em origin/main, conferida na interação de publicação.
-
-**Situação:** RouteState com ações opcionais e loadings12/13 sem ações. Tipos/build e16 testes focados desktop/mobile aprovados; Atlas12/13 conferido sem botões/links no estado de espera. Capturas do componente isolado, sem certificação de jornada autenticada/rede. Autorrevisão do diff; sem revisão independente. Teste de caixa preta não executado pelo usuário.
-
-**Unidade pronta para commit:** remoção dos atalhos no carregamento, teste, versão/Atlas e documentação. Sem commit/push/deploy nesta entrega; autorização anterior de publicação abrangeu o conjunto até3.4.2. Sugestão: fix(nucleos): remover atalhos do informe de carregamento. **Contagem adicional:**8 conclusões desde reinício de29/10; histórico165 com lacuna e marco100 preservados.
-
-**Ferramentas:** Superpowers entendimento/verificação; Context7 React19.3.0 consultado; compilador Next instalado reutilizado; Octocode não exposto e pesquisa avançada desnecessária. **Próximo passo:** executar M02-LAY-003 na própria conta; commit/push quando solicitado.
-
-**Índice:** [registro](registros/registro-v3.4.3-2026-10-30-imp-carregamento-fun-informe-sem-atalhos.md) · [Testes de caixa preta](testes-caixa-preta/nucleos-layout.md) · [galeria](../wireframes/comparacoes/v3.4.3-2026-10-30-carregamento-tela_12-tela_13/index.html). Marcos abaixo preservam o histórico.
-
-
 ## Consolidação para GitHub — v3.4.2 — 2026-10-30
 
 **Objetivo/aceite:** commit e push de todo o conjunto desenvolvido desde07e4bbb em origin/main, com descrição abrangente. **DOCS_DIR:** Documentacao_Projeto_Nos. Repositório efraimrsilva/nos, branch main. Versão vigente3.4.2.
@@ -179,7 +182,6 @@
 
 **Índice:** [registro integral](registros/registro-v3.4.2-2026-10-30-imp-publicacao-github-fun-consolidacao-entregas.md) · [retestes](../wireframes/comparacoes/v3.4.2-2026-10-30-publicacao-tela_12-tela_13-tela_66/index.html) · [histórico](historico.md). Seções abaixo preservam os marcos anteriores, inclusive suas pendências na data de cada entrega.
 
-
 ## Barra lateral sem cartão do Núcleo — v3.4.2 — 2026-10-30
 
 **Objetivo/aceite:** remover cartão nome/Seu espaço compartilhado da barra lateral, preservar nome no cabeçalho e navegação por Seus Núcleos. Componente global aplicado a todas as rotas internas; Atlas sincronizado. **DOCS_DIR:** Documentacao_Projeto_Nos; branch main, base07e4bbb. Versão vigente3.4.2. Alterações locais anteriores e .vscode/ preservadas.
@@ -190,7 +192,6 @@
 
 **Índice:** [registro](registros/registro-v3.4.2-2026-10-30-imp-barra-lateral-fun-remocao-cartao-nucleo.md) · [contrato](funcionalidades/navegacao-sessao.md) · [Testes de caixa preta](testes-caixa-preta/conta-perfil.md) · [galeria](../wireframes/comparacoes/v3.4.2-2026-10-30-barra-lateral-tela_13/index.html). Seções abaixo preservam os marcos anteriores.
 
-
 ## Meia-noite: preto à frente — v3.4.1 — 2026-10-30
 
 **Objetivo/aceite:** fundo cinza escuro #101312, superfícies e coluna lateral pretas #000000 no tema Preto — Meia-noite, prévia sincronizada, textos e acentos preservados. **DOCS_DIR:** Documentacao_Projeto_Nos; branch main, base07e4bbb. Versão vigente3.4.1. Alterações locais3.3.2/3.3.3/3.4.0 e .vscode/ preservadas.
@@ -200,7 +201,6 @@
 **Contagem adicional:**5 conclusões desde reinício de29/10, histórico165 com lacuna e marco100 preservados. **Unidades para commit:** ajuste Meia-noite com teste, Atlas, versão e documentação validado; unidades anteriores permanecem pendentes. Sem commit/push/deploy. **Próximo passo:** conferir teste de caixa preta M05-TEM-017 com a própria conta.
 
 **Índice:** [registro](registros/registro-v3.4.1-2026-10-30-imp-aparencia-fun-meia-noite-camadas.md) · [contrato](funcionalidades/aparencia-conta.md) · [Testes de caixa preta](testes-caixa-preta/aparencia-conta.md). [Galeria](../wireframes/comparacoes/v3.4.1-2026-10-30-meia-noite-tela_66/index.html). Seções abaixo preservam os marcos anteriores.
-
 
 ## Edição do nome do perfil — v3.4.0 — 2026-10-30
 
@@ -228,7 +228,6 @@
 
 **Índice:** [registro](registros/registro-v3.3.3-2026-10-30-imp-nucleos-fun-convite-cabecalho.md) · [Testes de caixa preta](testes-caixa-preta/nucleos-layout.md) · [galeria](../wireframes/comparacoes/v3.3.3-2026-10-30-convites-tela_12-tela_13-tela_66/index.html). [Registro complementar](registros/registro-v3.3.3-2026-10-30-imp-conta-fun-atalhos-convite.md) · [Testes de caixa preta da conta](testes-caixa-preta/conta-perfil.md). Seções abaixo preservam os marcos anteriores.
 
-
 ## Remoção do painel de Núcleos — v3.3.2 — 2026-10-30
 
 **Objetivo/aceite:** retirar o painel lateral de /nucleos e liberar largura dos cartões; aplicativo/Atlas tela 12 sincronizados. **DOCS_DIR:** Documentacao_Projeto_Nos. Branch main; referência inicial 07e4bbb (conferir Git no encerramento). Versão atual 3.3.2.
@@ -252,6 +251,12 @@
 `AGENTS.md` ampliado com preparação, precedência de contratos, integridade do produto, validação proporcional, documentação, testes de caixa preta, evidências visuais, ambiente, dados e publicação. Regras anteriores de versão/Atlas preservadas integralmente. Mudança documental na versão de código 3.3.1, sem incremento, execução funcional ou publicação. Alterações locais preexistentes de aplicativo/Atlas/manifestos preservadas. [Registro](registros/registro-v3.3.1-2026-10-29-imp-diretrizes-permanentes-fun-continuidade-e-validacao.md).
 
 **Unidade documental pendente de commit:** AGENTS.md e este acompanhamento (estado, histórico e registro). Nenhum commit/push/deploy realizado nesta tarefa. **Próximo passo:** aplicar as diretrizes nas próximas entregas e publicar esta unidade junto ao conjunto autorizado quando solicitado. Contador histórico preservado, sem inferir interações não registradas entre sessões.
+
+## Ferramentas globais — 2026-10-29 — v3.3.1
+
+Superpowers 7.0.1 já instalado e habilitado (15 skills); Context7 1.0.2 instalado e habilitado via marketplace oficial. Uso global explícito em `C:/Users/efraimsilva/.codex/AGENTS.md`. Configuração não comprova consulta autenticada: abrir novo chat e autenticar Context7 se solicitado. [Registro](registros/registro-v3.3.1-2026-10-29-imp-ferramentas-globais-fun-superpowers-context7.md). Este marco atualiza as indicações antigas de disponibilidade acima, preservadas como histórico.
+
+**Contagem:** uma conclusão nesta tarefa de configuração global; direcionamentos intermediários não contam separadamente. Total histórico não inferido devido à lacuna já registrada; último marco 100 preservado. **Pendência de commit desta tarefa:** somente este acompanhamento (estado, histórico e registro); plugins e AGENTS global ficam fora do repositório. Sugestão: `docs: registrar configuração global de Superpowers e Context7`. Alterações concorrentes e pendências anteriores preservadas. Próximo passo executável: validar consulta Context7 em novo chat.
 
 ## Consolidação para GitHub e banco sincronizado — 2026-10-28
 
@@ -305,7 +310,6 @@ Testes de caixa preta agrupados no MVP01:18 novos casos M01-063–080 e revisão
 
 **Próximo passo:** após a conferência remota desta publicação, executar [roteiro de testes de caixa preta](testes-caixa-preta/aparencia-conta.md). [Registro de publicação](registros/registro-v3.2.1-2026-10-24-imp-publicacao-github-fun-consolidacao-aparencia.md) · [Contrato](funcionalidades/aparencia-conta.md) · [Histórico](historico.md). Os marcos abaixo preservam a situação histórica anterior à autorização.
 
-
 ## Ampliação e padronização da aparência — v3.2.1 — 2026-10-23
 
 **Objetivo/aceite:** nove temas, incluindo Solar/Âmbar e Noturno/Neon; Aparência no padrão dos links desktop/More; cores originais dos ícones coloridos invariantes em todos os temas, inclusive item ativo. Salvar conta, aplicação imediata e boas-vindas/login claros preservados. DOCS_DIR:Documentacao_Projeto_Nos. Branch codex/temas-conta/base34d0598; trabalho3.2.0 anterior sem commit preservado. PATCH3.2.1 nos manifestos.
@@ -319,7 +323,6 @@ Testes de caixa preta agrupados no MVP01:18 novos casos M01-063–080 e revisão
 **Ferramentas/limites:** Superpowers entendimento/TDD/depuração/revisão/verificação; checklist React. Context7 Supabase anterior reutilizado; sem integração nova. Octocode configurado, indisponível na sessão; sem pesquisa avançada necessária. Bloqueios: nenhum local. Outra aba recebe preferência externa no próximo carregamento. Publicação/prova online pendentes.
 
 **Próximo passo/índice:** usuário executar [Testes de caixa preta](testes-caixa-preta/aparencia-conta.md); depois, mediante autorização, commit e publicação. [Registro](registros/registro-v3.2.1-2026-10-23-imp-catalogo-temas-fun-solar-neon.md) · [Contrato](funcionalidades/aparencia-conta.md) · [Galeria](../wireframes/comparacoes/v3.2.1-2026-10-23-temas-solar-neon/index.html) · [Resultados](testes-caixa-preta/resultados.md) · [Histórico](historico.md) · [Brag](../brag/BRAG.md).
-
 
 ## Aparência por conta — v3.2.0 — 2026-10-23
 
@@ -337,7 +340,6 @@ Testes de caixa preta agrupados no MVP01:18 novos casos M01-063–080 e revisão
 
 **Índice:** [registro](registros/registro-v3.2.0-2026-10-23-imp-aparencia-conta-fun-temas-persistentes.md) · [contrato](funcionalidades/aparencia-conta.md) · [plano](planos/temas-conta-2026-10-23.md) · [Testes de caixa preta](testes-caixa-preta/aparencia-conta.md) · [resultados](testes-caixa-preta/resultados.md) · [galeria](../wireframes/comparacoes/v3.2.0-2026-10-23-temas-conta/index.html) · [histórico](historico.md) · [Brag](../brag/BRAG.md).
 
-
 ## Publicação GitHub autorizada — v3.1.1 — 2026-10-23 — testes de caixa preta
 
 **Objetivo:** commit e push de todas as alterações pendentes autorizados pelo usuário, com descrição abrangente da entrega. Branch main/base2186586, sincronizada com origin/main antes da operação. Versão funcional3.1.1 preservada.
@@ -347,7 +349,6 @@ Testes de caixa preta agrupados no MVP01:18 novos casos M01-063–080 e revisão
 **Contador:**159; último marco100/próximo200. **Unidades prontas para commit:** nenhuma pendência restante desta entrega. Inclusão dos dez arquivos comprovada no objeto inicial 79ae45e92c8facf548b5ea659c056e903c4539a6; controle de fechamento incorporado ao mesmo commit antes do push. **Validação:** sintaxe dos dois scripts,62 IDs sequenciais/campos obrigatórios, links locais e diff do índice; conferir conteúdo/hash remoto após push. Superpowers de verificação aplicado; sem consulta tecnológica ou pesquisa avançada que exija Context7/Octocode nesta publicação.
 
 **Próximo passo:** concluir conferência do commit/push e receber resultados por ID para atualizar testes-caixa-preta/resultados.md. GitHub não comprova deploy. Sem nova execução da aplicação ou envio de e-mail nesta rodada. [Registro](registros/registro-v3.1.1-2026-10-23-imp-roteiro-caixa-preta-fun-cobertura-mvp-01.md) · [roteiro](testes-caixa-preta/mvp-01.md) · [resultados](testes-caixa-preta/resultados.md).
-
 
 ## Testes de caixa preta por etapa — v3.1.1 — 2026-10-23
 
@@ -360,7 +361,6 @@ Testes de caixa preta agrupados no MVP01:18 novos casos M01-063–080 e revisão
 **Contador:**158; último marco100/próximo200. **Unidade documental:** incorporada ao commit de publicação descrito no marco acima, com inclusão comprovada no objeto Git. Pendência de commit encerrada; sem comprovação de deploy. Trabalho anterior consta no commit2186586; nenhuma pendência anterior acrescida por suposição.
 
 **Bloqueios:** nenhum para entregar roteiro; execução depende do usuário e ambiente. **Próximo passo:** executar os testes e enviar ID/resultado; registrar em resultados.md, investigar falhas e manter histórico de retestes. **Índice:** [processo](testes-caixa-preta/README.md) · [MVP01](testes-caixa-preta/mvp-01.md) · [resultados](testes-caixa-preta/resultados.md) · [registro](registros/registro-v3.1.1-2026-10-23-imp-roteiro-caixa-preta-fun-cobertura-mvp-01.md).
-
 
 ## Entrega e publicação GitHub autorizada — v3.1.1 — 2026-10-23 — cadastro com e-mail existente
 
@@ -375,7 +375,6 @@ Testes de caixa preta agrupados no MVP01:18 novos casos M01-063–080 e revisão
 **Ferramentas:** Superpowers depuração, entendimento proporcional, TDD, revisão e verificação; Context7 Supabase consultado, sem versão específica do cliente no catálogo, complementado com cliente instalado e fonte oficial Auth. Octocode 19.1.0 já configurado, ferramenta indisponível nesta sessão; buscas locais delimitadas como alternativa. Nenhuma instalação/configuração alterada.
 
 **Bloqueios:** nenhum para entrega local. **Próximo passo:** verificar commit/push autorizado e depois conferir o aviso no site quando o deploy correspondente estiver confirmado. Publicação GitHub não comprova deploy ou recebimento externo de e-mail. Nenhuma operação em conta real nesta tarefa. **Índice:** [registro](registros/registro-v3.1.1-2026-10-23-imp-cadastro-fun-email-existente.md) · [histórico](historico.md) · [Brag](../brag/BRAG.md) · [Atlas](../wireframes/atlas/index.html#tela-02) · [cobertura](../wireframes/COBERTURA.md).
-
 
 ## Publicação concluída — v3.1.0 — 2026-10-23
 
@@ -399,20 +398,17 @@ Testes de caixa preta agrupados no MVP01:18 novos casos M01-063–080 e revisão
 
 **Continuidade:** confirmar hash remoto/conteúdo dos três commits no fechamento; depois conferir versão publicada em celular e com pessoa administradora. **Contador:**154; último marco100/próximo200. **Unidades prontas para commit:** pendências dos marcos abaixo incorporadas aos commits desta publicação; nenhuma outra unidade conhecida. Superpowers de verificação aplicado. Não há nova configuração tecnológica ou pesquisa avançada exigindo Context7/Octocode. Marcos abaixo preservam o estado histórico de cada entrega.
 
-
 ## Menu Mais complementar à barra inferior — v3.0.6 — 2026-10-21
 
 **Resultado:** Mais deixa de duplicar Início/Acordos/Agenda/Pessoas no contexto do Núcleo; grupos vazios removidos. Barra inferior, navegação desktop, busca e demais áreas preservadas. ApplicationShell, teste autenticado existente e Atlas alinhados; manifestos3.0.6. DOCS_DIR:Documentacao_Projeto_Nos. [Registro](registros/registro-v3.0.6-2026-10-21-imp-menu-mobile-fun-atalhos-complementares.md).
 
 **Validação/limites:** renderização isolada do componente falhou antes e passou após o ajuste; tipos, quatro testes públicos reais e sintaxe do Atlas aprovados; autorrevisão do diff. Asserções autenticadas adicionadas, não executadas; sem build ou nova inspeção autenticada. Próximo passo: conferir Mais em Núcleo no celular e atalhos desktop. **Contador:**153; último marco100/próximo200. **Unidades prontas para commit:** navegação complementar (`fix(navegacao): remover atalhos duplicados do menu Mais no celular`), destaque de administração e registros anteriores de execução local. Sem commit/push/deploy. Superpowers brainstorming/TDD proporcional/verificação aplicados; sem API nova ou pesquisa avançada exigindo Context7/Octocode.
 
-
 ## Destaque da administração — v3.0.5 — 2026-10-21
 
 **Resultado:** selo verde com texto em negrito e escudo decorativo para “Você administra este Núcleo.”; condicionado ao papel admin da sessão existente. Mensagem de participante preservada. Página e Atlas alinhados; manifestos3.0.5. DOCS_DIR:Documentacao_Projeto_Nos. **Validação:** tipos, seis testes de lógica e sintaxe do Atlas aprovados, autorrevisão/diff. Sem inspeção visual autenticada ou build novo. [Registro](registros/registro-v3.0.5-2026-10-21-imp-inicio-fun-destaque-administracao.md).
 
 **Continuidade:** conferir selo com administrador e ausência do selo com membro em desktop/celular. **Contador:**152; último marco100/próximo200. **Unidades prontas para commit:** destaque de administração (`fix(inicio): destacar indicação de administração do Núcleo`) e registros anteriores de execução local. Sem commit/push/deploy; trabalho preexistente preservado. Superpowers brainstorming e verificação proporcionais; sem nova integração, documentação tecnológica ou pesquisa avançada que exija Context7/Octocode.
-
 
 ## Execução local com layout atual — v3.0.4 — 2026-10-21
 
@@ -422,13 +418,11 @@ Testes de caixa preta agrupados no MVP01:18 novos casos M01-063–080 e revisão
 
 **Continuidade:** npm run dev para desenvolver; build/start para produção local. Tipos/build e testes proporcionais concluídos; autorrevisão operacional. **Contador:**151; último marco100/próximo200. **Unidade pronta para commit:** registros de execução local; sugestão `docs(dev): esclarecer execução local e registrar recompilação do layout atual`. Sem commit/push/deploy nesta rodada. Superpowers de depuração/verificação aplicados; Context7 consultado (16.3.6 não indexada; referência16.2.9). Não houve pesquisa avançada exigindo Octocode. A publicação anterior0813046 foi confirmada em origin/main e não permanece pendente.
 
-
 ## Publicação autorizada do Início — v3.0.4 — 2026-10-21
 
 **Objetivo:** commit e push do propósito e da participação no cabeçalho, incluindo Atlas, manifestos e registros. Branch main, base c1fff28; origin/main sincronizada antes da publicação. Autorização explícita do usuário. DOCS_DIR: Documentacao_Projeto_Nos.
 
 **Validação:** npm run typecheck, seis testes de lógica nucleus-home.spec.ts com configuração temporária sem servidor, sintaxe do Atlas e revisão do diff aprovados. Sem build ou inspeção visual autenticada nesta rodada. Unidade incorporada ao commit que contém este registro; sem outra unidade pronta pendente. **Contador:**150; último marco100/próximo200. Próximo passo: confirmar hash local/remoto após o push e conferir visualmente o Início publicado quando o deploy estiver pronto. Push não comprova deploy. [Registro](registros/registro-v3.0.4-2026-10-21-imp-inicio-nucleo-fun-proposito-e-participacao.md). Superpowers de verificação aplicado. Marcos abaixo preservam o estado nas datas registradas.
-
 
 ## Início do Núcleo — v3.0.4 — 2026-10-21
 
@@ -436,14 +430,13 @@ Testes de caixa preta agrupados no MVP01:18 novos casos M01-063–080 e revisão
 
 **Validação:** tipos, seis testes de lógica da Home e sintaxe do Atlas aprovados; autorrevisão do diff. Servidor local lento na tentativa inicial; sem build ou inspeção visual autenticada. Próximo passo: conferir administrador/participante, móvel e propósito longo. **Contador:**149; último marco100/próximo200. **Unidade pronta para commit:** propósito e participação no Início; sugestão `fix(inicio): destacar propósito e participação no Núcleo`. Sem commit/push/deploy. Superpowers brainstorming/TDD proporcional/verificação aplicados; nenhuma API nova ou pesquisa avançada requerendo Context7/Octocode. [Registro](registros/registro-v3.0.4-2026-10-21-imp-inicio-nucleo-fun-proposito-e-participacao.md). Marcos abaixo são históricos.
 
+## Marco operacional anterior
 
 ## Publicação GitHub — v3.0.3 — 2026-10-21
 
 **Objetivo/situação:** consolidar registros Brevo/recuperação e publicar em origin/main com descrição abrangente do conjunto já desenvolvido. Base 69c6eb8, sem divergência remota. Fontes/layout/Atlas e deploys anteriores preservados; versão3.0.3. DOCS_DIR:Documentacao_Projeto_Nos. Autorização explícita para commit/push.
 
 **Validações e continuidade:** autorrevisão documental, links locais e diff do índice conferidos no fechamento; igualdade do hash local/remoto e conteúdo do commit conferidos após push. Sem nova suíte funcional, build, envio de e-mail ou mudança de banco. Unidade documental incorporada ao commit que contém este registro; pendência Brevo abaixo substituída por esta publicação. Contador148; último marco100/próximo200. [Registro](registros/registro-v3.0.3-2026-10-21-imp-publicacao-github-fun-consolidacao-entrega.md). Próximo passo: validar troca completa de senha com conta própria; sem bloqueio para publicação dos registros. Superpowers de verificação aplicado; nenhuma consulta de biblioteca ou pesquisa avançada necessária.
-
-## Marco operacional anterior
 
 ## Estado atual — envio Brevo — v3.0.3 — 2026-10-20
 
@@ -452,6 +445,8 @@ Testes de caixa preta agrupados no MVP01:18 novos casos M01-063–080 e revisão
 **Validações/limites:** cadastro descartável pela API Auth e pedido de recuperação pelo formulário HTTPS, com envio registrado. Dois recebimentos externos confirmados; troca completa de senha pelo link ainda pendente, sem afirmar recuperação integral certificada. Fixture removida por API administrativa e ausência conferida. Gmail não permite autenticação de domínio próprio e pode ter remetente reescrito pela Brevo. Tentativas SMTP diretas e respostas de upsert do conector Netlify não foram usadas como prova; configuração efetiva conferida no painel e no envio real. Sem nova suíte local ou revisão independente, pois não houve alteração de fontes.
 
 **Continuidade:** [registro operacional](registros/registro-v3.0.3-2026-10-20-03-imp-envio-brevo-fun-autenticacao-email.md). Guia Gmail marcado como histórico; não reaplicar o script antigo. Próximo passo: validar links com conta própria, sem usar a fixture removida. Demais limites do piloto permanecem. **Contador:**147; último marco100/próximo200. **Unidade pronta para commit:** registros de SMTP Brevo/recuperação; sugestão `docs(auth): registrar SMTP Brevo e recuperação em produção`. Nenhum commit/push nesta operação. Ferramentas: painéis Brevo/Supabase/Netlify, API Supabase e conector Netlify, Context7 Supabase/Netlify, Superpowers de verificação/depuração e skills de configuração/deploy Netlify. Os marcos abaixo conservam as condições verificadas nas suas datas.
+
+## Marcos anteriores — validações e autorizações nas datas registradas
 
 ## Produção publicada e verificada — v3.0.3 — 2026-10-20
 
@@ -467,8 +462,6 @@ Testes de caixa preta agrupados no MVP01:18 novos casos M01-063–080 e revisão
 
 **Ferramentas:** Superpowers deploy/revisão/verificação aplicados; Netlify autenticado e consultado, painel e site inspecionados. Context7/Octocode disponíveis conforme registros anteriores; nenhuma mudança de biblioteca/configuração ou pesquisa avançada nesta publicação operacional.
 
-## Marcos anteriores — validações e autorizações nas datas registradas
-
 ## Publicação abrangente autorizada — v3.0.3 — 2026-10-20
 
 **Objetivo:** commit/push da reconstrução integral, ajustes de Conta/Kanban, correção TLS e registros/Atlas/testes. Branch codex/novo-layout, base de44ca8; sem merge/deploy/operação de banco. DOCS_DIR: Documentacao_Projeto_Nos. Versão vigente3.0.3 pela correção de colisões da Agenda na revisão final.
@@ -479,7 +472,6 @@ Testes de caixa preta agrupados no MVP01:18 novos casos M01-063–080 e revisão
 
 **Contador:**145; último marco100/próximo200. **Unidades prontas para commit:** nenhuma pendência desta entrega. Reconstrução visual, TLS, Conta, Kanban e Agenda incluídos no objeto Git conferido acima; as pendências dos marcos anteriores ficam substituídas por esta prova. **Próximo passo:** push normal autorizado da branch codex/novo-layout e confirmação de igualdade entre hash local/remoto; revisão do aplicativo pelo usuário. Nenhum merge ou deploy incluído. [Registro da publicação](registros/registro-v3.0.3-2026-10-20-imp-publicacao-layout-fun-consolidacao-interface-e-agenda.md). Marcos abaixo são históricos.
 
-
 ## Setas do fluxo de Acordos — v3.0.2 — 2026-10-20
 
 **Objetivo/situação:** concluído localmente: três setas (topo, centro, base) por intervalo no Kanban do aplicativo, sem alterar as dimensões da grade. Versão vigente 3.0.2; DOCS_DIR: Documentacao_Projeto_Nos. Branch codex/novo-layout/base de44ca8; amplo trabalho anterior preservado.
@@ -489,7 +481,6 @@ Testes de caixa preta agrupados no MVP01:18 novos casos M01-063–080 e revisão
 **Validação:** tipos aprovados; dez ensaios de geometria com CSS real e estrutura representativa, cinco larguras/duas alturas. Autorrevisão focal; sem revisão independente, build ou jornada autenticada nova. Sem bloqueio. [Registro](registros/registro-v3.0.2-2026-10-20-imp-kanban-acordos-fun-setas-fluxo.md).
 
 **Contador:**144; último marco100/próximo200. **Unidade pronta para commit:** ajuste de setas do Kanban; sugestão: fix(acordos): alinhar setas no topo centro e base do kanban. Pendências anteriores permanecem registradas nos marcos abaixo. Nenhum commit/push/deploy. **Próximo passo:** revisar Acordos no aplicativo; publicação somente quando autorizada. Ferramentas locais suficientes; sem consulta de biblioteca ou instalação adicional.
-
 
 ## Restauração pontual da árvore na Conta — v3.0.1 — 2026-10-20
 +
@@ -509,6 +500,8 @@ Testes de caixa preta agrupados no MVP01:18 novos casos M01-063–080 e revisão
 +
 +## Marco anterior — reconstrução integral validada em18/10/2026
 +
+
+## Marcos históricos — a referência atual é o primeiro bloco deste documento
 
 ## Reconstrução do Layout novo — v3.0.0 — 2026-10-18
 
@@ -536,8 +529,6 @@ Testes de caixa preta agrupados no MVP01:18 novos casos M01-063–080 e revisão
 
 **Índice:** [registro v3.0.0](registros/registro-v3.0.0-2026-10-18-imp-reconstrucao-layout-novo-fun-interface-e-modais.md) · [plano](planos/reconstrucao-layout-novo-2026-10-18.md) · [galeria](../wireframes/comparacoes/v3.0.0-2026-10-18-layout-novo-integral/index.html) · [modais](funcionalidades/modais-interface.md) · [frontend](tecnologias/frontend.md) · [histórico](historico.md) · [Brag](../brag/BRAG.md) · [Atlas](../wireframes/atlas/index.html).
 
-## Marcos históricos — a referência atual é o primeiro bloco deste documento
-
 ## Correção de login local e auditoria de banco — v2.0.2 — 2026-10-18
 
 **Objetivo e aceite:** restaurar comunicação local com Auth e conferir contratos de banco sem modificar dados. **Versão vigente:**2.0.2. **DOCS_DIR:** Documentacao_Projeto_Nos. Branch codex/novo-layout, base de44ca8; mudanças anteriores preservadas.
@@ -552,7 +543,6 @@ Testes de caixa preta agrupados no MVP01:18 novos casos M01-063–080 e revisão
 
 **Ferramentas e índice:** Superpowers depuração/verificação e Context7 Node24; pesquisas locais delimitadas, sem necessidade de pesquisa avançada Octocode nesta correção. [Registro v2.0.2](registros/registro-v2.0.2-2026-10-18-imp-conexao-supabase-fun-correcao-login-local.md) · [histórico](historico.md) · [frontend](tecnologias/frontend.md). Demais índices preservados nos marcos anteriores.
 
-
 ## Ajuste concluído — frases da Conta — v2.0.1 — 2026-10-18
 
 **Objetivo e aceite:** cada frase de /conta dura 10 segundos; pausa, retomada, sorteio e movimento reduzido preservados. **Versão desse marco:**2.0.1. **DOCS_DIR:** Documentacao_Projeto_Nos. Branch codex/novo-layout, base de44ca8; alterações anteriores preservadas, sem commit/push/deploy.
@@ -565,6 +555,9 @@ Testes de caixa preta agrupados no MVP01:18 novos casos M01-063–080 e revisão
 
 **Próximo passo executável:** conferir /conta e a galeria e, mediante autorização, preparar a publicação da unidade visual. **Ferramentas:** ferramentas existentes reutilizadas, sem instalação adicional. **Índice adicional:** [registro v2.0.1](registros/registro-v2.0.1-2026-10-18-imp-frases-conta-fun-duracao-dez-segundos.md). Plano, histórico, galeria e ferramentas da migração estão no marco abaixo; suas validações pertencem à entrega v2.0.0.
 
+## Marcos históricos anteriores
+
+As versões e pendências abaixo preservam as datas de seus registros; o primeiro bloco deste documento é a referência atual.
 
 ## Entrega local concluída — Layout atual — v2.0.0 — 2026-10-18
 
@@ -588,10 +581,6 @@ Testes de caixa preta agrupados no MVP01:18 novos casos M01-063–080 e revisão
 
 **Índice:** [registro v2.0.0](registros/registro-v2.0.0-2026-10-18-imp-layout-atual-fun-migracao-integral.md) · [plano concluído](planos/novo-layout-2026-10-18.md) · [galeria](../wireframes/comparacoes/v2.0.0-2026-10-18-layout-atual-tela_01-a-tela_73/index.html) · [histórico](historico.md) · [Brag](../brag/BRAG.md) · [Atlas](../wireframes/atlas/index.html).
 
-## Marcos históricos anteriores
-
-As versões e pendências abaixo preservam as datas de seus registros; o primeiro bloco deste documento é a referência atual.
-
 ## Publicação Git autorizada — fluxo completo de Acordos — v1.1.0 — 2026-10-18
 
 **Objetivo e autorização:** commit e push da unidade documental que define Proposta → Hábito → Experiência → Essência e sincroniza os documentos e o Atlas. Publicação autorizada pelo usuário nesta interação. Sem implantação do aplicativo, operação de banco ou incremento de versão.
@@ -609,7 +598,6 @@ As versões e pendências abaixo preservam as datas de seus registros; o primeir
 **Próximo passo executável:** confirmar o hash definitivo e a igualdade com origin/main após o push; em seguida, aplicar a redação sugerida no Como funciona do Kanban, conforme solicitação posterior do usuário.
 
 **Índice:** [contrato completo](funcionalidades/fluxo-proposta-habito-experiencia-essencia.md), [registro da unidade e publicação](registros/registro-v1.1.0-2026-10-18-imp-documentacao-acordos-fun-fluxo-proposta-habito-experiencia-essencia.md) e [histórico](historico.md).
-
 
 ## Direção vigente — fluxo completo de Acordos — v1.1.0 — 2026-10-18
 
@@ -636,7 +624,6 @@ As versões e pendências abaixo preservam as datas de seus registros; o primeir
 **Índice desta decisão:** [contrato completo](funcionalidades/fluxo-proposta-habito-experiencia-essencia.md), [registro](registros/registro-v1.1.0-2026-10-18-imp-documentacao-acordos-fun-fluxo-proposta-habito-experiencia-essencia.md), [administração](funcionalidades/administracao-participacao.md), [Testes de caixa preta do comportamento atual](funcionalidades/administracao-caixa-preta.md), [proposta](funcionalidades/proposta-habito.md), [roteiro](planos/mvp.md), [guia do Atlas](../wireframes/GUIA.md), [cobertura](../wireframes/COBERTURA.md), [fidelidade](../wireframes/FIDELIDADE.md), [histórico](historico.md) e [Brag](../brag/BRAG.md).
 
 Os resumos abaixo são marcos anteriores e não autorizam ignorar esta nova direção ou tratar sua implementação como concluída.
-
 
 ## Publicação autorizada — reflexões da Conta e registros operacionais — 2026-10-15
 
@@ -742,6 +729,8 @@ Usuário autorizou commit/push abrangentes desta unidade funcional. Branch main/
 
 Contador atual:126; último marco100, próximo200. Unidades pendentes de commit: nenhuma. Contrato consolidado, substituições e registros incluídos no objeto inicial5602093, com28 documentos/árvore conferidos. Retirada da pendência incorporada ao mesmo commit lógico antes do push autorizado. Entrega funcional anterior incluída em30ea405. [Registro das decisões anteriores](registros/registro-v0.16.0-2026-10-14-imp-contrato-saida-fun-definicao-mvp-05.md).
 
+## Marcos anteriores preservados
+
 ## Entrega histórica — MVP05 autonomia e proteção — v0.16.0 — 2026-10-13
 
 **Objetivo/aceite:** conferir cinco telas, implementar orientação/controles viáveis, ordenar e reservar futuro. **Situação:** recorte local concluído; MVP05 parcial e piloto não liberado. main/base c40594f, inicialmente limpo. DOCS_DIR acima. MINOR por cinco novas rotas; sem dependência/migração/permissão nova.
@@ -760,8 +749,6 @@ Contador atual:126; último marco100, próximo200. Unidades pendentes de commit:
 
 **Índice:** [registro](registros/registro-v0.16.0-2026-10-13-imp-controles-autonomia-fun-mvp-05.md), [contrato/testes de caixa preta](funcionalidades/autonomia-protecao.md), [plano](planos/mvp-05-controles.md), [MVP](planos/mvp.md), [galeria](../wireframes/comparacoes/v0.16.0-2026-10-13-mvp-05-tela_66-tela_67-tela_69-tela_70-tela_71/index.html), [verificador](../wireframes/tools/verify-mvp-controls.mjs).
 
-## Marcos anteriores preservados
-
 ## Publicação Git autorizada — MVP 04 — v0.15.2 — 2026-10-13
 
 **Objetivo ativo:** publicar toda a entrega MVP04 em um commit atômico com descrição abrangente. main, base06edf58; fetch confirmou HEAD/origin/main iguais (0/0). Versão0.15.2 preservada. Autorização explícita de commit/push recebida nesta conversa; sem deploy manual ou banco remoto.
@@ -769,6 +756,8 @@ Contador atual:126; último marco100, próximo200. Unidades pendentes de commit:
 **Escopo:** código de agenda/confirmação/feedback/retorno, testes, Atlas/MVP/Visão global/fichas, reservas futuras,26 capturas, contrato/testes de caixa preta/plano/registros/README/manifestos. Revisão independente da implementação sem achado final.119 arquivos idênticos à cópiaC; 102 testes gerais, tipos e build produção webpack aprovados novamente nesta publicação, verificadores Atlas aprovados. Objeto inicial 38815be conferido:55 arquivos,26 imagens e árvore 8acbf677ee936984a7f2929332cc5c14e290cd71 igual ao índice preparado. Inclusão comprovada; pendência retirada e controle incorporado ao mesmo commit local antes do envio. [Registro de publicação](registros/registro-v0.15.2-2026-10-13-02-imp-publicacao-git-fun-rastreabilidade-mvp-04.md).
 
 **Fechamento Git:** push normal autorizado a origin/main, sem força; identificador definitivo/equivalência remota reportados no encerramento. Próximo passo operacional: implantação/prova online quando autorizadas; pipeline automático exige evidência própria. Contador106 (inclui esclarecimento sobre conclusão e esta publicação); último marco100, próximo200.
+
+## Marcos anteriores preservados
 
 ## Entrega vigente — MVP 04 — agenda interna — v0.15.2 — 2026-10-13
 
@@ -790,8 +779,6 @@ Contador atual:126; último marco100, próximo200. Unidades pendentes de commit:
 
 **Índice:** [registro](registros/registro-v0.15.2-2026-10-13-imp-agenda-interna-fun-mvp-04.md), [contrato/testes de caixa preta](funcionalidades/agenda-interna.md), [plano executado](planos/mvp-04-agenda.md), [MVP](planos/mvp.md), [Atlas](../wireframes/atlas/index.html#mvp), [galeria](../wireframes/comparacoes/v0.15.2-2026-10-13-mvp-04-tela_14-tela_16-tela_15-tela_17/index.html), [verificador](../wireframes/tools/verify-mvp-agenda.mjs).
 
-## Marcos anteriores preservados
-
 ## Publicação Git autorizada — MVP 03 — v0.15.1 — 2026-10-13
 
 **Objetivo ativo:** publicar o conjunto completo do MVP03 em um commit atômico com descrição abrangente. main, base48fdd3d; fetch confirmou igualdade HEAD/origin/main, divergência0/0. Versão0.15.1 preservada.
@@ -799,6 +786,8 @@ Contador atual:126; último marco100, próximo200. Unidades pendentes de commit:
 **Escopo e situação:** código/testes/Atlas/MVP/Visão global/22 capturas/contratos/registros/manifestos da mesma entrega. Autorrevisão completa; revisão independente funcional anterior sem achados finais. 102 testes gerais, tipos/build webpack repetidos em cópiaC com109 arquivos idênticos; quatro verificadores Atlas/sintaxe/diff reconferidos. Autenticados/SQL/jornada ampliada já aprovados na implementação, sem alteração funcional posterior. Registro de publicação documenta validações e limites. Objeto inicial a775abd inspecionado: 48 arquivos (22 imagens) e árvore 3d5be254069b073481be7def15e663a4a3220190 idêntica ao índice preparado. Pendência retirada somente após comprovar inclusão; controle incorporado ao mesmo commit local antes do envio. Push normal autorizado, sem deploy manual/migração remota.
 
 **Fechamento Git:** envio normal autorizado a origin/main; identificador definitivo e equivalência remota serão reportados no encerramento. Controle de inclusão comprovado acima. **Próximo passo operacional:** implantação e prova online, quando autorizadas e após conferir as dependências do ambiente. Pipeline automático pode reagir ao push; resultado exige verificação separada. [Registro de publicação](registros/registro-v0.15.1-2026-10-13-02-imp-publicacao-git-fun-rastreabilidade-mvp-03.md).
+
+## Marcos anteriores preservados
 
 ## Entrega vigente — MVP 03 — ciclo real de Hábito — v0.15.1 — 2026-10-13
 
@@ -819,8 +808,6 @@ Contador atual:126; último marco100, próximo200. Unidades pendentes de commit:
 **Próximo passo executável:** implantar e repetir ciclo online com contas autorizadas após conferência das dependências do ambiente; publicação Git foi autorizada separadamente no marco acima. Próximo recorte funcional: MVP04 agenda, mediante solicitação. Não iniciar ampliação de reflexões/mídia/Essência sem contrato próprio. Contador103; último marco100 baixo (13/10/2026), próximo200.
 
 **Índice desta entrega:** [registro](registros/registro-v0.15.1-2026-10-13-imp-ciclo-habito-fun-mvp-03.md), [contrato/testes de caixa preta](funcionalidades/ciclo-habito.md), [plano executado](planos/mvp-03-habito.md), [MVP](planos/mvp.md), [Atlas](../wireframes/atlas/index.html#mvp), [galeria](../wireframes/comparacoes/v0.15.1-2026-10-13-mvp-03-tela_24-tela_28-tela_33/index.html), [verificador](../wireframes/tools/verify-mvp-habit.mjs).
-
-## Marcos anteriores preservados
 
 ## Publicação Git autorizada — v0.15.0 — 2026-10-13
 
@@ -1056,7 +1043,6 @@ Usuário solicitou commit e push abrangendo toda a entrega. Main e origin/main i
 
 **Unidades pendentes de commit:** nenhuma desta entrega. Inclusão de Visão global, renderização compartilhada, teste, comparações e procedimento documental comprovada pela inspeção do objeto Git. Publicação autorizada nesta interação; resumo no marco acima.
 
-
 ## Entrega vigente — Conta e entrada — v0.12.0 — 2026-10-07
 
 **Objetivo atendido:** toda a área Conta e entrada do Atlas vivo, incluindo as telas 01–05 e a Entrada afetiva opcional 72. Conferência inicial localizou duas telas planejadas e ações pendentes; a auditoria completa identificou também a tela 72 no fim do inventário. Todas agora têm rotas/ações integradas, sem login social ou aceites jurídicos fictícios.
@@ -1072,6 +1058,13 @@ Usuário solicitou commit e push abrangendo toda a entrega. Main e origin/main i
 **Próximo passo executável:** conferir SMTP/remetente e segredo/URLs HTTPS no ambiente destinado ao lançamento. Telas e integração da área implementadas; dependências operacionais não equivalem a telas ausentes. Próximo módulo planejado permanece Nossa Árvore: fechar fontes/contrato antes dos indicadores. Esta entrega substitui a continuidade que priorizava Árvore como tarefa ativa; marcos abaixo são históricos.
 
 **Unidades pendentes de commit:** nenhuma desta entrega. Objeto do commit inspecionado e árvore comparada ao índice preparado; inclui implementação, atlas, galeria, testes, registros e revisão documental de segurança anteriormente pendente. Credenciais/artefatos de execução excluídos.
+
+## Publicação autorizada — v0.12.0 — 2026-10-07
+
+Usuário autorizou commit/push abrangentes para main, incluindo a revisão documental de segurança anteriormente pendente. Base e origin/main iguais após fetch; segredo e artefatos ignorados. [Registro de publicação](registros/registro-v0.12.0-2026-10-07-02-imp-publicacao-git-fun-rastreabilidade-conta-entrada.md). Conferir objeto do commit e hash remoto antes de concluir. Sem deploy incluído na autorização.
+
+
+**Controle da publicação:** suíte repetida com 108/108 aprovados. Objeto inicial e árvore preparada conferidos; captura histórica da tela 72 corrigida após inspeção visual e incorporada ao mesmo commit. Conjunto final: 74 arquivos. Push normal autorizado para origin/main; comparar hash remoto ao HEAD no encerramento e reportar resultado. Removida pendência de commit após comprovar inclusão dos arquivos, sem novo desenvolvimento ou deploy.
 
 ## Revisão documental — autenticação e segurança v2.8 — 2026-10-06
 
@@ -1119,30 +1112,6 @@ Usuário autorizou commit e push abrangendo o atlas, sua manutenção contínua 
 
 **Continuidade vigente:** fechar contrato de Nossa Árvore e atualizar a Tela 38 junto à implementação. Regra permanente do atlas vivo continua em vigor; versão funcional permanece 0.11.0.
 
-## Planejamento atual — wireframe completo — 2026-10-03
-
-Antes da próxima implementação, foi produzido um guia visual com Conta como Tela 01: 72 desenhos, oito áreas, 12 percursos e as 37 interfaces do catálogo cobertas. **45 telas planejadas** e **27 recortes existentes**, com limites e pendências individuais. [Abrir atlas](../wireframes/atlas/index.html), [guia de uso e decisões](../wireframes/GUIA.md), [inventário e pendências](../wireframes/COBERTURA.md), [registro de planejamento](registros/planejamento-2026-10-03-wireframe-completo.md), [decisão de manutenção contínua](registros/planejamento-2026-10-03-manutencao-wireframe-organizacao-telas.md).
-
-**Versão funcional preservada em 0.11.0.** Usuário determinou que esta tarefa não registra versão de desenvolvimento. Nenhuma mudança nas rotas, contratos persistidos ou manifestos. A entrada Conta primeiro pertence ao planejamento; o app atual mantém / → /comecar. Na criação inicial, Git conferido em main, HEAD e3643b6, sem envio remoto. A publicação posterior está registrada acima.
-
-**Critérios e validação:** primeira tela Conta; cobertura integral; permissões e decisões abertas sinalizadas; destinos íntegros. Playwright verificou 72 prévias, saídas, 360 estados, busca, filtros, teclado, 12 percursos, modo web, impressão CSS e ausência de transbordamento horizontal a 375 px; zero erros JavaScript. Capturas inspecionadas. Revisão independente identificou navegação principal em fluxos focados e autoria incorreta no caminho de desejos alheios; ambos corrigidos e reconferidos pelo revisor. Verificação do atlas repetida após correções. Não houve nova validação funcional do app nem exportação de PDF.
-
-**Ferramentas desta tarefa:** Superpowers de entendimento, revisão e verificação; Playwright local. Context7 disponível, sem consulta necessária para desenho offline em tecnologias nativas. Octocode MCP não exposto; sem pesquisa avançada de dependências nesta tarefa, buscas locais delimitadas suficientes. Nenhuma instalação ou dependência nova.
-
-**Próximo passo executável:** wireframe aprovado como referência viva; incorporar ajustes futuros junto às entregas e fechar fontes/contrato da Tela 38 — Nossa Árvore, conforme documento de continuidade já existente, antes de implementar. Bloqueio de implementação: indicadores de crescimento ainda sem contrato; não bloqueia o material de planejamento.
-
-## Regra permanente — wireframe vivo — decisão de 2026-10-03
-
-O usuário determinou que o wireframe será mantido continuamente para refletir **todo o desenvolvimento atual e futuro**. Ele passa a ser a referência visual viva do produto; a criação inicial não encerra sua manutenção. Esta decisão amplia o uso anterior como planejamento das próximas telas, sem criar uma nova versão de desenvolvimento nesta atualização documental.
-
-- Ao planejar ou alterar telas, rotas, navegação, regras, permissões, dados ou estados de interface, consultar o atlas e atualizar os desenhos e fichas afetados no mesmo conjunto lógico da entrega.
-- Ao concluir cada recorte, confrontar o wireframe com o comportamento real: atualizar situação, ações, destinos, contratos, permissões, limitações e pendências. Elementos futuros continuam identificados como planejados; não marcar uma tela inteira como concluída quando só um recorte existe.
-- Manter coerentes [atlas e fichas](../wireframes/atlas/index.html), [guia](../wireframes/GUIA.md), [cobertura e pendências](../wireframes/COBERTURA.md) e o registro da entrega. Atualizar a referência funcional do atlas quando a versão real do aplicativo mudar; isso não significa incrementar a versão apenas para editar o wireframe.
-- Preservar os IDs existentes sempre que possível; acrescentar telas e registrar substituições ou consolidações sem perder a referência às interfaces antigas. Conferir destinos, links, estados e apresentação das partes alteradas; ampliar a verificação se a mudança afetar renderização ou navegação compartilhada.
-- Em retomadas, conferir as fichas relevantes contra o código e as evidências atuais. Diferenças devem ser corrigidas ou sinalizadas explicitamente antes de considerar a entrega concluída.
-
-**Protótipo e materiais de origem:** pasta movida pelo usuário para [Documentacao_Projeto_Nos/Telas](../Telas/Layout%20inicial/Nos_App.dc.html). HTML, PDF, imagens e extrações permanecem como fontes históricas; o atlas vivo acompanha a evolução. Não recriar a pasta antiga na raiz.
-
 ## Última entrega funcional — Confirmação do Hábito após teste
 
 A v0.11.0 conclui o ciclo de teste e confirmação. Novas propostas de Hábito exigem duração inteira de 7 a 30 dias, informada antes do aceite; o último aceite unânime inicia o teste no banco. Após o prazo, o Sim que alcança floor(N/2)+1 até 150 participantes, ou ceil(N/3) acima de 150, ativa o Hábito em transação. N é o conjunto fixo dos participantes originais da proposta, fotografado no ciclo. Ausências não contam como votos; membros posteriores consultam sem entrar na votação. Saída de participante original bloqueia a operação sem reduzir N.
@@ -1169,13 +1138,13 @@ A v0.9.0 implementa **Registrar momento** com humor, nota opcional, autoria e hi
 
 **Situação:** migração `20260929220000` aplicada no Supabase local e no `nos-dev`, com quatro versões alinhadas. `supabase test db` passou; três contas locais verificaram gravação, leitura, isolamento e interface em desktop/celular. A navegação do histórico foi testada com inserção entre páginas. A revisão independente encontrou e permitiu corrigir cursor instável e parâmetro repetido; a conferência final não encontrou achados materiais. Após a instalação dos navegadores, a verificação final aprovou 78/78 testes Playwright, além do sucesso de tipos e build na v0.9.0. **Continuidade desse marco:** recorte de Revisar aprovado em 2026-10-02 e entregue na v0.10.0; a v0.9.0 consta no commit `381a308`.
 
-## Marco anterior — Tela 05 Detalhe do Hábito na v0.8.0
+## Objetivo e situação histórica — v0.11.0
 
-O recorte inicial da Tela 05 foi concluído na v0.8.0: a rota `/nucleos/[id]/acordos/[agreementId]` lê apenas propostas de Hábito em `testing` pertencentes ao Núcleo autenticado. O hub liga esses itens ao detalhe, que apresenta descrição, momento, frequência, data UTC e resposta própria. Naquele marco, histórico e reflexões, calendário de prática, progresso, revisão, impacto, linguagem de cuidado e evento associado não tinham dados reais. O histórico de momentos chegou na v0.9.0. [Registro v0.8.0](registros/registro-v0.8.0-2026-09-29-imp-detalhe-habito-fun-consulta-proposta-teste.md).
+O onboarding web contempla **Escolher caminho** (`/comecar`), **Tipo** (`/comecar/tipo`), **Propósito** (`/comecar/proposito`), **Conta** (`/conta`), **Convite inicial** (`/comecar/convite-inicial/[id]`) e **Entrada por convite** (`/comecar/convite`). A área protegida inclui Home (`/nucleos/[id]`), agenda (`/nucleos/[id]/agenda`), Acordos (`/nucleos/[id]/acordos`), Detalhe do Hábito (`/nucleos/[id]/acordos/[agreementId]`) , Registrar momento (`/nucleos/[id]/acordos/[agreementId]/registrar`) Revisar (`/nucleos/[id]/acordos/[agreementId]/revisar`) e Confirmar (`/nucleos/[id]/acordos/[agreementId]/confirmar`). A migração atual chegou ao `nos-dev`; a interface desta rota foi validada com Supabase local. O app ainda não foi publicado.
 
-**Validação:** teste da rota sem sessão passou em desktop e móvel após falhar antes da implementação; 78 testes Playwright, tipos e build passaram na conferência de 2026-10-01. Revisão independente apontou indicação do fuso, corrigida. Supabase local e três contas temporárias verificaram acesso autorizado, link do hub, isolamento entre Núcleos, categoria/estado e leitura apenas da resposta própria. Dados temporários removidos. A nova tela não foi testada no `nos-dev`.
+**Critérios de aceite da entrega v0.5.0:** exibir nome, tipo, propósito e vínculo reais para participante autorizado; oferecer convite apenas ao criador; manter autenticação e RLS; distinguir ausência de acesso de falha de consulta; informar carregamento, erro e alcance inicial sem simular árvore, agenda ou gratidão. Os fluxos de conta e associação foram testados com contas distintas na v0.4.0.
 
-**Continuidade daquele marco:** a ação de registro e o histórico foram entregues na v0.9.0. Revisar Hábito em teste foi entregue na v0.10.0 com consenso e reflexão; acordo ativo ainda exige confirmação após teste. Conferir permissões da matriz v2.5, regras dos fluxos v2.2 e contratos v2.4 antes de expor ação ativa. Progresso, árvore e evento associado dependem de contratos próprios. A publicação pública permanece fora de escopo.
+**Arquivos principais:** `src/app/nucleos/[id]/`, `src/features/nuclei/nucleus-access.ts`, `src/features/nuclei/nucleus-home-details.ts`, `tests/nucleus-home.spec.ts`; base de conta e dados em `src/lib/supabase/`, `src/proxy.ts` e `supabase/migrations/`.
 
 ## Entrega concluída — Tela 04 Acordos
 
@@ -1205,13 +1174,13 @@ Agenda por Núcleo concluída na **v0.6.0**: eventos pontuais com título, inten
 
 **Contador de interações:** 103: 102 persistidas + publicação Git autorizada do MVP 03. Início em 2026-09-25; último marco de over-engineering: 100, baixo, auditado em 2026-10-13; próxima auditoria: 200.
 
-## Objetivo e situação histórica — v0.11.0
+## Ferramentas e execução — v0.10.0
 
-O onboarding web contempla **Escolher caminho** (`/comecar`), **Tipo** (`/comecar/tipo`), **Propósito** (`/comecar/proposito`), **Conta** (`/conta`), **Convite inicial** (`/comecar/convite-inicial/[id]`) e **Entrada por convite** (`/comecar/convite`). A área protegida inclui Home (`/nucleos/[id]`), agenda (`/nucleos/[id]/agenda`), Acordos (`/nucleos/[id]/acordos`), Detalhe do Hábito (`/nucleos/[id]/acordos/[agreementId]`) , Registrar momento (`/nucleos/[id]/acordos/[agreementId]/registrar`) Revisar (`/nucleos/[id]/acordos/[agreementId]/revisar`) e Confirmar (`/nucleos/[id]/acordos/[agreementId]/confirmar`). A migração atual chegou ao `nos-dev`; a interface desta rota foi validada com Supabase local. O app ainda não foi publicado.
+Superpowers: planejamento, TDD, depuração, revisão e verificação aplicados. Context7 consultado para Next.js/Supabase; guias locais do Next.js 16.3.6 complementaram a consulta, pois essa versão não apareceu no catálogo versionado. Octocode CLI 19.1.0 disponível e usado para dependentes de habit-access.ts; ALLOWED_PATHS foi definido somente no processo de consulta. Grafo sintático parcial por imports não resolvidos, complementado com leitura local. Docker reiniciado e Supabase local disponível. CLI Supabase em cache foi usada diretamente; invocação npx não retornou prontamente. Aplicação remota concluída via painel autenticado, sem alteração de credenciais.
 
-**Critérios de aceite da entrega v0.5.0:** exibir nome, tipo, propósito e vínculo reais para participante autorizado; oferecer convite apenas ao criador; manter autenticação e RLS; distinguir ausência de acesso de falha de consulta; informar carregamento, erro e alcance inicial sem simular árvore, agenda ou gratidão. Os fluxos de conta e associação foram testados com contas distintas na v0.4.0.
+- [Plano executado da revisão](planos/revisao-habito.md).
 
-**Arquivos principais:** `src/app/nucleos/[id]/`, `src/features/nuclei/nucleus-access.ts`, `src/features/nuclei/nucleus-home-details.ts`, `tests/nucleus-home.spec.ts`; base de conta e dados em `src/lib/supabase/`, `src/proxy.ts` e `supabase/migrations/`.
+**Conferência final v0.10.0:** tipos e build repetidos após versionamento, manifestos alinhados, 90 links locais sem alvo ausente e diff sem erros de formatação. Consulta local confirmou zero Núcleos temporários do verificador. Este era o estado anterior à autorização Git de 2026-10-03; não houve deploy.
 
 ## Decisões vigentes
 
@@ -1283,19 +1252,37 @@ Pesquisa externa de ferramentas em 2026-09-29 consultou projetos e documentaçã
 - [Estado anterior](estado-atual.md): referência histórica.
 - `README.md`: protocolo do andamento.
 
-## Retomada — 2026-10-02
+## Planejamento atual — wireframe completo — 2026-10-03
 
-Código, documentação e Git conferidos: HEAD e referência local origin/main coincidem em 381a308; não houve fetch. Alteração preexistente deste documento preservada. Próxima entrega proposta: revisão do Hábito em teste com ajustes ou encerramento consensual, histórico preservado e reflexão de sete dias. Recorte aprovado na interação seguinte e implementado na v0.10.0; consulte a entrega atual.
+Antes da próxima implementação, foi produzido um guia visual com Conta como Tela 01: 72 desenhos, oito áreas, 12 percursos e as 37 interfaces do catálogo cobertas. **45 telas planejadas** e **27 recortes existentes**, com limites e pendências individuais. [Abrir atlas](../wireframes/atlas/index.html), [guia de uso e decisões](../wireframes/GUIA.md), [inventário e pendências](../wireframes/COBERTURA.md), [registro de planejamento](registros/planejamento-2026-10-03-wireframe-completo.md), [decisão de manutenção contínua](registros/planejamento-2026-10-03-manutencao-wireframe-organizacao-telas.md).
 
-- [Registro de retomada](registros/registro-v0.9.0-2026-10-02-imp-retomada-projeto-fun-escopo-revisao.md).
+**Versão funcional preservada em 0.11.0.** Usuário determinou que esta tarefa não registra versão de desenvolvimento. Nenhuma mudança nas rotas, contratos persistidos ou manifestos. A entrada Conta primeiro pertence ao planejamento; o app atual mantém / → /comecar. Na criação inicial, Git conferido em main, HEAD e3643b6, sem envio remoto. A publicação posterior está registrada acima.
 
-## Ferramentas e execução — v0.10.0
+**Critérios e validação:** primeira tela Conta; cobertura integral; permissões e decisões abertas sinalizadas; destinos íntegros. Playwright verificou 72 prévias, saídas, 360 estados, busca, filtros, teclado, 12 percursos, modo web, impressão CSS e ausência de transbordamento horizontal a 375 px; zero erros JavaScript. Capturas inspecionadas. Revisão independente identificou navegação principal em fluxos focados e autoria incorreta no caminho de desejos alheios; ambos corrigidos e reconferidos pelo revisor. Verificação do atlas repetida após correções. Não houve nova validação funcional do app nem exportação de PDF.
 
-Superpowers: planejamento, TDD, depuração, revisão e verificação aplicados. Context7 consultado para Next.js/Supabase; guias locais do Next.js 16.3.6 complementaram a consulta, pois essa versão não apareceu no catálogo versionado. Octocode CLI 19.1.0 disponível e usado para dependentes de habit-access.ts; ALLOWED_PATHS foi definido somente no processo de consulta. Grafo sintático parcial por imports não resolvidos, complementado com leitura local. Docker reiniciado e Supabase local disponível. CLI Supabase em cache foi usada diretamente; invocação npx não retornou prontamente. Aplicação remota concluída via painel autenticado, sem alteração de credenciais.
+**Ferramentas desta tarefa:** Superpowers de entendimento, revisão e verificação; Playwright local. Context7 disponível, sem consulta necessária para desenho offline em tecnologias nativas. Octocode MCP não exposto; sem pesquisa avançada de dependências nesta tarefa, buscas locais delimitadas suficientes. Nenhuma instalação ou dependência nova.
 
-- [Plano executado da revisão](planos/revisao-habito.md).
+**Próximo passo executável:** wireframe aprovado como referência viva; incorporar ajustes futuros junto às entregas e fechar fontes/contrato da Tela 38 — Nossa Árvore, conforme documento de continuidade já existente, antes de implementar. Bloqueio de implementação: indicadores de crescimento ainda sem contrato; não bloqueia o material de planejamento.
 
-**Conferência final v0.10.0:** tipos e build repetidos após versionamento, manifestos alinhados, 90 links locais sem alvo ausente e diff sem erros de formatação. Consulta local confirmou zero Núcleos temporários do verificador. Este era o estado anterior à autorização Git de 2026-10-03; não houve deploy.
+## Marco anterior — Tela 05 Detalhe do Hábito na v0.8.0
+
+O recorte inicial da Tela 05 foi concluído na v0.8.0: a rota `/nucleos/[id]/acordos/[agreementId]` lê apenas propostas de Hábito em `testing` pertencentes ao Núcleo autenticado. O hub liga esses itens ao detalhe, que apresenta descrição, momento, frequência, data UTC e resposta própria. Naquele marco, histórico e reflexões, calendário de prática, progresso, revisão, impacto, linguagem de cuidado e evento associado não tinham dados reais. O histórico de momentos chegou na v0.9.0. [Registro v0.8.0](registros/registro-v0.8.0-2026-09-29-imp-detalhe-habito-fun-consulta-proposta-teste.md).
+
+**Validação:** teste da rota sem sessão passou em desktop e móvel após falhar antes da implementação; 78 testes Playwright, tipos e build passaram na conferência de 2026-10-01. Revisão independente apontou indicação do fuso, corrigida. Supabase local e três contas temporárias verificaram acesso autorizado, link do hub, isolamento entre Núcleos, categoria/estado e leitura apenas da resposta própria. Dados temporários removidos. A nova tela não foi testada no `nos-dev`.
+
+**Continuidade daquele marco:** a ação de registro e o histórico foram entregues na v0.9.0. Revisar Hábito em teste foi entregue na v0.10.0 com consenso e reflexão; acordo ativo ainda exige confirmação após teste. Conferir permissões da matriz v2.5, regras dos fluxos v2.2 e contratos v2.4 antes de expor ação ativa. Progresso, árvore e evento associado dependem de contratos próprios. A publicação pública permanece fora de escopo.
+
+## Regra permanente — wireframe vivo — decisão de 2026-10-03
+
+O usuário determinou que o wireframe será mantido continuamente para refletir **todo o desenvolvimento atual e futuro**. Ele passa a ser a referência visual viva do produto; a criação inicial não encerra sua manutenção. Esta decisão amplia o uso anterior como planejamento das próximas telas, sem criar uma nova versão de desenvolvimento nesta atualização documental.
+
+- Ao planejar ou alterar telas, rotas, navegação, regras, permissões, dados ou estados de interface, consultar o atlas e atualizar os desenhos e fichas afetados no mesmo conjunto lógico da entrega.
+- Ao concluir cada recorte, confrontar o wireframe com o comportamento real: atualizar situação, ações, destinos, contratos, permissões, limitações e pendências. Elementos futuros continuam identificados como planejados; não marcar uma tela inteira como concluída quando só um recorte existe.
+- Manter coerentes [atlas e fichas](../wireframes/atlas/index.html), [guia](../wireframes/GUIA.md), [cobertura e pendências](../wireframes/COBERTURA.md) e o registro da entrega. Atualizar a referência funcional do atlas quando a versão real do aplicativo mudar; isso não significa incrementar a versão apenas para editar o wireframe.
+- Preservar os IDs existentes sempre que possível; acrescentar telas e registrar substituições ou consolidações sem perder a referência às interfaces antigas. Conferir destinos, links, estados e apresentação das partes alteradas; ampliar a verificação se a mudança afetar renderização ou navegação compartilhada.
+- Em retomadas, conferir as fichas relevantes contra o código e as evidências atuais. Diferenças devem ser corrigidas ou sinalizadas explicitamente antes de considerar a entrega concluída.
+
+**Protótipo e materiais de origem:** pasta movida pelo usuário para [Documentacao_Projeto_Nos/Telas](../Telas/Layout%20inicial/Nos_App.dc.html). HTML, PDF, imagens e extrações permanecem como fontes históricas; o atlas vivo acompanha a evolução. Não recriar a pasta antiga na raiz.
 
 ## Publicação Git — 2026-10-03 — v0.10.0
 
@@ -1325,16 +1312,8 @@ Superpowers using-superpowers, brainstorming e verification-before-completion li
 
 **Conferência final da v0.12.0 — 2026-10-07:** tipos e build aprovados após proteção dos logs de callbacks; revisão independente desse ajuste sem achados. Seis telas em duas larguras reconferidas sem diferenças de rótulos/títulos/subtítulos/cor/fonte e sem transbordamento. 428 links nos 46 documentos locais modificados/novos e 171 links do atlas sem destino ausente; `git diff --check` aprovado. Aplicativo compilado disponível em http://127.0.0.1:3000; galeria/atlas em http://127.0.0.1:3400, processos locais desta sessão, sem publicação.
 
+## Retomada — 2026-10-02
 
-## Publicação autorizada — v0.12.0 — 2026-10-07
+Código, documentação e Git conferidos: HEAD e referência local origin/main coincidem em 381a308; não houve fetch. Alteração preexistente deste documento preservada. Próxima entrega proposta: revisão do Hábito em teste com ajustes ou encerramento consensual, histórico preservado e reflexão de sete dias. Recorte aprovado na interação seguinte e implementado na v0.10.0; consulte a entrega atual.
 
-Usuário autorizou commit/push abrangentes para main, incluindo a revisão documental de segurança anteriormente pendente. Base e origin/main iguais após fetch; segredo e artefatos ignorados. [Registro de publicação](registros/registro-v0.12.0-2026-10-07-02-imp-publicacao-git-fun-rastreabilidade-conta-entrada.md). Conferir objeto do commit e hash remoto antes de concluir. Sem deploy incluído na autorização.
-
-
-**Controle da publicação:** suíte repetida com 108/108 aprovados. Objeto inicial e árvore preparada conferidos; captura histórica da tela 72 corrigida após inspeção visual e incorporada ao mesmo commit. Conjunto final: 74 arquivos. Push normal autorizado para origin/main; comparar hash remoto ao HEAD no encerramento e reportar resultado. Removida pendência de commit após comprovar inclusão dos arquivos, sem novo desenvolvimento ou deploy.
-
-## Ferramentas globais — 2026-10-29 — v3.3.1
-
-Superpowers 7.0.1 já instalado e habilitado (15 skills); Context7 1.0.2 instalado e habilitado via marketplace oficial. Uso global explícito em `C:/Users/efraimsilva/.codex/AGENTS.md`. Configuração não comprova consulta autenticada: abrir novo chat e autenticar Context7 se solicitado. [Registro](registros/registro-v3.3.1-2026-10-29-imp-ferramentas-globais-fun-superpowers-context7.md). Este marco atualiza as indicações antigas de disponibilidade acima, preservadas como histórico.
-
-**Contagem:** uma conclusão nesta tarefa de configuração global; direcionamentos intermediários não contam separadamente. Total histórico não inferido devido à lacuna já registrada; último marco 100 preservado. **Pendência de commit desta tarefa:** somente este acompanhamento (estado, histórico e registro); plugins e AGENTS global ficam fora do repositório. Sugestão: `docs: registrar configuração global de Superpowers e Context7`. Alterações concorrentes e pendências anteriores preservadas. Próximo passo executável: validar consulta Context7 em novo chat.
+- [Registro de retomada](registros/registro-v0.9.0-2026-10-02-imp-retomada-projeto-fun-escopo-revisao.md).

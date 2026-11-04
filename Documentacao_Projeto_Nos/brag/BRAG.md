@@ -12,6 +12,34 @@
 
 **Problema:** nome/propósito salvo pelo administrador permanecia antigo em outras sessões. **Contribuição:** conferência autenticada compartilhada, reconciliação sem reload, recuperação de falhas e preservação de formulários. **Resultado verificado:**10 testes locais desktop/mobile e81 asserções SQL aprovados, tipos/build finais3.6.3, Atlas e revisão independente; benefício esperado é reduzir divergência e atualização manual, sem métrica de produção. **Evidência:** [registro](../_andamento/registros/registro-v3.6.3-2026-11-03-imp-identidade-fun-sincronizacao.md) e tests/authenticated/nucleus-identity-sync.spec.ts.
 
+## 2026-11-03 — v3.6.2 — organização compacta dos integrantes
+
+- **Problema:** cartões ocupavam muito espaço e a seta de abertura ficava distante do texto.
+- **Contribuição:** tabela com cabeçalhos e linhas compactas, nome acionável em lugar de botão adicional, nomeação adaptada ao mobile e seta com13px de espaço.
+- **Resultado verificado:**14cenários autenticados aprovados, incluindo320/390/768/1280px sem overflow e linhas abaixo120px; ações anteriores e foco preservados.2checagens adicionais do X em viewport aprovadas. Benefício esperado: consulta mais compacta; sem métrica de usabilidade.
+- **Evidência:** [registro](../_andamento/registros/registro-v3.6.2-2026-11-03-imp-integrantes-fun-lista-compacta.md), [galeria](../wireframes/comparacoes/v3.6.2-2026-11-03-integrantes-tela_13-tela_73/index.html). Unidade local, sem publicação.
+
+## 2026-11-03 — v3.6.1 — fechamento externo compartilhado
+
+- **Problema:** modais exigiam X/Escape e novos diálogos poderiam divergir; abertura inicial também podia ser encerrada por efeito de hidratação.
+- **Contribuição:** listener único no layout, cobrindo diálogos atuais/futuros, com gesto externo validado e prevenção de fechamento por arraste interno; Atlas e regra permanente sincronizados; navegação fecha janelas somente em mudança real de rota.
+- **Resultado verificado:** quatro testes públicos específicos e suíte212 aprovados;13 cenários autenticados aprovados/1 ignorado intencionalmente após correção, incluindo Mais/notificações/Conta/camadas e animações. Benefício esperado: fechamento consistente com menos deslocamento do ponteiro; sem métrica de usabilidade inventada.
+- **Evidência:** [registro](../_andamento/registros/registro-v3.6.1-2026-11-03-imp-modais-fun-fechamento-externo.md). Testes de caixa preta do usuário permanecem pendentes.
+
+## 2026-11-03 — v3.6.0 — organização de integrantes e gestão do Núcleo
+
+- **Problema:** funções de Pessoas precisavam ser redistribuídas sem perder administração, convites ou saída; edição conjunta podia sobrescrever o campo que não estava sendo editado.
+- **Contribuição:** integrantes/administração em modal; identidade separada com atualização de um campo sob trava; controles de convites/saída/encerramento na Conta e Mais, mantendo padrões visuais, ciência e permissões. Navegação móvel reorganizada e entrada por código preservada.
+- **Resultado verificado:**30 cenários autenticados desktop/mobile,20 testes públicos e118 testes SQL pertinentes aprovados; tipos/build e revisão independente estática. Teste confirma salvamento sem recarregar o documento e retorno do foco. Benefício esperado: caminhos mais coerentes para gerir o Núcleo; sem medição de tempo/usabilidade.
+- **Evidência:** [registro](../_andamento/registros/registro-v3.6.0-2026-11-03-imp-nucleo-fun-mesclagem-pessoas.md), [contrato](../_andamento/funcionalidades/organizacao-nucleo.md) e galeria vinculada. Validação local; implantação não certificada. Suíte SQL completa tem lacuna preexistente de confirmação de e-mail.
+
+## 2026-11-03 — v3.6.0 — restauração da edição no ambiente configurado
+
+- **Problema:** modais não salvavam porque o banco hospedado não tinha a função da migração de identidade.
+- **Contribuição:** diagnóstico por HTTP/metadados e aplicação apenas da migração ausente com integridade/histórico transacionais, preservando permissões.
+- **Resultado verificado:** função reconhecida pela API; nome/propósito independentes gravados por administrador em transação de teste desfeita; participante e nome vazio bloqueados; dados existentes preservados por comparação de hashes. Reteste na conta do usuário pendente.
+- **Evidência:** [registro do reparo](../_andamento/registros/registro-v3.6.0-2026-11-03-imp-banco-hospedado-fun-edicao-identidade.md). Sem medição de impacto de usabilidade ou novo deploy.
+
 ## 2026-11-03 — v3.5.0 — participação, calendário e interface responsiva
 
 
@@ -43,25 +71,27 @@
 
 **Problema:** usuário solicitou maior diversidade e apontou Aparência desalinhada nos dois menus; ícones escuros eram uniformizados. **Contribuição:** Solar/Âmbar e Noturno/Neon, variante de navegação compartilhada e cores originais dos ícones independentes do tema. **Resultado verificado:** nove opções e estilos comparados em desktop/mobile;158 gerais,16 focados e fluxos autenticados aprovados. **Benefício esperado:** ampliar escolha sem perder reconhecimento visual; sem métrica de satisfação inventada. [Evidências](../_andamento/registros/registro-v3.2.1-2026-10-23-imp-catalogo-temas-fun-solar-neon.md).
 
-
 ## 2026-10-23 — v3.2.0 — preferência visual e orientação de navegação
 
 **Problema:** o aplicativo tinha apenas aparência clara e não oferecia escolha por conta. **Contribuição:** sete temas persistentes, aplicação imediata com recuperação de falha e localização destacada por cor/forma em computador e celular. **Resultado verificado:**154 testes gerais, oito autenticados locais e inspeção visual; contraste corrigido após revisão independente. **Benefício esperado:** mais conforto e facilidade para identificar a área atual; sem medição de satisfação ou desempenho de uso. [Evidências](../_andamento/registros/registro-v3.2.0-2026-10-23-imp-aparencia-conta-fun-temas-persistentes.md).
-
 
 ## 2026-10-23 — v3.1.1 — rastreabilidade dos testes de caixa preta do acesso
 
 **Problema:** faltava controle consolidado dos testes de caixa preta por etapa do Atlas. **Contribuição:**62 casos de acesso, IDs estáveis e histórico de execução/reteste; regra permanente por funcionalidade. **Resultado verificado:** roteiro documentado, sem aprovação manual. **Benefício esperado:** facilitar reprodução e evitar perda de falhas entre rodadas. [Processo e evidências](../_andamento/registros/registro-v3.1.1-2026-10-23-imp-roteiro-caixa-preta-fun-cobertura-mvp-01.md).
 
-
 ## 2026-10-23 — v3.1.1 — orientação no cadastro repetido
 
 **Problema:** conta existente seguia para confirmação sem envio de e-mail. **Contribuição:** interpretar resposta ofuscada/códigos do Supabase e exibir aviso com caminhos de acesso existentes. **Resultado verificado:** regressão reproduzida e corrigida; 142 testes gerais, tipos/build e Atlas aprovados. **Benefício esperado:** evitar espera por mensagem que não será enviada. [Registro](../_andamento/registros/registro-v3.1.1-2026-10-23-imp-cadastro-fun-email-existente.md).
 
-
 ## 2026-10-23 — v3.1.0 — autonomia para excluir a própria conta
 
 **Problema:** exclusão dependia de suporte e referências obrigatórias de autoria impediam preservar histórico sem manter a conta. **Contribuição:** exclusão transacional da conta autenticada com confirmação por frase, aviso vermelho e preservação de conteúdo; sucessão e encerramento existentes; histórico separado da presença atual na agenda. **Resultado verificado:** 143 verificações SQL, 130 testes gerais, 12 autenticados relacionados, tipos/build e revisões; rollback provocado preservou a conta e os vínculos. **Benefício esperado:** maior autonomia e menor dependência operacional do suporte. Resultado online: duas jornadas desktop/mobile aprovadas, quatro contas descartáveis removidas e dados anteriores preservados em15 tabelas. Deploy6adae350fa2928885a0de2c8/8afecb2 publicado; migração remota aplicada. [Evidências](../_andamento/registros/registro-v3.1.0-2026-10-23-imp-conta-fun-exclusao-propria.md).
+
+## 2026-10-21 — v3.0.4 — Contexto do Núcleo visível no Início
+Problema: propósito exigia abrir um diálogo. Contribuição: propósito e vínculo visíveis acima dos blocos. Benefício esperado: facilitar reconhecer a intenção compartilhada e o próprio papel. Evidência: página nucleos/[id], Atlas e seis testes de lógica aprovados; sem medição de uso.
+
+## 2026-10-21 — v3.0.4 — Execução local alinhada ao código atual
+Problema: start servia compilação com layout antigo. Contribuição: diagnóstico pela resposta HTTP e artefatos, isolamento seguro do build obsoleto e recompilação atual, sem exclusão de funcionalidades. Resultado verificado: dev e produção local com layout novo, build padrão aprovado, quatro testes de interface e21 capturas públicas sem overflow. Exclusão definitiva do isolamento bloqueada pelo controle automático.
 
 ## 2026-10-20 — v3.0.3 — envio externo pela Brevo
 
@@ -87,11 +117,17 @@
 
 **Problema:** erro de confiança do certificado impedia login local antes da validação da conta. **Contribuição:** causa reproduzida, inicialização do Node corrigida para usar certificados confiáveis do sistema e integração remota auditada sem escrita de dados. **Resultado verificado:** formulário volta a receber resposta do Auth; dez testes e tipos aprovados; nove migrações e contratos de 26 RPCs/27 consultas conferidos. Login da conta pessoal ainda requer confirmação do usuário. **Evidência:** [registro](../_andamento/registros/registro-v2.0.2-2026-10-18-imp-conexao-supabase-fun-correcao-login-local.md).
 
+## 2026-10-18 — v2.0.0 — Identidade visual coerente em toda a aplicação
+
+- **Problema:** a aplicação usava a primeira composição e não representava a nova direção de navegação e módulos.
+- **Contribuição:** estrutura compartilhada, migração das rotas/ações existentes, Kanban/Painéis/lista, ícones e movimentos acessíveis; seis esboços privados com limites explícitos; Atlas e comparação completa sincronizados.
+- **Resultado verificado:**122 testes gerais,87 cenários autenticados consolidados/1 dispensa e tipos/build aprovados;73 fichas/207 ações/365 estados do Atlas sem erros/rede;165 capturas. Achados de navegação, acessibilidade e evidência resolvidos; sem alteração de regras ou dependências.
+- **Benefício esperado:** consistência da experiência e menor custo para manter navegação/identidade. Ganho de usabilidade não foi medido com pessoas usuárias.
+- **Evidência:** [registro](../_andamento/registros/registro-v2.0.0-2026-10-18-imp-layout-atual-fun-migracao-integral.md), [galeria](../wireframes/comparacoes/v2.0.0-2026-10-18-layout-atual-tela_01-a-tela_73/index.html) e testes de layout/navegação.
 
 ## 2026-10-18 — v1.1.0 — direção única para o fluxo de Acordos
 
 **Problema:** documentação tratava Hábito e Experiência como categorias independentes, divergindo da sequência esclarecida pelo usuário. **Contribuição:** contrato único para Proposta → Hábito → Experiência → Essência, com avanço individual, distinção do ciclo operacional, limites de autorização e dependências de implementação; referências conceituais e Atlas sincronizados. **Resultado documental:** regra e pendências rastreáveis, com critérios de passagem não presumidos e separação entre decisão e funcionalidade disponível. **Benefício esperado, não medido:** reduzir interpretações incompatíveis em futuras implementações. **Evidência:** [contrato](../_andamento/funcionalidades/fluxo-proposta-habito-experiencia-essencia.md) e [registro](../_andamento/registros/registro-v1.1.0-2026-10-18-imp-documentacao-acordos-fun-fluxo-proposta-habito-experiencia-essencia.md). Sem nova funcionalidade ou migração.
-
 
 ## 2026-10-15 — v1.1.0 — encerramento operacional online
 
@@ -124,6 +160,7 @@ Problema: controles do MVP05 planejados e acesso/privacidade/saída sem orienta�
 ## 2026-10-13 — v0.15.2 — remoção consciente na agenda
 
 **Problema:** remoção imediata contrariava confirmação prevista; Atlas misturava campos/funções atuais e futuros. **Contribuição:** confirmação contextual, ciência no servidor, cancelamento sem gravação, foco/feedback e fluxo sincronizado. **Resultado verificado:** seis casos desktop/mobile comprovam confirmação/cancelamento, bloqueio sem ciência, paginação, presença/remarcação, autorização e isolamento. **Benefício esperado:** reduzir remoções acidentais e tornar limites da agenda compreensíveis; não medido com usuários. **Evidência:** [testes](../../tests/authenticated/calendar.spec.ts), [registro](../_andamento/registros/registro-v0.15.2-2026-10-13-imp-agenda-interna-fun-mvp-04.md), [galeria](../wireframes/comparacoes/v0.15.2-2026-10-13-mvp-04-tela_14-tela_16-tela_15-tela_17/index.html).
+
 ## 2026-10-13 — v0.15.1 — ciclo de Hábito verificável e história acessível
 
 **Problema:** revisões acima de vinte não tinham acesso pela interface; Atlas misturava caminho principal/legado e trazia indicadores/evento sem contrato suficiente. **Contribuição:** paginação estável, pendência preservada, leitura concorrente corrigida e planejamento sincronizado com limites explícitos. **Resultado verificado:** 23 revisões empatadas acessíveis sem repetição em desktop/mobile; duas pessoas completam registro, confirmação, recusa, ajuste/novo ciclo e encerramento com memória preservada; SQL/jornada ampliada de legado e isolamento aprovados. Benefício esperado: facilitar acompanhamento sem esconder decisões abertas; não medido com usuários. **Evidência:** [teste](../../tests/authenticated/habit-cycle.spec.ts), [registro](../_andamento/registros/registro-v0.15.1-2026-10-13-imp-ciclo-habito-fun-mvp-03.md), [galeria](../wireframes/comparacoes/v0.15.1-2026-10-13-mvp-03-tela_24-tela_28-tela_33/index.html).
@@ -144,6 +181,14 @@ Problema: controles do MVP05 planejados e acesso/privacidade/saída sem orienta�
 - **Contribuição:** conexão pública e origem do aplicativo no contexto Production; Site URL/retornos Supabase ajustados com configuração parcial; nova publicação sem cache.
 - **Resultado verificado:** login no formulário publicado, sessão privada, saída e proteção após saída passaram em teste HTTP com conta temporária confirmada, removida e ausência comprovada. Deploy 6ace48f47aa1bb0b8a70bc68 publicado. Cadastro com confirmação externa continua pendente de SMTP; não foi comprovado recebimento.
 - **Evidência:** [registro operacional](../_andamento/registros/registro-v0.14.1-2026-10-13-03-imp-conexao-netlify-fun-acesso-online.md).
+
+## 2026-10-13 — v0.14.1 — Mensagens corretas na entrada da conta
+
+- Problema: falha do serviço ou limite do Auth era apresentado como credenciais incorretas; consulta pública ignorava indisponibilidade.
+- Contribuição: separar mensagens de limite/transporte/credenciais e sinalizar consulta de sessão falha, preservando retorno interno e privacidade dos e-mails.
+- Resultado verificado: regressão falhou antes/passou depois; 100 testes gerais, tipos/build e jornada real local de e-mail aprovados; revisão independente sem achados relevantes restantes.
+- Benefício esperado: orientar a próxima tentativa sem induzir troca desnecessária de senha. Redução de tentativas não medida. Gmail externo ainda pendente.
+- Evidência: [registro](../_andamento/registros/registro-v0.14.1-2026-10-13-imp-acesso-existente-fun-mvp-etapa-01.md), tests/auth-service.spec.ts e [comparação](../wireframes/comparacoes/v0.14.1-2026-10-13-acesso-indisponivel-tela_01/index.html).
 
 ## 2026-10-12 — MVP aprovado com cobertura e fonte visual compartilhada
 
@@ -184,6 +229,86 @@ Problema: controles do MVP05 planejados e acesso/privacidade/saída sem orienta�
 - **Resultado verificado:** mesma posição entre abas em seis tamanhos; 24 testes de Conta, tipos/build e comparação específica do Atlas aprovados. Benefício esperado: alternância de acesso mais confortável.
 - **Evidência:** [registro v0.13.1](../_andamento/registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md), com [galeria](../wireframes/comparacoes/v0.13.1-2026-10-07-conta-alinhamento-tela_01-tela_02/index.html).
 
+## 2026-10-07 — Recuperação segura e continuidade de entrada
+
+- **Problema:** recuperação/redefinição ausentes, confirmação sem reenvio e atlas com composições planejadas divergentes da aplicação.
+- **Contribuição:** conclusão da área de entrada, prova de recuperação assinada e vinculada à sessão, mensagens neutras inclusive em falha SMTP, revogação e retorno de convite. Seis composições sincronizadas com comparação visual.
+- **Resultado verificado:** 108 testes desktop/mobile; jornada real local confirmou troca de senha e revogação de outra sessão. Atlas com 72 prévias/178 saídas/360 estados, sem erro/rede externa; revisão independente com achados corrigidos. Configuração nos-dev reconferida.
+- **Benefício esperado:** permitir retomar o acesso sem suporte manual e reduzir divergência entre planejamento e produto. Não medida taxa de recuperação/conversão nem entrega remota.
+- **Evidência:** [registro](../_andamento/registros/registro-v0.12.0-2026-10-07-imp-conta-entrada-fun-recuperacao-integrada.md) e [comparação](../wireframes/comparacoes/v0.12.0-2026-10-07-conta-entrada-tela_01-tela_02-tela_03-tela_04-tela_05-tela_72/index.html).
+
+## 2026-10-07 — Visão global com conteúdo compartilhado
+
+- **Problema:** faltava uma leitura conjunta da sequência e das ramificações, e criar outra coleção de desenhos exigiria manutenção duplicada.
+- **Contribuição:** visão iniciada em Conta reutiliza as 72 composições e os 13 percursos; diferencia saídas previstas e contexto. Procedimento permanente exige atualização conjunta do app/atlas e galeria de comparação em cada criação ou alteração.
+- **Resultado verificado:** teste conferiu igualdade das 72 composições, propagação de título/dependência/ação e inclusão de tela nova, navegação, filtros e celular. Revisão independente identificou e reconferiu a correção de um P2. Seis capturas antes/depois preservadas; fidelidade das seis telas reais de Conta reconferida em duas larguras.
+- **Benefício esperado:** facilitar decisões de navegação e evitar divergência entre visões. Redução de retrabalho futuro ainda não medida; sincronização com o app continua exigindo conferência por entrega.
+- **Evidência:** [teste](../wireframes/tools/verify-global-view.mjs), [galeria](../wireframes/comparacoes/v0.12.0-2026-10-07-visao-global-tela_01-a-tela_72/index.html) e [registro](../_andamento/registros/registro-v0.12.0-2026-10-07-03-imp-visao-global-atlas-fun-sequencia-sincronizacao-comparacoes.md).
+
+## 2026-10-07 — Navegação privada e entrada pelos vínculos existentes
+
+- Problema: onboarding abria sem sessão e login reenviava integrantes ao fluxo inicial; Tela12 ainda planejada.
+- Contribuição: validação no proxy, retorno seguro, listagem real sob RLS e protocolo de login para formulário expirado; Atlas e galeria sincronizados.
+- Resultado verificado: 132 testes desktop/celular, tipos/build e Atlas aprovados; acesso a outro Núcleo negado, renovação válida mantida e envio expirado sem criação. Revisão independente sem achados materiais restantes. Integração desta entrega somente local.
+- Benefício esperado: reduzir confusão ao entrar e impedir renderização privada sem identidade válida.
+- Evidência: [registro v0.13.0](../_andamento/registros/registro-v0.13.0-2026-10-07-05-imp-navegacao-protegida-fun-sessao-seus-nucleos.md), src/proxy.ts, src/app/nucleos/page.tsx e tests/authenticated/session-navigation.spec.ts.
+
+## 2026-10-05 — Referência visual prioritária para as próximas implementações
+
+- **Problema:** a manutenção do atlas precisava explicitar sua prioridade visual e como conferir fidelidade na execução de cada tela.
+- **Contribuição:** procedimento central de consulta obrigatória, prioridade alta do modo vivo, comparação com a interface real e atualização conjunta, referenciado nos pontos de entrada e retomada.
+- **Resultado verificado:** sinais e pendências das 72 fichas coincidem com inventário e navegador; os 27 recortes existentes apontam para rotas do código. Verificação completa do atlas passou novamente.
+- **Benefício esperado:** orientar consistentemente o desenvolvimento e reduzir divergências visuais; efeito sobre retrabalho ainda não medido.
+- **Evidência:** [procedimento](../wireframes/GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05) e [registro](../_andamento/registros/registro-v0.11.0-2026-10-05-imp-prioridade-atlas-vivo-fun-orientacao-visual-implementacao.md).
+
+## 2026-10-04 — Atlas fiel à identidade e às composições aprovadas
+
+- **Problema:** o wireframe simplificado divergia das telas implementadas e da estrutura aprovada, aumentando o risco de decisões de UX inconsistentes.
+- **Contribuição:** incorporadas 28 telas em 52 composições/variações, entrada baseada no código, fontes/SVG locais, abas e procedência explícita; exemplos históricos separados de contratos atuais.
+- **Resultado verificado:** paleta e títulos de três rotas e SVG/textos dos nove tipos comparados ao app; 72 telas, 173 saídas e 360 estados aprovados, sem erros de execução ou chamadas externas. Revisão independente resolveu regras e destinos inconsistentes.
+- **Benefício esperado:** reduzir divergências e retrabalho de interface; esse efeito ainda não foi medido.
+- **Evidência:** [procedência e manutenção](../wireframes/FIDELIDADE.md), [verificação](../wireframes/tools/verify-fidelity.mjs) e [registro](../_andamento/registros/registro-v0.11.0-2026-10-04-imp-fidelidade-visual-atlas-fun-referencia-ux-aprovada.md).
+
+## 2026-10-03 — Confirmação proporcional do Hábito
+
+- **Problema:** não havia prazo real nem caminho para active; unanimidade pós-teste poderia prolongar espera por respostas esquecidas.
+- **Contribuição:** duração consentida, ciclos preservados e ativação proporcional após prazo; regras visíveis antes das ações e proteção transacional/RLS.
+- **Resultado verificado:** 84 testes, tipos, build, cinco arquivos de banco e fluxo local com cinco contas aprovados; 150/151 exigem 76/51. Migração no nos-dev e 13 funções equivalentes conferidas.
+- **Benefício esperado:** permitir efetivação com votos suficientes e tornar o critério compreensível; tempo de aprovação em uso real não medido.
+- **Evidência:** [registro v0.11.0](../_andamento/registros/registro-v0.11.0-2026-10-03-imp-confirmacao-habito-fun-teste-votacao-proporcional.md), migração 20261003120000 e scripts/verify-habit-trial-local.mjs.
+
+## 2026-10-03 — Guia visual completo de desenvolvimento
+
+- **Problema:** o protótipo e as regras estavam distribuídos entre imagens, HTML, documentação e recortes implementados; faltava uma sequência visual com Conta primeiro e indicação de pendências.
+- **Contribuição:** atlas navegável de 72 telas/estados, com fichas de contratos, permissões e saídas, 12 percursos e mapa das 37 interfaces de origem. Planejadas e recortes existentes distinguem intenção de implementação.
+- **Resultado verificado:** 37 origens cobertas, IDs/destinos íntegros, 72 prévias e 360 estados renderizados sem erro JavaScript. Verificações de filtros, teclado, móvel e impressão CSS; revisão independente com dois achados corrigidos e conferidos. Versão funcional preservada.
+- **Benefício esperado:** reduzir ambiguidades e orientar a ordem das próximas entregas; redução de retrabalho ainda não medida.
+- **Evidência:** [guia](../wireframes/GUIA.md), [cobertura e pendências](../wireframes/COBERTURA.md) e [registro de planejamento](../_andamento/registros/planejamento-2026-10-03-wireframe-completo.md).
+
+## 2026-10-02 — Revisão do Hábito com consentimento — v0.10.0
+
+- **Problema:** o Hábito em teste não podia receber ajustes ou encerramento consensual.
+- **Contribuição:** revisão persistida com respostas individuais, reflexão de sete dias, prontidão agregada e aplicação transacional; histórico de momentos preservado.
+- **Resultado verificado:** três contas locais confirmaram fluxo, isolamento, concorrência e interface móvel; testes de banco, 80 testes Playwright, tipos e build aprovados. Migração aplicada no nos-dev, quatro funções equivalentes às locais. Interface remota não revalidada.
+- **Benefício esperado:** permitir renegociar compromissos sem alteração unilateral ou perda de registros.
+- **Evidência:** [registro](../_andamento/registros/registro-v0.10.0-2026-10-02-imp-revisao-habito-fun-consentimento-reflexao.md), supabase/tests/nucleus_habit_revisions.sql e scripts/verify-habit-revision-local.mjs.
+
+## 2026-09-29 — Acordos com consentimento explícito
+
+- **Problema:** integrantes não tinham um espaço real para propor hábitos e experiências nem registrar concordância individual antes de iniciar a prática.
+- **Contribuição:** criada a Tela 04 com propostas, filtros, respostas próprias e estado vazio honesto para Essência; migração com RLS e funções autenticadas que exigem unanimidade para entrar em teste e serializam respostas simultâneas.
+- **Resultado verificado:** migração aplicada no `nos-dev`; três contas temporárias confirmaram aceite, recusa e isolamento entre Núcleos. Dados temporários removidos com contagens finais zero. O teste pgTAP local passou e 68 testes Playwright desktop/mobile passaram na validação final; a revisão independente não encontrou defeito material no código.
+- **Benefício esperado:** sustentar a futura tela de detalhe do hábito com propostas reais em teste, sem tratar proposta como acordo ativo ou simular progresso.
+- **Evidência:** `supabase/migrations/20260928120000_create_nucleus_agreements.sql`, `supabase/tests/nucleus_agreements.sql`, `tests/agreement-input.spec.ts` e [registro v0.7.0](../_andamento/registros/registro-v0.7.0-2026-09-28-imp-hub-acordos-fun-propostas-consentimento.md).
+
+## 2026-09-29 — Detalhe protegido do Hábito
+
+- **Problema:** a proposta aceita aparecia somente na lista, sem contexto próprio para consultar o que o Núcleo concordou em experimentar.
+- **Contribuição:** criada a Tela 05 com acesso restrito a Hábito em teste, dados reais, resposta própria e retorno para Acordos; limites de acompanhamento são comunicados sem simulação.
+- **Resultado verificado:** 70 testes Playwright, tipos e build passaram. Três contas locais em dois Núcleos confirmaram navegação, acesso, isolamento, categoria/estado e leitura da resposta própria sob RLS. Os dados temporários foram removidos.
+- **Benefício esperado:** permitir que revisão e registro de momento sejam integrados posteriormente sobre uma consulta protegida já existente.
+- **Evidência:** `src/app/nucleos/[id]/acordos/[agreementId]/page.tsx`, `tests/habit-detail.spec.ts` e [registro v0.8.0](../_andamento/registros/registro-v0.8.0-2026-09-29-imp-detalhe-habito-fun-consulta-proposta-teste.md).
+
 ## 2026-09-27 — Agenda interna do Núcleo
 
 - **Problema:** participantes não tinham como combinar um momento e registrar presença dentro do Núcleo.
@@ -202,23 +327,6 @@ Problema: controles do MVP05 planejados e acesso/privacidade/saída sem orienta�
 
 Registro factual de contribuições; resultados medidos são separados de benefícios esperados.
 
-## 2026-09-24 — Primeira tela navegável
-
-- **Problema:** o repositório continha visão de produto e protótipo, sem aplicação executável.
-- **Contribuição:** criada base Next.js com a tela Escolher caminho, dois destinos preparatórios, componentes de onboarding compartilhados e estilo responsivo/acessível.
-- **Resultado verificado:** oito testes Playwright passaram em desktop e mobile; build de produção e checagem de tipos passaram.
-- **Benefício esperado:** adicionar as telas do fluxo de Núcleo sem duplicar a identidade visual.
-- **Evidência:** `src/app/comecar/page.tsx`, `src/features/onboarding/`, `tests/onboarding.spec.ts`, [registro](../_andamento/registros/registro-v0.1.0-2026-09-24-imp-tela-escolher-caminho-fun-entrada-nucleo.md).
-
-## 2026-09-25 — Escolha de Tipo de Núcleo
-
-- **Problema:** o caminho de criação terminava em uma tela reservada, sem escolha de tipo.
-- **Contribuição:** implementados os nove tipos documentados, seleção acessível e obrigatória, passagem validada para o destino de Propósito e retorno com seleção preservada.
-- **Resultado verificado:** 16 testes Playwright aprovados em desktop/mobile; build e tipos aprovados; inspeção visual e revisão independente estática sem achados bloqueantes.
-- **Benefício esperado:** a próxima tela poderá consumir o mesmo catálogo, sem duplicação de regras por tipo. Backend e criação real continuam pendentes.
-- **Evidência:** `tests/nucleus-type.spec.ts` e [registro da implementação](<../_andamento/registros/registro-v0.2.0-2026-09-25-01-imp-tela-tipo-nucleo-fun-selecao-vinculo.md>).
-- **Rastreabilidade da entrega v0.2.0:** manifestos e estado central sincronizados, registros por implementação em diretório próprio e histórico anterior preservado. Benefício esperado: localizar escopo e evidências de cada versão. Veja a [adequação documental](../_andamento/registros/registro-v0.2.0-2026-09-25-02-imp-documentacao-versionada-fun-rastreabilidade.md).
-
 ## 2026-09-27 — Propósito do Núcleo
 
 - **Problema:** o fluxo de criação parava antes de nomear o Núcleo ou definir seu propósito.
@@ -235,134 +343,19 @@ Registro factual de contribuições; resultados medidos são separados de benef�
 - **Benefício esperado:** permitir a evolução da Home do Núcleo sobre contratos de conta e associação já validados, mantendo o acesso restrito aos participantes.
 - **Evidência:** migração `supabase/migrations/20260927173656_create_nuclei_and_invitations.sql`, `src/features/auth/`, `src/features/invitations/`, `tests/` e [registro v0.4.0](../_andamento/registros/registro-v0.4.0-2026-09-27-imp-integracao-supabase-fun-criacao-convite.md).
 
-## 2026-09-29 — Acordos com consentimento explícito
+## 2026-09-25 — Escolha de Tipo de Núcleo
 
-- **Problema:** integrantes não tinham um espaço real para propor hábitos e experiências nem registrar concordância individual antes de iniciar a prática.
-- **Contribuição:** criada a Tela 04 com propostas, filtros, respostas próprias e estado vazio honesto para Essência; migração com RLS e funções autenticadas que exigem unanimidade para entrar em teste e serializam respostas simultâneas.
-- **Resultado verificado:** migração aplicada no `nos-dev`; três contas temporárias confirmaram aceite, recusa e isolamento entre Núcleos. Dados temporários removidos com contagens finais zero. O teste pgTAP local passou e 68 testes Playwright desktop/mobile passaram na validação final; a revisão independente não encontrou defeito material no código.
-- **Benefício esperado:** sustentar a futura tela de detalhe do hábito com propostas reais em teste, sem tratar proposta como acordo ativo ou simular progresso.
-- **Evidência:** `supabase/migrations/20260928120000_create_nucleus_agreements.sql`, `supabase/tests/nucleus_agreements.sql`, `tests/agreement-input.spec.ts` e [registro v0.7.0](../_andamento/registros/registro-v0.7.0-2026-09-28-imp-hub-acordos-fun-propostas-consentimento.md).
+- **Problema:** o caminho de criação terminava em uma tela reservada, sem escolha de tipo.
+- **Contribuição:** implementados os nove tipos documentados, seleção acessível e obrigatória, passagem validada para o destino de Propósito e retorno com seleção preservada.
+- **Resultado verificado:** 16 testes Playwright aprovados em desktop/mobile; build e tipos aprovados; inspeção visual e revisão independente estática sem achados bloqueantes.
+- **Benefício esperado:** a próxima tela poderá consumir o mesmo catálogo, sem duplicação de regras por tipo. Backend e criação real continuam pendentes.
+- **Evidência:** `tests/nucleus-type.spec.ts` e [registro da implementação](<../_andamento/registros/registro-v0.2.0-2026-09-25-01-imp-tela-tipo-nucleo-fun-selecao-vinculo.md>).
+- **Rastreabilidade da entrega v0.2.0:** manifestos e estado central sincronizados, registros por implementação em diretório próprio e histórico anterior preservado. Benefício esperado: localizar escopo e evidências de cada versão. Veja a [adequação documental](../_andamento/registros/registro-v0.2.0-2026-09-25-02-imp-documentacao-versionada-fun-rastreabilidade.md).
 
-## 2026-09-29 — Detalhe protegido do Hábito
+## 2026-09-24 — Primeira tela navegável
 
-- **Problema:** a proposta aceita aparecia somente na lista, sem contexto próprio para consultar o que o Núcleo concordou em experimentar.
-- **Contribuição:** criada a Tela 05 com acesso restrito a Hábito em teste, dados reais, resposta própria e retorno para Acordos; limites de acompanhamento são comunicados sem simulação.
-- **Resultado verificado:** 70 testes Playwright, tipos e build passaram. Três contas locais em dois Núcleos confirmaram navegação, acesso, isolamento, categoria/estado e leitura da resposta própria sob RLS. Os dados temporários foram removidos.
-- **Benefício esperado:** permitir que revisão e registro de momento sejam integrados posteriormente sobre uma consulta protegida já existente.
-- **Evidência:** `src/app/nucleos/[id]/acordos/[agreementId]/page.tsx`, `tests/habit-detail.spec.ts` e [registro v0.8.0](../_andamento/registros/registro-v0.8.0-2026-09-29-imp-detalhe-habito-fun-consulta-proposta-teste.md).
-
-## 2026-10-02 — Revisão do Hábito com consentimento — v0.10.0
-
-- **Problema:** o Hábito em teste não podia receber ajustes ou encerramento consensual.
-- **Contribuição:** revisão persistida com respostas individuais, reflexão de sete dias, prontidão agregada e aplicação transacional; histórico de momentos preservado.
-- **Resultado verificado:** três contas locais confirmaram fluxo, isolamento, concorrência e interface móvel; testes de banco, 80 testes Playwright, tipos e build aprovados. Migração aplicada no nos-dev, quatro funções equivalentes às locais. Interface remota não revalidada.
-- **Benefício esperado:** permitir renegociar compromissos sem alteração unilateral ou perda de registros.
-- **Evidência:** [registro](../_andamento/registros/registro-v0.10.0-2026-10-02-imp-revisao-habito-fun-consentimento-reflexao.md), supabase/tests/nucleus_habit_revisions.sql e scripts/verify-habit-revision-local.mjs.
-
-## 2026-10-03 — Confirmação proporcional do Hábito
-
-- **Problema:** não havia prazo real nem caminho para active; unanimidade pós-teste poderia prolongar espera por respostas esquecidas.
-- **Contribuição:** duração consentida, ciclos preservados e ativação proporcional após prazo; regras visíveis antes das ações e proteção transacional/RLS.
-- **Resultado verificado:** 84 testes, tipos, build, cinco arquivos de banco e fluxo local com cinco contas aprovados; 150/151 exigem 76/51. Migração no nos-dev e 13 funções equivalentes conferidas.
-- **Benefício esperado:** permitir efetivação com votos suficientes e tornar o critério compreensível; tempo de aprovação em uso real não medido.
-- **Evidência:** [registro v0.11.0](../_andamento/registros/registro-v0.11.0-2026-10-03-imp-confirmacao-habito-fun-teste-votacao-proporcional.md), migração 20261003120000 e scripts/verify-habit-trial-local.mjs.
-
-## 2026-10-03 — Guia visual completo de desenvolvimento
-
-- **Problema:** o protótipo e as regras estavam distribuídos entre imagens, HTML, documentação e recortes implementados; faltava uma sequência visual com Conta primeiro e indicação de pendências.
-- **Contribuição:** atlas navegável de 72 telas/estados, com fichas de contratos, permissões e saídas, 12 percursos e mapa das 37 interfaces de origem. Planejadas e recortes existentes distinguem intenção de implementação.
-- **Resultado verificado:** 37 origens cobertas, IDs/destinos íntegros, 72 prévias e 360 estados renderizados sem erro JavaScript. Verificações de filtros, teclado, móvel e impressão CSS; revisão independente com dois achados corrigidos e conferidos. Versão funcional preservada.
-- **Benefício esperado:** reduzir ambiguidades e orientar a ordem das próximas entregas; redução de retrabalho ainda não medida.
-- **Evidência:** [guia](../wireframes/GUIA.md), [cobertura e pendências](../wireframes/COBERTURA.md) e [registro de planejamento](../_andamento/registros/planejamento-2026-10-03-wireframe-completo.md).
-
-## 2026-10-04 — Atlas fiel à identidade e às composições aprovadas
-
-- **Problema:** o wireframe simplificado divergia das telas implementadas e da estrutura aprovada, aumentando o risco de decisões de UX inconsistentes.
-- **Contribuição:** incorporadas 28 telas em 52 composições/variações, entrada baseada no código, fontes/SVG locais, abas e procedência explícita; exemplos históricos separados de contratos atuais.
-- **Resultado verificado:** paleta e títulos de três rotas e SVG/textos dos nove tipos comparados ao app; 72 telas, 173 saídas e 360 estados aprovados, sem erros de execução ou chamadas externas. Revisão independente resolveu regras e destinos inconsistentes.
-- **Benefício esperado:** reduzir divergências e retrabalho de interface; esse efeito ainda não foi medido.
-- **Evidência:** [procedência e manutenção](../wireframes/FIDELIDADE.md), [verificação](../wireframes/tools/verify-fidelity.mjs) e [registro](../_andamento/registros/registro-v0.11.0-2026-10-04-imp-fidelidade-visual-atlas-fun-referencia-ux-aprovada.md).
-
-## 2026-10-05 — Referência visual prioritária para as próximas implementações
-
-- **Problema:** a manutenção do atlas precisava explicitar sua prioridade visual e como conferir fidelidade na execução de cada tela.
-- **Contribuição:** procedimento central de consulta obrigatória, prioridade alta do modo vivo, comparação com a interface real e atualização conjunta, referenciado nos pontos de entrada e retomada.
-- **Resultado verificado:** sinais e pendências das 72 fichas coincidem com inventário e navegador; os 27 recortes existentes apontam para rotas do código. Verificação completa do atlas passou novamente.
-- **Benefício esperado:** orientar consistentemente o desenvolvimento e reduzir divergências visuais; efeito sobre retrabalho ainda não medido.
-- **Evidência:** [procedimento](../wireframes/GUIA.md#prioridade-alta-do-atlas-vivo--decisão-de-2026-10-05) e [registro](../_andamento/registros/registro-v0.11.0-2026-10-05-imp-prioridade-atlas-vivo-fun-orientacao-visual-implementacao.md).
-
-## 2026-10-07 — Recuperação segura e continuidade de entrada
-
-- **Problema:** recuperação/redefinição ausentes, confirmação sem reenvio e atlas com composições planejadas divergentes da aplicação.
-- **Contribuição:** conclusão da área de entrada, prova de recuperação assinada e vinculada à sessão, mensagens neutras inclusive em falha SMTP, revogação e retorno de convite. Seis composições sincronizadas com comparação visual.
-- **Resultado verificado:** 108 testes desktop/mobile; jornada real local confirmou troca de senha e revogação de outra sessão. Atlas com 72 prévias/178 saídas/360 estados, sem erro/rede externa; revisão independente com achados corrigidos. Configuração nos-dev reconferida.
-- **Benefício esperado:** permitir retomar o acesso sem suporte manual e reduzir divergência entre planejamento e produto. Não medida taxa de recuperação/conversão nem entrega remota.
-- **Evidência:** [registro](../_andamento/registros/registro-v0.12.0-2026-10-07-imp-conta-entrada-fun-recuperacao-integrada.md) e [comparação](../wireframes/comparacoes/v0.12.0-2026-10-07-conta-entrada-tela_01-tela_02-tela_03-tela_04-tela_05-tela_72/index.html).
-
-## 2026-10-07 — Visão global com conteúdo compartilhado
-
-- **Problema:** faltava uma leitura conjunta da sequência e das ramificações, e criar outra coleção de desenhos exigiria manutenção duplicada.
-- **Contribuição:** visão iniciada em Conta reutiliza as 72 composições e os 13 percursos; diferencia saídas previstas e contexto. Procedimento permanente exige atualização conjunta do app/atlas e galeria de comparação em cada criação ou alteração.
-- **Resultado verificado:** teste conferiu igualdade das 72 composições, propagação de título/dependência/ação e inclusão de tela nova, navegação, filtros e celular. Revisão independente identificou e reconferiu a correção de um P2. Seis capturas antes/depois preservadas; fidelidade das seis telas reais de Conta reconferida em duas larguras.
-- **Benefício esperado:** facilitar decisões de navegação e evitar divergência entre visões. Redução de retrabalho futuro ainda não medida; sincronização com o app continua exigindo conferência por entrega.
-- **Evidência:** [teste](../wireframes/tools/verify-global-view.mjs), [galeria](../wireframes/comparacoes/v0.12.0-2026-10-07-visao-global-tela_01-a-tela_72/index.html) e [registro](../_andamento/registros/registro-v0.12.0-2026-10-07-03-imp-visao-global-atlas-fun-sequencia-sincronizacao-comparacoes.md).
-
-
-## 2026-10-07 — Navegação privada e entrada pelos vínculos existentes
-
-- Problema: onboarding abria sem sessão e login reenviava integrantes ao fluxo inicial; Tela12 ainda planejada.
-- Contribuição: validação no proxy, retorno seguro, listagem real sob RLS e protocolo de login para formulário expirado; Atlas e galeria sincronizados.
-- Resultado verificado: 132 testes desktop/celular, tipos/build e Atlas aprovados; acesso a outro Núcleo negado, renovação válida mantida e envio expirado sem criação. Revisão independente sem achados materiais restantes. Integração desta entrega somente local.
-- Benefício esperado: reduzir confusão ao entrar e impedir renderização privada sem identidade válida.
-- Evidência: [registro v0.13.0](../_andamento/registros/registro-v0.13.0-2026-10-07-05-imp-navegacao-protegida-fun-sessao-seus-nucleos.md), src/proxy.ts, src/app/nucleos/page.tsx e tests/authenticated/session-navigation.spec.ts.
-
-
-## 2026-10-13 — v0.14.1 — Mensagens corretas na entrada da conta
-
-- Problema: falha do serviço ou limite do Auth era apresentado como credenciais incorretas; consulta pública ignorava indisponibilidade.
-- Contribuição: separar mensagens de limite/transporte/credenciais e sinalizar consulta de sessão falha, preservando retorno interno e privacidade dos e-mails.
-- Resultado verificado: regressão falhou antes/passou depois; 100 testes gerais, tipos/build e jornada real local de e-mail aprovados; revisão independente sem achados relevantes restantes.
-- Benefício esperado: orientar a próxima tentativa sem induzir troca desnecessária de senha. Redução de tentativas não medida. Gmail externo ainda pendente.
-- Evidência: [registro](../_andamento/registros/registro-v0.14.1-2026-10-13-imp-acesso-existente-fun-mvp-etapa-01.md), tests/auth-service.spec.ts e [comparação](../wireframes/comparacoes/v0.14.1-2026-10-13-acesso-indisponivel-tela_01/index.html).
-
-## 2026-10-18 — v2.0.0 — Identidade visual coerente em toda a aplicação
-
-- **Problema:** a aplicação usava a primeira composição e não representava a nova direção de navegação e módulos.
-- **Contribuição:** estrutura compartilhada, migração das rotas/ações existentes, Kanban/Painéis/lista, ícones e movimentos acessíveis; seis esboços privados com limites explícitos; Atlas e comparação completa sincronizados.
-- **Resultado verificado:**122 testes gerais,87 cenários autenticados consolidados/1 dispensa e tipos/build aprovados;73 fichas/207 ações/365 estados do Atlas sem erros/rede;165 capturas. Achados de navegação, acessibilidade e evidência resolvidos; sem alteração de regras ou dependências.
-- **Benefício esperado:** consistência da experiência e menor custo para manter navegação/identidade. Ganho de usabilidade não foi medido com pessoas usuárias.
-- **Evidência:** [registro](../_andamento/registros/registro-v2.0.0-2026-10-18-imp-layout-atual-fun-migracao-integral.md), [galeria](../wireframes/comparacoes/v2.0.0-2026-10-18-layout-atual-tela_01-a-tela_73/index.html) e testes de layout/navegação.
-
-## 2026-10-21 — v3.0.4 — Contexto do Núcleo visível no Início
-Problema: propósito exigia abrir um diálogo. Contribuição: propósito e vínculo visíveis acima dos blocos. Benefício esperado: facilitar reconhecer a intenção compartilhada e o próprio papel. Evidência: página nucleos/[id], Atlas e seis testes de lógica aprovados; sem medição de uso.
-
-## 2026-10-21 — v3.0.4 — Execução local alinhada ao código atual
-Problema: start servia compilação com layout antigo. Contribuição: diagnóstico pela resposta HTTP e artefatos, isolamento seguro do build obsoleto e recompilação atual, sem exclusão de funcionalidades. Resultado verificado: dev e produção local com layout novo, build padrão aprovado, quatro testes de interface e21 capturas públicas sem overflow. Exclusão definitiva do isolamento bloqueada pelo controle automático.
-
-## 2026-11-03 — v3.6.0 — organização de integrantes e gestão do Núcleo
-
-- **Problema:** funções de Pessoas precisavam ser redistribuídas sem perder administração, convites ou saída; edição conjunta podia sobrescrever o campo que não estava sendo editado.
-- **Contribuição:** integrantes/administração em modal; identidade separada com atualização de um campo sob trava; controles de convites/saída/encerramento na Conta e Mais, mantendo padrões visuais, ciência e permissões. Navegação móvel reorganizada e entrada por código preservada.
-- **Resultado verificado:**30 cenários autenticados desktop/mobile,20 testes públicos e118 testes SQL pertinentes aprovados; tipos/build e revisão independente estática. Teste confirma salvamento sem recarregar o documento e retorno do foco. Benefício esperado: caminhos mais coerentes para gerir o Núcleo; sem medição de tempo/usabilidade.
-- **Evidência:** [registro](../_andamento/registros/registro-v3.6.0-2026-11-03-imp-nucleo-fun-mesclagem-pessoas.md), [contrato](../_andamento/funcionalidades/organizacao-nucleo.md) e galeria vinculada. Validação local; implantação não certificada. Suíte SQL completa tem lacuna preexistente de confirmação de e-mail.
-
-## 2026-11-03 — v3.6.0 — restauração da edição no ambiente configurado
-
-- **Problema:** modais não salvavam porque o banco hospedado não tinha a função da migração de identidade.
-- **Contribuição:** diagnóstico por HTTP/metadados e aplicação apenas da migração ausente com integridade/histórico transacionais, preservando permissões.
-- **Resultado verificado:** função reconhecida pela API; nome/propósito independentes gravados por administrador em transação de teste desfeita; participante e nome vazio bloqueados; dados existentes preservados por comparação de hashes. Reteste na conta do usuário pendente.
-- **Evidência:** [registro do reparo](../_andamento/registros/registro-v3.6.0-2026-11-03-imp-banco-hospedado-fun-edicao-identidade.md). Sem medição de impacto de usabilidade ou novo deploy.
-
-## 2026-11-03 — v3.6.1 — fechamento externo compartilhado
-
-- **Problema:** modais exigiam X/Escape e novos diálogos poderiam divergir; abertura inicial também podia ser encerrada por efeito de hidratação.
-- **Contribuição:** listener único no layout, cobrindo diálogos atuais/futuros, com gesto externo validado e prevenção de fechamento por arraste interno; Atlas e regra permanente sincronizados; navegação fecha janelas somente em mudança real de rota.
-- **Resultado verificado:** quatro testes públicos específicos e suíte212 aprovados;13 cenários autenticados aprovados/1 ignorado intencionalmente após correção, incluindo Mais/notificações/Conta/camadas e animações. Benefício esperado: fechamento consistente com menos deslocamento do ponteiro; sem métrica de usabilidade inventada.
-- **Evidência:** [registro](../_andamento/registros/registro-v3.6.1-2026-11-03-imp-modais-fun-fechamento-externo.md). Testes de caixa preta do usuário permanecem pendentes.
-
-## 2026-11-03 — v3.6.2 — organização compacta dos integrantes
-
-- **Problema:** cartões ocupavam muito espaço e a seta de abertura ficava distante do texto.
-- **Contribuição:** tabela com cabeçalhos e linhas compactas, nome acionável em lugar de botão adicional, nomeação adaptada ao mobile e seta com13px de espaço.
-- **Resultado verificado:**14cenários autenticados aprovados, incluindo320/390/768/1280px sem overflow e linhas abaixo120px; ações anteriores e foco preservados.2checagens adicionais do X em viewport aprovadas. Benefício esperado: consulta mais compacta; sem métrica de usabilidade.
-- **Evidência:** [registro](../_andamento/registros/registro-v3.6.2-2026-11-03-imp-integrantes-fun-lista-compacta.md), [galeria](../wireframes/comparacoes/v3.6.2-2026-11-03-integrantes-tela_13-tela_73/index.html). Unidade local, sem publicação.
+- **Problema:** o repositório continha visão de produto e protótipo, sem aplicação executável.
+- **Contribuição:** criada base Next.js com a tela Escolher caminho, dois destinos preparatórios, componentes de onboarding compartilhados e estilo responsivo/acessível.
+- **Resultado verificado:** oito testes Playwright passaram em desktop e mobile; build de produção e checagem de tipos passaram.
+- **Benefício esperado:** adicionar as telas do fluxo de Núcleo sem duplicar a identidade visual.
+- **Evidência:** `src/app/comecar/page.tsx`, `src/features/onboarding/`, `tests/onboarding.spec.ts`, [registro](../_andamento/registros/registro-v0.1.0-2026-09-24-imp-tela-escolher-caminho-fun-entrada-nucleo.md).
