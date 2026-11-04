@@ -32,10 +32,6 @@ Por exemplo, o desejo de ter mais tempo de qualidade em família pode se transfo
 | Exclusão da própria conta | Confirmação explícita, remoção da identificação e do acesso, com tratamento do histórico compartilhado. |
 | Interface | Navegação para computador e celular, componentes compartilhados, estados de carregamento, vazio, erro e sucesso e microinterações com tratamento de movimento reduzido. |
 
-A versão 3.5.0 também consolida propostas sem seleção de categoria, contagens de respostas atualizadas a cada três segundos, cartões de Núcleos com integrantes e correções de nomes/títulos longos e área segura móvel. A versão mostrada na lateral e em Mais vem de `package.json`; conferir manifestos e versão renderizada faz parte de cada publicação. A nova função de contagens exige a migração `20261103122309_agreement_response_counts.sql` no banco de destino; a validação desta entrega comprova somente sua aplicação local. Evidências, matriz mobile/desktop e limites estão no [registro de validação](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.5.0-2026-11-03-05-imp-validacao-fun-paridade-e-rastreabilidade.md).
-
-As funcionalidades possuem diferentes evidências locais e hospedadas, registradas na documentação. Esta tabela descreve a implementação; não equivale à aprovação integral do piloto ou de todos os testes manuais.
-
 ### Percurso para conhecer o produto
 
 1. Abra a [tela de acesso](https://noslife.netlify.app/conta). Não há credenciais públicas de demonstração neste README.
@@ -72,8 +68,6 @@ As versões dos pacotes abaixo são as fixadas no `package-lock.json`. Os interv
 | Desenvolvimento local | Docker Desktop, Supabase Studio e Mailpit | Serviços locais, administração do banco e inspeção de e-mails de teste. |
 | Dependências e versionamento | npm, Git e GitHub | Instalação pelo lockfile e histórico de alterações. |
 | Automação | JavaScript e PowerShell | Scripts de operação, testes, verificações e capturas de interface. |
-
-Também fazem parte das dependências de desenvolvimento: `@types/node` 26.6.2, `@types/react` 19.3.0 e `@types/react-dom` 19.3.0, para definições de tipos; e `@napi-rs/keyring` 2.1.2, utilizado na configuração operacional de e-mails para acessar credenciais do sistema. A versão de `@types/node` não determina a versão de execução do Node.js. SMTP significa protocolo de envio de e-mails; CLI significa interface de linha de comando.
 
 ## Arquitetura e decisões técnicas
 
