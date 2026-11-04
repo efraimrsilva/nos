@@ -44,3 +44,4 @@ Implementar **Tipo de Núcleo** em `/comecar/tipo`, com catálogo extensível de
 - Separar tecnologias e funcionalidades em arquivos próprios quando houver conteúdo suficiente, mantendo este resumo curto e o índice navegável.
 - Monitoramento automático cancelado; o usuário avisará sobre alterações externas.
 - O usuário dispensou informes de contexto. Não voltar a incluí-los nas respostas.
+  .
