@@ -20,54 +20,44 @@ Por exemplo, o desejo de ter mais tempo de qualidade em família pode se transfo
 
 ## Funcionalidades implementadas
 
-| Área | O que existe no aplicativo |
-| --- | --- |
-| Acesso e conta | Cadastro, login, confirmação de e-mail, recuperação de acesso e encerramento de sessão; rotas privadas com validação no servidor. |
-| Núcleos | Criação com tipo, nome e propósito, listagem dos vínculos da pessoa, seleção do espaço e início com dados reais. |
-| Convites | Geração e gestão de convites, entrada por código, prévia antes do aceite e revogação de convites. |
-| Administração | Múltiplos administradores, nomeação com aceite, gestão de participantes, saída individual e encerramento do Núcleo com preservação do histórico armazenado. |
-| Acordos e Hábitos | Propostas, respostas individuais, gestão do período de teste, registro de momentos, histórico, revisão de termos e encerramento. |
-| Agenda compartilhada | Calendário mensal com navegação contínua de anos, grade semanal no desktop e lista em telas menores; criação, edição, remoção e respostas de participação. |
-| Perfil e preferências | Edição do próprio nome, nove temas visuais com preferência salva por conta, navegação contextual e totais pessoais. |
-| Exclusão da própria conta | Confirmação explícita, remoção da identificação e do acesso, com tratamento do histórico compartilhado. |
-| Interface | Navegação para computador e celular, componentes compartilhados, estados de carregamento, vazio, erro e sucesso e microinterações com tratamento de movimento reduzido. |
-
-### Percurso para conhecer o produto
-
-1. Abra a [tela de acesso](https://noslife.netlify.app/conta). Não há credenciais públicas de demonstração neste README.
-2. Use uma conta própria e conclua a confirmação de e-mail quando solicitada.
-3. Crie um Núcleo ou entre com um convite válido.
-4. Explore acordos, práticas e agenda; para avaliar a participação compartilhada, utilize duas contas próprias de teste.
-5. Consulte Aparência e Dados da conta para conhecer as preferências e a edição de perfil.
-
-Para uma avaliação reproduzível sem depender do envio externo de e-mails, use o ambiente local descrito abaixo.
+| Área                      | O que existe no aplicativo                                                                                                                                              |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Acesso e conta            | Cadastro, login, confirmação de e-mail, recuperação de acesso e encerramento de sessão; rotas privadas com validação no servidor.                                       |
+| Núcleos                   | Criação com tipo, nome e propósito, listagem dos vínculos da pessoa, seleção do espaço e início com dados reais.                                                        |
+| Convites                  | Geração e gestão de convites, entrada por código, prévia antes do aceite e revogação de convites.                                                                       |
+| Administração             | Múltiplos administradores, nomeação com aceite, gestão de participantes, saída individual e encerramento do Núcleo com preservação do histórico armazenado.             |
+| Acordos e Hábitos         | Propostas, respostas individuais, gestão do período de teste, registro de momentos, histórico, revisão de termos e encerramento.                                        |
+| Agenda compartilhada      | Calendário mensal com navegação contínua de anos, grade semanal no desktop e lista em telas menores; criação, edição, remoção e respostas de participação.              |
+| Perfil e preferências     | Edição do próprio nome, nove temas visuais com preferência salva por conta, navegação contextual e totais pessoais.                                                     |
+| Exclusão da própria conta | Confirmação explícita, remoção da identificação e do acesso, com tratamento do histórico compartilhado.                                                                 |
+| Interface                 | Navegação para computador e celular, componentes compartilhados, estados de carregamento, vazio, erro e sucesso e microinterações com tratamento de movimento reduzido. |
 
 ## Stack tecnológica
 
 As versões dos pacotes abaixo são as fixadas no `package-lock.json`. Os intervalos permitidos estão no `package.json`.
 
-| Camada | Tecnologia | Versão / uso |
-| --- | --- | --- |
-| Execução | Node.js | Requisito `>=24.15.0`; `.nvmrc` indica a família 24. |
-| Framework web | Next.js | 16.3.6, com App Router. |
-| Interface | React e React DOM | 19.3.0. |
-| Calendário mensal | React Day Picker | 9.14.0, localização em português e janela de anos dinâmica. |
-| Linguagem | TypeScript | 7.0.2, com verificação estrita. |
-| Estilos | Tailwind CSS | 4.3.3, combinado com CSS próprio. |
-| Processamento de estilos | `@tailwindcss/postcss` | 4.3.3. |
-| Ícones | Lucide React | 1.48.0. |
-| Backend e autenticação | Supabase | Auth, acesso aos dados e PostgreSQL hospedado/local. |
-| Cliente Supabase | `@supabase/supabase-js` | 2.117.2. |
-| Sessão no servidor | `@supabase/ssr` | 0.12.7, integração com cookies e renderização no servidor. |
-| Banco de dados | PostgreSQL, SQL e PL/pgSQL | Modelo relacional, funções, transações, migrações e políticas de acesso. A versão do servidor depende do ambiente. |
-| Ferramenta de banco | Supabase CLI | 2.118.0, fixada nas dependências de desenvolvimento. |
-| Testes de navegador | Playwright Test | 1.63.0, com projetos desktop e emulação de celular. |
-| Testes de banco | pgTAP | Verificações SQL de funções, permissões e regras de negócio. |
-| Hospedagem | Netlify | Configuração de build versionada em `netlify.toml`. |
-| E-mails | Supabase Auth + SMTP Brevo | Integração documentada para autenticação e modelos HTML personalizados. |
-| Desenvolvimento local | Docker Desktop, Supabase Studio e Mailpit | Serviços locais, administração do banco e inspeção de e-mails de teste. |
-| Dependências e versionamento | npm, Git e GitHub | Instalação pelo lockfile e histórico de alterações. |
-| Automação | JavaScript e PowerShell | Scripts de operação, testes, verificações e capturas de interface. |
+| Camada                       | Tecnologia                                | Versão / uso                                                                                                       |
+| ---------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Execução                     | Node.js                                   | Requisito `>=24.15.0`; `.nvmrc` indica a família 24.                                                               |
+| Framework web                | Next.js                                   | 16.3.6, com App Router.                                                                                            |
+| Interface                    | React e React DOM                         | 19.3.0.                                                                                                            |
+| Calendário mensal            | React Day Picker                          | 9.14.0, localização em português e janela de anos dinâmica.                                                        |
+| Linguagem                    | TypeScript                                | 7.0.2, com verificação estrita.                                                                                    |
+| Estilos                      | Tailwind CSS                              | 4.3.3, combinado com CSS próprio.                                                                                  |
+| Processamento de estilos     | `@tailwindcss/postcss`                    | 4.3.3.                                                                                                             |
+| Ícones                       | Lucide React                              | 1.48.0.                                                                                                            |
+| Backend e autenticação       | Supabase                                  | Auth, acesso aos dados e PostgreSQL hospedado/local.                                                               |
+| Cliente Supabase             | `@supabase/supabase-js`                   | 2.117.2.                                                                                                           |
+| Sessão no servidor           | `@supabase/ssr`                           | 0.12.7, integração com cookies e renderização no servidor.                                                         |
+| Banco de dados               | PostgreSQL, SQL e PL/pgSQL                | Modelo relacional, funções, transações, migrações e políticas de acesso. A versão do servidor depende do ambiente. |
+| Ferramenta de banco          | Supabase CLI                              | 2.118.0, fixada nas dependências de desenvolvimento.                                                               |
+| Testes de navegador          | Playwright Test                           | 1.63.0, com projetos desktop e emulação de celular.                                                                |
+| Testes de banco              | pgTAP                                     | Verificações SQL de funções, permissões e regras de negócio.                                                       |
+| Hospedagem                   | Netlify                                   | Configuração de build versionada em `netlify.toml`.                                                                |
+| E-mails                      | Supabase Auth + SMTP Brevo                | Integração documentada para autenticação e modelos HTML personalizados.                                            |
+| Desenvolvimento local        | Docker Desktop, Supabase Studio e Mailpit | Serviços locais, administração do banco e inspeção de e-mails de teste.                                            |
+| Dependências e versionamento | npm, Git e GitHub                         | Instalação pelo lockfile e histórico de alterações.                                                                |
+| Automação                    | JavaScript e PowerShell                   | Scripts de operação, testes, verificações e capturas de interface.                                                 |
 
 ## Arquitetura e decisões técnicas
 
@@ -85,8 +75,8 @@ PostgreSQL — dados, funções, transações e políticas de acesso
 - **App Router e Server Components:** páginas e layouts organizados por rota, com leitura de dados no servidor e componentes interativos no navegador quando necessário.
 - **Server Actions e Route Handlers:** operações de formulários no servidor e endpoints para retornos de autenticação, como confirmação e recuperação.
 - **Sessões com cookies:** o proxy participa da renovação da sessão e verifica a identidade antes da renderização das páginas protegidas. As ações também conferem as condições de acesso.
-- **Autorização no banco:** RLS (*Row-Level Security*, segurança por linha) e funções SQL restringem operações conforme vínculo e permissão; os controles visuais complementam essas verificações.
-- **Regras transacionais:** RPC (*Remote Procedure Call*, chamada de procedimento remoto) permite executar funções do PostgreSQL a partir do servidor. Operações da agenda possuem verificações específicas de concorrência.
+- **Autorização no banco:** RLS (_Row-Level Security_, segurança por linha) e funções SQL restringem operações conforme vínculo e permissão; os controles visuais complementam essas verificações.
+- **Regras transacionais:** RPC (_Remote Procedure Call_, chamada de procedimento remoto) permite executar funções do PostgreSQL a partir do servidor. Operações da agenda possuem verificações específicas de concorrência.
 - **Evolução do esquema:** alterações de estrutura e permissões ficam registradas em migrações versionadas, separadas da configuração de ambiente.
 - **Experiência consistente:** temas por conta, componentes compartilhados, estados explícitos e alternativas de movimento reduzido com `prefers-reduced-motion`.
 
@@ -98,12 +88,12 @@ O repositório inclui testes de comportamento com Playwright, jornadas autentica
 
 Evidências registradas em entregas anteriores:
 
-| Evidência | Escopo e limite |
-| --- | --- |
-| [Consolidação da interface e perfil — 30/10/2026](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.4.2-2026-10-30-imp-publicacao-github-fun-consolidacao-entregas.md) | Registro de tipos/build, 192 testes gerais e 12 autenticados aprovados naquela entrega. |
-| [Auditoria de segurança — 30/10/2026](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md) | 160 testes de banco e 70 públicos aprovados; seleção autenticada com 36 aprovações, 15 falhas e 1 ignorado. Achados e limitações permanecem documentados. |
-| [Ambiente Supabase local](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.3.0-2026-10-28-supabase-local.md) | Fluxos locais de cadastro, confirmação e recuperação, banco e e-mails de teste. |
-| [Comparações visuais de conta e perfil](Documentacao_Projeto_Nos/wireframes/comparacoes/v3.3.1-2026-10-29-conta-perfil-tela_13-tela_66-tela_69/index.html) | Capturas históricas do aplicativo e do Atlas em computador e celular. Para visualizar a galeria HTML, abra-a localmente. |
+| Evidência                                                                                                                                                                      | Escopo e limite                                                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Consolidação da interface e perfil — 30/10/2026](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.4.2-2026-10-30-imp-publicacao-github-fun-consolidacao-entregas.md) | Registro de tipos/build, 192 testes gerais e 12 autenticados aprovados naquela entrega.                                                                   |
+| [Auditoria de segurança — 30/10/2026](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md)              | 160 testes de banco e 70 públicos aprovados; seleção autenticada com 36 aprovações, 15 falhas e 1 ignorado. Achados e limitações permanecem documentados. |
+| [Ambiente Supabase local](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.3.0-2026-10-28-supabase-local.md)                                                          | Fluxos locais de cadastro, confirmação e recuperação, banco e e-mails de teste.                                                                           |
+| [Comparações visuais de conta e perfil](Documentacao_Projeto_Nos/wireframes/comparacoes/v3.3.1-2026-10-29-conta-perfil-tela_13-tela_66-tela_69/index.html)                     | Capturas históricas do aplicativo e do Atlas em computador e celular. Para visualizar a galeria HTML, abra-a localmente.                                  |
 
 Esses resultados pertencem às execuções e ambientes descritos nos registros. Não são uma nova execução das suítes nem devem ser somados como total único de testes. Os [testes de caixa preta](Documentacao_Projeto_Nos/_andamento/testes-caixa-preta/README.md) têm acompanhamento próprio e não recebem aprovação manual por inferência.
 
@@ -127,10 +117,10 @@ npm run dev:supabase
 
 Na primeira inicialização, o Docker baixa os serviços e a CLI aplica as migrações ao banco local. O script `dev:supabase` obtém a configuração da CLI, injeta as variáveis somente no processo do aplicativo e prepara o segredo local de recuperação sem alterar `.env.local`.
 
-| Serviço | Endereço local padrão |
-| --- | --- |
-| Aplicativo | [127.0.0.1:3001](http://127.0.0.1:3001) |
-| Supabase Studio | [127.0.0.1:54323](http://127.0.0.1:54323) |
+| Serviço                    | Endereço local padrão                     |
+| -------------------------- | ----------------------------------------- |
+| Aplicativo                 | [127.0.0.1:3001](http://127.0.0.1:3001)   |
+| Supabase Studio            | [127.0.0.1:54323](http://127.0.0.1:54323) |
 | E-mails de teste — Mailpit | [127.0.0.1:54324](http://127.0.0.1:54324) |
 
 Crie contas próprias de teste; usuários do ambiente hospedado não são copiados. Consulte `npm run supabase:status` para verificar os serviços. `npm run supabase:stop` encerra o ambiente normalmente, preservando os volumes. Não utilize reset ou remoção de volumes no uso diário.
@@ -141,12 +131,12 @@ O ambiente local tem pendências de restrição de portas administrativas regist
 
 Copie `.env.example` para `.env.local` e preencha os valores do seu ambiente:
 
-| Variável | Finalidade |
-| --- | --- |
-| `NEXT_PUBLIC_SUPABASE_URL` | URL do projeto Supabase. |
-| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Chave pública destinada ao aplicativo. |
-| `APP_ORIGIN` | Origem do aplicativo; no desenvolvimento padrão, `http://127.0.0.1:3000`. |
-| `AUTH_RECOVERY_SECRET` | Segredo exclusivo do servidor, com pelo menos 32 caracteres aleatórios, usado no fluxo de recuperação. |
+| Variável                               | Finalidade                                                                                             |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `NEXT_PUBLIC_SUPABASE_URL`             | URL do projeto Supabase.                                                                               |
+| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Chave pública destinada ao aplicativo.                                                                 |
+| `APP_ORIGIN`                           | Origem do aplicativo; no desenvolvimento padrão, `http://127.0.0.1:3000`.                              |
+| `AUTH_RECOVERY_SECRET`                 | Segredo exclusivo do servidor, com pelo menos 32 caracteres aleatórios, usado no fluxo de recuperação. |
 
 Não use `service_role` como chave pública nem versione `.env.local`. O projeto Supabase precisa ter as migrações correspondentes; revise o destino antes de qualquer aplicação remota. Configure a origem e os retornos `/auth/confirm` e `/auth/recovery` no Auth. A operação dos modelos de e-mail está descrita em [supabase/templates/README.md](supabase/templates/README.md).
 
