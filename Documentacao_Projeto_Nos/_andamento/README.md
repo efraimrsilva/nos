@@ -40,7 +40,7 @@ Entrega anterior: [v0.12.0 — Conta e entrada](registros/registro-v0.12.0-2026-
 - [v0.9.0 — Registro de momento](registros/registro-v0.9.0-2026-09-29-imp-registro-momento-habito-fun-historico-real.md): ação real da Tela 06 e histórico protegido, validados localmente com contas.
 - [v0.6.0 — Análise de frameworks de IA](registros/registro-v0.6.0-2026-09-29-imp-analise-frameworks-ia-fun-apoio-conversas.md): comparação documental de opções para eventual apoio a conversas, sem implementação de IA.
 - [v0.6.0 — Pesquisa de ferramentas para a stack](registros/registro-v0.6.0-2026-09-29-imp-pesquisa-ferramentas-stack-fun-qualidade-operacao.md): recomendações de qualidade, segurança e operação sem novas dependências.
-- [Frontend web](tecnologias/frontend.md): organização técnica, segurança e verificações.
+- [Arquitetura do aplicativo](../../README.md#arquitetura-e-decisões-técnicas): organização técnica e pontos de integração.
 - `registros/`: arquivos por versão, data e finalidade, preservando a cronologia e as decisões anteriores.
 - `tecnologias/<nome>.md`: criar quando uma tecnologia tiver decisões, configuração ou pendências que justifiquem acompanhamento próprio.
 - `funcionalidades/<nome>.md`: criar quando uma funcionalidade tiver escopo, etapas e critérios de aceite próprios.

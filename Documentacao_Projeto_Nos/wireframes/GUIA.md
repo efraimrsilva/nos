@@ -190,7 +190,11 @@ Decisão de 2026-10-07: **qualquer alteração deve conferir o impacto em todas 
 - Uma tela acrescentada ao inventário aparece automaticamente na área correspondente da Visão global. Conferir sua posição contextual, atualizar os percursos/ações atingidos e revisar a ordem de leitura quando necessário. A organização não substitui a validação da jornada.
 - O reuso sincroniza as visões do atlas automaticamente; a sincronização com o aplicativo exige atualizar o código/contrato afetado e conferir a interface real. Não alegar equivalência visual ou integração protegida somente porque a rota existe.
 
-### Procedimento de cada alteração
+### Ajustes pontuais de texto ou estilo
+
+Para ajustes de baixo risco que preservam o comportamento, confira diretamente o trecho alterado no aplicativo, atualize a representação correspondente no Atlas vivo e confira a equivalência. Registre a verificação em uma linha. A galeria de antes/depois e os scripts do procedimento abaixo ficam reservados às mudanças que exigem validação mais ampla. Siga a [regra de validação proporcional](../../AGENTS.md#validação-proporcional-à-mudança).
+
+### Procedimento para mudanças com impacto funcional ou visual relevante
 
 1. **Impacto:** consultar estado, Visão global e fichas; identificar IDs/rotas, estados, dados, permissões, módulos compartilhados e caminhos atingidos. Ler a composição viva com prioridade alta. Antes de editar, preservar a aparência anterior e seu contexto de versão/commit.
 2. **Implementação sincronizada:** alterar aplicativo e referência viva juntos, quando houver tela real; atualizar fonte, composição, fichas, ações, percursos, pendências e cobertura. Mudança funcional sem diferença estética também exige conferir as regras/estados das telas afetadas.

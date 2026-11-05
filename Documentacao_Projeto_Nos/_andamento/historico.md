@@ -1,5 +1,17 @@
 # Histórico de andamento
 
+## 2026-11-05 — Integração da v3.7.1 com a documentação do GitHub
+
+Preservados cinco commits de documentação até bebb0ed. Os conflitos de estado e histórico mantêm os dois conjuntos de registros. Entrega da interface registrada em f773dc4, seguida da unidade documental. Tipos e paridade das 73 composições do Atlas conferidos novamente. Push normal para main autorizado.
+
+## 2026-11-05 — Validação de ajustes pontuais
+
+Ajustes de texto e estilo sem mudança de comportamento passam por conferência simples e sincronização do Atlas vivo. [Registro](registros/registro-v3.7.1-2026-11-05-imp-diretrizes-fun-verificacao-pontual.md).
+
+## 2026-11-05 — v3.7.1 · Cabeçalho e preferências
+
+Painel suspenso no sino, avisos de esboço consistentes, texto de relato revisado e Conta autenticada simplificada. “Enviar convite” preservado em Acordos. Oito testes autenticados finais, tipos, compilação e Atlas aprovados localmente. [Registro](registros/registro-v3.7.1-2026-11-05-imp-cabecalho-fun-preferencias.md).
+
 ## 2026-11-04 — v3.7.0 — ordem interna da documentação
 
 Blocos completos reorganizados por data ou versão em 20 documentos. [Registro](registros/registro-v3.7.0-2026-11-04-imp-documentacao-fun-ordem-interna.md).

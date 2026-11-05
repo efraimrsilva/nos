@@ -1,10 +1,30 @@
 # Estado do Projeto Nós
 
+## Cabeçalho e preferências — v3.7.1 — 2026-11-05
+
+**Objetivo e escopo.** Ajustar a interface autenticada, identificar a Agenda em desenvolvimento e preparar Notificações em painel suspenso. O usuário pediu manter “Enviar convite” em Acordos. **DOCS_DIR:** Documentacao_Projeto_Nos. **Branch/base:** main, e242ef3.
+
+**Situação e aceite.** Relato com texto revisado, ícones alinhados, rodapé retirado da área autenticada e Aparência simplificada. Agenda compartilha aviso com Árvore e memórias, com indicação do calendário interno existente. Sino abre painel desktop/celular com Escape, X, clique fora e fechamento ao navegar. Central permanece esboço. Atlas e versão 3.7.1 sincronizados.
+
+**Arquivos.** ApplicationShell, NotificationsPopover, layout-system.css, FeatureSketchNotice e seu estilo, FuturePreview, Agenda, AccountPreferences, ThemePicker e ProblemReport. Atlas vivo, verificador de cabeçalho e casos autenticados.
+
+**Validações.** Tipos e compilação aprovados. Oito verificações autenticadas finais passaram. Atlas passou em desktop/celular e em paridade das 73 composições. Revisão independente encontrou e confirmou correção da descrição acessível. Captura anterior móvel da Agenda registra carregamento, com comparação de conteúdo no Atlas. Sem bloqueio do código. Casos manuais aguardam execução do usuário.
+
+**Próximo passo.** Conferir [roteiro manual](testes-caixa-preta/cabecalho-preferencias-v3-7-1.md) em desktop/celular e registrar resultados. Integração com os cinco commits documentais remotos concluída, com bebb0ed como base. O código, o Atlas e as evidências da v3.7.1 constam no commit f773dc488d3c53f25d3ebb5c92e24749067e658b. Esta atualização registra a unidade documental no mesmo conjunto preparado para push normal em main. A confirmação do remoto é feita após o envio. A verificação do ambiente hospedado é uma etapa distinta.
+
+**Ferramentas.** Superpowers para planejamento proporcional, teste de regressão, depuração, revisão e verificação. Context7 consultado para React 19.3.0. Octocode 19.1.0 configurado e sem ferramenta exposta nesta sessão. Buscas locais foram suficientes. Supabase usado pelas fixtures locais. Nenhuma instalação ou configuração alterada. **Contador:** 20 conclusões acompanhadas neste fluxo desde 29/10, incluindo esta integração. O registro remoto abaixo conserva sua contagem histórica. Histórico 165 com lacuna e marco 100 preservados, sem inferir marco 200.
+
+**Índice.** [Registro v3.7.1](registros/registro-v3.7.1-2026-11-05-imp-cabecalho-fun-preferencias.md) · [Galeria](../wireframes/comparacoes/v3.7.1-2026-11-05-cabecalho-preferencias-tela_13-tela_14-tela_60-tela_66/index.html) · [Roteiro manual](testes-caixa-preta/cabecalho-preferencias-v3-7-1.md).
+
+**Diretriz de validação.** Ajustes pontuais de texto ou estilo sem mudança de comportamento seguem conferência simples e atualização do Atlas vivo. [Registro](registros/registro-v3.7.1-2026-11-05-imp-diretrizes-fun-verificacao-pontual.md).
+
+---
+
 ## Organização interna da documentação — v3.7.0 — 2026-11-04
 
 Blocos datados ou versionados reordenados em 20 documentos. Versão 3.7.0 mantida. [Registro](registros/registro-v3.7.0-2026-11-04-imp-documentacao-fun-ordem-interna.md). O próximo passo operacional segue no marco de publicação abaixo. Contador: 19 conclusões adicionais desde 29/10, considerando a entrega documental anterior, com lacuna histórica e marco 100 preservados.
 
-Unidade pronta para commit: ordenar os blocos internos da documentação. Sugestão: docs: ordenar blocos internos do mais recente ao mais antigo.
+A ordenação consta no commit remoto bebb0ed. A pendência de commit deste marco está encerrada.
 
 ## Publicação consolidada no GitHub — v3.7.0 — 2026-11-03
 

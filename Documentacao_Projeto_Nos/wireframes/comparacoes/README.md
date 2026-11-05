@@ -1,5 +1,7 @@
 # Comparações de telas — procedimento permanente
 
+- [v3.7.1 · Cabeçalho e preferências](v3.7.1-2026-11-05-cabecalho-preferencias-tela_13-tela_14-tela_60-tela_66/index.html) — antes e depois do aplicativo e Atlas, desktop e celular, telas 13, 14, 60 e 66.
+
 - [v3.5.0 — Consolidação e paridade Atlas desktop/mobile — Telas01/05/12/13/14/18/66/73](v3.5.0-2026-11-03-paridade-tela_01-tela_05-tela_12-tela_13-tela_14-tela_18-tela_66-tela_73/index.html):36capturas Atlas:32 antes/depois e4 recortes de modais depois. Fontes locais sincronizadas; verificadores do Atlas aprovados. Limites da comparação autenticada e do seletor offline explícitos na galeria.
 
 - [v3.4.0 — Nome do perfil — Telas13/66](v3.4.0-2026-10-30-nome-perfil-tela_13-tela_66/index.html): antes real, edição, erro provocado e sucesso do modal Dados da conta; aplicativo local e Atlas em1440/390px. Persistência em conta descartável; nenhum modal novo, sem publicação.
@@ -21,7 +23,7 @@
 **v0.15.2 — MVP04 — 2026-10-13:** [galeria](v0.15.2-2026-10-13-mvp-04-tela_14-tela_16-tela_15-tela_17/index.html):26 capturas, Atlas14/16/15/17 antes/depois e MVP desktop/mobile, app real edição/confirmação/vazio com reservas. Antes06edf58; fixtures locais limpas. Script `scripts/capture-mvp-agenda-atlas.mjs` e testes autenticados de agenda.
 Referência funcional histórica desse marco: **v0.16.0**. Procedimento definido em 2026-10-07.
 
-Toda criação ou alteração de tela, navegação, dados, regra ou estado deve acrescentar evidências nesta pasta no mesmo conjunto lógico da entrega. Preservar galerias anteriores; não sobrescrever suas imagens para simular continuidade. Consultar o [procedimento completo](../GUIA.md#visão-global-sincronização-e-comparações--procedimento-permanente).
+Criações de tela e mudanças funcionais ou visuais com impacto relevante devem acrescentar evidências nesta pasta no mesmo conjunto lógico da entrega. Ajustes pontuais de texto ou estilo de baixo risco seguem a conferência simples e a atualização do Atlas vivo previstas no guia, sem galeria obrigatória. Preservar galerias anteriores; não sobrescrever suas imagens para simular continuidade. Consultar o [procedimento completo](../GUIA.md#visão-global-sincronização-e-comparações--procedimento-permanente).
 
 ## Galerias
 
