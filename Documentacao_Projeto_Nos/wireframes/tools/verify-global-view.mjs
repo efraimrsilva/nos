@@ -5,7 +5,7 @@ import {pathToFileURL} from 'node:url';
 import {chromium} from '@playwright/test';
 
 // Miniaturas recebem inert em momentos diferentes; IDs do popover são únicos por renderização.
-const composition=html=>html.replace(/ inert=""/g,'').replace(/live-profile-popover-\d+/g,'live-profile-popover-ID');
+const composition=html=>html.replace(/ inert=""/g,'').replace(/(live-profile-popover|live-notifications)-\d+/g,'$1-ID');
 const browser=await chromium.launch();
 try {
   const page=await browser.newPage({viewport:{width:1440,height:1000}});

@@ -6,10 +6,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { ArrowRight, Bell, BookHeart, CalendarDays, Heart, House, Leaf, LockKeyhole, Menu, PanelLeftClose, PanelLeftOpen, ShieldCheck, Sparkles, Trees, UsersRound, X, type LucideIcon } from "lucide-react";
+import { BookHeart, CalendarDays, Heart, House, Leaf, LockKeyhole, Menu, PanelLeftClose, PanelLeftOpen, ShieldCheck, Sparkles, Trees, UsersRound, X, type LucideIcon } from "lucide-react";
 import { AccountReflections } from "@/features/onboarding/components/account-reflections";
 import { AccountTreeLights } from "@/features/onboarding/components/account-tree-lights";
 
+import { NotificationsPopover } from "@/shared/components/notifications-popover";
 import { AccountPopover } from "@/features/controls/components/account-popover";
 import type { NavigationCounts } from "@/features/navigation/counts";
 import { ProblemReport } from "@/features/support/components/problem-report";
@@ -28,13 +29,13 @@ export function ApplicationShell({ children, accountMenuContent, mobileAccountMe
   const [sidebarHidden, setSidebarHidden] = useState(false);
   useEffect(() => { setReady(true); }, []);
   const menu = useRef<HTMLDialogElement>(null);
-  const notices = useRef<HTMLDialogElement>(null);
+
   const previousPath = useRef(pathname);
   // Links dos controles compartilhados também encerram a camada móvel ao mudar de rota.
   useEffect(() => {
     setSidebarHidden(false);
     // A hidratação inicial não deve fechar um diálogo que a pessoa acabou de abrir.
-    if (previousPath.current !== pathname) { menu.current?.close(); notices.current?.close(); }
+    if (previousPath.current !== pathname) { menu.current?.close(); }
     previousPath.current = pathname;
   }, [pathname]);
   // O endereço fornece apenas contexto visual; a sessão e o vínculo são validados em cada página/ação.
@@ -70,7 +71,7 @@ export function ApplicationShell({ children, accountMenuContent, mobileAccountMe
     ] },
     ...(nucleusId ? [{ title: "Cultivar juntos", items: [
       { label: "Acordos", href: to("acordos"), icon: Heart, tone: "rose" },
-      { label: "Agenda", href: to("agenda"), icon: CalendarDays, tone: "orange" },
+      { label: "Agenda", href: to("agenda"), icon: CalendarDays, tone: "orange", planned: true },
 
     ] }, { title: "História e vínculos", items: [
       { label: "Árvore e memórias", href: to("arvore"), icon: Trees, tone: "green", planned: true },
@@ -99,9 +100,10 @@ export function ApplicationShell({ children, accountMenuContent, mobileAccountMe
     { label: "Início", href: base, icon: House, tone: "green" },
     { label: "Seus Núcleos", href: "/nucleos", icon: UsersRound, tone: "blue" },
     { label: "Acordos", href: to("acordos"), icon: Heart, tone: "rose" },
-    { label: "Agenda", href: to("agenda"), icon: CalendarDays, tone: "orange" },  ] : [{ label: "Núcleos", href: "/nucleos", icon: UsersRound, tone: "blue" }];
+    { label: "Agenda", href: to("agenda"), icon: CalendarDays, tone: "orange", planned: true },  ] : [{ label: "Núcleos", href: "/nucleos", icon: UsersRound, tone: "blue" }];
   const moreActive = !mobileItems.some(isActive);
   const countDescriptionId = (label: string) => counts !== undefined && countKeys[label] ? `navigation-total-${countKeys[label]}` : undefined;
+  const navigationDescriptionId = (item: NavItem) => [countDescriptionId(item.label), item.planned ? "navigation-planned-description" : undefined].filter(Boolean).join(" ") || undefined;
   const count = (label: string, compact = false) => {
     const key = countKeys[label];
     if (!key || counts === undefined) return null;
@@ -113,7 +115,7 @@ export function ApplicationShell({ children, accountMenuContent, mobileAccountMe
   const links = (inDialog = false) => (inDialog && nucleusId ? groups
     .map(group => ({ ...group, items: group.items.filter(item => !mobileItems.some(mobile => mobile.href === item.href)) }))
     .filter(group => group.items.length > 0) : groups).map(group => <section className="navigation-group" data-navigation-group={group.title === "Sua conta" ? "account" : undefined} key={group.title}>
-    <h2>{group.title}</h2>{group.items.map(item => <Link key={item.label} href={item.href} prefetch={false} aria-label={item.label === "Início" ? homeLabel : undefined} aria-describedby={countDescriptionId(item.label)} aria-current={isActive(item) ? "page" : undefined} onClick={() => { if (inDialog) menu.current?.close(); }} className="navigation-link"><item.icon size={20} strokeWidth={2.5} aria-hidden="true" className={`nav-icon tone-${item.tone}`} /><span>{item.label}{item.label === "Início" && fullNucleusName && <small className="nav-nucleus-name" title={fullNucleusName}>{shortNucleusName(18)}</small>}</span>{count(item.label)}{item.planned && <span className="nav-planned" aria-label="Esboço">○</span>}</Link>)}
+    <h2>{group.title}</h2>{group.items.map(item => <Link key={item.label} href={item.href} prefetch={false} aria-label={item.label === "Início" ? homeLabel : undefined} aria-describedby={navigationDescriptionId(item)} aria-current={isActive(item) ? "page" : undefined} onClick={() => { if (inDialog) menu.current?.close(); }} className="navigation-link"><item.icon size={20} strokeWidth={2.5} aria-hidden="true" className={`nav-icon tone-${item.tone}`} /><span>{item.label}{item.label === "Início" && fullNucleusName && <small className="nav-nucleus-name" title={fullNucleusName}>{shortNucleusName(18)}</small>}</span>{count(item.label)}{item.planned && <span className="nav-planned" title="Esboço de funcionalidade" aria-hidden="true">○</span>}</Link>)}
 
     {group.title === "Sua conta" && <p className="navigation-build-version">Versão {buildVersion}</p>}
   </section>);
@@ -136,14 +138,15 @@ export function ApplicationShell({ children, accountMenuContent, mobileAccountMe
 
   return <div className={`current-shell${sidebarHidden ? " current-shell-sidebar-hidden" : ""}`} data-layout="current" data-layout-revision="3">
     {counts !== undefined && (Object.keys(countDescriptions) as (keyof NavigationCounts)[]).map(key => <p className="sr-only" id={`navigation-total-${key}`} key={key}>{counts ? `${counts[key].toLocaleString("pt-BR")} · ${countDescriptions[key]}.` : "Total indisponível. Tente atualizar a página."}</p>)}
+    <p id="navigation-planned-description" className="sr-only">Esboço de funcionalidade</p>
     <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <aside id="desktop-navigation" className="desktop-navigation" inert={sidebarHidden}>{brand}<p className="navigation-caption">CULTIVAR JUNTOS</p><nav aria-label="Áreas do Nós">{links()}</nav></aside>
-    <div className="current-body"><header className="current-header"><div className="desktop-header-start"><button type="button" className="desktop-sidebar-toggle" aria-label={sidebarHidden ? "Mostrar barra lateral" : "Ocultar barra lateral"} title={sidebarHidden ? "Mostrar barra lateral" : "Ocultar barra lateral"} aria-controls="desktop-navigation" aria-expanded={!sidebarHidden} onClick={() => setSidebarHidden(hidden => !hidden)}>{sidebarHidden ? <PanelLeftOpen size={20} aria-hidden="true" /> : <PanelLeftClose size={20} aria-hidden="true" />}</button><div className="desktop-breadcrumb"><Link href={base}>{nucleusName ?? "Meu espaço"}</Link><span>/</span><span>{active}</span></div></div><div className="mobile-current-brand">{brand}<span>{nucleusName ?? "Seu espaço"}</span></div><div className="current-header-actions">{userId && <ProblemReport placement="header" />}<button type="button" disabled={!ready} aria-haspopup="dialog" aria-label="Notificações — esboço" onClick={() => notices.current?.showModal()}><Bell size={20} className="tone-orange" aria-hidden="true" /><span className="notification-dot" /></button>{accountMenuContent ? <AccountPopover profileLabel={profileLabel}>{accountMenuContent}</AccountPopover> : <Link href="/conta" aria-label="Minha conta"><span className="account-avatar">{profileLabel ?? <Heart size={17} aria-hidden="true" />}</span></Link>}</div></header>
+    <div className="current-body"><header className="current-header"><div className="desktop-header-start"><button type="button" className="desktop-sidebar-toggle" aria-label={sidebarHidden ? "Mostrar barra lateral" : "Ocultar barra lateral"} title={sidebarHidden ? "Mostrar barra lateral" : "Ocultar barra lateral"} aria-controls="desktop-navigation" aria-expanded={!sidebarHidden} onClick={() => setSidebarHidden(hidden => !hidden)}>{sidebarHidden ? <PanelLeftOpen size={20} aria-hidden="true" /> : <PanelLeftClose size={20} aria-hidden="true" />}</button><div className="desktop-breadcrumb"><Link href={base}>{nucleusName ?? "Meu espaço"}</Link><span>/</span><span>{active}</span></div></div><div className="mobile-current-brand">{brand}<span>{nucleusName ?? "Seu espaço"}</span></div><div className="current-header-actions">{userId && <ProblemReport placement="header" />}<NotificationsPopover agreementsHref={nucleusId ? to("acordos") : undefined} />{accountMenuContent ? <AccountPopover profileLabel={profileLabel}>{accountMenuContent}</AccountPopover> : <Link href="/conta" aria-label="Minha conta"><span className="account-avatar">{profileLabel ?? <Heart size={17} aria-hidden="true" />}</span></Link>}</div></header>
       <main key={pathname} id="conteudo" tabIndex={-1} className={`current-content ${/^\/(?:comecar|configuracoes|ajuda|conta)(?:\/|$)/.test(pathname) || /\/(?:registrar|confirmar|revisar|sair)$/.test(pathname) ? "current-content-focused" : ""}`}>{children}</main>
-      {showFooter && <footer className="current-footer">{footer}</footer>}
+
     </div>
-    <nav className="mobile-navigation" aria-label="Navegação móvel">{mobileItems.map(item => <Link key={item.label} href={item.href} prefetch={false} aria-label={item.label === "Início" ? homeLabel : undefined} aria-describedby={countDescriptionId(item.label)} aria-current={isActive(item) ? "page" : undefined}><item.icon size={22} strokeWidth={2.5} className={`tone-${item.tone}`} aria-hidden="true" /><span className="mobile-nav-label">{item.label}{item.label === "Início" && fullNucleusName && <small className="nav-nucleus-name" title={fullNucleusName}>{shortNucleusName(12)}</small>}{count(item.label, true)}</span></Link>)}<button type="button" disabled={!ready} aria-current={moreActive ? "page" : undefined} onClick={() => menu.current?.showModal()} aria-haspopup="dialog" aria-label="Mais áreas e preferências"><Menu size={23} className="tone-neutral" aria-hidden="true" /><span>Mais</span></button></nav>
+    <nav className="mobile-navigation" aria-label="Navegação móvel">{mobileItems.map(item => <Link key={item.label} href={item.href} prefetch={false} aria-label={item.label === "Início" ? homeLabel : undefined} aria-describedby={navigationDescriptionId(item)} aria-current={isActive(item) ? "page" : undefined}><item.icon size={22} strokeWidth={2.5} className={`tone-${item.tone}`} aria-hidden="true" /><span className="mobile-nav-label">{item.label}{item.label === "Início" && fullNucleusName && <small className="nav-nucleus-name" title={fullNucleusName}>{shortNucleusName(12)}</small>}{count(item.label, true)}{item.planned && <span className="nav-planned" title="Esboço de funcionalidade" aria-hidden="true"> ○</span>}</span></Link>)}<button type="button" disabled={!ready} aria-current={moreActive ? "page" : undefined} onClick={() => menu.current?.showModal()} aria-haspopup="dialog" aria-label="Mais áreas e preferências"><Menu size={23} className="tone-neutral" aria-hidden="true" /><span>Mais</span></button></nav>
     <dialog ref={menu} className="navigation-dialog" aria-labelledby="navigation-dialog-title"><div className="dialog-heading"><h2 id="navigation-dialog-title">Todos os seus caminhos</h2><button type="button" aria-label="Fechar menu" onClick={() => menu.current?.close()}><X aria-hidden="true" /></button></div><nav aria-label="Todas as áreas">{links(true)}</nav>{mobileAccountMenuContent && <div className="account-experience mobile-account-options" onClick={event => { if (event.target instanceof Element && event.target.closest("a[href]")) menu.current?.close(); }}>{mobileAccountMenuContent}</div>}</dialog>
-    <dialog ref={notices} className="current-dialog" aria-labelledby="notice-dialog-title"><div className="dialog-heading"><span className="color-icon tone-orange"><Bell aria-hidden="true" /></span><button type="button" aria-label="Fechar notificações" onClick={() => notices.current?.close()}><X aria-hidden="true" /></button></div><p className="prototype-notice">Esboço de funcionalidade · ainda não desenvolvido</p><h2 id="notice-dialog-title">Novidades, no seu tempo.</h2><p>Este será o lugar para acompanhar convites, propostas e cuidados que pedem sua atenção. A central de notificações ainda não consulta nem envia avisos.</p><Link href={nucleusId ? to("acordos") : "/nucleos"} onClick={() => notices.current?.close()} className="secondary-action">{nucleusId ? "Consultar Acordos" : "Abrir Seus Núcleos"}<ArrowRight size={17} aria-hidden="true" /></Link></dialog>
+
   </div>;
 }

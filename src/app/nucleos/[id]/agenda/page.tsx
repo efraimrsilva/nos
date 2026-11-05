@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
+import { FeatureSketchNotice } from "@/shared/components/ui/feature-sketch-notice";
 import { CalendarWorkspace, type CalendarEvent } from "@/features/calendar/components/calendar-workspace";
 import { parseCalendarPage } from "@/features/calendar/event-input";
 import { isNucleusAuthUnavailable } from "@/features/nuclei/nucleus-access";
@@ -53,6 +54,7 @@ export default async function CalendarPage({ params, searchParams }: {
     event.starts_at, event.ends_at, (event.nucleus_event_participants ?? []).map(participant => participant.response)]));
 
   return <OnboardingShell nucleusName={nucleus.name}>
+    <FeatureSketchNotice title="Esboço de funcionalidade · Agenda em desenvolvimento">O calendário interno já está disponível. Recorrência e integração com calendários externos estão planejadas.</FeatureSketchNotice>
     {resultado && notice[resultado] && <p role="status" className="ui-status">{notice[resultado]}</p>}
     <CalendarWorkspace key={`${page}-${calendarVersion}`} nucleusId={id} nucleusName={nucleus.name} events={events} initialWeek={weekStart.toISOString()} today={new Date().toISOString().slice(0, 10)} />
     {(page > 1 || hasNextPage) && <nav aria-label="Páginas da agenda" className="calendar-pagination">

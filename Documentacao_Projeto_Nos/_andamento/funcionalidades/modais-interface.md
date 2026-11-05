@@ -1,5 +1,7 @@
 # Contrato permanente — identificação de modais na interface e no Atlas
 
+**v3.7.1 · 05/11/2026.** O sino do cabeçalho autenticado abre o painel suspenso “Novidades, no seu tempo.” em desktop e celular. Fecha por Escape, X, clique fora ou destino. Leva a Acordos no Núcleo ou a Seus Núcleos sem contexto. A central é esboço. O cartão do Início continua com seu diálogo informativo e Relatar um problema permanece modal de formulário. [Registro](../registros/registro-v3.7.1-2026-11-05-imp-cabecalho-fun-preferencias.md).
+
 ## Modal de relato — v3.7.0 — validado localmente
 
 | Origem | Nome/gatilho | Conteúdo e permissão | Resultado/cancelamento/situação |

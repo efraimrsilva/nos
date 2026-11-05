@@ -1,0 +1,5 @@
+.preview-notice { display: flex; gap: 13px; align-items: flex-start; margin-bottom: 28px; padding: 17px 20px; background: #fff3d7; border: 1px solid #e2bf72; border-radius: 10px; color: #674a17; }
+.preview-notice > svg { flex-shrink: 0; margin-top: 2px; }
+.preview-notice strong { font-size: 14px; }
+.preview-notice p { margin-top: 5px; font-size: 12px; line-height: 1.75; }
+@media (max-width: 600px) { .preview-notice { padding: 15px; gap: 10px; }.preview-notice strong { font-size: 12px; }.preview-notice p { font-size: 11px; }}

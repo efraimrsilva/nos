@@ -1,5 +1,7 @@
 # MVP e caminho de implementação — Projeto Nós
 
+**MVP 04 e 05 · v3.7.1 · 05/11/2026.** Agenda identificada como esboço em evolução com calendário interno disponível. Cabeçalho traz painel suspenso de Notificações e texto revisado de suporte. [Registro](../registros/registro-v3.7.1-2026-11-05-imp-cabecalho-fun-preferencias.md).
+
 **Suporte MVP05 — v3.7.0 —03/11/2026:** relato de problemas concluído localmente; nova chave SMTP validada por autenticação real, sem mensagem externa. Substitui pendência EAUTH do marco abaixo; implantação e nove casos manuais permanecem pendentes. [Registro](../registros/registro-v3.7.0-2026-11-03-imp-suporte-fun-relato-problemas.md).
 
 **Em andamento — suporte MVP05 — v3.6.3 —03/11/2026:** modal Relatar um problema implementado e validado em SMTP local; autenticação externa EAUTH requer chave SMTP válida. Nove casos M05-SUP-001–009 continuam Não executados. Não conclui operação de suporte/piloto. [Registro](../registros/registro-v3.7.0-2026-11-03-imp-suporte-fun-relato-problemas.md).

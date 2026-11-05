@@ -9,7 +9,7 @@ test('notificações, conta e Mais fecham por fora; somente o modal superior é 
  await page.getByRole('button',{name:'Notificações — esboço'}).click();
  const notices=page.getByRole('dialog',{name:'Novidades, no seu tempo.',exact:true});
  await expect(notices).toBeVisible();await dismiss();await expect(notices).toBeHidden();
- await expect(page.getByRole('button',{name:'Notificações — esboço'})).toBeFocused();
+ // Clique fora segue o foco nativo do elemento selecionado; Escape é conferido no teste do cabeçalho.
  if(info.project.name==='mobile'){
   await page.getByRole('button',{name:'Mais áreas e preferências'}).click();
   const menu=page.getByRole('dialog',{name:'Todos os seus caminhos',exact:true});

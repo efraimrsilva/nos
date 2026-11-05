@@ -170,3 +170,18 @@ body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog .live-member-t
 .atlas-live-dialog:has(.live-member-table){width:min(580px,calc(100vw - 32px))}
 .live-report-form{display:grid;gap:16px}
 .live-report-form p{font-size:14px;line-height:1.8;color:var(--current-muted,#657368)}
+
+.live-notifications-popover{position:fixed;inset:80px 80px auto auto;margin:0;width:min(390px,calc(100vw - 48px));max-height:calc(100dvh - 104px);overflow:auto;overscroll-behavior:contain;padding:22px;border:1px solid var(--line,#dce3d6);border-radius:18px;background:var(--card,#fffefa);color:var(--ink,#293e35);box-shadow:0 24px 80px #152c352b,0 4px 16px #152c3512}
+.live-notifications-popover::backdrop{background:transparent}
+.live-notifications-popover h2{font-size:24px;line-height:1.3;margin:20px 0 12px}
+.live-notifications-popover>p{font-size:14px;line-height:1.8}
+.live-notifications-popover>.live-button{margin-top:20px}
+@media(prefers-reduced-motion:no-preference){.live-notifications-popover:popover-open{animation:live-notifications-arrive .2s ease-out}}
+@media(max-width:700px){.live-notifications-popover{inset:73px 12px auto auto;width:calc(100vw - 24px);max-height:calc(100dvh - 90px)}}
+
+@keyframes live-notifications-arrive{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@supports(anchor-name:--notifications-trigger){.live-notifications-popover{top:calc(anchor(bottom) + 12px);right:clamp(12px,anchor(right),max(12px,calc(100vw - 402px)));position-try-fallbacks:flip-block}}
+
+.live-agenda-notice p{margin:5px 0 0;line-height:1.7}
+
+@media(max-width:700px){.live-notifications-popover{right:12px}}

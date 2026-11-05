@@ -1,5 +1,7 @@
 # Aparência da conta — v3.5.0
 
+**v3.7.1 · 05/11/2026.** O bloco Aparência exibe a linha “Escolha as cores do seu espaço” sem parágrafo introdutório duplicado. [Registro](../registros/registro-v3.7.1-2026-11-05-imp-cabecalho-fun-preferencias.md).
+
 ## Atualização vigente — Aparência — v3.5.0 — 03/11/2026
 
 Preservados os nove temas e o salvamento por conta. O gatilho Apagar minha conta usa sinalização vermelha consistente em todos os temas (texto, ícone, borda/fundo de interação e foco), sem alterar a regra de exclusão. Dias e opções do calendário mensal receberam contraste nos temas escuros. O painel de perfil desktop herda a animação de entrada das seções, e `prefers-reduced-motion` (preferência do sistema por movimento reduzido) elimina os movimentos aplicáveis. A árvore apresenta oito luzes decorativas; o recurso não adiciona estado de domínio.

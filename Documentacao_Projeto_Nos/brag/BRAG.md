@@ -1,5 +1,9 @@
 # Brag document — Projeto Nós
 
+## 2026-11-05 — v3.7.1 · Ajustes na interface autenticada
+
+O sino bloqueava a tela com um modal para apresentar um esboço. O cabeçalho agora abre um painel suspenso e alinha os dois ícones de ação. Agenda e Árvore e memórias compartilham o aviso de esboço, e a Conta elimina informação duplicada. Comportamento conferido em desktop e celular com oito testes autenticados finais e comparação no Atlas. [Registro e evidências](../_andamento/registros/registro-v3.7.1-2026-11-05-imp-cabecalho-fun-preferencias.md).
+
 ## 2026-11-03 — v3.7.0 — integração SMTP autenticada
 
 **Problema:** nomes descritivos nos campos do ambiente impediam leitura da nova chave. **Contribuição:** normalizar nomes e preservar as duas credenciais separadamente; validar conexão sem enviar mensagem. **Resultado:** TLS e autenticação SMTP reais aprovados; suporte local pronto, sem alegar recebimento externo. [Evidência](../_andamento/registros/registro-v3.7.0-2026-11-03-imp-suporte-fun-relato-problemas.md).

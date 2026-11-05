@@ -28,7 +28,7 @@ function ReportForm() {
       <input type="hidden" name="route" value={reportRoute(pathname)} />
       <div className="ui-field"><label htmlFor={`${id}-description`}>O que aconteceu?</label><textarea id={`${id}-description`} name="description" value={description} onChange={event => setDescription(event.target.value)} required minLength={10} maxLength={2000} rows={4} aria-describedby={`${id}-privacy`} placeholder="Ex.: tentei salvar o propósito, mas apareceu uma mensagem de erro." /></div>
       <div className="ui-field"><label htmlFor={`${id}-steps`}>Como repetir o problema? (opcional)</label><textarea id={`${id}-steps`} name="steps" value={steps} onChange={event => setSteps(event.target.value)} maxLength={1000} rows={2} placeholder="Ex.: abri o Núcleo, toquei no lápis e depois em Salvar." /></div>
-      <p className="settings-copy">A tela atual e a versão serão incluídas. Seu e-mail da conta será usado para contato.</p>
+      <p className="settings-copy">Em último caso, o e-mail da conta poderá ser usado para contato.</p>
       <button className="ui-button" disabled={pending || remaining > 0}>{pending ? "Enviando…" : remaining > 0 ? `Aguarde ${remaining}s` : "Enviar relato"}</button>
     </fieldset>
     {state.error && <p role="alert" className="ui-feedback">{state.error}</p>}
