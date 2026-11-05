@@ -1,5 +1,7 @@
 # Relato de problemas — v3.7.0 — concluído localmente
 
+**Lembrete no cabeçalho · v3.7.2 · 05/11/2026.** Após 60 segundos na área autenticada, o botão Relatar um problema se expande para mostrar “Encontrou algum problema?”. O ícone e os botões vizinhos preservam posição. O mesmo botão recolhe após 10 segundos ou ao abrir o formulário. O prazo acompanha a conta na mesma aba ao trocar de rota ou recarregar. O cabeçalho autenticado fica visível ao rolar. Se a aba estiver em segundo plano ao fim do minuto, os 10 segundos começam quando ela voltar a ficar visível. Sair e entrar novamente na conta reinicia a contagem, inclusive na mesma aba. O atalho continua disponível após recolher. Movimento reduzido e foco no mesmo botão são respeitados. [Registro](../registros/registro-v3.7.2-2026-11-05-imp-cabecalho-fun-lembrete-suporte.md).
+
 **v3.7.1 · 05/11/2026.** O formulário informa “Em último caso, o e-mail da conta poderá ser usado para contato.” A tela normalizada e a versão continuam no relato técnico. O ícone do cabeçalho usa o mesmo eixo do sino. [Registro](../registros/registro-v3.7.1-2026-11-05-imp-cabecalho-fun-preferencias.md).
 
 [Registro e evidências](../registros/registro-v3.7.0-2026-11-03-imp-suporte-fun-relato-problemas.md). Implementação validada localmente e autenticação SMTP real aprovada com a nova chave. Nenhuma mensagem externa enviada; implantação e recebimento externo permanecem sem certificação.

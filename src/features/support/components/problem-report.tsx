@@ -7,6 +7,7 @@ import { ActionDialog } from "@/shared/components/ui/action-dialog";
 import { AccountRow } from "@/features/controls/components/account-row";
 import { submitProblemReport } from "../actions";
 import { reportRoute } from "../input";
+import { useProblemReportReminder } from "./problem-report-reminder";
 
 function ReportForm() {
   const id = useId(), pathname = usePathname();
@@ -35,9 +36,28 @@ function ReportForm() {
   </form>;
 }
 
-export function ProblemReport({ placement = "row" }: { placement?: "row" | "header" | "inline" }) {
+export function ProblemReport({ placement = "row", reminderAccountId }: { placement?: "row" | "header" | "inline"; reminderAccountId?: string }) {
   const [revision, setRevision] = useState(0);
-  return <ActionDialog variant="text" className={placement === "header" ? "problem-report-header" : placement === "row" ? "account-dialog-trigger" : "problem-report-inline"} title="Relatar um problema" description="Descreva o que não funcionou. O relato será enviado à equipe responsável." onClose={() => setRevision(value => value + 1)} trigger={placement === "row" ? <AccountRow icon={Bug} title="Relatar um problema" description="Avise a equipe sobre algo que não funcionou" /> : <><Bug size={20} aria-hidden="true" /><span className={placement === "header" ? "sr-only" : ""}>Relatar um problema</span></>}>
+  const reminder = useProblemReportReminder(placement === "header" ? reminderAccountId : undefined);
+  const isHeader = placement === "header";
+  const dialog = <ActionDialog
+    variant="text"
+    className={isHeader ? "problem-report-header" : placement === "row" ? "account-dialog-trigger" : "problem-report-inline"}
+    title="Relatar um problema"
+    description="Descreva o que não funcionou. O relato será enviado à equipe responsável."
+    onOpen={isHeader ? reminder.dismiss : undefined}
+    onClose={() => setRevision(value => value + 1)}
+    trigger={placement === "row"
+      ? <AccountRow icon={Bug} title="Relatar um problema" description="Avise a equipe sobre algo que não funcionou" />
+      : <><Bug size={20} aria-hidden="true" /><span className={isHeader ? "sr-only" : ""}>Relatar um problema</span>
+        {isHeader && <span className="problem-report-label" aria-hidden="true"><strong>Encontrou algum problema?</strong><small>Relatar um problema</small></span>}</>}
+  >
     <ReportForm key={revision} />
   </ActionDialog>;
+
+  // O botão é o mesmo durante a transição, inclusive para quem está usando o teclado.
+  return isHeader ? <div className="problem-report-anchor" data-reminder-visible={reminder.visible}>
+    {dialog}
+    <span className="sr-only" role="status">{reminder.visible ? "Encontrou algum problema? Selecione Relatar um problema no cabeçalho." : ""}</span>
+  </div> : dialog;
 }

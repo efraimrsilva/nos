@@ -35,7 +35,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
     } catch { /* O restante da conta permanece disponível. */ }
   }
 
-  return <OnboardingShell showTree={!user}><div className={`account-experience ${user ? "account-workspace" : "account-auth-heading"}`}>
+  return <OnboardingShell showTree={!user} signedOut={!user && !unavailable}><div className={`account-experience ${user ? "account-workspace" : "account-auth-heading"}`}>
     <header className="ui-page-header"><div>
       {user && <p className="ui-kicker">Sua conta</p>}
       <h1 className="ui-title">{user ? "Conta, Preferências e Ajuda" : "Sua conta no Nós"}</h1>

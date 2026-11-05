@@ -1,5 +1,9 @@
 # Brag document — Projeto Nós
 
+## 2026-11-05 — v3.7.2 · Descoberta do atalho de suporte
+
+O atalho de relato pode passar despercebido na área autenticada. O próprio ícone agora se expande temporariamente e abre o formulário existente. A expectativa é facilitar a descoberta do atalho. Os testes locais confirmaram os prazos, o clique e o retorno de foco em desktop e celular. [Registro](../_andamento/registros/registro-v3.7.2-2026-11-05-imp-cabecalho-fun-lembrete-suporte.md).
+
 ## 2026-11-05 — v3.7.1 · Ajustes na interface autenticada
 
 O sino bloqueava a tela com um modal para apresentar um esboço. O cabeçalho agora abre um painel suspenso e alinha os dois ícones de ação. Agenda e Árvore e memórias compartilham o aviso de esboço, e a Conta elimina informação duplicada. Comportamento conferido em desktop e celular com oito testes autenticados finais e comparação no Atlas. [Registro e evidências](../_andamento/registros/registro-v3.7.1-2026-11-05-imp-cabecalho-fun-preferencias.md).

@@ -1,5 +1,7 @@
 # Comparações de telas — procedimento permanente
 
+- [v3.7.2 · Lembrete de suporte](v3.7.2-2026-11-05-lembrete-suporte-tela_12-tela_66-tela_70/index.html) — expansão e recolhimento do botão, desktop e celular, telas 12, 66 e 70.
+
 - [v3.7.1 · Cabeçalho e preferências](v3.7.1-2026-11-05-cabecalho-preferencias-tela_13-tela_14-tela_60-tela_66/index.html) — antes e depois do aplicativo e Atlas, desktop e celular, telas 13, 14, 60 e 66.
 
 - [v3.5.0 — Consolidação e paridade Atlas desktop/mobile — Telas01/05/12/13/14/18/66/73](v3.5.0-2026-11-03-paridade-tela_01-tela_05-tela_12-tela_13-tela_14-tela_18-tela_66-tela_73/index.html):36capturas Atlas:32 antes/depois e4 recortes de modais depois. Fontes locais sincronizadas; verificadores do Atlas aprovados. Limites da comparação autenticada e do seletor offline explícitos na galeria.

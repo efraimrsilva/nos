@@ -296,3 +296,50 @@ button[aria-label^="Fechar" i]:is(:hover,:focus-visible) { background-color:#c43
 @supports(anchor-name:--notifications-trigger){.notifications-trigger{anchor-name:--notifications-trigger}.notifications-popover{position-anchor:--notifications-trigger;top:calc(anchor(bottom) + 12px);right:clamp(12px,anchor(right),max(12px,calc(100vw - 402px)));position-try-fallbacks:flip-block}}
 
 @media(max-width:700px){.notifications-popover{right:12px}}
+
+/* O aviso pertence ao cabeçalho autenticado, que permanece visível durante a rolagem. */
+.current-header[data-authenticated], .public-header[data-authenticated] { position: sticky; top: 0; z-index: 20; }
+
+/* O espaço reservado no cabeçalho mantém o sino e o perfil imóveis durante a expansão. */
+.problem-report-anchor { position: relative; width: 30px; height: 36px; flex: 0 0 30px; }
+.problem-report-anchor > .problem-report-header {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: 0;
+  translate: 0 -50%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0;
+  width: 30px;
+  height: 36px;
+  min-height: 0;
+  padding: 0 4px;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--color-muted);
+  cursor: pointer;
+}
+.problem-report-header > svg { flex: 0 0 20px; }
+.problem-report-header:hover, .problem-report-header:focus-visible { color: var(--color-ink); background: var(--accent-soft); }
+.problem-report-label { flex: 0 0 200px; padding-left: 12px; text-align: left; opacity: 0; }
+.problem-report-label strong, .problem-report-label small { display: block; }
+.problem-report-label strong { font-size: 13px; }
+.problem-report-label small { color: var(--color-muted); font-size: 11px; }
+.problem-report-anchor[data-reminder-visible="true"] > .problem-report-header {
+  width: min(252px, calc(100vw - 104px));
+  height: 54px;
+  border-color: var(--color-leaf);
+  color: var(--color-ink);
+  box-shadow: 0 5px 18px #152c3529;
+}
+.problem-report-anchor[data-reminder-visible="true"] .problem-report-label { flex: 1 1 auto; min-width: 0; opacity: 1; }
+@media (prefers-reduced-motion: no-preference) {
+  .problem-report-header { transition: width .48s cubic-bezier(.22,1,.36,1), height .48s cubic-bezier(.22,1,.36,1), border-color .3s, box-shadow .3s; }
+  .problem-report-label { transition: opacity .15s ease; }
+  .problem-report-anchor[data-reminder-visible="true"] .problem-report-label { transition-delay: .12s; }
+}

@@ -1,5 +1,27 @@
 # Estado do Projeto Nós
 
+## Publicação da v3.7.2 — 2026-11-05
+
+**Objetivo autorizado.** Commit e push de todas as alterações acumuladas da v3.7.2 para origin/main. **DOCS_DIR:** Documentacao_Projeto_Nos. Base 33a549e, sincronizada com origin/main após fetch.
+
+**Conjunto.** Lembrete animado no próprio botão de relato, 60 segundos de espera e 10 segundos de exibição, continuidade entre páginas, cabeçalho visível na rolagem, espera pela aba ativa e reinício em novo login. Atlas, testes, evidências e documentação incluídos.
+
+**Validações.** Revisão do diff, versões e links da galeria conferidos, checagem de tipos novamente aprovada. Build e dois testes autenticados finais aprovados na implementação. Casos manuais ainda pendentes. Código, teste, versão e registro conferidos no objeto Git. A atualização de continuidade integra o mesmo commit, identificado pelo título feat(suporte): publicar lembrete animado no cabeçalho na v3.7.2. **Nenhuma unidade pronta para commit permanece pendente.** Próximo passo operacional: conferir o roteiro manual no ambiente desejado. O push normal é autorizado e a confirmação remota é feita após o envio. [Registro](registros/registro-v3.7.2-2026-11-05-imp-github-fun-publicacao-lembrete-suporte.md).
+
+**Contador:** 23 conclusões acompanhadas desde 29/10, incluindo esta publicação. Marco 100 e lacuna histórica preservados.
+
+---
+
+## Lembrete de suporte no cabeçalho — v3.7.2 — 2026-11-05
+
+**Objetivo e aceite.** Expandir o botão de relato após 60 segundos na área autenticada, manter o ícone no lugar e recolher após 10 segundos. Clicar abre o formulário existente. **DOCS_DIR:** Documentacao_Projeto_Nos. **Base:** main, 33a549e (v3.7.1). A tentativa local de renumeração foi revertida por solicitação do usuário.
+
+**Implementação.** ApplicationShell fornece o contexto da conta. ProblemReport e ActionDialog reutilizam o mesmo gatilho e modal. O temporizador preserva o prazo na aba ao navegar e recarregar. O cabeçalho permanece visível durante a rolagem, a exibição aguarda a aba ativa e o prazo reinicia ao sair e entrar na mesma conta. Atlas demonstra a expansão com um controle de prévia.
+
+**Validações.** Tipos, compilação, Atlas e dois casos autenticados finais aprovados. Confirmados transição real, cabeçalho visível ao rolar, prazo entre telas, exibição ao retornar à aba, clique na região expandida e novo lembrete após sair e entrar na mesma aba. Autorrevisão do diff. Sem publicação. Próximo passo: abrir uma aba nova, seguir o roteiro manual e registrar resultados. **Unidade incluída no commit da publicação v3.7.2**, conforme conferência no Git registrada no bloco vigente. **Contador:** 22 conclusões acompanhadas desde 29/10, incluindo a verificação de alcance e novo login do lembrete. Marco 100 e lacuna histórica preservados. [Registro](registros/registro-v3.7.2-2026-11-05-imp-cabecalho-fun-lembrete-suporte.md).
+
+---
+
 ## Cabeçalho e preferências — v3.7.1 — 2026-11-05
 
 **Objetivo e escopo.** Ajustar a interface autenticada, identificar a Agenda em desenvolvimento e preparar Notificações em painel suspenso. O usuário pediu manter “Enviar convite” em Acordos. **DOCS_DIR:** Documentacao_Projeto_Nos. **Branch/base:** main, e242ef3.

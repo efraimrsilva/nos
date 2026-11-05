@@ -1,5 +1,13 @@
 # Histórico de andamento
 
+## 2026-11-05 — v3.7.2 · Publicação autorizada no GitHub
+
+Conjunto do lembrete de suporte preparado em uma unidade completa de código, Atlas, testes e documentação. Checagem de tipos e revisão final aprovadas. [Registro](registros/registro-v3.7.2-2026-11-05-imp-github-fun-publicacao-lembrete-suporte.md).
+
+## 2026-11-05 — v3.7.2 · Lembrete de suporte no cabeçalho
+
+A base publicada v3.7.1 foi retomada e o lembrete foi numerado como 3.7.2. O ícone expande após um minuto e recolhe depois de 10 segundos. O ajuste posterior mantém o cabeçalho visível ao rolar, aguarda a aba ativa e reinicia o prazo em novo login. Tipos, compilação, dois testes autenticados e Atlas aprovados localmente. [Registro](registros/registro-v3.7.2-2026-11-05-imp-cabecalho-fun-lembrete-suporte.md).
+
 ## 2026-11-05 — Integração da v3.7.1 com a documentação do GitHub
 
 Preservados cinco commits de documentação até bebb0ed. Os conflitos de estado e histórico mantêm os dois conjuntos de registros. Entrega da interface registrada em f773dc4, seguida da unidade documental. Tipos e paridade das 73 composições do Atlas conferidos novamente. Push normal para main autorizado.

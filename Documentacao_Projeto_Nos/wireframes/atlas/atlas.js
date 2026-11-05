@@ -115,6 +115,9 @@ function renderPrototype(){
   if(!referenceMode){
     const modalTriggers=[...$('#screen-preview').querySelectorAll('[data-atlas-modal]')].filter(trigger=>!trigger.closest('[inert]'));
     $('#screen-preview .preview-origin').insertAdjacentHTML('beforeend','<p class="live-modal-legend"><strong>Modal</strong> identifica uma ação que abre um diálogo sobre esta área e retorna ao mesmo contexto ao fechar. A ficha informa o estado da funcionalidade. As saídas de navegação direta continuam disponíveis abaixo.</p>');
+    if ($('#screen-preview .current-atlas-header [data-live-report]')) {
+      $('#screen-preview .preview-origin').insertAdjacentHTML('beforeend', '<button class="quiet" data-preview-report-reminder>Prévia do lembrete de suporte (após 1 minuto)</button>');
+    }
     if(modalTriggers.length){
       const labels=[...new Set(modalTriggers.map(trigger=>trigger.textContent.trim().replace(/\s+/g,' ')||trigger.getAttribute('aria-label')||'Modal de contexto'))];
       $('#screen-spec').insertAdjacentHTML('beforeend',`<h3>Modais desta composição</h3><p>Gatilhos marcados visualmente com Modal. Fechar preserva a área de origem; o Atlas não executa operações reais.</p><ul>${labels.map(label=>`<li>${escapeHtml(label)}</li>`).join('')}</ul>`);

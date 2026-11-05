@@ -1,5 +1,7 @@
 # MVP e caminho de implementação — Projeto Nós
 
+**MVP 05 · v3.7.2 · 05/11/2026.** Lembrete temporário de suporte no cabeçalho autenticado. Formulário existente reutilizado. [Registro](../registros/registro-v3.7.2-2026-11-05-imp-cabecalho-fun-lembrete-suporte.md).
+
 **MVP 04 e 05 · v3.7.1 · 05/11/2026.** Agenda identificada como esboço em evolução com calendário interno disponível. Cabeçalho traz painel suspenso de Notificações e texto revisado de suporte. [Registro](../registros/registro-v3.7.1-2026-11-05-imp-cabecalho-fun-preferencias.md).
 
 **Suporte MVP05 — v3.7.0 —03/11/2026:** relato de problemas concluído localmente; nova chave SMTP validada por autenticação real, sem mensagem externa. Substitui pendência EAUTH do marco abaixo; implantação e nove casos manuais permanecem pendentes. [Registro](../registros/registro-v3.7.0-2026-11-03-imp-suporte-fun-relato-problemas.md).

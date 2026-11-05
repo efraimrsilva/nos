@@ -14,17 +14,22 @@ import { NotificationsPopover } from "@/shared/components/notifications-popover"
 import { AccountPopover } from "@/features/controls/components/account-popover";
 import type { NavigationCounts } from "@/features/navigation/counts";
 import { ProblemReport } from "@/features/support/components/problem-report";
+import { resetProblemReportReminder } from "@/features/support/components/problem-report-reminder";
 
 const buildVersion = projectManifest.version;
 
 type NavItem = { label: string; href: string; icon: LucideIcon; tone: string; planned?: boolean };
-type ShellProps = { children: ReactNode; accountMenuContent?: ReactNode; mobileAccountMenuContent?: ReactNode; lastNucleus?: { id: string; name: string } | null; showTree?: boolean; nucleusName?: string; userId?: string; counts?: NavigationCounts | null; profileLabel?: string };
+type ShellProps = { children: ReactNode; signedOut?: boolean; accountMenuContent?: ReactNode; mobileAccountMenuContent?: ReactNode; lastNucleus?: { id: string; name: string } | null; showTree?: boolean; nucleusName?: string; userId?: string; counts?: NavigationCounts | null; profileLabel?: string };
 const countKeys: Record<string, keyof NavigationCounts> = { "Seus Núcleos": "nuclei", "Núcleos": "nuclei", Acordos: "agreements", Agenda: "events", Pessoas: "people" };
 const countDescriptions = { nuclei: "Núcleos dos quais você participa atualmente", agreements: "Acordos não encerrados com seu aceite dos termos atuais, em todos os seus Núcleos", events: "Compromissos ainda não terminados em que você está incluído, sem recusados, em todos os seus Núcleos", people: "Outras pessoas nos seus Núcleos atuais, sem contar a mesma pessoa duas vezes" };
 const footer = <p className="site-footer-copy"><span>© 2026 Nós - Pequenos gestos. Vínculos reais.</span>{" "}<span className="site-footer-credits">Desenvolvido com 💖 por <a href="https://sintagmasoftware.netlify.app/">Sintagma Software</a>. Todos os direitos reservados.</span></p>;
 
-export function ApplicationShell({ children, accountMenuContent, mobileAccountMenuContent, lastNucleus, showTree = false, nucleusName: routeNucleusName, userId, counts, profileLabel }: ShellProps) {
+export function ApplicationShell({ children, signedOut = false, accountMenuContent, mobileAccountMenuContent, lastNucleus, showTree = false, nucleusName: routeNucleusName, userId, counts, profileLabel }: ShellProps) {
   const pathname = usePathname();
+  useEffect(() => {
+    // A tela de conta só sinaliza saída após confirmar a ausência de sessão.
+    if (signedOut) resetProblemReportReminder();
+  }, [signedOut]);
   const [ready, setReady] = useState(false);
   const [sidebarHidden, setSidebarHidden] = useState(false);
   useEffect(() => { setReady(true); }, []);
@@ -121,9 +126,11 @@ export function ApplicationShell({ children, accountMenuContent, mobileAccountMe
   </section>);
   const brand = <Link href={publicEntry ? "/boas-vindas" : base} className="current-brand" aria-label="Nós — início"><span><Leaf size={26} strokeWidth={2.3} aria-hidden="true" /></span>nós<span className="brand-period">.</span></Link>;
 
+  const report = userId && <ProblemReport placement="header" reminderAccountId={userId} />;
+
   if (publicEntry) return <div className="public-shell" data-layout="current" data-layout-revision="3">
     <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
-    <header className="public-header">{brand}{pathname !== "/conta" && <span><ShieldCheck size={17} aria-hidden="true" /> Um lugar seguro para seus vínculos</span>}</header>
+    <header className="public-header" data-authenticated={userId ? "" : undefined}>{brand}{pathname !== "/conta" && <span><ShieldCheck size={17} aria-hidden="true" /> Um lugar seguro para seus vínculos</span>}{report}</header>
     <div className={`public-grid ${showTree ? "public-grid-with-art" : "public-grid-form"}`}>
       {showTree && <aside className="public-story"><h2>Pequenos gestos.<br /><em>Vínculos reais.</em></h2>
         {/* A Conta fornece showTree a partir da sessão; a restauração fica restrita a esta rota. */}
@@ -141,7 +148,7 @@ export function ApplicationShell({ children, accountMenuContent, mobileAccountMe
     <p id="navigation-planned-description" className="sr-only">Esboço de funcionalidade</p>
     <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <aside id="desktop-navigation" className="desktop-navigation" inert={sidebarHidden}>{brand}<p className="navigation-caption">CULTIVAR JUNTOS</p><nav aria-label="Áreas do Nós">{links()}</nav></aside>
-    <div className="current-body"><header className="current-header"><div className="desktop-header-start"><button type="button" className="desktop-sidebar-toggle" aria-label={sidebarHidden ? "Mostrar barra lateral" : "Ocultar barra lateral"} title={sidebarHidden ? "Mostrar barra lateral" : "Ocultar barra lateral"} aria-controls="desktop-navigation" aria-expanded={!sidebarHidden} onClick={() => setSidebarHidden(hidden => !hidden)}>{sidebarHidden ? <PanelLeftOpen size={20} aria-hidden="true" /> : <PanelLeftClose size={20} aria-hidden="true" />}</button><div className="desktop-breadcrumb"><Link href={base}>{nucleusName ?? "Meu espaço"}</Link><span>/</span><span>{active}</span></div></div><div className="mobile-current-brand">{brand}<span>{nucleusName ?? "Seu espaço"}</span></div><div className="current-header-actions">{userId && <ProblemReport placement="header" />}<NotificationsPopover agreementsHref={nucleusId ? to("acordos") : undefined} />{accountMenuContent ? <AccountPopover profileLabel={profileLabel}>{accountMenuContent}</AccountPopover> : <Link href="/conta" aria-label="Minha conta"><span className="account-avatar">{profileLabel ?? <Heart size={17} aria-hidden="true" />}</span></Link>}</div></header>
+    <div className="current-body"><header className="current-header" data-authenticated={userId ? "" : undefined}><div className="desktop-header-start"><button type="button" className="desktop-sidebar-toggle" aria-label={sidebarHidden ? "Mostrar barra lateral" : "Ocultar barra lateral"} title={sidebarHidden ? "Mostrar barra lateral" : "Ocultar barra lateral"} aria-controls="desktop-navigation" aria-expanded={!sidebarHidden} onClick={() => setSidebarHidden(hidden => !hidden)}>{sidebarHidden ? <PanelLeftOpen size={20} aria-hidden="true" /> : <PanelLeftClose size={20} aria-hidden="true" />}</button><div className="desktop-breadcrumb"><Link href={base}>{nucleusName ?? "Meu espaço"}</Link><span>/</span><span>{active}</span></div></div><div className="mobile-current-brand">{brand}<span>{nucleusName ?? "Seu espaço"}</span></div><div className="current-header-actions">{report}<NotificationsPopover agreementsHref={nucleusId ? to("acordos") : undefined} />{accountMenuContent ? <AccountPopover profileLabel={profileLabel}>{accountMenuContent}</AccountPopover> : <Link href="/conta" aria-label="Minha conta"><span className="account-avatar">{profileLabel ?? <Heart size={17} aria-hidden="true" />}</span></Link>}</div></header>
       <main key={pathname} id="conteudo" tabIndex={-1} className={`current-content ${/^\/(?:comecar|configuracoes|ajuda|conta)(?:\/|$)/.test(pathname) || /\/(?:registrar|confirmar|revisar|sair)$/.test(pathname) ? "current-content-focused" : ""}`}>{children}</main>
 
     </div>

@@ -33,9 +33,9 @@ const navigationCounts = cache(async () => {
 });
 
 // O conteúdo continua no servidor; a estrutura cuida somente da navegação e apresentação.
-export async function OnboardingShell({ children, showTree = false, nucleusName }: { children: ReactNode; showTree?: boolean; nucleusName?: string }) {
+export async function OnboardingShell({ children, showTree = false, nucleusName, signedOut = false }: { children: ReactNode; showTree?: boolean; nucleusName?: string; signedOut?: boolean }) {
   const context = showTree ? undefined : await navigationCounts();
   const accountMenuContent = context ? <AccountPreferences embedded userId={context.userId} name={context.name} email={context.email} emailConfirmed={context.emailConfirmed} privacyHidden={context.privacy} next="/conta" /> : undefined;
   const mobileAccountMenuContent = context ? <AccountPreferences embedded idPrefix="mobile-account" userId={context.userId} name={context.name} email={context.email} emailConfirmed={context.emailConfirmed} privacyHidden={context.privacy} next="/conta" /> : undefined;
-  return <ApplicationShell showTree={showTree} nucleusName={nucleusName} userId={context?.userId} lastNucleus={context?.lastNucleus} counts={context?.counts} profileLabel={context?.profileLabel} accountMenuContent={accountMenuContent} mobileAccountMenuContent={mobileAccountMenuContent}>{context && <NucleusIdentitySync key={context.userId} version={context.identityVersion} />}{children}</ApplicationShell>;
+  return <ApplicationShell showTree={showTree} signedOut={signedOut} nucleusName={nucleusName} userId={context?.userId} lastNucleus={context?.lastNucleus} counts={context?.counts} profileLabel={context?.profileLabel} accountMenuContent={accountMenuContent} mobileAccountMenuContent={mobileAccountMenuContent}>{context && <NucleusIdentitySync key={context.userId} version={context.identityVersion} />}{children}</ApplicationShell>;
 }
