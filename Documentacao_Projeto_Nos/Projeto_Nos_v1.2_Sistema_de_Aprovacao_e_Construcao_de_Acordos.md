@@ -1,6 +1,6 @@
 ﻿# Projeto Nós - Sistema de Aprovação e Construção de Acordos (Versão 1.2)
 
-**Fluxo completo aprovado — aplicativo v1.1.0 — 18/10/2026:** seguir o [contrato Proposta → Hábito → Experiência → Essência](_andamento/funcionalidades/fluxo-proposta-habito-experiencia-essencia.md). A ordem é obrigatória por pessoa e substitui categorias independentes e saltos. Critérios das passagens e implementação pendentes; limites, consentimento e compatibilização de Essência estão centralizados no contrato.
+**Revisão de 06/11/2026:** seguir o [fluxo Proposta → Hábito → Essência](Projeto_Nos_v1.1_Visao_e_Regras_de_Negocio.md#fluxo-vigente-dos-acordos). Esta alteração da especificação não modifica o aplicativo.
 
 **Atualização de direção — projeto v1.0.0 — 14/10/2026:** para Núcleos/acordos, seguir [contrato administrativo aprovado](_andamento/funcionalidades/administracao-participacao.md). Votação coletiva de acordos, administração futura e consenso para ajuste de propósito descritos neste documento são referência histórica do modelo substituído. Consentimento individual, isolamento e privacidade permanecem; novo modelo implementado e validado localmente; publicação, migração remota e operação pendentes. Demais módulos futuros não recebem novas regras por inferência.
 
@@ -250,7 +250,7 @@ Avaliação periódica do acordo.
 
 ## Etapa 8 — Elegível para Nossa Essência
 
-Referência conceitual anterior, a compatibilizar com a passagem Experiência → Essência aprovada em 18/10/2026. A lista abaixo não representa uma promoção implementada nem autoriza saltar Hábito ou Experiência.
+Referência conceitual anterior, a compatibilizar com a passagem Hábito → Essência vigente desde 06/11/2026. A lista abaixo não representa promoção implementada nem critérios novos aprovados; não há etapa intermediária.
 
 Na proposta anterior, um acordo tornava-se elegível quando:
 
@@ -266,7 +266,7 @@ Na proposta anterior, um acordo tornava-se elegível quando:
 
 ## Etapa 9 — Promoção para Nossa Essência
 
-No fluxo aprovado, Essência vem depois de Experiência e reconhece a consolidação da prática. Não há salto direto de Hábito para Essência. Critérios e consentimentos específicos permanecem pendentes de compatibilização; a implementação não está concluída.
+No fluxo vigente, Essência sucede Hábito e reconhece a consolidação da mesma prática, sem etapa intermediária. Critérios e consentimentos específicos permanecem pendentes de compatibilização; a implementação não está concluída.
 
 ### Exemplo
 
@@ -474,7 +474,7 @@ stateDiagram-v2
     EmRevisao --> Ativo: Manter
     EmRevisao --> EmTeste: Aplicar ajuste unanime apos reflexao
     EmRevisao --> Encerrado: Encerrar de Comum Acordo
-    Ativo --> Essencia: 6 Meses de Sucesso + Consenso
+    Ativo --> Essencia: Criterios de maturidade definidos e consentimento
     Essencia --> [*]
     classDef default fill:#4F7E2C,stroke:#fff,color:#fff
     classDef state fill:#6A3FD1,stroke:#fff,color:#fff

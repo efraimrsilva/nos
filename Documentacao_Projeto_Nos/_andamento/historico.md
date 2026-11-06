@@ -1,5 +1,14 @@
 # Histórico de andamento
 
+## 2026-11-06 — v3.7.2 · Publicação da consolidação documental
+
+Commit/push autorizados para todo o conjunto documental. Atualização remota do README preservada por fast-forward em 49aa18f. Validação limitada ao diff, integridade do commit e confirmação remota, sem repetir testes do aplicativo. [Registro](registros/registro-v3.7.2-2026-11-06-imp-github-fun-publicacao-consolidacao-habito.md).
+
+
+## 2026-11-06 — v3.7.2 · Consolidação documental de Hábito
+
+Nos 19 documentos v1.1–v2.8, Experiência deixa de ser etapa/categoria; Proposta → Hábito → Essência passa a ser o percurso vigente. Catálogo, fluxos e modelo consolidados, com eventos/momentos preservados. Revisões própria/independente, links e diff conferidos; um destino ausente preexistente documentado. Mudança exclusivamente documental, sem alteração no aplicativo/Atlas ou publicação. [Registro](registros/registro-v3.7.2-2026-11-06-imp-documentacao-acordos-fun-consolidacao-habito.md).
+
 ## 2026-11-05 — v3.7.2 · Publicação autorizada no GitHub
 
 Conjunto do lembrete de suporte preparado em uma unidade completa de código, Atlas, testes e documentação. Checagem de tipos e revisão final aprovadas. [Registro](registros/registro-v3.7.2-2026-11-05-imp-github-fun-publicacao-lembrete-suporte.md).

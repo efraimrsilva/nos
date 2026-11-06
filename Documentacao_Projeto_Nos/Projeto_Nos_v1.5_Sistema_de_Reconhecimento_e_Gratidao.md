@@ -1,5 +1,7 @@
 ﻿# Projeto Nós - Sistema de Reconhecimento e Gratidão (Versão 1.5)
 
+**Revisão de 06/11/2026:** seguir o [fluxo Proposta → Hábito → Essência](Projeto_Nos_v1.1_Visao_e_Regras_de_Negocio.md#fluxo-vigente-dos-acordos). Esta alteração da especificação não modifica o aplicativo.
+
 ## Categoria
 **1.x - Visão e Regras de Negócio**
 
@@ -62,7 +64,7 @@ O Projeto Nós deve ajudar os Núcleos a reconhecer não apenas o que precisa me
 
 O Sistema de Reconhecimento e Gratidão não será uma nova categoria principal.
 
-O Projeto Nós permanece organizado nas três categorias principais já definidas:
+O Projeto Nós permanece organizado em Hábitos e Nossa Essência, com Proposta como entrada do percurso:
 
 ## Categoria 1
 
@@ -70,13 +72,9 @@ Hábitos que Queremos Construir
 
 ## Categoria 2
 
-Experiências que Queremos Viver
-
-## Categoria 3
-
 Nossa Essência
 
-O reconhecimento passa a ser uma camada transversal do Núcleo, podendo estar associado a membros, compromissos, hábitos, experiências, revisões ou momentos espontâneos da convivência.
+O reconhecimento passa a ser uma camada transversal do Núcleo, podendo estar associado a membros, compromissos, hábitos, revisões ou momentos espontâneos da convivência.
 
 ---
 
@@ -136,7 +134,7 @@ Registro de um momento positivo vivido pelo Núcleo ou por alguns de seus membro
 
 ## Evolução Percebida
 
-Registro de uma mudança positiva relacionada a um compromisso, hábito, experiência ou revisão.
+Registro de uma mudança positiva relacionada a um compromisso, hábito ou revisão.
 
 ### Exemplo
 
@@ -154,7 +152,7 @@ Um membro pode registrar gratidão, reconhecimento ou celebração sempre que pe
 
 ## Registro Associado a Compromissos
 
-Um reconhecimento pode ser vinculado a um compromisso, hábito ou experiência existente.
+Um reconhecimento pode ser vinculado a um compromisso ou Hábito existente.
 
 ### Exemplo
 
@@ -211,7 +209,6 @@ O registro pode ser associado opcionalmente a:
 
 - Um compromisso.
 - Um hábito.
-- Uma experiência.
 - Uma revisão.
 - O Propósito do Núcleo.
 - Nenhum item específico.
@@ -389,7 +386,7 @@ O Sistema de Reconhecimento e Gratidão não deve gerar pontuação, ranking, co
 
 ## Regra R6
 
-Um registro positivo pode ser associado a compromissos, hábitos, experiências, revisões, membros ou ao Núcleo como um todo.
+Um registro positivo pode ser associado a compromissos, hábitos, revisões, membros ou ao Núcleo como um todo.
 
 ## Regra R7
 
@@ -452,7 +449,7 @@ Permitir que membros registrem mensagens positivas no Núcleo.
 
 ## Fase 2 - Associação com Compromissos
 
-Permitir vincular um registro positivo a compromissos, hábitos, experiências ou revisões.
+Permitir vincular um registro positivo a compromissos, hábitos ou revisões.
 
 ## Fase 3 - Histórico Positivo do Núcleo
 
@@ -530,10 +527,9 @@ Após pelo menos 6 meses de prática, revisões positivas, alinhamento ao Propó
 
 O Sistema de Reconhecimento e Gratidão será implementado como camada transversal do Núcleo, não como nova categoria principal.
 
-As três categorias principais permanecem:
+Os agrupamentos de prática e consolidação são:
 
 - Hábitos que Queremos Construir
-- Experiências que Queremos Viver
 - Nossa Essência
 
 O sistema permitirá registrar:

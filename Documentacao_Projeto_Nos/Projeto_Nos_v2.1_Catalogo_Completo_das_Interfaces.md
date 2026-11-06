@@ -1,6 +1,6 @@
 ﻿# Projeto Nós - Catálogo Completo das Interfaces (Versão 2.1)
 
-**Fluxo completo aprovado — aplicativo v1.1.0 — 18/10/2026:** seguir o [contrato Proposta → Hábito → Experiência → Essência](_andamento/funcionalidades/fluxo-proposta-habito-experiencia-essencia.md). A ordem é obrigatória por pessoa e substitui categorias independentes e saltos. Critérios das passagens e implementação pendentes; limites, consentimento e compatibilização de Essência estão centralizados no contrato.
+**Revisão de 06/11/2026:** seguir o [fluxo Proposta → Hábito → Essência](Projeto_Nos_v1.1_Visao_e_Regras_de_Negocio.md#fluxo-vigente-dos-acordos). Esta alteração da especificação não modifica o aplicativo.
 
 ## Categoria
 **2.x - Interface e Implementação**
@@ -138,13 +138,13 @@ Aplicação nas telas:
 
 ## 1.9 Calendário do Núcleo e sincronização segura
 
-Agenda deve ser interna, segura, contextual e ligada a experiências, hábitos, revisões e momentos.
+Agenda deve ser interna, segura, contextual e ligada a hábitos, revisões e momentos.
 
 Aplicação nas telas:
 
 - calendário na Home;
 - próximos momentos;
-- experiência com próxima data;
+- Hábito com próxima ocorrência agendada;
 - registro pós-momento.
 
 ## 1.10 Conversas Guiadas e Ponte do Nós
@@ -167,7 +167,7 @@ As interfaces do protótipo se organizam em dez áreas:
 
 1. Entrada e onboarding.
 2. Home do Núcleo.
-3. Acordos, hábitos, experiências e Essência.
+3. Acordos, hábitos e Essência.
 4. Árvore, impacto, maturidade e evolução.
 5. Memórias, gratidão e marcos.
 6. Núcleos, convites e permissões.
@@ -293,7 +293,7 @@ Completar a Home mostrando continuação do calendário e lista de próximos mom
 
 ### Interações
 
-- tocar em evento abre detalhe do evento ou experiência;
+- tocar em evento abre detalhe do evento;
 - eventos associados a acordos devem abrir o acordo relacionado;
 - eventos já realizados devem sugerir "Registrar momento";
 - navegação mensal deve permitir avançar e voltar mês.
@@ -304,33 +304,33 @@ Completar a Home mostrando continuação do calendário e lista de próximos mom
 - eventos futuros;
 - tipo de evento;
 - participantes;
-- vínculo com acordo, experiência ou data importante.
+- vínculo com acordo ou data importante.
 
 ### Regras
 
 - calendário interno é fonte oficial;
 - sincronização externa, quando existir, é espelho controlado;
-- eventos devem ter intenção afetiva quando forem do tipo experiência, revisão ou conversa de cuidado.
+- eventos devem ter intenção afetiva quando forem do tipo Hábito Agendado, revisão ou conversa de cuidado.
 
 ### Alinhamento documental
 
 - v1.9: calendário seguro, eventos e próximos momentos;
-- v1.6: experiências e marcos;
+- v1.6: práticas e marcos;
 - v1.2: revisões e hábitos agendados.
 
 ---
 
-## Tela 04 - Acordos: Hub de Hábitos, Experiências e Essência
+## Tela 04 - Acordos: Hub de Hábitos e Essência
 
 ### Objetivo
 
-Centralizar os compromissos do Núcleo e apresentar Proposta → Hábito → Experiência → Essência como etapas obrigatórias da evolução da pessoa. Os critérios de cada passagem continuam a definir; os agrupamentos visuais não autorizam criação direta de Experiência. A implementação atual ainda usa categorias no acordo e precisa ser adaptada.
+Centralizar os compromissos do Núcleo e apresentar Proposta → Hábito → Essência como etapas obrigatórias da evolução da pessoa. Hábito reúne prática e amadurecimento, com critérios das duas passagens ainda a definir. A implementação atual ainda usa categorias no acordo e precisa ser adaptada.
 
 ### Conteúdo
 
 - título "Acordos";
 - subtítulo "Pequenas ações, grandes laços";
-- abas: "Hábitos", "Experiências", "Essência";
+- abas: "Hábitos", "Essência";
 - filtros: "Todos", "Em andamento", "Concluídos";
 - botão de adicionar novo acordo;
 - lista de hábitos com progresso:
@@ -341,7 +341,7 @@ Centralizar os compromissos do Núcleo e apresentar Proposta → Hábito → Exp
 
 ### Interações
 
-- trocar abas altera o agrupamento exibido; no novo desenho, a etapa Hábito/Experiência corresponde à pessoa participante, sem inferir progresso coletivo;
+- trocar abas altera o agrupamento exibido; no novo desenho, a etapa de evolução corresponde à pessoa participante, sem inferir progresso coletivo;
 - filtros alteram status da lista;
 - tocar em item abre detalhe;
 - botão adicionar abre "Novo acordo";
@@ -360,13 +360,12 @@ Centralizar os compromissos do Núcleo e apresentar Proposta → Hábito → Exp
 ### Regras
 
 - Proposta é a entrada do percurso; Hábito é o primeiro degrau de prática depois da Proposta;
-- Experiência é a etapa posterior do mesmo percurso, obrigatoriamente precedida pelo Hábito; critérios e confirmação da passagem estão pendentes;
-- Essência é a etapa de consolidação depois de Experiência; critérios e consentimentos ainda precisam ser contratados;
+- Essência é a etapa de consolidação depois de Hábito; critérios e consentimentos ainda precisam ser contratados;
 - progresso não deve virar ranking.
 
 ### Alinhamento documental
 
-- v1.1: referência conceitual anterior de três categorias; direção atual aprovada em 18/10/2026 exige o fluxo Proposta → Hábito → Experiência → Essência;
+- v1.1: direção vigente de 06/11/2026 define o fluxo Proposta → Hábito → Essência;
 - v1.2: construção de acordos;
 - v1.4: impacto;
 - v1.6: marcos.
@@ -483,7 +482,7 @@ Visualizar a evolução coletiva do Núcleo através da árvore, dos níveis, da
 - experiência: "1.250 / 1.800 exp";
 - indicadores:
   - 23 hábitos cultivados;
-  - 17 experiências vividas;
+  - 17 momentos vividos;
   - 6 valores na essência;
 - próximo estágio: "Copa florescente";
 - texto: "Faltam 550 exp - cada hábito praticado e momento registrado faz a árvore crescer."
@@ -491,7 +490,7 @@ Visualizar a evolução coletiva do Núcleo através da árvore, dos níveis, da
 ### Interações
 
 - voltar para Acordos ou Home;
-- tocar em indicadores pode filtrar para hábitos, experiências ou Essência;
+- tocar em indicadores pode filtrar para hábitos, momentos ou Essência;
 - árvore pode exibir animações leves;
 - próximo estágio pode abrir detalhes de maturidade.
 
@@ -501,13 +500,13 @@ Visualizar a evolução coletiva do Núcleo através da árvore, dos níveis, da
 - experiência atual e meta;
 - estágio atual;
 - próximo estágio;
-- contagem de hábitos, experiências e valores.
+- contagem de hábitos, momentos e valores.
 
 ### Regras
 
 - crescimento é coletivo;
 - não deve expor contribuição individual como ranking;
-- experiências, hábitos e Essência alimentam a árvore;
+- momentos, hábitos e Essência alimentam a árvore;
 - marcos devem ser celebrados sem pressão.
 
 ### Alinhamento documental
@@ -905,7 +904,7 @@ Agrupar avisos relevantes do Núcleo com tom positivo, cuidadoso e não invasivo
 
 ### Objetivo
 
-Permitir registrar como foi uma prática, experiência ou momento do Núcleo.
+Permitir registrar como foi uma prática de Hábito ou evento do Núcleo.
 
 ### Conteúdo
 
@@ -1152,54 +1151,49 @@ Completar o perfil de Ana com gostos e ações rápidas.
 
 ---
 
-## Tela 21 - Detalhe de Experiência: Jantar Romântico
+## Tela 21 - Hábito com Agendamento: Jantar Romântico
 
 ### Objetivo
 
-Mostrar uma experiência recorrente ou planejada com próxima data, histórico e ideias.
+Apresentar “Jantar romântico” como exemplo de Hábito mensal, reutilizando o detalhe, as ações e o histórico das Telas 05 e 06. O identificador 21 é preservado para rastreabilidade do catálogo; não define uma categoria ou um detalhe paralelo.
 
 ### Conteúdo
 
-- etiqueta "Experiência - Mensal";
-- título "Jantar romântico";
-- descrição: "Criar momentos a sós, sem pressa.";
-- próxima data: "8 de junho";
-- já vividas: "7 vezes";
-- ideias para a próxima:
-  - "Cozinhar algo novo juntos";
-  - "Piquenique na varanda ao pôr do sol";
-  - "Revisitar o restaurante do primeiro encontro";
-- seção "Últimas vezes";
-- botão "Agendar próximo jantar".
+- título “Jantar romântico”;
+- etiqueta “Hábito — Mensal”;
+- intenção “Criar momentos a sós, sem pressa”;
+- próxima ocorrência, quando houver evento associado;
+- histórico de momentos registrados;
+- ideias opcionais para variar a prática, como cozinhar juntos ou revisitar um restaurante;
+- ação “Agendar próximo jantar”.
 
 ### Interações
 
-- agendar abre calendário interno;
-- ideias podem virar proposta de evento;
-- últimas vezes abre memórias associadas.
+- agendar abre o calendário interno com vínculo ao Hábito;
+- confirmar presença responde somente ao evento, sem aceitar ou alterar o acordo;
+- histórico abre os momentos e memórias acessíveis associados;
+- revisar e registrar momento reutilizam os fluxos comuns de Hábito.
 
 ### Dados necessários
 
-- experiência;
-- recorrência;
-- próxima data;
-- histórico;
-- ideias;
-- participantes.
+- acordo/Hábito e participantes;
+- frequência acordada;
+- evento associado e sua próxima data, se existir;
+- histórico de momentos e permissões de leitura.
 
 ### Regras
 
-- experiência não é obrigação;
-- deve ter intenção afetiva;
-- pode gerar memória depois de realizada.
+- frequência e participação seguem o combinado aceito por cada pessoa;
+- a realização de um jantar não cria uma nova etapa nem promove automaticamente para Essência;
+- foto e memória são opcionais;
+- jantar pontual sem acordo pode ser criado como Evento Livre na agenda.
 
 ### Alinhamento documental
 
-- v1.1: experiências;
-- v1.6: marcos;
-- v1.9: eventos;
-- v1.7: linguagem de cuidado.
-
+- v1.1: Hábito reúne prática e amadurecimento;
+- v1.2: construção e revisão do acordo;
+- v1.9: eventos, presença e calendário;
+- v1.6: marcos a partir de prática real.
 ---
 
 ## Tela 22 - Revisar Acordo
@@ -1263,7 +1257,7 @@ Celebrar quando um hábito consistente pode se tornar parte da Nossa Essência.
 ### Conteúdo
 
 - mensagem: "Um hábito virou quem vocês são";
-- texto: "Depois de 5 meses cultivando, Conversar sem distrações já faz parte da essência de vocês.";
+- texto: "Vocês reconhecem que Conversar sem distrações pode representar a essência de vocês?";
 - frase de Essência: "Conversamos sem distrações.";
 - aviso: "Será adicionado à Nossa Essência";
 - pendência: "Precisa do aceite de: Ana";
@@ -1614,7 +1608,7 @@ Selecionar o tipo inicial do Núcleo.
 
 ### Interações
 
-- selecionar tipo altera sugestões de propósito, acordos e experiências;
+- selecionar tipo altera sugestões de propósito e acordos;
 - continuar segue para propósito do Núcleo.
 
 ### Alinhamento documental
@@ -1673,7 +1667,7 @@ Gerar convite para os primeiros membros do Núcleo.
 
 ### Objetivo
 
-Mostrar modelos de vínculo e sugerir acordos/experiências adequadas a cada relação.
+Mostrar modelos de vínculo e sugerir acordos e eventos adequados a cada relação.
 
 ### Conteúdo
 
@@ -1694,7 +1688,7 @@ Mostrar modelos de vínculo e sugerir acordos/experiências adequadas a cada rel
   - emoji;
   - propósito;
   - acordos sugeridos;
-  - experiências sugeridas;
+  - eventos sugeridos;
   - botão "Ver a jornada do casal" quando houver estágio romântico;
 - botão "Criar este vínculo".
 
@@ -1709,7 +1703,7 @@ Mostrar modelos de vínculo e sugerir acordos/experiências adequadas a cada rel
 - catálogo de vínculos;
 - propósito por vínculo;
 - acordos sugeridos;
-- experiências sugeridas;
+- eventos sugeridos;
 - estágio aplicável.
 
 ### Regras
@@ -1854,7 +1848,7 @@ Centralizar decisões pendentes que exigem consentimento entre membros.
   - "Ana propôs um acordo";
   - "Conversar sem celular toda quarta, 30 min depois do jantar.";
   - ações "Aceitar", "Conversar" e recusar;
-- convite de experiência:
+- convite de evento:
   - "Rafa te convidou";
   - "Jogar bola no sábado";
   - ações "Topo, vou!" e recusar;
@@ -2004,7 +1998,6 @@ Regras:
 - Vínculo;
 - Acordo;
 - Hábito;
-- Experiência;
 - Essência;
 - Momento;
 - Gratidão;

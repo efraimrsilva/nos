@@ -1,6 +1,6 @@
 ﻿# Projeto Nós - Modelo Funcional, Dados, Estados e Regras (Versão 2.4)
 
-**Fluxo completo aprovado — aplicativo v1.1.0 — 18/10/2026:** seguir o [contrato Proposta → Hábito → Experiência → Essência](_andamento/funcionalidades/fluxo-proposta-habito-experiencia-essencia.md). A ordem é obrigatória por pessoa e substitui categorias independentes e saltos. Critérios das passagens e implementação pendentes; limites, consentimento e compatibilização de Essência estão centralizados no contrato.
+**Revisão de 06/11/2026:** seguir o [fluxo Proposta → Hábito → Essência](Projeto_Nos_v1.1_Visao_e_Regras_de_Negocio.md#fluxo-vigente-dos-acordos). Esta alteração da especificação não modifica o aplicativo.
 
 **Atualização de direção — projeto v1.0.0 — 14/10/2026:** para Núcleos/acordos, seguir [contrato administrativo aprovado](_andamento/funcionalidades/administracao-participacao.md). Votação coletiva de acordos, administração futura e consenso para ajuste de propósito descritos neste documento são referência histórica do modelo substituído. Consentimento individual, isolamento e privacidade permanecem; novo modelo implementado e validado localmente; publicação, migração remota e operação pendentes. Demais módulos futuros não recebem novas regras por inferência.
 
@@ -307,11 +307,11 @@ Compromisso construído a partir de necessidade, conversa e consentimento.
 - `aprovacoes`;
 - `progressoPercentual`;
 
-### Etapas de evolução da pessoa — direção aprovada
+### Etapas de evolução da pessoa — direção vigente
 
-- Proposta → Hábito → Experiência → Essência: sequência obrigatória vinculada à mesma prática e à pessoa participante.
-- Experiência não pode ser tratada como uma categoria independente de entrada no novo modelo.
-- Essência sucede obrigatoriamente Experiência; critérios de consolidação, consentimento e implementação permanecem pendentes.
+- Proposta → Hábito → Essência: sequência obrigatória vinculada à mesma prática e à pessoa participante.
+- Hábito reúne prática, registros, revisões e amadurecimento; não modelar uma etapa intermediária.
+- Essência sucede Hábito; critérios de consolidação, consentimento e implementação permanecem pendentes.
 
 O campo global `categoria` da proposta anterior não comprova a evolução de todas as pessoas. A estrutura para estágio, critérios, permissões e histórico individuais ainda precisa ser definida antes de criar campos ou migrações. O aplicativo atual continua usando categorias no acordo; essa limitação não representa conclusão do novo desenho.
 
@@ -343,7 +343,7 @@ Estados operacionais não substituem as etapas individuais de evolução. Para r
 
 ## 2.9 Registro de Momento
 
-Registro de uma prática, experiência ou evento vivido.
+Registro de uma prática de Hábito ou evento vivido.
 
 ### Campos recomendados
 
@@ -429,7 +429,6 @@ Item da linha do tempo afetiva do Núcleo.
 - foto;
 - marco;
 - momento;
-- experiência;
 - celebração;
 - manifesto;
 - entradaMembro.
@@ -497,14 +496,12 @@ Momento planejado no calendário interno do Núcleo.
 - `participantesOpcionais`;
 - `status`;
 - `acordoId`;
-- `experienciaId`;
 - `vinculoId`;
 - `privacidade`;
 - `sincronizacaoExterna`;
 
 ### Tipos
 
-- experiência;
 - hábitoAgendado;
 - revisão;
 - conversaDeCuidado;
@@ -533,7 +530,7 @@ Momento planejado no calendário interno do Núcleo.
 
 ## 2.14 Convite
 
-Convite para entrada no Núcleo ou participação em experiência.
+Convite para entrada no Núcleo ou participação em evento.
 
 ### Campos recomendados
 
@@ -553,7 +550,6 @@ Convite para entrada no Núcleo ou participação em experiência.
 ### Tipos
 
 - entradaNucleo;
-- experiencia;
 - evento;
 
 ### Status
@@ -570,7 +566,7 @@ Convite para entrada no Núcleo ou participação em experiência.
 - convite deve ser revogável;
 - código deve ser único por Núcleo e período;
 - aceitar convite de Núcleo cria Membro;
-- aceitar convite de experiência confirma participação.
+- aceitar convite de evento confirma somente presença, sem aceitar ou promover um acordo.
 
 ---
 
@@ -598,7 +594,6 @@ Consentimento explícito para ações importantes.
 - ajusteAcordo;
 - encerrarAcordo;
 - promoverEssencia;
-- conviteExperiencia;
 - mudarFaseJornada;
 - confirmarManifesto;
 - eventoObrigatorio.
@@ -932,7 +927,6 @@ Pode crescer com:
 
 - hábito praticado;
 - momento registrado;
-- experiência vivida;
 - gratidão enviada;
 - marco alcançado;
 - acordo promovido para Essência;
@@ -964,7 +958,6 @@ Sinais possíveis:
 
 - tempo desde última interação;
 - gratidões trocadas;
-- experiências vividas;
 - acordos compartilhados;
 - datas importantes próximas;
 - resposta a convites;

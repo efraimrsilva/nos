@@ -1,5 +1,7 @@
 ﻿# Projeto Nós - Manifesto do Núcleo (Versão 1.8)
 
+**Revisão de 06/11/2026:** seguir o [fluxo Proposta → Hábito → Essência](Projeto_Nos_v1.1_Visao_e_Regras_de_Negocio.md#fluxo-vigente-dos-acordos). Esta alteração da especificação não modifica o aplicativo.
+
 ## Categoria
 **1.x - Visão e Regras de Negócio**
 
@@ -95,17 +97,13 @@ Ele deve nascer da própria caminhada registrada no Projeto Nós.
 
 O Manifesto do Núcleo não será uma nova categoria principal.
 
-O Projeto Nós permanece organizado nas três categorias principais já definidas:
+O Projeto Nós permanece organizado em Hábitos e Nossa Essência, com Proposta como entrada do percurso:
 
 ## Categoria 1
 
 Hábitos que Queremos Construir
 
 ## Categoria 2
-
-Experiências que Queremos Viver
-
-## Categoria 3
 
 Nossa Essência
 
@@ -190,7 +188,6 @@ O Projeto Nós já coleta, ao longo do uso, informações suficientes para compr
 - Propósito.
 - Acordos.
 - Hábitos.
-- Experiências.
 - Nossa Essência.
 - Revisões.
 - Impacto esperado.
@@ -309,7 +306,7 @@ Ele deve surgir quando houver trajetória suficiente para ser sintetizada.
 
 - Núcleo criado há pelo menos 3 meses.
 - Propósito do Núcleo definido.
-- Pelo menos um acordo, hábito ou experiência registrado.
+- Pelo menos um acordo ou Hábito registrado.
 - Pelo menos uma revisão ou registro positivo realizado.
 
 ## Critérios recomendados para um Manifesto mais maduro
@@ -346,7 +343,7 @@ O Manifesto deve ser gerado exclusivamente a partir de dados já existentes no P
 - Propósito do Núcleo.
 - Nossa Essência.
 - Hábitos ativos.
-- Experiências planejadas ou vividas.
+- Eventos realizados e momentos registrados.
 - Acordos em teste, ativos ou consolidados.
 - Revisões positivas.
 - Impacto esperado.
@@ -410,7 +407,7 @@ Esta seção deve evitar expor conflitos específicos.
 
 ## 6. O Que Queremos Preservar
 
-Hábitos, experiências, valores, atitudes e formas de cuidado que o Núcleo demonstrou querer manter ao longo do tempo.
+Hábitos, valores, atitudes e formas de cuidado que o Núcleo demonstrou querer manter ao longo do tempo.
 
 ## 7. O Que Estamos Aprendendo
 
@@ -422,7 +419,7 @@ Itens vindos principalmente de Nossa Essência e de compromissos maduros.
 
 ## 9. Nossa Caminhada Até Aqui
 
-Resumo afetivo de marcos, reconhecimentos, experiências, avanços importantes e formas de cuidado que amadureceram.
+Resumo afetivo de marcos, reconhecimentos, momentos, avanços importantes e formas de cuidado que amadureceram.
 
 ---
 
@@ -572,7 +569,7 @@ Elas ajudam o sistema a não falar apenas que o Núcleo "cuida", mas a explicar 
 
 ## Preferir
 
-> João tem demonstrado valorizar momentos de presença e escuta nas experiências registradas pelo Núcleo.
+> João tem demonstrado valorizar momentos de presença e escuta nos registros do Núcleo.
 
 > Gestos simbólicos apareceram como uma forma significativa de cuidado em alguns registros de gratidão.
 
@@ -644,7 +641,7 @@ O Manifesto deve usar linguagem:
 
 O Núcleo utiliza normalmente a plataforma.
 
-Registra propósito, acordos, hábitos, experiências, revisões, reconhecimentos, gratidões, marcos, itens de Nossa Essência e Linguagens de Cuidado Esperadas ou Percebidas.
+Registra propósito, acordos, hábitos, revisões, reconhecimentos, gratidões, marcos, itens de Nossa Essência e Linguagens de Cuidado Esperadas ou Percebidas.
 
 ## Etapa 2 - Elegibilidade
 
@@ -839,7 +836,7 @@ Gerar automaticamente um Manifesto básico a partir de:
 - Propósito do Núcleo.
 - Nossa Essência.
 - Hábitos ativos.
-- Experiências vividas.
+- Momentos vividos.
 - Registros positivos.
 
 ## Fase 2 - Critérios de Elegibilidade
@@ -928,7 +925,7 @@ O Manifesto do Núcleo torna o Projeto Nós mais profundo, simbólico e emociona
 
 Ele transforma meses ou anos de registros em uma narrativa viva de identidade, cuidado e evolução.
 
-Ao reunir Propósito, Nossa Essência, acordos, hábitos, experiências, gratidão, reconhecimento, impacto, marcos e Linguagens de Cuidado, o Manifesto ajuda cada Núcleo a perceber não apenas o que faz, mas quem está se tornando e como tem aprendido a cuidar.
+Ao reunir Propósito, Nossa Essência, acordos, hábitos, gratidão, reconhecimento, impacto, marcos e Linguagens de Cuidado, o Manifesto ajuda cada Núcleo a perceber não apenas o que faz, mas quem está se tornando e como tem aprendido a cuidar.
 
 Essa melhoria fortalece a missão central do Projeto Nós:
 

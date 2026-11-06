@@ -1,6 +1,6 @@
 ﻿# Projeto Nós - Fluxos, Navegação e Interações (Versão 2.2)
 
-**Fluxo completo aprovado — aplicativo v1.1.0 — 18/10/2026:** seguir o [contrato Proposta → Hábito → Experiência → Essência](_andamento/funcionalidades/fluxo-proposta-habito-experiencia-essencia.md). A ordem é obrigatória por pessoa e substitui categorias independentes e saltos. Critérios das passagens e implementação pendentes; limites, consentimento e compatibilização de Essência estão centralizados no contrato.
+**Revisão de 06/11/2026:** seguir o [fluxo Proposta → Hábito → Essência](Projeto_Nos_v1.1_Visao_e_Regras_de_Negocio.md#fluxo-vigente-dos-acordos). Esta alteração da especificação não modifica o aplicativo.
 
 ## Categoria
 **2.x - Interface e Implementação**
@@ -81,7 +81,6 @@ Algumas telas ocultam a navegação inferior para manter concentração e privac
 - Gratidão;
 - Aceitar convite;
 - Perfil de membro;
-- Experiência;
 - Revisão;
 - Promoção para Essência;
 - Conversa de cuidado;
@@ -175,7 +174,7 @@ Tela 01 - Splash e Entrada Afetiva.
 
 ### Regras
 
-- tipo do Núcleo altera sugestões de acordos, experiências e Manifesto;
+- tipo do Núcleo altera sugestões de acordos, eventos e Manifesto;
 - propósito alimenta Perfil, Manifesto e Home;
 - convite inicial deve ser opcional, mas recomendado.
 
@@ -261,7 +260,7 @@ Mostrar o estado atual do Núcleo e conduzir a pequenas ações de cuidado.
 - tocar na árvore abre Nossa Árvore;
 - tocar em gratidão abre Memórias ou detalhe;
 - tocar no calendário filtra eventos;
-- tocar em evento abre experiência, acordo ou evento;
+- tocar em evento abre o evento e permite acessar o acordo associado;
 - tocar em notificações abre Notificações;
 - tocar no seletor abre Seus Núcleos.
 
@@ -302,7 +301,6 @@ Mostrar o estado atual do Núcleo e conduzir a pequenas ações de cuidado.
 ### Abas
 
 - Hábitos;
-- Experiências;
 - Essência.
 
 ### Filtros
@@ -314,19 +312,18 @@ Mostrar o estado atual do Núcleo e conduzir a pequenas ações de cuidado.
 ### Interações
 
 - tocar em hábito abre detalhe;
-- tocar em experiência abre detalhe de experiência;
 - tocar em item de Essência abre detalhe da prática consolidada;
-- botão adicionar inicia a Proposta; o percurso continua em Hábito → Experiência → Essência, sem criação independente de Experiência ou salto para Essência; implementação pendente.
+- botão adicionar inicia a Proposta; o percurso continua em Hábito → Essência, sem criação direta em Essência; implementação pendente.
 
 ### Regras
 
-- Proposta → Hábito → Experiência → Essência é uma sequência obrigatória por pessoa; o desenho deve distinguir etapa individual de situação operacional do acordo;
+- Proposta → Hábito → Essência é uma sequência obrigatória por pessoa; o desenho deve distinguir etapa individual de situação operacional do acordo;
 - Essência deve ter tratamento mais identitário e menos operacional;
 - acordos pendentes devem indicar que aguardam aceite.
 
 ## 5.2 Novo acordo
 
-As etapas de necessidade, conversa e definição de termos abaixo descrevem a preparação da Proposta. Elas não substituem os quatro degraus de evolução aprovados: Proposta → Hábito → Experiência → Essência. A relação com teste, ativação e confirmação de cada passagem ainda exige contrato.
+As etapas de necessidade, conversa e definição de termos abaixo descrevem a preparação da Proposta. Elas não substituem os três degraus de evolução aprovados: Proposta → Hábito → Essência. A relação com teste, ativação e confirmação de cada passagem ainda exige contrato.
 
 ### Etapas oficiais
 
@@ -488,21 +485,15 @@ Ao salvar:
 
 ---
 
-# 6. Fluxo de Experiências e Agenda
+# 6. Fluxo de Hábitos e Agenda
 
-## 6.1 Experiência
+## 6.1 Prática de Hábito com agendamento
 
-Experiência é um momento que o Núcleo deseja viver.
+O Hábito define a prática e sua frequência; o evento organiza uma ocorrência com data, horário e participantes. Não existe uma entidade ou etapa intermediária de Experiência.
 
-Exemplo do protótipo:
+Exemplo: “Jantar romântico” é um Hábito mensal; “Jantar em 8 de junho” é o evento associado. O histórico “7 vezes” só pode refletir registros reais, sem comprovar sozinho maturidade ou promoção para Essência. Eventos pontuais sem acordo usam Evento Livre.
 
-- "Jantar romântico";
-- tipo: mensal;
-- intenção: "Criar momentos a sós, sem pressa.";
-- próxima data: "8 de junho";
-- histórico: "7 vezes".
-
-## 6.2 Agendar experiência
+## 6.2 Agendar a prática de um Hábito
 
 ### Etapas
 
@@ -522,7 +513,6 @@ Exemplo do protótipo:
 
 Herdados da v1.9:
 
-- Experiência;
 - Hábito agendado;
 - Revisão;
 - Conversa de cuidado;
@@ -569,7 +559,6 @@ Regra: eventos que envolvem presença de mais de uma pessoa devem permitir confi
 - celebração;
 - momento registrado;
 - foto;
-- experiência vivida;
 - marco de hábito;
 - marco de Essência;
 - entrada de membro;
@@ -717,7 +706,6 @@ Transformar a rede de vínculos em uma visualização navegável e acionável.
 - última interação;
 - gratidões trocadas;
 - momentos registrados;
-- experiências vividas;
 - acordos ativos;
 - datas importantes próximas;
 - respostas pendentes.
@@ -738,11 +726,10 @@ Centralizar consentimentos necessários.
 - ajuste de acordo;
 - encerramento de acordo;
 - promoção para Essência;
-- convite de experiência;
 - mudança de fase da jornada;
 - entrada em Núcleo;
 - confirmação de Manifesto;
-- evento com participação obrigatória.
+- convite de evento, com resposta de presença própria.
 
 ## Estados
 

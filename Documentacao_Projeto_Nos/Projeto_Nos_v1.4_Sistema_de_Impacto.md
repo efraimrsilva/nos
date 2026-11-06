@@ -1,6 +1,6 @@
 ﻿# Projeto Nós - Sistema de Impacto dos Compromissos (Versão 1.4)
 
-**Fluxo completo aprovado — aplicativo v1.1.0 — 18/10/2026:** seguir o [contrato Proposta → Hábito → Experiência → Essência](_andamento/funcionalidades/fluxo-proposta-habito-experiencia-essencia.md). A ordem é obrigatória por pessoa e substitui categorias independentes e saltos. Critérios das passagens e implementação pendentes; limites, consentimento e compatibilização de Essência estão centralizados no contrato.
+**Revisão de 06/11/2026:** seguir o [fluxo Proposta → Hábito → Essência](Projeto_Nos_v1.1_Visao_e_Regras_de_Negocio.md#fluxo-vigente-dos-acordos). Esta alteração da especificação não modifica o aplicativo.
 
 ## Categoria
 **1.x - Visão e Regras de Negócio**
@@ -60,7 +60,7 @@ O impacto funciona como uma camada de avaliação dos compromissos, ajudando o N
 
 O Sistema de Impacto não será uma nova categoria.
 
-O Projeto Nós permanece organizado nas três categorias principais já definidas:
+O Projeto Nós permanece organizado em Hábitos e Nossa Essência, com Proposta como entrada do percurso:
 
 ## Categoria 1
 
@@ -68,13 +68,9 @@ Hábitos que Queremos Construir
 
 ## Categoria 2
 
-Experiências que Queremos Viver
-
-## Categoria 3
-
 Nossa Essência
 
-O impacto passa a ser um atributo dos compromissos, acordos, hábitos e experiências existentes dentro dessas categorias.
+O impacto passa a ser um atributo dos acordos e da prática de Hábitos, podendo apoiar a reflexão sobre Nossa Essência.
 
 ---
 
@@ -167,16 +163,6 @@ O impacto ajuda a priorizar quais hábitos devem receber mais atenção, acompan
 | Hábito                    | Por que isso é importante para nós? | Ritmo   | Impacto Esperado | Impacto Percebido | Data de Revisão |
 | ------------------------- | ----------------------------------- | ------- | ---------------- | ----------------- | --------------- |
 | Jantar juntos sem celular | Melhorar nossa presença e conexão   | Semanal | Alto             | Transformador     | Mensal          |
-
-## Experiências que Queremos Viver
-
-O impacto ajuda a diferenciar experiências pontuais de experiências com maior potencial de fortalecer o Núcleo.
-
-### Exemplo
-
-| Experiência             | Objetivo                            | Ritmo | Impacto Esperado | Impacto Percebido | Próxima Data |
-| ----------------------- | ----------------------------------- | ----- | ---------------- | ----------------- | ------------ |
-| Viagem anual em família | Criar memórias e fortalecer a união | Anual | Alto             | Alto              | Dezembro     |
 
 ## Nossa Essência
 
@@ -417,7 +403,7 @@ Percentuais de aceite só devem ser considerados futuramente para Núcleos ampli
 ## Para a Plataforma
 
 - Aumenta a profundidade do produto sem inflar a estrutura.
-- Mantém as três categorias principais já acordadas.
+- Mantém Hábitos e Nossa Essência, com Proposta como entrada do percurso.
 - Cria base para filtros, indicadores e relatorios futuros.
 - Fortalece a maturidade do sistema de revisões.
 
@@ -525,10 +511,9 @@ Após pelo menos 6 meses de prática, revisões positivas e consenso total dos m
 
 O Sistema de Impacto será implementado como atributo dos compromissos, não como nova categoria.
 
-Os três agrupamentos de apresentação permanecem, com esta leitura atualizada: o fluxo obrigatório é Proposta → Hábito → Experiência → Essência. A representação é da evolução individual; os critérios das três passagens dependem de contrato próprio. A lista não autoriza entrada independente em Experiência:
+O fluxo vigente é Proposta → Hábito → Essência. Hábito reúne prática e amadurecimento; os critérios das duas passagens dependem de definição própria. Os agrupamentos de prática e consolidação são:
 
 - Hábitos que Queremos Construir
-- Experiências que Queremos Viver
 - Nossa Essência
 
 O impacto será dividido em:
@@ -593,7 +578,7 @@ Impacto pode influenciar a relevância de uma prática na evolução do Núcleo,
 A tela "Nossa árvore" apresenta indicadores como:
 
 - hábitos cultivados;
-- experiências vividas;
+- momentos vividos;
 - valores na essência.
 
 Esses indicadores devem ser agregados do Núcleo, não rankings de membros.

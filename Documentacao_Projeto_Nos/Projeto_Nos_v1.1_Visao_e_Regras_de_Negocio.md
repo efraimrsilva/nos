@@ -1,6 +1,6 @@
 ﻿# Projeto Nós - Documento de Visão e Regras de Negócio (Versão 1.1)
 
-**Fluxo completo aprovado — aplicativo v1.1.0 — 18/10/2026:** seguir o [contrato Proposta → Hábito → Experiência → Essência](_andamento/funcionalidades/fluxo-proposta-habito-experiencia-essencia.md). A ordem é obrigatória por pessoa e substitui categorias independentes e saltos. Critérios das passagens e implementação pendentes; limites, consentimento e compatibilização de Essência estão centralizados no contrato.
+**Revisão de 06/11/2026:** seguir o [fluxo Proposta → Hábito → Essência](Projeto_Nos_v1.1_Visao_e_Regras_de_Negocio.md#fluxo-vigente-dos-acordos). Esta alteração da especificação não modifica o aplicativo.
 
 ## Categoria
 **1.x - Visão e Regras de Negócio**
@@ -116,13 +116,29 @@ Nossa Essência
 
 # Estrutura Principal da Plataforma
 
+## Fluxo vigente dos acordos
+
+**Proposta → Hábito → Essência.** Esta decisão de 06/11/2026 substitui a sequência de quatro etapas registrada em 18/10/2026. Experiência foi removida como etapa e categoria; seu acompanhamento de prática fica reunido em Hábito.
+
+- **Proposta:** apresenta uma intenção e os termos da prática, sem aceitar por outra pessoa.
+- **Hábito:** reúne prática, registros de momentos, revisões e amadurecimento da mesma prática pela pessoa participante.
+- **Essência:** possível consolidação de uma prática amadurecida como valor identitário, com consentimento e critérios próprios.
+
+A evolução individual não equivale ao estado operacional do acordo (por exemplo, em teste, ativo ou encerrado). A remoção da etapa intermediária não altera o consentimento individual nem revalida as antigas votações coletivas; para gestão e participação, continua valendo o [contrato administrativo](_andamento/funcionalidades/administracao-participacao.md).
+
+Critérios das duas passagens, prazos, elegibilidade, relação entre amadurecimento individual e reconhecimento coletivo e tratamento dos dados legados ainda precisam ser fechados antes da implementação. A referência anterior de seis meses não se torna um prazo automático por esta revisão.
+
+Passeios, jantares e viagens podem exemplificar a prática de um Hábito ou ser eventos livres da agenda. Data, participantes e confirmação pertencem ao evento; o que foi vivido pode ser registrado como momento ou memória. Agendar ou registrar uma ocorrência não promove ninguém de etapa.
+
+Os usos de “experiência do usuário”, vivência real e experiência como ideia de presente não representam a etapa removida. A experiência acumulada da árvore (exp) é uma métrica simbólica planejada distinta, sem fórmula ou implementação certificada por esta revisão.
+
 ## Entrada – Proposta
 
-O percurso começa com a Proposta da prática que o Núcleo deseja ajudar a pessoa a desenvolver. Propor não significa aceitar por alguém nem comprovar prática. Depois da Proposta, a ordem obrigatória é Hábito → Experiência → Essência; critérios de passagem e sua implementação ainda precisam ser definidos.
+O percurso começa com a Proposta da prática que o Núcleo deseja ajudar a pessoa a desenvolver. Propor não significa aceitar por alguém nem comprovar prática. Depois da Proposta, a ordem obrigatória é Hábito → Essência; critérios de passagem e sua implementação ainda precisam ser definidos.
 
 ## Etapa 1 – Hábitos que Queremos Construir
 
-Primeiro degrau de prática, depois da Proposta, que o Núcleo deseja ajudar a pessoa a desenvolver. A repetição da prática oferece contexto para acompanhar a evolução individual; os critérios da passagem para Experiência ainda precisam ser definidos.
+Etapa de prática depois da Proposta, reunindo repetição, registros, revisões e amadurecimento. O Núcleo apoia a evolução da pessoa sem substituir sua decisão de participar. A possível passagem para Essência depende de critérios e consentimentos próprios, ainda a definir.
 
 ### Exemplos
 
@@ -131,32 +147,17 @@ Primeiro degrau de prática, depois da Proposta, que o Núcleo deseja ajudar a p
 - Demonstrar gratidão
 - Fazer elogios sinceros
 - Passar mais tempo juntos
+- Reservar um jantar romântico mensal
+- Assistir a um filme juntos a cada semana
 
 | Hábito | Por que isso é importante para nós? | Ritmo | Data de Revisão |
 | ------ | ----------------------------------- | ----- | --------------- |
 
 ---
 
-## Etapa 2 – Experiências desenvolvidas a partir do Hábito
-
-Etapa posterior e obrigatoriamente vinculada ao Hábito anterior, indicando o avanço da pessoa nessa mesma prática. Não é uma categoria independente para cadastro direto. Os exemplos de momentos abaixo são referências conceituais anteriores: não definem critérios de passagem nem permitem saltar a etapa Hábito.
-
-### Exemplos
-
-- Jantar romântico
-- Viagem
-- Passeio diferente
-- Assistir um filme juntos
-- Realizar um projeto em conjunto
-
-| Experiência | Objetivo | Ritmo | Próxima Data |
-| ----------- | -------- | ----- | ------------ |
-
----
-
 ## Etapa final – Nossa Essência
 
-Etapa de consolidação depois de Experiência no fluxo aprovado. Valores, comportamentos e atitudes passam a expressar um modo de ser e de cuidar. A compatibilização entre avanço individual, reconhecimento coletivo e critérios de promoção ainda precisa ser definida.
+Etapa de consolidação depois de Hábito no fluxo vigente. Valores, comportamentos e atitudes passam a expressar um modo de ser e de cuidar. A compatibilização entre avanço individual, reconhecimento coletivo e critérios de promoção ainda precisa ser definida.
 
 | Nossa Essência |
 | -------------- |
@@ -206,7 +207,7 @@ Ao final de cada ciclo de revisão, os participantes avaliam os resultados alcan
 
 ## Regra 7 — referência conceitual anterior de elegibilidade
 
-Referência anterior: após pelo menos 6 meses de prática, revisões positivas, alinhamento ao propósito do Núcleo e consenso dos membros diretamente envolvidos, um item poderia ser considerado elegível para promoção para Nossa Essência. A nova ordem exige a etapa Experiência antes de Essência; prazo, contagem e confirmação precisam ser compatibilizados antes da implementação. Não anunciar promoção automática ou já disponível.
+Referência anterior: após pelo menos 6 meses de prática, revisões positivas, alinhamento ao propósito do Núcleo e consenso dos membros diretamente envolvidos, um item poderia ser considerado elegível para promoção para Nossa Essência. No fluxo vigente, o Hábito pode ser considerado para Essência sem etapa intermediária; prazo, contagem e confirmação ainda precisam ser definidos antes da implementação. Não anunciar promoção automática ou já disponível.
 
 ## Regra 8
 
@@ -328,7 +329,7 @@ graph TD
     D --> E[Pratica no Dia a Dia]
     E --> F[Revisao Periodica]
     F -->|Precisa Ajuste| C
-    F -->|Sucesso por 6 meses| G[Elegivel para Nossa Essencia]
+    F -->|Maturidade e criterios definidos| G[Elegivel para Nossa Essencia]
     G -->|Aprovacao de Todos| H[Nossa Essencia]
     style A fill:#4F7E2C,stroke:#fff,color:#fff
     style B fill:#6A3FD1,stroke:#fff,color:#fff

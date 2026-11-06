@@ -1,5 +1,9 @@
 # Brag document — Projeto Nós
 
+## 2026-11-06 — v3.7.2 · Especificação dos acordos simplificada
+
+**Problema:** Hábito e Experiência repetiam acompanhamento da prática e mantinham categorias/fluxos paralelos. **Contribuição:** consolidar em Hábito nos 19 documentos v1.1–v2.8, ajustar dependências e centralizar Proposta → Hábito → Essência na v1.1. **Resultado verificado:** sequência e associações revisadas, links locais conferidos com um destino ausente preexistente identificado, revisão independente e correções editoriais. **Benefício esperado:** reduzir ambiguidade para futuras implementações; sem medição de usabilidade e sem alteração funcional. [Evidência](../_andamento/registros/registro-v3.7.2-2026-11-06-imp-documentacao-acordos-fun-consolidacao-habito.md).
+
 ## 2026-11-05 — v3.7.2 · Descoberta do atalho de suporte
 
 O atalho de relato pode passar despercebido na área autenticada. O próprio ícone agora se expande temporariamente e abre o formulário existente. A expectativa é facilitar a descoberta do atalho. Os testes locais confirmaram os prazos, o clique e o retorno de foco em desktop e celular. [Registro](../_andamento/registros/registro-v3.7.2-2026-11-05-imp-cabecalho-fun-lembrete-suporte.md).

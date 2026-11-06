@@ -1,5 +1,7 @@
 ﻿# Projeto Nós - Matriz de Permissões, Privacidade e Visibilidade (Versão 2.5)
 
+**Revisão de 06/11/2026:** seguir o [fluxo Proposta → Hábito → Essência](Projeto_Nos_v1.1_Visao_e_Regras_de_Negocio.md#fluxo-vigente-dos-acordos). Esta alteração da especificação não modifica o aplicativo.
+
 **Atualização de direção — projeto v1.0.0 — 14/10/2026:** para Núcleos/acordos, seguir [contrato administrativo aprovado](_andamento/funcionalidades/administracao-participacao.md). Votação coletiva de acordos, administração futura e consenso para ajuste de propósito descritos neste documento são referência histórica do modelo substituído. Consentimento individual, isolamento e privacidade permanecem; novo modelo implementado e validado localmente; publicação, migração remota e operação pendentes. Demais módulos futuros não recebem novas regras por inferência.
 
 ## Categoria

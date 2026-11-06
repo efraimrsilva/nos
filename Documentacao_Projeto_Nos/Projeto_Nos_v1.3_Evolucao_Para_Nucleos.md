@@ -1,5 +1,7 @@
 ﻿# Projeto Nós - Evolução para Núcleos (Versão 1.3)
 
+**Revisão de 06/11/2026:** seguir o [fluxo Proposta → Hábito → Essência](Projeto_Nos_v1.1_Visao_e_Regras_de_Negocio.md#fluxo-vigente-dos-acordos). Esta alteração da especificação não modifica o aplicativo.
+
 ## Categoria
 **1.x - Visão e Regras de Negócio**
 
@@ -44,7 +46,7 @@ Expansão Estratégica de Escopo
 
 # Objetivo
 
-Expandir o Projeto Nós para além de relacionamentos amorosos, permitindo que a plataforma seja utilizada por qualquer grupo de pessoas que deseje construir hábitos, acordos, experiências e valores compartilhados.
+Expandir o Projeto Nós para além de relacionamentos amorosos, permitindo que a plataforma seja utilizada por qualquer grupo de pessoas que deseje construir hábitos, acordos e valores compartilhados.
 
 A filosofia central da plataforma permanece inalterada.
 
@@ -70,7 +72,7 @@ Esse problema existe em diversos contextos humanos.
 
 ## Núcleo
 
-Um Núcleo representa um grupo de pessoas que compartilha objetivos, acordos, hábitos, experiências e valores.
+Um Núcleo representa um grupo de pessoas que compartilha objetivos, acordos, hábitos e valores.
 
 Todo o restante da plataforma passa a ser associado a um Núcleo.
 
@@ -99,10 +101,6 @@ Acordos
 ↓
 
 Hábitos
-
-↓
-
-Experiências
 
 ↓
 
@@ -217,10 +215,6 @@ Hábitos que Queremos Construir
 
 ## Categoria 2
 
-Experiências que Queremos Viver
-
-## Categoria 3
-
 Nossa Essência
 
 ## Nova Categoria
@@ -241,11 +235,8 @@ Construir uma família baseada em respeito, honestidade e união.
 
 - Jantar juntos duas vezes por semana.
 - Conversar sem celulares aos domingos.
-
-### Experiências
-
-- Viagem anual em família.
-- Passeio mensal.
+- Passeio mensal em família.
+- Planejar juntos uma viagem anual.
 
 ### Nossa Essência
 

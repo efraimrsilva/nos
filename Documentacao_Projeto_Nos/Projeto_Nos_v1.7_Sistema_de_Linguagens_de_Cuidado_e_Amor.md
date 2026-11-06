@@ -1,5 +1,7 @@
 ﻿# Projeto Nós - Sistema de Linguagens de Cuidado e Amor (Versão 1.7)
 
+**Revisão de 06/11/2026:** seguir o [fluxo Proposta → Hábito → Essência](Projeto_Nos_v1.1_Visao_e_Regras_de_Negocio.md#fluxo-vigente-dos-acordos). Esta alteração da especificação não modifica o aplicativo.
+
 ## Categoria
 **1.x - Visão e Regras de Negócio**
 
@@ -62,7 +64,7 @@ Esta melhoria não transforma cuidado, afeto, presença ou amor em obrigação, 
 
 Criar um Sistema de Linguagens de Cuidado e Amor para ajudar cada Núcleo a identificar quais formas de demonstração de afeto, presença, cuidado e valorização possuem maior significado para seus membros.
 
-O objetivo é permitir que o Núcleo compreenda, ao longo da prática real, quais tipos de compromisso, reconhecimento, experiência ou gesto positivo fazem cada membro se sentir mais cuidado, amado, visto ou valorizado.
+O objetivo é permitir que o Núcleo compreenda, ao longo da prática real, quais tipos de compromisso, reconhecimento, momento ou gesto positivo fazem cada membro se sentir mais cuidado, amado, visto ou valorizado.
 
 A melhoria se inspira no conceito das cinco linguagens do amor, adaptando-o à filosofia do Projeto Nós e à evolução para Núcleos.
 
@@ -80,17 +82,13 @@ O sistema deve ajudar o Núcleo a responder perguntas como:
 
 O Sistema de Linguagens de Cuidado e Amor não será uma nova categoria principal.
 
-O Projeto Nós permanece organizado nas três categorias principais já definidas:
+O Projeto Nós permanece organizado em Hábitos e Nossa Essência, com Proposta como entrada do percurso:
 
 ## Categoria 1
 
 Hábitos que Queremos Construir
 
 ## Categoria 2
-
-Experiências que Queremos Viver
-
-## Categoria 3
 
 Nossa Essência
 
@@ -99,7 +97,6 @@ As Linguagens de Cuidado e Amor serão uma camada transversal, podendo estar ass
 - Compromissos.
 - Acordos.
 - Hábitos.
-- Experiências.
 - Registros de gratidão.
 - Registros de reconhecimento.
 - Celebrações.
@@ -507,7 +504,7 @@ O Manifesto não deve transformar uma linguagem predominante em rótulo permanen
 
 ## Preferir
 
-> Ana tem demonstrado valorizar momentos de presença e escuta nas experiências registradas pelo Núcleo.
+> Ana tem demonstrado valorizar momentos de presença e escuta nos registros do Núcleo.
 
 ---
 
@@ -831,10 +828,9 @@ Após pelo menos 6 meses de prática, revisões positivas, alinhamento ao Propó
 
 O Sistema de Linguagens de Cuidado e Amor será implementado como camada transversal do Núcleo, não como nova categoria principal.
 
-As três categorias principais permanecem:
+Os agrupamentos de prática e consolidação são:
 
 - Hábitos que Queremos Construir
-- Experiências que Queremos Viver
 - Nossa Essência
 
 O sistema permitirá associar compromissos, registros positivos, revisões e marcos às seguintes linguagens:

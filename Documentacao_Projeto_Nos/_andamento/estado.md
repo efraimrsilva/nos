@@ -1,5 +1,42 @@
 # Estado do Projeto Nós
 
+## Publicação da consolidação documental — v3.7.2 — 2026-11-06
+
+**Objetivo autorizado:** commit e push de todas as alterações pendentes para origin/main, com descrição abrangente e sem repetir testes. Base local b35e4a9; atualização remota de README incorporada por fast-forward em 49aa18f. DOCS_DIR: Documentacao_Projeto_Nos.
+
+**Conjunto:** 19 documentos v1.1–v2.8 e registros consolidados em uma unidade lógica: Proposta → Hábito → Essência, prática/amadurecimento em Hábito, revisão de categorias, telas, fluxos, agenda, modelo e referências. Versão 3.7.2 mantida; código/Atlas/banco/manifestos intactos.
+
+**Validação:** diff e escopo conferidos; git diff --cached --check aprovado. Verificações documentais e revisão independente da entrega anterior reaproveitadas, sem executar testes/build do aplicativo. Os 24 arquivos e a mensagem abrangente foram conferidos no objeto Git criado. O fechamento de continuidade integra o mesmo commit; a correspondência remota é verificada após o push.
+
+**Unidades pendentes de commit:** nenhuma. A consolidação documental consta no objeto Git conferido, identificado pelo título “docs(acordos): consolidar Experiência em Hábito na documentação v1.1 a v2.8”. Esta atualização de continuidade integra o mesmo conjunto. Push normal autorizado; a confirmação remota é feita após o envio. Nenhum deploy certificado.
+
+**Próximo passo:** após a conferência remota do envio, aguardar nova alteração documental. **Contador:** 25 conclusões acompanhadas desde 29/10, incluindo esta publicação; lacuna histórica e último marco auditado 100 preservados, sem inferir marco 200. **Ferramentas:** Superpowers de verificação e Git; sem consultas a bibliotecas ou instalação.
+
+**Índice:** [registro da publicação](registros/registro-v3.7.2-2026-11-06-imp-github-fun-publicacao-consolidacao-habito.md) · [registro da revisão](registros/registro-v3.7.2-2026-11-06-imp-documentacao-acordos-fun-consolidacao-habito.md).
+
+---
+
+
+## Revisão documental dos acordos — v3.7.2 — 2026-11-06
+
+**Objetivo e aceite.** Remover Experiência como etapa/categoria redundante com Hábito nos 19 documentos Projeto_Nos_v1.1–v2.8, sem implementar produto. DOCS_DIR: Documentacao_Projeto_Nos. Branch main; base b35e4a9; Git inicialmente limpo. **Versão do aplicativo preservada: 3.7.2.**
+
+**Situação e decisões.** Especificação consolidada em **Proposta → Hábito → Essência**. Hábito reúne prática/amadurecimento; eventos, momentos e memórias mantêm suas responsabilidades. Definição responsável na [v1.1](../Projeto_Nos_v1.1_Visao_e_Regras_de_Negocio.md#fluxo-vigente-dos-acordos). Catálogo preserva ID21 como exemplo de Hábito com agendamento que reutiliza o detalhe comum. Critérios das duas passagens e legado continuam pendentes; nenhuma promoção automática ou regra de voto criada.
+
+**Validação.** Leitura dos 19 documentos, busca residual, 366 links locais/âncoras conferidos (365 válidos; um destino preexistente ausente na v2.8), revisão do diff, revisão independente e ajustes P3 corrigidos. git diff --check aprovado. Código, banco, Atlas e manifestos intactos; testes/build não necessários para esta revisão textual. Sem commit/push/deploy.
+
+**Limites e próximo passo.** O chat segue restrito ao conjunto conceitual; aguardar próxima alteração documental. Contrato antigo de quatro etapas, planos, testes e Atlas externos ao recorte preservam seu estado anterior; antes de futura implementação, compatibilizá-los com a nova direção sem tomar esta edição como mudança funcional. Link antigo da v2.8 para tecnologias/frontend.md permanece ausente; registrado sem ampliar o tema.
+
+**Ferramentas.** Superpowers de entendimento/revisão/verificação; Node.js e rg locais. Context7 sem consulta necessária; Octocode não exposto e pesquisa avançada desnecessária. Nenhuma configuração alterada.
+
+**Contador:** 24 conclusões acompanhadas desde 29/10, incluindo esta revisão; histórico com lacuna preservado. Último marco auditado: 100; não inferir marco 200.
+
+**Unidade incluída no commit:** consolidação documental de Experiência em Hábito e respectivos registros, conforme conferência do objeto Git no marco de publicação acima. Pendência de commit encerrada.
+
+**Índice:** [registro da revisão](registros/registro-v3.7.2-2026-11-06-imp-documentacao-acordos-fun-consolidacao-habito.md).
+
+---
+
 ## Publicação da v3.7.2 — 2026-11-05
 
 **Objetivo autorizado.** Commit e push de todas as alterações acumuladas da v3.7.2 para origin/main. **DOCS_DIR:** Documentacao_Projeto_Nos. Base 33a549e, sincronizada com origin/main após fetch.

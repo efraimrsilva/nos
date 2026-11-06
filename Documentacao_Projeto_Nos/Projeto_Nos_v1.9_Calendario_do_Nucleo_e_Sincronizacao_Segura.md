@@ -1,5 +1,7 @@
 ﻿# Projeto Nós - Calendário do Núcleo e Sincronização Segura (Versão 1.9)
 
+**Revisão de 06/11/2026:** seguir o [fluxo Proposta → Hábito → Essência](Projeto_Nos_v1.1_Visao_e_Regras_de_Negocio.md#fluxo-vigente-dos-acordos). Esta alteração da especificação não modifica o aplicativo.
+
 ## Categoria
 **1.x - Visão e Regras de Negócio**
 
@@ -30,7 +32,7 @@
 
 ## Regra Central
 
-> O Calendário do Núcleo organiza momentos, experiências, revisões e encontros criados dentro do Projeto Nós, podendo sincronizá-los com calendários externos apenas como eventos marcados pelo Projeto Nós, sem importar, expor, mesclar ou compartilhar compromissos privados dos membros.
+> O Calendário do Núcleo organiza momentos, revisões e encontros criados dentro do Projeto Nós, podendo sincronizá-los com calendários externos apenas como eventos marcados pelo Projeto Nós, sem importar, expor, mesclar ou compartilhar compromissos privados dos membros.
 
 Esta regra deve orientar toda decisão de produto, interface, integração, automação, privacidade e evolução futura relacionada à agenda do Projeto Nós.
 
@@ -42,7 +44,7 @@ Planejado
 
 ## Tipo
 
-Melhoria Incremental de Organização, Presença, Experiências, Confirmação de Participação e Sincronização Segura
+Melhoria Incremental de Organização, Presença, Práticas, Confirmação de Participação e Sincronização Segura
 
 ## Compatibilidade
 
@@ -58,7 +60,7 @@ Esta melhoria não transforma agenda em cobrança, vigilância, controle de roti
 
 # Objetivo
 
-Criar um calendário interno para cada Núcleo, permitindo que seus membros planejem eventos, experiências, conversas, revisões, celebrações e momentos de cuidado.
+Criar um calendário interno para cada Núcleo, permitindo que seus membros planejem eventos, conversas, revisões, celebrações e momentos de cuidado.
 
 O calendário deve ajudar o Núcleo a transformar intenções em presença real, sem invadir a vida privada dos membros.
 
@@ -74,9 +76,9 @@ O calendário interno poderá se conectar a contas Google ou Apple, mas a sincro
 
 # O Que Está Bom Nesta Melhoria
 
-Esta melhoria é muito forte porque resolve uma lacuna prática que já aparece nas telas do protótipo: agenda, próximos momentos, experiências planejadas e eventos familiares.
+Esta melhoria é muito forte porque resolve uma lacuna prática que já aparece nas telas do protótipo: agenda, próximos momentos, Hábitos agendados e eventos familiares.
 
-Ela também combina bem com a filosofia do Projeto Nós, porque muitos acordos e experiências só se tornam reais quando ganham data, horário, participantes e confirmação.
+Ela também combina bem com a filosofia do Projeto Nós, porque muitos acordos só se tornam reais quando ganham data, horário, participantes e confirmação.
 
 Exemplos:
 
@@ -87,7 +89,7 @@ Exemplos:
 - revisão de acordo;
 - celebração de marco;
 - encontro para conversar sobre uma dificuldade;
-- experiência mensal do casal;
+- jantar mensal do casal;
 - compromisso familiar recorrente.
 
 O ponto mais importante da sua ideia é a proteção contra bagunça e invasão de privacidade. Essa preocupação deve virar regra estrutural do produto, não apenas detalhe técnico.
@@ -102,7 +104,6 @@ Ele pode se relacionar com:
 
 - acordos;
 - hábitos;
-- experiências;
 - revisões;
 - conversas de cuidado;
 - gratidões;
@@ -112,7 +113,7 @@ Ele pode se relacionar com:
 - perfil afetivo;
 - manifesto.
 
-O calendário não substitui acordos, experiências ou revisões.
+O calendário não substitui acordos ou revisões.
 
 Ele organiza quando esses momentos vão acontecer.
 
@@ -223,7 +224,7 @@ Campos mínimos:
 - visibilidade;
 - confirmação dos participantes;
 - assuntos ou pauta;
-- vínculo opcional com acordo, experiência, revisão, marco ou memória.
+- vínculo opcional com acordo, revisão, marco ou memória.
 
 ## Espelho Externo
 
@@ -292,19 +293,6 @@ Mesmo nesse caso, os eventos devem continuar marcados tecnicamente como eventos 
 
 # Tipos de Evento
 
-## Experiência
-
-Momento planejado para fortalecer o vínculo.
-
-Exemplos:
-
-- passeio;
-- jantar;
-- viagem;
-- noite do filme;
-- atividade em família;
-- tempo de qualidade.
-
 ## Hábito Agendado
 
 Ocorrência prática de um hábito ou acordo recorrente.
@@ -318,7 +306,7 @@ Exemplos:
 
 ## Revisão
 
-Momento para avaliar acordo, experiência ou fase do Núcleo.
+Momento para avaliar acordo ou fase do Núcleo.
 
 Exemplos:
 
@@ -357,7 +345,7 @@ Exemplos:
 
 ## Evento Livre
 
-Evento criado pelo Núcleo sem vínculo obrigatório com acordo ou experiência.
+Evento pontual criado pelo Núcleo sem vínculo obrigatório com acordo. Passeios, jantares, viagens e noites de filme podem usar este tipo; quando representam a prática de um Hábito, usar Hábito Agendado com vínculo ao acordo.
 
 ---
 
@@ -406,7 +394,7 @@ Exemplos:
 - conversar sobre a semana;
 - combinar responsabilidades;
 - revisar o que funcionou;
-- planejar próxima experiência;
+- planejar o próximo momento juntos;
 - celebrar uma conquista.
 
 ### Vínculo Opcional
@@ -415,7 +403,6 @@ O evento pode estar vinculado a:
 
 - acordo;
 - hábito;
-- experiência;
 - marco;
 - memória;
 - linguagem de cuidado;
@@ -519,7 +506,6 @@ O sistema pergunta:
 
 Opções:
 
-- Experiência.
 - Hábito agendado.
 - Revisão.
 - Conversa de cuidado.
@@ -663,24 +649,6 @@ O agendamento deve ser uma ajuda para praticar o acordo, não uma cobrança auto
 
 ---
 
-# Relação com Experiências
-
-Experiências que Queremos Viver devem poder virar eventos.
-
-Exemplo:
-
-Experiência:
-
-> Fazer um passeio em família uma vez por mês.
-
-Calendário:
-
-> Planejar data, local, participantes, intenção e confirmação.
-
-Após o evento, o sistema pode sugerir registro de memória.
-
----
-
 # Relação com Memórias
 
 Eventos realizados podem gerar memórias.
@@ -692,7 +660,7 @@ Campos possíveis:
 - foto opcional;
 - gratidão relacionada;
 - aprendizado;
-- acordo ou experiência associada.
+- acordo associado.
 
 Nem todo evento precisa virar memória.
 
@@ -706,7 +674,7 @@ Eventos podem gerar ou apoiar marcos.
 
 Exemplos:
 
-- primeira experiência planejada;
+- primeiro evento de um Hábito agendado;
 - primeira revisão realizada;
 - 3 meses de conversa semanal;
 - primeira celebração do Núcleo;
@@ -738,7 +706,7 @@ Eventos podem alimentar o Manifesto quando viram parte real da trajetória do N�
 
 O Manifesto pode considerar:
 
-- experiências vividas;
+- momentos vividos;
 - revisões realizadas;
 - celebrações recorrentes;
 - momentos de cuidado registrados;
@@ -839,7 +807,7 @@ O sistema deve permitir que participantes recusem ou sugiram outro horário sem 
 
 ## Regra C12
 
-Eventos podem ser associados a acordos, hábitos, experiências, revisões, conversas de cuidado, celebrações, marcos, memórias e Linguagens de Cuidado.
+Eventos podem ser associados a acordos, hábitos, revisões, conversas de cuidado, celebrações, marcos, memórias e Linguagens de Cuidado.
 
 ## Regra C13
 
@@ -879,7 +847,7 @@ Eventos do calendário podem apoiar o Manifesto do Núcleo apenas quando represe
 
 ## Para o Núcleo
 
-- Transforma acordos e experiências em momentos concretos.
+- Transforma acordos em momentos concretos.
 - Melhora organização sem burocratizar o vínculo.
 - Ajuda a criar memórias afetivas.
 - Apoia revisões, celebrações e continuidade.
@@ -887,7 +855,7 @@ Eventos do calendário podem apoiar o Manifesto do Núcleo apenas quando represe
 
 ## Para a Plataforma
 
-- Integra Home, Agenda, Experiências, Acordos, Memórias e Manifesto.
+- Integra Home, Agenda, Acordos, Memórias e Manifesto.
 - Aumenta utilidade diária do produto.
 - Cria base para lembretes saudáveis.
 - Diferencia o Projeto Nós de calendários genéricos ao preservar intenção afetiva e privacidade.
@@ -906,7 +874,7 @@ Criar calendário por Núcleo com:
 - tipo;
 - intenção;
 - confirmação de presença;
-- vínculo opcional com acordo ou experiência.
+- vínculo opcional com acordo.
 
 ## Fase 2 - Home e Próximos Momentos
 
@@ -934,7 +902,7 @@ Em aplicativos iOS, planejar integração nativa com Apple Calendar mediante per
 
 ## Fase 6 - Recorrência
 
-Permitir eventos recorrentes para hábitos, revisões e experiências periódicas.
+Permitir eventos recorrentes para hábitos e revisões periódicas.
 
 ## Fase 7 - Pós-Evento
 
@@ -1043,7 +1011,7 @@ A sincronização com Google ou Apple deve funcionar apenas como espelho dos eve
 
 Eventos privados dos membros não devem ser importados, exibidos ou compartilhados.
 
-Cada evento deve possuir participantes, confirmação de presença, intenção, assuntos e vínculo opcional com acordos, experiências, revisões, memórias, marcos e Linguagens de Cuidado.
+Cada evento deve possuir participantes, confirmação de presença, intenção, assuntos e vínculo opcional com acordos, revisões, memórias, marcos e Linguagens de Cuidado.
 
 A regra principal será:
 
@@ -1055,7 +1023,7 @@ A regra principal será:
 
 O Calendário do Núcleo pode se tornar uma das principais pontes entre intenção e prática.
 
-Ele transforma acordos, experiências, revisões, celebrações e conversas em momentos reais no tempo.
+Ele transforma acordos, revisões, celebrações e conversas em momentos reais no tempo.
 
 Quando bem desenhado, o calendário não é uma ferramenta de cobrança.
 

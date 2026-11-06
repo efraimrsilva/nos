@@ -1,5 +1,7 @@
 ﻿# Projeto Nós - Design System, Componentes e Tom de Interface (Versão 2.3)
 
+**Revisão de 06/11/2026:** seguir o [fluxo Proposta → Hábito → Essência](Projeto_Nos_v1.1_Visao_e_Regras_de_Negocio.md#fluxo-vigente-dos-acordos). Esta alteração da especificação não modifica o aplicativo.
+
 ## Categoria
 **2.x - Interface e Implementação**
 
@@ -161,7 +163,6 @@ Diretriz:
 Uso:
 
 - convites;
-- experiências;
 - badges de pendência;
 - celebrações;
 - lembretes suaves.
@@ -510,7 +511,7 @@ Container visual do protótipo. Em produção, corresponde à tela mobile.
 ### Uso
 
 - Memórias;
-- Experiência;
+- Hábito com agendamento;
 - Perfil;
 - Conexões.
 
@@ -520,7 +521,6 @@ Container visual do protótipo. Em produção, corresponde à tela mobile.
 - gratidão;
 - marco;
 - momento;
-- experiência;
 - celebração.
 
 ### Regras
@@ -701,7 +701,7 @@ Visual:
 
 ### Usos observados
 
-- Hábitos / Experiências / Essência;
+- Hábitos / Essência;
 - Detalhes / Histórico / Reflexões;
 - Tudo / Fotos / Agradecimentos / Marcos.
 

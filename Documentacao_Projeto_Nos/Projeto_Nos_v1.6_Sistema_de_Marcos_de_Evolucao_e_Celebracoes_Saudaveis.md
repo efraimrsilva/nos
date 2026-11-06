@@ -1,5 +1,7 @@
 ﻿# Projeto Nós - Sistema de Marcos de Evolução e Celebrações Saudáveis (Versão 1.6)
 
+**Revisão de 06/11/2026:** seguir o [fluxo Proposta → Hábito → Essência](Projeto_Nos_v1.1_Visao_e_Regras_de_Negocio.md#fluxo-vigente-dos-acordos). Esta alteração da especificação não modifica o aplicativo.
+
 ## Categoria
 **1.x - Visão e Regras de Negócio**
 
@@ -60,7 +62,7 @@ Esta melhoria não transforma evolução em pontuação, ranking, competição, 
 
 Criar um Sistema de Marcos de Evolução e Celebrações Saudáveis para tornar visível a continuidade, a consistência, o amadurecimento e os avanços positivos de cada Núcleo ao longo do tempo.
 
-O objetivo é ajudar os membros a perceberem que pequenos gestos, hábitos, experiências, revisões e compromissos praticados com constância constroem vínculos mais fortes, conscientes e duradouros.
+O objetivo é ajudar os membros a perceberem que pequenos gestos, hábitos, revisões e compromissos praticados com constância constroem vínculos mais fortes, conscientes e duradouros.
 
 Os marcos não existem para medir quem contribui mais.
 
@@ -76,17 +78,13 @@ Os marcos existem para celebrar trajetórias, reconhecer evolução coletiva e f
 
 O Sistema de Marcos de Evolução e Celebrações Saudáveis não será uma nova categoria principal.
 
-O Projeto Nós permanece organizado nas três categorias principais já definidas:
+O Projeto Nós permanece organizado em Hábitos e Nossa Essência, com Proposta como entrada do percurso:
 
 ## Categoria 1
 
 Hábitos que Queremos Construir
 
 ## Categoria 2
-
-Experiências que Queremos Viver
-
-## Categoria 3
 
 Nossa Essência
 
@@ -95,7 +93,6 @@ Os marcos passam a ser uma camada transversal do Núcleo, podendo estar associad
 - Núcleo.
 - Compromissos.
 - Hábitos.
-- Experiências.
 - Revisões.
 - Registros de reconhecimento e gratidão.
 - Promoções para Nossa Essência.
@@ -141,12 +138,12 @@ Ela acrescenta uma camada de celebração madura, leve e coerente com o Sistema 
 
 ## Etapa 1 - Prática Real
 
-Um hábito, experiência, compromisso, revisão, gesto positivo ou avanço acontece dentro do Núcleo.
+Um hábito, compromisso, revisão, gesto positivo ou avanço acontece dentro do Núcleo.
 
 ### Exemplos
 
 - Um hábito é praticado com consistência.
-- Uma experiência é vivida pelo Núcleo.
+- Um evento de convivência é realizado pelo Núcleo.
 - Uma revisão é concluída com diálogo respeitoso.
 - Um compromisso completa um ciclo relevante.
 - Um registro de gratidão é criado.
@@ -198,7 +195,7 @@ O marco pode aparecer em revisões futuras para ajudar o Núcleo a perceber evol
 
 ## Etapa 6 - Apoio à Maturidade
 
-Marcos recorrentes podem apoiar a análise de maturidade de compromissos, hábitos e experiências.
+Marcos recorrentes podem apoiar a análise de maturidade de compromissos e Hábitos.
 
 Porém, marcos não promovem automaticamente nenhum item para Nossa Essência.
 
@@ -222,7 +219,7 @@ Celebram o começo de uma prática ou etapa importante.
 
 - Primeiro acordo em teste.
 - Primeiro hábito criado.
-- Primeira experiência planejada.
+- Primeiro evento de um Hábito agendado.
 - Primeiro registro de gratidão.
 - Primeiro reconhecimento recebido pelo Núcleo.
 
@@ -247,7 +244,7 @@ Celebram atitudes que fortalecem a convivência e o vínculo.
 - 10 gestos de cuidado registrados.
 - 100 gestos realizados pelo Núcleo.
 - Primeiro ciclo de gratidão registrado.
-- Memória afetiva criada após uma experiência importante.
+- Memória afetiva criada após um momento importante.
 
 ## Marcos de Revisão
 
@@ -269,7 +266,7 @@ Celebram quando um compromisso demonstra contribuição relevante para o Núcleo
 - Compromisso com impacto percebido confirmado.
 - Compromisso com impacto percebido maior que o esperado.
 - Hábito reconhecido como transformador durante revisão.
-- Experiência que fortaleceu significativamente o vínculo.
+- Prática de Hábito que fortaleceu significativamente o vínculo.
 
 ## Marcos de Essência
 
@@ -296,7 +293,7 @@ Celebram amadurecimento identitário do Núcleo.
 - Primeira promoção para Nossa Essência.
 - Primeiro registro de gratidão.
 - 10 memórias afetivas registradas.
-- Primeira experiência vivida juntos.
+- Primeiro momento de um Hábito registrado juntos.
 - Compromisso com impacto percebido maior que o esperado.
 - Propósito revisado com consenso.
 - Ciclo de revisão concluído com diálogo respeitoso.
@@ -470,7 +467,7 @@ Marcos não criam uma nova categoria principal na plataforma.
 
 ## Regra M3
 
-Marcos podem estar associados a Núcleos, compromissos, hábitos, experiências, revisões, registros positivos e Nossa Essência.
+Marcos podem estar associados a Núcleos, compromissos, hábitos, revisões, registros positivos e Nossa Essência.
 
 ## Regra M4
 
@@ -558,7 +555,7 @@ Exibir marcos relevantes durante revisões para apoiar reflexão sobre continuid
 
 ## Fase 5 - Linha do Tempo de Evolução
 
-Criar uma linha do tempo do Núcleo reunindo marcos, registros positivos, experiências, revisões importantes e promoções para Nossa Essência.
+Criar uma linha do tempo do Núcleo reunindo marcos, registros positivos, momentos, revisões importantes e promoções para Nossa Essência.
 
 ---
 
@@ -618,10 +615,9 @@ Após pelo menos 6 meses de prática, revisões positivas, alinhamento ao Propó
 
 O Sistema de Marcos de Evolução e Celebrações Saudáveis será implementado como camada transversal do Núcleo, não como nova categoria principal.
 
-As três categorias principais permanecem:
+Os agrupamentos de prática e consolidação são:
 
 - Hábitos que Queremos Construir
-- Experiências que Queremos Viver
 - Nossa Essência
 
 O sistema permitirá reconhecer marcos como:
@@ -662,7 +658,7 @@ Ela deve comunicar:
 - experiência acumulada;
 - progresso até o próximo estágio;
 - hábitos cultivados;
-- experiências vividas;
+- momentos vividos;
 - valores na essência.
 
 Exemplo observado:
@@ -681,7 +677,7 @@ Exemplo observado:
 
 Isso indica que todo marco relevante pode virar memória afetiva consultável depois.
 
-## Agenda e experiências
+## Agenda e prática dos Hábitos
 
 As telas apresentam agenda e próximos momentos, como:
 
@@ -690,7 +686,7 @@ As telas apresentam agenda e próximos momentos, como:
 - passeio ao ar livre;
 - jantar romântico mensal.
 
-Experiências planejadas e vividas devem poder gerar marcos e memórias.
+Eventos realizados e momentos registrados podem apoiar marcos e memórias; o planejamento isolado não comprova prática.
 
 ## Registro de momento
 
@@ -710,7 +706,7 @@ Esse registro pode alimentar memórias, progresso do acordo, impacto percebido e
 
 ## Regra M11
 
-Momentos registrados a partir de acordos ou experiências podem alimentar a árvore, as memórias e os marcos do Núcleo, desde que não sejam usados para punir interrupções ou comparar membros.
+Momentos registrados a partir de acordos ou eventos podem alimentar a árvore, as memórias e os marcos do Núcleo, desde que não sejam usados para punir interrupções ou comparar membros.
 
 
 ---

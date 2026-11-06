@@ -1,6 +1,6 @@
 ﻿﻿# Projeto Nós - Síntese Consolidada das Interfaces e Documentações (Versão 2.0)
 
-**Fluxo completo aprovado — aplicativo v1.1.0 — 18/10/2026:** seguir o [contrato Proposta → Hábito → Experiência → Essência](_andamento/funcionalidades/fluxo-proposta-habito-experiencia-essencia.md). A ordem é obrigatória por pessoa e substitui categorias independentes e saltos. Critérios das passagens e implementação pendentes; limites, consentimento e compatibilização de Essência estão centralizados no contrato.
+**Revisão de 06/11/2026:** seguir o [fluxo Proposta → Hábito → Essência](Projeto_Nos_v1.1_Visao_e_Regras_de_Negocio.md#fluxo-vigente-dos-acordos). Esta alteração da especificação não modifica o aplicativo.
 
 ## Categoria
 **2.x - Interface e Implementação**
@@ -72,7 +72,7 @@ Ela deve ser usada como ponto de entrada para uma equipe de produto ou uma equip
 
 # 2. Síntese da Visão do Produto
 
-O Projeto Nós é uma plataforma privada para fortalecer vínculos por meio de pequenos acordos, gratidão, memórias, experiências, conversas de cuidado e evolução coletiva.
+O Projeto Nós é uma plataforma privada para fortalecer vínculos por meio de pequenos acordos, gratidão, memórias, momentos, conversas de cuidado e evolução coletiva.
 
 O produto não deve ser interpretado como:
 
@@ -105,7 +105,6 @@ Tudo que for sensível deve pertencer a um Núcleo:
 
 - acordos;
 - hábitos;
-- experiências;
 - Essência;
 - memórias;
 - gratidões;
@@ -189,7 +188,6 @@ Podem ser:
 - fotos;
 - gratidões;
 - momentos registrados;
-- experiências;
 - marcos;
 - celebrações;
 - entrada de membros;
@@ -219,7 +217,6 @@ O calendário do Núcleo organiza momentos compartilhados.
 
 Pode conter:
 
-- experiências;
 - hábitos agendados;
 - revisões;
 - conversas de cuidado;
@@ -288,7 +285,7 @@ Documentação detalhada:
 
 ## Aprovações
 
-Fila centralizada de consentimentos para acordos, experiências, convites, mudanças e promoções.
+Fila centralizada de consentimentos para acordos, eventos, convites, mudanças e promoções.
 
 Documentação detalhada:
 
@@ -311,7 +308,7 @@ Documentação detalhada:
 
 ## Tipos de Vínculo
 
-Catálogo de vínculos com sugestões de acordos e experiências por tipo de relação.
+Catálogo de vínculos com sugestões de acordos e eventos por tipo de relação.
 
 Documentação detalhada:
 
@@ -377,7 +374,7 @@ Documentação detalhada:
 1. Splash e Entrada Afetiva.
 2. Home do Núcleo: Resumo Afetivo.
 3. Home do Núcleo: Agenda e Próximos Momentos.
-4. Acordos: Hub de Hábitos, Experiências e Essência.
+4. Acordos: Hub de Hábitos e Essência.
 5. Detalhe do Hábito: Conversar sem Distrações.
 6. Detalhe do Hábito: Ações Fixas.
 7. Nossa Árvore.
@@ -394,7 +391,7 @@ Documentação detalhada:
 18. Aceitar Convite de Núcleo.
 19. Perfil de Membro: Ana.
 20. Perfil de Membro: Gostos e Ações.
-21. Detalhe de Experiência: Jantar Romântico.
+21. Hábito com Agendamento: Jantar Romântico.
 22. Revisar Acordo.
 23. Promoção para Essência.
 24. Conversa de Cuidado (preparação para encontro presencial).
@@ -510,7 +507,7 @@ Calendário seguro se materializa em:
 
 - agenda da Home;
 - próximos momentos;
-- detalhe de experiência;
+- detalhe do Hábito com agendamento;
 - registro pós-momento;
 - lembretes;
 - eventos do Núcleo.
@@ -680,7 +677,7 @@ Detalhamento completo:
 - linguagens de cuidado;
 - Conexões.
 
-## Fase 5 - Experiências avançadas
+## Fase 5 - Funcionalidades avançadas
 
 - Conversas Guiadas e Ponte do Nós;
 - Manifesto;

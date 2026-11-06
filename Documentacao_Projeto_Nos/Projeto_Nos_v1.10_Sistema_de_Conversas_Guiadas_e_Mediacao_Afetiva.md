@@ -1,5 +1,7 @@
 ﻿# Projeto Nós - Sistema de Conversas Guiadas e Mediação Afetiva (Versão 1.10)
 
+**Revisão de 06/11/2026:** seguir o [fluxo Proposta → Hábito → Essência](Projeto_Nos_v1.1_Visao_e_Regras_de_Negocio.md#fluxo-vigente-dos-acordos). Esta alteração da especificação não modifica o aplicativo.
+
 ## Categoria
 **1.x - Visão e Regras de Negócio**
 
@@ -111,17 +113,13 @@ Esta melhoria fortalece o coração do produto:
 
 O Sistema de Conversas Guiadas não será uma nova categoria principal.
 
-O Projeto Nós permanece organizado nas três categorias principais já definidas:
+O Projeto Nós permanece organizado em Hábitos e Nossa Essência, com Proposta como entrada do percurso:
 
 ## Categoria 1
 
 Hábitos que Queremos Construir
 
 ## Categoria 2
-
-Experiências que Queremos Viver
-
-## Categoria 3
 
 Nossa Essência
 
@@ -483,7 +481,7 @@ Reaproximar membros após pausa, distanciamento ou período sem interação sign
 ### Desfechos
 
 - Conversa ao vivo agendada.
-- Experiência leve proposta.
+- Evento livre proposto para reaproximação.
 - Gratidão de reaproximação.
 
 ### Integração
