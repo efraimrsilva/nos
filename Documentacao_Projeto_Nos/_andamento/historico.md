@@ -1,14 +1,5 @@
 # Histórico de andamento
 
-## 2026-11-06 — v3.7.2 · Publicação da consolidação documental
-
-Commit/push autorizados para todo o conjunto documental. Atualização remota do README preservada por fast-forward em 49aa18f. Validação limitada ao diff, integridade do commit e confirmação remota, sem repetir testes do aplicativo. [Registro](registros/registro-v3.7.2-2026-11-06-imp-github-fun-publicacao-consolidacao-habito.md).
-
-
-## 2026-11-06 — v3.7.2 · Consolidação documental de Hábito
-
-Nos 19 documentos v1.1–v2.8, Experiência deixa de ser etapa/categoria; Proposta → Hábito → Essência passa a ser o percurso vigente. Catálogo, fluxos e modelo consolidados, com eventos/momentos preservados. Revisões própria/independente, links e diff conferidos; um destino ausente preexistente documentado. Mudança exclusivamente documental, sem alteração no aplicativo/Atlas ou publicação. [Registro](registros/registro-v3.7.2-2026-11-06-imp-documentacao-acordos-fun-consolidacao-habito.md).
-
 ## 2026-11-05 — v3.7.2 · Publicação autorizada no GitHub
 
 Conjunto do lembrete de suporte preparado em uma unidade completa de código, Atlas, testes e documentação. Checagem de tipos e revisão final aprovadas. [Registro](registros/registro-v3.7.2-2026-11-05-imp-github-fun-publicacao-lembrete-suporte.md).
@@ -76,14 +67,17 @@ Calendário mensal contínuo, propostas sem Categoria, contagens compartilhadas 
 **Documentação/publicação:** suspensão documental encerrada por autorização explícita; cinco registros, contratos, Brag, caixa preta e Atlas sincronizados. Commits de aplicação/testes conferidos em f350f4a,00c37aa,eb4a7ef,534f8c8 e cc7c146. Unidade documental conferida no objeto Git, com87 arquivos/54 capturas; fechamento incorporado ao mesmo commit antes do primeiro push. Igualdade com origin/main será conferida no encerramento, sem confundir publicação Git com implantação ou aplicação da RPC hospedada.
 
 ## 2026-10-30 — v3.4.3 — Informe de carregamento
+
 Atalhos Seus Núcleos/Minha conta removidos somente da espera ao selecionar um Núcleo; ações de erro mantidas. Tipos/build e14 testes focados aprovados. [Registro](registros/registro-v3.4.3-2026-10-30-imp-carregamento-fun-informe-sem-atalhos.md). Sem publicação.
 
 Complemento v3.4.3: remoção também no carregamento de Seus Núcleos; somente os dois atalhos deixam de ser renderizados. Tipos/build finais e16 testes aprovados.
 
 ## 2026-10-30 — v3.4.2 — Barra lateral
+
 Cartão de contexto removido do componente global e do Atlas; cabeçalho, vínculo e links preservados. [Registro](registros/registro-v3.4.2-2026-10-30-imp-barra-lateral-fun-remocao-cartao-nucleo.md). Sem publicação.
 
 ## 2026-10-30 — Publicação GitHub autorizada — v3.4.2
+
 Consolidação do perfil, aparência Meia-noite e navegação/convites em três commits com descrições completas. Tipos/build,192 gerais,12 autenticados e Atlas aprovados; revisão independente sem achados. [Registro](registros/registro-v3.4.2-2026-10-30-imp-publicacao-github-fun-consolidacao-entregas.md). Push será conferido no encerramento; deploy não certificado.
 
 Conferência da publicação:148 arquivos incorporados aos objetos Git, versões3.4.0/3.4.1/3.4.2 distribuídas nos três commits. Pendências atuais de commit encerradas após comparação do conteúdo; confirmação de push e SHA na resposta final.
@@ -93,6 +87,7 @@ Conferência da publicação:148 arquivos incorporados aos objetos Git, versões
 Revisão de código/configuração, 13 migrações, catálogos locais e remotos e avisos oficiais. Enumeração pública de e-mails confirmada; exposição administrativa local condicionada ao alcance da rede, política local de senha divergente, janela conhecida de JWT após logout e ausência local de CSP documentadas com limites e prioridades.160 testes de banco e70 públicos aprovados; quatro rotinas da agenda respeitam trava.52 autenticados:36 aprovados,15 falhas investigadas de seletores/verificador Atlas e1 ignorado; build isolado webpack aprovado. Dependências inconclusivas por falha do npm; HTTPS hospedado não verificado. Revisão independente estática/documental, contrato de conta atualizado. Nenhuma correção de produto, mutação remota ou publicação; versão preservada por natureza documental. [Relatório, evidências e próximos passos](registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md).
 
 ## 2026-10-30 — v3.4.1 — Meia-noite
+
 Inversão de fundo/superfície e coluna lateral preta, com prévia sincronizada. [Registro](registros/registro-v3.4.1-2026-10-30-imp-aparencia-fun-meia-noite-camadas.md);16 testes de aparência aprovados; sem publicação.
 
 ## 2026-10-30 — v3.4.0 — edição do nome da própria conta
@@ -100,11 +95,13 @@ Inversão de fundo/superfície e coluna lateral preta, com prévia sincronizada.
 Dados da conta recebe lápis e edição no próprio modal; ação autenticada valida sessão/conta original, nome de1–80 caracteres e confirmação antes do sucesso. Preserva metadados, atualiza nome/iniciais; Atlas ilustrativo sincronizado. Dois testes autenticados desktop/celular, quatro testes da ação e verificadores do Atlas aprovados; revisão independente focal sem achados. [Registro](registros/registro-v3.4.0-2026-10-30-imp-conta-fun-nome-perfil.md). Sem commit/push/deploy; anteriores preservados.
 
 ## 2026-10-30 — v3.3.3 — Convite no cabeçalho
+
 Atalho de convite acrescentado à esquerda da criação em /nucleos, com ajustes responsivos e Atlas. [Registro](registros/registro-v3.3.3-2026-10-30-imp-nucleos-fun-convite-cabecalho.md). Sem publicação.
 
 2026-10-30 — Complemento v3.3.3: atalho Entrar com convite incluído no componente compartilhado Conta e Núcleos, atendendo perfil desktop e página completa. [Registro](registros/registro-v3.3.3-2026-10-30-imp-conta-fun-atalhos-convite.md).
 
 ## 2026-10-30 — v3.3.2 — Núcleos
+
 Remoção do painel lateral de /nucleos e da coluna reservada, sincronizada no Atlas tela 12. Tipos/build aprovados; evidências e limites no [registro](registros/registro-v3.3.2-2026-10-30-imp-nucleos-fun-remocao-painel.md). Sem publicação.
 
 ## 2026-10-29 — v3.3.1 — conta e perfil com contexto preservado
@@ -176,21 +173,27 @@ Cadastro repetido avisa no formulário sem prometer confirmação; cadastro vál
 Opção vermelha e confirmação APAGAR CONTA; exclusão transacional de acesso/identificação, saída dos Núcleos e histórico preservado como Conta excluída. 130 testes gerais, 12 autenticados relacionados e 143 verificações SQL aprovados; tipos/build e revisão independente. Atlas, contratos e galeria alinhados. Migração remota aplicada após autorização; código8afecb2 publicado no deploy6adae350fa2928885a0de2c8. Prova online desktop/mobile aprovada; quatro contas descartáveis removidas e comparação de15 tabelas confirma dados anteriores preservados. [Registro](registros/registro-v3.1.0-2026-10-23-imp-conta-fun-exclusao-propria.md).
 
 ## 2026-10-21 — v3.0.6 — Atalhos complementares no menu Mais
+
 Removidas quatro duplicações da navegação móvel; grupos vazios ocultados e desktop preservado. Componente validado isoladamente antes/depois; tipos/quatro testes públicos/sintaxe aprovados. Asserções autenticadas adicionadas, não executadas. Registro: registros/registro-v3.0.6-2026-10-21-imp-menu-mobile-fun-atalhos-complementares.md. Sem publicação.
 
 ## 2026-10-21 — v3.0.6 — Publicação integral autorizada
+
 Três unidades: execução local1e6fb0d, destaque1c8be96 e menu móvel complementar, com Atlas/testes/manifestos/registros. Tipos, dez testes, verificação isolada, sintaxe e build padrão aprovados. Conferência remota no fechamento; deploy não certificado. Registro: registros/registro-v3.0.6-2026-10-21-02-imp-publicacao-github-fun-consolidacao-ajustes.md.
 
 ## 2026-10-21 — v3.0.5 — Destaque de administração no Início
+
 Selo verde, negrito e escudo para quem administra o Núcleo; mensagem comum preservada para membros. Atlas alinhado; tipos/seis testes/sintaxe aprovados. Registro: registros/registro-v3.0.5-2026-10-21-imp-inicio-fun-destaque-administracao.md. Sem publicação.
 
 ## 2026-10-21 — v3.0.4 — Propósito no Início
+
 Propósito e vínculo movidos para o cabeçalho; diálogo duplicado removido e Atlas alinhado. Tipos, seis testes de lógica e sintaxe aprovados. Sem publicação. Registro: registros/registro-v3.0.4-2026-10-21-imp-inicio-nucleo-fun-proposito-e-participacao.md.
 
 ## 2026-10-21 — v3.0.4 — Publicação GitHub autorizada
+
 Preparado commit atômico do propósito e vínculo no Início, Atlas, manifestos e registros; tipos e seis testes de lógica revalidados. Conferência de hash remoto no fechamento da operação; deploy não certificado.
 
 ## 2026-10-21 — v3.0.4 — Correção da compilação local antiga
+
 Diagnóstico comprovou next start servindo build15/10. Compilações obsoletas isoladas fora do app por bloqueio de exclusão; build padrão atual e npm run dev validados. Quatro testes de interface e21 capturas públicas aprovados. Nenhuma fonte alterada. Registro: registros/registro-v3.0.4-2026-10-21-02-imp-execucao-local-fun-layout-atual.md.
 
 ## 2026-10-21 — v3.0.3 — consolidação documental no GitHub
@@ -214,8 +217,8 @@ Revisão independente encontrou sobreposição de eventos longos na mesma faixa;
 Adicionadas posições central e inferior entre colunas do aplicativo, preservando largura20px, grade, último estágio e responsividade. Tipos e dez ensaios geométricos aprovados. Sem publicação. [Registro](registros/registro-v3.0.2-2026-10-20-imp-kanban-acordos-fun-setas-fluxo.md).
 
 ## 2026-10-20 — v3.0.1 — árvore decorativa restaurada na Conta
-+
-+Autorizado o retorno somente da ilustração original na Conta sem sessão, mantendo o Layout novo, frases10s e funções. Atlas01/02 sincronizados; nenhum modal alterado.12 testes de layout/frases, tipos e inspeção responsiva aprovados; nove capturas versionadas. [Registro](registros/registro-v3.0.1-2026-10-20-imp-conta-fun-restauracao-arvore.md). Sem publicação.
+
+- +Autorizado o retorno somente da ilustração original na Conta sem sessão, mantendo o Layout novo, frases10s e funções. Atlas01/02 sincronizados; nenhum modal alterado.12 testes de layout/frases, tipos e inspeção responsiva aprovados; nove capturas versionadas. [Registro](registros/registro-v3.0.1-2026-10-20-imp-conta-fun-restauracao-arvore.md). Sem publicação.
 
 ## 2026-10-18 — v3.0.0 — reconstrução de interiores e modais
 
@@ -426,7 +429,7 @@ Diretriz solicitada: novas galerias usam v<versão>-AAAA-MM-DD-assunto, como v0.
 
 ## 2026-10-10 — Identificação da tela nas pastas de comparações — documentação v0.13.3
 
-Padrão ampliado por solicitação do usuário para v<versão>-AAAA-MM-DD-assunto-tela_<número>, com prefixo literal tela_, como v0.13.3-2026-10-10-entrada-convite-tela_10. IDs reais do atlas; múltiplas telas identificadas individualmente no final. Em nomes repetidos, revisão fica no assunto para manter tela no final. Decisão anterior preservada e sinalizada como substituída. Autorrevisão, links locais e diff conferidos; sem incremento funcional, renomeação histórica, commit, push ou deploy. [Registro](registros/registro-v0.13.3-2026-10-10-04-imp-diretriz-comparacoes-fun-identificacao-tela.md).
+Padrão ampliado por solicitação do usuário para v<versão>-AAAA-MM-DD-assunto-tela*<número>, com prefixo literal tela*, como v0.13.3-2026-10-10-entrada-convite-tela_10. IDs reais do atlas; múltiplas telas identificadas individualmente no final. Em nomes repetidos, revisão fica no assunto para manter tela no final. Decisão anterior preservada e sinalizada como substituída. Autorrevisão, links locais e diff conferidos; sem incremento funcional, renomeação histórica, commit, push ou deploy. [Registro](registros/registro-v0.13.3-2026-10-10-04-imp-diretriz-comparacoes-fun-identificacao-tela.md).
 
 ## 2026-10-10 — Migração das galerias para nomes com versão e tela — documentação v0.13.3
 
@@ -802,7 +805,7 @@ Código e Git conferidos em 381a308. Próxima entrega proposta: Revisar Hábito 
 
 - **Mudança:** catálogo com nove tipos, seleção única obrigatória e acessível, passagem validada para Propósito preparatório e retorno preservando a escolha.
 - **Resultado:** 16 testes Playwright desktop/mobile, build, tipos e revisão do diff aprovados; inspeção visual e revisão independente estática sem achados bloqueantes. Sem persistência real, commit, push ou deploy.
-- **Evidência e continuidade:** [v0.2.0 — Tipo de Núcleo](<registros/registro-v0.2.0-2026-09-25-01-imp-tela-tipo-nucleo-fun-selecao-vinculo.md>).
+- **Evidência e continuidade:** [v0.2.0 — Tipo de Núcleo](registros/registro-v0.2.0-2026-09-25-01-imp-tela-tipo-nucleo-fun-selecao-vinculo.md).
 
 ## 2026-09-25 — Convenção de documentação por implementação
 
