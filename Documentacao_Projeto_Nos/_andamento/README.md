@@ -1,3 +1,9 @@
+## Adequação local vigente — v3.8.0 — 06/11/2026
+
+Proposta → Hábito → Essência no aplicativo, com compatibilidade de leitura e momentos para o legado sem regravar termos, versões, categoria ou aceites. Nova criação normalizada para habit. Essência e passagens somente esboços, com o mesmo informe do Manifesto; sem critérios ou promoção inventados. Integração Hábito/evento, recorrência e mídia continuam planejadas. Mesmas73 fichas/13 etapas;39 recortes existentes e34 planejados, sem converter desenho em entrega funcional. Nova prévia: Acordos18 → Ver esboço de Essência → modal Nossa Essência36; X/Escape/fora, sem escrita. Casos manuais continuam Não executados pelo usuário. [Registro](registros/registro-v3.8.0-2026-11-06-imp-acordos-fun-modelo-habito.md). As seções datadas abaixo preservam marcos anteriores.
+
+---
+
 # Andamento do Projeto Nós
 
 **Planejamento vigente — 06/11/2026 — v3.7.2:** [Proposta → Hábito → Essência](funcionalidades/fluxo-proposta-habito-essencia.md). Atlas/MVP/fichas/percursos adequados ao modelo-alvo; aplicativo com legado e transições pendentes. [Plano de adequação](planos/modelo-habito.md). A direção de quatro etapas abaixo é histórica.
@@ -10,7 +16,7 @@
 
 **Marco documental anterior — 18/10/2026:** [fluxo obrigatório Proposta → Hábito → Experiência → Essência](funcionalidades/fluxo-proposta-habito-experiencia-essencia.md). [Registro](registros/registro-v1.1.0-2026-10-18-imp-documentacao-acordos-fun-fluxo-proposta-habito-experiencia-essencia.md). Evolução da pessoa; critérios e implementação pendentes. Resumos anteriores abaixo são históricos. Consulte [estado](estado.md) para a retomada.
 
-**Versão vigente do projeto:** 3.7.0 (referência central: [estado.md](estado.md))
+**Versão vigente do projeto:** 3.8.0 (referência central: [estado.md](estado.md))
 
 Entrega histórica: [v0.14.0 — Percurso 05 Uma proposta de Hábito](registros/registro-v0.14.0-2026-10-10-imp-proposta-habito-fun-percurso-05.md). Conferência no hub concluída localmente, com fluxo guiado reservado; unidade incluída no commit autorizado, com objeto conferido em 2026-10-12. [Contrato](funcionalidades/proposta-habito.md). O estado canônico abaixo mantém as publicações anteriores, sem pendência fictícia de Conta.
 

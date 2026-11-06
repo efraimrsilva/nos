@@ -220,7 +220,7 @@ for(const [from,to,label] of [[38,40,'Explorar Memórias · esboço'],[40,38,'Vo
   const screen=screens.find(item=>item.id===from);
   if(!screen.actions.some(action=>action.to===to))screen.actions.push({label,to});
 }
-screens.find(screen=>screen.id===18).dependency='Layout atual: Kanban · Fluxo, Painéis · Lado a lado e lista móvel sobre os registros reais. O quadro de três colunas representa o modelo-alvo. O aplicativo ainda mantém categorias legadas, sem migração nesta entrega. Proposta → Hábito → Essência continua planejado; critérios, consentimento e passagens não desenvolvidos.';
+screens.find(screen=>screen.id===18).dependency='Layout atual: Kanban · Fluxo, Painéis · Lado a lado e lista móvel sobre os registros reais. Quadro de três colunas implementado: Propostas, Hábitos e Essência como esboço. Registros experience usam o detalhe/histórico comum de Hábito sem regravar termos ou aceites. Novas gravações são normalizadas para habit. Passagens individuais não implementadas; informe de Essência igual ao Manifesto.';
 screens.find(screen=>screen.id===13).dependency='Layout atual sem bloco de propósito ou rodapé de atalhos no Início, com acesso a Acordos, agenda, pessoas e convites; módulos futuros abrem esboços protegidos. Sem indicadores de crescimento, estágio ou evolução inventados.';
 
 // Navegação compartilhada: exemplos no Atlas, totais próprios autenticados no aplicativo.
@@ -280,3 +280,9 @@ for(const id of [12,13,14,16,66,71,73])screens.find(s=>s.id===id).rule+=' v3.6.3
 // Suporte é um modal compartilhado: não criar uma nova rota ou duplicar fichas.
 for(const id of [13,66,70,71])screens.find(s=>s.id===id).rule+=' v3.7.0: Relatar um problema no cabeçalho autenticado e em Ajuda e suporte (Conta, perfil e Mais); orientação também oferece atalho. Mesmo modal com descrição10–2000 e passos opcionais1000, envio explícito. Destinatário apenas servidor; conta com e-mail confirmado, uma tentativa por minuto no banco, sem armazenar conteúdo do relato. X/Escape/fora cancelam sem enviar; pendente bloqueia duplicação, erro preserva texto e sucesso requer aceite SMTP. Fluxo local e autenticação SMTP real validados; publicação e recebimento externo ainda não certificados. Atlas demonstra sem enviar e-mail.';
 journeys.push({name:'Relatar um problema',ids:[66,70,66],steps:['Abrir Ajuda ou atalho no cabeçalho','Descrever e enviar no modal','Receber confirmação ou corrigir/tentar depois'],rule:'Modal compartilhado, sem nova rota. Conta confirmada; destinatário oculto e envio no servidor. Autenticação SMTP real validada; implantação e recebimento externo ainda não certificados. No Atlas nenhum e-mail é enviado.'});
+
+// Adequação funcional: mantém os IDs e a situação dos recortes, sem simular evolução individual.
+screens.find(s=>s.id===36).dependency='Esboço na coluna, lista móvel, Painéis e modal Nossa Essência. Informe igual ao Manifesto; sem promoção ou persistência de estágio.';
+screens.find(s=>s.id===36).route='/nucleos/[id]/acordos · modal Nossa Essência';
+screens.find(s=>s.id===36).blocks=[card('Nossa Essência · esboço','Esboço de funcionalidade · ainda não desenvolvido'),card('Frase ilustrativa','Conversamos com presença.'),note('Exemplos ilustrativos. As interações só mudam esta prévia; nada é salvo, enviado ou publicado.')];
+for(const id of [18,24,25,27,36,37])screens.find(s=>s.id===id).rule+=' Adequação local: categoria técnica experience preservada somente como legado; leitura e registro reutilizam o Hábito com as mesmas permissões, estado e aceite vigente. Essência e passagens são esboços. Modal Nossa Essência abre por Ver esboço de Essência, fecha por X/Escape/fora e não grava.';

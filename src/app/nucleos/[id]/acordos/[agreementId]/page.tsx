@@ -75,7 +75,7 @@ export default async function HabitDetailPage({ params, searchParams }: {
           <Link href={routes.nucleus + "/" + id + "/acordos/" + agreementId + "/confirmar"} className="agreement-text-link">Ver período e administração do hábito</Link>
           {membership.role === "admin" && habit.status !== "ended" && <ActionDialog title="Administrar acordo" description={habit.title} trigger="Administrar acordo" variant="secondary"><AgreementAdministration nucleusId={id} agreementId={agreementId} status={habit.status} termsVersion={habit.terms_version} /></ActionDialog>}
         </nav>
-        <details className="agreement-consent"><summary>Próximas possibilidades · esboços</summary><div><p>Reflexões, fotos, evolução para Experiência, Essência e Nossa Árvore dependem de critérios de acesso, autoria e consentimento. Nenhuma promoção ou pontuação é gerada por este hábito.</p><p>A agenda ainda não associa eventos a propostas.</p><Link href={routes.nucleus + "/" + id + "/agenda"} className="agreement-text-link">Abrir agenda do Núcleo</Link></div></details>
+        <details className="agreement-consent"><summary>Próximas possibilidades · esboços</summary><div><p>Reflexões, fotos, passagem de Hábito para Essência e Nossa Árvore dependem de critérios de acesso, autoria e consentimento. Nenhuma promoção ou pontuação é gerada por este hábito.</p><p>A agenda ainda não associa eventos a propostas.</p><Link href={routes.nucleus + "/" + id + "/agenda"} className="agreement-text-link">Abrir agenda do Núcleo</Link></div></details>
         <p className="agreements-private-note">Somente as pessoas deste Núcleo têm acesso.</p>
       </aside>
     </div>

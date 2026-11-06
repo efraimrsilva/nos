@@ -1,3 +1,9 @@
+## Modelo Hábito — roteiro vigente — v3.8.0 — 06/11/2026
+
+Proposta → Hábito → Essência no aplicativo, com compatibilidade de leitura e momentos para o legado sem regravar termos, versões, categoria ou aceites. Nova criação normalizada para habit. Essência e passagens somente esboços, com o mesmo informe do Manifesto; sem critérios ou promoção inventados. Integração Hábito/evento, recorrência e mídia continuam planejadas. Mesmas73 fichas/13 etapas;39 recortes existentes e34 planejados, sem converter desenho em entrega funcional. Nova prévia: Acordos18 → Ver esboço de Essência → modal Nossa Essência36; X/Escape/fora, sem escrita. Casos manuais continuam Não executados pelo usuário. [Registro](../registros/registro-v3.8.0-2026-11-06-imp-acordos-fun-modelo-habito.md). As seções datadas abaixo preservam marcos anteriores.
+
+---
+
 # Processo permanente de testes de caixa preta — v3.7.0
 
 [Modelo Hábito — v3.7.2](modelo-habito.md): oito casos de Atlas, adequação do MVP03 e expansões06/07; todos Não executados pelo usuário. Casos funcionais dependem de implementação.

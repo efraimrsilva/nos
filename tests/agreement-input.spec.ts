@@ -8,6 +8,7 @@ test("proposta exige categoria, compromisso e momento claros", () => {
       timing: "Depois do jantar", frequency: "Três vezes por semana" });
   expect(parseAgreementProposal({ category: "habit", title: "Conversar", description: "Sem celular", timing: "", frequency: "" })).toBeNull();
   expect(parseAgreementProposal({ category: "essence", title: "X", description: "Y", timing: "Z", frequency: "W" })).toBeNull();
+  expect(parseAgreementProposal({ category: "experience", title: "X", description: "Y", timing: "Z", frequency: "W" })).toBeNull();
 });
 
 test("acordos não expõem propostas sem sessão", async ({ page }) => {

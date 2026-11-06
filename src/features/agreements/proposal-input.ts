@@ -14,7 +14,7 @@ export function parseAgreementProposal(input: AgreementProposalInput): Agreement
     timing: input.timing.trim(),
     frequency: input.frequency.trim(),
   };
-  if (!['habit', 'experience'].includes(proposal.category)
+  if (proposal.category !== 'habit'
     || !proposal.title || proposal.title.length > 100
     || !proposal.description || proposal.description.length > 500
     || !proposal.timing || proposal.timing.length > 120

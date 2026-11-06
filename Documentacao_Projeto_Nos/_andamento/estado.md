@@ -1,3 +1,49 @@
+# Publicação GitHub — modelo Hábito — v3.8.0 — 2026-11-06
+
+**Objetivo autorizado:** commit e push de todas as alterações pendentes, com descrição abrangente e validação econômica. DOCS_DIR: Documentacao_Projeto_Nos. Branch feat/modelo-habito; base331d224, igual a origin/main após fetch.
+
+**Conjunto:** consolidação de Experiência em Hábito, esboço de Essência com informe de Manifesto, compatibilidade do legado sem regravar dados/termos/aceites, migração de funções e recuperação, testes, Atlas/MVP/fichas, galeria23 imagens, versão3.8.0, contratos e continuidade. Uma unidade lógica; nenhuma alteração preexistente fora desse escopo identificada.
+
+**Validação:** evidências funcionais anteriores reutilizadas. Nesta publicação, escopo/diff, manifestos/assets, integridade do índice, conteúdo do objeto Git e correspondência remota conferidos. Sem novas suítes, build ou análise de tipos. Limitação preexistente do banco e testes manuais não executados preservados.
+
+**Unidades pendentes de commit:** nenhuma. Os 68 arquivos da consolidação foram conferidos no objeto Git identificado pelo título “feat(acordos): consolidar Experiência em Hábito e preservar Essência como esboço na v3.8.0”. Este fechamento integra o mesmo commit. Push normal autorizado para origin/feat/modelo-habito; a correspondência remota é conferida após o envio. Sem merge em main, migração remota ou deploy.
+
+**Próximo passo:** após publicação Git, executar roteiro manual e planejar publicação operacional separada da migração de funções antes do aplicativo. Corrigir divergência histórica do banco local em tarefa própria, sem reset ou reparo presumido.
+
+**Contador:**29 conclusões acompanhadas desde29/10, incluindo esta publicação; lacuna histórica e último marco100 preservados. Ferramentas: Superpowers de verificação e Git; sem consultas técnicas ou instalação novas.
+
+**Índice:** [registro da publicação](registros/registro-v3.8.0-2026-11-06-imp-github-fun-publicacao-modelo-habito.md) · [registro funcional](registros/registro-v3.8.0-2026-11-06-imp-acordos-fun-modelo-habito.md) · [galeria](../wireframes/comparacoes/v3.8.0-2026-11-06-modelo-habito-tela_18-tela_24-tela_36/index.html).
+
+---
+
+# Retomada vigente — modelo Hábito — v3.8.0 — 2026-11-06
+
+**Objetivo/escopo autorizado:** reler documentação e Atlas e adequar o aplicativo ao modelo sem Experiência. Esclarecimento posterior: Essência e passagens somente esboços, com o informe de Manifesto. **DOCS_DIR:** Documentacao_Projeto_Nos. **Git:** branch feat/modelo-habito; base main/331d224; início limpo.
+
+**Situação:** entrega local concluída e revisada; documentação e galeria conferidas. Proposta → Hábito → Essência no aplicativo, com compatibilidade de leitura e momentos para o legado sem regravar termos, versões, categoria ou aceites. Nova criação normalizada para habit. Essência e passagens somente esboços, com o mesmo informe do Manifesto; sem critérios ou promoção inventados. Integração Hábito/evento, recorrência e mídia continuam planejadas.
+
+**Aceite:** três colunas, lista móvel/Painéis, nenhum rótulo/categoria pública de Experiência, legado acessível no Hábito comum, permissões e aceite vigente preservados, esboço sem escrita e paridade no Atlas.
+
+**Arquivos principais:** apresentação/workspace e EssenceSketch; ações/administration-actions/proposal-input/habit-access; páginas Acordos/detalhe; CSS de Acordos/temas; migração e recuperação 20261106123120; testes de compatibilidade e habit-model; fontes/verificador do Atlas; manifestos e documentação vinculada.
+
+**Validações recentes:** quatro testes unitários,14 verificações SQL novas, três verificadores do Atlas, recuperação transacional e tipos aprovados. Oito regressões autenticadas anteriores passaram; dois testes novos passaram após corrigir seletor ambíguo de status no teste. Compilação3.8.0 e rodada final8 autenticados aprovadas;2 checagens adicionais de X/Escape/fora no novo modal aprovadas. Capturas antes/depois em computador/celular. Revisão independente de código sem achados acionáveis; dois P3 editoriais do Atlas corrigidos e verificados. Galeria com 23 imagens e 28 referências Markdown novas conferidas.
+
+**Limitação preexistente:** suíte completa de banco executou198 asserções com sucesso nos nove arquivos funcionais; arquivo email_confirmation.sql aborta por função get_email_confirmation_status ausente. Histórico local não contém20261024120000,20261027173526 e20261028175254; nenhuma dessas migrações foi aplicada ou marcada por esta tarefa. Nova migração aplicada via psql em transação e registrada atomicamente, somente local. Sem inventário/migração remotos, commit, push ou deploy.
+
+**Próximo passo executável:** revisar a galeria e executar o roteiro manual e preparar publicação separada da migração de funções antes do aplicativo. Corrigir divergência histórica local em tarefa própria, sem reset. Não remover categoria técnica antes de decisão específica de conversão física.
+
+**Unidade pronta para commit:** consolidação de Acordos em Hábito, esboço de Essência, migração/recuperação, testes, Atlas, versão e documentação. Commit ainda não criado; verificações aplicáveis do recorte aprovadas, com limite preexistente da suíte ampla de banco registrado. Sugestão: feat(acordos): consolidar Experiência em Hábito e sinalizar Essência como esboço.
+
+**Ferramentas:** Superpowers de entendimento/planejamento/TDD/depuração/revisão/verificação; agentes somente para leitura e revisão independente. Context7 nas versões Supabase CLI2.118.0 e React19.3.0. Octocode19.1.0 já configurado, sem ferramenta exposta; rg/Node usados para navegação local precisa. Nenhuma dependência instalada. Docker aberto para testes; dados descartáveis limpos pelos executores.
+
+**Contador:**28 conclusões acompanhadas desde29/10, contando esta unidade lógica; lacuna histórica e último marco auditado100 preservados. Próxima auditoria periódica ainda não atingida.
+
+**Índice:** [registro](registros/registro-v3.8.0-2026-11-06-imp-acordos-fun-modelo-habito.md) · [plano](planos/adequacao-aplicativo-habito.md) · [contrato](funcionalidades/fluxo-proposta-habito-essencia.md) · [casos manuais](testes-caixa-preta/modelo-habito.md) · [galeria](../wireframes/comparacoes/v3.8.0-2026-11-06-modelo-habito-tela_18-tela_24-tela_36/index.html).
+
+## Marcos anteriores — preservados como histórico
+
+---
+
 # Estado do Projeto Nós
 
 ## Publicação do Atlas/MVP — modelo Hábito — v3.7.2 — 2026-11-06

@@ -1,3 +1,15 @@
+## 2026-11-06 — v3.8.0 — Publicação Git da consolidação em Hábito
+
+Commit/push autorizados de todo o conjunto funcional, banco/recuperação, Atlas/testes/evidências e documentação, com descrição abrangente. Validações anteriores reutilizadas; escopo/índice/objeto e correspondência remota conferidos no encerramento. Versão3.8.0 mantida, sem novas suítes ou publicação operacional. [Registro](registros/registro-v3.8.0-2026-11-06-imp-github-fun-publicacao-modelo-habito.md).
+
+---
+
+## 2026-11-06 — v3.8.0 — Aplicativo adequado ao modelo Hábito
+
+Proposta → Hábito → Essência no aplicativo, com compatibilidade de leitura e momentos para o legado sem regravar termos, versões, categoria ou aceites. Nova criação normalizada para habit. Essência e passagens somente esboços, com o mesmo informe do Manifesto; sem critérios ou promoção inventados. Integração Hábito/evento, recorrência e mídia continuam planejadas. Migração de duas funções e recuperação validadas localmente; dados antigos intactos. Releitura das19 edições conceituais, contratos,16 planos,136 registros históricos, testes e guias orientou a precedência atual. Validações e limite preexistente do banco no [registro](registros/registro-v3.8.0-2026-11-06-imp-acordos-fun-modelo-habito.md). Sem publicação.
+
+---
+
 # Histórico de andamento
 
 ## 2026-11-06 — v3.7.2 · Publicação do Atlas/MVP do modelo Hábito

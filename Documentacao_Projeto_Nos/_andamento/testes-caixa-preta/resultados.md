@@ -1,3 +1,9 @@
+## Evidência técnica — modelo Hábito — v3.8.0 — 06/11/2026
+
+Regressões inicialmente falharam pelo agrupamento antigo e negativa de momento legado; após correção, quatro testes unitários e14 asserções SQL novas passaram. Oito regressões autenticadas existentes passaram; teste novo falhou por seletor de status ambíguo e passou em desktop/mobile após delimitá-lo. Tipos, três verificadores do Atlas e recuperação transacional aprovados. Build3.8.0 e rodada final8 autenticados aprovados; mais2 verificações dirigidas do fechamento por X/Escape/fora aprovadas. Galeria23 imagens e27 referências novas conferidas, conforme [registro](../registros/registro-v3.8.0-2026-11-06-imp-acordos-fun-modelo-habito.md). Suíte ampla de banco:198 asserções passaram, mas email_confirmation.sql abortou por função preexistente ausente. Nenhum caso manual aprovado por inferência; preservar os históricos abaixo.
+
+---
+
 # Resultados dos testes de caixa preta — v3.5.0
 
 ## 2026-11-03 — v3.7.0 — verificação real da conexão SMTP

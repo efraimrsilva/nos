@@ -26,7 +26,8 @@ export async function loadHabitContext(id: string, agreementId: string, includeE
   let request = supabase.from("nucleus_agreements")
     .select("category,title,description,timing,frequency,status,trial_days,created_at,terms_version,test_started_at,nucleus_agreement_participants(response,accepted_version)")
     .eq("id", agreementId).eq("nucleus_id", id);
-  if (!includeProposals) request = request.eq("category", "habit");
+  // O legado usa o mesmo detalhe e histórico sem regravar categoria, termos ou aceites.
+  if (!includeProposals) request = request.in("category", ["habit", "experience"]);
   const { data: habit, error: habitError } = await request
     .in("status", includeProposals ? ["pending", "testing", "active", "ended", "declined"] : includeEnded ? ["testing", "active", "ended"] : ["testing", "active"]).maybeSingle();
   if (habitError) throw new Error("Não foi possível consultar o hábito agora.");

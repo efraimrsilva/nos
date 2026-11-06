@@ -14,9 +14,9 @@ test("busca nos acordos considera acentos, termos e estado na página recebida",
   expect(filterAgreementCards(cards, "inexistente", "all")).toEqual([]);
 });
 
-test("quadro distingue propostas pendentes de categorias atuais sem promover pessoas", () => {
+test("quadro reúne legado e hábitos sem promover pessoas", () => {
   expect(agreementColumn(cards[0])).toBe("proposal");
   expect(agreementColumn({ ...cards[0], category: "experience" })).toBe("proposal");
-  expect(agreementColumn(cards[1])).toBe("experience");
+  expect(agreementColumn(cards[1])).toBe("habit");
   expect(agreementColumn(cards[2])).toBe("habit");
 });

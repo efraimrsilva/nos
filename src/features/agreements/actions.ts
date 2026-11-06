@@ -30,8 +30,8 @@ export async function createAgreementProposal(nucleusId: string, _previous: Agre
     frequency: String(formData.get("frequency") ?? ""),
   });
   if (!input) return { error: "Preencha compromisso, descrição, momento e frequência." };
-  const trialDays = input.category === "habit" ? parseTrialDays(formData.get("trialDays")) : null;
-  if (input.category === "habit" && trialDays === null) return { error: "Escolha um período de teste inteiro entre 7 e 30 dias." };
+  const trialDays = parseTrialDays(formData.get("trialDays"));
+  if (trialDays === null) return { error: "Escolha um período de teste inteiro entre 7 e 30 dias." };
   const { client: supabase, authUnavailable } = await authenticatedClient();
   if (!supabase) return { error: authUnavailable ? "Não foi possível conferir a sessão agora." : "Entre na sua conta novamente." };
   // A RPC confere participação; criar não aceita os termos por ninguém.
@@ -47,14 +47,15 @@ export async function createAgreementProposal(nucleusId: string, _previous: Agre
 
 export async function respondAgreementProposal(nucleusId: string, agreementId: string,
   response: "accepted" | "declined", category: "habit" | "experience", termsVersion: number) {
+  // A assinatura aceita o valor armazenado antigo; o retorno público usa o Hábito comum.
   if (!uuid.test(nucleusId) || !uuid.test(agreementId)
     || !["accepted", "declined"].includes(response)
     || !["habit", "experience"].includes(category) || !Number.isSafeInteger(termsVersion) || termsVersion < 1) return;
   const { client: supabase, authUnavailable } = await authenticatedClient();
-  if (!supabase) redirect(authUnavailable ? `${routes.nucleus}/${nucleusId}/acordos?categoria=${category}&resultado=erro` : routes.account);
+  if (!supabase) redirect(authUnavailable ? `${routes.nucleus}/${nucleusId}/acordos?categoria=habit&resultado=erro` : routes.account);
   const { error } = await supabase.rpc("respond_nucleus_agreement", {
     target_agreement: agreementId, agreement_response: response, expected_terms_version: termsVersion,
   });
   revalidatePath(`${routes.nucleus}/${nucleusId}/acordos`);
-  redirect(`${routes.nucleus}/${nucleusId}/acordos?categoria=${category}&filtro=all&resultado=${error ? "erro" : "resposta"}`);
+  redirect(`${routes.nucleus}/${nucleusId}/acordos?categoria=habit&filtro=all&resultado=${error ? "erro" : "resposta"}`);
 }

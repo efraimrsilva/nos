@@ -1,6 +1,6 @@
 # Nós — plataforma para cultivar vínculos
 
-Atualização local3.7.0: Relatar um problema na ajuda, orientação, perfil/Mais e cabeçalho; destinatário oculto, transporte local testado e autenticação SMTP real validada. Nenhuma mensagem externa enviada; deploy não certificado. [Configuração/contrato](Documentacao_Projeto_Nos/_andamento/funcionalidades/relato-problemas.md).
+**Versão local 3.8.0:** Acordos em Proposta → Hábito → Essência; Experiência consolidada em Hábito, incluindo leitura e momentos do legado. Essência e passagens continuam esboços, com o mesmo informe do Manifesto. A nova migração de funções foi validada somente localmente; publicação remota pendente. [Contrato](Documentacao_Projeto_Nos/_andamento/funcionalidades/fluxo-proposta-habito-essencia.md).
 
 Aplicação web full stack para organizar espaços compartilhados, construir acordos e acompanhar práticas de cuidado com participação voluntária. O projeto reúne interface responsiva, autenticação, regras de negócio no servidor e no banco, testes automatizados e documentação de produto.
 
@@ -200,7 +200,7 @@ Os documentos conceituais das séries 1.x e 2.x preservam decisões e propostas 
 
 ## Evolução planejada e limites atuais
 
-O percurso **Proposta → Hábito → Experiência → Essência** é a direção aprovada do produto. A progressão individual e os critérios de transição ainda precisam de adequação funcional; o quadro visual não comprova essa evolução implementada.
+O percurso **Proposta → Hábito → Essência** é a direção aprovada do produto. Hábito reúne prática, momentos e revisões. As passagens individuais e Essência são apenas esboços identificados; o quadro não comprova evolução individual. A categoria técnica antiga permanece somente nos registros legados, com acesso pelo Hábito comum e sem regravar termos ou aceites.
 
 Nossa Árvore, Memórias, Conexões, Perfis, Manifesto e Cuidado possuem recortes ilustrativos ou planejados, identificados na interface. Uploads, integrações externas, notificações e inteligência artificial não devem ser inferidos desses esboços.
 

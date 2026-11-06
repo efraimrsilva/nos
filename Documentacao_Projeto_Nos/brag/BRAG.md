@@ -1,3 +1,9 @@
+## 2026-11-06 — v3.8.0 — Um fluxo comum para a prática
+
+**Problema:** o aplicativo ainda separava Experiência e impedia seu uso no detalhe/registro de Hábito. **Contribuição:** consolidar apresentação e leitura, normalizar novas gravações, reutilizar histórico e explicitar Essência como esboço pelo componente de Manifesto. **Resultado verificado:** registro legado acessível e momento gravado uma única vez, sem regravar termos ou aceites; testes unitários/SQL/autenticados e Atlas com evidências separadas. **Benefício esperado:** reduzir duplicação de fluxos e ambiguidade, sem medição de produção. [Evidência](../_andamento/registros/registro-v3.8.0-2026-11-06-imp-acordos-fun-modelo-habito.md).
+
+---
+
 # Brag document — Projeto Nós
 
 ## 2026-11-06 — v3.7.2 · Atlas e roteiro coerentes com Hábito

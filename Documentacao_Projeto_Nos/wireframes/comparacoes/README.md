@@ -1,5 +1,7 @@
 # Comparações de telas — procedimento permanente
 
+- [v3.8.0 · Modelo Hábito e esboço de Essência](v3.8.0-2026-11-06-modelo-habito-tela_18-tela_24-tela_36/index.html) —23 imagens; Acordos18, detalhe24 e Essência36, aplicativo local/Atlas, computador/celular. Legado preservado, novo modal sem composição anterior própria; limites e larguras na galeria.
+
 - [v3.7.2 · Lembrete de suporte](v3.7.2-2026-11-05-lembrete-suporte-tela_12-tela_66-tela_70/index.html) — expansão e recolhimento do botão, desktop e celular, telas 12, 66 e 70.
 
 - [v3.7.1 · Cabeçalho e preferências](v3.7.1-2026-11-05-cabecalho-preferencias-tela_13-tela_14-tela_60-tela_66/index.html) — antes e depois do aplicativo e Atlas, desktop e celular, telas 13, 14, 60 e 66.

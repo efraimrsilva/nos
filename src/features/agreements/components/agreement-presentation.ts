@@ -7,8 +7,8 @@ export function filterAgreementCards<T extends AgreementSummary>(cards: T[], sea
   return cards.filter(card => (status === "all" || card.status === status) &&
     normalize(`${card.title} ${card.description} ${card.timing} ${card.frequency}`).includes(term));
 }
-export function agreementColumn(card: AgreementSummary): "proposal" | "habit" | "experience" {
-  // O estado operacional organiza propostas; a categoria antiga não comprova evolução individual.
+export function agreementColumn(card: AgreementSummary): "proposal" | "habit" {
+  // A categoria legada compartilha o Hábito; agrupar não atribui evolução individual.
   if (card.status === "pending") return "proposal";
-  return card.category === "experience" ? "experience" : "habit";
+  return "habit";
 }

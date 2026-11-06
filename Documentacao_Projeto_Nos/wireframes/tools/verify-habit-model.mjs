@@ -3,7 +3,7 @@ import path from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {chromium} from '@playwright/test';
 
-// Verifica o planejamento offline; não afirma migração ou transições no aplicativo.
+// Confere a representação offline; a validação autenticada do aplicativo tem evidência própria.
 const browser=await chromium.launch();
 try {
   const page=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce'});
@@ -17,7 +17,11 @@ try {
   await page.locator('[data-width="desktop"]').click();
   assert.deepEqual(await page.locator('#screen-preview [data-live-column]').evaluateAll(nodes=>nodes.map(n=>n.dataset.liveColumn)),['Propostas','Hábitos','Essência']);
   assert.match(await page.locator('#screen-preview').innerText(),/Proposta → Hábito → Essência/);
-  assert.match(await page.locator('#screen-preview').innerText(),/aplicativo.*legado/i);
+  assert.match(await page.locator('#screen-preview').innerText(),/registros legados/i);
+  await page.locator('#screen-preview [data-live-essence]').first().click();
+  assert.match(await page.locator('#atlas-live-dialog').innerText(),/Esboço de funcionalidade · ainda não desenvolvido/);
+  assert.match(await page.locator('#atlas-live-dialog').innerText(),/nada é salvo, enviado ou publicado/);
+  await page.keyboard.press('Escape');
   await page.locator('#screen-preview [data-atlas-agreements="panels"]').click();
   assert.equal(await page.locator('#screen-preview .current-atlas-panel-layout').isVisible(),true);
   const search=page.locator('#screen-preview [data-live-search]');
@@ -38,7 +42,7 @@ try {
   assert.ok(model.affected.find(s=>s.id===37).actions.some(a=>a.label==='Manter como Hábito'&&a.to===24));
   assert.ok(model.affected.find(s=>s.id===35).actions.some(a=>a.to===27),'Registro reutiliza o Hábito');
   assert.doesNotMatch(JSON.stringify(model.phases),/Hábito → Experiência|etapa Experiência|três passagens|Experiência e agenda/);
-  assert.match(model.phases.find(p=>p.key==='habit').gate,/mapeamento aprovado.*recuperação/,'Etapa03 bloqueia expansão sem adequar o legado');
+  assert.match(model.phases.find(p=>p.key==='habit').gate,/compatibilidade de leitura.*sem regravar/,'Etapa03 distingue compatibilidade de conversão de dados');
   assert.doesNotMatch(JSON.stringify(model.journeys),/Planejar uma experiência|evento\/experiência/);
   // O percurso manual precisa ser alcançável pelas saídas visíveis, não só pelo mapa.
   await open(24);

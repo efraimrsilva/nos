@@ -72,7 +72,7 @@
 .ui-button-secondary,.secondary-action,.ui-trigger-secondary { color:var(--color-leaf); }
 .ui-button-danger,.agreement-danger,.invitation-danger { color:#fff!important; }
 .agreement-danger,.invitation-danger { background:var(--danger-action)!important; border-color:var(--danger-action)!important; }
-:root:is([data-theme="dark"],[data-theme="black"],[data-theme="neon"]) :is(.agreements-column,.agreements-tone-proposal,.agreements-tone-experience,.agreements-tone-essence) { --agreement-tone:var(--color-leaf); --agreement-soft:var(--accent-soft); }
+:root:is([data-theme="dark"],[data-theme="black"],[data-theme="neon"]) :is(.agreements-column,.agreements-tone-proposal,.agreements-tone-essence) { --agreement-tone:var(--color-leaf); --agreement-soft:var(--accent-soft); }
 :root:is([data-theme="dark"],[data-theme="black"],[data-theme="neon"]) .bg-leaf.text-white { color:var(--on-accent); }
 .appearance-option { display:block; }
 .theme-options { border:0; padding:0; margin:22px 0 0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }

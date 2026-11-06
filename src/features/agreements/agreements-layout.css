@@ -39,14 +39,18 @@
 .agreement-mobile-status { text-align:right; }
 .agreement-mobile-participation { color:var(--color-muted); font-size:13px; line-height:1.7; }
 .agreement-mobile-arrow { align-self:center; justify-self:end; color:var(--color-leaf); }
-.agreements-mobile-future { padding:20px; border:1px dashed #cbbbd9; background:var(--theme-soft,#f5f1f9); border-radius:8px; color:var(--theme-ink,#78558e); }
+.agreements-mobile-future { margin-top:20px; padding:20px; border:1px dashed #cbbbd9; background:var(--theme-soft,#f5f1f9); border-radius:8px; color:var(--theme-ink,#78558e); }
 .agreements-mobile-future>.ui-badge { background:var(--theme-soft,#ece4f6); color:var(--theme-ink,#78558e); }
 .agreements-mobile-future h2 { margin:18px 0 12px; font-size:20px; }
 .agreements-mobile-future p { margin:0; font-size:14px; line-height:1.9; }
-.agreements-board { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px; align-items:stretch; }
+.agreements-board { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; align-items:stretch; }
 .agreements-column { position:relative; min-width:0; min-height:430px; padding:15px; border-radius:10px; background:var(--accent-soft); --agreement-tone:#4f8053; --agreement-soft:#e4eddf; }
 .agreements-tone-proposal { --agreement-tone:#a97132; --agreement-soft:#f8ead4; }
-.agreements-tone-experience { --agreement-tone:#4f7da7; --agreement-soft:#e4edf6; }
+.agreements-essence-sketch { min-width:0; }
+.agreements-essence-sketch .preview-notice { padding:14px; margin:0 0 16px; font-size:12px; }
+.agreements-essence-sketch .preview-notice>svg { flex-shrink:0; }
+.agreements-essence-sketch h3 { font-size:18px; margin:16px 0 12px; }
+.agreements-essence-sketch>p { font-size:13px; line-height:1.8; margin-bottom:16px; }
 .agreements-tone-essence { --agreement-tone:#82639b; --agreement-soft:var(--theme-soft,#ece4f6); }
 .agreements-column>header { display:flex; align-items:center; gap:6px; }
 .agreements-column h2 { font:400 14px/1.4 Arial,Helvetica,sans-serif; margin:0; color:var(--color-forest); }

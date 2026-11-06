@@ -21,6 +21,7 @@ import { routes } from "@/shared/routes";
 export const metadata: Metadata = { title: "Acordos do Núcleo" };
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 type Agreement = {
+  // experience existe apenas no armazenamento legado, apresentado e operado como Hábito.
   id: string; category: "habit" | "experience"; title: string; description: string; timing: string;
   frequency: string; trial_days: number | null; status: string; created_at: string; terms_version: number;
   nucleus_agreement_participants: { response: string; accepted_version: number | null }[];
@@ -81,18 +82,18 @@ export default async function AgreementsPage({ params, searchParams }: {
       <div><dt>Frequência</dt><dd>{agreement.frequency}</dd></div>
       {agreement.trial_days && <div><dt>Teste planejado</dt><dd>{agreement.trial_days} dias · início e conclusão pela administração</dd></div>}
     </dl>
-    <p className="agreement-form-note"><strong>Evolução individual · esboço.</strong> Hábito e Experiência identificam as categorias dos dados atuais. A passagem entre etapas ainda não está integrada.</p>
+    <p className="agreement-form-note"><strong>Evolução individual · esboço.</strong> O Hábito reúne prática, momentos e revisões. As passagens de Proposta para Hábito e de Hábito para Essência ainda estão em planejamento.</p>
     {participation(agreement)}
     <div className="agreement-detail-links">
-      {agreement.category === "habit" && ["testing", "active", "ended"].includes(agreement.status) && <Link href={routes.nucleus + "/" + id + "/acordos/" + agreement.id} className="ui-button-secondary">Ver detalhe do hábito<ArrowRight size={15} aria-hidden="true" /></Link>}
+      {["testing", "active", "ended"].includes(agreement.status) && <Link href={routes.nucleus + "/" + id + "/acordos/" + agreement.id} className="ui-button-secondary">Ver detalhe do hábito<ArrowRight size={15} aria-hidden="true" /></Link>}
       <Link href={routes.nucleus + "/" + id + "/acordos/" + agreement.id + "/revisar"} className="ui-button-secondary">Termos e histórico</Link>
-      {agreement.category === "habit" && ["testing", "active"].includes(agreement.status) && participates(agreement) && <ActionDialog title="Registrar momento" description={agreement.title} trigger="Registrar momento" variant="primary"><HabitMomentForm nucleusId={id} agreementId={agreement.id} /></ActionDialog>}
+      {["testing", "active"].includes(agreement.status) && participates(agreement) && <ActionDialog title="Registrar momento" description={agreement.title} trigger="Registrar momento" variant="primary"><HabitMomentForm nucleusId={id} agreementId={agreement.id} /></ActionDialog>}
       {membership.role === "admin" && ["pending", "testing", "active"].includes(agreement.status) && <ActionDialog title="Administrar acordo" description={agreement.title} trigger="Administrar acordo" variant="secondary"><AgreementAdministration nucleusId={id} agreementId={agreement.id} status={agreement.status} termsVersion={agreement.terms_version} /></ActionDialog>}
     </div>
     <HabitConsentGuidance />
   </div>;
   const card = (agreement: Agreement, detail: ReturnType<typeof details>) => <ActionDialog key={revision(agreement)} title={agreement.title} description="Confira os termos e sua participação neste combinado." variant="card" size="wide" className="agreement-layout-card" trigger={<>
-    <span className="agreement-card-top"><span className="agreement-category-badge">{agreement.status === "pending" ? "Proposta" : agreement.category === "habit" ? "Hábito" : "Experiência"}</span><MoreHorizontal size={18} aria-hidden="true" /></span>
+    <span className="agreement-card-top"><span className="agreement-category-badge">{agreement.status === "pending" ? "Proposta" : "Hábito"}</span><MoreHorizontal size={18} aria-hidden="true" /></span>
     <span className="agreement-card-title">{agreement.title}</span>
     <AgreementResponses agreementId={agreement.id} />
     <span className="agreement-card-description">{agreement.description}</span>
@@ -107,14 +108,13 @@ export default async function AgreementsPage({ params, searchParams }: {
         <AgreementsHowItWorks><ol>
           <li><span aria-hidden="true">➜</span><span>Comece com uma <strong>Proposta:</strong> apresente a prática e combine seus termos. Cada pessoa escolhe se deseja participar.</span></li>
           <li><span aria-hidden="true">➜</span><span>Da Proposta ao <strong>Hábito:</strong> cultive a prática com o apoio do Núcleo, respeitando os termos e a participação de cada pessoa.</span></li>
-          <li><span aria-hidden="true">➜</span><span>Do Hábito à <strong>Experiência:</strong> a continuidade da mesma prática orienta o percurso planejado. A passagem individual ainda será implementada.</span></li>
-          <li><span aria-hidden="true">➜</span><span>Da Experiência à <strong>Essência:</strong> o reconhecimento da prática consolidada depende de critérios e consentimentos ainda a definir. Ninguém avança automaticamente pelo tempo.</span></li>
+          <li><span aria-hidden="true">➜</span><span>Do Hábito à <strong>Essência · esboço:</strong> uma possibilidade de reconhecer a prática amadurecida. Critérios e consentimentos ainda serão definidos. Ninguém avança automaticamente pelo tempo.</span></li>
         </ol></AgreementsHowItWorks>
       </div>
       <div className="agreements-heading-actions">
       {membership.role === "admin" && <ActionDialog trigger="Enviar convite" title="Enviar convite" variant="secondary"><InitialInvitation nucleusId={id} initialCode="" /></ActionDialog>}
       <ActionDialog key={agreements.map(agreement => agreement.id).join(":")} title="Nova proposta" description="Uma conversa pode virar um combinado. Enviar a proposta não registra aceite." trigger={<><Plus size={17} aria-hidden="true" />Nova proposta</>} size="wide" variant="primary">
-        <p className="agreement-form-note">Todo combinado começa como Proposta. Cada pessoa escolhe se deseja participar. A evolução individual de Hábito para Experiência ainda será implementada.</p>
+        <p className="agreement-form-note">Todo combinado começa como Proposta. Cada pessoa escolhe se deseja participar. Hábito reúne a prática; as passagens individuais e Essência permanecem como esboços.</p>
         <ProposalForm nucleusId={id} />
       </ActionDialog>
       </div>
@@ -131,7 +131,7 @@ export default async function AgreementsPage({ params, searchParams }: {
           return { id: agreement.id, revision: revision(agreement), title: agreement.title, description: agreement.description, timing: agreement.timing, frequency: agreement.frequency, category: agreement.category, status: agreement.status, statusLabel: statusLabel[agreement.status] ?? "Indisponível", participationLabel: responseLabel(agreement), content: card(agreement, detail), detail, context: <><span className="ui-badge">{responseLabel(agreement)}</span><p className="ui-copy">Termos versão {agreement.terms_version}</p><p className="ui-copy">{["ended", "declined"].includes(agreement.status) ? "Este acordo permanece disponível para consulta do histórico." : participates(agreement) ? "Você aceitou participar dos termos atuais." : "Você pode escolher se participa dos termos atuais."}</p><p className="ui-copy">A administração organiza o ciclo e preserva o histórico.</p></> };
         })} />
       </AgreementResponsesProvider>
-      <p className="agreements-model-note">As colunas mostram propostas e categorias existentes. O percurso de evolução individual permanece planejado.</p>
+      <p className="agreements-model-note">Proposta → Hábito → Essência. O Hábito reúne prática, momentos e revisões. As colunas organizam os acordos; as passagens individuais e Essência permanecem como esboços.</p>
       {(safePage > 1 || hasNextPage) && <nav aria-label="Páginas dos acordos" className="agreements-pagination">
         {safePage > 1 ? <Link href={href(safePage - 1)} className="ui-button-secondary">Propostas anteriores</Link> : <span />}
         <span>Página {safePage}</span>

@@ -26,5 +26,5 @@ export async function administerAgreement(nucleusId: string, agreementId: string
   }
   if (result.error) return { error: result.error.message === "agreement terms unchanged" ? "Os termos não mudaram. Altere um campo para publicar uma nova versão." : "Não foi possível concluir. Confira sua permissão e o estado atual do acordo." };
   revalidatePath(`/nucleos/${nucleusId}`, "layout");
-  redirect(`${path}?categoria=${data.category}&resultado=gestao`);
+  redirect(`${path}?categoria=habit&resultado=gestao`);
 }

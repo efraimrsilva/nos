@@ -1,6 +1,6 @@
-# Fluxo vigente — Proposta → Hábito → Essência — v3.7.2
+# Fluxo vigente — Proposta → Hábito → Essência — v3.8.0
 
-**Direção aprovada:** 06/11/2026. **Status:** contrato de planejamento atualizado; adaptação funcional do legado e transições individuais não implementadas nesta revisão.
+**Direção aprovada:** 06/11/2026. **Status local:** apresentação e compatibilidade do legado implementadas; Essência e transições individuais somente esboços, conforme orientação explícita do usuário, com o mesmo informe de Manifesto. Sem publicação/migração remota nesta entrega.
 
 ## Regra central
 
@@ -27,13 +27,17 @@ As duas passagens ainda exigem decisões antes da entrega funcional:
 
 Não definir dias, quantidade de registros, pontuação, regressão de etapa ou promoção por inferência. Os seis meses e percentuais de documentos históricos não são revalidados pela simplificação. Categorias globais e estados operacionais não autorizam inferir avanço de todos.
 
-## Situação verificada em 06/11/2026
+## Implementação local — v3.8.0 — 06/11/2026
 
-Leitura local do código, sem consulta ou migração de banco: o formulário não oferece categoria e a ação de criação força `habit`. `agreement-presentation.ts`, `agreements-workspace.tsx`, as páginas de Acordos/detalhe e tipos de compatibilidade ainda incluem `experience`. A existência desse valor no código não comprova quantidade de registros em qualquer ambiente.
+O quadro apresenta Propostas, Hábitos e Essência planejada; Painéis e lista móvel seguem o mesmo contrato. Nova proposta continua sem categoria pública e força `habit`. O parser público rejeita `experience`; a RPC (chamada de procedimento remoto) normaliza esse argumento de clientes antigos para `habit`, sem fabricar prazo ou aceite. O formulário atual mantém teste inteiro de 7–30 dias.
 
-O quadro do Atlas apresenta o **modelo-alvo identificado**, com três colunas. Não é prova de paridade com o aplicativo atual. IDs 34/35 tornam-se refinamentos planejados de Hábito/Agenda; não são rotas independentes. IDs e situações das 73 fichas são preservados.
+Registros existentes `experience` conservam categoria técnica, IDs, termos, versões, datas, participações e histórico; detalhe, histórico e momentos reutilizam o Hábito. A função de momentos exige vínculo atual, mesmo Núcleo, estado testing/active e aceite da versão vigente. Isso é compatibilidade, sem conversão em massa ou criação de estágio individual. O inventário local inicial tinha zero acordos; cenários foram exercitados com dados descartáveis e limpos. Nenhum inventário remoto realizado.
 
-## Legado e compatibilidade — requisitos antes de migrar
+Essência oferece apenas a prévia “Nossa Essência”, sem formulário de promoção nem persistência, usando `FeatureSketchNotice` com título e texto de Manifesto. Acesso pelo quadro, lista móvel e Painéis. Modais preservam X/Escape/fora e retorno do foco. IDs34/35 continuam refinamentos planejados de Hábito/Agenda; IDs e situações das73 fichas preservados.
+
+Migração `20261106123120_consolidate_habit_compatibility.sql` substitui somente criação/registro. Recuperação em `supabase/rollback/20261106123120_consolidate_habit_compatibility.sql`; restaurar funções anteriores em transação e voltar ao aplicativo compatível, sem apagar dados ou reescrever histórico. Recuperação ensaiada em transação descartada; definições novas permaneceram intactas.
+
+## Conversão física futura do legado — requisitos antes de migrar dados
 
 - Inventariar no ambiente autorizado acordos `experience`, estados, versões, participações, momentos e eventos relacionados; registrar somente totais não identificáveis.
 - Definir e revisar o mapeamento para Hábito, sem atribuir estágio individual fictício. Preservar IDs e referências, autoria conforme política vigente, momentos, versões dos termos e suas evidências de aceite.
@@ -41,7 +45,7 @@ O quadro do Atlas apresenta o **modelo-alvo identificado**, com três colunas. N
 - Preparar migração versionada, recuperação e validação de leitura/escrita. Conferir ordenação de implantação e compatibilidade com versões do aplicativo ainda em uso antes de restringir enums ou validações.
 - Retirar a categoria pública da apresentação e dos contratos atuais apenas com a compatibilidade coberta. Não apagar dados ou reescrever migrações já aplicadas.
 
-Nenhuma conversão, execução remota ou remoção de dados foi realizada nesta entrega. [Plano de adequação](../planos/modelo-habito.md).
+Nesta entrega não há conversão física, execução remota ou remoção de dados. A categoria técnica pode permanecer enquanto houver necessidade de compatibilidade; eliminá-la fisicamente exige o procedimento acima. [Plano de adequação](../planos/adequacao-aplicativo-habito.md).
 
 ## Atlas, MVP e dependências
 
