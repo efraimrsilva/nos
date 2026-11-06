@@ -1,5 +1,12 @@
 # Wireframe completo do Projeto Nós
 
+## Modelo-alvo atualizado — 06/11/2026 — v3.7.2
+
+O Atlas, a Visão global, os Percursos e o MVP seguem **Proposta → Hábito → Essência**. O quadro de três colunas é uma projeção identificada: o aplicativo conserva legado; migração e transições individuais não foram implementadas nesta revisão. Hábitos concentram prática e amadurecimento; evento organiza a ocorrência e momento registra o vivido. Fichas34/35 refinam Hábito/Agenda sem nova rota/entidade e reutilizam 24/25/27. A ação da ficha37 mantém como Hábito24.
+
+[Contrato vigente](../_andamento/funcionalidades/fluxo-proposta-habito-essencia.md) · [Plano e compatibilidade](../_andamento/planos/modelo-habito.md). São73 fichas, com situações preservadas e atribuição única ao MVP; contagens e referências datadas abaixo são históricas. O documento importado e galerias antigas preservam o modelo anterior, sem orientar o desenho futuro.
+
+
 **Atualização vigente — v3.6.0 — 03/11/2026:** Pessoas sai da navegação; Início13 exibe propósito e edição separada de identidade, e abre Integrantes73 em modal. Conta66/popover/Mais reúne convites, saída e encerramento. Mobile: Início → Seus Núcleos → Acordos → Agenda → Mais. IDs preservados; /pessoas é compatibilidade. [Contrato](../_andamento/funcionalidades/organizacao-nucleo.md) · [galeria](comparacoes/v3.6.0-2026-11-03-nucleo-tela_13-tela_66-tela_71-tela_73/index.html).
 
 **Atualização local v3.5.0 — 03/11/2026:** telas01/02/05,12/13/14/18/66/73 e navegação compartilhada sincronizadas com as fontes locais. Nova proposta sem Categoria (pending/habit), Acordos sem filtros globais, preservando busca local nos registros carregados; contagens consultadas a cada3s no aplicativo, sem refresh da rota. Agenda mantém semana/lista e acrescenta seletor mensal UTC com janela móvel de±100anos, limites1–9999. Núcleos exibem integrantes em cartões inteiros e adaptam colunas/altura. Início simplificado; convite administrativo no cabeçalho. Conta mantém contexto, animações, brilho vermelho acessível e mostrar/ocultar senha; oito luzes decorativas. Sidebar e barra inferior+Mais oferecem os mesmos destinos; Kanban/Painéis e lista móvel preservam ações. O Atlas não consulta contas, não grava dados nem simula polling remoto. [Galeria e limites](comparacoes/v3.5.0-2026-11-03-paridade-tela_01-tela_05-tela_12-tela_13-tela_14-tela_18-tela_66-tela_73/index.html). Galerias históricas preservadas.
@@ -73,7 +80,7 @@ O modo **Atlas vivo** usa Arial/Georgia, fundo #f5f7f1, texto #293e35, ação #3
 
 O inventário continua em **73 fichas, 39 recortes existentes e 34 planejadas**. Esboço visual não equivale a módulo funcional: as fichas38/40/44/49/55/61 registram, respectivamente, /nucleos/[id]/arvore, /memorias, /conexoes, /perfis, /manifesto e /cuidado. As seis rotas exigem sessão e vínculo no aplicativo, apresentam aviso visível e não persistem dados. Detalhes futuros permanecem nas fichas seguintes, sem criar rotas inexistentes ou alterar as contagens para sugerir conclusão.
 
-Acordos18 representa **Kanban · Fluxo**, **Painéis · Lado a lado** e lista móvel. O aplicativo utiliza dados reais e conserva ações e permissões. O Atlas continua offline e usa exemplos identificados. Propostas são agrupadas pela situação; Hábito e Experiência conservam a categoria do modelo atual. O percurso **Proposta → Hábito → Experiência → Essência** é uma direção aprovada por pessoa; as passagens individuais, critérios e consentimentos não foram desenvolvidos. Nenhum cartão comprova avanço individual ou coletivo. Essência permanece como esboço.
+Acordos18 representa **Kanban · Fluxo**, **Painéis · Lado a lado** e lista móvel. O aplicativo utiliza dados reais e conserva ações e permissões. O Atlas continua offline e usa exemplos identificados. O quadro agora projeta Proposta → Hábito → Essência. O aplicativo ainda agrupa dados por categorias legadas; passagens individuais, critérios, consentimentos e compatibilidade não foram desenvolvidos nesta revisão. Nenhum cartão comprova avanço individual ou coletivo. Essência permanece como esboço.
 
 A mesma função productPhoneHtml fornece Atlas, Visão global, MVP e inspeção; fichas vêm de screens.js. A nova composição não importa o CSS completo das variantes do protótipo. Ações do Atlas demonstram navegação e não chamam o banco de dados. Fichas futuras exibem aviso próprio e os contratos administrativos atuais continuam prevalecendo sobre desenhos históricos.
 
@@ -125,8 +132,8 @@ Há 40 telas planejadas e 32 recortes existentes. Os principais conjuntos penden
 
 - **Conta:** telas 01–05 e 72 implementadas e comparadas. SMTP, remetente, domínio e limites do ambiente de lançamento ainda precisam de conferência; funcionalidades de login social e gestão de dados são módulos próprios.
 - **Núcleos:** listagem multínucleo e seleção implementadas na Tela 12; permanecem gestão de convites, QR (código de resposta rápida), compartilhamento ampliado e saída com tratamento das dependências. Administrador é papel documental futuro; o recorte atual usa criador e membro.
-- **Home e agenda:** resumo afetivo completo, composição mensal, vínculo com experiências e eventos restritos de cuidado. O banco atual permite autor ou criador editar/remover evento; a ficha respeita isso.
-- **Acordos:** fluxo guiado de necessidade/proposta/compreensão/conferência, reflexões, detalhe e registro de experiência, fotos, Essência e promoção. O hub já possui criação e respostas; não confundir esse recorte com o fluxo guiado completo.
+- **Home e agenda:** resumo afetivo completo, composição mensal, vínculo com Hábitos e eventos restritos de cuidado. O banco atual permite autor ou criador editar/remover evento; a ficha respeita isso.
+- **Acordos:** fluxo guiado de necessidade/proposta/compreensão/conferência, reflexões, agendamento e pós-evento do Hábito, fotos, Essência e promoção. O hub já possui criação e respostas; não confundir esse recorte com o fluxo guiado completo.
 - **Árvore:** fechar contagens, fontes e critérios de crescimento antes de mostrar nível, experiência, estágio ou marcos. A base real da v0.11.0 não determina esses indicadores automaticamente.
 - **Memórias e gratidão:** feed unificado, visibilidade, autoria, retenção, mídia privada e eventos. Histórico de momentos de Hábito existente não é um módulo completo de Memórias.
 - **Conexões e perfis:** vínculos, leitura autorizada, preferências por campo, desejos, datas e jornada opcional. Métricas de força/intimidade precisam de contrato e não são desenhadas como pontuação real.
@@ -139,10 +146,10 @@ Seleção de participantes, visibilidade por campo, motivo de encerramento e can
 ## Regras preservadas
 
 1. O Núcleo define contexto de acesso e isolamento. Conhecer um endereço ou receber código não concede associação.
-2. Proposta não equivale a acordo ativo. Na implementação vigente, aceite unânime inicia teste; recusa encerra proposta.
-3. Novos Hábitos têm duração consentida de 7 a 30 dias inteiros. O último aceite inicia o prazo real. Legado sem duração exige novo período aprovado, sem retroatividade.
-4. Após o prazo, confirmação usa o conjunto original fixo: até 150 pessoas, `floor(N/2)+1`; acima de 150, `ceil(N/3)`. Exemplos: 76/150 e 51/151. Entrada posterior não adiciona voto; saída de participante original bloqueia sem reduzir N. Revisão pendente bloqueia confirmação.
-5. Ajuste/encerramento mantêm unanimidade, sete dias de reflexão e aplicação explícita. Esses sete dias não são a duração do teste. Ajuste reinicia teste e confirmações quando há duração; legado sem prazo exige novo período consentido. Histórico permanece.
+2. Proposta não equivale a acordo ativo. Publicar não registra aceite; cada pessoa decide participar. Recusa/saída individual não encerra o acordo.
+3. Novas propostas de Hábito informam duração de teste de 7 a 30 dias inteiros. Administradores gerenciam início e continuidade do ciclo; o modelo-alvo não atribui estágio individual a partir do relógio.
+4. Ativar/encerrar são ações administrativas explícitas no modelo vigente; votos e quóruns históricos não governam o ciclo. As duas passagens individuais do modelo-alvo dependem de critérios próprios.
+5. Administrador publica novos termos e cada pessoa aceita a versão vigente antes de registrar. Alteração não fabrica aceite; encerramento preserva momentos e versões e bloqueia novos registros. Regras históricas de unanimidade/reflexão não são restauradas.
 6. Notas de momentos do Hábito são visíveis ao Núcleo no contrato atual. Opções futuras de privacidade não alteram essa regra implicitamente. Apenas participante que aceitou registra em `testing` ou `active`; encerrado mantém consulta sem novos registros.
 7. Essência, crescimento da árvore e assinaturas do manifesto não são consequências automáticas de Hábito ativo.
 8. Conversas não são chat livre. Rascunho privado, cartão único e encontro consentido têm permissões distintas. Recusar ou adiar não gera penalidade.

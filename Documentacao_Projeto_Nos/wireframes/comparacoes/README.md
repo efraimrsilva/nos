@@ -97,3 +97,5 @@ Capturas devem usar exemplos sem informações privadas, tokens ou códigos reai
 - [v3.6.3 — identidade compartilhada — telas13/12/66](v3.6.3-2026-11-03-identidade-tela_13-tela_12-tela_66/index.html): estados anterior à edição/Atlas/sincronizado; teste de duas sessões, desktop/mobile; composição visual preservada.
 
 - [v3.7.0 — suporte validado localmente — telas66/70/71](v3.7.0-2026-11-03-relatar-problema-tela_66-tela_70-tela_71/index.html): antes real desktop, Atlas antes/depois, modais desktop/mobile; SMTP local e autenticação real validados; implantação e recebimento externo não certificados.
+
+- [v3.7.2 —06/11/2026 — modelo Hábito, Telas18/34/35/37](v3.7.2-2026-11-06-modelo-habito-tela_18-tela_34-tela_35-tela_37/index.html):22 capturas do Atlas/MVP antes/depois em computador/celular. Modelo-alvo com três etapas, sem migração ou alteração do aplicativo.

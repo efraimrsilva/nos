@@ -1,5 +1,7 @@
 # Continuidade — confirmação do Hábito após teste — v1.0.0
 
+**Direção vigente — 06/11/2026 — v3.7.2:** [Proposta → Hábito → Essência](fluxo-proposta-habito-essencia.md). Experiência foi consolidada em Hábito; agendamento e pós-evento reutilizam os fluxos de Hábito. A implementação ainda conserva legado; esta revisão não migra dados. Marcos datados abaixo preservam o estado da época e não restabelecem a direção substituída.
+
 **Modelo implementado localmente — v1.0.0 — 14/10/2026:** [administração e participação](administracao-participacao.md) é o contrato vigente. Administração compartilhada, escolha individual, novo aceite por versão, saída com história preservada e preferência de autoria estão implementados. Sem votação coletiva ou cancelamento de acordo por saída. [Roteiro de testes de caixa preta](administracao-caixa-preta.md). Publicação, migração remota e operação do piloto permanecem pendentes.
 
 ## Histórico do modelo anterior — até v0.16.0

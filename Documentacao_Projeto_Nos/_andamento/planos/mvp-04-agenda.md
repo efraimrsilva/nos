@@ -1,5 +1,7 @@
 # Plano — v0.15.2 — MVP 04: agenda interna
 
+**Leitura atual — 06/11/2026 — v3.7.2:** este plano preserva a entrega histórica. Para novos recortes, seguir [modelo Hábito](modelo-habito.md) e [contrato vigente](../funcionalidades/fluxo-proposta-habito-essencia.md). Experiência não é etapa/categoria futura; referências abaixo não restabelecem votações ou módulos substituídos.
+
 **Status:** concluído localmente; publicação/prova online pendentes. **Data:** 2026-10-13. **Base:** main, 06edf58; Git inicialmente limpo.
 
 **Objetivo autorizado:** auditar as Telas 14, 16, 15 e 17, concluir pendências viáveis, ordenar navegação e reservar ampliações. Usar as skills Superpowers de entendimento, planejamento, TDD, revisão e verificação proporcionalmente ao fluxo existente. Sem commit, push, deploy ou banco remoto.

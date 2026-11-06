@@ -1,5 +1,7 @@
 # Continuidade — Tela 07: Nossa Árvore
 
+**Direção vigente — 06/11/2026 — v3.7.2:** [Proposta → Hábito → Essência](fluxo-proposta-habito-essencia.md). Experiência foi consolidada em Hábito; agendamento e pós-evento reutilizam os fluxos de Hábito. A implementação ainda conserva legado; esta revisão não migra dados. Marcos datados abaixo preservam o estado da época e não restabelecem a direção substituída.
+
 **Versão vigente:** 0.11.0. **Atualizado:** 2026-10-03. **Status:** próximo recorte a especificar; interface ainda não implementada.
 
 ## Objetivo e fontes
@@ -8,7 +10,7 @@ Apresentar evolução coletiva com dados reais, sem ranking individual nem núme
 
 ## Base disponível e decisões pendentes
 
-Existem Núcleos, vínculos, propostas, respostas, estados de Hábito, momentos, ciclos e revisões. Hábitos ativos não provam frequência cumprida; momentos não equivalem automaticamente a prática bem-sucedida. Experiências continuam com contrato atual; Essência não tem fluxo de promoção implementado. Não existem cálculo persistido de experiência, níveis, estágio ou celebrações.
+Existem Núcleos, vínculos, propostas, respostas, estados de Hábito, momentos, ciclos e revisões. Hábitos ativos não provam frequência cumprida; momentos não equivalem automaticamente a prática bem-sucedida. O legado de Experiência precisa de compatibilidade com Hábito, sem duplicar contagens; Essência não tem fluxo de promoção implementado. Não existem cálculo persistido de experiência, níveis, estágio ou celebrações.
 
 Antes de codificar, mapear quais eventos reais podem alimentar indicadores e quais exigem novo contrato. Definir recorte, permissões, origem das contagens e regras de evolução; não inferir pontuação a partir da quantidade de cliques ou inventar progresso. Os números da Tela 07 são exemplos visuais. Definir com o usuário as decisões de produto que alterem materialmente as regras. Não avançar automaticamente para a Tela 08.
 

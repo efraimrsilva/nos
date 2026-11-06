@@ -1,12 +1,14 @@
 # Administração e participação — contrato implementado — v3.5.0
 
+**Direção vigente — 06/11/2026 — v3.7.2:** [Proposta → Hábito → Essência](fluxo-proposta-habito-essencia.md). Experiência foi consolidada em Hábito; agendamento e pós-evento reutilizam os fluxos de Hábito. A implementação ainda conserva legado; esta revisão não migra dados. Marcos datados abaixo preservam o estado da época e não restabelecem a direção substituída.
+
 ## Organização do Núcleo — v3.6.0 — validado localmente
 
 [Contrato atual](organizacao-nucleo.md): gestão de integrantes agora em Início → Ver integrantes; identidade no cabeçalho; convites, saída e encerramento na Conta/popover/Mais. Poderes, aceite de nomeação, autoria e preservação de história permanecem. A antiga guia Pessoas é retirada; sua rota é compatibilidade para abrir o modal no Início.
 
 ## Marcos e contratos históricos
 
-**Fluxo aprovado, adequação pendente — v1.1.0 — 18/10/2026:** [Proposta → Hábito → Experiência → Essência](fluxo-proposta-habito-experiencia-essencia.md) é a sequência obrigatória da evolução da pessoa. A direção substitui categorias independentes e saltos no desenho futuro, mas não reintroduz votação coletiva nem altera os aceites individuais. Critérios de cada passagem e compatibilização de Essência pendentes. O código atual ainda permite proposta direta de Experiência; isso exige adequação posterior.
+**Marco histórico substituído — v1.1.0 — 18/10/2026:** [Proposta → Hábito → Experiência → Essência](fluxo-proposta-habito-experiencia-essencia.md) é a sequência obrigatória da evolução da pessoa. A direção substitui categorias independentes e saltos no desenho futuro, mas não reintroduz votação coletiva nem altera os aceites individuais. Critérios de cada passagem e compatibilização de Essência pendentes. O código atual ainda permite proposta direta de Experiência; isso exige adequação posterior.
 
 **Atualização operacional — v1.1.0 — 15/10/2026:** migração de encerramento aplicada no ambiente publicado, conteúdo/permissões conferidos e formulário online comprovado com duas contas descartáveis em oito grupos. Atualizar a página e usar a conta administradora. O Núcleo real permanece intacto; encerrá-lo é decisão do usuário. [Registro](../registros/registro-v1.1.0-2026-10-15-03-imp-correcao-online-fun-encerramento-nucleo.md). Limites de publicação/migração mencionados nos marcos anteriores ficam substituídos para esta função.
 

@@ -1,5 +1,14 @@
 # MVP e caminho de implementação — Projeto Nós
 
+## Direção vigente — 06/11/2026 — v3.7.2
+
+**Proposta → Hábito → Essência.** Hábito reúne prática e amadurecimento; Experiência deixa de ser etapa/categoria. O [contrato vigente](../funcionalidades/fluxo-proposta-habito-essencia.md) e o [plano de adequação](modelo-habito.md) substituem a direção de quatro etapas.
+
+O Atlas mantém **73 fichas e 13 etapas**, sem duplicar IDs. O quadro apresenta o modelo-alvo, identificado como planejamento; o aplicativo ainda mantém legado experience, sem migração nesta entrega. A adequação funcional/compatibilidade integra a etapa03 antes das expansões dependentes. As fichas34/35, na etapa06, refinam agendamento e pós-evento do Hábito e reutilizam detalhe24, histórico25 e registro27. A etapa07 trata Hábito → Essência, com critérios ainda a definir.
+
+Estado operacional, participação e evolução individual são distintos. Administração e aceite individual continuam vigentes; não reintroduzir votações coletivas. [Oito casos novos](../testes-caixa-preta/modelo-habito.md), todos Não executados pelo usuário. Aprovação do plano não conclui o piloto nem as transições.
+
+
 **MVP 05 · v3.7.2 · 05/11/2026.** Lembrete temporário de suporte no cabeçalho autenticado. Formulário existente reutilizado. [Registro](../registros/registro-v3.7.2-2026-11-05-imp-cabecalho-fun-lembrete-suporte.md).
 
 **MVP 04 e 05 · v3.7.1 · 05/11/2026.** Agenda identificada como esboço em evolução com calendário interno disponível. Cabeçalho traz painel suspenso de Notificações e texto revisado de suporte. [Registro](../registros/registro-v3.7.1-2026-11-05-imp-cabecalho-fun-preferencias.md).
@@ -16,7 +25,7 @@
 
 **Migração visual validada localmente — 18/10/2026 — v2.0.0:** [Layout atual](../../Telas/Layout%20novo/index.html) é a referência de todas as áreas. A navegação lateral/inferior inclui esboços protegidos de Árvore/Memórias, Conexões/Perfis e Manifesto/Cuidado. As seis rotas não persistem dados e não concluem etapas07–11. Mantêm-se73 fichas,39 recortes existentes e34 planejadas. Kanban/Painéis/lista móvel de Acordos organiza o modelo atual; a evolução individual aprovada continua pendente de critérios, dados e consentimento. Versão2.0.0 e evidência visual estão no [registro da migração](../registros/registro-v2.0.0-2026-10-18-imp-layout-atual-fun-migracao-integral.md).
 
-**Fluxo completo aprovado — v1.1.0 — 18/10/2026:** a expansão deverá implementar [Proposta → Hábito → Experiência → Essência](../funcionalidades/fluxo-proposta-habito-experiencia-essencia.md), sequência obrigatória por pessoa. Antes de implementar, fechar critérios das três passagens, confirmação/consentimento, dados, agrupamento, Essência e legado. A decisão documental não altera o status de conclusão do MVP nem restaura votação coletiva.
+**Marco histórico substituído — v1.1.0 — 18/10/2026:** a expansão deverá implementar [Proposta → Hábito → Experiência → Essência](../funcionalidades/fluxo-proposta-habito-experiencia-essencia.md), sequência obrigatória por pessoa. Antes de implementar, fechar critérios das três passagens, confirmação/consentimento, dados, agrupamento, Essência e legado. A decisão documental não altera o status de conclusão do MVP nem restaura votação coletiva.
 
 **Atualização implementada localmente — v1.0.0 — 14/10/2026:** [contrato administrativo](../funcionalidades/administracao-participacao.md) substitui votação coletiva do ciclo de acordos e as decisões posteriores de votação por saída. Administração/participação entram no fechamento MVP05; gestão/revisão administrativa substitui consenso no comportamento-alvo de propósito e acordos. Percursos/fichas, aplicativo e migração local estão sincronizados:73 telas,39 recortes e34 planejadas. [Testes de caixa preta atual](../funcionalidades/administracao-caixa-preta.md). Publicação, migração remota, termos/política completos e operação do piloto permanecem pendentes. O roteiro abaixo conserva os marcos históricos; para Núcleos/acordos, prevalece o contrato administrativo.
 
@@ -38,11 +47,11 @@ Login existente é o início. Reconferir cadastro/confirmação, recuperação/r
 |---|---|---|---|
 | 01 | Login, sessão, cadastro, confirmação, recuperação e entrada opcional | 01, 02, 03, 04, 05, 72 | MVP |
 | 02 | Núcleo compartilhado, lista, criação, código de convite, gestão/revogação e Início | 12, 06, 07, 08, 09, 58, 59, 10, 11, 13 | MVP |
-| 03 | Proposta de Hábito, respostas, teste, prática, histórico, confirmação e revisão | 18, 22, 23, 24, 27, 25, 28, 29, 30, 31, 32, 33 | MVP |
+| 03 | Proposta de Hábito, participação, teste, prática, histórico, gestão/revisão e adequação do legado | 18, 22, 23, 24, 27, 25, 28, 29, 30, 31, 32, 33 | MVP |
 | 04 | Agenda interna, evento, presença, edição e remoção | 14, 16, 15, 17 | MVP |
 | 05 | Configurações essenciais, privacidade, conta, ajuda e saída | 66, 67, 69, 70, 71 | Fechamento do MVP |
-| 06 | Proposta guiada, compreensão, reflexões, Impacto, Linguagens de cuidado e Experiências; agenda mensal/recorrência | 19, 20, 21, 26, 34, 35 | Expansão |
-| 07 | Essência, Árvore, marcos, celebrações e evolução administrativa/propósito do Núcleo | 36, 37, 38, 39 | Expansão |
+| 06 | Proposta guiada, compreensão, reflexões, Impacto, Linguagens de cuidado e integração Hábito/agenda; recorrência planejada | 19, 20, 21, 26, 34, 35 | Expansão |
+| 07 | Hábito → Essência, Árvore, marcos, celebrações e evolução do propósito do Núcleo | 36, 37, 38, 39 | Expansão |
 | 08 | Memórias, galeria, mídia protegida e gratidão | 40, 42, 41, 43 | Expansão |
 | 09 | Perfil, opções, gostos, desejos, conexões, tipos de vínculo e jornada | 49, 50, 51, 52, 53, 54, 44, 45, 46, 47, 48 | Expansão |
 | 10 | Manifesto, versões, aceites e compartilhamento autorizado | 55, 56, 57 | Expansão |
@@ -50,7 +59,7 @@ Login existente é o início. Reconferir cadastro/confirmação, recuperação/r
 | 12 | Conversa de cuidado, Ponte, cartão único, encontro restrito e desfecho | 61, 62, 63, 64, 65 | Expansão |
 | 13 | QR/link/câmera, login Google/Apple, calendários externos, Android → iOS, biometria, IA opcional e operação | Refinar telas anteriores; sem ID fictício novo | Conclusão do projeto |
 
-As 72 telas atuais têm uma etapa principal, sem duplicação. As funcionalidades transversais da etapa 13 refinam telas já relacionadas. Administração/revisão anual consensual do propósito entram na 07. QR/link/câmera entram na 13, com alternativa por código e sem associação automática.
+As 73 fichas atuais têm uma etapa principal, sem duplicação. As funcionalidades transversais da etapa 13 refinam telas já relacionadas. Administração/revisão anual consensual do propósito entram na 07. QR/link/câmera entram na 13, com alternativa por código e sem associação automática.
 
 Objetivos, funcionalidades detalhadas, dependências e critérios de avanço ficam na guia viva, definidos em [mvp-plan.js](../../wireframes/atlas/mvp-plan.js). Fichas, situações e ações vêm de [screens.js](../../wireframes/atlas/screens.js); desenhos reutilizam a renderização do atlas. Este documento registra a aprovação e a síntese, sem manter outra coleção de interfaces. Agenda pode avançar após o Núcleo; respeitar dependências explícitas, não apenas a numeração.
 
@@ -62,7 +71,7 @@ Cada recorte deve concluir sua jornada com dados reais, validação de permissõ
 
 MVP fecha somente com fluxo central compartilhado, saída/revogação, tratamento de dados e operação do piloto comprovados. SMTP/recebimento externo, origem HTTPS, segredos do ambiente e backup/restauração exigem evidência própria. Teste local não certifica lançamento público.
 
-Preservar unanimidade inicial/legado/ajustes/encerramento. Somente confirmação pós-teste usa mais da metade até 150 participantes ou um terço arredondado para cima acima de 150, mantendo conjunto original; silêncio não é voto. Essência, crescimento e manifesto não surgem automaticamente. Conversa de cuidado permanece privada e estruturada, sem chat livre.
+Preservar participação individual e gestão administrativa do ciclo, conforme contrato vigente. Publicar não aceita; recusa ou saída não encerra para os demais; novos termos exigem aceite novo. Regras históricas de votação e unanimidade não são critérios vigentes. Essência, crescimento e manifesto não surgem automaticamente. Conversa de cuidado permanece privada e estruturada, sem chat livre.
 
 Aprovação deste roteiro não fecha contratos ainda abertos, nem autoriza implementar/persistir todas as funções de uma vez. Cada solicitação delimita o próximo recorte. O projeto só estará completo quando pendências, ações, integrações e plataformas tiverem comportamento e operação comprovados; contagem de telas não mede conclusão.
 

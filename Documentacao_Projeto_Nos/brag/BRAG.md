@@ -1,5 +1,9 @@
 # Brag document — Projeto Nós
 
+## 2026-11-06 — v3.7.2 · Atlas e roteiro coerentes com Hábito
+
+**Problema:** o Atlas/MVP ainda exigiam Experiência, contrariando a especificação simplificada. **Contribuição:** consolidar três etapas, reusar detalhe/registro/histórico, explicitar adequação do legado e preservar fronteiras de consentimento. **Resultado verificado:**73 fichas com atribuição única, três verificadores offline aprovados e revisão independente com achados corrigidos. **Benefício esperado:** reduzir implementação duplicada e divergência entre desenho e roteiro, sem métrica de produção. [Evidência](../_andamento/registros/registro-v3.7.2-2026-11-06-imp-atlas-mvp-fun-modelo-habito.md).
+
 ## 2026-11-06 — v3.7.2 · Especificação dos acordos simplificada
 
 **Problema:** Hábito e Experiência repetiam acompanhamento da prática e mantinham categorias/fluxos paralelos. **Contribuição:** consolidar em Hábito nos 19 documentos v1.1–v2.8, ajustar dependências e centralizar Proposta → Hábito → Essência na v1.1. **Resultado verificado:** sequência e associações revisadas, links locais conferidos com um destino ausente preexistente identificado, revisão independente e correções editoriais. **Benefício esperado:** reduzir ambiguidade para futuras implementações; sem medição de usabilidade e sem alteração funcional. [Evidência](../_andamento/registros/registro-v3.7.2-2026-11-06-imp-documentacao-acordos-fun-consolidacao-habito.md).

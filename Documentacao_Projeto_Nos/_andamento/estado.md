@@ -1,5 +1,40 @@
 # Estado do Projeto Nós
 
+## Publicação do Atlas/MVP — modelo Hábito — v3.7.2 — 2026-11-06
+
+**Objetivo autorizado:** commit e push de todas as alterações pendentes com descrição completa e validação econômica. DOCS_DIR: Documentacao_Projeto_Nos. Base main/e500061; remoto sincronizado após fetch. Edições de README/histórico preservadas no commit bcb0705.
+
+**Conjunto:** Proposta → Hábito → Essência no Atlas/MVP/planejamento, quadro de três colunas, fichas34/35 com reuso24/25/27, ações planejadas e dependência de compatibilidade/recuperação do legado na etapa03.73 fichas e situações preservadas; contrato, plano, oito casos manuais, verificador,22 capturas e continuidade incluídos. Roteiro manual recomposto por estar ausente apesar dos links existentes; todos os casos permanecem Não executados.
+
+**Validação:** evidências anteriores dos três verificadores/revisão independente reutilizadas; nesta publicação, diff/escopo, links novos/galeria e conteúdo Git conferidos. Sem testes/build/tipos de aplicativo ou nova rodada do Atlas. Versão3.7.2 preservada; aplicativo e banco intactos. Nenhum deploy certificado.
+
+**Unidades pendentes de commit:** nenhuma. Organização documental incluída em bcb0705; os55 arquivos do Atlas/MVP/planejamento foram conferidos no objeto do commit identificado pelo título “docs(atlas): alinhar Atlas, MVP e planejamento ao modelo Hábito”. Este fechamento integra a mesma unidade. Push normal autorizado; correspondência remota conferida após o envio.
+
+**Próximo passo:** concluir envio/conferência remota e seguir planejamento funcional somente no recorte autorizado. **Contador:**27 conclusões acompanhadas desde29/10, incluindo publicação; lacuna histórica e marco100 preservados. Superpowers de verificação e Git locais; sem instalação ou consultas técnicas novas.
+
+**Índice:** [registro da publicação](registros/registro-v3.7.2-2026-11-06-imp-github-fun-publicacao-atlas-habito.md) · [entrega](registros/registro-v3.7.2-2026-11-06-imp-atlas-mvp-fun-modelo-habito.md) · [plano](planos/modelo-habito.md).
+
+---
+
+
+## Atlas e planejamento — modelo Hábito — v3.7.2 — 2026-11-06
+
+**Objetivo e aceite.** Aplicar Proposta → Hábito → Essência ao Atlas/MVP/planejamento com três colunas, reuso de Hábito/Agenda e dependências coerentes. DOCS_DIR: Documentacao_Projeto_Nos. Base main/e500061; início limpo. Versão3.7.2 preservada; nenhum arquivo funcional do aplicativo, migração ou manifesto alterado.
+
+**Situação e decisões.** Atlas com73 fichas e13 etapas, situações preservadas. Fichas34/35 refinam Hábito/evento e usam24/25/27;37 retorna para24. Saídas planejadas24→34 e15→35. Etapa03 exige adequação/recuperação do legado antes da expansão06;07 trata Hábito→Essência. Quadro identificado como modelo-alvo: aplicativo ainda conserva experience e não foi migrado. [Contrato vigente](funcionalidades/fluxo-proposta-habito-essencia.md) substitui quatro etapas sem apagar histórico ou restaurar votação coletiva.
+
+**Validação.** Três verificadores offline aprovados (modelo, MVP, Visão global),73 composições compartilhadas e IDs únicos; busca/Painéis/saídas/estados, celular, teclado, filtros e impressão. Revisão independente apontou dois P2, corrigidos e protegidos pelo verificador.22 capturas antes/depois; links locais e diff conferidos. Nenhum teste/build de aplicativo ou banco. Oito novos casos manuais permanecem Não executados pelo usuário.
+
+**Próximo passo e limites.** Seguir [plano de adequação](planos/modelo-habito.md): inventariar legado em ambiente autorizado, aprovar mapeamento/recuperação e adaptar apresentação/contratos do aplicativo. Fechar as duas transições antes de implementá-las; integração com eventos e memória ainda planejada. Operação/piloto mantêm pendências próprias. Sem commit/push/deploy.
+
+**Unidade incluída no commit:** adequação do Atlas/MVP/planejamento ao modelo Hábito, contratos, roteiro, verificação e evidências; conferência do conteúdo Git registrada no marco de publicação acima. Pendência encerrada.
+
+**Ferramentas/contador.** Superpowers de entendimento/planejamento/regressão/revisão/verificação; Context7 para Playwright1.63.0; rg/Node.js. Octocode sem ferramenta exposta e sem necessidade de pesquisa avançada; nenhuma instalação.26 conclusões acompanhadas desde29/10; lacuna histórica e último marco100 preservados.
+
+**Índice:** [registro](registros/registro-v3.7.2-2026-11-06-imp-atlas-mvp-fun-modelo-habito.md) · [contrato](funcionalidades/fluxo-proposta-habito-essencia.md) · [plano](planos/modelo-habito.md) · [casos manuais](testes-caixa-preta/modelo-habito.md) · [galeria](../wireframes/comparacoes/v3.7.2-2026-11-06-modelo-habito-tela_18-tela_34-tela_35-tela_37/index.html).
+
+---
+
 ## Publicação da consolidação documental — v3.7.2 — 2026-11-06
 
 **Objetivo autorizado:** commit e push de todas as alterações pendentes para origin/main, com descrição abrangente e sem repetir testes. Base local b35e4a9; atualização remota de README incorporada por fast-forward em 49aa18f. DOCS_DIR: Documentacao_Projeto_Nos.

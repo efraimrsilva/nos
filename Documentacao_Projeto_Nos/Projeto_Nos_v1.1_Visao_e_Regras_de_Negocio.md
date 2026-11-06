@@ -132,6 +132,8 @@ Passeios, jantares e viagens podem exemplificar a prática de um Hábito ou ser 
 
 Os usos de “experiência do usuário”, vivência real e experiência como ideia de presente não representam a etapa removida. A experiência acumulada da árvore (exp) é uma métrica simbólica planejada distinta, sem fórmula ou implementação certificada por esta revisão.
 
+A adequação do Atlas, do MVP e do legado segue o [contrato de planejamento vigente](_andamento/funcionalidades/fluxo-proposta-habito-essencia.md), que preserva esta definição central e explicita o que ainda falta implementar.
+
 ## Entrada – Proposta
 
 O percurso começa com a Proposta da prática que o Núcleo deseja ajudar a pessoa a desenvolver. Propor não significa aceitar por alguém nem comprovar prática. Depois da Proposta, a ordem obrigatória é Hábito → Essência; critérios de passagem e sua implementação ainda precisam ser definidos.

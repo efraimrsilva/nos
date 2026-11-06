@@ -1,5 +1,10 @@
 # Histórico de andamento
 
+## 2026-11-06 — v3.7.2 · Publicação do Atlas/MVP do modelo Hábito
+
+Publicação autorizada de todas as alterações: organização do README/histórico preservada em bcb0705; Atlas, MVP, contratos e planejamento consolidados em Proposta → Hábito → Essência. Galeria22 capturas, verificador e oito casos manuais incluídos. Sem repetir testes; conferência de diff/objeto/envio pelo Git. [Registro](registros/registro-v3.7.2-2026-11-06-imp-github-fun-publicacao-atlas-habito.md).
+
+
 ## 2026-11-05 — v3.7.2 · Publicação autorizada no GitHub
 
 Conjunto do lembrete de suporte preparado em uma unidade completa de código, Atlas, testes e documentação. Checagem de tipos e revisão final aprovadas. [Registro](registros/registro-v3.7.2-2026-11-05-imp-github-fun-publicacao-lembrete-suporte.md).

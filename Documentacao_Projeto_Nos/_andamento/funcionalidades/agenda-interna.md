@@ -1,5 +1,7 @@
 # Agenda interna — v3.5.0
 
+**Direção vigente — 06/11/2026 — v3.7.2:** [Proposta → Hábito → Essência](fluxo-proposta-habito-essencia.md). Experiência foi consolidada em Hábito; agendamento e pós-evento reutilizam os fluxos de Hábito. A implementação ainda conserva legado; esta revisão não migra dados. Marcos datados abaixo preservam o estado da época e não restabelecem a direção substituída.
+
 ## Atualização vigente — 03/11/2026
 
 Agenda já possui seletor mensal completo no computador e no celular, com `react-day-picker` 9.14.0, português do Brasil, semanas de segunda a domingo, seis linhas e dias adjacentes. Selecionar um dia abre a semana correspondente; mês e semana conservam sincronização quando atravessam meses. A grade semanal é apresentada acima de 900 pixels; até 900 pixels os eventos usam lista. Isso adapta a apresentação e conserva criação, detalhe, presença e gestão conforme as permissões.
@@ -39,7 +41,7 @@ Remover exige primeiro abrir a confirmação com nome/consequência. Checkbox ob
 
 ## Espaço futuro
 
-Aplicativo e Atlas reservam visão mensal/dia, recorrência, local, terceiro estado de resposta, sugestão de horário, participantes individuais e acesso restrito, notificações, vínculos com Hábitos/Experiências/conversas, memória e calendários externos. Sem campos persistidos, contas conectadas ou sucesso simulado. Definir autoria/visibilidade/consentimento/retenção e conflitos antes de cada ampliação. Conversa de cuidado restrita não deve entrar na agenda atual de leitura pelo Núcleo.
+Aplicativo e Atlas reservam visão mensal/dia, recorrência, local, terceiro estado de resposta, sugestão de horário, participantes individuais e acesso restrito, notificações, vínculos com Hábitos/conversas, memória e calendários externos. Sem campos persistidos, contas conectadas ou sucesso simulado. Definir autoria/visibilidade/consentimento/retenção e conflitos antes de cada ampliação. Conversa de cuidado restrita não deve entrar na agenda atual de leitura pelo Núcleo.
 
 ## Evidências e teste de caixa preta
 

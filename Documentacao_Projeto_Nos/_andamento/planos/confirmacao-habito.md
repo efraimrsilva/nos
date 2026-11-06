@@ -1,5 +1,7 @@
 # Confirmação do Hábito — plano de implementação
 
+**Leitura atual — 06/11/2026 — v3.7.2:** este plano preserva a entrega histórica. Para novos recortes, seguir [modelo Hábito](modelo-habito.md) e [contrato vigente](../funcionalidades/fluxo-proposta-habito-essencia.md). Experiência não é etapa/categoria futura; referências abaixo não restabelecem votações ou módulos substituídos.
+
 **Versão vigente:** 0.11.0. **Status:** concluído e validado. **Escopo aprovado:** 2026-10-03, com maioria absoluta até 150 e um terço arredondado para cima acima de 150, somente para confirmação pós-teste.
 
 Objetivo: confirmar Hábito após teste real de 7 a 30 dias com floor(N/2)+1 votos Sim até 150 envolvidos originais; acima de 150, ceil(N/3). Aceite inicial, configuração de legado, ajuste e encerramento permanecem unânimes. Autorização inclui implementação e validação; sem commit, push ou deploy. Executar no checkout atual preservando a preparação documental.

@@ -1,5 +1,8 @@
 # Processo permanente de testes de caixa preta — v3.7.0
 
+[Modelo Hábito — v3.7.2](modelo-habito.md): oito casos de Atlas, adequação do MVP03 e expansões06/07; todos Não executados pelo usuário. Casos funcionais dependem de implementação.
+
+
 [Relato de problemas — v3.7.0](relato-problemas.md): nove casos MVP05, Não executados pelo usuário; implementação local e autenticação SMTP real aprovadas, recebimento externo pendente.
 
 [Sincronização da identidade — v3.6.3](sincronizacao-identidade.md): seis casos MVP02/MVP05, todos Não executados pelo usuário.
