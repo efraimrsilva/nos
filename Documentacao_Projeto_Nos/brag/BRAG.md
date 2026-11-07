@@ -399,3 +399,6 @@ Problema: entregas locais ainda não disponíveis no domínio público. Contribu
 
 ## 2026-11-07 — v3.9.1 — Conta somente Google em produção
 Problema: Conta oferecia Apple sem provedor ativo. Contribuição: retirada do botão, mensagem/Atlas alinhados e publicação do ajuste. Resultado verificado: deploy6aeea2a01167fdd054c67ea8 Published e Conta pública com somente Google nas duas abas, mantendo e-mail/senha. Evidência: registro de produção3.9.1; código03c4ddf. Sem mensuração de conversão de acesso.
+
+## 2026-11-07 — v3.9.2 — Clareza e movimento na Conta
+Problema: conteúdo de entrada baixo, botão sem marca e mudança brusca de altura/rodapé sem ancoragem inferior. Contribuição: composição compacta, ícone oficial local, transição por altura observada e layout flex no footer. Resultado verificado:3 testes, tipos/build e capturas desktop/mobile com reduced-motion e foco preservados. Benefício esperado: acesso mais reconhecível e alternância mais previsível; sem métrica de conversão. Evidência: registro3.9.2.

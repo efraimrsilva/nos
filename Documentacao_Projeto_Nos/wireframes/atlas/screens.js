@@ -289,3 +289,6 @@ for(const id of [18,24,25,27,36,37])screens.find(s=>s.id===id).rule+=' Adequaç�
 
 // v3.9.0: login social reutiliza Conta; complemento de nome é estado autenticado da mesma rota.
 for(const id of [1,2]){const screen=screens.find(item=>item.id===id);screen.rule+=" Somente Google como botão social, via Supabase/PKCE, sem aceitar convite automaticamente. Nome existente preservado; nome recebido integrado ao perfil e nome ausente solicita complemento autenticado. Sucesso na prévia demonstra esse complemento; cancelamento/erro retorna a Conta com destino interno preservado.";screen.dependency+=" Google confirmado pelo usuário em produção; Conta local3.9.1 retira botão Apple. Microsoft descartado. Atlas offline explica Google sem autenticar.";}
+
+// v3.9.2: composição pública compacta e movimento acessível.
+for(const id of [1,2]){const screen=screens.find(item=>item.id===id);screen.rule+=' Conta pública sem título/descrição acima do painel, ícone oficial G local, transição suave de modo com reduced-motion e rodapé na base da tela ou após o conteúdo. Ajustes validados localmente; produção3.9.1.';}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
 import { LoadingIndicator } from "@/shared/components/loading-indicator";
 import { PasswordInput } from "./password-input";
 import { passwordHelp } from "@/features/auth/input";
@@ -14,6 +14,17 @@ const initialState: AuthFormState = { message: "", success: false, revision: 0 }
 export function AuthForm({ next = "/nucleos", initialMode = "signup", initialAccess }: { next?: string; initialMode?: "signup" | "login"; initialAccess?: AccountAccessKind }) {
   const [mode, setMode] = useState<"signup" | "login">(initialMode);
 
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [contentHeight, setContentHeight] = useState<number>();
+  useEffect(() => {
+    const content = contentRef.current;
+    if (!content || typeof ResizeObserver === "undefined") return;
+    // Mede também mensagens de erro e quebra de linhas; não usa alturas fixas para os modos.
+    const observer = new ResizeObserver(([entry]) => setContentHeight(entry.borderBoxSize[0]?.blockSize ?? content.offsetHeight));
+    observer.observe(content);
+    return () => observer.disconnect();
+  }, []);
+
   return <section data-auth-panel data-auth-mode={mode} className="ui-panel auth-panel">
     <div className="auth-tabs" aria-label="Modo de acesso">
       <button type="button" onClick={() => setMode("signup")} aria-pressed={mode === "signup"}>Criar conta</button>
@@ -21,7 +32,7 @@ export function AuthForm({ next = "/nucleos", initialMode = "signup", initialAcc
     </div>
     {/* A troca de modo reinicia apenas o formulário; destino e ações protegidas permanecem. */}
     <SocialLogin next={next} />
-    <CredentialsForm key={mode} mode={mode} next={next} />
+    <div className="auth-mode-size" style={{ height: contentHeight }}><div ref={contentRef} className="auth-mode-content"><CredentialsForm key={mode} mode={mode} next={next} /></div></div>
     <div className="auth-assistance"><AccountAccessDialog kind="recovery" next={next} defaultOpen={initialAccess === "recovery"} /><AccountAccessDialog kind="confirmation" next={next} defaultOpen={initialAccess === "confirmation"} /></div>
   </section>;
 }

@@ -38,11 +38,11 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
   }
 
   return <OnboardingShell showTree={!user} signedOut={!user && !unavailable}><div className={`account-experience ${user ? "account-workspace" : "account-auth-heading"}`}>
-    <header className="ui-page-header"><div>
-      {user && <p className="ui-kicker">Sua conta</p>}
-      <h1 className="ui-title">{user ? "Conta, Preferências e Ajuda" : "Sua conta no Nós"}</h1>
-      <p className="ui-copy">{user ? "Seu perfil, acesso, Núcleos e preferências em um só lugar." : "Crie uma conta ou entre para cuidar dos seus Núcleos com privacidade."}</p>
-    </div></header>
+    {user ? <header className="ui-page-header"><div>
+      <p className="ui-kicker">Sua conta</p>
+      <h1 className="ui-title">Conta, Preferências e Ajuda</h1>
+      <p className="ui-copy">Seu perfil, acesso, Núcleos e preferências em um só lugar.</p>
+    </div></header> : <h1 className="sr-only">Acesso à conta</h1>}
     {unavailable && <p role="alert" className="ui-feedback mb-5">Não foi possível conferir sua sessão. Tente novamente em instantes.</p>}
     {error === "social-cancelado" && <p role="status" className="ui-feedback mb-5">O acesso foi cancelado. Você pode tentar novamente ou usar seu e-mail e senha.</p>}
     {error === "social" && <p role="alert" className="ui-feedback mb-5">Não foi possível concluir o acesso. Tente novamente com Google ou use seu e-mail e senha.</p>}

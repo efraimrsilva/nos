@@ -398,3 +398,17 @@
     box-shadow:0 0 7px 2px var(--light-color), 0 0 18px 5px #edc97566;
   }
 }
+
+/* Conta pública compacta: o rodapé acompanha a altura disponível, sem sobrepor o formulário. */
+.public-shell:has(.account-experience) { display:flex; flex-direction:column; min-height:100svh; min-height:100dvh; }
+.public-shell:has(.account-experience) .public-header { flex-shrink:0; }
+.public-shell:has(.account-auth-heading) .public-grid { width:100%; margin-block:32px; }
+.public-shell:has(.account-auth-heading) .public-content { padding-top:0; }
+.account-auth-heading .auth-panel { margin-top:0; }
+.public-shell:has(.account-experience) .public-footer { margin-top:auto; flex-shrink:0; }
+.account-experience .auth-mode-size { overflow:clip; overflow-clip-margin:4px; transition:height 240ms var(--account-ease); }
+.account-experience .auth-mode-content { display:flow-root; }
+.account-experience .auth-fields { animation:account-rise 180ms ease-out; }
+.account-experience .auth-fields > .auth-field { animation:none; }
+.account-experience .auth-social-button img { flex-shrink:0; object-fit:contain; background:#fff; border-radius:50%; }
+@media (prefers-reduced-motion: reduce) { .account-experience .auth-mode-size { transition:none; } }

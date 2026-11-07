@@ -904,3 +904,9 @@ Conta somente Google, teste/Atlas/docs/versionamento preparados em um commit ló
 
 ## 2026-11-07 — v3.9.1 — Produção confirmada
 Netlify Published6aeea2a01167fdd054c67ea8/main03c4ddf; build38s. Conta pública conferida em cadastro/login, apenas Google social e e-mail preservado. Sem nova migração ou autenticação externa repetida. [Registro](registros/registro-v3.9.1-2026-11-07-imp-producao-fun-conta-somente-google.md).
+
+## 2026-11-07 — v3.9.2 — Layout compacto da Conta
+Retirados título/descrição públicos, G oficial local, transição240ms por altura real e footer no fim da tela/conteúdo.3 testes, tipos/build e inspeção desktop/mobile aprovados. Dois achados Atlas corrigidos e rechecados. Sem publicação. [Registro](registros/registro-v3.9.2-2026-11-07-imp-conta-fun-layout-compacto-transicao.md).
+
+## 2026-11-07 — v3.9.2 — Publicação GitHub do layout da Conta
+Conjunto completo autorizado na main com descrição detalhada e skip netlify. Validações da implementação reutilizadas; somente conferências Git nesta publicação. Produção3.9.1 preservada. [Registro](registros/registro-v3.9.2-2026-11-07-imp-github-fun-publicacao-layout-conta.md).

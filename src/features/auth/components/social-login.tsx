@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useActionState } from "react";
 import { startSocialLogin, completeSocialProfile } from "../social-actions";
 import type { AuthFormState } from "../actions";
@@ -12,7 +13,7 @@ export function SocialLogin({ next }: { next: string }) {
   return <div className="auth-social">
     <form action={action} aria-label="Outras formas de acesso" role="group" aria-busy={pending}>
       <input type="hidden" name="next" value={next} />
-      <button className="ui-button secondary auth-social-button" type="submit" name="provider" value="google" disabled={pending}>Continuar com Google</button>
+      <button className="ui-button secondary auth-social-button" type="submit" name="provider" value="google" disabled={pending}><Image src="/brand/google-g.png" alt="" aria-hidden="true" width={20} height={20} unoptimized />Continuar com Google</button>
       {pending && <p role="status" className="auth-help"><LoadingIndicator>Abrindo acesso seguro…</LoadingIndicator></p>}
       {state.message && <p role="alert" className="ui-feedback">{state.message}</p>}
     </form>

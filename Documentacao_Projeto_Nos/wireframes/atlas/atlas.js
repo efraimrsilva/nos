@@ -177,6 +177,8 @@ document.addEventListener('click',event=>{
     const content=target.closest('[data-local-content]');
     const signup=target.dataset.auth==='signup';
     const panel=target.closest('.live-auth-panel');
+    const modeSize=panel?.querySelector('.live-auth-mode-size');
+    const previousHeight=modeSize?.getBoundingClientRect().height;
     if(panel)panel.dataset.authMode=target.dataset.auth;
     content.querySelectorAll('[data-auth]').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));
     content.querySelectorAll('[data-signup-field]').forEach(el=>el.hidden=!signup);
@@ -185,6 +187,11 @@ document.addEventListener('click',event=>{
     // Remonta somente os campos para repetir a entrada suave, como na aplicação.
     form.replaceWith(form.cloneNode(true));
     content.querySelector('[data-auth-submit]').textContent=signup?'Criar conta':'Entrar';
+    // A prévia acompanha a altura real dos campos sem animar quando o movimento é reduzido.
+    if(modeSize && previousHeight && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+      modeSize.getAnimations().forEach(animation=>animation.cancel());
+      modeSize.animate([{height:previousHeight+'px'},{height:modeSize.scrollHeight+'px'}],{duration:240,easing:'ease-out'});
+    }
     content.querySelectorAll('.local-feedback').forEach(feedback=>feedback.textContent='');
     return;
   }

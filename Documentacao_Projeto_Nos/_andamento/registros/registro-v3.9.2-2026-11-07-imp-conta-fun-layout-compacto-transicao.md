@@ -1,0 +1,15 @@
+# Registro — v3.9.2 — 2026-11-07 — Imp. da Conta com Fun. layout compacto e transição
+
+**Status:** concluído localmente. PATCH3.9.2; base60d36d2/main. Pedido: retirar título/descrição da entrada pública, subir composição, G no Google, alternância suave e rodapé embaixo. Sem commit/push/deploy.
+
+**Decisões e contexto:** título/descrição pública removidos, H1 Acesso à conta apenas para leitores de tela. Conta autenticada preserva título próprio. Painel sem margem superior e grid público com32px verticais. Rodapé usa flex/margin-top:auto, na base em janela alta e após conteúdo em telas curtas, sem position fixed. Escopo CSS restrito à Conta, sem alterar OnboardingShell compartilhado.
+
+**Integrações e movimento:** ícone oficial local public/brand/google-g.png, obtido de https://developers.google.com/static/identity/images/g-logo.png a partir das diretrizes https://developers.google.com/identity/branding-guidelines, com cores originais, alt vazio e aria-hidden (nome do botão mantém identificação). ResizeObserver mede borderBox do conteúdo, incluindo erros/linhas adicionais, e desconecta no cleanup; altura anima240ms e entrada180ms. Sem medidas da transformação ancestral. Mantida remontagem de CredentialsForm por modo e foco nos botões. Sem ResizeObserver, altura natural. prefers-reduced-motion desativa transição/animação. Sem biblioteca nova ou alteração Auth/backend/callback. Context7React19.3.0 consultado para medida via ref/efeito/cleanup.
+
+**Arquivos:** conta/page.tsx; auth/components/auth-form.tsx/social-login.tsx e account-motion.css; imagem em public/brand; tests/account-presentation.spec.ts; Atlas product-ui/product.css/atlas.js/screens/index e documentos/manifestos de versão.
+
+**Validações:** teste inicial confirmou falha esperada pela presença do título anterior; primeiras tentativas sofreram inicialização lenta no G:, sem atribuir falha ao produto. Três testes focados finais aprovados: textos/ícone/rodapé1280x1400, troca de altura com foco/destino preservados, reduced-motion/mobile390x844 sem overflow ou sobreposição. Typecheck e build Next16.3.6 --webpack aprovados; build antes de atualizar só manifestos3.9.2, fontes funcionais iguais. Capturas desktop/mobile inspecionadas em artifacts/conta-compacta-desktop.png e conta-compacta-mobile.png, ignoradas. Não repetida suíte ampla/autenticação externa/banco.
+
+**Revisão:** autorrevisão React/CSS e revisão independente estática. Encontrados dois P2 na prévia Atlas (variáveis de medida não declaradas e wrapper no template legado); ambos corrigidos e rechecados pelo revisor, sem achados pendentes. Sintaxe Atlas aprovada. Inspeção viva Atlas continua limitada pelo bloqueio file do navegador; referência visual anterior e código conferidos, sem contorno. Nova verificação da aplicação no navegador realizada.
+
+**Resultado e limites:** quatro ajustes implementados localmente; produção permanece3.9.1. Não afirmar novo login Google real, teste de Safari/aparelho físico ou publicação. Próximo passo: commit/publicação quando autorizados. Unidade pronta: fix(conta): compactar acesso, identificar Google e suavizar alternância.

@@ -1,3 +1,25 @@
+# Publicação GitHub — layout da Conta — v3.9.2 — 2026-11-07
+
+**Objetivo autorizado:** commit/push de todo o conjunto3.9.2 na main, base60d36d2. Conta compacta, G oficial, transição de altura/entrada acessível e rodapé inferior; testes/Atlas/docs/versionamento incluídos no mesmo commit lógico. DOCS_DIR Documentacao_Projeto_Nos.
+
+**Validação econômica:** reutilizados3 testes, tipos/build, capturas desktop/mobile e revisão independente da implementação. Conferidos diff/índice/hashes/escopo antes do commit e referência remota após push. Nenhuma suíte/tipos/build repetidos. Sem arquivos de ambiente, artifacts ou credenciais no conjunto. Marcador skip netlify: produção permanece3.9.1.
+
+**Unidades pendentes:** nenhuma após confirmação do objeto desta publicação; documentação integra o mesmo commit, sem ciclo documental extra. **Próximo passo:** deploy quando solicitado. Contador43 conclusões acompanhadas; lacuna histórica e último marco100 preservados. [Registro](registros/registro-v3.9.2-2026-11-07-imp-github-fun-publicacao-layout-conta.md). Checkpoints abaixo históricos.
+
+---
+
+# Conta compacta e transição — v3.9.2 — 2026-11-07
+
+**Objetivo atendido localmente:** remover título/descrição pública e subir composição, ícone oficial G, transição de altura/entrada dos campos e footer na base sem overlay. Google/e-mail e fluxo autenticado preservados. DOCS_DIR Documentacao_Projeto_Nos; branch main, base60d36d2. Versão3.9.2 PATCH. Sem banco/dependência/credencial nova.
+
+**Validação:**3 testes focados, tipos e build --webpack aprovados; capturas1280x1400/390x844 inspecionadas, reduced-motion/foco/destino/footer conferidos. TDD demonstrou título anterior; demora inicial G: registrada. Revisão independente achou2P2 Atlas corrigidos e rechecados sem pendência; sintaxe aprovada, inspeção viva Atlas limitada por bloqueio file conhecido. Sem suíte ampla ou OAuth real repetido.
+
+**Arquivos:** conta/page, auth-form/social-login/account-motion.css, public/brand/google-g.png; teste account-presentation; Atlas e documentos de versão. [Registro](registros/registro-v3.9.2-2026-11-07-imp-conta-fun-layout-compacto-transicao.md). Evidências em artifacts/conta-compacta-desktop.png e conta-compacta-mobile.png ignoradas.
+
+**Próximo passo:** commit/publicação quando solicitados; produção continua3.9.1/deploy6aeea2a01167fdd054c67ea8. **Unidade pronta para commit:** layout compacto/Google/transição/footer e testes/Atlas/docs3.9.2; sugestão fix(conta): compactar acesso, identificar Google e suavizar alternância. Contador42 conclusões acompanhadas; lacuna histórica e último marco100 preservados. Ferramentas Superpowers/TDD/revisão/verificação, Context7React19.3.0 e fonte oficial Google. Nenhuma pesquisa avançada de dependências ou instalação Octocode necessária. Checkpoints abaixo históricos.
+
+---
+
 # Produção confirmada — Conta somente Google — v3.9.1 — 2026-11-07
 
 **Resultado:** https://noslife.netlify.app publicado no Netlify deploy6aeea2a01167fdd054c67ea8, Production/main03c4ddf. Build38s/Published confirmados. Conta pública conferida em login e cadastro: somente Continuar com Google como botão social; e-mail/senha preservados. Microsoft descartado e Apple sem botão/desativado. Sem novas migrações/credenciais ou serviços pagos.
