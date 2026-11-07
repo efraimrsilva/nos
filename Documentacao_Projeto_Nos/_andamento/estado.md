@@ -1,14 +1,18 @@
-# Publicação de Núcleos e perfis — v3.11.0 — 2026-11-07
+# Publicação concluída e avaliação de sincronização — v3.11.0 — 2026-11-07
 
-**Objetivo ativo:** publicar todas as mudanças autorizadas e conferir produção; depois avaliar NestJS para novas sincronizações, sem implementar framework. Preservar economia de testes solicitada.
+**Resultado:** mudanças publicadas na main do GitHub e em produção. Commit visual f21663cd2dd49e71503db69ad6e6303c7c8f7b85 e funcional d4cd65b8f0a3a2a6c96626762c1eb1f3a801ddba conferidos nos objetos Git e na referência remota. Netlify Published do funcional, deploy6aeed364ac597f3f225db7bb,42s. Site Conta HTTP200, CSS novo servido e /nucleos sem sessão HTTP307. DOCS_DIR Documentacao_Projeto_Nos; versão3.11.0; main.
 
-**Situação:** migração20261107100000_profile_identity_sync aplicada e registrada no Supabase hospedado nos-dev/pyvohqgcwkcfzbtkmbvx antes do frontend. Função/permissões/search_path conferidos; sem mudança de dados de usuários. Commit visual f21663c confirmado; commit funcional/push/deploy em andamento. DOCS_DIR Documentacao_Projeto_Nos; main; versão3.11.0.
+**Banco:** migração20261107100000_profile_identity_sync aplicada e registrada transacionalmente no Supabase hospedado nos-dev/pyvohqgcwkcfzbtkmbvx ANTES do frontend. Função, execute authenticated/anon, definer e search_path vazio conferidos. Sem alterações em dados de usuários ou novas contas de teste nesta publicação.
 
-**Verificações:** reutilizar8 E2E/23 SQL/tipos/build/revisão já aprovados; somente diff/staging, conferência do banco, build obrigatório da hospedagem e verificação pública nesta publicação. Conectores indisponíveis; API Supabase oficial com credencial CLI em memória funcionou.
+**Verificações econômicas:** reutilizados8 testes autenticados,23 SQL, tipos/build/revisões aprovados na implementação; nenhum novo build/suíte local nesta publicação. Somente diff/staging, metadados/permissões, build obrigatório da hospedagem e checagem pública. Sem novo fluxo autenticado online; evidência E2E permanece local. Mudanças e testes visuais anteriores preservados.
 
-**Próximo passo:** concluir commit funcional/push e conferir deploy do mesmo SHA; após isso, pesquisa de NestJS e alternativas. Contador58 conclusões acompanhadas ao fechar esta solicitação, lacuna histórica/último marco100 preservados.
+**Avaliação adicional atendida:** recomendar manter Next.js/Supabase e avaliar Realtime Broadcast privado para novas sincronizações. NestJS adiado até requisito concreto de API/serviço independente, workers ou coordenação de integrações. Estudo documental, sem instalação/protótipo/benchmark ou mudança de arquitetura. Não foi prometido custo menor ou escala medida. Próximo passo executável, quando solicitado: definir um fluxo e seus destinatários, medir demanda/latência e planejar canal privado com reconciliação.
 
-**Índice:** [Publicação](registros/registro-v3.11.0-2026-11-07-imp-publicacao-fun-nucleos-perfis.md) · [Implementação](registros/registro-v3.11.0-2026-11-07-imp-sincronizacao-fun-nomes-perfil-compartilhados.md) · [Plano](planos/sincronizacao-nomes-perfil.md). Checkpoints abaixo históricos.
+**Ferramentas/limites:** conectores Supabase/Netlify indisponíveis; API oficial Supabase com credencial CLI somente em memória, painel Netlify pelo navegador e HTTP público permitiram concluir. Context7 e documentação primária usados na avaliação. Octocode não exposto e sem pesquisa avançada necessária. Nenhuma credencial publicada.
+
+**Git/continuidade:** unidades visuais e funcionais já commitadas e publicadas, sem pendência dessas unidades. Fechamento documental e avaliação incluídos no commit desta conclusão, com [skip netlify] por não alterar o produto. Não gerar outro commit apenas pelo registro. Contador58 conclusões acompanhadas; lacuna histórica e último marco100 preservados. Avaliação adicional veio como direcionamento desta mesma solicitação, sem contagem duplicada.
+
+**Índice:** [Publicação](registros/registro-v3.11.0-2026-11-07-imp-publicacao-fun-nucleos-perfis.md) · [Avaliação NestJS](registros/registro-v3.11.0-2026-11-07-imp-avaliacao-arquitetura-fun-sincronizacao-nestjs.md) · [Implementação](registros/registro-v3.11.0-2026-11-07-imp-sincronizacao-fun-nomes-perfil-compartilhados.md) · [Contrato](funcionalidades/nome-perfil.md). Checkpoints abaixo históricos.
 
 ---
 

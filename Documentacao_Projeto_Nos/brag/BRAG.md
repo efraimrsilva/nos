@@ -429,3 +429,6 @@ Problema: conteúdo de entrada baixo, botão sem marca e mudança brusca de altu
 - Contribuição: a consulta periódica existente passa a comparar nomes de integrantes atuais de Núcleos comuns, com resumo restrito por sessão e uma RPC, preservando modais/rascunhos.
 - Resultado verificado: formulário real atualizou nome em outra sessão, detalhes abertos e lista após falha, sem reload;8 testes autenticados e23 SQL, tipos/build e revisão independente aprovados. Benefício esperado: evitar nomes desatualizados durante o uso compartilhado; sem métrica de impacto em produção.
 - Evidência: [registro](../_andamento/registros/registro-v3.11.0-2026-11-07-imp-sincronizacao-fun-nomes-perfil-compartilhados.md), teste profile-name-sync.spec.ts e teste SQL profile_identity_sync.sql. Implementação somente local; sem publicação.
+
+
+Atualização07/11/2026 da entrega3.11.0: migração hospedada aplicada antes do frontend, commits f21663c/d4cd65b publicados e Netlify confirmou Published. Checagem pública de Conta/CSS/proteção aprovada;8 E2E e23 SQL continuam evidências locais reaproveitadas. Sem nova medição de benefício em uso. [Publicação](../_andamento/registros/registro-v3.11.0-2026-11-07-imp-publicacao-fun-nucleos-perfis.md).

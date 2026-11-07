@@ -969,3 +969,8 @@ Cor por papel somente em hover/pressão e foco visível; repouso neutro. Borda1p
 ## 2026-11-07 — v3.11.0 — Nomes de perfil sincronizados entre sessões
 
 Polling existente3s passa a comparar nomes de integrantes compartilhados por RPC segura, atualizando listas/detalhes abertos sem reload.8 E2E e23 SQL, tipos/build e revisão independente aprovados. Migração registrada somente localmente; aplicar antes do frontend na publicação futura. [Registro](registros/registro-v3.11.0-2026-11-07-imp-sincronizacao-fun-nomes-perfil-compartilhados.md). Mudanças visuais anteriores preservadas.
+
+
+## 2026-11-07 — v3.11.0 — Publicação confirmada e avaliação NestJS
+
+Commits f21663c/d4cd65b enviados à main; migração hospedada precedeu frontend. Netlify Published6aeed364ac597f3f225db7bb, site público/CSS/acesso protegido conferidos. Testes anteriores reaproveitados, sem suítes redundantes. Avaliação posterior recomenda Next/Supabase Realtime Broadcast antes de backend Nest separado; sem adoção. [Publicação](registros/registro-v3.11.0-2026-11-07-imp-publicacao-fun-nucleos-perfis.md) · [Estudo](registros/registro-v3.11.0-2026-11-07-imp-avaliacao-arquitetura-fun-sincronizacao-nestjs.md).
