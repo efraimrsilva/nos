@@ -1,3 +1,39 @@
+## 2026-11-06 — v3.9.0 — Publicação Git autorizada do acesso social
+
+Três unidades atômicas commitadas: frameworks bf3a498, sugestões de caixa preta4e1a1b8 e login Google/preparação Apple identificado pelo título feat(auth): adicionar login Google e preparar acesso Apple na v3.9.0, com53 arquivos conferidos por hash. Testes/Atlas/versão/documentação e evidências operacionais incluídos. Validações anteriores reutilizadas; novas conferências limitadas ao conjunto Git, segurança do conteúdo e envio remoto. Encerramento documental integra o mesmo commit funcional, sem pendência de commit. [Registro](registros/registro-v3.9.0-2026-11-06-imp-github-fun-publicacao-login-social.md). Sem merge ou deploy por esta operação.
+
+---
+
+## 2026-11-06 — v3.9.0 — Google ativado e login real validado no desenvolvimento
+
+Projeto Google/branding preparados com usuário; cliente web criado e credenciais transferidas por ele diretamente ao Supabase. Provedor e flag local ativados, dois callbacks locais incluídos preservando oito anteriores. Retorno real a /nucleos e sessão após reload confirmados. Atlas/contratos sincronizados e verificados. Sem publicar no Netlify, habilitar Apple ou versionar segredos. [Registro](registros/registro-v3.9.0-2026-11-06-imp-google-fun-ativacao-login.md).
+
+---
+
+## 2026-11-06 — v3.9.0 — Login social preparado localmente
+
+Google/Apple na Conta com PKCE, retorno de convite preservado, feedback de indisponibilidade e complemento autenticado de nome.68 verificações selecionadas,4 autenticadas locais, tipos/build e Atlas aprovados; revisão independente estática sem achados. Usuário ainda não configurou provedores; ativação/login real pendentes. Sem publicação, migração ou novo roteiro de caixa preta. Alterações documentais concorrentes preservadas. [Registro](registros/registro-v3.9.0-2026-11-06-imp-autenticacao-fun-login-social.md) · [ativação](funcionalidades/login-social.md).
+
+---
+
+## 2026-11-06 — v3.8.0 — Sugestões de caixa preta sob decisão do usuário
+
+Substituída a geração obrigatória por funcionalidade: ao concluir entregas, apresentar sugestões curtas; preparar/ampliar roteiros apenas após autorização. AGENTS.md e protocolo sincronizados; casos/resultados anteriores preservados e verificações técnicas mantidas. Versão inalterada. [Registro](registros/registro-v3.8.0-2026-11-06-imp-diretrizes-fun-sugestao-testes-caixa-preta.md).
+
+---
+
+## 2026-11-06 — v3.8.0 — Diretriz documental de avaliação de frameworks
+
+Regra permanente no AGENTS.md: antes de novas funcionalidades ou evoluções médias/grandes, realizar avaliação breve e criteriosa de frameworks, comparando benefício e custos com a stack existente e registrando a decisão. Adoção opcional e justificada. Versão preservada; sem alteração de produto ou pesquisa de frameworks nesta entrega. [Registro](registros/registro-v3.8.0-2026-11-06-imp-diretrizes-fun-avaliacao-frameworks.md).
+
+---
+
+## 2026-11-06 — v3.8.0 — Preparação de login social
+
+Investigação inicial Google/Apple; desenho e requisitos externos registrados. Sem implementação, incremento de versão, testes ou configuração remota. [Registro em andamento](registros/registro-v3.9.0-2026-11-06-imp-autenticacao-fun-login-social.md).
+
+---
+
 ## 2026-11-06 — v3.8.0 — Publicação Git da consolidação em Hábito
 
 Commit/push autorizados de todo o conjunto funcional, banco/recuperação, Atlas/testes/evidências e documentação, com descrição abrangente. Validações anteriores reutilizadas; escopo/índice/objeto e correspondência remota conferidos no encerramento. Versão3.8.0 mantida, sem novas suítes ou publicação operacional. [Registro](registros/registro-v3.8.0-2026-11-06-imp-github-fun-publicacao-modelo-habito.md).

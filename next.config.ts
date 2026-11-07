@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   logging: {
     // Os callbacks recebem credenciais temporárias na URL; não registrá-las no terminal de desenvolvimento.
-    incomingRequests: { ignore: [/\/auth\/(?:confirm|recovery)(?:\?|$)/] },
+    incomingRequests: { ignore: [/\/auth\/(?:confirm|recovery|callback)(?:\?|$)/] },
   },
   async headers() {
     // Aplica proteções comuns a todas as rotas antes de adicionar regras específicas por tela.

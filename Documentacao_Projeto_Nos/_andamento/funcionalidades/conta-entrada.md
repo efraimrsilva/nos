@@ -1,3 +1,9 @@
+# Atualização vigente — Conta e entrada — v3.9.0 — 2026-11-06
+
+Google/Apple preparados no cadastro e no login, com retorno PKCE seguro, preservação de convites e complemento autenticado de nome. Google ativado e validado no desenvolvimento com Supabase hospedado: retorno a Seus Núcleos e sessão após recarregar confirmados. Apple permanece desativada; publicação Google no site hospedado pendente. Sem migração/deploy. [Contrato, ativação e limites](login-social.md). Os marcos seguintes preservam o histórico.
+
+---
+
 # Conta e entrada — v3.5.0
 
 ## Atualização vigente — Conta e entrada — v3.5.0 — 03/11/2026

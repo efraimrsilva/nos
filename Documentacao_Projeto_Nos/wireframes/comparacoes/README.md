@@ -1,3 +1,5 @@
+- [v3.9.0 · Login Google/Apple preparado](v3.9.0-2026-11-06-login-social-tela_01-tela_02/index.html) —11 imagens antes/depois, aplicativo/Atlas e complemento autenticado de nome. Provedores externos não configurados.
+
 # Comparações de telas — procedimento permanente
 
 - [v3.8.0 · Modelo Hábito e esboço de Essência](v3.8.0-2026-11-06-modelo-habito-tela_18-tela_24-tela_36/index.html) —23 imagens; Acordos18, detalhe24 e Essência36, aplicativo local/Atlas, computador/celular. Legado preservado, novo modal sem composição anterior própria; limites e larguras na galeria.

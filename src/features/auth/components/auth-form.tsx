@@ -6,6 +6,7 @@ import { PasswordInput } from "./password-input";
 import { passwordHelp } from "@/features/auth/input";
 import { AccountAccessDialog, type AccountAccessKind } from "./account-access-dialog";
 import { submitAuth, type AuthFormState } from "@/features/auth/actions";
+import { SocialLogin } from "./social-login";
 import "@/features/controls/accounts-layout.css";
 
 const initialState: AuthFormState = { message: "", success: false, revision: 0 };
@@ -19,6 +20,7 @@ export function AuthForm({ next = "/nucleos", initialMode = "signup", initialAcc
       <button type="button" onClick={() => setMode("login")} aria-pressed={mode === "login"}>Já tenho conta</button>
     </div>
     {/* A troca de modo reinicia apenas o formulário; destino e ações protegidas permanecem. */}
+    <SocialLogin next={next} />
     <CredentialsForm key={mode} mode={mode} next={next} />
     <div className="auth-assistance"><AccountAccessDialog kind="recovery" next={next} defaultOpen={initialAccess === "recovery"} /><AccountAccessDialog kind="confirmation" next={next} defaultOpen={initialAccess === "confirmation"} /></div>
   </section>;

@@ -1,6 +1,8 @@
+> **v3.9.0 — Google validado no desenvolvimento:** acesso Google ativado no Supabase e no aplicativo local, com retorno e sessão após recarregar confirmados. Apple permanece preparada e desativada; publicação do Google no site hospedado ainda pendente. [Configuração e limites](Documentacao_Projeto_Nos/_andamento/funcionalidades/login-social.md).
+
 # Nós — plataforma para cultivar vínculos
 
-**Versão local 3.8.0:** Acordos em Proposta → Hábito → Essência; Experiência consolidada em Hábito, incluindo leitura e momentos do legado. Essência e passagens continuam esboços, com o mesmo informe do Manifesto. A nova migração de funções foi validada somente localmente; publicação remota pendente. [Contrato](Documentacao_Projeto_Nos/_andamento/funcionalidades/fluxo-proposta-habito-essencia.md).
+**Entrega anterior — v3.8.0:** Acordos em Proposta → Hábito → Essência; Experiência consolidada em Hábito, incluindo leitura e momentos do legado. Essência e passagens continuam esboços, com o mesmo informe do Manifesto. A nova migração de funções foi validada somente localmente; publicação remota pendente. [Contrato](Documentacao_Projeto_Nos/_andamento/funcionalidades/fluxo-proposta-habito-essencia.md).
 
 Aplicação web full stack para organizar espaços compartilhados, construir acordos e acompanhar práticas de cuidado com participação voluntária. O projeto reúne interface responsiva, autenticação, regras de negócio no servidor e no banco, testes automatizados e documentação de produto.
 

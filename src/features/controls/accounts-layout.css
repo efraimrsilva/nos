@@ -130,3 +130,11 @@
 .account-experience .account-deletion-trigger:is(:hover,:focus-visible,:active) .account-row-icon{background:color-mix(in srgb,#ff2846 18%,var(--danger-bg));box-shadow:0 0 10px #ff28464d}
 .account-deletion-trigger:focus-visible{outline:2px solid #ff2846;outline-offset:3px;border-radius:8px}
 @media(prefers-reduced-motion:reduce){.account-experience .account-deletion-trigger .account-row{transition:none}}
+.auth-social { margin: 18px 0; }
+.auth-social form { display: grid; gap: 10px; }
+.auth-social .auth-social-button { width: 100%; background: var(--ui-surface, transparent); color: inherit; border: 1px solid currentColor; transition: background-color 150ms ease, opacity 150ms ease; }
+.auth-social .auth-social-button:hover:not(:disabled) { background: color-mix(in srgb, currentColor 6%, transparent); }
+.auth-social-button:disabled { opacity: .65; cursor: wait; }
+.auth-divider { display: flex; align-items: center; gap: 12px; margin: 18px 0 0; font-size: 12px; text-align: center; }
+.auth-divider::before, .auth-divider::after { content: ""; flex: 1; height: 1px; background: currentColor; opacity: .18; }
+@media (prefers-reduced-motion: reduce) { .auth-social .auth-social-button { transition: none; } }

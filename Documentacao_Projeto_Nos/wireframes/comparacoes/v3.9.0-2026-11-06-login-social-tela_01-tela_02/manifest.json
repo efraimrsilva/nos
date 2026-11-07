@@ -1,0 +1,77 @@
+{
+  "version": "3.9.0",
+  "date": "2026-11-06",
+  "screens": [
+    1,
+    2
+  ],
+  "externalOAuthVerified": false,
+  "entries": [
+    {
+      "file": "app-antes-desktop.png",
+      "description": "Aplicativo antes · desktop, viewport1280×900",
+      "width": 1280,
+      "height": 930
+    },
+    {
+      "file": "app-antes-mobile.png",
+      "description": "Aplicativo antes · celular, viewport390×844",
+      "width": 390,
+      "height": 1395
+    },
+    {
+      "file": "app-completar-nome-desktop.png",
+      "description": "Complemento do nome autenticado · desktop, fixture local",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "file": "app-completar-nome-mobile.png",
+      "description": "Complemento do nome autenticado · Pixel7 emulado, viewport412×839, escala2.625",
+      "width": 1082,
+      "height": 2202
+    },
+    {
+      "file": "app-depois-desktop.png",
+      "description": "Aplicativo depois · cadastro, viewport1280×1024",
+      "width": 1280,
+      "height": 1088
+    },
+    {
+      "file": "app-depois-mobile.png",
+      "description": "Aplicativo depois · cadastro, viewport390×844, captura completa",
+      "width": 390,
+      "height": 1526
+    },
+    {
+      "file": "app-indisponivel-mobile.png",
+      "description": "Aplicativo depois · Google indisponível, viewport390×844",
+      "width": 390,
+      "height": 1617
+    },
+    {
+      "file": "atlas-antes.png",
+      "description": "Atlas antes · inspeção Tela01, viewport1280×900",
+      "width": 1280,
+      "height": 2606
+    },
+    {
+      "file": "atlas-completar-nome.png",
+      "description": "Atlas vivo · estado Sucesso demonstra complemento de nome sem persistir",
+      "width": 1280,
+      "height": 2656
+    },
+    {
+      "file": "atlas-depois-desktop.png",
+      "description": "Atlas vivo depois · representação web, captura completa da composição",
+      "width": 934,
+      "height": 1211
+    },
+    {
+      "file": "atlas-depois-mobile.png",
+      "description": "Atlas vivo depois · representação celular, captura completa da composição",
+      "width": 402,
+      "height": 1638
+    }
+  ]
+}

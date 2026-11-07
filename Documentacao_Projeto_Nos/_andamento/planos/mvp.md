@@ -1,3 +1,7 @@
+## Acesso social preparado — v3.9.0 — 2026-11-06
+
+MVP01/Telas01–02: Google e Apple preparados com PKCE, destino de convite preservado e complemento autenticado de nome, sem novo ID. Google ativado e login real validado no aplicativo local, incluindo sessão após recarregar; Apple ainda aguarda configuração. Google no site publicado pendente; não conclui operação do piloto. Etapa13 conserva vinculação manual e integrações de calendário como planejadas. [Contrato e ativação](../funcionalidades/login-social.md). A diretriz de sugestões de caixa preta depende de decisão do usuário; nenhum roteiro novo foi criado nesta entrega.
+
 ## MVP03 — adequação funcional local — v3.8.0 — 06/11/2026
 
 Proposta → Hábito → Essência no aplicativo, com compatibilidade de leitura e momentos para o legado sem regravar termos, versões, categoria ou aceites. Nova criação normalizada para habit. Essência e passagens somente esboços, com o mesmo informe do Manifesto; sem critérios ou promoção inventados. Integração Hábito/evento, recorrência e mídia continuam planejadas. Mesmas73 fichas/13 etapas;39 recortes existentes e34 planejados, sem converter desenho em entrega funcional. Nova prévia: Acordos18 → Ver esboço de Essência → modal Nossa Essência36; X/Escape/fora, sem escrita. Casos manuais continuam Não executados pelo usuário. [Registro](../registros/registro-v3.8.0-2026-11-06-imp-acordos-fun-modelo-habito.md). As seções datadas abaixo preservam marcos anteriores.

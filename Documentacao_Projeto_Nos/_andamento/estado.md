@@ -1,3 +1,89 @@
+# Publicação GitHub — login Google e preparação Apple — v3.9.0 — 2026-11-06
+
+**Objetivo autorizado:** commit e push de todas as alterações pendentes, com descrição abrangente e poucas verificações novas. DOCS_DIR: Documentacao_Projeto_Nos. Branch feat/modelo-habito, base2e0347b igual ao remoto após fetch. Versão3.9.0 preservada. Três unidades lógicas: frameworks, sugestões de caixa preta e acesso social completo com Atlas/testes/docs/ativação Google local.
+
+**Objetos já conferidos:** frameworks em bf3a498; sugestões de caixa preta em4e1a1b8. **Unidade funcional conferida:** login Google e preparação Apple3.9.0, identificada pelo título feat(auth): adicionar login Google e preparar acesso Apple na v3.9.0;53 arquivos conferidos por hash, sem divergências. Sem segredos/env local ou artefatos temporários no conjunto. Este encerramento integra o mesmo commit. **Unidades pendentes de commit: nenhuma.** Checkpoints históricos abaixo não prevalecem sobre este bloco.
+
+**Validação econômica:** versões/diff/escopo e ausência de credenciais privadas conferidos; evidências anteriores de68 testes selecionados,4 autenticados, tipos/build, Atlas/revisão e login real Google reutilizadas. Nenhuma nova suíte/build/tipos. Limites de fidelidade/banco/links históricos preservados.
+
+**Publicação autorizada:** envio da série por push normal para origin/feat/modelo-habito, seguido de comparação de HEAD com a referência remota; confirmação é reportada no encerramento. Sem merge/main, deploy, migração ou ativação Apple. **Próximo passo funcional:** Google no site publicado continua pendente de configuração e publicação próprias, somente quando autorizadas. Fluxos de caixa preta seguem a decisão do usuário.
+
+**Contador:**35 conclusões acompanhadas desde29/10, incluindo esta publicação após34; lacuna histórica e último marco100 preservados. Ferramentas: Superpowers de fechamento/verificação e Git. Sem consulta técnica/instalação nova.
+
+**Índice:** [publicação](registros/registro-v3.9.0-2026-11-06-imp-github-fun-publicacao-login-social.md) · [ativação Google](registros/registro-v3.9.0-2026-11-06-imp-google-fun-ativacao-login.md) · [implementação](registros/registro-v3.9.0-2026-11-06-imp-autenticacao-fun-login-social.md).
+
+## Histórico de retomadas anteriores
+
+# Google ativado e validado no desenvolvimento — v3.9.0 — 2026-11-06
+
+**Objetivo/resultado:** continuação assistida do acesso Google concluída no aplicativo local http://127.0.0.1:3000, usando Supabase hospedado nos-dev. Projeto Google Projeto Nos, ID nos-sintagma-login, conta Sintagma Software; cliente web criado pelo usuário, credenciais transferidas diretamente ao Supabase. Google Auth Platform em testes. Google=true no Auth e GOOGLE_AUTH_ENABLED=true em .env.local; Apple=false. Versão3.9.0 preservada como ativação operacional do fluxo existente. DOCS_DIR: Documentacao_Projeto_Nos; branch feat/modelo-habito/base2e0347b; sem commit/push/deploy.
+
+**Validações novas:** login real autorizado pelo usuário → /nucleos; reload manteve acesso protegido e sessão. Dez retornos no Supabase: dois callbacks locais novos, oito anteriores e Site URL preservados. Nonce/email ausente mantidos seguros. Atlas global/MVP e fluxo social aprovados, sem erros/chamadas externas; sintaxe JS/diff aprovados. Código de autenticação inalterado desde a preparação; testes68/quatro autenticados/build são evidências anteriores, sem repetição nesta etapa operacional. Segredos ignorados pelo Git, não copiados para registros. Evidências recortadas sem dados da conta ou lista de Núcleos.
+
+**Arquivos desta etapa:** .env.local (não versionado), documentos de login/Conta/MVP/guia/README/estado/histórico/Brag e Atlas (atlas.js/screens.js/index.html/mvp-plan.js), registro e imagens operacionais. Alterações funcionais3.9.0 e diretrizes documentais anteriores preservadas. Autorrevisão do delta; sem nova revisão independente desta configuração.
+
+**Limites/próximo passo:** disponibilização Google no Netlify ainda requer publicação autorizada de código e configuração própria (flag e retornos de produção), sem aplicar configuração completa local no remoto. Nenhum deploy/migração ou teste físico/Safari. Google ainda em testes, sem certificação de todas as contas, cancelamento real ou aceite de convite. Apple continua desativada. Não gerar roteiros de caixa preta sem autorização; sugestões na resposta final.
+
+**Unidades prontas para commit:** unidade funcional3.9.0 (Google/Apple preparados, Google ativado localmente, testes/Atlas/versão/docs), sugestão: feat(auth): adicionar login Google e preparar acesso Apple com retorno seguro; e as duas diretrizes documentais independentes já registradas (avaliação de frameworks e sugestões de caixa preta). Separar trechos compartilhados na preparação dos commits; nenhuma credencial ou .env.local deve integrar o índice.
+
+**Contador:**34 conclusões acompanhadas desde29/10, contando esta ativação após33; lacuna histórica e último marco auditado100 preservados, sem inferir marco200. **Ferramentas:** computer-use para painéis, Supabase/configuração pública por consulta HTTP, Superpowers/revisão/verificação proporcionais; documentação Context7/Supabase da mesma sessão reutilizada. Sem instalação ou pesquisa avançada de código. Servidor3000 e serviços do usuário preservados.
+
+**Índice:** [ativação Google](registros/registro-v3.9.0-2026-11-06-imp-google-fun-ativacao-login.md) · [contrato/configuração](funcionalidades/login-social.md) · [implementação3.9.0](registros/registro-v3.9.0-2026-11-06-imp-autenticacao-fun-login-social.md) · [evidência de retorno](registros/evidencias-google-2026-11-06/retorno-autenticado-local.png).
+
+## Histórico de retomadas — checkpoints substituídos
+
+# Em andamento — ativação Google — v3.9.0 — 2026-11-06
+
+**Objetivo ativo:** ativar Google no fluxo social já implementado; usuário está sendo orientado nos painéis. Código/versão3.9.0 preservados. Projeto Google Projeto Nos (nos-sintagma-login) criado na conta Sintagma Software. Branding Nós preparado, público Externo em testes; aguarda aceite do usuário da política de dados Google. Painel Supabase aguarda login do usuário. Google permanece desativado no Auth hospedado e no aplicativo local; nenhum cliente OAuth ou segredo criado.
+
+**Próximo passo:** observar o aceite/branding e login Supabase; preparar cliente web e configuração segura do provedor, depois validar login real. Sem publicação/deploy/Apple nesta etapa. Não pedir segredos pelo chat. Requisitos de confirmação/participação do usuário para termos e credenciais persistentes seguem a política de computer-use. Contador e unidades prontas anteriores preservados abaixo até conclusão desta interação.
+
+**Índice:** [registro de ativação em andamento](registros/registro-v3.9.0-2026-11-06-imp-google-fun-ativacao-login.md).
+
+---
+
+# Entrega local — login Google/Apple preparado — v3.9.0 — 2026-11-06
+
+**Objetivo/escopo:** fluxo aprovado de Google e depois Apple na Conta. Implementação local concluída; ativação operacional bloqueada pela configuração dos provedores ainda não feita pelo usuário. DOCS_DIR: Documentacao_Projeto_Nos. Branch feat/modelo-habito, base2e0347b; sem commit/push/deploy ou configuração remota nesta tarefa. Versão vigente3.9.0 MINOR.
+
+**Resultado/aceite local:** botões cadastro/login, início Supabase/PKCE, cookies existentes, callback seguro, destino de convite preservado sem aceite automático, cancelamento/erro, nome Google integrado e nome ausente coletado na própria Conta. Flags desativadas por padrão informam indisponibilidade. Código/Atlas/manifestos/contratos/guia coerentes; nenhuma biblioteca, migração ou modal novo.
+
+**Arquivos principais:** auth/social-session.ts, social-actions.ts, components/social-login.tsx/auth-form.tsx; app/auth/callback/route.ts e conta/page.tsx; CSS/configuração/exemplo de ambiente; três testes, Atlas e documentação vinculada.
+
+**Validações recentes:**68 selecionados desktop/mobile;4 autenticados com banco local; tipos3.9.0; build produção --webpack na cópia conferida por SHA-256; Atlas global/MVP e fluxos sociais aprovados.11 capturas antes/depois e complemento. Revisão independente estática e autorrevisão sem achados pendentes. Falhas de infraestrutura/testes e regressão do tratamento de exceção do nome corrigidas, preservadas no registro.0 fixtures routing restantes. Verificador geral antigo de fidelidade da Conta bloqueado por seletor desatualizado; inspeção visual e verificação específica social aprovadas.
+
+**Limites/próximo passo:** seguir guia de ativação Google, provar login real com conta autorizada e depois Apple. O código preparado não comprova consentimento nem cookies após OAuth externo. Sem Safari/aparelho físico ou deploy certificado. Não enviar segredos pelo chat. Testes de caixa preta são apenas sugestões até autorização, preservando resultados anteriores. Limitação histórica do banco não alterada.
+
+**Unidades prontas para commit:** (1) login social preparado3.9.0, sugestão: feat(auth): preparar login com Google e Apple com retorno seguro e complemento de perfil; (2) avaliação breve de frameworks, sugestão: docs(diretrizes): exigir avaliação breve de frameworks em funcionalidades médias e grandes; (3) sugestões de caixa preta sob decisão do usuário, sugestão: docs(testes): substituir geração automática de caixa preta por sugestões. As duas últimas são alterações documentais concorrentes preservadas; separar os trechos compartilhados ao preparar commits. Nenhum commit desta tarefa.
+
+**Contador:**33 conclusões acompanhadas desde29/10, incluindo esta entrega após32 registradas; lacuna histórica e último marco auditado100 preservados, sem inferir marco200. **Ferramentas:** Superpowers/Supabase/checklist React, Context7SSR0.12.7/Playwright1.63.0; OctocodeCLI19.1.0 grafo parcial complementado localmente. Sem instalações. Servidor3000/Supabase preexistentes preservados; executor encerrou servidor/cópia de teste.
+
+**Índice:** [registro](registros/registro-v3.9.0-2026-11-06-imp-autenticacao-fun-login-social.md) · [contrato/ativação](funcionalidades/login-social.md) · [galeria](../wireframes/comparacoes/v3.9.0-2026-11-06-login-social-tela_01-tela_02/index.html) · [diretriz de frameworks](registros/registro-v3.8.0-2026-11-06-imp-diretrizes-fun-avaliacao-frameworks.md) · [diretriz de caixa preta](registros/registro-v3.8.0-2026-11-06-imp-diretrizes-fun-sugestao-testes-caixa-preta.md).
+
+## Histórico de retomadas anteriores
+
+# Em andamento — login social Google/Apple — v3.8.0 — 2026-11-06
+
+**Objetivo autorizado:** incluir Google e depois Apple (interpretação de iCloud). DOCS_DIR: Documentacao_Projeto_Nos. Base feat/modelo-habito/2e0347b inicialmente limpa. Versão3.8.0; alvo MINOR3.9.0 após conclusão/revisão/validação.
+
+**Situação/decisões propostas:** investigação inicial concluída; desenho delimitado aguarda aprovação conforme brainstorming. Reutilizar Supabase/cookies, botões cadastro/login, callback OAuth com PKCE e destinos internos/convites preservados, feedback de erro/cancelamento e coleta de nome ausente. Código/Atlas/configuração remota intactos; credenciais externas não verificadas.
+
+**Aceite previsto:** Google antes de Apple, sessão/destino corretos, nome ausente tratado, regressões de acesso, validação desktop/celular e Atlas/documentação sincronizados. Login real com provedores exige evidência própria.
+
+**Validações/ferramentas:** Git/versão/fluxo atual conferidos; Context7 SSR0.12.7 e docs oficiais Google/Apple consultados. Superpowers entendimento e Supabase aplicados. Octocode19.1.0 configurado sem ferramenta MCP exposta; sem pesquisa avançada. Nenhum build/teste ou revisão independente nesta preparação.
+
+**Bloqueios/próximo passo:** aprovar desenho e implementar; verificar configuração Google/Apple por canais seguros. Apple requer Services ID/chave, rotação do segredo e coleta de nome no OAuth web. Sem publicação autorizada nesta solicitação.
+
+**Unidades prontas para commit:** (1) avaliação breve e criteriosa de frameworks, sugestão: `docs(diretrizes): exigir avaliação breve de frameworks em funcionalidades médias e grandes`; (2) sugestões de caixa preta sujeitas à decisão do usuário, sugestão: `docs(testes): substituir geração automática de caixa preta por sugestões`. São mudanças documentais independentes; separar os trechos compartilhados ao preparar commits. A documentação inicial de login social continua em andamento e separada desta unidade. **Contador:**32 conclusões acompanhadas desde29/10, incluindo a diretriz de sugestões de caixa preta; lacuna histórica e último marco100 preservados, sem inferir marco200.
+
+**Diretriz vigente — 06/11/2026:** antes de novas funcionalidades ou evoluções de impacto médio/grande, avaliar rapidamente frameworks e registrar benefício e decisão justificada; adoção depende de valor concreto, compatibilidade e custo de manutenção. Regra em `../../AGENTS.md`. Versão3.8.0 preservada; objetivo ativo de login social mantido. Validação documental e autorrevisão; sem necessidade de consultas técnicas, instalação ou testes do aplicativo nesta atualização.
+
+**Diretriz de caixa preta — 06/11/2026:** não gerar nem ampliar roteiros automaticamente. Após a entrega, sugerir brevemente os fluxos pertinentes na resposta final; o usuário decide sobre preparação e realização. Regra anterior de um caso obrigatório por funcionalidade substituída no AGENTS.md e no protocolo. Casos/resultados existentes preservados; verificações técnicas continuam aplicáveis. Versão3.8.0 mantida; autorrevisão, links locais e git diff --check conferidos.
+
+**Índice:** [sugestões de caixa preta](registros/registro-v3.8.0-2026-11-06-imp-diretrizes-fun-sugestao-testes-caixa-preta.md) · [avaliação de frameworks](registros/registro-v3.8.0-2026-11-06-imp-diretrizes-fun-avaliacao-frameworks.md) · [registro em andamento](registros/registro-v3.9.0-2026-11-06-imp-autenticacao-fun-login-social.md). Blocos abaixo preservam histórico; prevalece este objetivo ativo.
+
+---
+
 # Publicação GitHub — modelo Hábito — v3.8.0 — 2026-11-06
 
 **Objetivo autorizado:** commit e push de todas as alterações pendentes, com descrição abrangente e validação econômica. DOCS_DIR: Documentacao_Projeto_Nos. Branch feat/modelo-habito; base331d224, igual a origin/main após fetch.

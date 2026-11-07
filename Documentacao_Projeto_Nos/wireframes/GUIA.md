@@ -1,3 +1,9 @@
+## Login social preparado — v3.9.0 — 06/11/2026
+
+Conta01/02 oferece Google e Apple nas duas abas; Supabase/PKCE preserva destino interno. Google ativado e validado no desenvolvimento; Apple permanece desativada. No Atlas offline, Google explica a demonstração sem autenticar e Apple demonstra indisponibilidade. Estado Sucesso de Conta demonstra complemento do nome após autenticação, sem salvar. Mesmas73 fichas/13 etapas; nenhuma integração externa é certificada pelo desenho. [Contrato](../_andamento/funcionalidades/login-social.md) · [galeria](comparacoes/v3.9.0-2026-11-06-login-social-tela_01-tela_02/index.html).
+
+---
+
 ## Paridade funcional local — modelo Hábito — v3.8.0 — 06/11/2026
 
 Proposta → Hábito → Essência no aplicativo, com compatibilidade de leitura e momentos para o legado sem regravar termos, versões, categoria ou aceites. Nova criação normalizada para habit. Essência e passagens somente esboços, com o mesmo informe do Manifesto; sem critérios ou promoção inventados. Integração Hábito/evento, recorrência e mídia continuam planejadas. Mesmas73 fichas/13 etapas;39 recortes existentes e34 planejados, sem converter desenho em entrega funcional. Nova prévia: Acordos18 → Ver esboço de Essência → modal Nossa Essência36; X/Escape/fora, sem escrita. Casos manuais continuam Não executados pelo usuário. [Registro](../_andamento/registros/registro-v3.8.0-2026-11-06-imp-acordos-fun-modelo-habito.md). As seções datadas abaixo preservam marcos anteriores.

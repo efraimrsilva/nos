@@ -232,3 +232,9 @@ body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog .live-member-t
   .live-report-label { transition: opacity .15s ease; }
   .live-report-anchor[data-reminder-visible="true"] .live-report-label { transition-delay: .12s; }
 }
+
+/* Acesso social compartilha a composição nos três modos do Atlas. */
+.live-social { display:grid; gap:10px; margin:18px 0; }
+.live-social .live-button { justify-content:center; border:1px solid currentColor; }
+.live-social-divider { display:flex; align-items:center; gap:12px; margin:18px 0; font-size:12px; text-align:center; }
+.live-social-divider::before,.live-social-divider::after { content:""; flex:1; height:1px; background:currentColor; opacity:.18; }
