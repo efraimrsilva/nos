@@ -45,7 +45,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
     </div></header>
     {unavailable && <p role="alert" className="ui-feedback mb-5">Não foi possível conferir sua sessão. Tente novamente em instantes.</p>}
     {error === "social-cancelado" && <p role="status" className="ui-feedback mb-5">O acesso foi cancelado. Você pode tentar novamente ou usar seu e-mail e senha.</p>}
-    {error === "social" && <p role="alert" className="ui-feedback mb-5">Não foi possível concluir o acesso. Tente novamente com Google ou Apple, ou use seu e-mail e senha.</p>}
+    {error === "social" && <p role="alert" className="ui-feedback mb-5">Não foi possível concluir o acesso. Tente novamente com Google ou use seu e-mail e senha.</p>}
     {error === "confirmacao" && <p role="alert" className="ui-feedback mb-5">Não foi possível confirmar o e-mail. <Link href={withAuthNext("/conta/confirmar-email", next)} className="underline">Solicite outro link de confirmação</Link> ou tente entrar.</p>}
     {params.resultado === "senha" && <p role="status" className="ui-feedback mb-5">Senha atualizada. Entre com sua nova senha.</p>}
     {!user && params.resultado === "conta-excluida" && <p role="status" className="ui-feedback mb-5">Sua conta foi apagada. Seu acesso e seus vínculos foram removidos. O histórico compartilhado permanece com autoria “Conta excluída”.</p>}

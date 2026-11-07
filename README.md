@@ -1,3 +1,5 @@
+> **v3.9.1 — 07/11/2026:** somente Google como botão social na Conta; e-mail/senha preservados. Microsoft descartado; Apple sem botão e desativado. Google já confirmado em produção3.9.0; retirada do botão validada localmente, ainda não publicada. Trechos datados abaixo são históricos.
+
 > **v3.9.0 — Google validado no desenvolvimento:** acesso Google ativado no Supabase e no aplicativo local, com retorno e sessão após recarregar confirmados. Apple permanece preparada e desativada; publicação do Google no site hospedado ainda pendente. [Configuração e limites](Documentacao_Projeto_Nos/_andamento/funcionalidades/login-social.md).
 
 # Nós — plataforma para cultivar vínculos

@@ -1,3 +1,5 @@
+> **v3.9.1 — 07/11/2026:** somente Google como botão social na Conta; e-mail/senha preservados. Microsoft descartado; Apple sem botão e desativado. Google já confirmado em produção3.9.0; retirada do botão validada localmente, ainda não publicada. Trechos datados abaixo são históricos.
+
 ## Login social preparado — v3.9.0 — 06/11/2026
 
 Conta01/02 oferece Google e Apple nas duas abas; Supabase/PKCE preserva destino interno. Google ativado e validado no desenvolvimento; Apple permanece desativada. No Atlas offline, Google explica a demonstração sem autenticar e Apple demonstra indisponibilidade. Estado Sucesso de Conta demonstra complemento do nome após autenticação, sem salvar. Mesmas73 fichas/13 etapas; nenhuma integração externa é certificada pelo desenho. [Contrato](../_andamento/funcionalidades/login-social.md) · [galeria](comparacoes/v3.9.0-2026-11-06-login-social-tela_01-tela_02/index.html).

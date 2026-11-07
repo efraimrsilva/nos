@@ -895,3 +895,9 @@ Netlify Published6aee7dad0fc99510d78ebeda/main5170f72; banco17 migrações e amb
 
 ## 2026-11-06 — v3.9.0: confirmação manual Google em produção
 Usuário confirmou login e retorno ao Nós no domínio publicado. Evidência declarada pelo usuário, sem inspeção independente da sessão; encerra pendência manual do deploy. Apple e prova de entrega SMTP mantêm limites anteriores.
+
+## 2026-11-07 — v3.9.1 — Reversão Microsoft e Conta somente Google
+Tentativa local Microsoft3.10.0 descartada a pedido; base54016c5 restaurada. Retirado apenas botão Apple e referência de erro; Google/e-mail preservados. Conferência local das duas abas aprovada. Sem publicação. [Registro](registros/registro-v3.9.1-2026-11-07-imp-conta-fun-acesso-social-somente-google.md).
+
+## 2026-11-07 — v3.9.1 — Publicação GitHub autorizada
+Conta somente Google, teste/Atlas/docs/versionamento preparados em um commit lógico na main. Descrição detalhada e [skip netlify], sem novo deploy/build. Conferência visual anterior reutilizada; diff/índice/JSON/sintaxe e equivalência remota conferidos no encerramento. [Registro](registros/registro-v3.9.1-2026-11-07-imp-github-fun-publicacao-acesso-google.md).

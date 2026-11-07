@@ -1,3 +1,27 @@
+# Publicação GitHub — Conta somente Google — v3.9.1 — 2026-11-07
+
+**Objetivo autorizado:** commit/push de todo o conjunto pendente após descartar Microsoft, com descrição abrangente e verificações econômicas. Branch main, base54016c5, DOCS_DIR Documentacao_Projeto_Nos. Um commit lógico: retirada do botão Apple e referência de erro, teste/Atlas/docs/versão3.9.1. Sem credenciais, Microsoft funcional, biblioteca ou banco novo.
+
+**Validação:** fetch remoto0/0 antes do envio; diff e escopo conferidos; JSON/sintaxe Atlas e staged diff check. Reutilizada conferência visual da Conta login/cadastro com somente Google; sem repetir suíte/tipos/build. Captura em artifacts ignorada. Marcador [skip netlify] evita build/deploy nesta publicação GitHub. Produção permanece3.9.0, Google validado pelo usuário.
+
+**Unidade de commit:** alterações da Conta e documentação incluídas no mesmo commit desta publicação; fechamento confirma sua presença por inspeção do objeto Git. Nenhuma unidade independente pendente. **Próximo passo:** deploy da retirada do botão somente quando solicitado. Conta/cartão Microsoft não foram alterados por reversão de código. Contador40 conclusões acompanhadas; lacuna histórica e último marco100 preservados. Ferramentas Superpowers fechamento/verificação e Git, sem nova instalação/pesquisa técnica.
+
+**Índice:** [Publicação GitHub](registros/registro-v3.9.1-2026-11-07-imp-github-fun-publicacao-acesso-google.md) · [Implementação](registros/registro-v3.9.1-2026-11-07-imp-conta-fun-acesso-social-somente-google.md). Checkpoints abaixo são históricos.
+
+---
+
+# Conta somente com Google — v3.9.1 — 2026-11-07
+
+**Objetivo atendido:** usuário cancelou Microsoft e pediu restauração da versão commitada com somente botão Google. Tentativa local3.10.0 descartada (fontes, Atlas, docs, versão e galeria); base54016c5 preservada. Branch main, DOCS_DIR Documentacao_Projeto_Nos. PATCH3.9.1 só retira botão Apple e menção na mensagem de erro; Google/e-mail/senha preservados. Backend/callback/flags iguais ao commit anterior; Apple interno desativado sem botão.
+
+**Validação:** autorrevisão do diff, git diff --check, sintaxe Atlas e conferência visual real localhost3100 em login/cadastro: exatamente Continuar com Google. Captura ignorada artifacts/conta-somente-google.png. Sem suites/build/tipos novos para ajuste pontual; expectativas do teste UI alinhadas, não reexecutadas. Produção continua3.9.0; sem commit/push/deploy desta entrega.
+
+**Próximo passo:** commit/publicação somente quando solicitados. Microsoft não será configurado. Conta/cartão inseridos pelo usuário na Microsoft são externos; não foram excluídos/cancelados nem houve inspeção de fatura. Entra/Supabase não receberam aplicativo/segredo Microsoft. Não concluir que desfazer código removeu cadastro financeiro.
+
+**Unidade pronta para commit:** retirada de Apple da Conta, Atlas/teste/docs e versão3.9.1; sugestão fix(auth): manter somente Google como opção de acesso social. Contador39 conclusões acompanhadas (inclui preparação Microsoft38 anterior, depois descartada); lacuna histórica e último marco100 preservados. [Registro](registros/registro-v3.9.1-2026-11-07-imp-conta-fun-acesso-social-somente-google.md). Checkpoints abaixo históricos.
+
+---
+
 # Produção publicada — v3.9.0 — 2026-11-06
 
 **Objetivo:** publicação autorizada no Netlify. Deploy6aee7dad0fc99510d78ebeda confirmado Published, código main5170f72, domínio https://noslife.netlify.app. Git main remoto igual ao local no envio. Banco17 migrações, callbacks públicos Supabase e sete variáveis Netlify aplicados. Primeiro build barrado por dois falsos positivos públicos; netlify.toml omite somente remetente público/hostname SMTP, preservando varredura dos segredos reais. Versão3.9.0 mantida.

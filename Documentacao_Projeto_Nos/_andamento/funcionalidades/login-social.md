@@ -1,3 +1,5 @@
+> **v3.9.1 — 07/11/2026:** somente Google como botão social na Conta; e-mail/senha preservados. Microsoft descartado; Apple sem botão e desativado. Google já confirmado em produção3.9.0; retirada do botão validada localmente, ainda não publicada. Trechos datados abaixo são históricos.
+
 # Login social Google e Apple — v3.9.0 — 2026-11-06
 
 **Situação vigente:** Google configurado no projeto Cloud nos-sintagma-login e habilitado no Supabase hospedado nos-dev. Aplicativo de desenvolvimento http://127.0.0.1:3000 ativado por variável local; login real e sessão após recarregar confirmados em06/11/2026. Credenciais transferidas pelo usuário diretamente entre painéis, sem chat/Git. Apple permanece desativada. O Google ainda não foi ativado no runtime do site publicado. Esta ativação conclui a preparação operacional Google da v3.9.0, sem nova alteração de código de autenticação.

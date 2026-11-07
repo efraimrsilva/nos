@@ -1,17 +1,17 @@
 import { expect, test } from "@playwright/test";
 
-test("Google e Apple aparecem no cadastro e no login, nessa ordem", async ({ page }) => {
+test("somente Google aparece no cadastro e no login", async ({ page }) => {
   await page.goto("/conta?next=%2Fcomecar%2Fconvite");
   const providers = page.getByRole("group", { name: "Outras formas de acesso" });
-  await expect(providers.getByRole("button")).toHaveText(["Continuar com Google", "Continuar com Apple"]);
+  await expect(providers.getByRole("button")).toHaveText(["Continuar com Google"]);
   await page.getByRole("button", { name: "Já tenho conta", exact: true }).click();
-  await expect(providers.getByRole("button")).toHaveText(["Continuar com Google", "Continuar com Apple"]);
+  await expect(providers.getByRole("button")).toHaveText(["Continuar com Google"]);
   await expect(page.locator('form:has(input[name="mode"]) input[name="next"]')).toHaveValue("/comecar/convite");
 });
 
 test("provedor indisponível informa erro e mantém o destino do convite", async ({ page }) => {
   await page.goto("/conta?next=%2Fcomecar%2Fconvite");
-  for (const name of ["Continuar com Google", "Continuar com Apple"]) {
+  for (const name of ["Continuar com Google"]) {
     await page.getByRole("button", { name, exact: true }).click();
     await expect(page.getByRole("main").getByRole("alert")).toContainText("ainda não está disponível");
     await expect(page).toHaveURL(/next=%2Fcomecar%2Fconvite/);
