@@ -1,4 +1,4 @@
-> **v3.9.2 — 07/11/2026 — Local:** Conta pública compacta, ícone oficial Google, transição suave com movimento reduzido e rodapé na base sem sobrepor conteúdo. Validado localmente; produção ainda3.9.1. Histórico datado abaixo preservado.
+> **v3.9.2 — 07/11/2026 — Produção:** Conta pública compacta, ícone oficial Google, transição suave com movimento reduzido e rodapé na base sem sobrepor conteúdo. Publicado e conferido em produção; deploy6aeea7ee5fe36058ee5cebd4. Histórico datado abaixo preservado.
 
 > **v3.9.1 — 07/11/2026:** somente Google como botão social na Conta; e-mail/senha preservados. Microsoft descartado; Apple sem botão e desativado. Google já confirmado em produção3.9.0; retirada do botão publicada e conferida em produção. Trechos datados abaixo são históricos.
 

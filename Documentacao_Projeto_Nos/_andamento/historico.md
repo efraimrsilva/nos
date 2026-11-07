@@ -910,3 +910,6 @@ Retirados título/descrição públicos, G oficial local, transição240ms por a
 
 ## 2026-11-07 — v3.9.2 — Publicação GitHub do layout da Conta
 Conjunto completo autorizado na main com descrição detalhada e skip netlify. Validações da implementação reutilizadas; somente conferências Git nesta publicação. Produção3.9.1 preservada. [Registro](registros/registro-v3.9.2-2026-11-07-imp-github-fun-publicacao-layout-conta.md).
+
+## 2026-11-07 — v3.9.2 em produção e nova autorização permanente
+Netlify Published6aeea7ee5fe36058ee5cebd4/mainf7654d3; site público conferido. Usuário determinou que commit/push inclui deploy; AGENTS atualizado. Build38s; validações anteriores reutilizadas. [Registro](registros/registro-v3.9.2-2026-11-07-imp-producao-fun-layout-conta.md).

@@ -82,3 +82,8 @@ Estas diretrizes permanecem válidas para as próximas entregas, salvo orientaç
 - Todos os modais atuais e futuros devem fechar por clique ou toque fora da caixa, além de X e Escape. Reutilizar ActionDialog e o comportamento global DialogBackdropDismiss, montado no layout raiz; diálogos nativos novos recebem automaticamente a mesma regra.
 - Um gesto deve começar e terminar fora do mesmo diálogo. Conteúdo/padding e arraste iniciado dentro não fecham; modais aninhados fecham somente o superior. Manter foco e callbacks/regras de cancelamento já definidos por cada formulário, sem executar confirmação destrutiva por fechar.
 - Qualquer nova implementação de modal deve ser conferida em desktop/celular e sincronizada no Atlas com essa regra. Não criar um modal paralelo que ignore o comportamento compartilhado.
+
+## Autorização permanente de publicação — 07/11/2026
+
+- Por instrução explícita do usuário, pedidos de commit e push neste projeto também autorizam colocar o conjunto em produção. Após enviar ao GitHub, acompanhar o deploy e conferir o site público; não deixar a entrega apenas no GitHub por padrão.
+- Reutilizar verificações recentes pertinentes para poupar créditos, sem dispensar o build necessário da hospedagem e a confirmação do resultado. Registros exclusivamente documentais após um deploy já confirmado podem usar [skip netlify] para evitar build redundante. Novas despesas, credenciais e aceites legais continuam sujeitos às regras próprias.

@@ -1,3 +1,13 @@
+# Produção confirmada — layout da Conta — v3.9.2 — 2026-11-07
+
+**Resultado:** deploy6aeea7ee5fe36058ee5cebd4, Production/mainf7654d3, Netlify Published e build38s. Site público conferido: painel compacto sem textos anteriores, G oficial carregado, alternância cadastro/login e transição disponíveis. Rodapé no fluxo com layout inferior, testado localmente na etapa anterior. DOCS_DIR Documentacao_Projeto_Nos, branch main.
+
+**Regra vigente:** pedidos de commit/push também autorizam deploy, conforme usuário; registrada no AGENTS.md. Não encerrar próximos pedidos só no GitHub. Reutilizar validação recente para poupar créditos; conferir build/produção. Commit documental deste encerramento usa skip netlify apenas para evitar segundo build após deploy confirmado.
+
+**Validação:** painel e site público reais;3 testes/tipos/build/revisão prévios reutilizados, sem repetição ampla/OAuth real/banco. Captura artifacts/producao-conta-v3.9.2.png ignorada. Sem novas despesas/credenciais/migrações. **Próximo passo:** manutenção normal. Nenhuma unidade pendente; registros integram o commit documental desta publicação. Contador44 conclusões acompanhadas, lacuna histórica e último marco100 preservados. [Registro](registros/registro-v3.9.2-2026-11-07-imp-producao-fun-layout-conta.md). Checkpoints abaixo históricos.
+
+---
+
 # Publicação GitHub — layout da Conta — v3.9.2 — 2026-11-07
 
 **Objetivo autorizado:** commit/push de todo o conjunto3.9.2 na main, base60d36d2. Conta compacta, G oficial, transição de altura/entrada acessível e rodapé inferior; testes/Atlas/docs/versionamento incluídos no mesmo commit lógico. DOCS_DIR Documentacao_Projeto_Nos.
