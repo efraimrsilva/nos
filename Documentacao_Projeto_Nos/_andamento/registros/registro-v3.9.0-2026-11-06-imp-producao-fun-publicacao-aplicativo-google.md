@@ -1,0 +1,17 @@
+# Registro — v3.9.0 — 2026-11-06 — Imp. de produção com Fun. publicação do aplicativo e Google
+
+**Status:** Em andamento. Objetivo autorizado: deploy e disponibilização em produção das entregas atuais. Versão3.9.0 preservada; sem nova funcionalidade de código nesta operação.
+
+**Origem:** branch feat/modelo-habito/4e6211c, contendo também modelo Hábito2e0347b. Produção Netlify identificada no site noslife, domínio https://noslife.netlify.app, projeto da equipe Efrals, build atual main/331d224, deploy6aedbe1a4c5eda30986373c0. Main é ancestral da branch funcional; integração prevista por avanço direto antes do build para manter Git e produção coerentes. Sem force-push.
+
+**Banco hospedado:** destino pyvohqgcwkcfzbtkmbvx confirmado com a CLI2.118.0. Inventário tinha14 migrações; dry-run identificou exatamente20261103122309_agreement_response_counts,20261103191242_problem_report_rate_limit e20261106123120_consolidate_habit_compatibility. Funções anteriores de criação/registro preservadas em artifacts/production-functions-before-3.9.0.json (ignorado, sem dados de usuários). Aplicadas as três por db push --include-all --skip-vault, sem seeds/roles/reset. Inventário posterior17; contagens/reserva existentes, RLS da quota ativa, escrita direta negada e conferência auth.uid no registro aprovadas. Não regravados acordos/aceites por essas migrações.
+
+**Autenticação:** Google permanece ativo no Supabase; Apple desativada. Foram adicionados somente https://noslife.netlify.app/auth/callback e a variante ?next=**, preservando10 retornos anteriores e Site URL. Leitura posterior confirmou12 retornos e ambos novos presentes. Cliente Google Nós — Web recebeu origem pública além da local, com callback Supabase preservado. Branding/home/domínio em preparação para retirar modo de testes; status final deve ser confirmado.
+
+**Netlify:** sessão iniciada pelo usuário. Variáveis existentes: APP_ORIGIN, AUTH_RECOVERY_SECRET e duas públicas Supabase. Suporte SMTP/flags ainda ausentes. Arquivo .env.netlify-production preparado só com cinco variáveis de suporte e flags Google=true/Apple=false, ignorado pelo Git; sem imprimir valores. Formulário de importação preparado como segredo, escopos Builds/Functions/Runtime, somente Production. Usuário precisa copiar/colar/importar diretamente, conforme handoff de credenciais. Sem sobrescrever origens/chaves existentes.
+
+**Ferramentas:** plugins Netlify/Supabase responderam indisponíveis; fallback painel via computer-use e CLI oficial Supabase. Context7 CLI2.118.0 consultado para dry-run/push transacional/include-all; SKILL Netlify deploy/config e Supabase lidas. Sem instalação. Validações anteriores de código reutilizadas; build de produção será acompanhado até conclusão e Google testado no domínio público.
+
+**Limites/próximo passo:** confirmar importação segura, concluir publicação do consentimento Google, integrar main por avanço direto, acompanhar build e validar login público. Apple requer credenciais Apple Developer ainda não fornecidas; não pode ser certificada como ativa. Não confundir migração/configuração com deploy concluído.
+
+**Checkpoint de publicação:** usuário importou sem erro e painel confirmou as sete chaves como segredos. Integração main por avanço direto autorizada pelo deploy; build e login público ainda pendentes. Login básico Google possui exceção oficial às restrições usuais do modo de testes; branding publicado será tratado separadamente da prova do login.

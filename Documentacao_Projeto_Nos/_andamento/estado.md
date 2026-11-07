@@ -1,3 +1,13 @@
+# Em andamento — publicação em produção — v3.9.0 — 2026-11-06
+
+**Objetivo autorizado:** deploy de todas as entregas atuais no site noslife.netlify.app, com Google em produção. Código4e6211c na branch feat/modelo-habito; main331d224 é ancestral, avanço direto planejado para CI. Produção anterior deploy6aedbe1a4c5eda30986373c0. DOCS_DIR: Documentacao_Projeto_Nos. Versão3.9.0 preservada.
+
+**Progresso:** banco hospedado atualizado de14 para17 migrações, exatamente as três pendentes de contagens/suporte/Hábito, com funções anteriores preservadas e controles RLS/privilégios conferidos. Supabase com12 retornos, dois callbacks públicos adicionados preservando os anteriores, Google ativo/Apple desativada. Origem pública adicionada ao cliente Google; branding/audience pendentes de confirmação final. Usuário está importando variáveis de suporte/flags no Netlify, somente Production e como segredos; .env.netlify-production ignorado pelo Git, nunca copiar valores para registros.
+
+**Próximo passo:** confirmar variáveis e publicação Google, avançar main e acompanhar build, validar site/login público. Apple depende de Apple Developer/credenciais não disponíveis. Nenhum deploy novo certificado ainda. [Registro em andamento](registros/registro-v3.9.0-2026-11-06-imp-producao-fun-publicacao-aplicativo-google.md). Contador35 anterior preservado até encerrar esta operação. Documentação desta operação ainda não commitada; será consolidada com o deploy autorizado.
+
+---
+
 # Publicação GitHub — login Google e preparação Apple — v3.9.0 — 2026-11-06
 
 **Objetivo autorizado:** commit e push de todas as alterações pendentes, com descrição abrangente e poucas verificações novas. DOCS_DIR: Documentacao_Projeto_Nos. Branch feat/modelo-habito, base2e0347b igual ao remoto após fetch. Versão3.9.0 preservada. Três unidades lógicas: frameworks, sugestões de caixa preta e acesso social completo com Atlas/testes/docs/ativação Google local.
