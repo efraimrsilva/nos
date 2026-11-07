@@ -1,6 +1,6 @@
 # Registro — v3.10.0 — 2026-11-07 — Imp. de ativação com Fun. de notificação de contas
 
-**Status:** Ativação concluída; envio hospedado aceito pelo SMTP na primeira tentativa. Recebimento na caixa de entrada ainda não confirmado pelo destinatário. Sem mudança funcional ou incremento de versão.
+**Status:** Ativação concluída; envio hospedado aceito pelo SMTP na primeira tentativa e recebimento confirmado pelo destinatário. Usuário também informou sucesso em um teste adicional. Sem mudança funcional ou incremento de versão.
 
 ## Objetivo, contexto e requisitos
 
@@ -23,6 +23,8 @@ Uma única conta descartável, sem senha ou dados reais, gerou evento no gatilho
 
 O auxiliar operacional retornou erro depois de confirmar o aceite e executar a limpeza, por importação ausente da função que grava o resultado local. Corrigida a gravação do registro com a evidência já observada, sem repetir o envio nem apresentar a primeira execução do auxiliar como exit0. Auxiliar sem credenciais e resultado local ficam em `artifacts/` ignorado; auxiliar removido ao encerrar. Limites inerentes de duplicidade SMTP e tentativas esgotadas permanecem documentados no contrato.
 
+**Confirmação manual posterior — 07/11/2026:** usuário confirmou recebimento do aviso de teste e reproduziu o corpo com apenas nome/e-mail sintéticos. Também declarou outro teste bem-sucedido, sem detalhar método de cadastro ou passos; não atribuir essa confirmação especificamente ao Google ou a casos de caixa preta não identificados. Evidência declarada pelo destinatário, sem inspeção independente da caixa. [Registro de fechamento](registro-v3.10.0-2026-11-07-imp-validacao-fun-recebimento-avisos.md).
+
 ## Arquivos e próximo passo
 
-Registro operacional, estado/histórico, contrato, Brag e indicação operacional do Atlas atualizados. Sem alteração em código, manifesto ou telas; versão preservada. Encerramento documental integra publicação já autorizada, com `[skip netlify]` para evitar outro build. Próximo passo: destinatário conferir recebimento na entrada/spam e relatar o resultado; acompanhar novos cadastros e consulta agregada de tentativas conforme contrato. Não disparar outro teste automaticamente apenas para obter confirmação de caixa.
+Registro operacional, estado/histórico, contrato, Brag e indicação operacional do Atlas atualizados. Sem alteração em código, manifesto ou telas; versão preservada. Encerramento da ativação publicado no commit `afa1000` com `[skip netlify]`; confirmação manual posterior registrada separadamente. Próximo passo: acompanhar novos cadastros e consulta agregada de tentativas conforme contrato. Não há nova ativação ou teste pendente para fechar o recebimento relatado.

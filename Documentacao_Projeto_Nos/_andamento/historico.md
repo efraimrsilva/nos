@@ -929,3 +929,8 @@ Commit funcional fe4f135 enviado à main e publicado pelo Netlify no deploy6aeeb
 ## 2026-11-07 — v3.10.0 — Avisos de novas contas ativados em produção
 
 Usuário configurou dois segredos Netlify somente Production e salvou segredo compartilhado no Vault. Migração20261107045500 aplicada ao destino conferido, permissões/job validados e runtime publicado no deploy6aeeb99d54c9a4402b3b5a1d. Um envio real de conta descartável aceito pelo SMTP na primeira tentativa; conta/evento removidos, sem tocar em contas reais. Recebimento externo ainda não confirmado. Auxiliar falhou após sucesso/limpeza ao salvar evidência local; gravação corrigida sem novo envio. Testes anteriores reaproveitados; sem suíte/build local repetidos ou novo código. Encerramento documental autorizado usa skip netlify. [Registro](registros/registro-v3.10.0-2026-11-07-imp-ativacao-fun-notificacao-contas.md).
+
+
+## 2026-11-07 — v3.10.0 — Recebimento dos avisos confirmado pelo usuário
+
+Destinatário confirmou a chegada do aviso de teste com apenas nome/e-mail e relatou sucesso em outro teste, sem detalhar método. Pendência de recebimento externo encerrada por evidência manual declarada; sem nova execução, alteração funcional, versão ou publicação. [Registro](registros/registro-v3.10.0-2026-11-07-imp-validacao-fun-recebimento-avisos.md).

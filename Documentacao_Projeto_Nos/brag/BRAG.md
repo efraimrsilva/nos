@@ -410,3 +410,6 @@ Problema: conteúdo de entrada baixo, botão sem marca e mudança brusca de altu
 ## 2026-11-07 — v3.10.0 — Notificações administrativas operantes no ambiente hospedado
 
 **Problema:** implementação local ainda dependia de segredos, migração e publicação no destino real. **Contribuição:** configuração segura assistida de runtime/Vault, aplicação isolada da migração, permissões/agendamento conferidos e deploy com variáveis de produção. **Resultado verificado:** um aviso com dados sintéticos aceito pelo SMTP na primeira tentativa; fluxo completo hospedado confirmado e conta/evento descartáveis removidos. **Benefício esperado:** acompanhar novos cadastros sem circular credenciais no relatório; consumo de banco e recebimento na caixa não medidos. [Evidência e limites](../_andamento/registros/registro-v3.10.0-2026-11-07-imp-ativacao-fun-notificacao-contas.md).
+
+
+**Confirmação manual posterior — 07/11/2026:** destinatário confirmou recebimento do aviso com somente nome/e-mail e sucesso em teste adicional. Resultado declarado pelo usuário, sem inspeção independente da caixa nem detalhe sobre método de cadastro. [Evidência](../_andamento/registros/registro-v3.10.0-2026-11-07-imp-validacao-fun-recebimento-avisos.md).

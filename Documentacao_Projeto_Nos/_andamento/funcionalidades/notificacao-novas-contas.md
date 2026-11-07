@@ -1,6 +1,6 @@
 # Aviso de novas contas — v3.10.0
 
-**Ativação — 07/11/2026:** migração remota aplicada, segredos Netlify/Vault configurados e runtime publicado no deploy `6aeeb99d54c9a4402b3b5a1d`, após retomada autorizada. Uma mensagem de teste aceita pelo SMTP na primeira tentativa; conta descartável/evento removidos. Recebimento na caixa de entrada ainda depende de confirmação do destinatário. [Ativação e evidências](../registros/registro-v3.10.0-2026-11-07-imp-ativacao-fun-notificacao-contas.md). [Publicação inicial e interrupção anterior](../registros/registro-v3.10.0-2026-11-07-imp-publicacao-fun-notificacao-contas.md).
+**Ativação e recebimento — 07/11/2026:** migração remota aplicada, segredos Netlify/Vault configurados e runtime publicado no deploy `6aeeb99d54c9a4402b3b5a1d`. Mensagem de teste aceita pelo SMTP na primeira tentativa; conta descartável/evento removidos. Destinatário confirmou recebimento com somente nome/e-mail e relatou sucesso em outro teste, sem detalhar o método de cadastro. [Ativação e evidências](../registros/registro-v3.10.0-2026-11-07-imp-ativacao-fun-notificacao-contas.md). [Publicação inicial e interrupção anterior](../registros/registro-v3.10.0-2026-11-07-imp-publicacao-fun-notificacao-contas.md).
 
 ## Contrato
 
