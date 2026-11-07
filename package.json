@@ -1,6 +1,6 @@
 {
   "name": "nos-app",
-  "version": "3.9.2",
+  "version": "3.10.0",
   "private": true,
   "engines": {
     "node": ">=24.15.0"
@@ -20,6 +20,8 @@
     "typecheck": "next typegen && tsc --noEmit --incremental false",
     "test": "playwright test",
     "test:problem-reports": "node scripts/test-problem-reports.mjs",
+    "test:account-notifications": "node --test scripts/test-account-notifications.mjs",
+    "test:account-notifications:local": "node scripts/test-account-notifications-local.mjs",
     "verify:support-mail": "node --use-system-ca --use-env-proxy --env-file-if-exists=.env.local scripts/verify-support-smtp.mjs"
   },
   "dependencies": {

@@ -3,9 +3,20 @@ import "server-only";
 import { createTransport } from "nodemailer";
 import manifest from "../../../package.json";
 import type { ProblemReportInput } from "./input";
+import type { NewAccount } from "../account-notifications/handler";
 
 // Destinatário fixo no servidor. Não aceitar to/from/assunto vindos do formulário.
 const recipient = "sintagmasoftware@gmail.com";
+
+export async function sendNewAccountNotification(mail: NonNullable<ReturnType<typeof supportMailTransport>>, account: NewAccount) {
+  // Somente estes dois campos entram no relatório; sem metadados do Auth ou anexos.
+  const result = await mail.transport.sendMail({
+    from: { name: "Nós", address: mail.from }, to: recipient,
+    subject: "Nós — Nova conta criada",
+    text: `Nome: ${account.name}\nE-mail: ${account.email}`,
+  });
+  if (result.rejected.length || !result.accepted.length) throw new Error("notification_delivery_rejected");
+}
 
 export function supportMailTransport() {
   const host = process.env.SUPPORT_SMTP_HOST;

@@ -913,3 +913,11 @@ Conjunto completo autorizado na main com descrição detalhada e skip netlify. V
 
 ## 2026-11-07 — v3.9.2 em produção e nova autorização permanente
 Netlify Published6aeea7ee5fe36058ee5cebd4/mainf7654d3; site público conferido. Usuário determinou que commit/push inclui deploy; AGENTS atualizado. Build38s; validações anteriores reutilizadas. [Registro](registros/registro-v3.9.2-2026-11-07-imp-producao-fun-layout-conta.md).
+
+## 2026-11-07 — v3.9.2 — Escopo de aviso de novas contas
+
+Investigação documental: aviso para equipe com somente nome e e-mail, cobrindo e-mail e Google. Proposto gatilho com corpo mínimo e envio assíncrono pelo SMTP existente; desenho aguardando aprovação, sem implementação ou ativação remota. [Registro](registros/registro-v3.10.0-2026-11-07-imp-notificacao-cadastro-fun-aviso-email.md).
+
+## 2026-11-07 — v3.10.0 — Aviso administrativo de novas contas validado localmente
+
+Relatório somente com nome/e-mail, cobrindo inserções de contas por e-mail/Google, via fila privada e SMTP existente. Receptor protegido por assinatura temporária; dados e segredo fora da fila HTTP.8 testes do receptor,25 verificações novas de banco e49 existentes de exclusão/suporte aprovados; integração SMTP local e tipos/build em cópia temporária aprovados. Revisão independente e autorrevisão concluídas. Teste legado de confirmação bloqueado por função ausente no banco local; advisors falhou por timeout. Sem publicação ou envio externo. [Registro](registros/registro-v3.10.0-2026-11-07-imp-notificacao-cadastro-fun-aviso-email.md).

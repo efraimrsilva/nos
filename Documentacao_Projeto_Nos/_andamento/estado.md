@@ -1,3 +1,21 @@
+# Aviso de novas contas — v3.10.0 — 2026-11-07
+
+**Objetivo atendido localmente:** notificação para a caixa fixa da equipe a cada conta criada por e-mail ou Google, relatório exclusivamente com nome e e-mail. Sem senha/hash/token/metadados no relatório. Não avisa em login posterior ou confirmação. DOCS_DIR: Documentacao_Projeto_Nos; branch main; base22e2304. Versão3.10.0 MINOR nos manifestos/README/Atlas. Produção permanece3.9.2.
+
+**Implementação:** fila privada/RLS e gatilho auth.users; job por minuto, lote10, cinco tentativas a cada cinco minutos; pg_net envia referência assinada temporária e corpo vazio. Nome/e-mail vêm por RPC exclusiva service_role; nunca ficam na fila HTTP. Servidor envia via SMTP existente, confirma e elimina os dois campos da fila. Retenção operacional30 dias, sem alterar contas; exclusão da conta elimina referência. Falha excepcional na fila preserva cadastro com warning, podendo perder aviso. SMTP não garante entrega única no caso de aceite seguido de falha ao confirmar no banco.
+
+**Validações:**8 testes do receptor,25 pgTAP novos,38 de exclusão e11 de suporte aprovados. Integração local real (desenvolvimento e build de produção) conferiu destinatário/assunto/corpo e reentrega sem duplicação. Geração de tipos, TypeScript e build Webpack aprovados em cópia temporária dos fontes/configuração/recursos sem .env; servidor do usuário preservado. Revisão independente encontrou fila HTTP/Unicode, corrigidos e rechecados sem novos achados; autorrevisão e diff check aprovados. Dados/segredos/caixa descartáveis removidos. Migração20261107045500 aplicada e registrada somente localmente, sem reset do banco.
+
+**Limitações:** teste legado de confirmação de e-mail bloqueado por função get_email_confirmation_status(text) ausente no banco local, não removida/alterada pela tarefa. Advisors via CLI: timeout TCP local; pg_prove ausente, pgTAP executado/inspecionado via psql do contêiner. Sem envio externo, nova autorização Google real, migração remota, commit, push ou deploy. Credenciais e Vault hospedados ainda não provisionados. Nenhuma dependência nova; sem mudança de telas ou roteiros de caixa preta.
+
+**Próximo passo executável:** quando autorizada a publicação, seguir contrato: configurar runtime administrativo/assinatura, aplicar somente migração pertinente, publicar receptor e completar Vault por último; criar conta controlada e conferir caixa real. Contador46 conclusões acompanhadas; lacuna histórica e último marco100 preservados. **Unidade pronta para commit:** notificação de novas contas com nome/e-mail, fila, receptor, testes e documentação3.10.0. Sugestão: feat(contas): notificar equipe sobre novos cadastros com nome e email. Nenhum commit criado.
+
+**Ferramentas:** Superpowers entendimento/TDD (desenvolvimento orientado a testes)/depuração/revisão/verificação; Supabase; Context7 e guia Next16.3.6 instalado. Octocode MCP não exposto; nenhuma pesquisa avançada ou instalação necessária. Cópia de validação permanece em diretório temporário sem arquivos de ambiente.
+
+**Índice:** [Registro e evidências](registros/registro-v3.10.0-2026-11-07-imp-notificacao-cadastro-fun-aviso-email.md) · [Contrato, configuração e recuperação](funcionalidades/notificacao-novas-contas.md). Checkpoints abaixo históricos.
+
+---
+
 # Produção confirmada — layout da Conta — v3.9.2 — 2026-11-07
 
 **Resultado:** deploy6aeea7ee5fe36058ee5cebd4, Production/mainf7654d3, Netlify Published e build38s. Site público conferido: painel compacto sem textos anteriores, G oficial carregado, alternância cadastro/login e transição disponíveis. Rodapé no fluxo com layout inferior, testado localmente na etapa anterior. DOCS_DIR Documentacao_Projeto_Nos, branch main.

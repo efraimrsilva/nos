@@ -402,3 +402,7 @@ Problema: Conta oferecia Apple sem provedor ativo. Contribuição: retirada do b
 
 ## 2026-11-07 — v3.9.2 — Clareza e movimento na Conta
 Problema: conteúdo de entrada baixo, botão sem marca e mudança brusca de altura/rodapé sem ancoragem inferior. Contribuição: composição compacta, ícone oficial local, transição por altura observada e layout flex no footer. Resultado verificado:3 testes, tipos/build e capturas desktop/mobile com reduced-motion e foco preservados. Benefício esperado: acesso mais reconhecível e alternância mais previsível; sem métrica de conversão. Evidência: registro3.9.2.
+
+## 2026-11-07 — v3.10.0 — Acompanhamento de novas contas com dados mínimos
+
+**Problema:** não havia aviso administrativo abrangendo criação por e-mail e Google. **Contribuição:** fila privada e notificação com apenas nome/e-mail, autenticação temporária entre serviços, reserva e tentativas limitadas, reutilizando o SMTP. **Resultado verificado:** mensagem exata recebida no Mailpit local e reentrega sem duplicação;8 testes unitários e25 verificações novas do banco aprovados, tipos/build e revisão independente concluídos. **Benefício esperado:** facilitar acompanhamento de cadastros sem circular senhas ou metadados do Auth; capacidade do banco e recebimento externo não medidos. Ativação hospedada pendente. [Evidência](../_andamento/registros/registro-v3.10.0-2026-11-07-imp-notificacao-cadastro-fun-aviso-email.md).

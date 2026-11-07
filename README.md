@@ -1,10 +1,6 @@
-> **v3.9.2 — 07/11/2026 — Produção:** Conta pública compacta, ícone oficial Google, transição suave com movimento reduzido e rodapé na base sem sobrepor conteúdo. Publicado e conferido em produção; deploy6aeea7ee5fe36058ee5cebd4. Histórico datado abaixo preservado.
-
-> **v3.9.1 — 07/11/2026:** somente Google como botão social na Conta; e-mail/senha preservados. Microsoft descartado; Apple sem botão e desativado. Google já confirmado em produção3.9.0; retirada do botão publicada e conferida em produção. Trechos datados abaixo são históricos.
-
-> **v3.9.0 — Google validado no desenvolvimento:** acesso Google ativado no Supabase e no aplicativo local, com retorno e sessão após recarregar confirmados. Apple permanece preparada e desativada; publicação do Google no site hospedado ainda pendente. [Configuração e limites](Documentacao_Projeto_Nos/_andamento/funcionalidades/login-social.md).
-
 # Nós — plataforma para cultivar vínculos
+
+Versão atual do código: **3.10.0**. A notificação administrativa de novas contas envia somente nome e e-mail; [configuração e limites](Documentacao_Projeto_Nos/_andamento/funcionalidades/notificacao-novas-contas.md). A situação da publicação e da ativação está em [andamento](Documentacao_Projeto_Nos/_andamento/estado.md).
 
 **Entrega anterior — v3.8.0:** Acordos em Proposta → Hábito → Essência; Experiência consolidada em Hábito, incluindo leitura e momentos do legado. Essência e passagens continuam esboços, com o mesmo informe do Manifesto. A nova migração de funções foi validada somente localmente; publicação remota pendente. [Contrato](Documentacao_Projeto_Nos/_andamento/funcionalidades/fluxo-proposta-habito-essencia.md).
 

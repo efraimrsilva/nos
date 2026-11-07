@@ -7,6 +7,8 @@ import { isNucleusAuthUnavailable } from "@/features/nuclei/nucleus-access";
 
 export async function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname;
+  // Integração entre serviços: o receptor valida seu próprio segredo, sem sessão do Auth.
+  if (path === "/api/account-notifications") return NextResponse.next({ request });
   const protectedPage = /^\/(?:comecar|nucleos|configuracoes|ajuda)(?:\/|$)/.test(path);
   const loginRedirect = () => {
     const login = new URL("/conta", request.url);
