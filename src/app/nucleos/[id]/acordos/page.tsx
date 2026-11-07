@@ -131,7 +131,6 @@ export default async function AgreementsPage({ params, searchParams }: {
           return { id: agreement.id, revision: revision(agreement), title: agreement.title, description: agreement.description, timing: agreement.timing, frequency: agreement.frequency, category: agreement.category, status: agreement.status, statusLabel: statusLabel[agreement.status] ?? "Indisponível", participationLabel: responseLabel(agreement), content: card(agreement, detail), detail, context: <><span className="ui-badge">{responseLabel(agreement)}</span><p className="ui-copy">Termos versão {agreement.terms_version}</p><p className="ui-copy">{["ended", "declined"].includes(agreement.status) ? "Este acordo permanece disponível para consulta do histórico." : participates(agreement) ? "Você aceitou participar dos termos atuais." : "Você pode escolher se participa dos termos atuais."}</p><p className="ui-copy">A administração organiza o ciclo e preserva o histórico.</p></> };
         })} />
       </AgreementResponsesProvider>
-      <p className="agreements-model-note">Proposta → Hábito → Essência. O Hábito reúne prática, momentos e revisões. As colunas organizam os acordos; as passagens individuais e Essência permanecem como esboços.</p>
       {(safePage > 1 || hasNextPage) && <nav aria-label="Páginas dos acordos" className="agreements-pagination">
         {safePage > 1 ? <Link href={href(safePage - 1)} className="ui-button-secondary">Propostas anteriores</Link> : <span />}
         <span>Página {safePage}</span>
