@@ -889,3 +889,6 @@ Código e Git conferidos em 381a308. Próxima entrega proposta: Revisar Hábito 
 
 - **Evento:** servidor MCP Context7 instalado na configuração global do Codex; inicialização e ferramentas verificadas.
 - **Evidência:** [registro da sessão](registros/registro-v0.1.0-2026-09-24-imp-tela-escolher-caminho-fun-entrada-nucleo.md). Configuração fora do Git do app.
+
+## 2026-11-06 — v3.9.0 em produção
+Netlify Published6aee7dad0fc99510d78ebeda/main5170f72; banco17 migrações e ambiente configurados. Build/TypeScript/varredura aprovados. Google chegou à escolha oficial de conta; retorno público aguarda usuário. Apple desativada. Detalhes no registro de produção.

@@ -1,3 +1,12 @@
+# Produção publicada — v3.9.0 — 2026-11-06
+
+**Objetivo:** publicação autorizada no Netlify. Deploy6aee7dad0fc99510d78ebeda confirmado Published, código main5170f72, domínio https://noslife.netlify.app. Git main remoto igual ao local no envio. Banco17 migrações, callbacks públicos Supabase e sete variáveis Netlify aplicados. Primeiro build barrado por dois falsos positivos públicos; netlify.toml omite somente remetente público/hostname SMTP, preservando varredura dos segredos reais. Versão3.9.0 mantida.
+
+**Validação:** build/TypeScript/varredura aprovados no Netlify; tela pública carregou e botão Google chegou à seleção oficial de conta. **Próximo passo:** usuário escolher conta na aba do teste e confirmar retorno aos Núcleos; prova autenticada pública ainda pendente. Apple depende de credenciais e continua desativada. Google branding ainda em testes, sem impedir o login básico pela exceção oficial; não ampliar permissões sem nova avaliação. SMTP configurado, entrega de mensagem não testada. Exportação temporária de segredos removida.
+
+**Continuidade:** branch main; DOCS_DIR Documentacao_Projeto_Nos. Contador36 conclusões acompanhadas, incluindo publicação; lacuna histórica e último marco100 preservados. Registros operacionais consolidados em commit documental sem novo build. [Registro de produção](registros/registro-v3.9.0-2026-11-06-imp-producao-fun-publicacao-aplicativo-google.md). Sem alteração funcional nova nem suíte extensa repetida. Checkpoints abaixo são históricos.
+
+---
 # Em andamento — publicação em produção — v3.9.0 — 2026-11-06
 
 **Objetivo autorizado:** deploy de todas as entregas atuais no site noslife.netlify.app, com Google em produção. Código4e6211c na branch feat/modelo-habito; main331d224 é ancestral, avanço direto planejado para CI. Produção anterior deploy6aedbe1a4c5eda30986373c0. DOCS_DIR: Documentacao_Projeto_Nos. Versão3.9.0 preservada.

@@ -393,3 +393,6 @@ Registro factual de contribuições; resultados medidos são separados de benef�
 - **Resultado verificado:** oito testes Playwright passaram em desktop e mobile; build de produção e checagem de tipos passaram.
 - **Benefício esperado:** adicionar as telas do fluxo de Núcleo sem duplicar a identidade visual.
 - **Evidência:** `src/app/comecar/page.tsx`, `src/features/onboarding/`, `tests/onboarding.spec.ts`, [registro](../_andamento/registros/registro-v0.1.0-2026-09-24-imp-tela-escolher-caminho-fun-entrada-nucleo.md).
+
+## 2026-11-06 — v3.9.0 publicada
+Problema: entregas locais ainda não disponíveis no domínio público. Contribuição: integração main, três migrações aditivas, configuração Google/ambiente e correção delimitada de falsos positivos de varredura. Resultado verificado: deploy6aee7dad0fc99510d78ebeda Published, tela pública e redirecionamento Google oficiais; retorno autenticado e entrega SMTP ainda não certificados. Evidência: registro de produção3.9.0 e commit5170f72.
