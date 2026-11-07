@@ -4,7 +4,7 @@ Proposta → Hábito → Essência no aplicativo, com compatibilidade de leitura
 
 ---
 
-# Processo permanente de testes de caixa preta — v3.7.0
+# Processo permanente de testes de caixa preta — v3.8.0
 
 [Modelo Hábito — v3.7.2](modelo-habito.md): oito casos de Atlas, adequação do MVP03 e expansões06/07; todos Não executados pelo usuário. Casos funcionais dependem de implementação.
 
@@ -24,7 +24,11 @@ Criado em 2026-10-23 por solicitação do usuário.
 
 ## Regra de manutenção
 
-Cada funcionalidade criada ou alterada deve ter ao menos um teste de caixa preta rastreável ao MVP ou Expansão do Atlas vivo, no mesmo conjunto lógico da entrega. Inclua caminho, pré-condição quando necessária, ação e resultado esperado; separe cenários positivos, negativos, permissões, persistência, acessibilidade e falhas quando relevantes. Não confunda representação offline do Atlas com integração executada. Revise Atlas, contratos e código antes de gerar ou atualizar a lista; divergências devem ser resolvidas por evidências e decisões vigentes.
+**Decisão vigente — 06/11/2026:** substitui a exigência anterior de criar ao menos um caso por funcionalidade. Não gerar, detalhar ou acrescentar testes de caixa preta automaticamente. Ao concluir a entrega, apresentar na resposta final sugestões pertinentes em uma descrição curta, semelhante à descrição de commit/push do Git. Exemplo de formato: `Sugestão de testes de caixa preta: validar entrada com Google, cancelamento e retorno ao convite.` O exemplo é apenas formato, não um caso criado ou uma execução comprovada.
+
+O usuário decide se deseja preparar e realizar esses testes. Criar ou ampliar roteiros somente após autorização para o escopo, sem pedir novamente quando ela já tiver sido dada explicitamente. A ausência dessa autorização não bloqueia a conclusão de uma entrega que cumpra suas verificações técnicas. Preservar os casos e resultados existentes; registrar resultados relatados pelo usuário sem inferir aprovação. Esta regra não dispensa testes automatizados, análise de tipos, compilação ou outras verificações técnicas aplicáveis.
+
+Quando a criação ou ampliação for autorizada, manter rastreabilidade ao MVP ou Expansão do Atlas vivo, caminho, pré-condição quando necessária, ação e resultado esperado; separar cenários positivos, negativos, permissões, persistência, acessibilidade e falhas quando relevantes. Não confundir representação offline do Atlas com integração executada. Revisar Atlas, contratos e código antes de gerar ou atualizar a lista; resolver divergências por evidências e decisões vigentes.
 
 Use uma linha por teste, iniciada por `[]`, com ID estável. Planejado não entra como funcionalidade concluída: registre etapa/expansão, contrato pendente e bloqueio de execução. Não invente resultados. Novos MVPs serão detalhados em partes conforme a sequência do Atlas; o roteiro inicial detalhou o MVP01 e a v3.2.1 acrescenta Aparência no MVP05.
 
