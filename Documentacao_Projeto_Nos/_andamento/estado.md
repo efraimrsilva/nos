@@ -1,3 +1,13 @@
+# Produção confirmada — Conta somente Google — v3.9.1 — 2026-11-07
+
+**Resultado:** https://noslife.netlify.app publicado no Netlify deploy6aeea2a01167fdd054c67ea8, Production/main03c4ddf. Build38s/Published confirmados. Conta pública conferida em login e cadastro: somente Continuar com Google como botão social; e-mail/senha preservados. Microsoft descartado e Apple sem botão/desativado. Sem novas migrações/credenciais ou serviços pagos.
+
+**Validação:** painel de publicação e tela pública reais, capturas ignoradas em artifacts. Sem novo login Google real (fluxo inalterado, confirmação anterior do usuário), sem envio SMTP, sem suíte extensa local. Documentação operacional após deploy enviada com skip netlify, sem build redundante. Versão3.9.1, branch main, DOCS_DIR Documentacao_Projeto_Nos.
+
+**Próximo passo:** manutenção normal; nenhuma ativação Microsoft/Apple prevista. Conta/cartão Azure externos não foram alterados. **Unidades pendentes:** nenhuma; registro deste encerramento integra commit documental autorizado, verificado no envio final. Contador41 conclusões acompanhadas; lacuna histórica e último marco100 preservados. [Registro de produção](registros/registro-v3.9.1-2026-11-07-imp-producao-fun-conta-somente-google.md). Checkpoints abaixo históricos.
+
+---
+
 # Publicação GitHub — Conta somente Google — v3.9.1 — 2026-11-07
 
 **Objetivo autorizado:** commit/push de todo o conjunto pendente após descartar Microsoft, com descrição abrangente e verificações econômicas. Branch main, base54016c5, DOCS_DIR Documentacao_Projeto_Nos. Um commit lógico: retirada do botão Apple e referência de erro, teste/Atlas/docs/versão3.9.1. Sem credenciais, Microsoft funcional, biblioteca ou banco novo.

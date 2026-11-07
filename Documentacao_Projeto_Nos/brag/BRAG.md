@@ -396,3 +396,6 @@ Registro factual de contribuições; resultados medidos são separados de benef�
 
 ## 2026-11-06 — v3.9.0 publicada
 Problema: entregas locais ainda não disponíveis no domínio público. Contribuição: integração main, três migrações aditivas, configuração Google/ambiente e correção delimitada de falsos positivos de varredura. Resultado verificado: deploy6aee7dad0fc99510d78ebeda Published, tela pública e redirecionamento Google oficiais; retorno autenticado e entrega SMTP ainda não certificados. Evidência: registro de produção3.9.0 e commit5170f72.
+
+## 2026-11-07 — v3.9.1 — Conta somente Google em produção
+Problema: Conta oferecia Apple sem provedor ativo. Contribuição: retirada do botão, mensagem/Atlas alinhados e publicação do ajuste. Resultado verificado: deploy6aeea2a01167fdd054c67ea8 Published e Conta pública com somente Google nas duas abas, mantendo e-mail/senha. Evidência: registro de produção3.9.1; código03c4ddf. Sem mensuração de conversão de acesso.

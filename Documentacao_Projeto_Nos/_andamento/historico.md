@@ -901,3 +901,6 @@ Tentativa local Microsoft3.10.0 descartada a pedido; base54016c5 restaurada. Ret
 
 ## 2026-11-07 — v3.9.1 — Publicação GitHub autorizada
 Conta somente Google, teste/Atlas/docs/versionamento preparados em um commit lógico na main. Descrição detalhada e [skip netlify], sem novo deploy/build. Conferência visual anterior reutilizada; diff/índice/JSON/sintaxe e equivalência remota conferidos no encerramento. [Registro](registros/registro-v3.9.1-2026-11-07-imp-github-fun-publicacao-acesso-google.md).
+
+## 2026-11-07 — v3.9.1 — Produção confirmada
+Netlify Published6aeea2a01167fdd054c67ea8/main03c4ddf; build38s. Conta pública conferida em cadastro/login, apenas Google social e e-mail preservado. Sem nova migração ou autenticação externa repetida. [Registro](registros/registro-v3.9.1-2026-11-07-imp-producao-fun-conta-somente-google.md).
