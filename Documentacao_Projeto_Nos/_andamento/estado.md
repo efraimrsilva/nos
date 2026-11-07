@@ -1,12 +1,18 @@
-# Resumo de participação e acordos por Núcleo — v3.10.3 — 2026-11-07
+# Resumo de participação e acordos por Núcleo — v3.10.6 — 2026-11-07
 
 **Objetivo/escopo:** Home com emblema verde sem escudo para participante; cartões Seus Núcleos com papel próprio e total exato de acordos ativos. Critérios: status active por Núcleo, zero/singular/plural, independência do aceite, permissões preservadas e layouts acessíveis. Concluído e validado localmente.
 
-**DOCS_DIR:** Documentacao_Projeto_Nos. Branch main; base8a333c1. Versão atual3.10.3 nos manifestos e Atlas; produção não alterada nesta tarefa. Sem nova migração/dependência/modal.
+**DOCS_DIR:** Documentacao_Projeto_Nos. Branch main; base3b4dbff. Versão atual3.10.6 nos manifestos e Atlas; produção não alterada nesta tarefa. Sem nova migração/dependência/modal.
 
-**Decisões/arquivos:** NucleusRoleBadge compartilhado; texto verde fixo #16703A em todos os9 temas; fundo compartilhado com o administrativo. RPC existente identifica vínculo próprio; HEAD exact seleciona id e filtra nucleus_id/status, respeitando concessões por coluna/RLS. Páginas /nucleos e /nucleos/[id], layout-system.css e Atlas12/13 sincronizados; contrato navegacao-sessao atualizado. Não confundir total ativo do Núcleo com participação individual no acordo.
+**Decisões/arquivos:** NucleusRoleBadge compartilhado; texto verde fixo #1B8044 em todos os9 temas; fundo compartilhado com o administrativo. RPC existente identifica vínculo próprio; HEAD exact seleciona id e filtra nucleus_id/status, respeitando concessões por coluna/RLS. Páginas /nucleos e /nucleos/[id], layout-system.css e Atlas12/13 sincronizados; contrato navegacao-sessao atualizado. Não confundir total ativo do Núcleo com participação individual no acordo.
 
-**Ajuste vigente3.10.3:** letra do participante fixada em #16703A nos9 temas, por pedido explícito do usuário; sem variação nos temas escuros, fundo/escudo preservados. Renderização isolada com CSS real confirmou os9 temas. Teste existente percorre o catálogo de temas, sem nova execução autenticada/build. [Registro](registros/registro-v3.10.3-2026-11-07-imp-emblema-participante-fun-verde-fixo-temas.md).
+**Ajuste vigente3.10.6:** contorno neutro em repouso; cor do papel somente hover/active/focus-visible.3px visuais (borda1px+sombra interna2px), sem deslocar conteúdo. Chromium com CSS real isolado confirmou2 papéis/9 temas/mouse1440 e touch390, pressão e retorno ao neutro; Atlas desktop/mobile confirmado. Teste existente ajustado; sem nova suíte/build por estilo pontual. [Registro](registros/registro-v3.10.6-2026-11-07-imp-cartoes-nucleos-fun-contorno-interativo-3px.md).
+
+**Ajuste anterior3.10.5:** contorno do cartão acompanha o emblema: administrativo usa a cor administrativa do tema, participante #1B8044 em todos os temas. Hover preservado. Conferidos2 papéis/9 temas/1440 e390px com CSS real isolado; Atlas desktop/mobile aprovado. Sem nova suíte/build por estilo pontual. [Registro](registros/registro-v3.10.5-2026-11-07-imp-cartoes-nucleos-fun-contorno-por-papel.md).
+
+**Ajuste anterior3.10.4:** verde ligeiramente mais claro: #1B8044, idêntico nos9 temas; fundo compartilhado/sem escudo preservados. Chromium com CSS real em renderização isolada confirmou cor e fundo nos9 temas. Teste existente atualizado; sem nova suíte/build por estilo pontual. [Registro](registros/registro-v3.10.4-2026-11-07-imp-emblema-participante-fun-verde-mais-claro.md).
+
+**Ajuste anterior3.10.3:** letra do participante fixada em #16703A nos9 temas, por pedido explícito do usuário; sem variação nos temas escuros, fundo/escudo preservados. Renderização isolada com CSS real confirmou os9 temas. Teste existente percorre o catálogo de temas, sem nova execução autenticada/build. [Registro](registros/registro-v3.10.3-2026-11-07-imp-emblema-participante-fun-verde-fixo-temas.md).
 
 **Ajuste anterior3.10.2:** somente letra verde; fundo igual ao administrativo, herdado da classe-base. CSS real do aplicativo conferido isoladamente em4 temas e Atlas mobile confirmado; teste existente ajustado, sem reexecução da suíte/build por baixo risco. Autorrevisão e diff check. [Registro da correção](registros/registro-v3.10.2-2026-11-07-imp-emblema-participante-fun-fundo-compartilhado.md).
 
@@ -16,7 +22,7 @@
 
 **Ferramentas:** Superpowers aplicáveis lidos e usados, revisão independente executada; Context7 consultado para contagem Supabase, compatibilidade confirmada por tipos/integração local. Octocode não exposto e sem demanda de pesquisa avançada nesta tarefa; nenhuma instalação/configuração alterada.
 
-**Continuidade Git:** pendência documental anterior confirmada no objeto8a333c1 (inclui recebimento dos avisos, estado/histórico/brag/Atlas). Nova unidade ainda sem commit: emblemas e resumo dos Núcleos, testes, Atlas e documentação. Sugestão: feat(nucleos): exibir participação e total de acordos ativos. Contador53 conclusões acompanhadas; lacuna histórica e último marco100 preservados, sem inventar interações anteriores.
+**Continuidade Git:** pendência documental anterior confirmada no objeto8a333c1 (inclui recebimento dos avisos, estado/histórico/brag/Atlas). Conjunto anterior confirmado no objeto3b4dbff, incluindo emblemas, contagens, testes e registros. Mudanças visuais pendentes3.10.4–3.10.6: verde mais claro e contorno interativo3px por papel, com Atlas/teste/documentação. Sugestão: style(nucleos): ajustar cores e contorno interativo dos cartões. Contador56 conclusões acompanhadas; lacuna histórica e último marco100 preservados, sem inventar interações anteriores.
 
 **Índice:** [Registro da entrega](registros/registro-v3.10.1-2026-11-07-imp-resumo-nucleos-fun-participacao-acordos-ativos.md) · [Contrato de navegação](funcionalidades/navegacao-sessao.md) · [Galeria](../wireframes/comparacoes/v3.10.1-2026-11-07-resumo-nucleos-tela_12-tela_13/index.html) · [Histórico](historico.md) · [Brag](../brag/BRAG.md). Checkpoints anteriores abaixo são históricos.
 

@@ -1,0 +1,10 @@
+# Registro — v3.10.6 — 2026-11-07 — Imp. de cartões de Núcleos com Fun. de contorno interativo de3px
+
+- Versão/status:3.10.6 PATCH, concluído localmente.
+- Objetivo/contexto: esclarecimento do usuário: cor do contorno apenas ao passar mouse/pressionar; direcionamento na mesma interação acrescentou2px ao contorno anterior de1px.
+- Requisitos/decisões: repouso com borda neutra; hover somente em dispositivo com suporte a hover; active mostra a cor durante pressão/clique/toque, sem seleção persistente após soltar. focus-visible oferece indicação equivalente por teclado. Cor administrativa acompanha o tema; participante #1B8044. Texto/fundo/escudo preservados.
+- Implementação:1px de borda mais2px de sombra interna produzem3px visuais sem mudar geometria ou deslocar conteúdo. Variável local do cartão mantém cor por papel; :has reutiliza emblema autenticado existente, sem nova autorização ou consulta. Movimento reduzido existente preservado.
+- Arquivos: src/app/layout-system.css; Atlas product.css/product-ui.js/index.html/screens.js; tests/authenticated/nuclei-summary.spec.ts; manifestos; contrato, estado e histórico.
+- Validações: Chromium com CSS real em renderização isolada verificou2 papéis ×9 temas, mouse1440px e emulação touch390px. Repouso neutro, hover em mouse, active na pressão, retorno ao neutro após soltar fora, borda1px+sombra interna2px e altura estável. Atlas desktop/mobile: neutro e hover confirmados. Teste autenticado existente atualizado para estados e sombra, sem reexecução nesta correção de estilo. Autorrevisão do diff e diff check/sintaxe Atlas; sem novo build por exceção proporcional de AGENTS.md.
+- Resultado/limites: contorno colorido somente na interação,3px visuais; foco de teclado preservado no CSS. Sem nova sessão autenticada/aparelho físico ou garantia nova de contraste. Nenhuma galeria histórica sobrescrita; sem novo Brag por ajuste pontual.
+- Próximo passo/Git: mudanças visuais3.10.4–3.10.6 seguem pendentes sobre base3b4dbff; nenhuma publicação autorizada. Conferência manual e commit quando solicitado. Sugestão: style(nucleos): ajustar cores e contorno interativo dos cartões.

@@ -208,14 +208,17 @@ button[aria-label^="Fechar" i]:is(:hover,:focus-visible) { background-color:#c43
 
 /* Cartões são links completos; a largura orienta as colunas e a altura acompanha o conteúdo. */
 .nuclei-cards{grid-template-columns:repeat(auto-fill,300px);gap:18px;justify-content:start;align-items:start}
-.nucleus-space-card{width:300px;height:auto;min-width:0;padding:18px;text-decoration:none;color:var(--color-forest);transition:transform .16s,border-color .16s,box-shadow .16s}
-.nucleus-space-card:hover{transform:translateY(-2px);border-color:var(--color-leaf);box-shadow:0 6px 18px #293e3514}
-.nucleus-space-card:focus-visible{outline:3px solid var(--color-leaf);outline-offset:3px}
+.nucleus-space-card{--nucleus-outline:var(--color-leaf);width:300px;height:auto;min-width:0;padding:18px;text-decoration:none;color:var(--color-forest);border-color:var(--color-line);transition:transform .16s,border-color .16s,box-shadow .16s}
+/* O vínculo do emblema define a cor; 1px de borda + 2px internos não deslocam o conteúdo. */
+.nucleus-space-card:has(>.nucleus-role-badge-member){--nucleus-outline:#1b8044}
+.nucleus-space-card:is(:active,:focus-visible){border-color:var(--nucleus-outline);box-shadow:inset 0 0 0 2px var(--nucleus-outline)}
+@media(hover:hover){.nucleus-space-card:hover{transform:translateY(-2px);border-color:var(--nucleus-outline);box-shadow:inset 0 0 0 2px var(--nucleus-outline),0 6px 18px #293e3514}}
+.nucleus-space-card:focus-visible{outline:3px solid var(--nucleus-outline);outline-offset:3px}
 .nucleus-space-card .nucleus-cover{height:88px;min-height:88px;margin-bottom:12px}
 .nucleus-space-card h2{font:600 18px/1.4 Arial,sans-serif;margin:12px 0 8px;min-height:0;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow-wrap:anywhere}
 .nucleus-space-card .nucleus-members-heading{flex:none;margin:0 0 8px;font-size:12px;color:var(--color-muted)}
 /* O texto usa o mesmo verde em todos os temas; só o fundo acompanha o emblema administrativo. */
-.nucleus-role-badge-member{color:#16703a}
+.nucleus-role-badge-member{color:#1b8044}
 .nucleus-space-card>.nucleus-role-badge{align-self:flex-start;max-width:100%}
 .nucleus-space-card .nucleus-active-agreements{margin:10px 0 8px;font-size:13px;color:var(--color-muted)}
 .nucleus-members-list{margin:0;padding:0;list-style:none;flex:none;min-height:0;max-height:120px;overflow-y:auto;overscroll-behavior:contain}

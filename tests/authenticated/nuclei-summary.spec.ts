@@ -34,7 +34,7 @@ test('cartões contam somente acordos ativos por Núcleo e identificam o papel a
     // Temas podem trocar o destaque principal; participação precisa continuar verde.
     for (const { id: theme } of themes) {
       await peer.page.locator('html').evaluate((element, value) => element.setAttribute('data-theme', value), theme);
-      await expect(participantBadge).toHaveCSS('color', 'rgb(22, 112, 58)');
+      await expect(participantBadge).toHaveCSS('color', 'rgb(27, 128, 68)');
       const sharedBackground = await peer.page.locator('.ui-page-header .ui-badge').last().evaluate(element => getComputedStyle(element).backgroundColor);
       await expect(participantBadge).toHaveCSS('background-color', sharedBackground);
     }
@@ -47,6 +47,30 @@ test('cartões contam somente acordos ativos por Núcleo e identificam o papel a
     await peer.page.goto('/nucleos');
     await expect(peer.page.locator('.nucleus-space-card').first()).toContainText('Você faz parte deste Núcleo.');
     await expect(peer.page.locator('.nucleus-space-card').first()).toContainText('2 acordos ativos');
+    for (const currentPage of [page, peer.page]) {
+      for (const { id: theme } of themes) {
+        await currentPage.locator('html').evaluate((element, value) => element.setAttribute('data-theme', value), theme);
+        const card = currentPage.locator('.nucleus-space-card').first();
+        await currentPage.mouse.move(0, 0);
+        await card.evaluate(element => (element as HTMLElement).blur());
+        const roleColor = await card.locator('.nucleus-role-badge').evaluate(element => getComputedStyle(element).color);
+        await expect(card).not.toHaveCSS('border-top-color', roleColor);
+        await card.hover();
+        if (await currentPage.evaluate(() => matchMedia('(hover:hover)').matches)) {
+          await expect(card).toHaveCSS('border-top-color', roleColor);
+          await expect(card).toHaveCSS('box-shadow', new RegExp('inset|2px'));
+        }
+        await currentPage.mouse.down();
+        try {
+          await expect(card).toHaveCSS('border-top-color', roleColor);
+          await expect(card).toHaveCSS('box-shadow', /inset.*2px|2px.*inset/);
+        } finally {
+          // Soltar fora preserva a lista durante a verificação do estado pressionado.
+          await currentPage.mouse.move(0, 0);
+          await currentPage.mouse.up();
+        }
+      }
+    }
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await page.goto(`/nucleos/${ids[0]}`);
     await expect(page.locator('.ui-page-header .nucleus-role-badge svg')).toHaveCount(1);

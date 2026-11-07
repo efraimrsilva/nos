@@ -949,3 +949,18 @@ Esclarecimento do usuário: fundo igual ao administrativo e somente texto verde.
 ## 2026-11-07 — v3.10.3 — Texto verde uniforme
 
 Usuário pediu o mesmo verde em todos os temas. Texto participante fixado em #16703A; fundo administrativo preservado e sem escudo.9 temas confirmados com CSS real no Chromium isolado. [Registro](registros/registro-v3.10.3-2026-11-07-imp-emblema-participante-fun-verde-fixo-temas.md). Sem publicação.
+
+
+## 2026-11-07 — v3.10.4 — Verde do participante mais claro
+
+Texto alterado de #16703A para #1B8044 conforme pedido; mesmo tom nos9 temas e fundo preservado, conferidos no Chromium isolado com CSS real. Conjunto anterior confirmado em3b4dbff; correção sem publicação. [Registro](registros/registro-v3.10.4-2026-11-07-imp-emblema-participante-fun-verde-mais-claro.md).
+
+
+## 2026-11-07 — v3.10.5 — Contorno por papel no Núcleo
+
+Cartões usam o contorno na cor do emblema administrativo/participante, inclusive hover.2 papéis/9 temas/2 larguras verificados com CSS real isolado e Atlas desktop/mobile. [Registro](registros/registro-v3.10.5-2026-11-07-imp-cartoes-nucleos-fun-contorno-por-papel.md). Sem publicação.
+
+
+## 2026-11-07 — v3.10.6 — Contorno interativo3px
+
+Cor por papel somente em hover/pressão e foco visível; repouso neutro. Borda1px+sombra interna2px sem mudar altura.2 papéis/9 temas/mouse e touch verificados isoladamente com CSS real; Atlas sincronizado. [Registro](registros/registro-v3.10.6-2026-11-07-imp-cartoes-nucleos-fun-contorno-interativo-3px.md). Sem publicação.

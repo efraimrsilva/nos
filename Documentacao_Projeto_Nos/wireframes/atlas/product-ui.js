@@ -234,7 +234,7 @@ function habitProposalLayout(screen,interactive){
 const currentAreas=[['Início',13,'House'],['Acordos',18,'Heart'],['Agenda',14,'CalendarDays'],['Árvore e memórias',38,'TreeDeciduous'],['Conexões e perfis',44,'Network'],['Manifesto e cuidado',55,'Heart']];
 const livePlannedLabel='Esboço de funcionalidade · ainda não desenvolvido';
 const liveBadge=(label,tone='')=>`<span class="live-badge ${tone}">${escapeHtml(label)}</span>`;
-const liveBuildVersion='3.10.3';
+const liveBuildVersion='3.10.6';
 const liveModalLabel='<small class="live-modal-label">Modal</small>';
 const liveProposalButton=()=>`<button class="live-button" data-atlas-modal data-live-proposal>Nova proposta ${liveModalLabel}</button>`;
 const liveCreateNucleusButton=()=>`<button class="live-button" data-atlas-modal data-live-create-nucleus>Criar Núcleo ${liveModalLabel}</button>`;
