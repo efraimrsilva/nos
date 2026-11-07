@@ -413,3 +413,11 @@ Problema: conteúdo de entrada baixo, botão sem marca e mudança brusca de altu
 
 
 **Confirmação manual posterior — 07/11/2026:** destinatário confirmou recebimento do aviso com somente nome/e-mail e sucesso em teste adicional. Resultado declarado pelo usuário, sem inspeção independente da caixa nem detalhe sobre método de cadastro. [Evidência](../_andamento/registros/registro-v3.10.0-2026-11-07-imp-validacao-fun-recebimento-avisos.md).
+
+
+## 2026-11-07 — v3.10.1 — Contexto em Seus Núcleos
+
+- Problema: cartões não informavam papel próprio/quantidade de acordos ativos, e participantes não tinham emblema na Home.
+- Contribuição: emblema compartilhado e verde semântico; contagem exata por Núcleo sem transferir acordos, mantendo permissões existentes.
+- Resultado verificado:10 testes autenticados aprovados em computador/celular, tipos/build e revisão independente. Benefício esperado: facilitar a escolha do espaço e a compreensão do papel, sem medida de impacto em uso.
+- Evidência: [registro](../_andamento/registros/registro-v3.10.1-2026-11-07-imp-resumo-nucleos-fun-participacao-acordos-ativos.md) e teste nuclei-summary.spec.ts.

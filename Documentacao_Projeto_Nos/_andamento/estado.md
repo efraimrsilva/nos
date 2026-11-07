@@ -1,3 +1,27 @@
+# Resumo de participação e acordos por Núcleo — v3.10.3 — 2026-11-07
+
+**Objetivo/escopo:** Home com emblema verde sem escudo para participante; cartões Seus Núcleos com papel próprio e total exato de acordos ativos. Critérios: status active por Núcleo, zero/singular/plural, independência do aceite, permissões preservadas e layouts acessíveis. Concluído e validado localmente.
+
+**DOCS_DIR:** Documentacao_Projeto_Nos. Branch main; base8a333c1. Versão atual3.10.3 nos manifestos e Atlas; produção não alterada nesta tarefa. Sem nova migração/dependência/modal.
+
+**Decisões/arquivos:** NucleusRoleBadge compartilhado; texto verde fixo #16703A em todos os9 temas; fundo compartilhado com o administrativo. RPC existente identifica vínculo próprio; HEAD exact seleciona id e filtra nucleus_id/status, respeitando concessões por coluna/RLS. Páginas /nucleos e /nucleos/[id], layout-system.css e Atlas12/13 sincronizados; contrato navegacao-sessao atualizado. Não confundir total ativo do Núcleo com participação individual no acordo.
+
+**Ajuste vigente3.10.3:** letra do participante fixada em #16703A nos9 temas, por pedido explícito do usuário; sem variação nos temas escuros, fundo/escudo preservados. Renderização isolada com CSS real confirmou os9 temas. Teste existente percorre o catálogo de temas, sem nova execução autenticada/build. [Registro](registros/registro-v3.10.3-2026-11-07-imp-emblema-participante-fun-verde-fixo-temas.md).
+
+**Ajuste anterior3.10.2:** somente letra verde; fundo igual ao administrativo, herdado da classe-base. CSS real do aplicativo conferido isoladamente em4 temas e Atlas mobile confirmado; teste existente ajustado, sem reexecução da suíte/build por baixo risco. Autorrevisão e diff check. [Registro da correção](registros/registro-v3.10.2-2026-11-07-imp-emblema-participante-fun-fundo-compartilhado.md).
+
+**Validações funcionais anteriores3.10.1:**10 testes autenticados aprovados em computador/celular, tipos e build final Webpack aprovados. Visão global e lista/modal Atlas aprovados; revisão independente sem achados bloqueantes e sugestões aplicadas. Dois verificadores legados do Atlas falham também na base8a333c1 (Google e Apple; Gerenciar convites na Home); não são regressões. Capturas anteriores do aplicativo registraram carregamento; Atlas conserva composição antes/depois. Capturas finais prontas inspecionadas; lista reutiliza imagens reais da regressão aprovada, Home usa as capturas com título visível. Sem fabricar antes.
+
+**Bloqueios/próximo passo:** nenhum bloqueio de implementação. Próximo passo: conferência manual do usuário e commit quando solicitado. Sem publicação autorizada nesta solicitação; validar manualmente a lista e a Home quando desejado.
+
+**Ferramentas:** Superpowers aplicáveis lidos e usados, revisão independente executada; Context7 consultado para contagem Supabase, compatibilidade confirmada por tipos/integração local. Octocode não exposto e sem demanda de pesquisa avançada nesta tarefa; nenhuma instalação/configuração alterada.
+
+**Continuidade Git:** pendência documental anterior confirmada no objeto8a333c1 (inclui recebimento dos avisos, estado/histórico/brag/Atlas). Nova unidade ainda sem commit: emblemas e resumo dos Núcleos, testes, Atlas e documentação. Sugestão: feat(nucleos): exibir participação e total de acordos ativos. Contador53 conclusões acompanhadas; lacuna histórica e último marco100 preservados, sem inventar interações anteriores.
+
+**Índice:** [Registro da entrega](registros/registro-v3.10.1-2026-11-07-imp-resumo-nucleos-fun-participacao-acordos-ativos.md) · [Contrato de navegação](funcionalidades/navegacao-sessao.md) · [Galeria](../wireframes/comparacoes/v3.10.1-2026-11-07-resumo-nucleos-tela_12-tela_13/index.html) · [Histórico](historico.md) · [Brag](../brag/BRAG.md). Checkpoints anteriores abaixo são históricos.
+
+---
+
 # Avisos com recebimento confirmado em produção — v3.10.0 — 2026-11-07
 
 **Objetivo atendido:** avisar a caixa fixa da equipe a cada nova conta por e-mail/Google, relatório somente com nome e e-mail. Migração20261107045500 aplicada ao Supabase nos-dev/pyvohqgcwkcfzbtkmbvx; fila privada/RLS, RPCs administrativas bloqueadas para anon/authenticated e job ativo. Segredos Netlify exclusivamente Production e dois nomes no Vault conferidos sem expor valores. Runtime atualizado Published no deploy6aeeb99d54c9a4402b3b5a1d. DOCS_DIR Documentacao_Projeto_Nos; branch main, base6636506.

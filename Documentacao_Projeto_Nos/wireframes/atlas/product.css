@@ -251,3 +251,6 @@ body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog .live-member-t
 
 .live-auth-mode-size{overflow:clip;overflow-clip-margin:4px}
 .live-public-shell:has(.live-auth-panel) .live-public-grid{margin-block:32px}
+
+/* Participação usa verde semântico; totais pertencem a cada cartão. */
+.live-role-member{color:#16703a!important}.live-nucleus-card .live-active-agreements{margin:10px 0 8px;font-size:13px}

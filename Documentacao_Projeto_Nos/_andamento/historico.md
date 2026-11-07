@@ -934,3 +934,18 @@ Usuário configurou dois segredos Netlify somente Production e salvou segredo co
 ## 2026-11-07 — v3.10.0 — Recebimento dos avisos confirmado pelo usuário
 
 Destinatário confirmou a chegada do aviso de teste com apenas nome/e-mail e relatou sucesso em outro teste, sem detalhar método. Pendência de recebimento externo encerrada por evidência manual declarada; sem nova execução, alteração funcional, versão ou publicação. [Registro](registros/registro-v3.10.0-2026-11-07-imp-validacao-fun-recebimento-avisos.md).
+
+
+## 2026-11-07 — v3.10.1 — Resumo de Núcleos
+
+Home e cartões reutilizam emblemas de administrador/participante; participante verde sem escudo. Cada cartão exibe contagem exata de status active no próprio Núcleo.10 testes autenticados, tipos/build e revisão independente aprovados; verificadores legados do Atlas com falhas reproduzidas na base. [Registro](registros/registro-v3.10.1-2026-11-07-imp-resumo-nucleos-fun-participacao-acordos-ativos.md). Sem publicação.
+
+
+## 2026-11-07 — v3.10.2 — Fundo do emblema participante
+
+Esclarecimento do usuário: fundo igual ao administrativo e somente texto verde. Removida sobrescrita de fundo no aplicativo/Atlas; navegador confirmou igualdade em4 temas e Atlas mobile. Validação pontual de CSS, sem nova suíte/build. [Registro](registros/registro-v3.10.2-2026-11-07-imp-emblema-participante-fun-fundo-compartilhado.md). Sem publicação.
+
+
+## 2026-11-07 — v3.10.3 — Texto verde uniforme
+
+Usuário pediu o mesmo verde em todos os temas. Texto participante fixado em #16703A; fundo administrativo preservado e sem escudo.9 temas confirmados com CSS real no Chromium isolado. [Registro](registros/registro-v3.10.3-2026-11-07-imp-emblema-participante-fun-verde-fixo-temas.md). Sem publicação.

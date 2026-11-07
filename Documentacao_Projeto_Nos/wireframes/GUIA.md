@@ -258,3 +258,8 @@ Este wireframe é uma **referência viva**: deve acompanhar todo o desenvolvimen
 Manter os IDs estáveis, registrar telas acrescentadas ou consolidadas e sincronizar o inventário de cobertura. Mudanças na versão funcional devem atualizar a referência do atlas; uma edição documental isolada não incrementa a versão do aplicativo. Conferir links, destinos e estados atingidos pela alteração, além da apresentação visual quando aplicável.
 
 O protótipo e suas extrações estão agora em **Documentacao_Projeto_Nos/Telas/**, após movimentação feita pelo usuário. Esses materiais preservam a origem histórica; o atlas acompanha a evolução vigente. Regras implementadas e decisões explícitas prevalecem sobre exemplos antigos.
+
+
+## Resumo de Núcleos — 07/11/2026 — v3.10.1
+
+Telas12/13: cartões com papel próprio e total exato de status active por Núcleo; participação verde sem escudo e administração com escudo. Sem novo modal, rota ou mudança de permissão. Contagens do Atlas são exemplos. [Registro](../_andamento/registros/registro-v3.10.1-2026-11-07-imp-resumo-nucleos-fun-participacao-acordos-ativos.md) e [galeria](comparacoes/v3.10.1-2026-11-07-resumo-nucleos-tela_12-tela_13/index.html); limites dos verificadores anteriores explicitados no registro.
