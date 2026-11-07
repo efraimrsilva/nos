@@ -1,3 +1,7 @@
+## MVP02/MVP05 — sincronização de nomes — v3.11.0 — 2026-11-07
+
+Telas12/13/66: o formulário existente salva o nome; outras sessões com vínculo comum atualizam nomes/iniciais por polling3s, preservando listas, modais e rascunhos. Sem novo ID, tela ou modal; Atlas offline mantém exemplos.8 testes autenticados e23 SQL aprovados localmente; migração deve preceder o frontend. Não conclui publicação ou piloto. [Plano](sincronizacao-nomes-perfil.md) · [Contrato](../funcionalidades/nome-perfil.md).
+
 ## Acesso social preparado — v3.9.0 — 2026-11-06
 
 MVP01/Telas01–02: Google e Apple preparados com PKCE, destino de convite preservado e complemento autenticado de nome, sem novo ID. Google ativado e login real validado no aplicativo local, incluindo sessão após recarregar; Apple ainda aguarda configuração. Google no site publicado pendente; não conclui operação do piloto. Etapa13 conserva vinculação manual e integrações de calendário como planejadas. [Contrato e ativação](../funcionalidades/login-social.md). A diretriz de sugestões de caixa preta depende de decisão do usuário; nenhum roteiro novo foi criado nesta entrega.

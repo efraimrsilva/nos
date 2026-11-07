@@ -1,4 +1,4 @@
-# Organização do Núcleo — v3.6.3 — validado localmente
+# Organização do Núcleo — v3.11.0 — validado localmente
 
 O desenho aprovado substitui a guia Pessoas por funções nos locais pertinentes. Nenhuma permissão de administração ou escolha individual é ampliada.
 
@@ -21,3 +21,6 @@ Integrações: sessão/RLS, get_nucleus_management, funções administrativas ex
 **Atualização3.6.2:** seta Ver integrantes com13px de espaço junto ao texto, como Ver Seus Núcleos. Lista sem cartões grandes, nome acionável por teclado, pequenos avatares e foco preservado. Não há coluna extra de ações.
 
 **Atualização3.6.3 — identidade compartilhada:** o shell autenticado confere um resumo SHA-256 de id/nome/propósito dos Núcleos acessíveis pela sessão/RLS a cada três segundos. Havendo alteração, router.refresh atualiza o conteúdo sem recarregar documento: Início, listas, contexto em Acordos/Agenda e seletores da Conta/Mais. Primeira conferência de cada versão/rota fecha a janela entre consultas concorrentes. Pausa com aba oculta/offline, retoma com visibilidade/conexão; falha não limpa dados. Nenhuma permissão nova, escrita pelo receptor, migração ou serviço adicional. Intervalo/rede/suspensão do navegador afetam a latência; não é push instantâneo. [Caixa preta](../testes-caixa-preta/sincronizacao-identidade.md).
+
+
+**Atualização3.11.0 — nomes de integrantes:** substitui o resumo SHA-256 descrito na atualização3.6.3 por uma RPC única, get_nucleus_identity_version, com resumo MD5 de Núcleos visíveis e nomes atuais dos integrantes compartilhados. Mantém os3 segundos, pausa/retomada e refresh sem perder rascunhos. Inclui nova migração e segurança por sessão. [Contrato do perfil](nome-perfil.md). Aplicar migração antes do frontend; implementação validada somente localmente nesta entrega.

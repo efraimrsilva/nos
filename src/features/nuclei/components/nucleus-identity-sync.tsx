@@ -20,6 +20,7 @@ export function NucleusIdentitySync({ version }: { version: string | null }) {
           // Se o refresh falhar, os próximos ciclos continuam tentando aplicá-la.
           // Confere cada nova versão do servidor, fechando a janela entre a
           // leitura da página e do resumo também durante edições concorrentes.
+          // O resumo inclui nomes dos integrantes atuais dos Núcleos compartilhados.
           // Atualiza cabeçalhos, listas e menus renderizados no servidor sem
           // navegar/remontar o documento nem apagar rascunhos dos formulários.
           router.refresh();

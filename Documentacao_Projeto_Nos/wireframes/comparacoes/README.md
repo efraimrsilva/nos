@@ -105,3 +105,5 @@ Capturas devem usar exemplos sem informações privadas, tokens ou códigos reai
 - [v3.7.2 —06/11/2026 — modelo Hábito, Telas18/34/35/37](v3.7.2-2026-11-06-modelo-habito-tela_18-tela_34-tela_35-tela_37/index.html):22 capturas do Atlas/MVP antes/depois em computador/celular. Modelo-alvo com três etapas, sem migração ou alteração do aplicativo.
 
 - [v3.10.1 · Resumo de Núcleos](v3.10.1-2026-11-07-resumo-nucleos-tela_12-tela_13/index.html) — papéis e acordos ativos; Atlas antes/depois e aplicativo local, com limite das capturas anteriores explicitado.
+
+- [v3.11.0 · Sincronização de nomes de perfil](v3.11.0-2026-11-07-nomes-perfil-tela_12-tela_13-tela_66/index.html) — Atlas antes/depois e duas sessões locais; nomes atualizados em detalhes e lista sem reload, com limites da captura anterior mobile explicitados.

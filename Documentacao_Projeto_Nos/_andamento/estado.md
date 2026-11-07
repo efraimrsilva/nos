@@ -1,3 +1,39 @@
+# Publicação de Núcleos e perfis — v3.11.0 — 2026-11-07
+
+**Objetivo ativo:** publicar todas as mudanças autorizadas e conferir produção; depois avaliar NestJS para novas sincronizações, sem implementar framework. Preservar economia de testes solicitada.
+
+**Situação:** migração20261107100000_profile_identity_sync aplicada e registrada no Supabase hospedado nos-dev/pyvohqgcwkcfzbtkmbvx antes do frontend. Função/permissões/search_path conferidos; sem mudança de dados de usuários. Commit visual f21663c confirmado; commit funcional/push/deploy em andamento. DOCS_DIR Documentacao_Projeto_Nos; main; versão3.11.0.
+
+**Verificações:** reutilizar8 E2E/23 SQL/tipos/build/revisão já aprovados; somente diff/staging, conferência do banco, build obrigatório da hospedagem e verificação pública nesta publicação. Conectores indisponíveis; API Supabase oficial com credencial CLI em memória funcionou.
+
+**Próximo passo:** concluir commit funcional/push e conferir deploy do mesmo SHA; após isso, pesquisa de NestJS e alternativas. Contador58 conclusões acompanhadas ao fechar esta solicitação, lacuna histórica/último marco100 preservados.
+
+**Índice:** [Publicação](registros/registro-v3.11.0-2026-11-07-imp-publicacao-fun-nucleos-perfis.md) · [Implementação](registros/registro-v3.11.0-2026-11-07-imp-sincronizacao-fun-nomes-perfil-compartilhados.md) · [Plano](planos/sincronizacao-nomes-perfil.md). Checkpoints abaixo históricos.
+
+---
+
+# Sincronização periódica dos nomes de perfil — v3.11.0 — 2026-11-07
+
+**Objetivo/escopo:** nome alterado em Dados da conta chega às outras sessões dos integrantes dos Núcleos comuns sem reload manual. Critérios atendidos localmente: lista/iniciais e detalhes já abertos atualizam; modais/rascunhos permanecem; comparação restrita aos vínculos atuais e recuperação após falha. Sem novo modal, biblioteca ou temporizador.
+
+**DOCS_DIR:** Documentacao_Projeto_Nos. Versão atual3.11.0 MINOR nos manifestos/Atlas. Branch main, base3b4dbff; publicação não realizada nesta tarefa. Mudanças visuais preexistentes3.10.4–3.10.6 preservadas.
+
+**Implementação/decisões:** get_nucleus_identity_version sem argumentos usa auth.uid; função stable/definer com search_path vazio e execute apenas authenticated. Núcleos autorizados e nomes atuais de integrantes compartilhados viram resumo MD5 ordenado; só detector de mudança, não autorização/anonimização. Não inclui e-mails/tema/outros metadados. Leitor identity-version.ts usa uma RPC em vez da paginação antiga. Polling3s já existente mantém pausa oculto/offline, retorno online e router.refresh sem reload integral; falhas preservam dados. Salvar perfil não ganhou escrita/trigger adicional.
+
+**Arquivos principais:** supabase/migrations/20261107100000_profile_identity_sync.sql; supabase/tests/profile_identity_sync.sql; src/features/nuclei/identity-version.ts; comentário do componente nucleus-identity-sync.tsx; tests/authenticated/profile-name-sync.spec.ts; fichas/Atlas/MVP e contratos nome-perfil, organizacao-nucleo e modais-interface.
+
+**Validação:** regressão anterior falhou com nome antigo no diálogo. Depois,8 testes autenticados (2 novos+6 regressões) desktop/mobile aprovados;10 SQL novos+13 existentes aprovados no contêiner local, transações revertidas. Tipos e build final Webpack3.11.0 aprovados; revisão independente e autorrevisão sem bloqueantes. Galeria19 capturas: Atlas antes/depois e aplicativo real com contas descartáveis. Antes do aplicativo somente desktop; mobile anterior não fabricado. Sem Safari/dispositivo físico. Logs de falha/limpeza nos testes não impediram aprovação.
+
+**Operação/bloqueios:** implementação local concluída, migração específica aplicada e registrada somente LOCALMENTE. Aplicar migração hospedada ANTES do frontend: RPC ausente preserva tela, mas suspende também a sincronização anterior de nome/propósito. Reverter frontend antes de remover a função se necessário; sem transformação de dados existentes. Sem commit/push/deploy ou migração remota nesta solicitação. Próximo passo executável: publicação coordenada de banco/frontend quando solicitada.
+
+**Ferramentas:** Superpowers pertinentes, Context7 Next16.2.9 confirmado no guia instalado16.3.6 e RPC supabase-js2.117.2; Supabase/Postgres e revisão independente aplicados. Octocode não exposto; sem pesquisa avançada entre repositórios/pacotes. Ferramentas existentes preservadas. Plano simples dispensou nova biblioteca/Realtime.
+
+**Git/contador:** conjunto antigo confirmado em3b4dbff. Duas unidades pendentes, a manter separadas: ajustes visuais3.10.4–3.10.6 (style(nucleos): ajustar cores e contorno interativo dos cartões); sincronização de nomes3.11.0 (feat(perfil): sincronizar nomes entre sessões dos núcleos). Nenhum commit criado nesta tarefa. Contador57 conclusões acompanhadas, lacuna histórica e último marco100 preservados.
+
+**Índice:** [Registro](registros/registro-v3.11.0-2026-11-07-imp-sincronizacao-fun-nomes-perfil-compartilhados.md) · [Plano](planos/sincronizacao-nomes-perfil.md) · [Perfil](funcionalidades/nome-perfil.md) · [Organização](funcionalidades/organizacao-nucleo.md) · [Modais](funcionalidades/modais-interface.md) · [MVP](planos/mvp.md) · [Galeria](../wireframes/comparacoes/v3.11.0-2026-11-07-nomes-perfil-tela_12-tela_13-tela_66/index.html). Checkpoints abaixo históricos.
+
+---
+
 # Resumo de participação e acordos por Núcleo — v3.10.6 — 2026-11-07
 
 **Objetivo/escopo:** Home com emblema verde sem escudo para participante; cartões Seus Núcleos com papel próprio e total exato de acordos ativos. Critérios: status active por Núcleo, zero/singular/plural, independência do aceite, permissões preservadas e layouts acessíveis. Concluído e validado localmente.

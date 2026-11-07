@@ -1,3 +1,7 @@
+## Atualização — v3.11.0 — 2026-11-07
+
+Sincronização periódica dos nomes de perfil preserva os modais existentes Integrantes do Núcleo e Participação de pessoa já abertos, atualizando nomes/iniciais/títulos sem recarga do documento. Dados da conta continua sendo o formulário de edição; sem modal novo. Teste com2 sessões locais conferiu os diálogos simultaneamente abertos. Fechamento, foco, permissões e rascunhos preservados.
+
 ## Modal Nossa Essência — esboço — v3.8.0 — 06/11/2026
 
 Proposta → Hábito → Essência no aplicativo, com compatibilidade de leitura e momentos para o legado sem regravar termos, versões, categoria ou aceites. Nova criação normalizada para habit. Essência e passagens somente esboços, com o mesmo informe do Manifesto; sem critérios ou promoção inventados. Integração Hábito/evento, recorrência e mídia continuam planejadas. Mesmas73 fichas/13 etapas;39 recortes existentes e34 planejados, sem converter desenho em entrega funcional. Nova prévia: Acordos18 → Ver esboço de Essência → modal Nossa Essência36; X/Escape/fora, sem escrita. Casos manuais continuam Não executados pelo usuário. [Registro](../registros/registro-v3.8.0-2026-11-06-imp-acordos-fun-modelo-habito.md). As seções datadas abaixo preservam marcos anteriores.

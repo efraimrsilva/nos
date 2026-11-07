@@ -263,3 +263,8 @@ O protótipo e suas extrações estão agora em **Documentacao_Projeto_Nos/Telas
 ## Resumo de Núcleos — 07/11/2026 — v3.10.1
 
 Telas12/13: cartões com papel próprio e total exato de status active por Núcleo; participação verde sem escudo e administração com escudo. Sem novo modal, rota ou mudança de permissão. Contagens do Atlas são exemplos. [Registro](../_andamento/registros/registro-v3.10.1-2026-11-07-imp-resumo-nucleos-fun-participacao-acordos-ativos.md) e [galeria](comparacoes/v3.10.1-2026-11-07-resumo-nucleos-tela_12-tela_13/index.html); limites dos verificadores anteriores explicitados no registro.
+
+
+## Sincronização de nomes de perfil — v3.11.0 — 07/11/2026
+
+Telas12/13/66 mantêm composição e modais existentes; aplicativo passa a conferir nomes de integrantes compartilhados no mesmo polling3s. Lista, iniciais e detalhes já abertos atualizam sem recarga integral. Atlas offline apenas exemplifica, fichas/MVP descrevem a integração real validada localmente. Sem nova tela/modal/ID. [Registro](../_andamento/registros/registro-v3.11.0-2026-11-07-imp-sincronizacao-fun-nomes-perfil-compartilhados.md) · [galeria](comparacoes/v3.11.0-2026-11-07-nomes-perfil-tela_12-tela_13-tela_66/index.html). Migração antes do frontend; publicação pendente.

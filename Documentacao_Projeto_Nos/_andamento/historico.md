@@ -964,3 +964,8 @@ Cartões usam o contorno na cor do emblema administrativo/participante, inclusiv
 ## 2026-11-07 — v3.10.6 — Contorno interativo3px
 
 Cor por papel somente em hover/pressão e foco visível; repouso neutro. Borda1px+sombra interna2px sem mudar altura.2 papéis/9 temas/mouse e touch verificados isoladamente com CSS real; Atlas sincronizado. [Registro](registros/registro-v3.10.6-2026-11-07-imp-cartoes-nucleos-fun-contorno-interativo-3px.md). Sem publicação.
+
+
+## 2026-11-07 — v3.11.0 — Nomes de perfil sincronizados entre sessões
+
+Polling existente3s passa a comparar nomes de integrantes compartilhados por RPC segura, atualizando listas/detalhes abertos sem reload.8 E2E e23 SQL, tipos/build e revisão independente aprovados. Migração registrada somente localmente; aplicar antes do frontend na publicação futura. [Registro](registros/registro-v3.11.0-2026-11-07-imp-sincronizacao-fun-nomes-perfil-compartilhados.md). Mudanças visuais anteriores preservadas.

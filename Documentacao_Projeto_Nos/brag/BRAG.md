@@ -421,3 +421,11 @@ Problema: conteúdo de entrada baixo, botão sem marca e mudança brusca de altu
 - Contribuição: emblema compartilhado e verde semântico; contagem exata por Núcleo sem transferir acordos, mantendo permissões existentes.
 - Resultado verificado:10 testes autenticados aprovados em computador/celular, tipos/build e revisão independente. Benefício esperado: facilitar a escolha do espaço e a compreensão do papel, sem medida de impacto em uso.
 - Evidência: [registro](../_andamento/registros/registro-v3.10.1-2026-11-07-imp-resumo-nucleos-fun-participacao-acordos-ativos.md) e teste nuclei-summary.spec.ts.
+
+
+## 2026-11-07 — v3.11.0 — Nomes atualizados em sessões compartilhadas
+
+- Problema: o nome salvo no perfil não disparava atualização nas páginas já abertas por outras pessoas.
+- Contribuição: a consulta periódica existente passa a comparar nomes de integrantes atuais de Núcleos comuns, com resumo restrito por sessão e uma RPC, preservando modais/rascunhos.
+- Resultado verificado: formulário real atualizou nome em outra sessão, detalhes abertos e lista após falha, sem reload;8 testes autenticados e23 SQL, tipos/build e revisão independente aprovados. Benefício esperado: evitar nomes desatualizados durante o uso compartilhado; sem métrica de impacto em produção.
+- Evidência: [registro](../_andamento/registros/registro-v3.11.0-2026-11-07-imp-sincronizacao-fun-nomes-perfil-compartilhados.md), teste profile-name-sync.spec.ts e teste SQL profile_identity_sync.sql. Implementação somente local; sem publicação.

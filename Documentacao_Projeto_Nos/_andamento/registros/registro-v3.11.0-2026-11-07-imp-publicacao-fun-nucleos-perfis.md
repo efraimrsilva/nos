@@ -1,0 +1,10 @@
+# Registro — v3.11.0 — 2026-11-07 — Imp. de publicação com Fun. de Núcleos e perfis sincronizados
+
+- Versão/status:3.11.0, publicação Em andamento.
+- Autorização: usuário solicitou commit/push de todas as mudanças, descrições abrangentes e economia de testes. AGENTS.md autoriza produção após commit/push. Pedido adicional: avaliar NestJS após a publicação, sem adoção autorizada.
+- Escopo: ajustes visuais3.10.4–3.10.6 e sincronização de nomes3.11.0; Atlas, testes,19 capturas e documentação associados. Contagens de acordos e identificação de papéis já estavam em3b4dbff, preservadas.
+- Git: base main3b4dbff alinhada a origin/main. Unidade visual confirmada em f21663cd2dd49e71503db69ad6e6303c7c8f7b85; unidade funcional será commitada separadamente. Sem reescrever mudanças preexistentes nem executar testes redundantes.
+- Banco: destino vinculado pyvohqgcwkcfzbtkmbvx/nos-dev ACTIVE_HEALTHY conferido; função ausente e colunas necessárias existentes antes da mudança. Migração20261107100000_profile_identity_sync aplicada transacionalmente via API oficial, registro versionado incluído e schema recarregado. Conferência posterior: função existente, execute authenticated=true/anon=false, security_definer=true, search_path vazio e1 registro da migração. Nenhuma linha de usuário alterada nem conta sintética criada nesta publicação.
+- Ferramentas: conectores Supabase/Netlify retornaram indisponibilidade. Fallback Supabase usa API oficial com credencial existente da CLI apenas em memória, certificados/proxy do sistema; sem expor segredos. Auxiliar operacional somente em artifacts ignorado.
+- Validações econômicas: reaproveitados8 testes autenticados,23 SQL, tipos/build3.11.0 e revisão independente da implementação, além das conferências visuais anteriores. Nesta publicação somente diff/staging, metadados/permissões da migração e posterior build obrigatório da hospedagem/checagem pública. Sem nova suíte local.
+- Próximos passos: commit funcional, push, acompanhar deploy e site; depois avaliar NestJS com documentação oficial/Context7 e registrar recomendação. Sem adoção de framework nesta tarefa.
