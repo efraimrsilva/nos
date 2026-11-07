@@ -1,6 +1,6 @@
 # Aviso de novas contas — v3.10.0
 
-**Publicação — 07/11/2026:** código publicado no Netlify, commit `fe4f135`, deploy `6aeeb3b6ed474f1e2766bcc0`. Ativação pendente: importação de segredos interrompida pelo usuário antes de salvar; migração/Vault remotos não aplicados. Autorização de configuração já concedida. Arquivo temporário de credenciais removido. [Situação operacional](../registros/registro-v3.10.0-2026-11-07-imp-publicacao-fun-notificacao-contas.md).
+**Ativação — 07/11/2026:** migração remota aplicada, segredos Netlify/Vault configurados e runtime publicado no deploy `6aeeb99d54c9a4402b3b5a1d`, após retomada autorizada. Uma mensagem de teste aceita pelo SMTP na primeira tentativa; conta descartável/evento removidos. Recebimento na caixa de entrada ainda depende de confirmação do destinatário. [Ativação e evidências](../registros/registro-v3.10.0-2026-11-07-imp-ativacao-fun-notificacao-contas.md). [Publicação inicial e interrupção anterior](../registros/registro-v3.10.0-2026-11-07-imp-publicacao-fun-notificacao-contas.md).
 
 ## Contrato
 
@@ -26,9 +26,9 @@ Não incluir senha, hash, token, identificador, data, contagens ou metadados no 
 
 A fila operacional é eliminada após 30 dias, inclusive eventos sem entrega. Essa limpeza é restrita aos avisos, sem alterar as contas. A referência possui exclusão em cascata quando a própria conta é removida. Falha ao inserir na fila não bloqueia cadastro e emite aviso fixo `account_notification_enqueue_failed` com código SQL, sem dados pessoais; nesse caso pode haver perda do aviso e é necessária investigação operacional.
 
-## Configuração e ativação hospedada — pendentes
+## Configuração e ativação hospedada — procedimento aplicado
 
-Não há ativação remota implícita ao editar arquivos. Conferir explicitamente destino/branch e autorização de publicação antes de aplicar:
+Configuração aplicada no destino autorizado; passos abaixo documentam operação e eventual recuperação, sem instruir reaplicação de migração ou substituição de segredos existentes. Não há ativação remota implícita ao editar arquivos. Conferir explicitamente destino/branch e autorização de publicação antes de aplicar em outro ambiente:
 
 1. No ambiente do servidor, preservar `SUPPORT_SMTP_HOST`, `SUPPORT_SMTP_PORT`, `SUPPORT_SMTP_USER`, `SUPPORT_SMTP_PASSWORD`, `SUPPORT_MAIL_FROM`; adicionar `SUPABASE_SERVICE_ROLE_KEY` do mesmo projeto Supabase e `ACCOUNT_NOTIFICATION_SECRET` aleatório de pelo menos 32 caracteres. Segredos somente no runtime, nunca com prefixo `NEXT_PUBLIC_`, no repositório, em logs ou capturas.
 2. Revisar/aplicar somente a migração `supabase/migrations/20261107045500_account_signup_notifications.sql` no destino autorizado. Habilita `pg_net` e `pg_cron`; requer disponibilidade dessas extensões. Confirmar RPCs restritas ao `service_role`, fila privada, gatilho e job. Não aplicar outras migrações pendentes por engano.

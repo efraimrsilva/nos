@@ -1,5 +1,7 @@
 # Registro — v3.10.0 — 2026-11-07 — Imp. de publicação com Fun. de notificação de contas
 
+**Atualização posterior:** ativação retomada e concluída com aceite SMTP; consultar [registro operacional](registro-v3.10.0-2026-11-07-imp-ativacao-fun-notificacao-contas.md). O relato de interrupção e pendências abaixo preserva o estado daquela publicação.
+
 **Status:** Código enviado ao GitHub e publicado em produção; ativação dos avisos pendente. Usuário autorizou commit e push de todas as alterações, com descrição abrangente e reaproveitamento dos testes para economizar créditos. A regra permanente do projeto inclui acompanhamento da publicação em produção nesse pedido.
 
 ## Objetivo, escopo e contexto

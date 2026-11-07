@@ -1,3 +1,19 @@
+# Avisos ativados em produção — v3.10.0 — 2026-11-07
+
+**Objetivo atendido:** avisar a caixa fixa da equipe a cada nova conta por e-mail/Google, relatório somente com nome e e-mail. Migração20261107045500 aplicada ao Supabase nos-dev/pyvohqgcwkcfzbtkmbvx; fila privada/RLS, RPCs administrativas bloqueadas para anon/authenticated e job ativo. Segredos Netlify exclusivamente Production e dois nomes no Vault conferidos sem expor valores. Runtime atualizado Published no deploy6aeeb99d54c9a4402b3b5a1d. DOCS_DIR Documentacao_Projeto_Nos; branch main, base6636506.
+
+**Evidência:** chamada pública sem assinatura retorna401; uma única conta descartável acionou gatilho/fila/pg_net/HMAC/receptor/RPC/SMTP, com sent_at confirmado e attempts=1. Conta/evento sintéticos removidos de forma específica, consulta posterior fila vazia. Usuário salvou o mesmo segredo diretamente no Vault; handoff encerrado e interface confirmou gravação. Nenhuma senha, hash, token ou metadado no relatório. Nenhuma conta real alterada. Auxiliar falhou somente ao gravar resultado local após aceite/limpeza; gravação corrigida com evidência observada, sem repetir envio. Auxiliar removido, resultado sem dados pessoais em artifacts ignorado.
+
+**Validação econômica:** reutilizados8 testes de receptor,25 novos/49 existentes do banco, integração local, tipos/build e revisão independente anteriores. Nesta ativação somente estado/configuração/permissões, build necessário da hospedagem e um envio real. Sem nova suíte/build local. Autorrevisão documental, links/sintaxe Atlas/diff check no fechamento; sem nova revisão independente. Versão3.10.0 preservada e README sem registro de versões do aplicativo.
+
+**Limitações/próximo passo:** destinatário conferir entrada/spam do aviso de teste com assunto Nós — Nova conta criada e nome Teste de notificação. Aceite SMTP comprovado; recebimento externo ainda não confirmado. Não repetir teste automaticamente. Acompanhar cadastros reais e tentativas esgotadas pelo contrato; limite de duplicidade em aceite seguido de falha no banco permanece. Teste legado de confirmação/advisors locais mantêm limites históricos registrados, sem interferir nesta confirmação real de envio.
+
+**Continuidade Git:** código publicado em fe4f135; regra README/encerramento anterior em6636506. Documentação desta ativação integra o commit de encerramento autorizado, com skip netlify para evitar outro build exclusivamente documental. Confirmar presença no objeto Git e referência remota no envio final; nenhuma unidade funcional independente pendente. Contador49 conclusões acompanhadas, incluindo orientação das chaves48; handoff parcial não contado como outra entrega. Lacuna histórica e último marco100 preservados.
+
+**Índice:** [Ativação e evidências](registros/registro-v3.10.0-2026-11-07-imp-ativacao-fun-notificacao-contas.md) · [Contrato e operação](funcionalidades/notificacao-novas-contas.md) · [Publicação inicial](registros/registro-v3.10.0-2026-11-07-imp-publicacao-fun-notificacao-contas.md) · [Regra README](registros/registro-v3.10.0-2026-11-07-imp-diretrizes-readme-fun-versionamento-documental.md). Checkpoints abaixo históricos.
+
+---
+
 # Código publicado e regra do README — v3.10.0 — 2026-11-07
 
 **Resultado:** commit funcional fe4f1353431cbc4fa6d04390b885f6facdef54f8 enviado à main do GitHub; objeto com19 arquivos e referência remota conferidos. Netlify confirmou Published do mesmo commit, deploy6aeeb3b6ed474f1e2766bcc0. Conferência pública: Conta HTTP200 e receptor HTTP503, coerente com integração ainda sem configuração. Testes/revisão/build locais anteriores reaproveitados; nenhuma nova suíte repetida. DOCS_DIR Documentacao_Projeto_Nos.
