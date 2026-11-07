@@ -61,7 +61,8 @@
 ## Versionamento do sistema e Atlas vivo
 
 - Usar versionamento semântico: PATCH para correções e ajustes compatíveis; MINOR para novas funcionalidades compatíveis; MAJOR para mudanças incompatíveis.
-- Manter a mesma versão em `package.json`, na raiz e no pacote principal de `package-lock.json`, na indicação de versão vigente do `README.md` e na identificação visível do Atlas vivo em `Documentacao_Projeto_Nos/wireframes/atlas/index.html`.
+- Manter a mesma versão em `package.json`, na raiz e no pacote principal de `package-lock.json`, em `Documentacao_Projeto_Nos/_andamento/estado.md` e na identificação visível do Atlas vivo em `Documentacao_Projeto_Nos/wireframes/atlas/index.html`.
+- Por decisão explícita do usuário em 07/11/2026, não registrar versões do aplicativo no `README.md` da raiz: não acrescentar versão atual, informes de release, histórico de versões ou avisos versionados de publicação. O README apresenta o produto, a stack, instruções de execução e links para a documentação responsável. Versionamento, entregas e situação de publicação ficam nos manifestos, no Atlas e em `Documentacao_Projeto_Nos/_andamento/`. Versões técnicas das dependências e caminhos de evidências históricas podem permanecer quando necessários para compreender ou executar o projeto; não constituem um registro de versões do aplicativo.
 - O Atlas vivo deve ser sempre o espelho do sistema atual. Na mesma entrega, refletir nele as alterações de telas, textos, navegação, componentes, estilos, estados e interações representadas. Atualizar apenas o número da versão não basta.
 - Conferir a correspondência entre implementação e Atlas antes de concluir a entrega. Preservar a identificação explícita de funcionalidades planejadas e de dados ilustrativos; não apresentar planejamento como funcionalidade implementada.
 - Preservar versões e datas dos registros históricos. Atualizar as indicações vigentes sem reescrever o histórico.

@@ -1,3 +1,19 @@
+# Código publicado e regra do README — v3.10.0 — 2026-11-07
+
+**Resultado:** commit funcional fe4f1353431cbc4fa6d04390b885f6facdef54f8 enviado à main do GitHub; objeto com19 arquivos e referência remota conferidos. Netlify confirmou Published do mesmo commit, deploy6aeeb3b6ed474f1e2766bcc0. Conferência pública: Conta HTTP200 e receptor HTTP503, coerente com integração ainda sem configuração. Testes/revisão/build locais anteriores reaproveitados; nenhuma nova suíte repetida. DOCS_DIR Documentacao_Projeto_Nos.
+
+**Decisão vigente:** não registrar versões do aplicativo, releases ou informes versionados de publicação no README da raiz. AGENTS.md atualizado, obrigação anterior removida e informes restantes retirados; versões de dependências técnicas e links de evidências preservados. Versão permanece3.10.0 porque essa orientação é documental.
+
+**Ativação pendente:** usuário autorizou chave administrativa no runtime Netlify e segredo de assinatura/Vault. Destino nos-dev/pyvohqgcwkcfzbtkmbvx conferido ativo,17 migrações; private/pg_net/pg_cron ainda ausentes. Preparação dos segredos concluída sem imprimir valores, mas controle do navegador interrompido por Escape antes de importar. Nenhuma nova variável Netlify, migração remota ou Vault aplicado. Arquivo temporário de credenciais e auxiliar operacional removidos. Não retomar controle de navegador após a interrupção sem novo direcionamento; autorização da configuração já concedida e não precisa ser pedida novamente.
+
+**Próximo passo:** usuário importa SUPABASE_SERVICE_ROLE_KEY e ACCOUNT_NOTIFICATION_SECRET como segredos somente em produção; depois concluir migração específica, novo runtime e Vault por último, conforme contrato. Não enviar chaves pelo chat. Código publicado não comprova avisos ativos nem recebimento externo. Limites de SMTP/teste legado/advisors continuam no registro da implementação.
+
+**Continuidade Git:** unidade funcional confirmada em fe4f135; nenhuma pendência dessa unidade. Regra do README e encerramento operacional integram o commit documental desta publicação, com skip netlify para evitar build redundante. Conferir objeto e referência remota no envio final; nenhuma unidade independente pendente. Contador47 conclusões acompanhadas nesta entrega, lacuna histórica e último marco100 preservados.
+
+**Índice:** [Publicação e autorização operacional](registros/registro-v3.10.0-2026-11-07-imp-publicacao-fun-notificacao-contas.md) · [Regra do README](registros/registro-v3.10.0-2026-11-07-imp-diretrizes-readme-fun-versionamento-documental.md) · [Contrato/configuração](funcionalidades/notificacao-novas-contas.md). Checkpoints abaixo históricos.
+
+---
+
 # Aviso de novas contas — v3.10.0 — 2026-11-07
 
 **Objetivo atendido localmente:** notificação para a caixa fixa da equipe a cada conta criada por e-mail ou Google, relatório exclusivamente com nome e e-mail. Sem senha/hash/token/metadados no relatório. Não avisa em login posterior ou confirmação. DOCS_DIR: Documentacao_Projeto_Nos; branch main; base22e2304. Versão3.10.0 MINOR nos manifestos/README/Atlas. Produção permanece3.9.2.

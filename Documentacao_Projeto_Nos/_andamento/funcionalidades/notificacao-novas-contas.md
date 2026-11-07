@@ -1,5 +1,7 @@
 # Aviso de novas contas — v3.10.0
 
+**Publicação — 07/11/2026:** código publicado no Netlify, commit `fe4f135`, deploy `6aeeb3b6ed474f1e2766bcc0`. Ativação pendente: importação de segredos interrompida pelo usuário antes de salvar; migração/Vault remotos não aplicados. Autorização de configuração já concedida. Arquivo temporário de credenciais removido. [Situação operacional](../registros/registro-v3.10.0-2026-11-07-imp-publicacao-fun-notificacao-contas.md).
+
 ## Contrato
 
 A criação de uma linha em `auth.users` com e-mail gera um aviso administrativo para o destinatário fixo já utilizado em `src/features/support/mail.ts`. Abrange cadastro com e-mail e criação pelo Google; login posterior, confirmação, edição e associação de identidade à mesma conta não inserem outra linha e não geram aviso. Sem preenchimento retroativo de contas anteriores à migração. Uma exclusão seguida de nova criação representa outra conta.

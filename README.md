@@ -1,9 +1,5 @@
 # Nós — plataforma para cultivar vínculos
 
-Versão atual do código: **3.10.0**. A notificação administrativa de novas contas envia somente nome e e-mail; [configuração e limites](Documentacao_Projeto_Nos/_andamento/funcionalidades/notificacao-novas-contas.md). A situação da publicação e da ativação está em [andamento](Documentacao_Projeto_Nos/_andamento/estado.md).
-
-**Entrega anterior — v3.8.0:** Acordos em Proposta → Hábito → Essência; Experiência consolidada em Hábito, incluindo leitura e momentos do legado. Essência e passagens continuam esboços, com o mesmo informe do Manifesto. A nova migração de funções foi validada somente localmente; publicação remota pendente. [Contrato](Documentacao_Projeto_Nos/_andamento/funcionalidades/fluxo-proposta-habito-essencia.md).
-
 Aplicação web full stack para organizar espaços compartilhados, construir acordos e acompanhar práticas de cuidado com participação voluntária. O projeto reúne interface responsiva, autenticação, regras de negócio no servidor e no banco, testes automatizados e documentação de produto.
 
 **[Acessar o aplicativo no Netlify](https://noslife.netlify.app)** · **[Tela de acesso](https://noslife.netlify.app/conta)** · **[Código-fonte](src)** · **[Documentação](Documentacao_Projeto_Nos/_andamento/estado.md)**
