@@ -1,3 +1,7 @@
 [build]
   command = "npm run build && node scripts/clean-build-cache.mjs"
   publish = ".next"
+
+[build.environment]
+  # Remetente público e hostname SMTP já constam nos registros; senha e demais segredos seguem sob varredura.
+  SECRETS_SCAN_OMIT_KEYS = "SUPPORT_MAIL_FROM,SUPPORT_SMTP_HOST"

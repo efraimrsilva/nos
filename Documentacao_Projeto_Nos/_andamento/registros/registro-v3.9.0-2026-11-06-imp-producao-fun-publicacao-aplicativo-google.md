@@ -15,3 +15,5 @@
 **Limites/próximo passo:** confirmar importação segura, concluir publicação do consentimento Google, integrar main por avanço direto, acompanhar build e validar login público. Apple requer credenciais Apple Developer ainda não fornecidas; não pode ser certificada como ativa. Não confundir migração/configuração com deploy concluído.
 
 **Checkpoint de publicação:** usuário importou sem erro e painel confirmou as sete chaves como segredos. Integração main por avanço direto autorizada pelo deploy; build e login público ainda pendentes. Login básico Google possui exceção oficial às restrições usuais do modo de testes; branding publicado será tratado separadamente da prova do login.
+
+**Correção operacional:** primeiro build6aee7d416c5118214bbe1095 compilou/TypeScript aprovados, mas scanner barrou remetente público e hostname SMTP já documentados. netlify.toml exclui somente SUPPORT_MAIL_FROM e SUPPORT_SMTP_HOST da comparação por valor, conforme Context7/Netlify secrets-controller. Senha, usuário SMTP e demais segredos continuam sob varredura. Sem alteração de funcionalidade ou versão. Autorrevisão do ajuste e diff aprovados; novo build é a validação efetiva.
