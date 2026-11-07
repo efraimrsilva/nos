@@ -892,3 +892,6 @@ Código e Git conferidos em 381a308. Próxima entrega proposta: Revisar Hábito 
 
 ## 2026-11-06 — v3.9.0 em produção
 Netlify Published6aee7dad0fc99510d78ebeda/main5170f72; banco17 migrações e ambiente configurados. Build/TypeScript/varredura aprovados. Google chegou à escolha oficial de conta; retorno público aguarda usuário. Apple desativada. Detalhes no registro de produção.
+
+## 2026-11-06 — v3.9.0: confirmação manual Google em produção
+Usuário confirmou login e retorno ao Nós no domínio publicado. Evidência declarada pelo usuário, sem inspeção independente da sessão; encerra pendência manual do deploy. Apple e prova de entrega SMTP mantêm limites anteriores.
