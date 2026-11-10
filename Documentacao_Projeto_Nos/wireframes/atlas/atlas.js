@@ -126,7 +126,7 @@ function renderPrototype(){
   // Reservas ficam ao lado da composição atual, identificadas sem simular uma integração futura.
   if(screen.id===10&&!referenceMode)$('#screen-preview').insertAdjacentHTML('beforeend','<section class="pending-box invitation-future" aria-label="Evoluções planejadas do convite"><span class="badge planned">Planejada</span><h3>Espaço reservado · ler QR e abrir convite por link</h3><p>Leitura por câmera virá após definir formato, permissão e alternativa por código. Convite por link exige transporte seguro durante autenticação e retirada da credencial da URL. Geração de QR está reservada na Tela 58; gestão de convites na Tela 59.</p></section>');
   if(['global','mvp'].includes(inspectionOrigin)){
-    const back=$('#screen-spec .screen-back');back.dataset.view=inspectionOrigin;back.textContent=inspectionOrigin==='mvp'?'← Voltar ao MVP':'← Voltar à Visão global';
+    const back=$('#screen-spec .screen-back');back.dataset.view=inspectionOrigin;back.textContent=inspectionOrigin==='mvp'?'← Voltar para MVP e Continuidade':'← Voltar à Visão global';
   }
   $('#previous').disabled=selectedId===1;$('#next').disabled=selectedId===screens.length;
   requestAnimationFrame(alignAccountPreview);
@@ -161,7 +161,7 @@ function openScreen(id,updateHash=true){
   $('#prototype-view').scrollIntoView({block:'start'});
   $('#screen-spec').setAttribute('tabindex','-1');$('#screen-spec').focus({preventScroll:true});
 }
-$('#chapter-nav').innerHTML=`<button class="chapter-button global-button" data-view="mvp" aria-pressed="false"><span>✳</span>MVP</button><button class="chapter-button global-button" data-view="global" aria-pressed="false"><span>✳</span>Visão global</button><button class="chapter-button" data-chapter="-1" aria-pressed="true"><span>✳</span>Todas as áreas</button>${chapters.map((chapter,index)=>`<button class="chapter-button" data-chapter="${index}" aria-pressed="false"><span>${pad(index+1)}</span>${escapeHtml(chapter)}</button>`).join('')}`;
+$('#chapter-nav').innerHTML=`<button class="chapter-button global-button" data-view="mvp" aria-pressed="false"><span>✳</span>MVP e Continuidade</button><button class="chapter-button global-button" data-view="global" aria-pressed="false"><span>✳</span>Visão global</button><button class="chapter-button" data-chapter="-1" aria-pressed="true"><span>✳</span>Todas as áreas</button>${chapters.map((chapter,index)=>`<button class="chapter-button" data-chapter="${index}" aria-pressed="false"><span>${pad(index+1)}</span>${escapeHtml(chapter)}</button>`).join('')}`;
 $('#total-count').textContent=screens.length;$('#planned-count').textContent=screens.filter(screen=>screen.status==='Planejada').length;$('#existing-count').textContent=screens.filter(screen=>screen.status==='Recorte existente').length;
 renderAtlas();renderFlows();
 document.addEventListener('click',event=>{
