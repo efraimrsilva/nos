@@ -1,3 +1,19 @@
+# Estado atual — v3.11.1 — 2026-11-13
+
+**Objetivo e situação:** substituição completa do Next.js planejada em 14 entregas, agora visíveis na guia Migração do Atlas vivo. Angular assume a aplicação web. Supabase preserva autenticação e banco e atende as operações protegidas. A abordagem selecionada é prévia Angular isolada e virada após paridade, com navegação interna sem recarregar o documento. Implementação da migração pendente.
+
+**Base e validação:** DOCS_DIR `Documentacao_Projeto_Nos`, branch `main`, base `c46ad54`. A versão dos manifestos e do título do Atlas é 3.11.1. A indicação 3.11.2 no rodapé do Atlas diverge dessa versão. Hospedagem, integrações protegidas e compatibilidade de sessão serão validadas antes da virada. Próximo passo: A01, conferir a Tela 66 no Atlas e validar edição do próprio nome com Angular e Supabase local.
+
+**Versionamento da transição:** linha Next.js em `3.x`, prévia Angular a partir de `4.0.0-alpha.1` após A01, candidata `4.0.0-rc.1` após paridade e ensaio de retorno e `4.0.0` na virada pública. Versões futuras planejadas. [Convenção no plano](planos/migracao-angular.md#versionamento-durante-a-transição).
+
+**Verificações do Atlas:** guia Migração aprovada em 1440 e 390 px. Visão global aprovada. A expectativa sobre Google e Apple no verificador do MVP também falha no Git anterior.
+
+**Continuidade Git:** plano e guia do Atlas formam uma unidade pendente, com a convenção de versões registrada no plano. Sugestão: `feat(atlas): apresentar roteiro de migração para Angular`. Contador 62 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
+
+**Índice:** [Guia Migração](../wireframes/atlas/index.html#migracao) · [Plano vigente](planos/migracao-angular.md) · [Registro da entrega](registros/registro-v3.11.1-2026-11-13-imp-atlas-fun-roteiro-migracao-angular.md) · [Planejamento anterior](registros/registro-v3.11.1-2026-11-13-imp-planejamento-fun-substituicao-next-angular.md).
+
+---
+
 # Publicação concluída e avaliação de sincronização — v3.11.0 — 2026-11-07
 
 **Resultado:** mudanças publicadas na main do GitHub e em produção. Commit visual f21663cd2dd49e71503db69ad6e6303c7c8f7b85 e funcional d4cd65b8f0a3a2a6c96626762c1eb1f3a801ddba conferidos nos objetos Git e na referência remota. Netlify Published do funcional, deploy6aeed364ac597f3f225db7bb,42s. Site Conta HTTP200, CSS novo servido e /nucleos sem sessão HTTP307. DOCS_DIR Documentacao_Projeto_Nos; versão3.11.0; main.
@@ -193,6 +209,7 @@
 **Continuidade:** branch main; DOCS_DIR Documentacao_Projeto_Nos. Contador37 conclusões acompanhadas, incluindo confirmação manual da publicação; lacuna histórica e último marco100 preservados. Registros operacionais consolidados em commit documental sem novo build. [Registro de produção](registros/registro-v3.9.0-2026-11-06-imp-producao-fun-publicacao-aplicativo-google.md). Sem alteração funcional nova nem suíte extensa repetida. Checkpoints abaixo são históricos.
 
 ---
+
 # Em andamento — publicação em produção — v3.9.0 — 2026-11-06
 
 **Objetivo autorizado:** deploy de todas as entregas atuais no site noslife.netlify.app, com Google em produção. Código4e6211c na branch feat/modelo-habito; main331d224 é ancestral, avanço direto planejado para CI. Produção anterior deploy6aedbe1a4c5eda30986373c0. DOCS_DIR: Documentacao_Projeto_Nos. Versão3.9.0 preservada.
@@ -353,7 +370,6 @@
 
 ---
 
-
 ## Atlas e planejamento — modelo Hábito — v3.7.2 — 2026-11-06
 
 **Objetivo e aceite.** Aplicar Proposta → Hábito → Essência ao Atlas/MVP/planejamento com três colunas, reuso de Hábito/Agenda e dependências coerentes. DOCS_DIR: Documentacao_Projeto_Nos. Base main/e500061; início limpo. Versão3.7.2 preservada; nenhum arquivo funcional do aplicativo, migração ou manifesto alterado.
@@ -387,7 +403,6 @@
 **Índice:** [registro da publicação](registros/registro-v3.7.2-2026-11-06-imp-github-fun-publicacao-consolidacao-habito.md) · [registro da revisão](registros/registro-v3.7.2-2026-11-06-imp-documentacao-acordos-fun-consolidacao-habito.md).
 
 ---
-
 
 ## Revisão documental dos acordos — v3.7.2 — 2026-11-06
 
@@ -934,23 +949,16 @@ Testes de caixa preta agrupados no MVP01:18 novos casos M01-063–080 e revisão
 **Contador:**144; último marco100/próximo200. **Unidade pronta para commit:** ajuste de setas do Kanban; sugestão: fix(acordos): alinhar setas no topo centro e base do kanban. Pendências anteriores permanecem registradas nos marcos abaixo. Nenhum commit/push/deploy. **Próximo passo:** revisar Acordos no aplicativo; publicação somente quando autorizada. Ferramentas locais suficientes; sem consulta de biblioteca ou instalação adicional.
 
 ## Restauração pontual da árvore na Conta — v3.0.1 — 2026-10-20
-+
-+**Versão vigente:**3.0.1. **DOCS_DIR:**Documentacao_Projeto_Nos. Branch codex/novo-layout, referência de44ca8; amplo trabalho anterior preservado e sem commit/push/deploy.
-+
-+**Objetivo e aceite:** restaurar somente a ilustração original em /conta sem sessão, dentro do layout novo. Autorização explícita do usuário permite essa exceção pontual à remoção visual anterior. Tamanho280px no computador/160px no celular; frases10s e funções preservadas. Sem alteração de modais.
-+
-+**Situação e arquivos:** concluído localmente. application-shell.tsx reutiliza Next Image e imagem original; layout-system.css dimensiona a ilustração; product-ui.js/product.css sincronizam Atlas01/02. getUser e showTree={!user} preservados; recuperação, boas-vindas e outras rotas não recebem a árvore restaurada.
-+
-+**Validação:**12 testes de layout/reflexões aprovados no servidor local3000 em operações somente leitura; tipos e sintaxe do Atlas aprovados, inspeção em1440/640/390px sem overflow. Atlas01/02 computador/celular e ausência em72 conferidos. Autorrevisão focal/diff. Servidor isolado3100 não respondeu em120s; alternativa temporária documentada. Sem nova jornada autenticada ou build de produção nesta alteração visual.
-+
-+**Evidências e próximo passo:** [registro](registros/registro-v3.0.1-2026-10-20-imp-conta-fun-restauracao-arvore.md) e [galeria com nove prints](../wireframes/comparacoes/v3.0.1-2026-10-20-conta-arvore/index.html). Atualizar /conta para revisão. Aplicativo3000 mantido. Fontes e galerias anteriores preservadas. Regra permanente de modais continua no [inventário](funcionalidades/modais-interface.md).
-+
-+**Contador de interações concluídas:**143, a partir de142. Último marco de over-engineering100; próximo200. **Pendências de commit:** unidade visual3.0.0 e correção TLS anteriores mantidas; restauração pontual da árvore em3.0.1 pronta como unidade separável. Sugestão: fix(conta): restaurar ilustração da árvore no layout novo. Nenhum commit criado.
-+
-+**Ferramentas:** Superpowers entendimento/TDD/verificação proporcionais; Context7 Next16.2.9 (catálogo disponível; projeto16.3.6 preservado), imagem responsiva e preload. Pesquisa local delimitada; sem necessidade de pesquisa avançada Octocode ou instalação adicional.
-+
-+## Marco anterior — reconstrução integral validada em18/10/2026
-+
+
+- +**Versão vigente:**3.0.1. **DOCS_DIR:**Documentacao_Projeto_Nos. Branch codex/novo-layout, referência de44ca8; amplo trabalho anterior preservado e sem commit/push/deploy.
+- +**Objetivo e aceite:** restaurar somente a ilustração original em /conta sem sessão, dentro do layout novo. Autorização explícita do usuário permite essa exceção pontual à remoção visual anterior. Tamanho280px no computador/160px no celular; frases10s e funções preservadas. Sem alteração de modais.
+- +**Situação e arquivos:** concluído localmente. application-shell.tsx reutiliza Next Image e imagem original; layout-system.css dimensiona a ilustração; product-ui.js/product.css sincronizam Atlas01/02. getUser e showTree={!user} preservados; recuperação, boas-vindas e outras rotas não recebem a árvore restaurada.
+- +**Validação:**12 testes de layout/reflexões aprovados no servidor local3000 em operações somente leitura; tipos e sintaxe do Atlas aprovados, inspeção em1440/640/390px sem overflow. Atlas01/02 computador/celular e ausência em72 conferidos. Autorrevisão focal/diff. Servidor isolado3100 não respondeu em120s; alternativa temporária documentada. Sem nova jornada autenticada ou build de produção nesta alteração visual.
+- +**Evidências e próximo passo:** [registro](registros/registro-v3.0.1-2026-10-20-imp-conta-fun-restauracao-arvore.md) e [galeria com nove prints](../wireframes/comparacoes/v3.0.1-2026-10-20-conta-arvore/index.html). Atualizar /conta para revisão. Aplicativo3000 mantido. Fontes e galerias anteriores preservadas. Regra permanente de modais continua no [inventário](funcionalidades/modais-interface.md).
+- +**Contador de interações concluídas:**143, a partir de142. Último marco de over-engineering100; próximo200. **Pendências de commit:** unidade visual3.0.0 e correção TLS anteriores mantidas; restauração pontual da árvore em3.0.1 pronta como unidade separável. Sugestão: fix(conta): restaurar ilustração da árvore no layout novo. Nenhum commit criado.
+- +**Ferramentas:** Superpowers entendimento/TDD/verificação proporcionais; Context7 Next16.2.9 (catálogo disponível; projeto16.3.6 preservado), imagem responsiva e preload. Pesquisa local delimitada; sem necessidade de pesquisa avançada Octocode ou instalação adicional.
+- +## Marco anterior — reconstrução integral validada em18/10/2026
+-
 
 ## Marcos históricos — a referência atual é o primeiro bloco deste documento
 
@@ -1514,7 +1522,6 @@ Usuário solicitou commit e push abrangendo toda a entrega. Main e origin/main i
 
 Usuário autorizou commit/push abrangentes para main, incluindo a revisão documental de segurança anteriormente pendente. Base e origin/main iguais após fetch; segredo e artefatos ignorados. [Registro de publicação](registros/registro-v0.12.0-2026-10-07-02-imp-publicacao-git-fun-rastreabilidade-conta-entrada.md). Conferir objeto do commit e hash remoto antes de concluir. Sem deploy incluído na autorização.
 
-
 **Controle da publicação:** suíte repetida com 108/108 aprovados. Objeto inicial e árvore preparada conferidos; captura histórica da tela 72 corrigida após inspeção visual e incorporada ao mesmo commit. Conjunto final: 74 arquivos. Push normal autorizado para origin/main; comparar hash remoto ao HEAD no encerramento e reportar resultado. Removida pendência de commit após comprovar inclusão dos arquivos, sem novo desenvolvimento ou deploy.
 
 ## Revisão documental — autenticação e segurança v2.8 — 2026-10-06
@@ -1759,7 +1766,6 @@ Superpowers using-superpowers, brainstorming e verification-before-completion li
 - [Próximo recorte — Nossa Árvore](funcionalidades/nossa-arvore.md): fontes, base real, lacunas e critérios de aceite.
 
 - [Publicação Git e continuidade da v0.11.0](registros/registro-v0.11.0-2026-10-03-02-imp-publicacao-git-fun-continuidade-arvore.md).
-
 
 **Conferência final da v0.12.0 — 2026-10-07:** tipos e build aprovados após proteção dos logs de callbacks; revisão independente desse ajuste sem achados. Seis telas em duas larguras reconferidas sem diferenças de rótulos/títulos/subtítulos/cor/fonte e sem transbordamento. 428 links nos 46 documentos locais modificados/novos e 171 links do atlas sem destino ausente; `git diff --check` aprovado. Aplicativo compilado disponível em http://127.0.0.1:3000; galeria/atlas em http://127.0.0.1:3400, processos locais desta sessão, sem publicação.
 

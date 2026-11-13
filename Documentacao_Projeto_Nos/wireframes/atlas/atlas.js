@@ -139,9 +139,10 @@ function futurePathHtml(journey){
 function renderFlows(){
   $('#flows-view').innerHTML=journeys.map((journey,index)=>`<article class="flow-card"><p class="eyebrow">PERCURSO ${pad(index+1)}</p><h2>${escapeHtml(journey.name)}</h2><div class="flow-path">${journey.ids.map((id,i)=>`${i?'<span class="flow-arrow" aria-hidden="true">→</span>':''}<button class="flow-node" data-go="${id}" ${journey.steps&&id===1?'data-entry-login':''}><strong>${pad(id)}</strong>${escapeHtml(byId(id).title)}${journey.steps?.[i]?`<small>${escapeHtml(journey.steps[i])}</small>`:''}</button>`).join('')}</div><p>${escapeHtml(journey.rule)}</p>${futurePathHtml(journey)}</article>`).join('');
 }
+const viewHashes={global:'#visao-global',mvp:'#mvp',migration:'#migracao'};
 function setView(nextView){
   view=nextView;
-  for(const mode of ['atlas','prototype','flows','global','mvp'])$(`#${mode}-view`).hidden=mode!==view;
+  for(const mode of ['atlas','prototype','flows','global','mvp','migration'])$(`#${mode}-view`).hidden=mode!==view;
   document.body.dataset.view=view;
   document.querySelectorAll('#chapter-nav button').forEach(button=>button.setAttribute('aria-pressed',String(['global','mvp'].includes(view)?button.dataset.view===view:view==='atlas'&&Number(button.dataset.chapter)===chapterFilter)));
   document.querySelectorAll('.view-tabs [data-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.view===view)));
@@ -150,9 +151,9 @@ function setView(nextView){
   if(view==='global')renderGlobal();
   if(view==='mvp')renderMvp();
   if(view==='atlas')renderAtlas();
-  if(view!=='prototype'&&((view!=='global'&&location.hash==='#visao-global')||(view!=='mvp'&&location.hash==='#mvp')))history.replaceState(null,'',location.pathname+location.search);
+  if(view!=='prototype'&&Object.values(viewHashes).includes(location.hash)&&viewHashes[view]!==location.hash)history.replaceState(null,'',location.pathname+location.search);
   if(view==='prototype')renderPrototype();
-  $('#result-count').textContent=view==='mvp'?`${filteredScreens().length} de ${screens.length} telas · MVP aprovado e evolução completa`:view==='global'?`${filteredScreens().length} de ${screens.length} telas · sequência e ramificações do projeto`:view==='atlas'?`${filteredScreens().length} de ${screens.length} telas · selecione uma para inspecionar`:view==='prototype'?`Tela ${pad(selectedId)} · ${byId(selectedId).title}`:`${journeys.length} percursos · selecione uma etapa para abrir sua tela`;
+  $('#result-count').textContent=view==='migration'?`${document.querySelectorAll('#migration-view details').length} entregas planejadas`:view==='mvp'?`${filteredScreens().length} de ${screens.length} telas · MVP aprovado e evolução completa`:view==='global'?`${filteredScreens().length} de ${screens.length} telas · sequência e ramificações do projeto`:view==='atlas'?`${filteredScreens().length} de ${screens.length} telas · selecione uma para inspecionar`:view==='prototype'?`Tela ${pad(selectedId)} · ${byId(selectedId).title}`:`${journeys.length} percursos · selecione uma etapa para abrir sua tela`;
 }
 function openScreen(id,updateHash=true){
   if(view!=='prototype')inspectionOrigin=['global','mvp'].includes(view)?view:'atlas';
@@ -203,7 +204,17 @@ document.addEventListener('click',event=>{
   if(target.dataset.globalArea){const heading=$(`#global-area-${target.dataset.globalArea} h2`);heading.scrollIntoView({block:'start'});heading.focus({preventScroll:true});return;}
   if(target.dataset.mvpStage){openMvpPhase(target.dataset.mvpStage);return;}
   if(target.dataset.mvpPreview){toggleMvpPreview(target.dataset.mvpPreview);return;}
-  if(target.dataset.view){if(['global','mvp'].includes(target.dataset.view)){chapterFilter=-1;setView(target.dataset.view);history.replaceState(null,'',target.dataset.view==='mvp'?'#mvp':'#visao-global');$(`#${target.dataset.view}-view`).scrollIntoView({block:'start'});}else setView(target.dataset.view);return;}
+  if(target.dataset.view){
+    const nextView=target.dataset.view;
+    if(viewHashes[nextView])chapterFilter=-1;
+    setView(nextView);
+    if(viewHashes[nextView]){
+      history.replaceState(null,'',viewHashes[nextView]);
+      $('#'+nextView+'-view').scrollIntoView({block:'start'});
+    }
+    if(nextView==='migration')$('#migration-title').focus({preventScroll:true});
+    return;
+  }
   if(target.dataset.chapter!==undefined){chapterFilter=Number(target.dataset.chapter);document.querySelectorAll('[data-chapter]').forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.chapter)===chapterFilter)));renderAtlas();setView('atlas');$('#atlas-view').scrollIntoView({block:'start'});return;}
   if(target.dataset.state){previewState=target.dataset.state;document.querySelectorAll('[data-state]').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));renderPrototype();return;}
   if(target.dataset.width){width=target.dataset.width;document.querySelectorAll('[data-width]').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));renderPrototype();return;}
@@ -249,6 +260,6 @@ document.addEventListener('keydown',event=>{const target=event.target.closest('[
 function renderFilteredView(){if(view==='mvp')renderMvp();else if(view==='global')renderGlobal();else renderAtlas();$('#result-count').textContent=`${filteredScreens().length} de ${screens.length} telas · ${view==='mvp'?'MVP aprovado e evolução completa':view==='global'?'sequência e ramificações do projeto':'selecione uma para inspecionar'}`;}
 $('#search').addEventListener('input',renderFilteredView);$('#status-filter').addEventListener('change',renderFilteredView);
 $('#previous').addEventListener('click',()=>openScreen(selectedId-1));$('#next').addEventListener('click',()=>openScreen(selectedId+1));
-$('#print').addEventListener('click',()=>{const printingView=['global','mvp'].includes(view)?view:'atlas';chapterFilter=-1;$('#search').value='';$('#status-filter').value='all';renderAtlas();setView(printingView);window.print();});
-function readHash(){if(['#visao-global','#mvp'].includes(location.hash)){chapterFilter=-1;setView(location.hash==='#mvp'?'mvp':'global');return;}const match=location.hash.match(/^#tela-(\d+)$/);if(match&&byId(match[1]))openScreen(match[1],false);}
+$('#print').addEventListener('click',()=>{if(view==='migration'){window.print();return;}const printingView=['global','mvp'].includes(view)?view:'atlas';chapterFilter=-1;$('#search').value='';$('#status-filter').value='all';renderAtlas();setView(printingView);window.print();});
+function readHash(){const mode=Object.keys(viewHashes).find(key=>viewHashes[key]===location.hash);if(mode){chapterFilter=-1;setView(mode);return;}const match=location.hash.match(/^#tela-(\d+)$/);if(match&&byId(match[1]))openScreen(match[1],false);}
 window.addEventListener('hashchange',readHash);readHash();

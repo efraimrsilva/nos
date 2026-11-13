@@ -1,3 +1,5 @@
+> **v3.11.1 — 13/11/2026:** a guia [Migração](atlas/index.html#migracao) apresenta as 14 entregas planejadas para substituir Next.js por Angular, com Supabase e navegação interna sem recarregar o documento. [Plano vigente](../_andamento/planos/migracao-angular.md).
+
 > **v3.9.2 — 07/11/2026 — Produção:** Conta pública compacta, ícone oficial Google, transição suave com movimento reduzido e rodapé na base sem sobrepor conteúdo. Publicado e conferido em produção; deploy6aeea7ee5fe36058ee5cebd4. Histórico datado abaixo preservado.
 
 > **v3.9.1 — 07/11/2026:** somente Google como botão social na Conta; e-mail/senha preservados. Microsoft descartado; Apple sem botão e desativado. Google já confirmado em produção3.9.0; retirada do botão publicada e conferida em produção. Trechos datados abaixo são históricos.
@@ -22,7 +24,6 @@ O Atlas, a Visão global, os Percursos e o MVP seguem **Proposta → Hábito →
 
 [Contrato vigente](../_andamento/funcionalidades/fluxo-proposta-habito-essencia.md) · [Plano e compatibilidade](../_andamento/planos/modelo-habito.md). São73 fichas, com situações preservadas e atribuição única ao MVP; contagens e referências datadas abaixo são históricas. O documento importado e galerias antigas preservam o modelo anterior, sem orientar o desenho futuro.
 
-
 **Atualização vigente — v3.6.0 — 03/11/2026:** Pessoas sai da navegação; Início13 exibe propósito e edição separada de identidade, e abre Integrantes73 em modal. Conta66/popover/Mais reúne convites, saída e encerramento. Mobile: Início → Seus Núcleos → Acordos → Agenda → Mais. IDs preservados; /pessoas é compatibilidade. [Contrato](../_andamento/funcionalidades/organizacao-nucleo.md) · [galeria](comparacoes/v3.6.0-2026-11-03-nucleo-tela_13-tela_66-tela_71-tela_73/index.html).
 
 **Atualização local v3.5.0 — 03/11/2026:** telas01/02/05,12/13/14/18/66/73 e navegação compartilhada sincronizadas com as fontes locais. Nova proposta sem Categoria (pending/habit), Acordos sem filtros globais, preservando busca local nos registros carregados; contagens consultadas a cada3s no aplicativo, sem refresh da rota. Agenda mantém semana/lista e acrescenta seletor mensal UTC com janela móvel de±100anos, limites1–9999. Núcleos exibem integrantes em cartões inteiros e adaptam colunas/altura. Início simplificado; convite administrativo no cabeçalho. Conta mantém contexto, animações, brilho vermelho acessível e mostrar/ocultar senha; oito luzes decorativas. Sidebar e barra inferior+Mais oferecem os mesmos destinos; Kanban/Painéis e lista móvel preservam ações. O Atlas não consulta contas, não grava dados nem simula polling remoto. [Galeria e limites](comparacoes/v3.5.0-2026-11-03-paridade-tela_01-tela_05-tela_12-tela_13-tela_14-tela_18-tela_66-tela_73/index.html). Galerias históricas preservadas.
@@ -33,9 +34,7 @@ O Atlas, a Visão global, os Percursos e o MVP seguem **Proposta → Hábito →
 
 **Entrega local — v3.2.1 —23/10/2026:** nove temas, incluindo Solar/Âmbar e Noturno/Neon. Aparência padronizada no desktop e menu Mais; ícones preservam as cores originais em todos os temas. Login/boas-vindas claros. Sem deploy. [Galeria](comparacoes/v3.2.1-2026-10-23-temas-solar-neon/index.html) · [Contrato](../_andamento/funcionalidades/aparencia-conta.md).
 
-
 **Entrega local — v3.2.0 — 2026-10-23:** Aparência reúne sete temas em Mais, navegação lateral e Configurações66; aplica imediatamente e salva por conta. Login/boas-vindas permanecem claros. Cor própria por tema destaca a área atual com faixa desktop e indicador móvel; Mais ativo nas demais áreas. Validação local e revisão concluídas; publicação pendente. [Contrato](../_andamento/funcionalidades/aparencia-conta.md) · [galeria](comparacoes/v3.2.0-2026-10-23-temas-conta/index.html) · [teste de caixa preta](../_andamento/testes-caixa-preta/aparencia-conta.md).
-
 
 **Publicação vigente — v3.0.3 — 20/10/2026:** layout completo em [produção](https://noslife.netlify.app/conta), deploy6ad7eeb747e9c9a82835d3b5/main@8b529e8. Build Netlify aprovado;27 rotas autenticadas verificadas com fixtures removidas. Atlas preserva73 fichas,39 recortes existentes/34 planejadas e20 contextos modais, sem promover esboços a funcionalidades. [Registro](../_andamento/registros/registro-v3.0.3-2026-10-20-02-imp-deploy-netlify-fun-publicacao-producao.md) · [prints](comparacoes/v3.0.3-2026-10-20-producao-netlify/index.html). Marcos abaixo são históricos; SMTP/piloto completo mantêm pendências.
 
@@ -58,7 +57,6 @@ Os marcos e especificações abaixo registram o estado de cada data. Para compos
 **Composição vigente — v1.0.1 — 15/10/2026:** árvore decorativa apenas na entrada de Conta sem sessão e boas-vindas opcionais. Demais telas que usam a estrutura compartilhada ocupam uma coluna central de até 672px, sem painel lateral ou árvore acima no celular. Reintrodução depende de benefício confirmado para a experiência. Rotas, permissões, percursos e funcionalidades planejadas não mudaram. [Comparação local](comparacoes/v1.0.1-2026-10-15-arvore/index.html). Marcos abaixo preservam o histórico.
 
 **Atualização de implementação — 2026-10-14 — v1.0.0 · funcional validado localmente:** o Atlas vivo representa o contrato aprovado de administração e participação individual. São **73 telas: 39 recortes existentes e 34 planejadas**. Nova Tela73 `/nucleos/[id]/pessoas`; IDs anteriores preservados. Gestão73 → saída71 → Seus Núcleos12 e configurações66 → privacidade67, conta69 ou ajuda70 são caminhos contextuais. Proposta18 → conferência22 → participação23 → detalhe24; administrador inicia teste e gerencia28; registro27/histórico25; alteração30/31 → versões33 → novo aceite23. Não há votação coletiva, unanimidade, quórum ou prazo de votação nos acordos vigentes. Preferência de autoria inicialmente desativada vale para saídas futuras; histórico permanece. Sintagma Software e sintagmasoftware@gmail.com são o responsável e canal manual. Conteúdo ilustrativo do Atlas não grava dados. Desenhos em modo Documento aprovado e galerias anteriores preservam história. Termos completos, retenção e operação do piloto continuam pendentes; item5 dependente do Google está adiado. [Contrato aprovado](../_andamento/funcionalidades/administracao-participacao.md).
-
 
 **Marco histórico da aprovação — v0.16.0 — 14/10/2026:** [administração e participação](../_andamento/funcionalidades/administracao-participacao.md) substitui votação coletiva de acordos por gestão administrativa e escolha individual. Saída não cancela acordos nem abre votação; último administrador transfere papel por sorteio. Naquele marco documental, Atlas e código ainda representavam contratos anteriores. A implementação e sincronização corrente estão descritas acima.
 
@@ -259,11 +257,9 @@ Manter os IDs estáveis, registrar telas acrescentadas ou consolidadas e sincron
 
 O protótipo e suas extrações estão agora em **Documentacao_Projeto_Nos/Telas/**, após movimentação feita pelo usuário. Esses materiais preservam a origem histórica; o atlas acompanha a evolução vigente. Regras implementadas e decisões explícitas prevalecem sobre exemplos antigos.
 
-
 ## Resumo de Núcleos — 07/11/2026 — v3.10.1
 
 Telas12/13: cartões com papel próprio e total exato de status active por Núcleo; participação verde sem escudo e administração com escudo. Sem novo modal, rota ou mudança de permissão. Contagens do Atlas são exemplos. [Registro](../_andamento/registros/registro-v3.10.1-2026-11-07-imp-resumo-nucleos-fun-participacao-acordos-ativos.md) e [galeria](comparacoes/v3.10.1-2026-11-07-resumo-nucleos-tela_12-tela_13/index.html); limites dos verificadores anteriores explicitados no registro.
-
 
 ## Sincronização de nomes de perfil — v3.11.0 — 07/11/2026
 

@@ -1,61 +1,363 @@
 <!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light">
-  <title>Nós — Atlas de wireframes · v3.11.1</title>
-  <link rel="stylesheet" href="atlas.css">
-  <link rel="stylesheet" href="product.css">
-  <link rel="stylesheet" href="global-view.css">
-  <link rel="stylesheet" href="mvp.css">
-  <link rel="stylesheet" href="account-motion.css">
-  <script defer src="screens.js"></script>
-  <script defer src="approved-layouts.js"></script>
-  <script defer src="icons.js"></script>
-  <script defer src="assets/reflection-phrases.js"></script>
-  <script defer src="product-ui.js"></script>
-  <script defer src="global-view.js"></script>
-  <script defer src="mvp-plan.js"></script>
-  <script defer src="atlas.js"></script>
-</head>
-<body>
-  <a class="skip" href="#workspace">Ir para o conteúdo</a>
-  <aside class="sidebar" aria-label="Navegação do atlas">
-    <a class="brand" href="#tela-01"><span class="brand-mark">nós<span>✳</span></span><small>ATLAS DE PRODUTO</small></a>
-    <p class="side-caption">Um mapa para cultivar<br>cada parte da experiência.</p>
-    <nav id="chapter-nav" aria-label="Áreas do produto"></nav>
-    <div class="side-footer"><span class="edition">ATLAS VIVO · v3.10.1 · 07 NOV 2026</span><p>Conta compacta com Google e e-mail. Aviso administrativo de novas contas ativado em produção, com somente nome e e-mail no relatório; teste aceito pelo serviço de e-mail e recebimento confirmado pelo usuário, que também relatou sucesso em teste adicional. Sem alteração de telas nesta entrega.<br>Modais identificados. Esboços futuros preservados.</p><a href="../GUIA.md">Guia e decisões do wireframe ↗</a></div>
-  </aside>
-  <main id="workspace" tabindex="-1">
-    <header class="masthead">
-      <div><p class="eyebrow">PROJETO NÓS / GUIA DE DESENVOLVIMENTO</p><h1>Do primeiro acesso<br>ao cuidado que permanece<span>.</span></h1><p class="intro">Todas as telas. Um contexto de cada vez.<br>Conta é o início; consentimento acompanha todo o caminho.</p></div>
-      <div class="cover-art" aria-hidden="true"><img src="assets/tree.png" alt=""><span>Um jardim de possibilidades</span></div>
-    </header>
-    <section class="overview" aria-label="Escopo e legenda">
-      <div><strong id="total-count">72</strong><span>telas e estados de fluxo</span></div><div><strong>37</strong><span>interfaces de origem mapeadas</span></div><div><strong id="planned-count"></strong><span>telas planejadas · pendentes</span></div><div><strong id="existing-count"></strong><span>recortes existentes · com limites</span></div>
-    </section>
-    <p class="planning-note"><span class="dot"></span>Material de planejamento. Conteúdo ilustrativo; botões navegam entre desenhos. Nenhuma conta, votação, gravação ou mensagem é executada.</p>
-    <p class="planning-note">v3.9.0 · Lápis em Dados da conta edita o próprio nome com salvar/cancelar e persistência autenticada; Atlas demonstra sem salvar dados reais. Entrar com convite no cabeçalho de Seus Núcleos e em Conta e Núcleos no perfil/página completa. Menu do perfil com seis seções; Notificações e Apagar minha conta permanecem apenas na página completa. Busca do topo da área logada removida. Perfil desktop abre painel flutuante com seis seções da conta, ações em modais e contexto do Núcleo preservado. Apagar minha conta em bloco próprio; opção Conta e segurança removida. Entrada suave dos blocos da conta, respeitando movimento reduzido. Último Núcleo preservado por conta neste navegador ao abrir Conta, Preferências e Ajuda; atalhos desktop/mobile retornam ao mesmo espaço. Conta, Preferências e Ajuda reunidas; Aparência padronizada, avatares com letras do nome e barra lateral com controle animado. Nove temas e cores dos ícones preservados. <a href="../../_andamento/funcionalidades/aparencia-conta.md">Contrato de aparência ↗</a></p>
-    <p class="planning-note" id="habit-model-status">Aplicativo local v3.9.0 · Proposta → Hábito → Essência. Hábito reúne prática, momentos e revisões, inclusive registros legados sem regravar termos ou aceites. Quadro de três colunas implementado; Essência e passagens individuais continuam esboços com o mesmo informe de Manifesto. Migração de funções validada somente localmente, sem publicação remota.</p>
-    <p class="planning-note" id="release-status">v3.9.0 · O ícone de relato se expande após 1 minuto e volta ao tamanho original após 10 segundos. Sino com painel suspenso. Agenda em desenvolvimento com calendário interno disponível. Conta e relato com textos simplificados. Identidade do Núcleo sincronizada entre integrantes no aplicativo, sem recarregar, desktop/celular; o Atlas permanece ilustrativo e offline. Relatar um problema em Ajuda, perfil/Mais e cabeçalho autenticado, com destinatário oculto; Atlas demonstra sem enviar e-mail. Consolidação local: propostas sem Categoria, Acordos sem filtros globais, preservando busca local nos registros carregados, contagens de participação sem atualizar a página, calendário mensal com navegação por mês e ano, cartões de Núcleos com integrantes, Início simplificado e paridade de navegação desktop/mobile. Conta com mostrar/ocultar senha, oito luzes na árvore e movimento reduzido respeitado. Atlas offline com dados ilustrativos; publicação não comprovada por esta galeria.</p>
-    <div class="toolbar">
-      <div class="view-tabs" role="group" aria-label="Modo de visualização"><button data-view="atlas" aria-pressed="true">Atlas</button><button data-view="prototype" aria-pressed="false">Tela a tela</button><button data-view="flows" aria-pressed="false">Percursos</button></div>
-      <label class="search"><span class="sr-only">Buscar telas</span><input id="search" type="search" placeholder="Buscar tela, rota ou pendência…"></label>
-      <label><span class="sr-only">Filtrar implementação</span><select id="status-filter"><option value="all">Todas as situações</option><option value="Planejada">Planejadas · pendentes</option><option value="Recorte existente">Recortes existentes</option></select></label>
-      <button id="print" class="quiet">Imprimir atlas</button>
-    </div>
-    <div class="atlas-heading"><p id="result-count" aria-live="polite"></p><p><span class="badge planned">Planejada</span> contrato/implementação pendente <span class="badge existing">Recorte existente</span> consultar limites</p></div>
-    <section id="atlas-view" aria-label="Todas as telas"></section>
-    <section id="mvp-view" hidden aria-label="MVP e Continuidade — caminho de implementação"></section>
-    <section id="global-view" hidden aria-label="Visão global do projeto"></section>
-    <section id="prototype-view" hidden aria-label="Inspeção da tela selecionada">
-      <div class="prototype-top"><button id="previous" class="quiet">← Anterior</button><div class="preview-width" role="group" aria-label="Largura da prévia"><button data-width="mobile" aria-pressed="true">Celular</button><button data-width="desktop" aria-pressed="false">Web</button></div><button id="next" class="quiet">Próxima →</button></div>
-      <div class="inspection"><div><div class="state-tabs" role="group" aria-label="Estado de interface"><button data-state="content" aria-pressed="true">Conteúdo</button><button data-state="empty" aria-pressed="false">Vazio</button><button data-state="loading" aria-pressed="false">Carregando</button><button data-state="error" aria-pressed="false">Erro</button><button data-state="blocked" aria-pressed="false">Sem permissão</button><button data-state="success" aria-pressed="false">Sucesso</button></div><div id="screen-preview"></div></div><aside id="screen-spec" class="spec-panel" aria-label="Ficha de implementação"></aside></div>
-    </section>
-    <section id="flows-view" hidden aria-label="Percursos do produto"></section>
-    <footer class="main-footer"><span>PROJETO NÓS</span><p>O cuidado não é um placar. A proposta não é um acordo ativo.<br>O espaço privado existe em cada tela, em cada decisão.</p><a href="../COBERTURA.md">Consultar cobertura e pendências ↗</a></footer>
-  </main>
-  <div id="toast" role="status" class="toast" hidden></div>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>Nós — Atlas de wireframes · v3.11.1</title>
+    <link rel="stylesheet" href="atlas.css" />
+    <link rel="stylesheet" href="product.css" />
+    <link rel="stylesheet" href="global-view.css" />
+    <link rel="stylesheet" href="mvp.css" />
+    <link rel="stylesheet" href="account-motion.css" />
+    <script defer src="screens.js"></script>
+    <script defer src="approved-layouts.js"></script>
+    <script defer src="icons.js"></script>
+    <script defer src="assets/reflection-phrases.js"></script>
+    <script defer src="product-ui.js"></script>
+    <script defer src="global-view.js"></script>
+    <script defer src="mvp-plan.js"></script>
+    <script defer src="atlas.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#workspace">Ir para o conteúdo</a>
+    <aside class="sidebar" aria-label="Navegação do atlas">
+      <a class="brand" href="#tela-01"
+        ><span class="brand-mark">nós<span>✳</span></span
+        ><small>ATLAS DE PRODUTO</small></a
+      >
+      <p class="side-caption">
+        Um mapa para cultivar<br />cada parte da experiência.
+      </p>
+      <nav id="chapter-nav" aria-label="Áreas do produto"></nav>
+      <div class="side-footer">
+        <span class="edition">ATLAS VIVO · v3.11.2 · 13 NOV 2026</span>
+        <p>
+          A guia Migração reúne as entregas planejadas para substituir o Next.js
+          por Angular.
+        </p>
+        <a href="../GUIA.md">Guia e decisões do wireframe ↗</a>
+      </div>
+    </aside>
+    <main id="workspace" tabindex="-1">
+      <header class="masthead">
+        <div>
+          <p class="eyebrow">PROJETO NÓS / GUIA DE DESENVOLVIMENTO</p>
+          <h1>
+            Do primeiro acesso<br />ao cuidado que permanece<span>.</span>
+          </h1>
+          <p class="intro">
+            Todas as telas. Um contexto de cada vez.<br />Conta é o início;
+            consentimento acompanha todo o caminho.
+          </p>
+        </div>
+        <div class="cover-art" aria-hidden="true">
+          <img src="assets/tree.png" alt="" /><span
+            >Um jardim de possibilidades</span
+          >
+        </div>
+      </header>
+      <section class="overview" aria-label="Escopo e legenda">
+        <div>
+          <strong id="total-count">72</strong
+          ><span>telas e estados de fluxo</span>
+        </div>
+        <div><strong>37</strong><span>interfaces de origem mapeadas</span></div>
+        <div>
+          <strong id="planned-count"></strong
+          ><span>telas planejadas · pendentes</span>
+        </div>
+        <div>
+          <strong id="existing-count"></strong
+          ><span>recortes existentes · com limites</span>
+        </div>
+      </section>
+      <p class="planning-note">
+        <span class="dot"></span>Material de planejamento. Conteúdo ilustrativo;
+        botões navegam entre desenhos. Nenhuma conta, votação, gravação ou
+        mensagem é executada.
+      </p>
+      <p class="planning-note">
+        v3.9.0 · Lápis em Dados da conta edita o próprio nome com
+        salvar/cancelar e persistência autenticada; Atlas demonstra sem salvar
+        dados reais. Entrar com convite no cabeçalho de Seus Núcleos e em Conta
+        e Núcleos no perfil/página completa. Menu do perfil com seis seções;
+        Notificações e Apagar minha conta permanecem apenas na página completa.
+        Busca do topo da área logada removida. Perfil desktop abre painel
+        flutuante com seis seções da conta, ações em modais e contexto do Núcleo
+        preservado. Apagar minha conta em bloco próprio; opção Conta e segurança
+        removida. Entrada suave dos blocos da conta, respeitando movimento
+        reduzido. Último Núcleo preservado por conta neste navegador ao abrir
+        Conta, Preferências e Ajuda; atalhos desktop/mobile retornam ao mesmo
+        espaço. Conta, Preferências e Ajuda reunidas; Aparência padronizada,
+        avatares com letras do nome e barra lateral com controle animado. Nove
+        temas e cores dos ícones preservados.
+        <a href="../../_andamento/funcionalidades/aparencia-conta.md"
+          >Contrato de aparência ↗</a
+        >
+      </p>
+      <p class="planning-note" id="habit-model-status">
+        Aplicativo local v3.9.0 · Proposta → Hábito → Essência. Hábito reúne
+        prática, momentos e revisões, inclusive registros legados sem regravar
+        termos ou aceites. Quadro de três colunas implementado; Essência e
+        passagens individuais continuam esboços com o mesmo informe de
+        Manifesto. Migração de funções validada somente localmente, sem
+        publicação remota.
+      </p>
+      <p class="planning-note" id="release-status">
+        v3.9.0 · O ícone de relato se expande após 1 minuto e volta ao tamanho
+        original após 10 segundos. Sino com painel suspenso. Agenda em
+        desenvolvimento com calendário interno disponível. Conta e relato com
+        textos simplificados. Identidade do Núcleo sincronizada entre
+        integrantes no aplicativo, sem recarregar, desktop/celular; o Atlas
+        permanece ilustrativo e offline. Relatar um problema em Ajuda,
+        perfil/Mais e cabeçalho autenticado, com destinatário oculto; Atlas
+        demonstra sem enviar e-mail. Consolidação local: propostas sem
+        Categoria, Acordos sem filtros globais, preservando busca local nos
+        registros carregados, contagens de participação sem atualizar a página,
+        calendário mensal com navegação por mês e ano, cartões de Núcleos com
+        integrantes, Início simplificado e paridade de navegação desktop/mobile.
+        Conta com mostrar/ocultar senha, oito luzes na árvore e movimento
+        reduzido respeitado. Atlas offline com dados ilustrativos; publicação
+        não comprovada por esta galeria.
+      </p>
+      <div class="toolbar">
+        <div class="view-tabs" role="group" aria-label="Modo de visualização">
+          <button data-view="atlas" aria-pressed="true">Atlas</button
+          ><button data-view="prototype" aria-pressed="false">
+            Tela a tela</button
+          ><button data-view="flows" aria-pressed="false">Percursos</button
+          ><button
+            data-view="migration"
+            aria-pressed="false"
+            aria-controls="migration-view"
+          >
+            Migração
+          </button>
+        </div>
+        <label class="search"
+          ><span class="sr-only">Buscar telas</span
+          ><input
+            id="search"
+            type="search"
+            placeholder="Buscar tela, rota ou pendência…"
+        /></label>
+        <label
+          ><span class="sr-only">Filtrar implementação</span
+          ><select id="status-filter">
+            <option value="all">Todas as situações</option>
+            <option value="Planejada">Planejadas · pendentes</option>
+            <option value="Recorte existente">Recortes existentes</option>
+          </select></label
+        >
+        <button id="print" class="quiet">Imprimir atlas</button>
+      </div>
+      <div class="atlas-heading">
+        <p id="result-count" aria-live="polite"></p>
+        <p>
+          <span class="badge planned">Planejada</span> contrato/implementação
+          pendente
+          <span class="badge existing">Recorte existente</span> consultar
+          limites
+        </p>
+      </div>
+      <section id="atlas-view" aria-label="Todas as telas"></section>
+      <section
+        id="mvp-view"
+        hidden
+        aria-label="MVP e Continuidade — caminho de implementação"
+      ></section>
+      <section
+        id="global-view"
+        hidden
+        aria-label="Visão global do projeto"
+      ></section>
+      <section
+        id="prototype-view"
+        hidden
+        aria-label="Inspeção da tela selecionada"
+      >
+        <div class="prototype-top">
+          <button id="previous" class="quiet">← Anterior</button>
+          <div
+            class="preview-width"
+            role="group"
+            aria-label="Largura da prévia"
+          >
+            <button data-width="mobile" aria-pressed="true">Celular</button
+            ><button data-width="desktop" aria-pressed="false">Web</button>
+          </div>
+          <button id="next" class="quiet">Próxima →</button>
+        </div>
+        <div class="inspection">
+          <div>
+            <div
+              class="state-tabs"
+              role="group"
+              aria-label="Estado de interface"
+            >
+              <button data-state="content" aria-pressed="true">Conteúdo</button
+              ><button data-state="empty" aria-pressed="false">Vazio</button
+              ><button data-state="loading" aria-pressed="false">
+                Carregando</button
+              ><button data-state="error" aria-pressed="false">Erro</button
+              ><button data-state="blocked" aria-pressed="false">
+                Sem permissão</button
+              ><button data-state="success" aria-pressed="false">
+                Sucesso
+              </button>
+            </div>
+            <div id="screen-preview"></div>
+          </div>
+          <aside
+            id="screen-spec"
+            class="spec-panel"
+            aria-label="Ficha de implementação"
+          ></aside>
+        </div>
+      </section>
+      <section
+        id="flows-view"
+        hidden
+        aria-label="Percursos do produto"
+      ></section>
+      <section
+        id="migration-view"
+        class="migration-plan"
+        hidden
+        aria-labelledby="migration-title"
+      >
+        <h2 id="migration-title" tabindex="-1">Migração para Angular</h2>
+        <p>
+          <span class="badge planned">Planejada</span> A implementação está
+          pendente.
+        </p>
+        <p>
+          O Angular substituirá o Next.js. O Supabase continuará cuidando da
+          autenticação, dos dados e das operações que exigem execução no
+          servidor.
+        </p>
+        <p>
+          Entre telas internas, a navegação mantém cabeçalho e menus visíveis.
+          Se os dados demorarem, o feedback aparece apenas na área afetada.
+        </p>
+        <p>
+          Os módulos serão validados em prévia separada. O Angular assume o site
+          público depois da validação dos fluxos atuais.
+        </p>
+        <p>
+          <a href="../../_andamento/planos/migracao-angular.md"
+            >Consultar o plano com rotas e dependências ↗</a
+          >
+        </p>
+        <details>
+          <summary>01 · Base Angular e edição do nome</summary>
+          <p>
+            <strong>Aceite.</strong> Persistência, sessão expirada e isolamento
+            entre contas.
+          </p>
+        </details>
+        <details>
+          <summary>02 · Layout e navegação contínua</summary>
+          <p>
+            <strong>Aceite.</strong> Troca de rota sem recarregar o documento,
+            com estrutura persistente, teclado, foco e fechamento de modais.
+          </p>
+        </details>
+        <details>
+          <summary>03 · Conta e sessão</summary>
+          <p>
+            <strong>Aceite.</strong> Cadastro, login, confirmação, recuperação e
+            retorno do login social.
+          </p>
+        </details>
+        <details>
+          <summary>04 · Criação e seleção de Núcleos</summary>
+          <p>
+            <strong>Aceite.</strong> Rascunho, criação sem duplicidade e acesso
+            por vínculo.
+          </p>
+        </details>
+        <details>
+          <summary>05 · Convites</summary>
+          <p>
+            <strong>Aceite.</strong> Geração, prévia, aceite e revogação com
+            duas contas.
+          </p>
+        </details>
+        <details>
+          <summary>06 · Pessoas e administração</summary>
+          <p>
+            <strong>Aceite.</strong> Papéis, sincronização, saída e
+            encerramento.
+          </p>
+        </details>
+        <details>
+          <summary>07 · Propostas e respostas</summary>
+          <p>
+            <strong>Aceite.</strong> Consentimento, contagens e leitura de
+            registros anteriores.
+          </p>
+        </details>
+        <details>
+          <summary>08 · Ciclo de Hábitos</summary>
+          <p>
+            <strong>Aceite.</strong> Preservação dos aceites, momentos, revisões
+            e histórico.
+          </p>
+        </details>
+        <details>
+          <summary>09 · Agenda</summary>
+          <p>
+            <strong>Aceite.</strong> Calendário mensal e semanal, celular,
+            permissões e concorrência.
+          </p>
+        </details>
+        <details>
+          <summary>10 · Configurações e suporte</summary>
+          <p>
+            <strong>Aceite.</strong> Temas, privacidade, exclusão e envio
+            protegido.
+          </p>
+        </details>
+        <details>
+          <summary>11 · Áreas planejadas e navegação</summary>
+          <p>
+            <strong>Aceite.</strong> Prévia ilustrativa, destinos, totais e
+            permissões.
+          </p>
+        </details>
+        <details>
+          <summary>12 · Integrações e ensaio de publicação</summary>
+          <p>
+            <strong>Aceite.</strong> Fila de avisos, envio controlado e abertura
+            de links diretos.
+          </p>
+        </details>
+        <details>
+          <summary>13 · Virada pública</summary>
+          <p>
+            <strong>Aceite.</strong> Paridade dos fluxos, checagem pública e
+            retorno ensaiado.
+          </p>
+        </details>
+        <details>
+          <summary>14 · Remoção do Next.js</summary>
+          <p>
+            <strong>Aceite.</strong> Build, testes e publicação independentes do
+            Next.js.
+          </p>
+        </details>
+      </section>
+      <footer class="main-footer">
+        <span>PROJETO NÓS</span>
+        <p>
+          O cuidado não é um placar. A proposta não é um acordo ativo.<br />O
+          espaço privado existe em cada tela, em cada decisão.
+        </p>
+        <a href="../COBERTURA.md">Consultar cobertura e pendências ↗</a>
+      </footer>
+    </main>
+    <div id="toast" role="status" class="toast" hidden></div>
+  </body>
 </html>

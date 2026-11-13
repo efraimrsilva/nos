@@ -1,3 +1,21 @@
+## 2026-11-13 — v3.11.1 — Versionamento da transição para Angular
+
+Registrada a linha `3.x` para manutenção do Next.js, a série `4.0.0-alpha.N` para marcos verificados na prévia, a candidata `4.0.0-rc.1` após o ensaio e a versão `4.0.0` para a virada pública. Mudança documental, sem incremento de versão. [Convenção no plano](planos/migracao-angular.md#versionamento-durante-a-transição).
+
+---
+
+## 2026-11-13 — v3.11.1 — Guia Migração e abordagem selecionada
+
+O Atlas ganhou uma guia própria com 14 entregas planejadas. A decisão vigente usa Angular e Supabase, com prévia isolada, navegação interna contínua e virada após paridade. [Plano vigente](planos/migracao-angular.md) · [Registro](registros/registro-v3.11.1-2026-11-13-imp-atlas-fun-roteiro-migracao-angular.md).
+
+---
+
+## 2026-11-13 — v3.11.1 — Plano de substituição do Next.js
+
+Dividida a migração em 14 entregas com dependências, rotas e critérios de aceite, da edição do nome à remoção do framework. Definidas a prévia isolada, a virada e a condição de retorno. [Registro histórico](registros/registro-v3.11.1-2026-11-13-imp-planejamento-fun-substituicao-next-angular.md).
+
+---
+
 ## 2026-11-06 — v3.9.0 — Publicação Git autorizada do acesso social
 
 Três unidades atômicas commitadas: frameworks bf3a498, sugestões de caixa preta4e1a1b8 e login Google/preparação Apple identificado pelo título feat(auth): adicionar login Google e preparar acesso Apple na v3.9.0, com53 arquivos conferidos por hash. Testes/Atlas/versão/documentação e evidências operacionais incluídos. Validações anteriores reutilizadas; novas conferências limitadas ao conjunto Git, segurança do conteúdo e envio remoto. Encerramento documental integra o mesmo commit funcional, sem pendência de commit. [Registro](registros/registro-v3.9.0-2026-11-06-imp-github-fun-publicacao-login-social.md). Sem merge ou deploy por esta operação.
@@ -51,7 +69,6 @@ Proposta → Hábito → Essência no aplicativo, com compatibilidade de leitura
 ## 2026-11-06 — v3.7.2 · Publicação do Atlas/MVP do modelo Hábito
 
 Publicação autorizada de todas as alterações: organização do README/histórico preservada em bcb0705; Atlas, MVP, contratos e planejamento consolidados em Proposta → Hábito → Essência. Galeria22 capturas, verificador e oito casos manuais incluídos. Sem repetir testes; conferência de diff/objeto/envio pelo Git. [Registro](registros/registro-v3.7.2-2026-11-06-imp-github-fun-publicacao-atlas-habito.md).
-
 
 ## 2026-11-05 — v3.7.2 · Publicação autorizada no GitHub
 
@@ -891,27 +908,35 @@ Código e Git conferidos em 381a308. Próxima entrega proposta: Revisar Hábito 
 - **Evidência:** [registro da sessão](registros/registro-v0.1.0-2026-09-24-imp-tela-escolher-caminho-fun-entrada-nucleo.md). Configuração fora do Git do app.
 
 ## 2026-11-06 — v3.9.0 em produção
+
 Netlify Published6aee7dad0fc99510d78ebeda/main5170f72; banco17 migrações e ambiente configurados. Build/TypeScript/varredura aprovados. Google chegou à escolha oficial de conta; retorno público aguarda usuário. Apple desativada. Detalhes no registro de produção.
 
 ## 2026-11-06 — v3.9.0: confirmação manual Google em produção
+
 Usuário confirmou login e retorno ao Nós no domínio publicado. Evidência declarada pelo usuário, sem inspeção independente da sessão; encerra pendência manual do deploy. Apple e prova de entrega SMTP mantêm limites anteriores.
 
 ## 2026-11-07 — v3.9.1 — Reversão Microsoft e Conta somente Google
+
 Tentativa local Microsoft3.10.0 descartada a pedido; base54016c5 restaurada. Retirado apenas botão Apple e referência de erro; Google/e-mail preservados. Conferência local das duas abas aprovada. Sem publicação. [Registro](registros/registro-v3.9.1-2026-11-07-imp-conta-fun-acesso-social-somente-google.md).
 
 ## 2026-11-07 — v3.9.1 — Publicação GitHub autorizada
+
 Conta somente Google, teste/Atlas/docs/versionamento preparados em um commit lógico na main. Descrição detalhada e [skip netlify], sem novo deploy/build. Conferência visual anterior reutilizada; diff/índice/JSON/sintaxe e equivalência remota conferidos no encerramento. [Registro](registros/registro-v3.9.1-2026-11-07-imp-github-fun-publicacao-acesso-google.md).
 
 ## 2026-11-07 — v3.9.1 — Produção confirmada
+
 Netlify Published6aeea2a01167fdd054c67ea8/main03c4ddf; build38s. Conta pública conferida em cadastro/login, apenas Google social e e-mail preservado. Sem nova migração ou autenticação externa repetida. [Registro](registros/registro-v3.9.1-2026-11-07-imp-producao-fun-conta-somente-google.md).
 
 ## 2026-11-07 — v3.9.2 — Layout compacto da Conta
+
 Retirados título/descrição públicos, G oficial local, transição240ms por altura real e footer no fim da tela/conteúdo.3 testes, tipos/build e inspeção desktop/mobile aprovados. Dois achados Atlas corrigidos e rechecados. Sem publicação. [Registro](registros/registro-v3.9.2-2026-11-07-imp-conta-fun-layout-compacto-transicao.md).
 
 ## 2026-11-07 — v3.9.2 — Publicação GitHub do layout da Conta
+
 Conjunto completo autorizado na main com descrição detalhada e skip netlify. Validações da implementação reutilizadas; somente conferências Git nesta publicação. Produção3.9.1 preservada. [Registro](registros/registro-v3.9.2-2026-11-07-imp-github-fun-publicacao-layout-conta.md).
 
 ## 2026-11-07 — v3.9.2 em produção e nova autorização permanente
+
 Netlify Published6aeea7ee5fe36058ee5cebd4/mainf7654d3; site público conferido. Usuário determinou que commit/push inclui deploy; AGENTS atualizado. Build38s; validações anteriores reutilizadas. [Registro](registros/registro-v3.9.2-2026-11-07-imp-producao-fun-layout-conta.md).
 
 ## 2026-11-07 — v3.9.2 — Escopo de aviso de novas contas
@@ -930,46 +955,37 @@ Commit funcional fe4f135 enviado à main e publicado pelo Netlify no deploy6aeeb
 
 Usuário configurou dois segredos Netlify somente Production e salvou segredo compartilhado no Vault. Migração20261107045500 aplicada ao destino conferido, permissões/job validados e runtime publicado no deploy6aeeb99d54c9a4402b3b5a1d. Um envio real de conta descartável aceito pelo SMTP na primeira tentativa; conta/evento removidos, sem tocar em contas reais. Recebimento externo ainda não confirmado. Auxiliar falhou após sucesso/limpeza ao salvar evidência local; gravação corrigida sem novo envio. Testes anteriores reaproveitados; sem suíte/build local repetidos ou novo código. Encerramento documental autorizado usa skip netlify. [Registro](registros/registro-v3.10.0-2026-11-07-imp-ativacao-fun-notificacao-contas.md).
 
-
 ## 2026-11-07 — v3.10.0 — Recebimento dos avisos confirmado pelo usuário
 
 Destinatário confirmou a chegada do aviso de teste com apenas nome/e-mail e relatou sucesso em outro teste, sem detalhar método. Pendência de recebimento externo encerrada por evidência manual declarada; sem nova execução, alteração funcional, versão ou publicação. [Registro](registros/registro-v3.10.0-2026-11-07-imp-validacao-fun-recebimento-avisos.md).
-
 
 ## 2026-11-07 — v3.10.1 — Resumo de Núcleos
 
 Home e cartões reutilizam emblemas de administrador/participante; participante verde sem escudo. Cada cartão exibe contagem exata de status active no próprio Núcleo.10 testes autenticados, tipos/build e revisão independente aprovados; verificadores legados do Atlas com falhas reproduzidas na base. [Registro](registros/registro-v3.10.1-2026-11-07-imp-resumo-nucleos-fun-participacao-acordos-ativos.md). Sem publicação.
 
-
 ## 2026-11-07 — v3.10.2 — Fundo do emblema participante
 
 Esclarecimento do usuário: fundo igual ao administrativo e somente texto verde. Removida sobrescrita de fundo no aplicativo/Atlas; navegador confirmou igualdade em4 temas e Atlas mobile. Validação pontual de CSS, sem nova suíte/build. [Registro](registros/registro-v3.10.2-2026-11-07-imp-emblema-participante-fun-fundo-compartilhado.md). Sem publicação.
-
 
 ## 2026-11-07 — v3.10.3 — Texto verde uniforme
 
 Usuário pediu o mesmo verde em todos os temas. Texto participante fixado em #16703A; fundo administrativo preservado e sem escudo.9 temas confirmados com CSS real no Chromium isolado. [Registro](registros/registro-v3.10.3-2026-11-07-imp-emblema-participante-fun-verde-fixo-temas.md). Sem publicação.
 
-
 ## 2026-11-07 — v3.10.4 — Verde do participante mais claro
 
 Texto alterado de #16703A para #1B8044 conforme pedido; mesmo tom nos9 temas e fundo preservado, conferidos no Chromium isolado com CSS real. Conjunto anterior confirmado em3b4dbff; correção sem publicação. [Registro](registros/registro-v3.10.4-2026-11-07-imp-emblema-participante-fun-verde-mais-claro.md).
-
 
 ## 2026-11-07 — v3.10.5 — Contorno por papel no Núcleo
 
 Cartões usam o contorno na cor do emblema administrativo/participante, inclusive hover.2 papéis/9 temas/2 larguras verificados com CSS real isolado e Atlas desktop/mobile. [Registro](registros/registro-v3.10.5-2026-11-07-imp-cartoes-nucleos-fun-contorno-por-papel.md). Sem publicação.
 
-
 ## 2026-11-07 — v3.10.6 — Contorno interativo3px
 
 Cor por papel somente em hover/pressão e foco visível; repouso neutro. Borda1px+sombra interna2px sem mudar altura.2 papéis/9 temas/mouse e touch verificados isoladamente com CSS real; Atlas sincronizado. [Registro](registros/registro-v3.10.6-2026-11-07-imp-cartoes-nucleos-fun-contorno-interativo-3px.md). Sem publicação.
 
-
 ## 2026-11-07 — v3.11.0 — Nomes de perfil sincronizados entre sessões
 
 Polling existente3s passa a comparar nomes de integrantes compartilhados por RPC segura, atualizando listas/detalhes abertos sem reload.8 E2E e23 SQL, tipos/build e revisão independente aprovados. Migração registrada somente localmente; aplicar antes do frontend na publicação futura. [Registro](registros/registro-v3.11.0-2026-11-07-imp-sincronizacao-fun-nomes-perfil-compartilhados.md). Mudanças visuais anteriores preservadas.
-
 
 ## 2026-11-07 — v3.11.0 — Publicação confirmada e avaliação NestJS
 
