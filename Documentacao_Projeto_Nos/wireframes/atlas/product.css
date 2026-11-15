@@ -137,6 +137,8 @@ button:is([aria-label^="Fechar" i],[data-atlas-close]):is(:hover,:focus-visible)
 @container(min-width:600px){.live-nuclei-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @container(min-width:1200px){.live-nuclei-grid{grid-template-columns:repeat(auto-fill,300px)}}
 @container(min-width:901px){.live-week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));min-height:455px}.live-agenda-list{display:none}}
+.live-month-days button.live-day-event{text-decoration:underline;text-underline-offset:4px}
+.live-month-days button[aria-pressed="true"]{background:var(--leaf);color:var(--on-accent,#fff)}
 @container(max-width:900px){.live-week{display:none}.live-agenda-list{display:block}.live-calendar-layout{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:no-preference){.live-firefly{animation:live-firefly-pulse 2.6s ease-in-out infinite alternate;animation-delay:calc(var(--i)*-.4s)}.live-account-preferences [data-live-delete-account]{animation:live-delete-glow 3s ease-in-out infinite}.live-account-motion :is(input,textarea,select,button){transition:background .2s,box-shadow .2s,border-color .2s}}
 @keyframes live-firefly-pulse{from{opacity:.4;transform:translateY(2px)}to{opacity:1;transform:translateY(-4px)}}

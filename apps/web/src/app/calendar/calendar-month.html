@@ -1,0 +1,30 @@
+<section class="surface month-picker" aria-label="Escolher data">
+  <div class="month-controls">
+    <button type="button" class="icon-button" aria-label="Mês anterior" [disabled]="!changeMonth(-1)" (click)="moveMonth(month()-1)">‹</button>
+    <div class="month-field"><label for="agenda-month">Mês</label><select id="agenda-month" #monthSelect (change)="moveMonth(+monthSelect.value)">
+      @for (name of months; track $index) { <option [value]="$index" [selected]="$index===month()">{{ name }}</option> }
+    </select></div>
+    <div class="month-field"><label for="agenda-year">Ano</label><select id="agenda-year" #yearSelect (change)="moveMonth(month(),+yearSelect.value)">
+      @for (value of years(); track value) { <option [value]="value" [selected]="value===year()">{{ value }}</option> }
+    </select></div>
+    <button type="button" class="icon-button" aria-label="Próximo mês" [disabled]="!changeMonth(1)" (click)="moveMonth(month()+1)">›</button>
+  </div>
+  <p class="month-caption" aria-live="polite">{{ caption() }}</p>
+  <table aria-label="Calendário mensal">
+    <thead><tr>@for (day of weekdays; track day) { <th scope="col">{{ day }}</th> }</tr></thead>
+    <tbody>
+      @for (row of rows(); track $index) {
+        <tr>@for (cell of row; track cell.value) {
+          <td>@if (cell.valid) {
+            <button data-day type="button" [attr.tabindex]="cursor()===cell.value ? 0 : -1"
+              [class.outside]="cell.outside" [class.marked]="cell.marked"
+              [attr.aria-current]="today()===cell.value ? 'date' : null"
+              [attr.aria-pressed]="selected()===cell.value"
+              [attr.aria-label]="cell.label" (keydown)="moveFocus($event,cell.value)" (click)="choose(cell.value)">{{ cell.day }}</button>
+          }</td>
+        }</tr>
+      }
+    </tbody>
+  </table>
+  <p class="month-help">Escolha um dia para abrir a semana. Dias sublinhados têm eventos desta página.</p>
+</section>

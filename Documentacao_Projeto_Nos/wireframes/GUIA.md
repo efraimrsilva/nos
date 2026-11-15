@@ -1,3 +1,5 @@
+**Prévia Angular v4.0.0-alpha.9 (15/11/2026)** — A09 porta calendário mensal, grade semanal e lista móvel, presença e gestão nas Telas 14–17. O Atlas demonstra criação, edição e remoção com dados fictícios. [Comparações](comparacoes/v4.0.0-alpha.9-2026-11-15-angular-agenda-tela_14-tela_15-tela_16-tela_17/index.html).
+
 **Prévia Angular v4.0.0-alpha.8 (15/11/2026)** — A08 completa ciclo, registro de momentos, versão e histórico do Hábito. Atlas vivo demonstra os modais de registro, administração e revisão com dados ilustrativos. [Comparações](comparacoes/v4.0.0-alpha.8-2026-11-15-angular-habito-tela_24-tela_25-tela_27-tela_28-tela_30-tela_31-tela_32-tela_33/index.html).
 
 **Prévia Angular v4.0.0-alpha.7 (15/11/2026)** — A07 porta Acordos, conferência de proposta, resposta individual, contagens e detalhe de termos. O Atlas demonstra revisão e recusa em modais locais. [Comparações](comparacoes/v4.0.0-alpha.7-2026-11-15-angular-acordos-tela_18-tela_22-tela_23-tela_24-tela_36/index.html).

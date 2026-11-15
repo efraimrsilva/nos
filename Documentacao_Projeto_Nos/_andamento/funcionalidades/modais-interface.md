@@ -1,3 +1,7 @@
+## Agenda na prévia Angular — v4.0.0-alpha.9 — 2026-11-15
+
+**Adicionar evento (16)** abre por Novo momento para integrantes e exige dados válidos. **Editar evento (17)** abre no detalhe para autor associado ou administração; apenas remarcar pede nova resposta aos demais. **Remover evento (17)** exige a mesma permissão e ciência explícita; Manter evento cancela. X, Escape e gesto externo fecham sem confirmar. As respostas na Tela 15 são controles no detalhe. [Galeria A09](../../wireframes/comparacoes/v4.0.0-alpha.9-2026-11-15-angular-agenda-tela_14-tela_15-tela_16-tela_17/index.html).
+
 ## Ciclo de Hábito na prévia Angular — v4.0.0-alpha.8 — 2026-11-15
 
 **Registrar momento** abre no detalhe para quem aceitou a versão vigente de um Hábito em teste ou ativo. A Tela 27 também tem rota direta. **Administrar o ciclo** abre ao iniciar, ativar ou encerrar e exige ciência explícita, com estado e papel verificados no banco. **Alterar termos** abre no histórico para a administração e publica outra versão somente após confirmar. X, Escape e gesto externo fecham a camada superior sem disparar confirmação. [Galeria](../../wireframes/comparacoes/v4.0.0-alpha.8-2026-11-15-angular-habito-tela_24-tela_25-tela_27-tela_28-tela_30-tela_31-tela_32-tela_33/index.html).

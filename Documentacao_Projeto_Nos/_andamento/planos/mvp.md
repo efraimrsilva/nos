@@ -1,3 +1,7 @@
+## Agenda na prévia Angular — v4.0.0-alpha.9 — 2026-11-15
+
+A09 porta as telas 14–17: mês, semana, lista móvel, presença e gestão de eventos. O banco mantém as travas e os controles de vínculo. Os resultados manuais da linha Next.js foram preservados. [Registro A09](../registros/registro-v4.0.0-alpha.9-2026-11-15-imp-agenda-angular-fun-calendario-e-eventos.md).
+
 ## Ciclo de Hábito na prévia Angular — v4.0.0-alpha.8 — 2026-11-15
 
 A08 porta período, registro de momentos, revisão, encerramento e consulta do histórico atual e legado. A verificação da versão do registro ocorre na transação. Resultados manuais da linha Next.js foram preservados. [Registro A08](../registros/registro-v4.0.0-alpha.8-2026-11-15-imp-habito-angular-fun-ciclo-momentos-e-historico.md).

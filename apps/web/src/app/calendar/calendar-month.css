@@ -1,0 +1,16 @@
+.month-picker { padding:clamp(.55rem,2vw,1rem); }
+.month-controls { display:flex; align-items:end; justify-content:space-between; gap:.4rem; }
+.month-field { display:grid; gap:.2rem; min-width:0; font-size:.85rem; }
+.month-controls select { max-width:100%; min-height:2.75rem; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:.35rem; padding:.25rem; font:inherit; }
+.month-caption { text-align:center; font-weight:600; margin:.5rem 0; }
+.month-caption::first-letter { text-transform:uppercase; }
+table { width:100%; table-layout:fixed; border-collapse:collapse; text-align:center; }
+th { color:var(--muted); font-size:.78rem; padding:.25rem 0; }
+td { padding:1px; }
+td button { width:100%; min-height:2.65rem; padding:0; color:var(--ink); background:transparent; border:1px solid transparent; border-radius:.45rem; }
+td button.outside { color:var(--muted); }
+td button.marked { text-decoration:underline .16rem; text-underline-offset:.22rem; }
+td button:hover { background:var(--accent-soft); }
+td button[aria-current=date] { border-color:var(--leaf); }
+td button[aria-pressed=true] { background:var(--leaf); color:white; }
+.month-help { font-size:.8rem; color:var(--muted); margin-top:.55rem; }

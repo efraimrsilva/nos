@@ -4,7 +4,7 @@
     <a class="brand" routerLink="/boas-vindas" aria-label="Nós — início">nós<span>.</span></a>
     <p class="caption">Cultivar juntos</p>
     <nav aria-label="Áreas do Nós">
-      @for (item of areas; track item.url) {
+      @for (item of areas(); track item.url) {
         <a [routerLink]="item.url" routerLinkActive="active" [routerLinkActiveOptions]="activeMatch"
           ariaCurrentWhenActive="page">{{ item.label }}</a>
       }
@@ -37,8 +37,8 @@
     </main>
   </div>
 
-  <nav class="mobile-nav" aria-label="Navegação móvel">
-    @for (item of areas; track item.url) {
+  <nav class="mobile-nav" [class.mobile-nav-nucleus]="areas().length===4" aria-label="Navegação móvel">
+    @for (item of areas(); track item.url) {
       <a [routerLink]="item.url" routerLinkActive="active" [routerLinkActiveOptions]="activeMatch"
         ariaCurrentWhenActive="page">{{ item.label }}</a>
     }
@@ -53,7 +53,7 @@
     <form method="dialog"><button class="icon-button" aria-label="Fechar menu" autofocus>×</button></form>
   </header>
   <nav aria-label="Todas as áreas">
-    @for (item of areas; track item.url) {
+    @for (item of areas(); track item.url) {
       <a [routerLink]="item.url" routerLinkActive="active" [routerLinkActiveOptions]="activeMatch"
         ariaCurrentWhenActive="page" (click)="more.close()">{{ item.label }}</a>
     }

@@ -1,3 +1,9 @@
+## 2026-11-15 — v4.0.0-alpha.9 — A09 da migração Angular
+
+A08 confirmada na referência de acompanhamento em `ec4f9bf`. A09 portou Agenda, respostas e gestão de eventos, com validação local em duas larguras e nas rotinas concorrentes do banco. [Registro A09](registros/registro-v4.0.0-alpha.9-2026-11-15-imp-agenda-angular-fun-calendario-e-eventos.md).
+
+---
+
 ## 2026-11-15 — v4.0.0-alpha.8 — A08 da migração Angular
 
 A07 confirmada no GitHub em `60222f2`. A08 portou ciclo, momentos e históricos. A migração local adicionou uma assinatura compatível para conferir a versão antes de gravar momentos. [Registro A08](registros/registro-v4.0.0-alpha.8-2026-11-15-imp-habito-angular-fun-ciclo-momentos-e-historico.md).

@@ -34,7 +34,9 @@ nav .active { font-weight: 700; }
   inset: auto 0 0; padding: .4rem .5rem calc(.4rem + env(safe-area-inset-bottom));
   background: var(--surface); border-top: 1px solid var(--line); font-size: .875rem;
 }
+.mobile-nav-nucleus { grid-template-columns:repeat(5,minmax(0,1fr)); }
 .mobile-nav > * { justify-content: center; text-align: center; }
+.mobile-nav-nucleus > * { padding-inline:.2rem; font-size:.78rem; line-height:1.25; }
 .more-dialog nav { display: grid; gap: .35rem; margin-top: 1rem; }
 .dialog-heading { display: flex; align-items: start; justify-content: space-between; gap: .75rem; }
 .sidebar-icon {

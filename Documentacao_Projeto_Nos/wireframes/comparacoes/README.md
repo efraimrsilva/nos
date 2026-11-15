@@ -1,3 +1,5 @@
+- [v4.0.0-alpha.9 · Agenda no Angular](v4.0.0-alpha.9-2026-11-15-angular-agenda-tela_14-tela_15-tela_16-tela_17/index.html) — telas 14–17 em computador e celular, incluindo os três diálogos de gestão e a resposta no detalhe.
+
 - [v3.9.0 · Login Google/Apple preparado](v3.9.0-2026-11-06-login-social-tela_01-tela_02/index.html) —11 imagens antes/depois, aplicativo/Atlas e complemento autenticado de nome. Provedores externos não configurados.
 
 # Comparações de telas — procedimento permanente

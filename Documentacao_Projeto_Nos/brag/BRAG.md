@@ -1,3 +1,9 @@
+## 2026-11-15 — v4.0.0-alpha.9 — Agenda e gestão de eventos no Angular
+
+**Problema:** a prévia não permitia abrir a Agenda nem responder a um evento. **Contribuição:** portar a rota, calendário, detalhe, resposta individual e gestão com as funções já autorizadas no banco. **Resultado verificado:** a remarcação voltou a pedir resposta, alterações textuais preservaram a presença e contas sem vínculo não abriram a Agenda. **Benefício esperado:** manter a organização dos encontros durante a substituição do frontend. [Registro A09](../_andamento/registros/registro-v4.0.0-alpha.9-2026-11-15-imp-agenda-angular-fun-calendario-e-eventos.md).
+
+---
+
 ## 2026-11-15 — v4.0.0-alpha.8 — Ciclo de Hábito e registro com versão
 
 **Problema:** a prévia ainda não permitia praticar e administrar um Hábito. O registro antigo não recebia a versão exibida. **Contribuição:** portar ciclo, revisão, registro e históricos, com verificação da versão sob a trava do banco. **Resultado verificado:** o banco rejeitou uma versão anterior mesmo com aceite corrente e preservou compatibilidade da assinatura antiga. **Benefício esperado:** preservar a relação entre os termos apresentados e o registro, sem remover história. [Registro A08](../_andamento/registros/registro-v4.0.0-alpha.8-2026-11-15-imp-habito-angular-fun-ciclo-momentos-e-historico.md).

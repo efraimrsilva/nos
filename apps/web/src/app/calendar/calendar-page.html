@@ -1,0 +1,148 @@
+@if (state.isLoading() && !state.hasValue()) {
+  <p role="status">Carregando a agenda…</p>
+} @else if (state.error()) {
+  <section class="surface">
+    <h1 tabindex="-1">Agenda do Núcleo</h1>
+    <p role="alert">Não foi possível consultar a agenda agora.</p>
+    <button type="button" class="button" (click)="state.reload()">Tentar novamente</button>
+  </section>
+} @else if (view(); as agenda) {
+  <p class="agenda-sketch"><strong>Esboço de funcionalidade · Agenda em desenvolvimento</strong><br>
+    O calendário interno já está disponível. Recorrência e integração com calendários externos estão planejadas.</p>
+  <header class="agenda-heading">
+    <div><p class="kicker">Agenda compartilhada</p><h1 tabindex="-1">Tempo para o que importa.</h1>
+      <p>Planejem momentos no tempo de vocês. Cada pessoa decide se pode participar.</p></div>
+    <button type="button" class="button" aria-haspopup="dialog" [disabled]="busy() || state.isLoading() || uncertainCreate()" (click)="openEditor(editor,form)">Novo momento</button>
+  </header>
+  @if (notice()) { <p class="surface agenda-feedback" role="status">{{ notice() }}</p> }
+  @if (error()) { <p class="surface agenda-feedback" role="alert">{{ error() }}
+    @if (uncertainCreate()) { <button type="button" class="button secondary" (click)="uncertainCreate.set(false)">Já conferi a agenda</button> }
+  </p> }
+  <div class="agenda-workspace">
+    <section class="agenda-main" aria-label="Agenda do Núcleo">
+      <app-calendar-month [selected]="chosen()" [today]="today" [events]="events()" (chosen)="chooseDay($event)" />
+      <div class="agenda-toolbar">
+        <button type="button" class="icon-button" aria-label="Semana anterior" [disabled]="chosen()===minDay" (click)="moveWeek(-1)">‹</button>
+        <h2>{{ weekTitle() }}</h2>
+        <button type="button" class="icon-button" aria-label="Próxima semana" [disabled]="chosen()===maxDay" (click)="moveWeek(1)">›</button>
+        <span class="badge">Semana · UTC</span>
+      </div>
+      <p class="agenda-note" aria-live="polite">{{ range() }}</p>
+      <div class="calendar-week" aria-label="Visão semanal em UTC">
+        @for (item of layout(); track item.date) {
+          <section class="calendar-day" [class.current]="item.date===today" [attr.aria-label]="day.format(item.date)">
+            <h3>{{ day.format(item.date).replace('.', '') }}</h3>
+            <div class="calendar-day-schedule">
+              @for (hour of item.hours; track hour.label) { <span class="calendar-hour" [style.top.px]="hour.top">{{ hour.label }}</span> }
+              @for (card of item.cards; track card.event.id) {
+                <button type="button" class="calendar-event" [style.top.px]="card.top" [style.height.px]="card.height"
+                  [style.left.%]="card.left" [style.width.%]="card.width" [attr.aria-pressed]="selected()?.id===card.event.id"
+                  [attr.aria-label]="card.event.title + ' · ' + clock.format(card.start) + ' até ' + clock.format(card.end) + ' UTC'"
+                  (click)="chooseEvent(card.event,false,$event.detail===0)">
+                  <small>{{ clock.format(card.start) }}</small><strong>{{ card.event.title }}</strong><small>{{ agenda.name }}</small>
+                  @if (card.start > dateMillis(card.event.starts_at)) { <small>Continua do dia anterior</small> }
+                  @if (card.end < dateMillis(card.event.ends_at)) { <small>Continua no dia seguinte</small> }
+                  @else { <small>Até {{ clock.format(card.end) }}</small> }
+                </button>
+              }
+            </div>
+          </section>
+        }
+      </div>
+      <div class="surface calendar-mobile-list">
+        @for (event of weekEvents(); track event.id) {
+          <button type="button" class="agenda-list-event" [attr.aria-pressed]="selected()?.id===event.id" (click)="chooseEvent(event,false,$event.detail===0)">
+            <span class="agenda-date-tile"><strong>{{ dateNumber(event.starts_at) }}</strong><small>{{ shortMonth.format(dateMillis(event.starts_at)).replace('.', '') }}</small></span>
+            <span><strong>{{ event.title }}</strong><small>{{ clock.format(dateMillis(event.starts_at)) }} UTC · {{ attendance(event).label }}</small></span><span aria-hidden="true">→</span>
+          </button>
+        } @empty { <p>Nenhum momento nesta semana.</p> }
+      </div>
+      <p class="agenda-note">Horários da grade em UTC (Tempo Universal Coordenado). O detalhe mostra o fuso de cada encontro. A navegação considera os eventos desta página.</p>
+      @if (events().length) {
+        <details class="agenda-all">
+          <summary>Todos os eventos desta página ({{ events().length }})</summary>
+          @for (event of events(); track event.id) {
+            <button type="button" class="agenda-list-event" (click)="chooseEvent(event,true,$event.detail===0)">
+              <strong>{{ event.title }}</strong><small>{{ date(event.starts_at,event.time_zone).text }}</small>
+            </button>
+          }
+        </details>
+      }
+    </section>
+    <aside class="surface agenda-detail" aria-labelledby="calendar-detail-heading">
+      <h2 id="calendar-detail-heading" tabindex="-1">{{ selected() ? 'Seu próximo momento' : 'Um tempo para vocês' }}</h2>
+      @if (selected(); as event) {
+        @if (presence(); as response) {
+          <p class="kicker">{{ day.format(dateMillis(event.starts_at)) }} · {{ clock.format(dateMillis(event.starts_at)) }} UTC</p>
+          <h3>{{ event.title }}</h3>
+          @if (event.creator_deleted) { <p>Criado por Conta excluída.</p> }
+          <p class="agenda-intention">{{ event.intention || 'Um momento para estar presente, do jeito que fizer sentido para vocês.' }}</p>
+          <p class="agenda-note">{{ date(event.starts_at,event.time_zone).text }} até {{ date(event.ends_at,event.time_zone).text }}<br>{{ date(event.starts_at,event.time_zone).zoneLabel }}</p>
+          <p>{{ response.current }} participante(s)<br><small>{{ response.accepted }} com presença confirmada</small></p>
+          @if (response.deleted) { <p>{{ response.deleted }} resposta(s) histórica(s) de Conta excluída.</p> }
+          <span class="badge">{{ response.label }}</span>
+          @if (response.own; as own) {
+            <p>Sua resposta: {{ own.response==='accepted' ? 'vou participar' : own.response==='declined' ? 'não posso participar' : 'ainda não respondi' }}.</p>
+            <div class="agenda-actions">
+              <button class="button secondary" type="button" [disabled]="busy() || state.isLoading()" (click)="respond(event,'accepted')">Posso participar</button>
+              <button class="button secondary" type="button" [disabled]="busy() || state.isLoading()" (click)="respond(event,'declined')">Não posso participar</button>
+            </div>
+          }
+          @if (event.can_manage) {
+            <div class="agenda-actions agenda-management">
+              <button class="button secondary" type="button" aria-haspopup="dialog" [disabled]="busy() || state.isLoading()" (click)="openEditor(editor,form,event)">Editar evento</button>
+              <button class="button secondary agenda-remove" type="button" aria-haspopup="dialog" [disabled]="busy() || state.isLoading()" (click)="openRemoval(removal,event)">Remover evento</button>
+            </div>
+          }
+        }
+      } @else {
+        <p>Nada marcado por enquanto nesta semana. Vocês podem criar um momento quando fizer sentido.</p>
+        <p>Escolha um evento na agenda para ver o convite e sua participação.</p>
+      }
+    </aside>
+  </div>
+  @if (page()>1 || (agenda.hasNext && page()<latestPage)) {
+    <nav class="agenda-actions agenda-pagination" aria-label="Páginas da agenda">
+      @if (page()>1) { <a class="button secondary" routerLink="." [queryParams]="{pagina:page()-1}">Eventos anteriores</a> }
+      @if (agenda.hasNext && page()<latestPage) { <a class="button secondary" routerLink="." [queryParams]="{pagina:page()+1}">Mais eventos</a> }
+    </nav>
+  }
+  <details class="agenda-all"><summary>Esboço de funcionalidade · ainda não desenvolvido</summary>
+    <p>Visão detalhada por dia, recorrência, local, escolha de participantes, outras respostas e sincronização com calendários externos estão planejados.</p>
+  </details>
+  <dialog #editor class="shared-dialog" aria-labelledby="agenda-editor-title">
+    <header class="dialog-heading"><h2 id="agenda-editor-title">{{ editing() ? 'Editar evento' : 'Adicionar evento' }}</h2>
+      <button class="icon-button" type="button" aria-label="Fechar" (click)="editor.close()">×</button></header>
+    <form #form class="agenda-form" [attr.aria-busy]="busy()" (submit)="save($event,form,editor)">
+      <label>Título<input name="title" required maxlength="100" /></label>
+      <label>Intenção do momento (opcional)<textarea name="intention" maxlength="500" rows="3"></textarea></label>
+      <div class="agenda-dates">
+        <label>Início<input type="datetime-local" name="start" required /></label>
+        <label>Término<input type="datetime-local" name="end" required /></label>
+      </div>
+      <p class="agenda-note">Horários no fuso deste dispositivo: {{ deviceZone }}.</p>
+      @if (editing()) {
+        <p class="agenda-note">Alterar título ou intenção mantém as respostas. Mudar o início ou término pede nova resposta aos demais participantes e preserva a sua.</p>
+      } @else {
+        <p class="agenda-note">Sua presença é confirmada ao criar. Os demais integrantes atuais recebem um pedido de resposta nesta agenda.</p>
+      }
+      @if (dialogError() && editor.open) { <p role="alert">{{ dialogError() }}</p> }
+      <button type="submit" class="button" [disabled]="busy()">{{ busy() ? 'Salvando…' : editing() ? 'Salvar alterações' : 'Criar evento' }}</button>
+    </form>
+  </dialog>
+  <dialog #removal class="shared-dialog" aria-labelledby="agenda-removal-title">
+    <header class="dialog-heading"><h2 id="agenda-removal-title">Remover evento</h2>
+      <button class="icon-button" type="button" aria-label="Fechar" (click)="removal.close()">×</button></header>
+    <form class="agenda-form" (submit)="remove($event,removal)" [attr.aria-busy]="busy()">
+      <p>Ao remover <strong>{{ removing()?.title }}</strong>, as respostas também serão apagadas. Esta ação não pode ser desfeita.</p>
+      <label class="agenda-consent"><input type="checkbox" [checked]="confirmed()" (change)="confirmed.set($any($event.target).checked)" />Entendo que o evento e as respostas serão removidos.</label>
+      @if (dialogError() && removal.open) { <p role="alert">{{ dialogError() }}</p> }
+      <div class="agenda-actions">
+        <button class="button secondary" type="button" (click)="removal.close()">Manter evento</button>
+        <button class="button agenda-danger" type="submit" [disabled]="!confirmed() || busy()">{{ busy() ? 'Removendo…' : 'Confirmar remoção' }}</button>
+      </div>
+    </form>
+  </dialog>
+} @else if (state.hasValue()) {
+  <app-route-state kind="missing" />
+}

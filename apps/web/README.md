@@ -4,6 +4,8 @@ Aplicação Angular separada do Next.js durante a migração. A prévia inclui e
 
 No Início, **Ver acordos** abre a lista daquele Núcleo. É possível enviar propostas, responder pela conta conectada e consultar termos, momentos e versões anteriores. A administração controla teste, ativação, revisão e encerramento. O registro de momentos exige aceite dos termos vigentes.
 
+No Início do Núcleo, **Abrir agenda** e os links dos eventos levam à Agenda. O calendário mensal abre a semana escolhida; telas estreitas mostram a lista da semana. É possível criar, responder, editar e remover conforme o vínculo e as permissões já existentes no Supabase.
+
 Da raiz, com Node.js 24.15 ou superior da série 24 e Docker Desktop:
 
 ```powershell

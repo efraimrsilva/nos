@@ -4,6 +4,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, NavigationError, NavigationSkipped, NavigationStart, Router, RouterLink, RouterLinkActive, RouterOutlet, type IsActiveMatchOptions } from '@angular/router';
 import { installDialogBackdropDismiss } from './shared/dialog-backdrop-dismiss';
 import { RouteState } from './shared/route-state';
+import { isNucleusId } from './nuclei/nucleus-model';
 
 @Component({
   imports: [RouterLink, RouterLinkActive, RouterOutlet, RouteState],
@@ -12,11 +13,12 @@ import { RouteState } from './shared/route-state';
   styleUrl: './app.css',
 })
 export class App {
-  protected readonly areas = [
+  private readonly baseAreas = [
     { label: 'Início', url: '/boas-vindas' },
     { label: 'Seus Núcleos', url: '/nucleos' },
     { label: 'Minha conta', url: '/configuracoes/conta' },
   ];
+  protected readonly areas = signal(this.baseAreas);
   protected readonly activeMatch: IsActiveMatchOptions = {
     paths: 'exact', queryParams: 'ignored', fragment: 'ignored', matrixParams: 'ignored',
   };
@@ -37,11 +39,14 @@ export class App {
       if (event instanceof NavigationEnd) {
         const path = this.router.parseUrl(event.urlAfterRedirects).root.children['primary']
           ?.segments.map(segment => segment.path).join('/') ?? '';
+        const [area,id] = path.split('/');
+        // A Agenda tem destino somente enquanto existe um Núcleo no caminho atual.
+        this.areas.set(area==='nucleos' && isNucleusId(id) ? [...this.baseAreas,{label:'Agenda',url:'/nucleos/'+id+'/agenda'}] : this.baseAreas);
         const account = path === 'conta' || path.startsWith('conta/');
         let route = this.router.routerState.snapshot.root;
         while (route.firstChild) route = route.firstChild;
         const title = route.title?.split(' · ')[0];
-        this.activeLabel.set(this.areas.find(item => item.url === '/' + path)?.label ?? (account ? 'Sua conta' : title ?? ''));
+        this.activeLabel.set(this.areas().find(item => item.url === '/' + path)?.label ?? (account ? 'Sua conta' : title ?? ''));
         this.more()?.nativeElement.close();
         // Depois de Voltar, Avançar ou seguir um link interno, o foco acompanha o novo conteúdo.
         if (!this.initialNavigation) this.focusPage();

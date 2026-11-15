@@ -1,18 +1,18 @@
-# Estado atual — Next.js v3.11.1 · Angular v4.0.0-alpha.8 — 2026-11-15
+# Estado atual — Next.js v3.11.1 · Angular v4.0.0-alpha.9 — 2026-11-15
 
-**Objetivo e escopo:** substituir Next.js em 14 entregas. A01–A08 validadas na prévia local. O recorte inclui acesso, Núcleos, convites, administração, propostas e ciclo de Hábito. A09–A14 pendentes. Google depende do provedor ativo na prévia.
+**Objetivo e escopo:** substituir Next.js em 14 entregas. A01–A09 validadas na prévia local. A09 cobre calendário mensal e semana, criação, edição, remoção e presença com as permissões existentes. A10–A14 pendentes. Google depende do provedor ativo na prévia.
 
-**Base e Git:** DOCS_DIR `Documentacao_Projeto_Nos`. Branch `codex/migracao-angular`. A07 confirmada no objeto `60222f2` e na referência remota. A08 local. Linha Next.js em v3.11.1.
+**Base e Git:** DOCS_DIR `Documentacao_Projeto_Nos`. Branch `codex/migracao-angular`. A08 confirmada no objeto `ec4f9bf` e na referência remota acompanhada. A09 local. Linha Next.js em v3.11.1.
 
-**Arquivos e decisões:** `apps/web/src/app/agreements/` inclui período, administração, versões e histórico de momentos. O registro compara a versão mostrada dentro da transação e informa conflito HTTP 409. Migrações `20261115182000` e `20261115182500` aplicadas apenas localmente. A assinatura anterior segue disponível para Next.js. O histórico divergente preexistente `20261112025922` foi preservado. O legado e o esboço de Essência mantêm seus contratos.
+**Arquivos e decisões:** `apps/web/src/app/calendar/` porta as telas 14–17 e reutiliza as funções de Agenda do Supabase e os utilitários de evento do Next.js. Seleção de data usa calendário Angular com controles nativos e teclado. A09 não exige migração. A08 ainda depende das migrações `20261115182000` e `20261115182500` antes da hospedagem da prévia. O histórico divergente preexistente `20261112025922` foi preservado.
 
-**Validação e ferramentas:** 28 testes Angular passaram na regressão geral. Um caso exclusivo de celular pulou no desktop e o caso móvel de cancelamento de acesso passou no reteste direcionado. O ciclo com duas contas foi reconferido nos dois tamanhos. Banco local com 95 verificações, builds de Angular e Next.js, Atlas e revisão independente. Angular 22.2.6 e TypeScript 6.0.3 instalados. Context7 e fontes oficiais consultados. Octocode configurado, sem consulta avançada externa.
+**Validação e ferramentas:** tipos e builds Angular e Next.js aprovados. Playwright Angular (Agenda e navegação): 9 testes passaram, 1 exclusivo de celular foi omitido no desktop. Revisão independente, Agenda no Atlas, Migração, plano do produto mínimo viável, paridade e Visão global conferidos. A galeria tem 30 imagens. Banco local: 257 verificações e quatro testes de bloqueio concorrente da Agenda. Angular 22.2.6, TypeScript 6.0.3; Context7 e documentação oficial consultados. Octocode configurado, sem pesquisa avançada externa necessária.
 
-**Próximo passo:** A09. Conferir Agenda no Atlas e portar mês, semana, criação, edição, remoção e participação em eventos. Antes de publicar o Angular em ambiente hospedado, aplicar as duas migrações do registro com versão a esse banco.
+**Próximo passo:** A10. Inspecionar Conta, Preferências e Ajuda no Atlas e portar temas, privacidade, exclusão de conta e suporte conforme os contratos existentes.
 
-**Continuidade Git:** A08 pronta para commit. Sugestão `feat(angular): migrar ciclo, momentos e histórico de hábitos`. Contador 70 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
+**Continuidade Git:** A09 pronta para commit. Sugestão `feat(angular): migrar agenda, eventos e respostas de presença`. Contador 71 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
 
-**Índice:** [Guia Migração](../wireframes/atlas/index.html#migracao) · [Plano vigente](planos/migracao-angular.md) · [Registro A08](registros/registro-v4.0.0-alpha.8-2026-11-15-imp-habito-angular-fun-ciclo-momentos-e-historico.md) · [Galeria A08](../wireframes/comparacoes/v4.0.0-alpha.8-2026-11-15-angular-habito-tela_24-tela_25-tela_27-tela_28-tela_30-tela_31-tela_32-tela_33/index.html) · [Guia da prévia](../../apps/web/README.md).
+**Índice:** [Guia Migração](../wireframes/atlas/index.html#migracao) · [Plano vigente](planos/migracao-angular.md) · [Plano A09](planos/migracao-angular-a09.md) · [Registro A09](registros/registro-v4.0.0-alpha.9-2026-11-15-imp-agenda-angular-fun-calendario-e-eventos.md) · [Galeria A09](../wireframes/comparacoes/v4.0.0-alpha.9-2026-11-15-angular-agenda-tela_14-tela_15-tela_16-tela_17/index.html) · [Registro A08](registros/registro-v4.0.0-alpha.8-2026-11-15-imp-habito-angular-fun-ciclo-momentos-e-historico.md) · [Guia da prévia](../../apps/web/README.md).
 
 ---
 

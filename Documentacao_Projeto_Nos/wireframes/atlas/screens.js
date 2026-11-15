@@ -316,3 +316,9 @@ screens.find(screen=>screen.id===23).rule += ' Prévia Angular v4.0.0-alpha.7 (A
 screens.find(screen=>screen.id===24).rule += ' Prévia Angular v4.0.0-alpha.7 (A07): rota de detalhe com termos, versão, estado e participação. Também lê a categoria antiga como Hábito. Ciclo, momentos e histórico entram na A08.';
 screens.find(screen=>screen.id===36).rule += ' Na prévia Angular, A07 inclui o modal Nossa Essência como esboço, sem persistência ou progressão.';
 for (const id of [24,25,27,28,29,30,31,32,33]) screens.find(screen=>screen.id===id).rule += ' Prévia Angular v4.0.0-alpha.8 (A08): o detalhe inclui momentos e acesso às rotas de período, registro e termos. Administração confirma mudanças do ciclo e publica novas versões. Registro exige estado permitido, aceite vigente e versão mostrada. Histórico anterior permanece consultável.';
+
+// A09 mantém as quatro fichas na mesma rota e distingue resposta em linha de confirmação em modal.
+screens.find(screen=>screen.id===14).rule += ' Prévia Angular v4.0.0-alpha.9 (A09): calendário mensal em português e com teclado, grade semanal em UTC, lista móvel e 50 eventos por página. Início e navegação do Núcleo abrem a Agenda.';
+screens.find(screen=>screen.id===15).rule += ' A09: no painel do evento, somente a pessoa originalmente convidada e com vínculo pode responder por si. A resposta fica no painel.';
+screens.find(screen=>screen.id===16).rule += ' A09: Novo momento abre Adicionar evento para integrantes e só grava no envio válido.';
+screens.find(screen=>screen.id===17).rule += ' A09: Editar evento e Remover evento abrem para autor associado ou administrador. Remoção exige ciência explícita. X, Escape e gesto externo fecham os modais.';

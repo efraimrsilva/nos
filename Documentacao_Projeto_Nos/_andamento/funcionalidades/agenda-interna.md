@@ -2,7 +2,11 @@
 
 **Direção vigente — 06/11/2026 — v3.7.2:** [Proposta → Hábito → Essência](fluxo-proposta-habito-essencia.md). Experiência foi consolidada em Hábito; agendamento e pós-evento reutilizam os fluxos de Hábito. A implementação ainda conserva legado; esta revisão não migra dados. Marcos datados abaixo preservam o estado da época e não restabelecem a direção substituída.
 
-## Atualização vigente — 03/11/2026
+## Prévia Angular — v4.0.0-alpha.9 — 15/11/2026
+
+A09 conserva as regras e funções de banco usadas pelo Next.js. A navegação passa pelo Início, pelo atalho Agenda e pelos links dos próximos eventos. O calendário mensal próprio usa português e teclado; grade e lista consultam a página de eventos atual. Responder fica no detalhe; adicionar, editar e remover abrem diálogos. Sem migração nova. Alteração textual conserva o instante original, inclusive segundos não exibidos no formulário. O fuso do dispositivo é usado ao remarcar ou se o navegador não reconhece o fuso original. As travas serializam operações, mas não identificam se outra tela ainda mostra horários antigos. [Registro A09](../registros/registro-v4.0.0-alpha.9-2026-11-15-imp-agenda-angular-fun-calendario-e-eventos.md).
+
+## Atualização do Next.js — 03/11/2026
 
 Agenda já possui seletor mensal completo no computador e no celular, com `react-day-picker` 9.14.0, português do Brasil, semanas de segunda a domingo, seis linhas e dias adjacentes. Selecionar um dia abre a semana correspondente; mês e semana conservam sincronização quando atravessam meses. A grade semanal é apresentada acima de 900 pixels; até 900 pixels os eventos usam lista. Isso adapta a apresentação e conserva criação, detalhe, presença e gestão conforme as permissões.
 

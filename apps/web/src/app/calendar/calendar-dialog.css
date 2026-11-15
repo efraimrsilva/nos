@@ -1,0 +1,10 @@
+.dialog-heading { display:flex; align-items:start; justify-content:space-between; gap:.75rem; }
+.agenda-form { display:grid; gap:.85rem; margin-top:.9rem; }
+.agenda-form label { display:grid; gap:.3rem; min-width:0; font-weight:600; }
+.agenda-form :is(input:not([type=checkbox]),textarea) { width:100%; min-width:0; min-height:2.75rem; padding:.45rem; font:inherit; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:.4rem; }
+.agenda-form [role=alert] { color:#8a332d; }
+.agenda-form .agenda-consent { display:flex; gap:.6rem; align-items:flex-start; font-weight:400; }
+.agenda-consent input { accent-color:var(--leaf); inline-size:1.1rem; block-size:1.1rem; }
+.agenda-dates { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; }
+.agenda-form .agenda-danger { background:#8a332d; color:white; }
+@media(max-width:480px) { .agenda-dates { grid-template-columns:minmax(0,1fr); } }

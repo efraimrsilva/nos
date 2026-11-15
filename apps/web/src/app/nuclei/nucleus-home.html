@@ -33,10 +33,11 @@
       @if (view.calendar.length) {
         <ul class="summary-list">
           @for (event of view.calendar; track event.id) {
-            <li><strong>{{ event.title }}</strong><span>{{ date(event.starts_at,event.time_zone).text }}</span></li>
+            <li><a [routerLink]="['/nucleos',view.nucleus.id,'agenda']" [fragment]="'evento-'+event.id">{{ event.title }}</a><span>{{ date(event.starts_at,event.time_zone).text }}</span></li>
           }
         </ul>
       } @else { <p>Nada marcado por enquanto.</p> }
+      <a class="text-link" [routerLink]="['/nucleos',view.nucleus.id,'agenda']">Abrir agenda</a>
     </section>
     <section class="surface">
       <h2>Núcleos onde estou</h2>

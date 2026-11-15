@@ -1,6 +1,6 @@
 # Plano de substituição do Next.js por Angular
 
-**Status:** A01–A08 validadas na prévia local v4.0.0-alpha.8 em 15/11/2026. A09–A14 pendentes. Linha Next.js em v3.11.1.
+**Status:** A01–A09 validadas na prévia local v4.0.0-alpha.9 em 15/11/2026. A10–A14 pendentes. Linha Next.js em v3.11.1.
 
 **Objetivo:** retirar o Next.js da aplicação e da operação, preservando as funcionalidades atuais, as URLs públicas e os dados. Migrar em recortes verificáveis e publicar a substituição após a paridade.
 
@@ -64,7 +64,9 @@ Cada linha é uma unidade de trabalho revisável. A coluna de aceite indica a ev
 - **Paridade por entrega.** Antes de portar cada tela, conferir o Atlas vivo, ficha e contrato. Reutilizar as suítes existentes de Playwright, inclusive as autenticadas, e as verificações de banco e de bloqueios conforme a área. Comparar desktop e celular, guardar evidências quando aplicável e atualizar Atlas e registro. Preservar os roteiros de caixa preta existentes.
 - **Virada e retorno.** Registrar os artefatos, as configurações e os caminhos que precisam mudar juntos. Evitar migrações destrutivas do banco. Conferir na prévia a compatibilidade da sessão entre as duas aplicações e planejar nova autenticação na virada se a continuidade da sessão exigir mudança de formato.
 
-**Próxima entrega após a A08:** A09. Conferir Agenda no Atlas e portar calendário, criação, edição, remoção e respostas a eventos. [Guia do Atlas](../../wireframes/GUIA.md)
+**A09 verificada localmente:** [registro e evidências](../registros/registro-v4.0.0-alpha.9-2026-11-15-imp-agenda-angular-fun-calendario-e-eventos.md). Calendário, navegação, criação, edição, remoção e respostas usam o contrato vigente, sem nova migração.
+
+**Próxima entrega após a A09:** A10. Conferir Conta, Preferências e Ajuda no Atlas. Portar temas, privacidade, exclusão da conta e suporte com os contratos existentes. [Guia do Atlas](../../wireframes/GUIA.md)
 
 ### Execução da A08
 
