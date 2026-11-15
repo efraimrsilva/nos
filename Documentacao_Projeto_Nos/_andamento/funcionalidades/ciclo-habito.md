@@ -1,5 +1,7 @@
 # Ciclo real de Hábito — MVP 03 — v1.0.0
 
+**Prévia Angular A08 · v4.0.0-alpha.8.** O detalhe exibe o histórico de momentos e dá acesso a período, administração e termos. A rota de registro também funciona diretamente. O administrador inicia o teste, ativa ou encerra explicitamente. A edição publica outra versão e pede novo aceite individual. O Angular envia a versão mostrada ao registrar. Uma função compatível no Supabase compara essa versão sob a trava antes de inserir. Históricos e a categoria legada continuam disponíveis. [Registro A08](../registros/registro-v4.0.0-alpha.8-2026-11-15-imp-habito-angular-fun-ciclo-momentos-e-historico.md).
+
 **Modelo implementado localmente — v1.0.0 — 14/10/2026:** [administração e participação](administracao-participacao.md) é o contrato vigente. Administração compartilhada, escolha individual, novo aceite por versão, saída com história preservada e preferência de autoria estão implementados. Sem votação coletiva ou cancelamento de acordo por saída. [Roteiro de testes de caixa preta](administracao-caixa-preta.md). Publicação, migração remota e operação do piloto permanecem pendentes.
 
 ## Histórico do modelo anterior — até v0.16.0

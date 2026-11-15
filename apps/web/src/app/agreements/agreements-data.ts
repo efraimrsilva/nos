@@ -3,14 +3,16 @@ import { NucleiData } from '../nuclei/nuclei-data';
 import { isNucleusId } from '../nuclei/nucleus-model';
 import { canRespond, type Agreement, type AgreementCount, type AgreementScope, type Response, type proposalTerms } from './proposal-model';
 
-const fields = 'id,category,title,description,timing,frequency,created_at,status,trial_days,terms_version,nucleus_agreement_participants(response,accepted_version)';
+const fields = 'id,category,title,description,timing,frequency,created_at,status,trial_days,terms_version,test_started_at,nucleus_agreement_participants(response,accepted_version)';
 export const agreementsPageSize = 50;
 
 @Injectable({providedIn:'root'})
 export class AgreementsData {
   private readonly nuclei = inject(NucleiData);
-  private readonly responseEvent = signal<AgreementScope|null>(null);
-  readonly responsesChanged = this.responseEvent.asReadonly();
+  private readonly changeEvent = signal<AgreementScope|null>(null);
+  readonly changes = this.changeEvent.asReadonly();
+
+  announceChange(scope:AgreementScope) { this.changeEvent.set({...scope}); }
 
   async list(scope:AgreementScope,page:number,signal:AbortSignal) {
     const selected = await this.nuclei.selected(scope.owner,scope.id,signal);
@@ -34,7 +36,7 @@ export class AgreementsData {
       .eq('id',id).eq('nucleus_agreement_participants.user_id',scope.owner).abortSignal(signal).maybeSingle();
     if (result.error?.code === '42501') return null;
     if (result.error) throw new Error('Não foi possível consultar o acordo.');
-    return result.data ? {scope,name:selected.nucleus.name,agreement:result.data as Agreement} : null;
+    return result.data ? {scope,name:selected.nucleus.name,role:selected.role,agreement:result.data as Agreement} : null;
   }
 
   async counts(scope:AgreementScope,ids:string[],signal:AbortSignal) {
@@ -81,7 +83,7 @@ export class AgreementsData {
       target_agreement:agreement.id, agreement_response:response, expected_terms_version:agreement.terms_version,
     }).retry(false);
     // A mudança pertence ao Núcleo mesmo se o cartão ativo mudou enquanto a resposta viajava.
-    this.responseEvent.set({...scope});
+    this.announceChange(scope);
     if (result.error?.code === '40001') return 'changed';
     if (result.error?.code === '42501' || result.error?.code === 'P0002') return 'unavailable';
     return result.error ? 'unknown' : 'saved';

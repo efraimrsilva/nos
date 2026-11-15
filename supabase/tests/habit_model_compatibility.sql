@@ -19,12 +19,17 @@ insert into public.nucleus_agreement_versions(agreement_id,version,title,descrip
  ('36000000-0000-4000-8000-000000000001',2,'Jantar mensal','Estar presentes','Noite','Mensal');
 insert into public.nucleus_agreement_participants(agreement_id,user_id,response,accepted_version) values
  ('36000000-0000-4000-8000-000000000001','16000000-0000-4000-8000-000000000001','accepted',2);
+select ok(not has_function_privilege('anon','public.record_nucleus_habit_moment(uuid,uuid,text,text,integer)','execute'),'anônimo não chama o registro com versão');
 create temporary table new_agreement(id uuid);
 grant all on new_agreement to authenticated;
 set local role authenticated;
 select set_config('request.jwt.claim.sub','16000000-0000-4000-8000-000000000001',true);
 select lives_ok($$select public.record_nucleus_habit_moment('26000000-0000-4000-8000-000000000001','36000000-0000-4000-8000-000000000001','good','Momento do mesmo Hábito')$$,'legado usa registro comum com aceite vigente');
 select is((select count(*) from public.get_nucleus_habit_moments('36000000-0000-4000-8000-000000000001')),1::bigint,'um registro no histórico comum');
+select throws_ok($$select public.record_nucleus_habit_moment('26000000-0000-4000-8000-000000000001','36000000-0000-4000-8000-000000000001','good','Rascunho antigo',1)$$,'PT409','agreement terms changed or unavailable','versão antiga é rejeitada mesmo com aceite corrente');
+select throws_ok($$select public.record_nucleus_habit_moment('26000000-0000-4000-8000-000000000001','36000000-0000-4000-8000-000000000001','good','Sem versão',null)$$,'PT409','agreement terms changed or unavailable','versão explícita é obrigatória');
+select is((select count(*) from public.get_nucleus_habit_moments('36000000-0000-4000-8000-000000000001')),1::bigint,'versões recusadas não inserem momentos');
+select lives_ok($$select public.record_nucleus_habit_moment('26000000-0000-4000-8000-000000000001','36000000-0000-4000-8000-000000000001','good','Momento com versão atual',2)$$,'legado usa também registro com versão explícita');
 insert into new_agreement select public.create_nucleus_agreement('26000000-0000-4000-8000-000000000001','experience','Cliente antigo','Com cuidado','Noite','Mensal',null);
 select is((select category from public.nucleus_agreements where id=(select id from new_agreement)),'habit','argumento antigo cria somente Hábito');
 select is((select trial_days from public.nucleus_agreements where id=(select id from new_agreement)),null::integer,'compatibilidade não fabrica duração');
@@ -34,6 +39,7 @@ select throws_ok($$select public.create_nucleus_agreement('26000000-0000-4000-80
 select throws_ok($$select public.create_nucleus_agreement('26000000-0000-4000-8000-000000000001','essence','Salto','Com cuidado','Noite','Mensal',7)$$,'22023','invalid agreement fields','não cria Essência por categoria');
 select set_config('request.jwt.claim.sub','16000000-0000-4000-8000-000000000002',true);
 select throws_ok($$select public.record_nucleus_habit_moment('26000000-0000-4000-8000-000000000001','36000000-0000-4000-8000-000000000001','good','Sem aceite')$$,'42501','not authorized or current terms not accepted','legado mantém exigência de aceite');
+select throws_ok($$select public.record_nucleus_habit_moment('26000000-0000-4000-8000-000000000001','36000000-0000-4000-8000-000000000001','good','Sem aceite v2',2)$$,'42501','not authorized or current terms not accepted','versão correta não substitui aceite próprio');
 select set_config('request.jwt.claim.sub','16000000-0000-4000-8000-000000000003',true);
 select throws_ok($$select public.get_nucleus_habit_moments('36000000-0000-4000-8000-000000000001')$$,'42501','not authorized','legado mantém isolamento');
 reset role;

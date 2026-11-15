@@ -25,7 +25,14 @@
   <p>Este acordo está disponível para consulta dos termos. Novas respostas estão encerradas.</p>
 }
 @if (link()) {
-  <p><a class="text-link" [routerLink]="['/nucleos',scope().id,'acordos',item.id]">Abrir detalhe</a></p>
+  <nav class="agreement-actions habit-section-gap" aria-label="Ciclo e histórico">
+    <a class="button secondary" [routerLink]="['/nucleos',scope().id,'acordos',item.id]">Abrir detalhe</a>
+    @if (canRecord(item)) {
+      <a class="button secondary" [routerLink]="['/nucleos',scope().id,'acordos',item.id,'registrar']">Registrar momento</a>
+    }
+    <a class="button secondary" [routerLink]="['/nucleos',scope().id,'acordos',item.id,'confirmar']">Período e administração do hábito</a>
+    <a class="button secondary" [routerLink]="['/nucleos',scope().id,'acordos',item.id,'revisar']">Termos e histórico</a>
+  </nav>
 }
 <dialog #decline class="shared-dialog" aria-label="Recusar participação?" (close)="!decline.open && confirming.set(null)">
   <header class="dialog-heading"><h2>Recusar participação?</h2>

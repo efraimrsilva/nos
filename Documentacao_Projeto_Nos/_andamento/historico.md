@@ -1,3 +1,9 @@
+## 2026-11-15 — v4.0.0-alpha.8 — A08 da migração Angular
+
+A07 confirmada no GitHub em `60222f2`. A08 portou ciclo, momentos e históricos. A migração local adicionou uma assinatura compatível para conferir a versão antes de gravar momentos. [Registro A08](registros/registro-v4.0.0-alpha.8-2026-11-15-imp-habito-angular-fun-ciclo-momentos-e-historico.md).
+
+---
+
 ## 2026-11-15 — v4.0.0-alpha.7 — A07 da migração Angular
 
 A06 confirmada no GitHub em `65e4ded`. A07 portou Acordos, conferência, criação e respostas individuais. Duas contas conferiram contagens e termos atualizados entre sessões, além da recusa individual e da leitura de um Hábito legado. Entrega local. [Registro A07](registros/registro-v4.0.0-alpha.7-2026-11-15-imp-acordos-angular-fun-propostas-e-respostas.md).

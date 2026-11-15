@@ -96,7 +96,7 @@ export class AgreementsPage {
       this.inviteOpen.set(false);
     });
     effect(() => {
-      const request = this.data.responsesChanged();
+      const request = this.data.changes();
       if (request && request.owner === this.profile.user()?.id && request.id === this.params().get('id')) {
         untracked(() => this.refreshResponses());
       }

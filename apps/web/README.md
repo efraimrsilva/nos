@@ -2,7 +2,7 @@
 
 Aplicação Angular separada do Next.js durante a migração. A prévia inclui entrada, criação de conta, confirmação de e-mail, recuperação de senha, criação de Núcleos, convites por código, integrantes e administração. Em `/configuracoes/conta`, leia e edite o próprio nome. No Início do Núcleo, abra **Ver integrantes** ou **Minha participação** para conferir as ações da conta conectada.
 
-No Início, **Ver acordos** abre a lista daquele Núcleo. A prévia permite revisar e enviar propostas, consultar os termos e responder pela conta conectada. Momentos, histórico e ações do ciclo serão portados na etapa de Hábito.
+No Início, **Ver acordos** abre a lista daquele Núcleo. É possível enviar propostas, responder pela conta conectada e consultar termos, momentos e versões anteriores. A administração controla teste, ativação, revisão e encerramento. O registro de momentos exige aceite dos termos vigentes.
 
 Da raiz, com Node.js 24.15 ou superior da série 24 e Docker Desktop:
 
@@ -16,6 +16,8 @@ npm --prefix apps/web start
 Abra [Conta](http://127.0.0.1:4200/conta) com dados descartáveis. Os e-mails vão para a [caixa do Supabase local](http://127.0.0.1:54324). Abra a confirmação e a recuperação no mesmo navegador que iniciou o pedido, inclusive em outra aba. O formulário de nova senha exige um link válido e volta a exigir outro link se for recarregado.
 
 A criação de Núcleos usa as migrações locais `20261115162000` e `20261115162100`. Em um Supabase local já iniciado com histórico sincronizado, aplique-as com o comando de migração local antes de testar a criação.
+
+O registro de momentos no Angular também exige as migrações `20261115182000` e `20261115182500`. Elas comparam a versão do formulário dentro da transação e devolvem conflito quando ela mudou. A assinatura anterior permanece disponível para o Next.js. Em um Supabase com histórico sincronizado, use `npm exec supabase -- migration up --local`.
 
 A configuração local autoriza as portas 4200 e 3200 para os retornos. Se o Supabase já estava iniciado quando `supabase/config.toml` mudou, a opção que usa a configuração anterior é `npm --prefix apps/web start -- 3200`. Para carregar a nova lista quando puder interromper o ambiente local, use `npm run supabase:stop` seguido de `npm run supabase:start`. Esses comandos preservam os volumes.
 

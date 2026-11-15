@@ -1,18 +1,18 @@
-# Estado atual — Next.js v3.11.1 · Angular v4.0.0-alpha.7 — 2026-11-15
+# Estado atual — Next.js v3.11.1 · Angular v4.0.0-alpha.8 — 2026-11-15
 
-**Objetivo e escopo:** substituir Next.js em 14 entregas. A01–A07 validadas localmente. A prévia cobre acesso, Conta, Núcleos, convites, administração e Acordos com propostas e respostas. A08–A14 pendentes. Google depende do provedor ativo na prévia.
+**Objetivo e escopo:** substituir Next.js em 14 entregas. A01–A08 validadas na prévia local. O recorte inclui acesso, Núcleos, convites, administração, propostas e ciclo de Hábito. A09–A14 pendentes. Google depende do provedor ativo na prévia.
 
-**Base e Git:** DOCS_DIR `Documentacao_Projeto_Nos`. Branch `codex/migracao-angular`. A06 confirmada no objeto `65e4ded` e na referência remota. A07 local. Linha Next.js em v3.11.1.
+**Base e Git:** DOCS_DIR `Documentacao_Projeto_Nos`. Branch `codex/migracao-angular`. A07 confirmada no objeto `60222f2` e na referência remota. A08 local. Linha Next.js em v3.11.1.
 
-**Arquivos e decisões:** `apps/web/src/app/agreements/` inclui lista, conferência, criação, resposta por versão, contagens e detalhe dos termos. A07 reusa as funções do banco sem alterar esquema. Publicar não registra aceite. A resposta e a recusa usam a versão lida. A contagem é agregada por página e os termos abertos são reconferidos. Registro `experience` é exibido como Hábito; Essência e transições são esboços.
+**Arquivos e decisões:** `apps/web/src/app/agreements/` inclui período, administração, versões e histórico de momentos. O registro compara a versão mostrada dentro da transação e informa conflito HTTP 409. Migrações `20261115182000` e `20261115182500` aplicadas apenas localmente. A assinatura anterior segue disponível para Next.js. O histórico divergente preexistente `20261112025922` foi preservado. O legado e o esboço de Essência mantêm seus contratos.
 
-**Validação e ferramentas:** 27 testes Playwright Angular aprovados e um caso exclusivo de celular ignorado no desktop. Banco local com 89 verificações em três arquivos. Tipos e builds de Angular e Next.js, revisão independente, verificadores do Atlas e galeria com 34 capturas conferidos. Context7 e documentação oficial consultados. Octocode configurado, sem consulta avançada externa. Suíte Angular pela porta 3000.
+**Validação e ferramentas:** 28 testes Angular passaram na regressão geral. Um caso exclusivo de celular pulou no desktop e o caso móvel de cancelamento de acesso passou no reteste direcionado. O ciclo com duas contas foi reconferido nos dois tamanhos. Banco local com 95 verificações, builds de Angular e Next.js, Atlas e revisão independente. Angular 22.2.6 e TypeScript 6.0.3 instalados. Context7 e fontes oficiais consultados. Octocode configurado, sem consulta avançada externa.
 
-**Próximo passo:** A08. Conferir o ciclo de Hábito e portar teste, revisão, encerramento, momentos e histórico. Os seletores contextuais em Conta e Mais seguem as etapas de preferências e navegação.
+**Próximo passo:** A09. Conferir Agenda no Atlas e portar mês, semana, criação, edição, remoção e participação em eventos. Antes de publicar o Angular em ambiente hospedado, aplicar as duas migrações do registro com versão a esse banco.
 
-**Continuidade Git:** A07 pronta para commit. Sugestão `feat(angular): migrar propostas e respostas de acordos`. Contador 69 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
+**Continuidade Git:** A08 pronta para commit. Sugestão `feat(angular): migrar ciclo, momentos e histórico de hábitos`. Contador 70 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
 
-**Índice:** [Guia Migração](../wireframes/atlas/index.html#migracao) · [Plano vigente](planos/migracao-angular.md) · [Registro A07](registros/registro-v4.0.0-alpha.7-2026-11-15-imp-acordos-angular-fun-propostas-e-respostas.md) · [Galeria A07](../wireframes/comparacoes/v4.0.0-alpha.7-2026-11-15-angular-acordos-tela_18-tela_22-tela_23-tela_24-tela_36/index.html) · [Guia da prévia](../../apps/web/README.md).
+**Índice:** [Guia Migração](../wireframes/atlas/index.html#migracao) · [Plano vigente](planos/migracao-angular.md) · [Registro A08](registros/registro-v4.0.0-alpha.8-2026-11-15-imp-habito-angular-fun-ciclo-momentos-e-historico.md) · [Galeria A08](../wireframes/comparacoes/v4.0.0-alpha.8-2026-11-15-angular-habito-tela_24-tela_25-tela_27-tela_28-tela_30-tela_31-tela_32-tela_33/index.html) · [Guia da prévia](../../apps/web/README.md).
 
 ---
 

@@ -1,3 +1,7 @@
+## Ciclo de Hábito na prévia Angular — v4.0.0-alpha.8 — 2026-11-15
+
+**Registrar momento** abre no detalhe para quem aceitou a versão vigente de um Hábito em teste ou ativo. A Tela 27 também tem rota direta. **Administrar o ciclo** abre ao iniciar, ativar ou encerrar e exige ciência explícita, com estado e papel verificados no banco. **Alterar termos** abre no histórico para a administração e publica outra versão somente após confirmar. X, Escape e gesto externo fecham a camada superior sem disparar confirmação. [Galeria](../../wireframes/comparacoes/v4.0.0-alpha.8-2026-11-15-angular-habito-tela_24-tela_25-tela_27-tela_28-tela_30-tela_31-tela_32-tela_33/index.html).
+
 ## Propostas e participação na prévia Angular — v4.0.0-alpha.7 — 2026-11-15
 
 **Nova proposta** na Tela 18 abre para quem possui vínculo e conserva os termos na revisão da Tela 22. Publicar é uma ação explícita. **Termos do acordo** abre pelo cartão nas Telas 18/23, com detalhe navegável na Tela 24. **Recusar participação?** abre sobre os termos do acordo, indica a versão e só escreve ao confirmar. **Enviar convite** reutiliza a geração da A05 e aparece para administradores. **Nossa Essência** mostra o esboço da Tela 36. X, Escape e gesto externo fecham a camada superior. [Galeria](../../wireframes/comparacoes/v4.0.0-alpha.7-2026-11-15-angular-acordos-tela_18-tela_22-tela_23-tela_24-tela_36/index.html).

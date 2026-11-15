@@ -6,7 +6,7 @@ export type AgreementScope = {owner:string; id:string};
 export type Response = 'accepted' | 'declined';
 export type Agreement = {
   id:string; category:string; title:string; description:string; timing:string; frequency:string;
-  created_at:string; status:string; trial_days:number|null; terms_version:number;
+  created_at:string; status:string; trial_days:number|null; terms_version:number; test_started_at:string|null;
   nucleus_agreement_participants:{response:string;accepted_version:number|null}[];
 };
 export type AgreementCount = {agreement_id:string;accepted:number;declined:number;pending:number};

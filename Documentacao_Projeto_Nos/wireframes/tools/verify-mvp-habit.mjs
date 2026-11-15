@@ -23,7 +23,7 @@ try {
       assert.equal(await page.locator('#screen-preview .phone').count(),1);
       for(const state of ['empty','loading','error','blocked','success']) {
         await page.locator(`[data-state="${state}"]`).click();
-        assert.equal(await page.locator('#screen-preview .state-message').count(),1);
+        assert.equal(await page.locator('#screen-preview :is(.live-state,.state-message)').count(),1);
       }
       await page.locator('[data-state="content"]').click();
     }

@@ -1,3 +1,9 @@
+## 2026-11-15 — v4.0.0-alpha.8 — Ciclo de Hábito e registro com versão
+
+**Problema:** a prévia ainda não permitia praticar e administrar um Hábito. O registro antigo não recebia a versão exibida. **Contribuição:** portar ciclo, revisão, registro e históricos, com verificação da versão sob a trava do banco. **Resultado verificado:** o banco rejeitou uma versão anterior mesmo com aceite corrente e preservou compatibilidade da assinatura antiga. **Benefício esperado:** preservar a relação entre os termos apresentados e o registro, sem remover história. [Registro A08](../_andamento/registros/registro-v4.0.0-alpha.8-2026-11-15-imp-habito-angular-fun-ciclo-momentos-e-historico.md).
+
+---
+
 ## 2026-11-15 — v4.0.0-alpha.7 — Propostas e consentimento individual na prévia Angular
 
 **Problema:** a prévia ainda não permitia propor ou responder a um acordo. **Contribuição:** revisão local, confirmação explícita e leitura de resposta própria com totais agregados. **Resultado verificado:** publicar deixou as duas contas a decidir, a recusa individual preservou a proposta e uma revisão foi exibida na sessão já aberta. Um envio com resposta perdida não foi repetido pelo formulário. **Benefício esperado:** reduzir consentimento implícito e tornar a participação mais clara durante a migração. [Registro A07](../_andamento/registros/registro-v4.0.0-alpha.7-2026-11-15-imp-acordos-angular-fun-propostas-e-respostas.md).

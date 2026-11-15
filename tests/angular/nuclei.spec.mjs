@@ -39,6 +39,167 @@ async function signIn(page, account, next = '/nucleos') {
   await expect(page).toHaveURL(next);
 }
 
+test('porta o ciclo de Hábito com novo aceite e histórico preservado', async ({page,accounts,browser},info) => {
+  test.setTimeout(75_000);
+  page.setDefaultTimeout(10000);
+  const [owner,member] = accounts;
+  const cfg = localSupabaseConfig();
+  const api = () => createClient(cfg.API_URL,cfg.PUBLISHABLE_KEY || cfg.ANON_KEY,{auth:{persistSession:false}});
+  const administrator = api(), participant = api();
+  for (const [client,account] of [[administrator,owner],[participant,member]]) {
+    if ((await client.auth.signInWithPassword({email:account.email,password:account.password})).error) throw new Error('Falha na sessão de teste.');
+  }
+  const added = await administrator.rpc('create_nucleus',{nucleus_type:'amigos',nucleus_name:'Jardim de hábitos',nucleus_purpose:'Cultivar presença.'});
+  if (added.error) throw new Error('Falha no Núcleo de teste.');
+  const id = added.data;
+  const invite = await administrator.rpc('create_initial_invitation',{target_nucleus:id});
+  if (invite.error || (await participant.rpc('accept_invitation',{invitation_code:invite.data})).error) throw new Error('Falha no vínculo de teste.');
+  const created = await administrator.rpc('create_nucleus_agreement',{
+    target_nucleus:id,agreement_category:'habit',agreement_title:'Uma conversa com tempo',
+    agreement_description:'Uma pausa para escutar.',agreement_timing:'Depois do jantar',agreement_frequency:'Semanal',agreement_trial_days:14,
+  });
+  if (created.error || !/^[a-f0-9-]{36}$/i.test(created.data)) throw new Error('Falha na proposta de teste.');
+  // Dados sintéticos do esquema antigo são inseridos apenas no Núcleo descartável local.
+  execFileSync('docker',['exec','supabase_db_nos','psql','-U','postgres','-d','postgres','-v','ON_ERROR_STOP=1','-c',
+    `insert into public.nucleus_habit_revisions(agreement_id,created_by,kind,status)
+       values ('${created.data}','${owner.id}','end','declined');
+     insert into public.nucleus_habit_trials(agreement_id,created_by,days,status,title,description,timing,frequency,participant_count)
+       values ('${created.data}','${owner.id}',10,'superseded','Termo legado','Registro anterior','À tarde','Semanal',2);`],{stdio:'ignore'});
+  const path = '/nucleos/'+id+'/acordos/'+created.data;
+  const capture = async (view,name) => {
+    if (process.env.NOS_HABIT_CAPTURE !== '1') return;
+    mkdirSync('artifacts/angular-a08',{recursive:true});
+    await view.screenshot({path:'artifacts/angular-a08/'+name+'-'+info.project.name+'.png',scale:'css'});
+  };
+  const second = await browser.newContext(info.project.use);
+  try {
+    const guest = await second.newPage();
+    guest.setDefaultTimeout(10000);
+    guest.setDefaultNavigationTimeout(25000);
+    await signIn(page,owner,path);
+    await page.getByRole('link',{name:'Período e administração do hábito'}).click();
+    await expect(page).toHaveURL(path+'/confirmar');
+    await expect(page.getByText('14 dias',{exact:true})).toBeVisible();
+    await capture(page,'periodo');
+    await page.getByRole('button',{name:'Iniciar teste',exact:true}).click();
+    const confirm = page.getByRole('dialog',{name:'Administrar o ciclo'});
+    await expect(confirm).toBeVisible();
+    await capture(page,'administrar');
+    if (info.project.name==='mobile') await page.touchscreen.tap(5,5);
+    else await page.mouse.click(5,5);
+    await expect(confirm).toBeHidden();
+    await expect(page.getByText('Proposta enviada',{exact:true})).toBeVisible();
+    await page.getByRole('button',{name:'Iniciar teste',exact:true}).click();
+    await confirm.getByRole('checkbox').check();
+    await confirm.getByRole('button',{name:'Iniciar teste',exact:true}).click();
+    await expect(page.getByText('Em teste',{exact:true})).toBeVisible();
+    await signIn(guest,member,path+'/registrar');
+    await expect(guest.getByRole('heading',{name:'Registro indisponível'})).toBeVisible();
+    await guest.goto(path+'/confirmar');
+    await expect(guest.getByRole('button',{name:'Ativar acordo'})).toHaveCount(0);
+    await guest.goto(path);
+    await guest.getByRole('button',{name:'Aceitar proposta'}).click();
+    await expect(guest.getByText('Participação aceita · v1',{exact:true})).toBeVisible();
+    await guest.getByRole('button',{name:'Registrar momento',exact:true}).click();
+    const moment = guest.getByRole('dialog',{name:'Registrar momento'});
+    await expect(moment).toBeVisible();
+    await capture(guest,'registrar');
+    await moment.getByRole('radio',{name:'Bem',exact:true}).check();
+    await moment.getByLabel('Nota opcional').fill('Ouvimos com calma.');
+    await moment.getByRole('button',{name:'Salvar momento'}).click();
+    await expect(guest.getByText('Ouvimos com calma.',{exact:true})).toBeVisible();
+    await expect(guest.getByText('Seu registro',{exact:true})).toBeVisible();
+    await guest.getByRole('region',{name:'Momentos registrados'}).scrollIntoViewIfNeeded();
+    await capture(guest,'historico');
+    await page.goto(path+'/revisar');
+    await page.getByRole('button',{name:'Alterar termos'}).click();
+    const revision = page.getByRole('dialog',{name:'Alterar termos'});
+    await revision.getByLabel('Como será?').fill('Escutar com tempo e sem distrações.');
+    expect((await revision.getByRole('checkbox').boundingBox()).width).toBeLessThan(32);
+    await capture(page,'revisao');
+    await revision.getByRole('checkbox').check();
+    await revision.getByRole('button',{name:'Publicar novos termos'}).click();
+    await expect(page.getByRole('heading',{name:/Versão 2 · Uma conversa/})).toBeVisible();
+    await expect(page.getByRole('heading',{name:/Versão 1 · Uma conversa/})).toBeVisible();
+    const legacy = page.getByRole('region',{name:'Histórico do modelo anterior'});
+    await expect(legacy.getByText('Solicitação antiga de encerramento')).toBeVisible();
+    await expect(legacy.getByText('Período anterior',{exact:true})).toBeVisible();
+    await capture(page,'termos');
+    await guest.goto(path+'/registrar');
+    await expect(guest.getByRole('heading',{name:'Registro indisponível'})).toBeVisible();
+    await guest.goto(path);
+    await expect(guest.getByText('Ouvimos com calma.',{exact:true})).toBeVisible();
+    await guest.getByRole('button',{name:'Aceitar proposta'}).click();
+    await expect(guest.getByText('Participação aceita · v2',{exact:true})).toBeVisible();
+    await guest.goto(path+'/registrar');
+    await guest.getByRole('radio',{name:'Neutro',exact:true}).check();
+    await guest.getByLabel('Nota opcional').fill('Registro após o novo aceite.');
+    await guest.getByRole('button',{name:'Salvar momento'}).click();
+    await expect(guest).toHaveURL(path);
+    await expect(guest.getByText('Registro após o novo aceite.',{exact:true})).toBeVisible();
+    await page.getByRole('button',{name:'Alterar termos'}).click();
+    await revision.getByLabel('Como será?').fill('Rascunho da versão anterior.');
+    await guest.getByRole('button',{name:'Registrar momento',exact:true}).click();
+    await moment.getByRole('radio',{name:'Bem',exact:true}).check();
+    await moment.getByLabel('Nota opcional').fill('Momento com termos antigos.');
+    // Publica e aceita de outra sessão entre a pré-checagem do formulário e a gravação real.
+    const recording = '**/rest/v1/rpc/record_nucleus_habit_moment';
+    let rejected;
+    const rejection = new Promise(resolve => { rejected = resolve; });
+    const race = async route => {
+      if (route.request().method()!=='POST') { await route.continue(); return; }
+      const input = route.request().postDataJSON();
+      expect(input.expected_terms_version).toBe(2);
+      const newer = await administrator.rpc('update_nucleus_agreement_terms',{
+        target_agreement:created.data,agreement_title:'Uma conversa com tempo',agreement_description:'Versão publicada em outra sessão.',
+        agreement_timing:'Depois do jantar',agreement_frequency:'Semanal',expected_terms_version:2,
+      });
+      expect(newer.error).toBeNull();
+      const accepted = await participant.rpc('respond_nucleus_agreement',{
+        target_agreement:created.data,agreement_response:'accepted',expected_terms_version:3,
+      });
+      expect(accepted.error).toBeNull();
+      // Envia o corpo original ao Supabase como a mesma conta, após a revisão e o novo aceite.
+      const result = await participant.rpc('record_nucleus_habit_moment',input).retry(false);
+      await route.fulfill({status:result.status || 500,
+        headers:{'access-control-allow-origin':info.project.use.baseURL},json:result.error ?? result.data});
+      rejected({status:result.status,code:result.error?.code});
+    };
+    await guest.route(recording,race);
+    await moment.getByRole('button',{name:'Salvar momento'}).click();
+    expect(await rejection).toEqual({status:409,code:'PT409'});
+    await expect(moment.getByRole('alert')).toContainText('Os termos mudaram',{timeout:10000});
+    await guest.unroute(recording,race);
+    await moment.getByRole('button',{name:'Fechar registro de momento'}).click();
+    await expect(guest.getByText('Momento com termos antigos.',{exact:true})).toHaveCount(0);
+    await revision.getByRole('checkbox').check();
+    await revision.getByRole('button',{name:'Publicar novos termos'}).click();
+    await expect(revision.getByRole('alert')).toContainText('O acordo mudou');
+    await expect(revision.getByLabel('Como será?')).toHaveValue('Rascunho da versão anterior.');
+    await revision.getByRole('button',{name:'Fechar edição de termos'}).click();
+    await expect(page.getByText('Termos atuais · versão 3',{exact:true})).toBeVisible();
+    await page.getByRole('button',{name:'Alterar termos'}).click();
+    await expect(revision.getByLabel('Como será?')).toHaveValue('Versão publicada em outra sessão.');
+    await page.keyboard.press('Escape');
+    await page.goto(path+'/confirmar');
+    await page.getByRole('button',{name:'Ativar acordo'}).click();
+    await confirm.getByRole('checkbox').check();
+    await confirm.getByRole('button',{name:'Ativar acordo'}).click();
+    await expect(page.getByText('Acordo ativo',{exact:true})).toBeVisible();
+    await page.getByRole('button',{name:'Encerrar acordo'}).click();
+    await capture(page,'encerrar');
+    await confirm.getByRole('checkbox').check();
+    await confirm.getByRole('button',{name:'Encerrar acordo'}).click();
+    await expect(page.getByText('Encerrado pela administração',{exact:true})).toBeVisible();
+    await page.goto(path);
+    await expect(page.getByText('Ouvimos com calma.',{exact:true})).toBeVisible();
+    await expect(page.getByText('Registro de outra pessoa',{exact:true})).toHaveCount(2);
+    await page.getByRole('region',{name:'Momentos registrados'}).scrollIntoViewIfNeeded();
+    await capture(page,'encerrado');
+    await expect(page.getByRole('button',{name:'Registrar momento'})).toHaveCount(0);
+  } finally { await second.close(); }
+});
+
 test('publica proposta sem aceite e atualiza respostas individuais no Angular', async ({page,accounts,browser},info) => {
   test.setTimeout(75_000);
   page.setDefaultTimeout(8000);

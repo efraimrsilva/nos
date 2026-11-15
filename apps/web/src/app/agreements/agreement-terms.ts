@@ -2,6 +2,7 @@ import { Component, DestroyRef, computed, inject, input, output, signal, effect,
 import { RouterLink } from '@angular/router';
 import { AgreementTotals } from './agreement-totals';
 import { AgreementsData } from './agreements-data';
+import { canRecordMoment } from './habit-model';
 import { accepted, canRespond, participationLabel,statusLabel,type Agreement,type AgreementCount,type AgreementScope,type Response } from './proposal-model';
 
 @Component({
@@ -25,6 +26,7 @@ export class AgreementTerms {
   protected readonly responseLabel = participationLabel;
   protected readonly accepts = accepted;
   protected readonly canRespond = canRespond;
+  protected readonly canRecord = canRecordMoment;
   protected readonly pending = signal(false);
   protected readonly error = signal('');
   protected readonly feedback = signal('');

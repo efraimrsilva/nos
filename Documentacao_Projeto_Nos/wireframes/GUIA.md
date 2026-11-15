@@ -1,3 +1,5 @@
+**Prévia Angular v4.0.0-alpha.8 (15/11/2026)** — A08 completa ciclo, registro de momentos, versão e histórico do Hábito. Atlas vivo demonstra os modais de registro, administração e revisão com dados ilustrativos. [Comparações](comparacoes/v4.0.0-alpha.8-2026-11-15-angular-habito-tela_24-tela_25-tela_27-tela_28-tela_30-tela_31-tela_32-tela_33/index.html).
+
 **Prévia Angular v4.0.0-alpha.7 (15/11/2026)** — A07 porta Acordos, conferência de proposta, resposta individual, contagens e detalhe de termos. O Atlas demonstra revisão e recusa em modais locais. [Comparações](comparacoes/v4.0.0-alpha.7-2026-11-15-angular-acordos-tela_18-tela_22-tela_23-tela_24-tela_36/index.html).
 
 **Prévia Angular v4.0.0-alpha.6 (15/11/2026)** — A06 porta identidade do Núcleo, gestão pelo modal de integrantes, saída e encerramento. As Telas 13, 71 e 73 mostram as ações contextuais. [Comparações](comparacoes/v4.0.0-alpha.6-2026-11-15-angular-pessoas-tela_13-tela_71-tela_73/index.html).

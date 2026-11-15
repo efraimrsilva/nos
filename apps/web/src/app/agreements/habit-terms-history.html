@@ -1,0 +1,88 @@
+<section class="surface agreement-detail">
+  <p><span class="badge">Termos atuais · versão {{ context().agreement.terms_version }}</span></p>
+  <p>Alterar os termos pede novo aceite individual. Os momentos e as versões anteriores permanecem.</p>
+  @if (editable()) {
+    <p class="habit-section-gap"><button type="button" class="button" aria-haspopup="dialog" [disabled]="pending()" (click)="open(editor)">Alterar termos</button></p>
+  }
+  @if (feedback()) { <p role="status">{{ feedback() }}</p> }
+</section>
+<dialog #editor class="shared-dialog agreement-wide-dialog" aria-label="Alterar termos" (close)="cancel(editor)">
+  <header class="dialog-heading"><h2>Alterar termos</h2>
+    <form method="dialog"><button class="icon-button" aria-label="Fechar edição de termos" autofocus>×</button></form>
+  </header>
+  @if (draft(); as editing) {
+    <p>Partindo da versão {{ editing.agreement.terms_version }}. Publicar solicita novo aceite a cada integrante.</p>
+    <form class="agreement-form" (submit)="submit($event,editor)" [attr.aria-busy]="pending()">
+      <fieldset class="agreement-fields" [disabled]="pending() || !editable()">
+        <label>O que vamos fazer?<input name="title" [value]="editing.agreement.title" required maxlength="100"></label>
+        <label for="habit-new-description">Como será?</label>
+        <textarea id="habit-new-description" name="description" [defaultValue]="editing.agreement.description" required maxlength="500" rows="3"></textarea>
+        <label>Quando?<input name="timing" [value]="editing.agreement.timing" required maxlength="120"></label>
+        <label>Com que frequência?<input name="frequency" [value]="editing.agreement.frequency" required maxlength="120"></label>
+        <label class="nucleus-confirm"><input type="checkbox" name="confirmed" required>
+          <span>Publicar nova versão e solicitar novo aceite a cada participante.</span></label>
+        <button type="submit" class="button">{{ pending()?'Publicando…':'Publicar novos termos' }}</button>
+      </fieldset>
+      @if (error()) { <p role="alert" class="form-error">{{ error() }}</p> }
+    </form>
+  }
+</dialog>
+<section class="surface agreement-detail habit-section-gap" aria-label="Histórico dos termos">
+  <h2>Histórico dos termos</h2>
+  @if (state.error()) {
+    <p role="alert">Não foi possível consultar os termos anteriores.</p>
+    <button class="button secondary" type="button" (click)="state.reload()">Tentar novamente</button>
+  } @else if (state.isLoading() && !state.hasValue()) {
+    <p role="status">Carregando as versões…</p>
+  } @else if (state.value(); as history) {
+    <ol class="habit-records">
+      @for (item of history.versions; track item.version) {
+        <li><h3>Versão {{ item.version }} · {{ item.title }}</h3>
+          <p><time [attr.datetime]="item.changed_at">{{ date(item.changed_at) }}</time></p>
+          <p class="agreement-description">{{ item.description }}</p>
+          <dl class="agreement-facts"><div><dt>Quando</dt><dd>{{ item.timing }}</dd></div>
+            <div><dt>Frequência</dt><dd>{{ item.frequency }}</dd></div></dl>
+        </li>
+      }
+    </ol>
+    @if (!history.versions.length) { <p>Nenhuma versão nesta página.</p> }
+    @if (before() || history.nextVersion) {
+      <nav class="agreement-actions" aria-label="Páginas dos termos">
+        @if (before()) { <a class="button secondary" [routerLink]="[]" [queryParams]="{versao:null}" queryParamsHandling="merge">Versões recentes</a> }
+        @if (history.nextVersion) { <a class="button secondary" [routerLink]="[]" [queryParams]="{versao:history.nextVersion}" queryParamsHandling="merge">Versões anteriores</a> }
+      </nav>
+    }
+  }
+</section>
+@if (state.hasValue() && state.value(); as history) {
+  @if (history.revisions.length || history.trials.length || page()>1) {
+    <section class="surface agreement-detail habit-section-gap" aria-label="Histórico do modelo anterior">
+      <h2>Histórico do modelo anterior</h2>
+      <p>Somente consulta. Os registros anteriores não alteram os acordos atuais nem valem como novo aceite.</p>
+      <ol class="habit-records">
+        @for (item of history.revisions; track item.id) {
+          <li><h3>{{ item.kind==='end'?'Solicitação antiga de encerramento':'Ajuste anterior' }}</h3>
+            <p><span class="badge">{{ revisionStates[item.status] ?? 'Registro anterior' }}</span></p>
+            <p><time [attr.datetime]="item.created_at">{{ date(item.created_at) }}</time></p>
+            @if (item.title) { <p>{{ item.title }}</p> }
+            @if (item.description) { <p class="agreement-description">{{ item.description }}</p> }
+            @if (item.timing) { <p>{{ item.timing }} · {{ item.frequency }}</p> }
+          </li>
+        }
+        @for (item of history.trials; track item.id) {
+          <li><h3>Período anterior</h3>
+            <p><span class="badge">{{ trialStates[item.status] ?? 'Registro anterior' }}</span></p>
+            @if (item.started_at) { <p>Início em {{ date(item.started_at) }}</p> }
+            @if (item.ends_at) { <p>Fim previsto em {{ date(item.ends_at) }}</p> }
+          </li>
+        }
+      </ol>
+      @if (page()>1 || history.moreLegacy) {
+        <nav class="agreement-actions" aria-label="Páginas do histórico anterior">
+          @if (page()>1) { <a class="button secondary" [routerLink]="[]" [queryParams]="{legado:page()-1}" queryParamsHandling="merge">Histórico anterior: página anterior</a> }
+          @if (history.moreLegacy && page()<9999) { <a class="button secondary" [routerLink]="[]" [queryParams]="{legado:page()+1}" queryParamsHandling="merge">Histórico anterior: próximos registros</a> }
+        </nav>
+      }
+    </section>
+  }
+}
