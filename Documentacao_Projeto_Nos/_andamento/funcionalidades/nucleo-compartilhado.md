@@ -1,3 +1,7 @@
+## Convites na prévia Angular — v4.0.0-alpha.5 — 2026-11-15
+
+A05 completa o endereço reservado de convite inicial e habilita gestão para administradores. A lista carrega apenas identificadores e datas, ordenados por criação e identificador. A caixa de preparo atualiza a lista quando a geração termina mesmo se já foi fechada. O código é exibido somente no contexto de preparo ou convite inicial. Revogar não remove integrantes. [Registro A05](../registros/registro-v4.0.0-alpha.5-2026-11-15-imp-convites-angular-fun-geracao-aceite-e-revogacao.md).
+
 ## Prévia Angular — v4.0.0-alpha.4 — 2026-11-15
 
 A04 consulta Núcleos e integrantes com a sessão atual e segurança por linha (RLS). A criação explícita envia um identificador único com o rascunho validado. Repetir a mesma confirmação devolve o mesmo Núcleo. Em resposta incerta, a pessoa pode consultar Seus Núcleos. Nome e propósito do rascunho ficam em memória. O atalho de retorno é guardado por conta e valida vínculo antes de aparecer. A05 porta convites e A06 porta gestão. [Registro A04](../registros/registro-v4.0.0-alpha.4-2026-11-15-imp-nucleos-angular-fun-lista-selecao-e-criacao.md).

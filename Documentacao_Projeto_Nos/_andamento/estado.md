@@ -1,18 +1,18 @@
-# Estado atual — Next.js v3.11.1 · Angular v4.0.0-alpha.4 — 2026-11-15
+# Estado atual — Next.js v3.11.1 · Angular v4.0.0-alpha.5 — 2026-11-15
 
-**Objetivo e escopo:** substituir Next.js em 14 entregas. A01–A04 validadas localmente. Prévia com Conta e sessão por senha, estrutura compartilhada, lista, seleção, criação e Início de Núcleos. Google exige provedor na prévia. A05–A14 pendentes.
+**Objetivo e escopo:** substituir Next.js em 14 entregas. A01–A05 validadas localmente. A prévia tem Conta, Núcleos e convites por código. A06–A14 pendentes. Google segue dependente do provedor ativo na prévia.
 
-**Base e Git:** DOCS_DIR `Documentacao_Projeto_Nos`. Branch `codex/migracao-angular`. A03 confirmada no objeto `688f880` e na referência remota. A04 local. Next.js segue em v3.11.1.
+**Base e Git:** DOCS_DIR `Documentacao_Projeto_Nos`. Branch `codex/migracao-angular`. A04 confirmada no objeto `4ff4013` e na referência remota. A05 local. Linha Next.js em v3.11.1.
 
-**Arquivos e decisões:** `apps/web/src/app/nuclei/` protege a navegação com sessão verificada. O rascunho vive na página. O banco reutiliza o identificador da mesma confirmação. A seleção fica por conta e é conferida por vínculo. Migrações `20261115162000` e `20261115162100` aplicadas apenas localmente. Histórico divergente preexistente `20261112025922` preservado.
+**Arquivos e decisões:** `apps/web/src/app/invitations/` porta convite inicial, entrada e gestão com as operações existentes do Supabase. Conferir e aceitar são passos distintos. A gestão não lista códigos. A falha de resposta preserva a decisão para repetir. A saída do modal interrompe a exibição do código e permite a atualização da lista. As migrações da A04 continuam registradas localmente. A05 dispensou migração.
 
-**Validação e ferramentas:** 21 testes de navegador aprovados, com um caso exclusivo de celular ignorado no desktop. Banco local: 139 verificações aprovadas em seis arquivos. Tipos e builds Angular e Next.js aprovados. Migração, MVP, Visão global e galeria verificadas. Revisão independente dos contratos e da repetição. Context7 e documentação oficial consultados. Octocode segue configurado, sem busca avançada externa. Nenhum bloqueio para A05.
+**Validação e ferramentas:** 23 testes Playwright aprovados e um caso exclusivo de celular ignorado no desktop. Banco local com 105 verificações aprovadas em três arquivos. Tipos e builds de Angular e Next.js aprovados. Atlas e revisão independente conferidos. Context7 e fontes oficiais consultados. Octocode segue configurado, sem pesquisa avançada nesta unidade. A suíte usou a porta alternativa 3000 porque a 3200 estava ocupada.
 
-**Próximo passo:** A05. Conferir convite inicial, entrada por código, prévia, aceite e gestão no Atlas. Implementar e validar com duas contas. A confirmação da criação já abre o endereço reservado de convite inicial.
+**Próximo passo:** A06. Conferir identidade e integrantes no Atlas. Portar administração, edição de nome e propósito, saída individual e encerramento com validação de papéis no Supabase.
 
-**Continuidade Git:** A04 pronta para commit. Sugestão `feat(angular): migrar lista, seleção e criação de núcleos`. Contador 66 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
+**Continuidade Git:** A05 pronta para commit. Sugestão `feat(angular): migrar geração, aceite e revogação de convites`. Contador 67 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
 
-**Índice:** [Guia Migração](../wireframes/atlas/index.html#migracao) · [Plano vigente](planos/migracao-angular.md) · [Registro A04](registros/registro-v4.0.0-alpha.4-2026-11-15-imp-nucleos-angular-fun-lista-selecao-e-criacao.md) · [Galeria A04](../wireframes/comparacoes/v4.0.0-alpha.4-2026-11-15-angular-nucleos-tela_06-tela_07-tela_08-tela_12-tela_13/index.html) · [Guia da prévia](../../apps/web/README.md).
+**Índice:** [Guia Migração](../wireframes/atlas/index.html#migracao) · [Plano vigente](planos/migracao-angular.md) · [Registro A05](registros/registro-v4.0.0-alpha.5-2026-11-15-imp-convites-angular-fun-geracao-aceite-e-revogacao.md) · [Galeria A05](../wireframes/comparacoes/v4.0.0-alpha.5-2026-11-15-angular-convites-tela_09-tela_10-tela_11-tela_58-tela_59/index.html) · [Guia da prévia](../../apps/web/README.md).
 
 ---
 

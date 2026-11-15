@@ -86,8 +86,8 @@ test('cria uma vez mesmo após perder a resposta e abre núcleo autorizado', asy
   await confirmed.click();
   await expect(page).toHaveURL(/\/comecar\/convite-inicial\/[a-f\d-]+$/i);
   expect(requests).toBe(2);
-  await expect(page.getByRole('heading',{name:'Núcleo criado'})).toBeVisible();
-  await page.getByRole('link',{name:'Abrir Núcleo'}).click();
+  await expect(page.getByRole('heading',{name:'Convide quem faz parte'})).toBeVisible();
+  await page.getByRole('link',{name:'Concluir por enquanto'}).click();
   await expect(page.getByRole('heading',{name:'Jardim de teste'})).toBeVisible();
   const path = new URL(page.url()).pathname;
   await capture('inicio');
@@ -143,4 +143,160 @@ test('consulta protegida distingue carregamento, erro e lista vazia', async ({pa
   await page.unroute(pattern,failure);
   await page.getByRole('button',{name:'Tentar novamente'}).click();
   await expect(page.getByRole('status').filter({hasText:'Você ainda não participa'})).toBeVisible();
+});
+
+test('convites preservam a escolha, a revogação e o vínculo confirmado', async ({page,browser,accounts}, info) => {
+  test.setTimeout(75_000);
+  const [owner, guest] = accounts;
+  const cfg = localSupabaseConfig();
+  const api = createClient(cfg.API_URL,cfg.PUBLISHABLE_KEY || cfg.ANON_KEY,{auth:{persistSession:false}});
+  const login = await api.auth.signInWithPassword({email:owner.email,password:owner.password});
+  if (login.error) throw new Error('Falha na sessão de preparação.');
+  const fixture = await api.rpc('create_nucleus',{nucleus_type:'amigos',
+    nucleus_name:'Jardim de convites',nucleus_purpose:'Cuidar do vínculo.'});
+  if (fixture.error || typeof fixture.data !== 'string') throw new Error('Falha no Núcleo de teste.');
+  const id = fixture.data;
+  const home = '/nucleos/' + id;
+  const management = home + '/convites';
+  const entry = '/comecar/convite';
+  const guestContext = await browser.newContext({baseURL:info.project.use.baseURL,viewport:info.project.use.viewport});
+  const guestPage = await guestContext.newPage();
+  const capture = async (target,name) => {
+    if(process.env.NOS_INVITES_CAPTURE !== '1') return;
+    mkdirSync('artifacts/angular-a05',{recursive:true});
+    await target.screenshot({path:'artifacts/angular-a05/'+name+'-'+info.project.name+'.png',scale:'css',
+      mask:[target.locator('[data-invitation-secret]')],maskColor:'#e7ece1'});
+  };
+  const codeOn = async target => {
+    const value = (await target.getByTestId('invitation-code').innerText()).trim();
+    expect(/^[0-9a-f]{32}$/.test(value)).toBe(true);
+    return value;
+  };
+  const inspect = async code => {
+    await guestPage.getByLabel('Código de convite',{exact:true}).fill('  ' + code.toUpperCase() + '  ');
+    await guestPage.getByRole('button',{name:'Conferir convite'}).click();
+    await expect(guestPage.getByRole('region',{name:'Prévia do convite'})).toBeVisible();
+  };
+  const revoke = async () => {
+    await page.getByRole('link',{name:'Ativos',exact:true}).click();
+    await page.getByRole('button',{name:'Revogar convite',exact:true}).click();
+    const dialog = page.getByRole('dialog',{name:'Revogar convite'});
+    await expect(dialog).toBeVisible();
+    await capture(page,'revogar');
+    await dialog.getByRole('button',{name:'Cancelar'}).click();
+    await expect(dialog).toBeHidden();
+    await page.getByRole('button',{name:'Revogar convite',exact:true}).click();
+    await dialog.getByRole('button',{name:'Confirmar revogação'}).click();
+    await expect(page.getByRole('status').filter({hasText:'Convite revogado'})).toBeVisible();
+    await page.getByRole('link',{name:'Revogados',exact:true}).click();
+    await expect(page.getByRole('heading',{name:'Convites revogados'})).toBeVisible();
+  };
+  try {
+    await signIn(page,owner,'/comecar/convite-inicial/'+id);
+    await expect(page.getByRole('heading',{name:'Convide quem faz parte'})).toBeVisible();
+    await capture(page,'inicial');
+    await page.getByRole('button',{name:'Gerar convite'}).click();
+    const first = await codeOn(page);
+    await expect(page.getByText(/Expira em .* UTC/)).toBeVisible();
+    // Confere o envio ao clipboard sem escrever na área de transferência da máquina.
+    await page.evaluate(() => Object.defineProperty(navigator.clipboard,'writeText',{
+      configurable:true,
+      value:async text => { document.body.dataset.copiedInvitation = /^[0-9a-f]{32}$/.test(text) ? 'yes' : 'no'; },
+    }));
+    await page.getByRole('button',{name:'Copiar código'}).click();
+    await expect(page.getByRole('status').filter({hasText:'Código copiado'})).toBeVisible();
+    await expect(page.locator('body')).toHaveAttribute('data-copied-invitation','yes');
+    await capture(page,'compartilhar');
+    await page.reload();
+    expect((await codeOn(page)) === first).toBe(true);
+    await page.getByRole('link',{name:'Gerenciar convites',exact:true}).click();
+    await expect(page).toHaveURL(management);
+    await expect(page.getByRole('heading',{name:'Convites ativos'})).toBeVisible();
+    await expect(page.getByTestId('invitation-code')).toHaveCount(0);
+    await capture(page,'gestao');
+
+    await guestPage.goto(entry);
+    await expect(guestPage).toHaveURL(/\/conta\?modo=login&next=/);
+    await signIn(guestPage,guest,entry);
+    await expect(guestPage.getByRole('heading',{name:'Você recebeu um convite?'})).toBeVisible();
+    await capture(guestPage,'inserir');
+    await guestPage.getByLabel('Código de convite',{exact:true}).fill('incompleto');
+    await guestPage.getByRole('button',{name:'Conferir convite'}).click();
+    await expect(guestPage.getByRole('alert')).toContainText('32 caracteres');
+    await inspect(first);
+    await capture(guestPage,'previa');
+    await guestPage.getByRole('link',{name:'Agora não'}).click();
+    await expect(guestPage.getByRole('status').filter({hasText:'Você ainda não participa'})).toBeVisible();
+    await guestPage.goto(entry);
+    await inspect(first);
+    await revoke();
+    await guestPage.getByRole('button',{name:'Aceitar convite'}).click();
+    await expect(guestPage.getByRole('alert')).toContainText('Este convite não está mais disponível');
+    await guestPage.getByRole('button',{name:'Conferir convite'}).click();
+    await expect(guestPage.getByRole('alert')).toContainText('Convite não encontrado');
+
+    await page.getByRole('link',{name:'Ativos',exact:true}).click();
+    await expect(page.getByText('Nenhum convite ativo nesta página.')).toBeVisible();
+    await page.getByRole('button',{name:'Preparar convite',exact:true}).click();
+    const generator = page.getByRole('dialog',{name:'Preparar convite'});
+    await expect(generator).toBeVisible();
+    let releaseGeneration;
+    const gate = new Promise(resolve => { releaseGeneration = resolve; });
+    let generatedWhileClosing;
+    const intercept = async route => {
+      if (route.request().method() !== 'POST') return route.continue();
+      const response = await route.fetch();
+      generatedWhileClosing = response.ok() ? await response.json() : null;
+      await gate;
+      await route.fulfill({response});
+    };
+    const generationPath = '**/rest/v1/rpc/create_initial_invitation';
+    await page.route(generationPath,intercept);
+    try {
+      await generator.getByRole('button',{name:'Gerar convite'}).click();
+      await expect.poll(() => typeof generatedWhileClosing === 'string').toBe(true);
+      await page.keyboard.press('Escape');
+      await expect(generator).toBeHidden();
+    } finally { releaseGeneration(); }
+    await expect(page.getByRole('button',{name:'Revogar convite',exact:true})).toBeVisible();
+    await page.unroute(generationPath,intercept);
+    await page.getByRole('button',{name:'Preparar convite',exact:true}).click();
+    await expect(generator.getByTestId('invitation-code')).toHaveCount(0);
+    await generator.getByRole('button',{name:'Gerar convite'}).click();
+    const second = await codeOn(generator);
+    expect(second === first).toBe(false);
+    expect(second === generatedWhileClosing).toBe(true);
+    await capture(page,'preparar');
+    await page.keyboard.press('Escape');
+    await expect(generator).toBeHidden();
+    await inspect(second);
+    const acceptPath = '**/rest/v1/rpc/accept_invitation';
+    await guestPage.route(acceptPath,async route => {
+      if (route.request().method() !== 'POST') return route.continue();
+      const response = await route.fetch();
+      expect(response.ok()).toBe(true);
+      await route.abort();
+    });
+    await guestPage.getByRole('button',{name:'Aceitar convite'}).click();
+    await expect(guestPage.getByRole('alert')).toContainText('Não foi possível confirmar o aceite');
+    await expect(guestPage.getByRole('region',{name:'Prévia do convite'})).toBeVisible();
+    await guestPage.unroute(acceptPath);
+    await guestPage.getByRole('button',{name:'Aceitar convite'}).click();
+    await expect(guestPage).toHaveURL(home);
+    await expect(guestPage.getByRole('heading',{name:'Jardim de convites'})).toBeVisible();
+    await guestPage.goto(entry);
+    await inspect(second);
+    await guestPage.getByRole('button',{name:'Aceitar convite'}).click();
+    await expect(guestPage).toHaveURL(home);
+    await revoke();
+    await guestPage.reload();
+    await expect(guestPage.getByRole('heading',{name:'Jardim de convites'})).toBeVisible();
+    await guestPage.goto(management);
+    await expect(guestPage.getByRole('heading',{name:'Convites indisponíveis'})).toBeVisible();
+    await expect(guestPage.getByRole('button',{name:'Preparar convite'})).toHaveCount(0);
+    const { data: managementData } = await api.rpc('get_nucleus_management',{target_nucleus:id});
+    expect(managementData?.members.length).toBe(2);
+  } finally {
+    await Promise.allSettled([page.goto('/boas-vindas'),guestContext.close()]);
+  }
 });

@@ -7,7 +7,6 @@ import { localSupabaseConfig } from '../../scripts/local-supabase.mjs';
 const invitation = '/comecar/convite';
 const field = (page, name) => page.getByLabel(name, { exact: true });
 const access = page => page.getByRole('form', { name: 'Acesso à conta' });
-const accountOrigin = 'http://127.0.0.1:3200';
 
 test('cadastra, confirma pelo e-mail local e recupera a senha', async ({page}, info) => {
   test.setTimeout(70_000);
@@ -29,7 +28,7 @@ test('cadastra, confirma pelo e-mail local e recupera a senha', async ({page}, i
         const url = new URL(href);
         if (url.searchParams.get('type') !== kind) continue;
         const redirect = new URL(url.searchParams.get('redirect_to'));
-        if (redirect.origin !== accountOrigin || url.origin !== new URL(cfg.API_URL).origin) throw new Error('Retorno fora do ambiente de teste local.');
+        if (redirect.origin !== info.project.use.baseURL || url.origin !== new URL(cfg.API_URL).origin) throw new Error('Retorno fora do ambiente de teste local.');
         link = href;
         return true;
       }

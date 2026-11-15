@@ -1,3 +1,7 @@
+## MVP02 na prévia Angular — v4.0.0-alpha.5 — 2026-11-15
+
+A05 fecha o percurso local de convite por código com geração, prévia, aceite e revogação. QR, entrada por link, destinatários e histórico individual seguem como reservas. A verificação é da prévia local. [Registro A05](../registros/registro-v4.0.0-alpha.5-2026-11-15-imp-convites-angular-fun-geracao-aceite-e-revogacao.md).
+
 ## MVP02 na prévia Angular — v4.0.0-alpha.4 — 2026-11-15
 
 A04 valida lista, escolha, criação, seleção por conta e resumo protegido. A migração de Convites fecha o percurso em A05. A cobertura e os resultados de caixa preta da linha Next.js foram preservados. [Registro A04](../registros/registro-v4.0.0-alpha.4-2026-11-15-imp-nucleos-angular-fun-lista-selecao-e-criacao.md).

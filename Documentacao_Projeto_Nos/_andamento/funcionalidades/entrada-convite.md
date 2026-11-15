@@ -1,3 +1,7 @@
+## Prévia Angular — v4.0.0-alpha.5 — 2026-11-15
+
+O endereço de entrada redireciona para a Conta quando necessário e volta sem inserir o código automaticamente. O campo aceita espaços nas pontas e maiúsculas antes da validação. Conferir chama uma operação de leitura separada do aceite. Em erro de transporte durante o aceite, a prévia é preservada para repetir a mesma confirmação. Revogação ou expiração rejeitada pelo banco retira a prévia. [Registro A05](../registros/registro-v4.0.0-alpha.5-2026-11-15-imp-convites-angular-fun-geracao-aceite-e-revogacao.md).
+
 # Entrar por convite — v1.0.0
 
 **Atualização v1.0.0 — 14/10/2026:** [contrato administrativo](administracao-participacao.md) implementado localmente. Convites são geridos por administradores; Núcleos fechados não aceitam convites. Agenda usa consulta que protege autoria após saída e conserva a própria presença na reentrada. Autor associado ou administrador pode gerir eventos. Regras de criação, horários e respostas individuais permanecem.

@@ -1,6 +1,6 @@
 # Nós · prévia Angular
 
-Aplicação Angular separada do Next.js durante a migração. A prévia inclui a entrada, criação de conta, confirmação de e-mail, recuperação de senha e criação de Núcleos. Em `/configuracoes/conta`, leia e edite o próprio nome.
+Aplicação Angular separada do Next.js durante a migração. A prévia inclui a entrada, criação de conta, confirmação de e-mail, recuperação de senha, criação de Núcleos e convites por código. Em `/configuracoes/conta`, leia e edite o próprio nome.
 
 Da raiz, com Node.js 24.15 ou superior da série 24 e Docker Desktop:
 
@@ -25,4 +25,4 @@ npm --prefix apps/web run build
 npm run test:angular
 ```
 
-O Playwright usa a porta 3200, já autorizada no Supabase local. Deixe-a livre ao rodar a suíte. Os testes criam e removem contas e mensagens descartáveis. A configuração pública local fica fora do build de produção. Conexão hospedada e regras de publicação serão ensaiadas nas etapas do [plano](../../Documentacao_Projeto_Nos/_andamento/planos/migracao-angular.md).
+O Playwright usa a porta 3200 por padrão. Se estiver em uso, defina `NOS_ANGULAR_TEST_PORT` com uma porta livre. Para rodar os testes de e-mail, use uma porta autorizada na lista de retorno do Supabase local. Os testes criam e removem contas e mensagens descartáveis. A configuração pública local fica fora do build de produção. Conexão hospedada e regras de publicação serão ensaiadas nas etapas do [plano](../../Documentacao_Projeto_Nos/_andamento/planos/migracao-angular.md).

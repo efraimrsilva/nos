@@ -303,4 +303,7 @@ screens.find(s => s.id === 66).rule += ' Prévia Angular v4.0.0-alpha.2 (A02): I
 for (const id of [1,2,3,4,5,72]) screens.find(screen => screen.id === id).rule += ' Prévia Angular v4.0.0-alpha.3 (A03): fluxo de acesso e e-mails verificado localmente. Confirmar e-mail e Recuperar acesso usam o diálogo compartilhado. Google depende do provedor no ambiente. Veja a guia Migração.';
 
 // As fichas mantêm a linha Next.js. A guia Migração aponta as verificações da prévia Angular.
-for (const id of [6,7,8,12,13]) screens.find(screen => screen.id === id).rule += ' Prévia Angular v4.0.0-alpha.4 (A04): escolha, rascunho e criação com confirmação repetível, lista e Início protegidos por vínculo. Seleção reaparece só na própria conta. Convites seguem para A05 e gestão de integrantes para A06.';
+for (const id of [6,7,8,12,13]) screens.find(screen => screen.id === id).rule += ' Na prévia Angular, a A04 portou a escolha, o rascunho e a criação com confirmação repetível, além da lista e do Início protegidos por vínculo. A seleção reaparece só na própria conta. A A05 portou os convites; a gestão de integrantes segue para A06.';
+
+// O recorte Angular conserva os IDs e indica a evidencia local na guia Migração.
+for (const id of [9,10,11,58,59]) screens.find(screen=>screen.id===id).rule += ' Prévia Angular v4.0.0-alpha.5 (A05): geração, prévia, aceite, gestão e revogação com código foram verificados no Supabase local. Preparar convite e Revogar convite são modais na Tela 59. QR, câmera e entrada por link permanecem planejados.';

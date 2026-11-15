@@ -1,3 +1,7 @@
+## Gestão de convites Angular — v4.0.0-alpha.5 — 2026-11-15
+
+**Preparar convite (Tela 59):** administração abre pelo botão de mesmo nome. Gerar é ação explícita. O código e a data de validade aparecem após resposta. Fechar retira o código da tela. A lista se atualiza se já havia uma operação em andamento. **Revogar convite (Tela 59):** abre a partir do detalhe de um convite ativo para a administração. Confirmar impede novos aceites e preserva integrantes. Cancelar, X, Escape e gesto externo fecham os modais sem confirmar uma ação. [Registro A05](../registros/registro-v4.0.0-alpha.5-2026-11-15-imp-convites-angular-fun-geracao-aceite-e-revogacao.md).
+
 ## Núcleos na prévia Angular — v4.0.0-alpha.4 — 2026-11-15
 
 **Começar com intenção (Tela 12)** abre pelo botão Criar um núcleo após entrar na conta. Mostra caminhos de tipo e convite. **Integrantes do Núcleo (Tela 13)** abre pelo botão Ver integrantes com vínculo confirmado e mostra nome e papel. X, Escape e gesto externo fecham ambos. Selecionar um caminho também fecha a primeira caixa. Ações administrativas entram em A06. [Registro A04](../registros/registro-v4.0.0-alpha.4-2026-11-15-imp-nucleos-angular-fun-lista-selecao-e-criacao.md).

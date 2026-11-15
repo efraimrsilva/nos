@@ -12,7 +12,7 @@ export type AgreementPreview = {id: string; title: string; status: string};
 export class NucleiData {
   private readonly profile = inject(PreviewProfile);
 
-  private async client(owner: string, verify = false) {
+  async clientForAccount(owner: string, verify = false) {
     const connection = await this.profile.connection();
     if (!connection || this.profile.user()?.id !== owner) throw new Error('Sessão indisponível.');
     const {data, error} = await connection.client.auth.getSession();
@@ -31,7 +31,7 @@ export class NucleiData {
   }
 
   async list(owner: string, page: number, signal: AbortSignal) {
-    const client = await this.client(owner);
+    const client = await this.clientForAccount(owner);
     const start = (page - 1) * 20;
     const result = await client.from('nuclei').select('id,name,type')
       .order('name').order('id').range(start, start + 20).abortSignal(signal);
@@ -54,7 +54,7 @@ export class NucleiData {
 
   async selected(owner: string, id: string, signal: AbortSignal) {
     if (!isNucleusId(id)) return null;
-    const client = await this.client(owner);
+    const client = await this.clientForAccount(owner);
     const membership = await client.from('nucleus_members').select('role')
       .eq('nucleus_id',id).eq('user_id',owner).abortSignal(signal).maybeSingle();
     if (membership.error) throw new Error('Não foi possível confirmar seu vínculo.');
@@ -88,7 +88,7 @@ export class NucleiData {
   }
 
   async create(owner: string, requestId: string, type: NucleusTypeId, name: string, purpose: string) {
-    const client = await this.client(owner,true);
+    const client = await this.clientForAccount(owner,true);
     const result = await client.rpc('create_nucleus_once',{
       request_id:requestId, nucleus_type:type, nucleus_name:name, nucleus_purpose:purpose,
     }).retry(false);

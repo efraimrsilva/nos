@@ -1,3 +1,9 @@
+## 2026-11-15 — v4.0.0-alpha.5 — A05 da migração Angular
+
+A04 confirmada no GitHub em `4ff4013`. A05 portou convite inicial, entrada por código, aceite e gestão local. A prova com duas contas preservou a adesão após revogação e conferiu a repetição após falha de resposta. [Registro A05](registros/registro-v4.0.0-alpha.5-2026-11-15-imp-convites-angular-fun-geracao-aceite-e-revogacao.md).
+
+---
+
 ## 2026-11-15 — v4.0.0-alpha.4 — A04 da migração Angular
 
 A03 confirmada no GitHub em `688f880`. A04 portou lista, criação, seleção e Início do Núcleo. Duas contas conferiram acesso por vínculo e a repetição da confirmação devolveu o mesmo Núcleo após falha simulada de resposta. [Registro A04](registros/registro-v4.0.0-alpha.4-2026-11-15-imp-nucleos-angular-fun-lista-selecao-e-criacao.md).

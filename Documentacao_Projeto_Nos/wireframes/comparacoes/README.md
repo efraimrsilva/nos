@@ -115,3 +115,5 @@ Capturas devem usar exemplos sem informações privadas, tokens ou códigos reai
 - [v4.0.0-alpha.3 — A03: Conta e sessão Angular](./v4.0.0-alpha.3-2026-11-15-angular-acesso-tela_01-tela_02-tela_03-tela_04-tela_05-tela_72/index.html). Telas 01–05 e 72 com Atlas e prévia em desktop e celular.
 
 - [v4.0.0-alpha.4 — A04: lista, seleção e criação de Núcleos](./v4.0.0-alpha.4-2026-11-15-angular-nucleos-tela_06-tela_07-tela_08-tela_12-tela_13/index.html). Telas 06–08, 12 e 13, com modais, prévia e Atlas em computador e celular.
+
+- [v4.0.0-alpha.5 — A05: convites por código](./v4.0.0-alpha.5-2026-11-15-angular-convites-tela_09-tela_10-tela_11-tela_58-tela_59/index.html). Telas 09, 10, 11, 58 e 59 com modais e códigos mascarados.

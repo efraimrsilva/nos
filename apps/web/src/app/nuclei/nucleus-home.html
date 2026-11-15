@@ -11,7 +11,12 @@
       <p>{{ view.nucleus.purpose }}</p>
       <span class="badge">{{ view.role === 'admin' ? 'Administrador' : 'Participante' }}</span>
     </div>
-    <span class="badge">Espaço privado</span>
+    @if (view.role === 'admin') {
+      <div class="nucleus-actions">
+        <a class="button secondary" [routerLink]="['/comecar/convite-inicial',view.nucleus.id]">Convidar pessoas</a>
+        <a class="text-link" [routerLink]="['/nucleos',view.nucleus.id,'convites']">Gerenciar convites</a>
+      </div>
+    } @else { <span class="badge">Espaço privado</span> }
   </header>
   <div class="overview-grid">
     <section class="surface">

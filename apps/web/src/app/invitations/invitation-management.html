@@ -1,0 +1,85 @@
+@if (state.hasValue() && state.value(); as view) {
+  @for (item of [view]; track item.scope.id + ':' + item.filter + ':' + item.page) {
+    <header class="nucleus-header">
+      <div><p class="kicker">Pessoas e participação</p><h1 tabindex="-1">Um convite para estar perto.</h1>
+        <p>Gerencie os convites de {{ item.name }}.</p></div>
+      <button class="button" type="button" aria-haspopup="dialog" (click)="preparing.set(true); prepare.showModal()">Preparar convite</button>
+    </header>
+    <nav class="invite-tabs" aria-label="Status dos convites">
+      @for (option of filters; track option.key) {
+        <a [routerLink]="['/nucleos',item.scope.id,'convites']" [queryParams]="{status:option.key}"
+          [attr.aria-current]="filter().key === option.key ? 'page' : null">{{ option.title }}</a>
+      }
+    </nav>
+    @if (state.isLoading()) { <p role="status">Atualizando convites…</p> }
+    @if (success()) { <p class="surface" role="status">{{ success() }}</p> }
+    @if (error() && !revokeDialog.open) { <p class="form-error" role="alert">{{ error() }}</p> }
+    <div class="invite-grid">
+      <section class="surface" aria-label="Convites do Núcleo">
+        <h2>Convites {{ filter().key }}</h2>
+        @for (row of item.rows; track row.id; let idx=$index) {
+          <button type="button" class="invite-row" [attr.aria-pressed]="selected()?.id === row.id" (click)="selectedId.set(row.id)">
+            <strong>Convite {{ (page()-1)*20+idx+1 }}</strong>
+            <span>Criado em {{ date(row.created_at) }}</span>
+          </button>
+        } @empty {
+          <p>Nenhum convite {{ filter().label.toLowerCase() }} nesta página.</p>
+        }
+      </section>
+      <section class="surface invite-details" aria-label="Detalhes do convite">
+        @if (selected(); as row) {
+          <h2>Sobre este convite</h2>
+          <span class="badge">{{ filter().label }}</span>
+          <dl>
+            <dt>Criado em</dt><dd>{{ date(row.created_at) }}</dd>
+            <dt>{{ row.revoked_at ? 'Revogado em' : 'Validade até' }}</dt>
+            <dd>{{ date(row.revoked_at ?? row.expires_at) }}</dd>
+          </dl>
+          @if (filter().key === 'ativos') {
+            <button class="button secondary" type="button" aria-haspopup="dialog" [disabled]="revoking()"
+              (click)="askRevoke(item.scope,row,revokeDialog)">Revogar convite</button>
+          }
+        } @else {
+          <h2>Um convite com cuidado</h2>
+          <p>Administradores preparam convites. A outra pessoa confere o Núcleo e escolhe se deseja entrar.</p>
+        }
+        <p class="invite-note">Revogar um convite impede novos aceites. Quem já faz parte do Núcleo continua participando.</p>
+      </section>
+    </div>
+    @if (page()>1 || item.hasNext) {
+      <nav class="invite-actions invite-note" aria-label="Páginas dos convites">
+        @if (page()>1) { <a class="button secondary" [routerLink]="['/nucleos',item.scope.id,'convites']" [queryParams]="{status:item.filter,pagina:page()-1}">Página anterior</a> }
+        @if (item.hasNext) { <a class="button secondary" [routerLink]="['/nucleos',item.scope.id,'convites']" [queryParams]="{status:item.filter,pagina:page()+1}">Próxima página</a> }
+      </nav>
+    }
+    <p class="invite-note"><a class="text-link" [routerLink]="['/nucleos',item.scope.id]">Voltar ao Núcleo</a></p>
+    <dialog #prepare class="shared-dialog" aria-labelledby="prepare-invite-title" (close)="!prepare.open && preparing.set(false)">
+      <header class="dialog-heading"><h2 id="prepare-invite-title">Preparar convite</h2>
+        <form method="dialog"><button class="icon-button" aria-label="Fechar preparo" autofocus>×</button></form></header>
+      <app-invitation-generator [scope]="item.scope" [visible]="preparing()" (changed)="state.reload()" />
+    </dialog>
+    <dialog #revokeDialog class="shared-dialog" aria-labelledby="revoke-invite-title" (close)="!revokeDialog.open && revokeTarget.set(null)">
+      <header class="dialog-heading"><h2 id="revoke-invite-title">Revogar convite</h2>
+        <form method="dialog"><button class="icon-button" aria-label="Fechar revogação" autofocus>×</button></form></header>
+      <p>Quem já entrou continua participando. O código deixa de permitir novos aceites.</p>
+      <form class="invite-actions invite-note" (submit)="revoke($event)" [attr.aria-busy]="revoking()">
+        @if (error()) { <p class="form-error" role="alert">{{ error() }}</p> }
+        <button class="button invite-danger" type="submit" [disabled]="revoking() || !revokeTarget()">
+          {{ revoking() ? 'Revogando…' : 'Confirmar revogação' }}
+        </button>
+        <button class="button secondary" type="button" (click)="revokeDialog.close()">Cancelar</button>
+      </form>
+    </dialog>
+  }
+} @else if (state.isLoading()) { <p role="status">Carregando convites…</p> }
+@else if (state.error()) {
+  <section class="surface"><h1 tabindex="-1">Gerenciar convites</h1>
+    <p role="alert">Não foi possível consultar os convites.</p>
+    <button class="button" type="button" (click)="state.reload()">Tentar novamente</button>
+  </section>
+} @else {
+  <section class="surface"><h1 tabindex="-1">Convites indisponíveis</h1>
+    <p>A gestão de convites está disponível à administração do Núcleo.</p>
+    <a class="button" routerLink="/nucleos">Ver Seus Núcleos</a>
+  </section>
+}

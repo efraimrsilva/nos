@@ -1,3 +1,9 @@
+## 2026-11-15 — v4.0.0-alpha.5 — Convites por código na prévia Angular
+
+**Problema:** a criação de Núcleos terminava num endereço reservado para convite. **Contribuição:** portar preparo, entrada, prévia, aceite e revogação com as operações existentes do banco. **Resultado verificado:** conferir ou adiar não escreveu vínculo, revogar impediu novos aceites e repetição de aceite preservou um único vínculo. **Benefício esperado:** completar a jornada local entre duas contas. [Registro A05](../_andamento/registros/registro-v4.0.0-alpha.5-2026-11-15-imp-convites-angular-fun-geracao-aceite-e-revogacao.md).
+
+---
+
 ## 2026-11-15 — v4.0.0-alpha.4 — Criação de Núcleos protegida contra repetição
 
 **Problema:** a pessoa pode perder a resposta depois de confirmar a criação. **Contribuição:** o banco reutiliza o identificador da mesma confirmação ao receber o pedido novamente. **Resultado verificado:** uma resposta interrompida seguida de nova tentativa abriu um único Núcleo e preservou a associação de administrador. A segunda conta não viu o Núcleo. **Benefício esperado:** recuperar uma gravação sem duplicar espaços. [Registro A04](../_andamento/registros/registro-v4.0.0-alpha.4-2026-11-15-imp-nucleos-angular-fun-lista-selecao-e-criacao.md).
