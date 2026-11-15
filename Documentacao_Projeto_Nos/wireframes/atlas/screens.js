@@ -307,3 +307,6 @@ for (const id of [6,7,8,12,13]) screens.find(screen => screen.id === id).rule +=
 
 // O recorte Angular conserva os IDs e indica a evidencia local na guia Migração.
 for (const id of [9,10,11,58,59]) screens.find(screen=>screen.id===id).rule += ' Prévia Angular v4.0.0-alpha.5 (A05): geração, prévia, aceite, gestão e revogação com código foram verificados no Supabase local. Preparar convite e Revogar convite são modais na Tela 59. QR, câmera e entrada por link permanecem planejados.';
+screens.find(screen=>screen.id===13).rule += ' Prévia Angular v4.0.0-alpha.6 (A06): editar nome e propósito abre modais independentes para administradores. Minha participação tem atalho para sair e modal de encerramento que exige o nome atual.';
+screens.find(screen=>screen.id===71).rule += ' Prévia Angular v4.0.0-alpha.6 (A06): a rota de saída lê a preferência de autoria e exige confirmação em modal. Após a saída individual, o histórico compartilhado permanece.';
+screens.find(screen=>screen.id===73).rule += ' Prévia Angular v4.0.0-alpha.6 (A06): o botão Ver integrantes e a rota legada abrem a mesma lista do Início. O nome abre um modal de detalhes. Nomeação precisa de aceite próprio e a lista aberta atualiza papéis e nomeações entre sessões.';

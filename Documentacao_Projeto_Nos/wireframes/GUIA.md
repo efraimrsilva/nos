@@ -1,3 +1,5 @@
+**Prévia Angular v4.0.0-alpha.6 (15/11/2026)** — A06 porta identidade do Núcleo, gestão pelo modal de integrantes, saída e encerramento. As Telas 13, 71 e 73 mostram as ações contextuais. [Comparações](comparacoes/v4.0.0-alpha.6-2026-11-15-angular-pessoas-tela_13-tela_71-tela_73/index.html).
+
 **Prévia Angular v4.0.0-alpha.5 (15/11/2026)** — A05 porta o convite inicial, a entrada por código e a gestão. O Atlas ilustra Preparar convite e Revogar convite na Tela 59, com código sem validade. [Comparações](comparacoes/v4.0.0-alpha.5-2026-11-15-angular-convites-tela_09-tela_10-tela_11-tela_58-tela_59/index.html).
 
 **Prévia Angular v4.0.0-alpha.4 (15/11/2026)** — A04 porta Escolher caminho, Tipo, Propósito, Seus Núcleos e Início. Os modais Começar com intenção e Integrantes do Núcleo têm evidência própria. A guia Migração distingue a consulta de integrantes da gestão que entra em A06. [Comparações](comparacoes/v4.0.0-alpha.4-2026-11-15-angular-nucleos-tela_06-tela_07-tela_08-tela_12-tela_13/index.html).

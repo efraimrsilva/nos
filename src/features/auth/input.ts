@@ -20,10 +20,11 @@ export function safeAuthNext(value: unknown): string {
   const controls = /^\/(?:configuracoes(?:\/(?:privacidade|conta))?|ajuda)$/.test(path);
   if (!onboarding && !invitation && !nucleus && !controls) return fallback;
   // Cada rota conserva apenas parâmetros de navegação, sem tokens, URLs ou valores repetidos.
-  const allowed = path === routes.nucleus ? ["pagina"] : /\/(?:tipo|proposito)$/.test(path) ? ["tipo"] : path.endsWith("/agenda") ? ["pagina"] : path.endsWith("/convites") ? ["status", "pagina"] : path.endsWith("/acordos") ? ["categoria", "filtro", "pagina"] : /\/acordos\//.test(path) ? ["antes", "versao", "legado"] : [];
+  const peopleHome = new RegExp(`^/nucleos/${uuid}$`, "i").test(path);
+  const allowed = peopleHome ? ["integrantes"] : path === routes.nucleus ? ["pagina"] : /\/(?:tipo|proposito)$/.test(path) ? ["tipo"] : path.endsWith("/agenda") ? ["pagina"] : path.endsWith("/convites") ? ["status", "pagina"] : path.endsWith("/acordos") ? ["categoria", "filtro", "pagina"] : /\/acordos\//.test(path) ? ["antes", "versao", "legado"] : [];
   const params = new URLSearchParams(query);
   for (const [key, item] of params) {
-    if (!allowed.includes(key) || params.getAll(key).length !== 1 || !/^[a-zA-Z0-9_.:|+-]{1,160}$/.test(item)) return fallback;
+    if (!allowed.includes(key) || params.getAll(key).length !== 1 || !/^[a-zA-Z0-9_.:|+-]{1,160}$/.test(item) || (key === "integrantes" && item !== "1")) return fallback;
   }
   return value;
 }

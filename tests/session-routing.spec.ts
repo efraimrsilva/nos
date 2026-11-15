@@ -8,7 +8,7 @@ test("páginas privadas pedem login antes de renderizar e preservam o destino", 
   test.setTimeout(90_000);
   for (const destination of ["/comecar", "/comecar/tipo", "/comecar/proposito?tipo=familia", "/comecar/convite", "/nucleos", `/nucleos/${nucleus}/acordos/${habit}/registrar`, ...["arvore", "memorias", "conexoes", "perfis", "manifesto", "cuidado"].map(area => `/nucleos/${nucleus}/${area}`)]) {
     await page.goto(destination);
-    await expect(page.getByRole("heading", { name: "Sua conta no Nós" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Acesso à conta" })).toBeVisible();
     const url = new URL(page.url());
     expect(url.pathname).toBe("/conta");
     expect(url.searchParams.get("modo")).toBe("login");

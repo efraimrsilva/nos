@@ -7,7 +7,8 @@
     <button type="button" class="button" (click)="paths.showModal()" aria-haspopup="dialog">Criar um núcleo</button>
   </div>
 </header>
-@if (state.isLoading()) { <p role="status">Carregando seus Núcleos…</p> }
+@if (closed()) { <p class="surface" role="status">Núcleo encerrado. O histórico compartilhado foi preservado.</p> }
+@if (state.isLoading() && !state.hasValue()) { <p role="status">Carregando seus Núcleos…</p> }
 @else if (state.error()) {
   <section class="surface">
     <p role="alert">Não foi possível consultar seus Núcleos.</p>

@@ -1,4 +1,4 @@
-@if (state.isLoading()) { <p role="status">Carregando o Núcleo…</p> }
+@if (state.isLoading() && !state.hasValue()) { <p role="status">Carregando o Núcleo…</p> }
 @else if (state.error()) {
   <section class="surface">
     <h1 tabindex="-1">Início do Núcleo</h1><p role="alert">Não foi possível consultar o resumo do Núcleo.</p>
@@ -7,8 +7,16 @@
 } @else if (state.value(); as view) {
   <header class="nucleus-header">
     <div><p class="kicker">{{ typeLabel(view.nucleus.type) }} · Início do Núcleo</p>
-      <h1 tabindex="-1">{{ view.nucleus.name }}</h1>
-      <p>{{ view.nucleus.purpose }}</p>
+      <div class="nucleus-identity-line"><h1 tabindex="-1">{{ view.nucleus.name }}</h1>
+        @if (view.role === 'admin') {
+          <button type="button" class="text-link" [disabled]="editing()" aria-haspopup="dialog" (click)="editIdentity('name',view.nucleus.name,editDialog)">Editar nome do Núcleo</button>
+        }
+      </div>
+      <div class="nucleus-identity-line"><p>{{ view.nucleus.purpose }}</p>
+        @if (view.role === 'admin') {
+          <button type="button" class="text-link" [disabled]="editing()" aria-haspopup="dialog" (click)="editIdentity('purpose',view.nucleus.purpose,editDialog)">Editar propósito</button>
+        }
+      </div>
       <span class="badge">{{ view.role === 'admin' ? 'Administrador' : 'Participante' }}</span>
     </div>
     @if (view.role === 'admin') {
@@ -18,6 +26,7 @@
       </div>
     } @else { <span class="badge">Espaço privado</span> }
   </header>
+  @if (feedback()) { <p class="surface" role="status">{{ feedback() }}</p> }
   <div class="overview-grid">
     <section class="surface">
       <h2>Na agenda</h2>
@@ -32,7 +41,7 @@
     <section class="surface">
       <h2>Núcleos onde estou</h2>
       <p>{{ view.nucleus.name }}</p>
-      <button type="button" class="button secondary" (click)="people.showModal()" aria-haspopup="dialog">Ver integrantes</button>
+      <button type="button" class="button secondary" (click)="openPeople(people)" aria-haspopup="dialog">Ver integrantes</button>
       <ul class="summary-list">
         @for (space of view.spaces; track space.id) {
           <li><a [routerLink]="['/nucleos',space.id]">{{ space.name }}</a><span>{{ typeLabel(space.type) }}</span></li>
@@ -51,16 +60,103 @@
       } @else { <p>Os primeiros acordos podem nascer de uma intenção simples.</p> }
     </section>
   </div>
-  <dialog #people class="shared-dialog" aria-labelledby="nucleus-people">
+  <section class="surface nucleus-participation" aria-label="Minha participação">
+    <h2>Minha participação</h2>
+    <div class="nucleus-actions">
+      <a class="text-link" [routerLink]="['/nucleos',view.nucleus.id,'sair']">Sair deste Núcleo</a>
+      @if (view.role === 'admin') {
+        <button type="button" class="text-link nucleus-danger-text" aria-haspopup="dialog" (click)="closeDialog.showModal()">Encerrar Núcleo</button>
+      }
+    </div>
+  </section>
+  <dialog #people class="shared-dialog" aria-labelledby="nucleus-people" (close)="closePeople()">
     <header class="dialog-heading">
       <h2 id="nucleus-people">Integrantes do Núcleo</h2>
       <form method="dialog"><button class="icon-button" aria-label="Fechar integrantes" autofocus>×</button></form>
     </header>
-    <ul class="summary-list">
-      @for (member of view.members; track member.user_id) {
-        <li><strong>{{ member.display_name }}</strong><span>{{ member.role === 'admin' ? 'Administrador' : 'Participante' }}</span></li>
+    <p>Selecione um nome para consultar a participação e as ações disponíveis.</p>
+    <table class="nucleus-member-table">
+      <thead><tr><th scope="col">Nome</th><th scope="col">Papel</th></tr></thead>
+      <tbody>
+        @for (member of view.members; track member.user_id) {
+          <tr><th scope="row">
+            <button class="nucleus-member-name" type="button" [disabled]="actionBusy()" aria-haspopup="dialog" (click)="openMember(member.user_id,details)">
+              <span class="avatar" aria-hidden="true">{{ initials(member.display_name) }}</span>
+              <span><strong>{{ member.display_name }}</strong>
+                @if (member.user_id === view.scope.owner) { <small>Você</small> }
+              </span>
+            </button>
+          </th><td><span class="badge" [class.participant-badge]="member.role !== 'admin'">
+            {{ member.role === 'admin' ? 'Administrador' : 'Participante' }}</span></td></tr>
+        } @empty {
+          <tr><td colspan="2">Nenhuma pessoa para exibir.</td></tr>
+        }
+      </tbody>
+    </table>
+  </dialog>
+  <dialog #details class="shared-dialog" aria-labelledby="member-details-title" (close)="!details.open && !actionBusy() && memberId.set(null)">
+    @for (member of view.members; track member.user_id) {
+      @if (member.user_id === memberId()) {
+        <header class="dialog-heading"><h2 id="member-details-title">Participação de {{ member.display_name }}</h2>
+          <form method="dialog"><button class="icon-button" aria-label="Fechar participação" autofocus>×</button></form>
+        </header>
+        @if (feedback()) { <p role="status">{{ feedback() }}</p> }
+        <p>Administradores têm os mesmos poderes. Cada nomeação depende do aceite da pessoa. As informações pessoais privadas continuam protegidas.</p>
+        <p>{{ member.nomination_pending ? 'Nomeação para administrar aguardando aceite.' : member.role === 'admin' ? 'Cuida dos convites e da organização do Núcleo.' : 'Decide sobre sua própria participação.' }}</p>
+        @if (member.user_id === view.scope.owner) {
+          @if (member.nomination_pending) {
+            <app-nucleus-action [scope]="view.scope" operation="accept" label="Aceitar administração"
+              confirmation="Desejo assumir a administração deste Núcleo."
+              [locked]="actionBusy() || state.isLoading()" (busy)="actionBusy.set($event)" (completed)="finish($event,view.scope)" />
+            <app-nucleus-action [scope]="view.scope" operation="decline" label="Recusar nomeação"
+              confirmation="Desejo recusar esta nomeação."
+              [locked]="actionBusy() || state.isLoading()" (busy)="actionBusy.set($event)" (completed)="finish($event,view.scope)" />
+          }
+          @if (view.role === 'admin' && hasOtherAdmin(view.members,view.scope.owner)) {
+            <app-nucleus-action [scope]="view.scope" operation="demote" [target]="member.user_id" label="Deixar a administração"
+              confirmation="Continuarei participante, e os outros administradores permanecerão na gestão."
+              [locked]="actionBusy() || state.isLoading()" (busy)="actionBusy.set($event)" (completed)="finish($event,view.scope)" />
+          }
+          <a class="text-link" [routerLink]="['/nucleos',view.nucleus.id,'sair']">Sair deste Núcleo</a>
+        } @else if (view.role === 'admin') {
+          @if (member.role === 'admin') {
+            <app-nucleus-action [scope]="view.scope" operation="demote" [target]="member.user_id" label="Retirar administração"
+              confirmation="A pessoa continuará como participante."
+              [locked]="actionBusy() || state.isLoading()" (busy)="actionBusy.set($event)" (completed)="finish($event,view.scope)" />
+          } @else if (!member.nomination_pending) {
+            <app-nucleus-action [scope]="view.scope" operation="nominate" [target]="member.user_id" label="Convidar para administrar"
+              confirmation="Enviar nomeação; a pessoa precisará aceitar."
+              [locked]="actionBusy() || state.isLoading()" (busy)="actionBusy.set($event)" (completed)="finish($event,view.scope)" />
+          }
+          <app-nucleus-action [scope]="view.scope" operation="remove" [target]="member.user_id" label="Remover participante"
+            confirmation="A pessoa perderá acesso. O histórico compartilhado permanecerá."
+            [danger]="true" [locked]="actionBusy() || state.isLoading()" (busy)="actionBusy.set($event)" (completed)="finish($event,view.scope,details)" />
+        }
       }
-    </ul>
+    }
+  </dialog>
+  <dialog #editDialog class="shared-dialog" aria-labelledby="edit-identity-title" (close)="!editDialog.open && resetIdentity()">
+    @if (identity(); as edit) {
+      <header class="dialog-heading"><h2 id="edit-identity-title">{{ edit.operation === 'name' ? 'Editar nome do Núcleo' : 'Editar propósito do Núcleo' }}</h2>
+        <form method="dialog"><button class="icon-button" aria-label="Fechar edição" autofocus>×</button></form>
+      </header>
+      @if (feedback()) { <p role="status">{{ feedback() }}</p> }
+      <app-nucleus-action #editForm [scope]="view.scope" [operation]="edit.operation" [label]="edit.operation === 'name' ? 'Salvar nome' : 'Salvar propósito'"
+        [field]="{label:edit.operation === 'name' ? 'Nome do Núcleo' : 'Propósito do Núcleo',max:edit.operation === 'name' ? 80 : 500,initial:edit.value,multiline:edit.operation === 'purpose'}"
+        confirmation="Confirmo que a alteração ficará visível para os integrantes."
+        [locked]="state.isLoading()" (busy)="editing.set($event)" (completed)="finish($event,view.scope)" />
+    }
+  </dialog>
+  <dialog #closeDialog class="shared-dialog" aria-labelledby="close-nucleus-title" (close)="closeForm.reset()">
+    <header class="dialog-heading"><h2 id="close-nucleus-title">Encerrar Núcleo</h2>
+      <form method="dialog"><button class="icon-button" aria-label="Fechar encerramento" autofocus>×</button></form>
+    </header>
+    <p>Todos perderão acesso a este Núcleo e os convites serão revogados. O histórico armazenado será preservado. A conta de cada pessoa continua disponível.</p>
+    <p>Digite o nome atual do Núcleo: <strong>{{ view.nucleus.name }}</strong>.</p>
+    <app-nucleus-action #closeForm [scope]="view.scope" operation="close" label="Confirmar encerramento"
+      [field]="{label:'Nome atual do Núcleo',max:80}" [danger]="true"
+      confirmation="Entendi que o Núcleo será encerrado para todos."
+      [locked]="state.isLoading()" (busy)="closing.set($event)" (completed)="finish($event,view.scope)" />
   </dialog>
 } @else {
   <section class="surface">

@@ -39,6 +39,140 @@ async function signIn(page, account, next = '/nucleos') {
   await expect(page).toHaveURL(next);
 }
 
+test('muda identidade, aceita nomeação pela própria conta, sai e encerra', async ({page,accounts,browser},info) => {
+  test.setTimeout(80_000);
+  page.setDefaultTimeout(10000);
+  const [owner, member] = accounts;
+  const capture = async (view, name) => {
+    if (process.env.NOS_PEOPLE_CAPTURE !== '1') return;
+    mkdirSync('artifacts/angular-a06',{recursive:true});
+    await view.screenshot({path:'artifacts/angular-a06/'+name+'-'+info.project.name+'.png',scale:'css',
+      mask:[view.locator('[data-invitation-secret]')]});
+  };
+  const second = await browser.newContext(info.project.use);
+  try {
+    const guest = await second.newPage();
+    guest.setDefaultTimeout(10000);
+    await signIn(page,owner);
+    await page.getByRole('button',{name:'Criar um núcleo'}).click();
+    await page.getByRole('dialog').getByRole('link',{name:/Criar um núcleo/i}).click();
+    await page.getByRole('radio',{name:'Família',exact:true}).check();
+    await page.getByRole('button',{name:'Continuar'}).click();
+    await page.getByLabel('Nome do Núcleo').fill('Jardim da A06');
+    await page.getByLabel('Nosso propósito').fill('Encontros com cuidado.');
+    await page.getByRole('button',{name:'Continuar'}).click();
+    await page.getByRole('button',{name:'Criar Núcleo',exact:true}).click();
+    await page.getByRole('button',{name:'Gerar convite'}).click();
+    const code = await page.getByTestId('invitation-code').innerText();
+    await page.getByRole('link',{name:'Concluir por enquanto'}).click();
+    await expect(page.getByRole('heading',{name:'Jardim da A06',exact:true})).toBeVisible();
+    const path = new URL(page.url()).pathname;
+    await signIn(guest,member,'/comecar/convite');
+    await guest.getByLabel('Código de convite').fill(code);
+    await guest.getByRole('button',{name:'Conferir convite'}).click();
+    await guest.getByRole('button',{name:'Aceitar convite'}).click();
+    await expect(guest).toHaveURL(path);
+    await expect(guest.getByRole('button',{name:'Editar nome do Núcleo'})).toHaveCount(0);
+    await page.getByRole('button',{name:'Editar nome do Núcleo'}).click();
+    await capture(page,'identidade');
+    await page.getByLabel('Nome do Núcleo',{exact:true}).fill('Jardim compartilhado');
+    await page.getByRole('dialog').getByRole('checkbox').check();
+    await page.getByRole('button',{name:'Salvar nome'}).click();
+    await expect(guest.getByRole('heading',{name:'Jardim compartilhado',exact:true})).toBeVisible({timeout:12000});
+    await expect(page.getByRole('dialog').getByRole('status')).toContainText('Nome atualizado.');
+    await page.keyboard.press('Escape');
+    await page.goto(path+'/pessoas');
+    const people = page.getByRole('dialog',{name:'Integrantes do Núcleo'});
+    await expect(people).toBeVisible();
+    await capture(page,'integrantes');
+    await people.getByRole('button',{name:/Pessoa B/}).click();
+    const details = page.getByRole('dialog',{name:'Participação de Pessoa B'});
+    await expect(details.getByRole('button',{name:'Fechar participação'})).toBeFocused();
+    await capture(page,'participacao');
+    await guest.goto(path+'/pessoas');
+    await guest.getByRole('button',{name:/Pessoa B/}).click();
+    const ownDetails = guest.getByRole('dialog',{name:'Participação de Pessoa B'});
+    await expect(ownDetails.getByRole('button',{name:'Aceitar administração'})).toHaveCount(0);
+    await details.getByText('Enviar nomeação; a pessoa precisará aceitar.').click();
+    await details.getByRole('button',{name:'Convidar para administrar'}).click();
+    await expect(details.getByText('Nomeação para administrar aguardando aceite.')).toBeVisible();
+    await expect(ownDetails.getByRole('button',{name:'Aceitar administração'})).toBeVisible({timeout:12000});
+    await ownDetails.getByText('Desejo assumir a administração deste Núcleo.').click();
+    await ownDetails.getByRole('button',{name:'Aceitar administração'}).click();
+    await expect(ownDetails.getByText('Cuida dos convites e da organização do Núcleo.')).toBeVisible();
+    await guest.keyboard.press('Escape');
+    await expect(guest.getByRole('dialog',{name:'Integrantes do Núcleo'})).toBeVisible();
+    await guest.keyboard.press('Escape');
+    await expect(guest).toHaveURL(path);
+    await guest.getByRole('button',{name:'Editar propósito'}).click();
+    await guest.getByRole('dialog').getByLabel('Propósito do Núcleo',{exact:true}).fill('Rascunho preservado');
+    await capture(guest,'proposito');
+    let failRefresh = true;
+    await guest.route('**/rest/v1/rpc/get_nucleus_calendar', async route => {
+      if (!failRefresh) return route.continue();
+      failRefresh = false;
+      await route.fulfill({status:500,json:{code:'XX000',message:'Falha temporária de teste.'}});
+    });
+    await page.goto(path);
+    await page.getByRole('button',{name:'Editar propósito'}).click();
+    const editPurpose = page.getByRole('dialog');
+    await editPurpose.getByLabel('Propósito do Núcleo',{exact:true}).fill('Um encontro por semana.');
+    await editPurpose.getByRole('checkbox').check();
+    await editPurpose.getByRole('button',{name:'Salvar propósito'}).click();
+    await expect(guest.locator('header.nucleus-header').getByText('Um encontro por semana.')).toBeVisible({timeout:12000});
+    expect(failRefresh).toBe(false);
+    await expect(guest.getByRole('dialog').getByLabel('Propósito do Núcleo',{exact:true})).toHaveValue('Rascunho preservado');
+    await guest.keyboard.press('Escape');
+    await guest.getByRole('button',{name:'Ver integrantes'}).click();
+    await guest.getByRole('button',{name:/Pessoa B/}).click();
+    await ownDetails.getByRole('link',{name:'Sair deste Núcleo'}).click();
+    await expect(guest.getByText(/autoria dos registros será preservada/i)).toBeVisible();
+    await capture(guest,'saida');
+    await guest.getByRole('button',{name:'Revisar minha saída'}).click();
+    await capture(guest,'confirmar-saida');
+    await guest.getByRole('dialog').getByRole('checkbox').check();
+    await guest.getByRole('dialog').getByRole('button',{name:'Sair deste Núcleo'}).click();
+    await expect(guest).toHaveURL('/nucleos');
+    await guest.goto(path);
+    await expect(guest.getByRole('heading',{name:'Núcleo indisponível'})).toBeVisible();
+    await page.goto(path);
+    await expect(page.getByRole('heading',{name:'Jardim compartilhado',exact:true})).toBeVisible();
+    await capture(page,'inicio');
+    await page.getByRole('button',{name:'Encerrar Núcleo'}).click();
+    const close = page.getByRole('dialog',{name:'Encerrar Núcleo'});
+    await capture(page,'encerramento');
+    if (info.project.name === 'mobile') await page.touchscreen.tap(5,5);
+    else await page.mouse.click(5,5);
+    await expect(close).toBeHidden();
+    await expect(page.getByRole('heading',{name:'Jardim compartilhado',exact:true})).toBeVisible();
+    await page.getByRole('button',{name:'Encerrar Núcleo'}).click();
+    await close.getByLabel('Nome atual do Núcleo').fill('Nome incorreto');
+    await close.getByRole('checkbox').check();
+    await close.getByRole('button',{name:'Confirmar encerramento'}).click();
+    await expect(close.getByRole('alert')).toContainText('não corresponde');
+    await close.getByLabel('Nome atual do Núcleo').fill('Jardim compartilhado');
+    let releaseResponse;
+    const delayed = new Promise(resolve => { releaseResponse = resolve; });
+    let committed;
+    const committedPromise = new Promise(resolve => { committed = resolve; });
+    await page.route('**/rest/v1/rpc/close_nucleus', async route => {
+      const response = await route.fetch();
+      committed(response.ok());
+      await delayed;
+      await route.fulfill({response});
+    });
+    try {
+      await close.getByRole('button',{name:'Confirmar encerramento'}).click();
+      expect(await committedPromise).toBe(true);
+      // Avança um ciclo real do sincronizador enquanto o banco já confirmou e a interface ainda aguarda.
+      await page.waitForTimeout(3400);
+      await expect(close.getByRole('button',{name:'Aguarde…'})).toBeVisible();
+    } finally { releaseResponse(); }
+    await expect(page).toHaveURL('/nucleos?resultado=encerrado');
+    await expect(page.getByRole('status').filter({hasText:'Núcleo encerrado'})).toBeVisible();
+  } finally { await second.close(); }
+});
+
 test('cria uma vez mesmo após perder a resposta e abre núcleo autorizado', async ({page,accounts},info) => {
   test.setTimeout(60_000);
   const [owner, outsider] = accounts;

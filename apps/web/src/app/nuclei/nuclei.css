@@ -44,6 +44,30 @@
 .suggestion { padding:.6rem; background:var(--accent-soft); border-radius:.55rem; }
 .wizard dd { margin:0 0 .65rem; overflow-wrap:anywhere; white-space:pre-wrap; }
 .form-error { color:#9a232e; }
+.nucleus-identity-line { display:flex; align-items:baseline; flex-wrap:wrap; gap:.25rem .8rem; }
+.nucleus-identity-line p { white-space:pre-wrap; overflow-wrap:anywhere; }
+.nucleus-identity-line .text-link { margin:0; }
+button.text-link { font:inherit; font-weight:600; text-decoration:underline; background:none; border:0; padding:.35rem 0; cursor:pointer; }
+button.text-link:disabled { opacity:.55; cursor:wait; }
+.nucleus-participation { margin-top:1rem; }
+.nucleus-participation .nucleus-actions { justify-content:flex-start; align-items:baseline; }
+.nucleus-member-table { width:100%; border-collapse:collapse; }
+.nucleus-member-table th,.nucleus-member-table td { padding:.6rem .15rem; text-align:left; border-bottom:1px solid var(--line); }
+.nucleus-member-table td:last-child,.nucleus-member-table thead th:last-child { width:1%; text-align:right; }
+.nucleus-member-name { display:flex; align-items:center; gap:.5rem; max-width:100%; padding:.25rem; color:var(--leaf); background:none; border:0; text-align:left; cursor:pointer; font:inherit; overflow-wrap:anywhere; }
+.nucleus-member-name .avatar { flex:none; }
+.nucleus-member-name strong { text-decoration:underline; }
+.nucleus-member-name small { display:block; }
+.participant-badge { color:#16703a; }
+.nucleus-action-form { margin:.8rem 0; }
+.nucleus-action-form fieldset { border:0; padding:0; margin:0; min-width:0; display:grid; gap:.65rem; justify-items:start; }
+.nucleus-action-field { display:grid; gap:.25rem; width:100%; }
+.nucleus-action-field label { font-weight:600; }
+.nucleus-action-form input:not([type=checkbox]),.nucleus-action-form textarea { width:100%; font:inherit; padding:.55rem; border:1px solid var(--line); border-radius:.5rem; }
+.nucleus-confirm { display:flex; align-items:baseline; gap:.5rem; }
+.nucleus-confirm input { width:auto; flex:none; }
+.nucleus-action-form .nucleus-danger { background:#9a232e; border-color:#9a232e; color:white; }
+button.nucleus-danger-text { color:#9a232e; }
 @media (max-width: 850px) {
   .nucleus-header { flex-direction:column; }
   .nucleus-actions { justify-content:flex-start; }

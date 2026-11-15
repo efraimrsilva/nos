@@ -4,7 +4,7 @@ import { PreviewProfile } from '../preview-profile';
 import { isNucleusId, type NucleusTypeId } from './nucleus-model';
 
 export type Nucleus = {id: string; name: string; purpose: string; type: string};
-export type Member = {user_id: string; display_name: string; role: string};
+export type Member = {user_id: string; display_name: string; role: string; nomination_pending: boolean};
 export type EventPreview = {id: string; title: string; starts_at: string; time_zone: string};
 export type AgreementPreview = {id: string; title: string; status: string};
 
@@ -43,13 +43,27 @@ export class NucleiData {
         client.from('nucleus_agreements').select('id',{count:'exact',head:true})
           .eq('nucleus_id',nucleus.id).eq('status','active').abortSignal(signal),
       ]);
+      if (management.error?.code === '42501') return null;
       if (management.error || agreements.error || agreements.count === null) throw new Error('Não foi possível consultar os dados dos Núcleos.');
       const members = (management.data?.members ?? []) as Member[];
       const me = members.find(member => member.user_id === owner);
       if (!me) throw new Error('Não foi possível confirmar seu vínculo.');
       return {...nucleus,members,activeAgreements:agreements.count,role:me.role};
     }));
-    return {cards, hasNext:rows.length > 20 && page < 9999};
+    return {cards:cards.filter(card => card !== null), hasNext:rows.length > 20 && page < 9999};
+  }
+
+  async identityVersion(owner: string, signal: AbortSignal) {
+    const client = await this.clientForAccount(owner);
+    const result = await client.rpc('get_nucleus_identity_version').abortSignal(signal);
+    return result.error || typeof result.data !== 'string' ? null : result.data;
+  }
+
+  async members(owner: string, id: string, signal: AbortSignal) {
+    const client = await this.clientForAccount(owner);
+    const result = await client.rpc('get_nucleus_management',{target_nucleus:id}).abortSignal(signal);
+    if (result.error) return null;
+    return (result.data?.members ?? []) as Member[];
   }
 
   async selected(owner: string, id: string, signal: AbortSignal) {
@@ -67,7 +81,7 @@ export class NucleiData {
   async home(owner: string, id: string, signal: AbortSignal) {
     const selected = await this.selected(owner,id,signal);
     if (!selected) return null;
-    const {client,nucleus,role} = selected;
+    const {client,nucleus} = selected;
     const [calendar,agreements,spaces,management] = await Promise.all([
       client.rpc('get_nucleus_calendar',{target_nucleus:id,from_ends_at:new Date().toISOString(),page_offset:0,page_size:3}).abortSignal(signal),
       client.from('nucleus_agreements').select('id,title,status').eq('nucleus_id',id)
@@ -75,15 +89,19 @@ export class NucleiData {
       client.from('nuclei').select('id,name,type').order('name').order('id').limit(4).abortSignal(signal),
       client.rpc('get_nucleus_management',{target_nucleus:id}).abortSignal(signal),
     ]);
+    if (management.error?.code === '42501') return null;
     if (calendar.error || agreements.error || spaces.error || management.error) {
       throw new Error('Não foi possível consultar o resumo do Núcleo.');
     }
+    const members = (management.data?.members ?? []) as Member[];
+    const me = members.find(member => member.user_id === owner);
+    if (!me) return null;
     return {
-      nucleus,role,
+      nucleus,role:me.role,
       calendar:(calendar.data ?? []) as EventPreview[],
       agreements:(agreements.data ?? []) as AgreementPreview[],
       spaces:(spaces.data ?? []).filter(space => space.id !== id).slice(0,3),
-      members:(management.data?.members ?? []) as Member[],
+      members,
     };
   }
 
@@ -98,6 +116,13 @@ export class NucleiData {
 
   remember(owner: string, id: string) {
     try { localStorage.setItem(this.key(owner),id); } catch { /* A navegação continua sem armazenamento. */ }
+  }
+
+  forget(owner: string, id: string) {
+    try {
+      const key = this.key(owner);
+      if (localStorage.getItem(key) === id) localStorage.removeItem(key);
+    } catch { /* A lista revalida a participação mesmo sem armazenamento. */ }
   }
 
   async last(owner: string, signal: AbortSignal) {

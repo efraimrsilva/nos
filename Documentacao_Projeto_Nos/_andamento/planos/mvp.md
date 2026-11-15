@@ -1,3 +1,7 @@
+## Administração e participação na prévia Angular — v4.0.0-alpha.6 — 2026-11-15
+
+A06 porta identidade, integrantes, nomeação e aceite, saída individual e encerramento com preservação do histórico. As verificações são da prévia local e preservam os resultados de caixa preta da linha Next.js. [Registro A06](../registros/registro-v4.0.0-alpha.6-2026-11-15-imp-pessoas-angular-fun-administracao-e-participacao.md).
+
 ## MVP02 na prévia Angular — v4.0.0-alpha.5 — 2026-11-15
 
 A05 fecha o percurso local de convite por código com geração, prévia, aceite e revogação. QR, entrada por link, destinatários e histórico individual seguem como reservas. A verificação é da prévia local. [Registro A05](../registros/registro-v4.0.0-alpha.5-2026-11-15-imp-convites-angular-fun-geracao-aceite-e-revogacao.md).

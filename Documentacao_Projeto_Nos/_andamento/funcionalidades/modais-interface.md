@@ -1,3 +1,7 @@
+## Pessoas e administração na prévia Angular — v4.0.0-alpha.6 — 2026-11-15
+
+Na Tela 13, **Editar nome do Núcleo** e **Editar propósito do Núcleo** são ações de administrador com campos independentes. **Ver integrantes** abre a lista da Tela 73. O nome abre **Participação de …** com ações conforme papel e nomeação. **Encerrar Núcleo** exige administração, ciência explícita e digitação do nome corrente. Na Tela 71, **Revisar minha saída** abre a confirmação de saída individual. X, Escape e clique ou toque externo fecham somente a camada superior, sem disparar a ação. [Galeria](../../wireframes/comparacoes/v4.0.0-alpha.6-2026-11-15-angular-pessoas-tela_13-tela_71-tela_73/index.html).
+
 ## Gestão de convites Angular — v4.0.0-alpha.5 — 2026-11-15
 
 **Preparar convite (Tela 59):** administração abre pelo botão de mesmo nome. Gerar é ação explícita. O código e a data de validade aparecem após resposta. Fechar retira o código da tela. A lista se atualiza se já havia uma operação em andamento. **Revogar convite (Tela 59):** abre a partir do detalhe de um convite ativo para a administração. Confirmar impede novos aceites e preserva integrantes. Cancelar, X, Escape e gesto externo fecham os modais sem confirmar uma ação. [Registro A05](../registros/registro-v4.0.0-alpha.5-2026-11-15-imp-convites-angular-fun-geracao-aceite-e-revogacao.md).

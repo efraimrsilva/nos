@@ -1,18 +1,18 @@
-# Estado atual — Next.js v3.11.1 · Angular v4.0.0-alpha.5 — 2026-11-15
+# Estado atual — Next.js v3.11.1 · Angular v4.0.0-alpha.6 — 2026-11-15
 
-**Objetivo e escopo:** substituir Next.js em 14 entregas. A01–A05 validadas localmente. A prévia tem Conta, Núcleos e convites por código. A06–A14 pendentes. Google segue dependente do provedor ativo na prévia.
+**Objetivo e escopo:** substituir Next.js em 14 entregas. A01–A06 validadas localmente. A prévia cobre acesso, Conta, Núcleos, convites e administração. A07–A14 pendentes. Google depende do provedor ativo na prévia.
 
-**Base e Git:** DOCS_DIR `Documentacao_Projeto_Nos`. Branch `codex/migracao-angular`. A04 confirmada no objeto `4ff4013` e na referência remota. A05 local. Linha Next.js em v3.11.1.
+**Base e Git:** DOCS_DIR `Documentacao_Projeto_Nos`. Branch `codex/migracao-angular`. A05 confirmada no objeto `addd163` e na referência remota. A06 local. Linha Next.js em v3.11.1.
 
-**Arquivos e decisões:** `apps/web/src/app/invitations/` porta convite inicial, entrada e gestão com as operações existentes do Supabase. Conferir e aceitar são passos distintos. A gestão não lista códigos. A falha de resposta preserva a decisão para repetir. A saída do modal interrompe a exibição do código e permite a atualização da lista. As migrações da A04 continuam registradas localmente. A05 dispensou migração.
+**Arquivos e decisões:** o Início exibe os formulários de identidade, integrantes e participação. A rota `/pessoas` reabre o modal de integrantes; `/sair` consulta a preferência de autoria. Funções existentes do Supabase governam permissões, nomeação, saída e encerramento. A sincronização acompanha identidade no Início e em Seus Núcleos e acompanha papéis e nomeações enquanto Integrantes estiver aberto. A atualização automática espera pela resposta das ações pendentes. Sem mudança de esquema.
 
-**Validação e ferramentas:** 23 testes Playwright aprovados e um caso exclusivo de celular ignorado no desktop. Banco local com 105 verificações aprovadas em três arquivos. Tipos e builds de Angular e Next.js aprovados. Atlas e revisão independente conferidos. Context7 e fontes oficiais consultados. Octocode segue configurado, sem pesquisa avançada nesta unidade. A suíte usou a porta alternativa 3000 porque a 3200 estava ocupada.
+**Validação e ferramentas:** 25 testes Playwright Angular aprovados, com um caso exclusivo de celular ignorado no desktop. Oito testes de navegação e retorno de acesso no Next.js aprovados. Banco local com 115 verificações em quatro arquivos. Tipos e builds de Angular e Next.js, revisão independente, verificadores do Atlas e galeria. Context7 e documentação oficial consultados. Octocode segue configurado, sem necessidade de pesquisa avançada externa. A suíte usou a porta alternativa 3000 porque a 3200 estava ocupada.
 
-**Próximo passo:** A06. Conferir identidade e integrantes no Atlas. Portar administração, edição de nome e propósito, saída individual e encerramento com validação de papéis no Supabase.
+**Próximo passo:** A07. Conferir Acordos no Atlas. Portar propostas, leitura do legado, contagens e respostas individuais com suas permissões no Supabase. Seletores contextuais em Conta/Mais acompanham as próximas entregas de preferências e navegação.
 
-**Continuidade Git:** A05 pronta para commit. Sugestão `feat(angular): migrar geração, aceite e revogação de convites`. Contador 67 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
+**Continuidade Git:** A06 pronta para commit. Sugestão `feat(angular): migrar pessoas e administração de núcleos`. Contador 68 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
 
-**Índice:** [Guia Migração](../wireframes/atlas/index.html#migracao) · [Plano vigente](planos/migracao-angular.md) · [Registro A05](registros/registro-v4.0.0-alpha.5-2026-11-15-imp-convites-angular-fun-geracao-aceite-e-revogacao.md) · [Galeria A05](../wireframes/comparacoes/v4.0.0-alpha.5-2026-11-15-angular-convites-tela_09-tela_10-tela_11-tela_58-tela_59/index.html) · [Guia da prévia](../../apps/web/README.md).
+**Índice:** [Guia Migração](../wireframes/atlas/index.html#migracao) · [Plano vigente](planos/migracao-angular.md) · [Registro A06](registros/registro-v4.0.0-alpha.6-2026-11-15-imp-pessoas-angular-fun-administracao-e-participacao.md) · [Galeria A06](../wireframes/comparacoes/v4.0.0-alpha.6-2026-11-15-angular-pessoas-tela_13-tela_71-tela_73/index.html) · [Guia da prévia](../../apps/web/README.md).
 
 ---
 

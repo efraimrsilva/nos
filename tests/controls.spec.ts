@@ -12,12 +12,15 @@ test("controles preservam apenas destinos implementados, sem parâmetros privado
   expect(safeAuthNext("/configuracoes/excluir")).toBe("/nucleos");
   expect(safeAuthNext(`/nucleos/${nucleus}/pessoas`)).toBe(`/nucleos/${nucleus}/pessoas`);
   expect(safeAuthNext(`/nucleos/${nucleus}/pessoas?role=admin`)).toBe("/nucleos");
+  expect(safeAuthNext(`/nucleos/${nucleus}?integrantes=1`)).toBe(`/nucleos/${nucleus}?integrantes=1`);
+  expect(safeAuthNext(`/nucleos/${nucleus}?integrantes=2`)).toBe("/nucleos");
+  expect(safeAuthNext(`/nucleos/${nucleus}?integrantes=1&role=admin`)).toBe("/nucleos");
 });
 
 test("controles exigem login e preservam retorno antes de renderizar", async ({ page }) => {
   for (const destination of destinations) {
     await page.goto(destination);
-    await expect(page.getByRole("heading", { name: "Sua conta no Nós" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Acesso à conta" })).toBeVisible();
     await expect(page.locator('form:has(input[name="mode"]) input[name="next"]')).toHaveValue(destination);
   }
 });

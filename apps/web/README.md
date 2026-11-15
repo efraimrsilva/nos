@@ -1,6 +1,6 @@
 # Nós · prévia Angular
 
-Aplicação Angular separada do Next.js durante a migração. A prévia inclui a entrada, criação de conta, confirmação de e-mail, recuperação de senha, criação de Núcleos e convites por código. Em `/configuracoes/conta`, leia e edite o próprio nome.
+Aplicação Angular separada do Next.js durante a migração. A prévia inclui entrada, criação de conta, confirmação de e-mail, recuperação de senha, criação de Núcleos, convites por código, integrantes e administração. Em `/configuracoes/conta`, leia e edite o próprio nome. No Início do Núcleo, abra **Ver integrantes** ou **Minha participação** para conferir as ações da conta conectada.
 
 Da raiz, com Node.js 24.15 ou superior da série 24 e Docker Desktop:
 

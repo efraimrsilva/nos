@@ -1,3 +1,9 @@
+## 2026-11-15 — v4.0.0-alpha.6 — Administração dos Núcleos na prévia Angular
+
+**Problema:** a lista de integrantes da prévia era somente consulta e a identidade podia ficar desatualizada entre sessões. **Contribuição:** portar a gestão com as regras existentes do banco e atualizar dados preservando os formulários abertos. **Resultado verificado:** duas contas conferiram o envio de uma nomeação, o aceite pela pessoa nomeada, a atualização do propósito sem apagar rascunho, a saída e o encerramento. **Benefício esperado:** evitar decisões tomadas com dados desatualizados e manter o consentimento visível. [Registro A06](../_andamento/registros/registro-v4.0.0-alpha.6-2026-11-15-imp-pessoas-angular-fun-administracao-e-participacao.md).
+
+---
+
 ## 2026-11-15 — v4.0.0-alpha.5 — Convites por código na prévia Angular
 
 **Problema:** a criação de Núcleos terminava num endereço reservado para convite. **Contribuição:** portar preparo, entrada, prévia, aceite e revogação com as operações existentes do banco. **Resultado verificado:** conferir ou adiar não escreveu vínculo, revogar impediu novos aceites e repetição de aceite preservou um único vínculo. **Benefício esperado:** completar a jornada local entre duas contas. [Registro A05](../_andamento/registros/registro-v4.0.0-alpha.5-2026-11-15-imp-convites-angular-fun-geracao-aceite-e-revogacao.md).

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { type Routes, type UrlMatcher } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, type Routes, type UrlMatcher } from '@angular/router';
 import { PreviewHome } from './preview-home';
 import { RouteState } from './shared/route-state';
 import { safeAuthNext } from './auth/auth-flow';
@@ -40,6 +40,8 @@ export const routes: Routes = [
     path: '',
     loadComponent: () => import('./nuclei/nuclei-area').then(module => module.NucleiArea),
     children: [
+      {path:'nucleos/:id/pessoas',redirectTo:({params}) => inject(Router).createUrlTree(['/nucleos',params['id']],{queryParams:{integrantes:1}})},
+      {path:'nucleos/:id/sair',loadComponent:() => import('./nuclei/nucleus-leave').then(module => module.NucleusLeave),title:'Sair de um Núcleo · Nós'},
       {path:'nucleos',loadComponent:() => import('./nuclei/nuclei-list').then(module => module.NucleiList),title:'Seus Núcleos · Nós'},
       {path:'nucleos/:id',loadComponent:() => import('./nuclei/nucleus-home').then(module => module.NucleusHome),title:'Início do Núcleo · Nós'},
       {path:'comecar',loadComponent:() => import('./nuclei/nucleus-wizard').then(module => module.ChoosePath),title:'Escolher caminho · Nós'},
