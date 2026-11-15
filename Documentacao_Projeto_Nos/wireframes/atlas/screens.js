@@ -298,3 +298,6 @@ screens.find(s=>s.id===66).rule+=' Prévia Angular v4.0.0-alpha.1 (A01): /config
 
 // A ficha canônica continua representando a linha Next.js. A guia Migração identifica o recorte Angular.
 screens.find(s => s.id === 66).rule += ' Prévia Angular v4.0.0-alpha.2 (A02): Início e Minha conta compartilham estrutura persistente, menu lateral recolhível no desktop e barra móvel. No celular, Mais abre Todos os seus caminhos; ele e Dados da conta usam o fechamento compartilhado por X, Escape ou gesto externo.';
+
+// A linha Angular usa os mesmos recortes, com evidências próprias na guia Migração.
+for (const id of [1,2,3,4,5,72]) screens.find(screen => screen.id === id).rule += ' Prévia Angular v4.0.0-alpha.3 (A03): fluxo de acesso e e-mails verificado localmente. Confirmar e-mail e Recuperar acesso usam o diálogo compartilhado. Google depende do provedor no ambiente. Veja a guia Migração.';

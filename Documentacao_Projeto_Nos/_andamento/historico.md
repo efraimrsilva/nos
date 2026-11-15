@@ -1,3 +1,9 @@
+## 2026-11-15 — v4.0.0-alpha.3 — A03 da migração Angular
+
+A02 confirmada no GitHub em `fa70bdf`. A03 portou Conta, Boas-vindas, recuperação, confirmação e sessão da prévia. Fluxos com e-mail e renovação foram verificados no Supabase local. [Registro A03](registros/registro-v4.0.0-alpha.3-2026-11-15-imp-conta-angular-fun-autenticacao-e-recuperacao.md).
+
+---
+
 ## 2026-11-15 — v4.0.0-alpha.2 — A02 da migração Angular
 
 A01 confirmada no GitHub em `50fd490`. A02 validou estrutura responsiva, navegação com histórico e fechamento comum de diálogos na prévia local. [Registro e evidências](registros/registro-v4.0.0-alpha.2-2026-11-15-imp-interface-compartilhada-fun-navegacao-angular.md).

@@ -1,0 +1,84 @@
+@if (profile.loading()) {
+  <h1 tabindex="-1">Sua conta no Nós</h1>
+  <p role="status">Conferindo sua sessão…</p>
+} @else {
+  @if (bannerStatus()) { <p role="status" class="auth-message">{{ bannerStatus() }}</p> }
+  @if (bannerError() || profile.notice()) { <p role="alert" class="auth-error auth-message">{{ bannerError() || profile.notice() }}</p> }
+  @if (completeName()) {
+    <section class="surface auth-card">
+      <h1 tabindex="-1">Complete seu perfil</h1>
+      <p>Informe o nome que aparecerá no seu perfil e nos seus Núcleos.</p>
+      <form (submit)="saveName($event, nameInput.value)">
+        <label for="profile-completion">Nome</label>
+        <input #nameInput id="profile-completion" autocomplete="name" maxlength="80" [value]="profile.user()?.user_metadata?.['full_name'] || ''">
+        @if (error()) { <p role="alert" class="auth-error">{{ error() }}</p> }
+        <button class="button" type="submit" [disabled]="pending()">Salvar nome</button>
+      </form>
+    </section>
+  } @else if (profile.user() && !requiresLogin()) {
+    <app-account />
+  } @else {
+    <section class="auth-layout">
+      <div class="auth-intro">
+        <h2>Pequenos gestos. Vínculos reais.</h2>
+        <img src="/brand/nos-tree.png" width="877" height="875" alt="Árvore com troncos entrelaçados">
+        <p>Vínculos reais. Pequenos cuidados. No tempo de vocês.</p>
+      </div>
+      <div class="surface auth-card">
+        <h1 tabindex="-1">Sua conta no Nós</h1>
+        <nav class="auth-modes" aria-label="Modo de acesso">
+          <a [routerLink]="link('/conta')" [attr.aria-current]="mode() === 'signup' ? 'page' : null" (click)="clearCredentials(password)">Criar conta</a>
+          <a [routerLink]="link('/conta?modo=login')" [attr.aria-current]="mode() === 'login' ? 'page' : null" (click)="clearCredentials(password)">Já tenho conta</a>
+        </nav>
+        @if (profile.google()) {
+          <button type="button" class="button auth-secondary" [disabled]="pending()" (click)="google()">Continuar com Google</button>
+        }
+        <form aria-label="Acesso à conta" [attr.aria-busy]="pending()"
+          (submit)="submit($event, name.value, email.value, password.value)">
+          <div [hidden]="mode() !== 'signup'" class="auth-field">
+            <label for="access-name">Nome</label>
+            <input #name id="access-name" name="name" autocomplete="name" maxlength="80">
+          </div>
+          <label for="access-email">E-mail</label>
+          <input #email id="access-email" name="email" type="email" autocomplete="username" maxlength="254">
+          <label for="access-password">Senha</label>
+          <div class="password-field">
+            <input #password id="access-password" name="password" [type]="showPassword() ? 'text' : 'password'"
+              [autocomplete]="mode() === 'signup' ? 'new-password' : 'current-password'" maxlength="128"
+              [attr.aria-describedby]="mode() === 'signup' ? 'access-help' : null">
+            <button type="button" class="icon-button" (click)="showPassword.update(show => !show)"
+              [attr.aria-label]="showPassword() ? 'Ocultar senha' : 'Mostrar senha'">{{ showPassword() ? 'Ocultar' : 'Mostrar' }}</button>
+          </div>
+          @if (mode() === 'signup') { <p id="access-help">{{ help }}</p> }
+          @if (error()) { <p role="alert" class="auth-error">{{ error() }}</p> }
+          <button type="submit" class="button" [disabled]="pending()">
+            {{ pending() ? 'Aguarde…' : mode() === 'signup' ? 'Criar conta' : 'Entrar' }}
+          </button>
+        </form>
+        <nav class="auth-assistance" aria-label="Ajuda para entrar">
+          <a [routerLink]="link('/conta/recuperar')" aria-haspopup="dialog">Esqueci minha senha</a>
+          <a [routerLink]="link('/conta/confirmar-email')" aria-haspopup="dialog">Confirmar e-mail</a>
+        </nav>
+      </div>
+    </section>
+  }
+}
+
+<dialog #assistance id="access-assistance" class="shared-dialog" (close)="closeAssistance()" aria-labelledby="assistance-title">
+  <header class="auth-dialog-heading">
+    <h2 id="assistance-title">{{ dialogTitle() }}</h2>
+    <form method="dialog"><button class="icon-button" [attr.aria-label]="'Fechar ' + dialogTitle()">×</button></form>
+  </header>
+  <p>{{ kind() === 'recovery' ? 'Informe o e-mail da conta para receber as instruções.' : 'Confira sua caixa de entrada ou solicite um novo link de confirmação.' }}</p>
+  <form (submit)="sendEmail($event, assistanceEmail.value)" [attr.aria-busy]="emailPending()">
+    <label for="assistance-email">E-mail da conta</label>
+    <input #assistanceEmail id="assistance-email" type="email" autocomplete="email" maxlength="254"
+      [value]="access.pendingEmail()" autofocus>
+    @if (emailMessage(); as feedback) {
+      <p [attr.role]="feedback.success ? 'status' : 'alert'" [class.auth-error]="!feedback.success">{{ feedback.message }}</p>
+    }
+    <button type="submit" class="button" [disabled]="emailPending()">
+      {{ emailPending() ? 'Aguarde…' : kind() === 'recovery' ? 'Enviar instruções' : 'Reenviar confirmação' }}
+    </button>
+  </form>
+</dialog>

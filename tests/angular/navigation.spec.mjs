@@ -26,13 +26,13 @@ test('preserva a estrutura, volta pelo histórico e identifica endereço desconh
   }
 
   await navigation.getByRole('link', { name: 'Início' }).click();
-  await expect(main.getByRole('heading', { name: 'Cultive seus vínculos' })).toBeVisible();
-  await expect(main.getByRole('heading', { name: 'Cultive seus vínculos' })).toBeFocused();
+  await expect(main.getByRole('heading', { name: 'Fortalecendo os laços que unem quem você ama.' })).toBeVisible();
+  await expect(main.getByRole('heading', { name: 'Fortalecendo os laços que unem quem você ama.' })).toBeFocused();
   expect(await marker.evaluate(element => element.isConnected)).toBe(true);
   await page.goBack();
   await expect(main.getByRole('heading', { name: 'Minha conta' })).toBeFocused();
   await page.goForward();
-  await expect(main.getByRole('heading', { name: 'Cultive seus vínculos' })).toBeFocused();
+  await expect(main.getByRole('heading', { name: 'Fortalecendo os laços que unem quem você ama.' })).toBeFocused();
   expect(await marker.evaluate(element => element.isConnected)).toBe(true);
   expect(await page.evaluate(() => performance.getEntriesByType('navigation').length)).toBe(1);
 
@@ -41,14 +41,14 @@ test('preserva a estrutura, volta pelo histórico e identifica endereço desconh
   await expect(main.getByRole('heading', { name: 'Página não encontrada' })).toBeVisible();
   await expect(page).toHaveTitle('Página não encontrada · Nós');
   await main.getByRole('link', { name: 'Voltar ao início' }).click();
-  await expect(main.getByRole('heading', { name: 'Cultive seus vínculos' })).toBeFocused();
+  await expect(main.getByRole('heading', { name: 'Fortalecendo os laços que unem quem você ama.' })).toBeFocused();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 
   if (process.env.NOS_SHELL_CAPTURE === '1') {
     mkdirSync('artifacts/angular-a02', { recursive: true });
     await page.screenshot({ path: 'artifacts/angular-a02/inicio-' + info.project.name + '.png', scale: 'css' });
     await navigation.getByRole('link', { name: 'Minha conta' }).click();
-    await expect(main.getByRole('heading', { name: 'Acesso à prévia' })).toBeVisible();
+    await expect(main.getByRole('heading', { name: 'Acesso à conta' })).toBeVisible();
     await page.screenshot({ path: 'artifacts/angular-a02/conta-' + info.project.name + '.png', scale: 'css' });
   }
 });
@@ -60,10 +60,10 @@ test('feedback de carregamento e falha permanece dentro do conteúdo', async ({ 
     await gate;
     await route.abort();
   };
-  await page.goto('/');
+  await page.goto('/boas-vindas');
   const deferredChunk = /\/chunk-[\w-]+\.js(?:\?|$)/;
   await page.route(deferredChunk, handler);
-  await page.getByRole('main').getByRole('link', { name: 'Minha conta' }).click();
+  await page.getByRole('navigation', { name: /Áreas do Nós|Navegação móvel/ }).getByRole('link', { name: 'Minha conta' }).click();
   try {
     await expect(page.getByRole('banner')).toBeVisible();
     await expect(page.getByRole('main').getByRole('status')).toContainText('Carregando página');
@@ -76,8 +76,8 @@ test('feedback de carregamento e falha permanece dentro do conteúdo', async ({ 
   const activeHome = page.getByRole('navigation', { name: /Áreas do Nós|Navegação móvel/ }).getByRole('link', { name: 'Início' });
   await activeHome.click();
   await expect(page.getByRole('main').getByRole('alert')).toHaveCount(0);
-  await expect(page.getByRole('heading', { name: 'Cultive seus vínculos' })).toBeVisible();
-  await page.getByRole('main').getByRole('link', { name: 'Minha conta' }).click();
+  await expect(page.getByRole('heading', { name: 'Fortalecendo os laços que unem quem você ama.' })).toBeVisible();
+  await page.getByRole('navigation', { name: /Áreas do Nós|Navegação móvel/ }).getByRole('link', { name: 'Minha conta' }).click();
   await expect(page.getByRole('main').getByRole('alert')).toBeVisible();
   await page.unroute(deferredChunk, handler);
   await page.getByRole('link', { name: 'Recarregar página' }).click();
@@ -87,7 +87,7 @@ test('feedback de carregamento e falha permanece dentro do conteúdo', async ({ 
 
 test('Mais fecha por teclado, toque e X e apenas a camada superior fecha', async ({ page }, info) => {
   test.skip(info.project.name !== 'mobile', 'Mais é o menu da navegação móvel.');
-  await page.goto('/');
+  await page.goto('/boas-vindas');
   const more = page.getByRole('button', { name: 'Mais áreas e preferências' });
   const accountLink = page.getByRole('navigation', { name: 'Navegação móvel' }).getByRole('link', { name: 'Minha conta' });
   const accountPosition = await accountLink.boundingBox();
@@ -115,7 +115,7 @@ test('Mais fecha por teclado, toque e X e apenas a camada superior fecha', async
   await more.click();
   await page.touchscreen.tap(accountPosition.x + accountPosition.width / 2, accountPosition.y + accountPosition.height / 2);
   await expect(menu).toBeHidden();
-  await expect(page).toHaveURL(new URL('/', page.url()).href);
+  await expect(page).toHaveURL(new URL('/boas-vindas', page.url()).href);
   await more.click();
   await close.click();
   await expect(menu).toBeHidden();
@@ -147,12 +147,12 @@ test('reentrar na Conta durante a conexão compartilha a inicialização', async
     await expect(page.getByRole('status')).toContainText('Carregando sua conta');
     await expect.poll(() => loads).toBe(1);
     await navigation.getByRole('link', { name: 'Início' }).click();
-    await expect(page.getByRole('heading', { name: 'Cultive seus vínculos' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Fortalecendo os laços que unem quem você ama.' })).toBeVisible();
     await navigation.getByRole('link', { name: 'Minha conta' }).click();
     await expect(page.getByRole('status')).toContainText('Carregando sua conta');
   } finally {
     release();
   }
-  await expect(page.getByRole('heading', { name: 'Acesso à prévia' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Acesso à conta' })).toBeVisible();
   expect(loads).toBe(1);
 });

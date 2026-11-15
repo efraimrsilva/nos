@@ -43,7 +43,13 @@
           "options": {
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": [],
+            "assets": [
+              {
+                "glob": "nos-tree.png",
+                "input": ".brand",
+                "output": "/brand/"
+              }
+            ],
             "styles": [
               "src/styles.css"
             ]
@@ -69,6 +75,11 @@
               "extractLicenses": false,
               "sourceMap": true,
               "assets": [
+                {
+                  "glob": "nos-tree.png",
+                  "input": ".brand",
+                  "output": "/brand/"
+                },
                 {
                   "glob": "supabase.json",
                   "input": ".local",

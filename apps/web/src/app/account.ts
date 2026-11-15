@@ -1,13 +1,17 @@
-import { afterNextRender, Component, computed, effect, inject, Injector, signal, viewChild, type ElementRef } from '@angular/core';
+import { afterNextRender, Component, DestroyRef, computed, effect, inject, Injector, signal, viewChild, type ElementRef } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { displayName, PreviewProfile } from './preview-profile';
 
 @Component({
   selector: 'app-account',
+  imports: [RouterLink],
   templateUrl: './account.html',
   styleUrl: './account.css',
 })
 export class Account {
   protected readonly profile = inject(PreviewProfile);
+  private readonly destroy = inject(DestroyRef);
+  private readonly router = inject(Router);
   private readonly injector = inject(Injector);
   protected readonly name = computed(() => displayName(this.profile.user()));
   protected readonly busy = signal(false);
@@ -31,23 +35,14 @@ export class Account {
     });
   }
 
-  protected async signIn(event: SubmitEvent, email: HTMLInputElement, password: HTMLInputElement) {
-    event.preventDefault();
-    if (this.busy()) return;
-    this.busy.set(true);
-    this.authError.set('');
-    try {
-      this.authError.set(await this.profile.signIn(email.value, password.value));
-      password.value = '';
-    } finally {
-      this.busy.set(false);
-    }
-  }
-
   protected async signOut() {
     if (this.busy()) return;
     this.busy.set(true);
-    try { this.authError.set(await this.profile.signOut()); }
+    try {
+      const error = await this.profile.signOut();
+      this.authError.set(error);
+      if (!error && !this.destroy.destroyed) await this.router.navigateByUrl('/conta?modo=login');
+    }
     finally { this.busy.set(false); }
   }
 

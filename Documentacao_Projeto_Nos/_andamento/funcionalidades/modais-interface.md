@@ -1,3 +1,7 @@
+## Acesso Angular — v4.0.0-alpha.3 — 2026-11-15
+
+Confirmar e-mail (Tela 03) e Recuperar acesso (Tela 04) reutilizam o diálogo nativo da prévia. Os caminhos `/conta/confirmar-email` e `/conta/recuperar` também abrem o modal diretamente. X, Escape e gesto externo fecham para Conta com o destino de retorno preservado. Os pedidos usam Supabase Auth e não liberam áreas privadas. [Registro A03](../registros/registro-v4.0.0-alpha.3-2026-11-15-imp-conta-angular-fun-autenticacao-e-recuperacao.md).
+
 ## Prévia Angular — v4.0.0-alpha.2 — 2026-11-15
 
 | Origem | Modal e gatilho | Permissão, fechamento e resultado |

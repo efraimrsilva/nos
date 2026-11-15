@@ -111,3 +111,5 @@ Capturas devem usar exemplos sem informações privadas, tokens ou códigos reai
 - [v4.0.0-alpha.1 — A01: edição de nome na prévia Angular, Tela 66](v4.0.0-alpha.1-2026-11-15-angular-nome-tela_66/index.html): referência Next.js, Atlas vivo e prévia com dados locais fictícios em 1440 e 390 px.
 
 - [v4.0.0-alpha.2 — A02: estrutura compartilhada Angular, Tela 66](./v4.0.0-alpha.2-2026-11-15-angular-interface-tela_66/index.html). Prévia antes e depois, Atlas vivo, Início provisório, Dados da conta e Mais. Desktop a 1440 px e celular a 390 px.
+
+- [v4.0.0-alpha.3 — A03: Conta e sessão Angular](./v4.0.0-alpha.3-2026-11-15-angular-acesso-tela_01-tela_02-tela_03-tela_04-tela_05-tela_72/index.html). Telas 01–05 e 72 com Atlas e prévia em desktop e celular.

@@ -1,6 +1,7 @@
 import { spawn } from 'node:child_process';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import './prepare-angular-assets.mjs';
 import { localSupabaseConfig } from './local-supabase.mjs';
 
 const root = new URL('../', import.meta.url);
@@ -13,7 +14,7 @@ if (!/^\d{4,5}$/.test(port) || Number(port) > 65535) throw new Error('Porta inv�
 // O build padrão não copia esta pasta. Só a configuração de desenvolvimento expõe a chave pública.
 const config = new URL('.local/', app);
 mkdirSync(config, { recursive: true });
-writeFileSync(new URL('supabase.json', config), JSON.stringify({ url, publicKey: PUBLISHABLE_KEY || ANON_KEY }));
+writeFileSync(new URL('supabase.json', config), JSON.stringify({ url, publicKey: PUBLISHABLE_KEY || ANON_KEY, google: process.env.NOS_ANGULAR_GOOGLE === '1' }));
 const child = spawn(process.execPath, [fileURLToPath(new URL('node_modules/@angular/cli/bin/ng.js', app)),
   'serve', '--host', '127.0.0.1', '--port', port], {
   cwd: app, stdio: 'inherit', windowsHide: true, env: { ...process.env, NG_CLI_ANALYTICS: 'false' },

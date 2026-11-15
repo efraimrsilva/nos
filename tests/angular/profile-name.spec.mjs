@@ -29,9 +29,12 @@ const test = base.extend({
 });
 
 async function signIn(page, account) {
-  await page.getByLabel('E-mail').fill(account.email);
+  const entry = page.getByRole('link', { name: 'Entrar na conta' });
+  if (new URL(page.url()).pathname === path) await entry.click();
+  else if (!page.url().includes('next=')) await page.goto('/conta?modo=login&next=%2Fconfiguracoes%2Fconta');
+  await page.getByLabel('E-mail', { exact: true }).fill(account.email);
   await page.getByLabel('Senha', { exact: true }).fill(account.password);
-  await page.getByRole('button', { name: 'Entrar na prévia' }).click();
+  await page.getByRole('button', { name: 'Entrar', exact: true }).click();
   await expect(page.getByRole('heading', { name: account.user.user_metadata.name })).toBeVisible();
 }
 
@@ -117,7 +120,8 @@ test('descarta rascunho ao trocar de conta em outra aba', async ({page, context,
   await page.getByRole('textbox', { name: 'Nome do perfil' }).fill('Rascunho da primeira conta');
   const other = await context.newPage();
   await other.goto(path);
-  await other.getByRole('button', { name: 'Sair da prévia' }).click();
+  await other.getByRole('button', { name: 'Sair da conta' }).click();
+  await expect(other).toHaveURL(/\/conta\?modo=login$/);
   await signIn(other, second);
   await expect(page.getByRole('dialog')).toBeHidden();
   await expect(page.getByRole('heading', { name: 'Pessoa Dois' })).toBeVisible();
@@ -144,7 +148,7 @@ test('recusa gravação após revogação e vencimento da sessão', async ({page
     localStorage.setItem(key, JSON.stringify(session));
   }, key);
   await page.getByRole('button', { name: 'Salvar nome' }).click();
-  await expect(page.getByRole('button', { name: 'Entrar na prévia' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Entrar na conta' })).toBeVisible();
   await expect(page.getByRole('alert')).toContainText('Entre novamente');
   const untouched = await accounts.admin.auth.admin.getUserById(first.user.id);
   expect(untouched.data.user?.user_metadata.name).toBe('Pessoa Um');

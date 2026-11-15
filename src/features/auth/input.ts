@@ -1,4 +1,4 @@
-import { routes } from "@/shared/routes";
+import { routes } from "../../shared/routes";
 
 export const passwordHelp = "Pelo menos 8 caracteres, com letra, número e símbolo.";
 export function isValidPassword(password: string) {

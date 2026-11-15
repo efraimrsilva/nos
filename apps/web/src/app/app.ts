@@ -13,7 +13,7 @@ import { RouteState } from './shared/route-state';
 })
 export class App {
   protected readonly areas = [
-    { label: 'Início', url: '/' },
+    { label: 'Início', url: '/boas-vindas' },
     { label: 'Minha conta', url: '/configuracoes/conta' },
   ];
   protected readonly activeMatch: IsActiveMatchOptions = {
@@ -36,7 +36,9 @@ export class App {
       if (event instanceof NavigationEnd) {
         const path = this.router.parseUrl(event.urlAfterRedirects).root.children['primary']
           ?.segments.map(segment => segment.path).join('/') ?? '';
-        this.activeLabel.set(this.areas.find(item => item.url === '/' + path)?.label ?? 'Página não encontrada');
+        const account = path === 'conta' || path.startsWith('conta/');
+        const title = this.router.routerState.snapshot.root.firstChild?.title?.split(' · ')[0];
+        this.activeLabel.set(this.areas.find(item => item.url === '/' + path)?.label ?? (account ? 'Sua conta' : title ?? ''));
         this.more()?.nativeElement.close();
         // Depois de Voltar, Avançar ou seguir um link interno, o foco acompanha o novo conteúdo.
         if (!this.initialNavigation) this.focusPage();

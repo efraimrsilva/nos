@@ -1,3 +1,9 @@
+## 2026-11-15 — v4.0.0-alpha.3 — Autenticação Angular com e-mails locais
+
+**Problema:** o editor de perfil usava entrada provisória. **Contribuição:** fluxo de Conta com callbacks, retorno validado e sessão de recuperação separada. **Resultado verificado:** cadastro, reenvio e confirmação, renovação, recuperação em outra aba e login com a nova senha. **Benefício esperado:** o fluxo de acesso fica disponível para os próximos módulos da migração. [Registro A03](../_andamento/registros/registro-v4.0.0-alpha.3-2026-11-15-imp-conta-angular-fun-autenticacao-e-recuperacao.md).
+
+---
+
 ## 2026-11-15 — v4.0.0-alpha.2 — Navegação e diálogos da prévia Angular
 
 **Problema:** a primeira rota Angular tinha cabeçalho e fechamento de diálogo próprios. **Contribuição:** estrutura raiz responsiva com navegação por teclado e fechamento compartilhado. **Resultado verificado:** o cabeçalho permanece durante a navegação, falhas têm recuperação e toques de fechamento não acionam controles de fundo. **Benefício esperado:** novos módulos reaproveitam a mesma estrutura e regra de interação. [Evidência](../_andamento/registros/registro-v4.0.0-alpha.2-2026-11-15-imp-interface-compartilhada-fun-navegacao-angular.md).

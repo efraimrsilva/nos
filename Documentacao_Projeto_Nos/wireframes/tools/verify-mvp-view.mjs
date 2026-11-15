@@ -32,7 +32,7 @@ try{
   assert.match(await page.locator('[data-mvp-screen="1"]').textContent(),/Conta com título atualizado/);
   assert.match(await page.locator('[data-mvp-screen="1"]').textContent(),/Limite atual atualizado/);
   await page.reload();await nav.first().click();
-  for(const name of ['Impacto','Linguagens de cuidado','Google e Apple','Calendários externos','Android','iOS','biometria','retenção','IA opcional','Convites por link e QR','Administrador','revisão anual do propósito'])assert.ok((await page.locator('#mvp-view').textContent()).includes(name),`Função transversal: ${name}`);
+  for(const name of ['Impacto','Linguagens de cuidado','Login Google','Calendários externos','Android','iOS','biometria','retenção','IA opcional','Convites por link e QR','Administrador','revisão anual do propósito'])assert.ok((await page.locator('#mvp-view').textContent()).includes(name),`Função transversal: ${name}`);
   await page.locator('#mvp-view [data-entry-login]').first().click();
   assert.equal(await page.locator('#screen-preview [data-auth-submit]').innerText(),'Entrar','Abrir login, não cadastro');
   await page.locator('#screen-spec [data-view="mvp"]').click();

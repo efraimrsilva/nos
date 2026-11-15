@@ -1,3 +1,7 @@
+## MVP01 na prévia Angular — v4.0.0-alpha.3 — 2026-11-15
+
+A03 valida localmente cadastro, login, sessão, confirmação, recuperação, saída e preservação do retorno para convite. Google depende do provedor configurado na prévia. Esta sincronização registra o recorte da migração e mantém os resultados de caixa preta anteriores. [Registro A03](../registros/registro-v4.0.0-alpha.3-2026-11-15-imp-conta-angular-fun-autenticacao-e-recuperacao.md).
+
 ## MVP02/MVP05 — sincronização de nomes — v3.11.0 — 2026-11-07
 
 Telas12/13/66: o formulário existente salva o nome; outras sessões com vínculo comum atualizam nomes/iniciais por polling3s, preservando listas, modais e rascunhos. Sem novo ID, tela ou modal; Atlas offline mantém exemplos.8 testes autenticados e23 SQL aprovados localmente; migração deve preceder o frontend. Não conclui publicação ou piloto. [Plano](sincronizacao-nomes-perfil.md) · [Contrato](../funcionalidades/nome-perfil.md).

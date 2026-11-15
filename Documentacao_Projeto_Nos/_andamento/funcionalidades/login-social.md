@@ -1,3 +1,7 @@
+## Prévia Angular — v4.0.0-alpha.3 — 2026-11-15
+
+O callback `/auth/callback` usa PKCE, valida o destino e remove a credencial da URL antes da troca. O campo `name` existente é preservado. Um `full_name` válido é gravado com o token da sessão recém-criada; se o nome faltar ou a gravação falhar, `/conta?completar=nome` preserva o destino. Google pode ser exibido quando habilitado no Supabase da prévia. O ambiente local usado na A03 não tinha o provedor ativo; foi validado o tratamento de cancelamento. [Registro A03](../registros/registro-v4.0.0-alpha.3-2026-11-15-imp-conta-angular-fun-autenticacao-e-recuperacao.md).
+
 > **v3.9.2 — 07/11/2026 — Produção:** Conta pública compacta, ícone oficial Google, transição suave com movimento reduzido e rodapé na base sem sobrepor conteúdo. Publicado e conferido em produção; deploy6aeea7ee5fe36058ee5cebd4. Histórico datado abaixo preservado.
 
 > **v3.9.1 — 07/11/2026:** somente Google como botão social na Conta; e-mail/senha preservados. Microsoft descartado; Apple sem botão e desativado. Google já confirmado em produção3.9.0; retirada do botão publicada e conferida em produção. Trechos datados abaixo são históricos.

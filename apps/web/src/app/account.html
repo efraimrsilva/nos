@@ -11,18 +11,12 @@
       </button>
       <span id="account-row-description">Nome e identificação</span>
     </section>
-    <button type="button" class="secondary signout" [disabled]="busy()" (click)="signOut()">Sair da prévia</button>
-  } @else if (profile.available()) {
+    <button type="button" class="secondary signout" [disabled]="busy()" (click)="signOut()">Sair da conta</button>
+  } @else {
     <section class="card">
-      <h2>Acesso à prévia</h2>
-      <p>Use uma conta descartável do Supabase local.</p>
-      <form (submit)="signIn($event, email, password)">
-        <label for="email">E-mail</label>
-        <input #email id="email" type="email" autocomplete="username" required [disabled]="busy()">
-        <label for="password">Senha</label>
-        <input #password id="password" type="password" autocomplete="current-password" required [disabled]="busy()">
-        <button type="submit" [disabled]="busy()">{{ busy() ? 'Entrando…' : 'Entrar na prévia' }}</button>
-      </form>
+      <h2>Acesso à conta</h2>
+      <p>Entre para ver e editar os dados do seu perfil.</p>
+      <a class="button" routerLink="/conta" [queryParams]="{modo: 'login', next: '/configuracoes/conta'}">Entrar na conta</a>
     </section>
   }
   @if (profile.notice() || authError()) {

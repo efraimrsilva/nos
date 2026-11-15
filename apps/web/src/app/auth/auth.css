@@ -1,0 +1,33 @@
+.auth-layout {
+  display: grid; gap: clamp(1rem,4vw,3rem); align-items: center;
+}
+.auth-intro { display: none; }
+.auth-field[hidden] { display: none; }
+.auth-card { width: min(100%, 32rem); margin-inline: auto; }
+.auth-card > h1 { margin-bottom: 1rem; }
+.auth-card > p, #access-help, #password-help { color: var(--muted); }
+.auth-card form, dialog form:not([method='dialog']), .auth-field { display:grid; gap: .5rem; }
+.auth-card form, dialog form:not([method='dialog']) { margin-block: 1rem; }
+.auth-card label, dialog label { font-weight: 650; }
+.auth-card input, dialog input {
+  width: 100%; min-width: 0; min-height: 2.75rem; padding: .55rem .8rem; border: 1px solid #a0ada3;
+  border-radius: .55rem; background: var(--surface); color: var(--ink);
+}
+.auth-modes { display: flex; flex-wrap: wrap; gap: .35rem; border-bottom: 1px solid var(--line); padding-bottom: .45rem; }
+.auth-modes a { padding: .4rem .75rem; color: var(--leaf); text-decoration: none; border-radius: .45rem; }
+.auth-modes a[aria-current] { font-weight: 700; background: var(--accent-soft); }
+.auth-secondary { margin-top: .8rem; color: var(--leaf); background: var(--surface); }
+.password-field { display:flex; gap:.5rem; }
+.auth-assistance { display:flex; flex-wrap:wrap; gap:.5rem 1rem; }
+.auth-assistance a, .auth-card p a { color: var(--leaf); }
+.auth-message { margin-bottom: 1rem; }
+.auth-error { color: #9a232e; }
+.auth-dialog-heading { display:flex; justify-content:space-between; align-items:start; gap:1rem; margin-bottom:.65rem; }
+.auth-dialog-heading h2 { font: 500 1.8rem/1.2 Georgia, serif; }
+@media (min-width: 960px) {
+  .auth-layout { grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); }
+  .auth-intro { display:grid; justify-items:center; gap:.75rem; padding:1.25rem; border-radius:.75rem; background:var(--hero); text-align:center; }
+  .auth-intro img { display:block; width:min(100%, 17.5rem); height:auto; }
+  .auth-intro h2 { font: 500 clamp(1.55rem, 2.75vw, 2.5rem)/1.15 Georgia, serif; }
+  .auth-intro p { font: 500 1.25rem/1.4 Georgia, serif; }
+}
