@@ -19,7 +19,6 @@ export class Account {
   protected draft = '';
   private readonly dataDialog = viewChild.required<ElementRef<HTMLDialogElement>>('dataDialog');
   private openedFor: string | null = null;
-  private pointerOutside = false;
 
   constructor() {
     void this.profile.connect();
@@ -59,7 +58,6 @@ export class Account {
 
   protected resetDialog() {
     this.openedFor = null;
-    this.pointerOutside = false;
     this.resetEditor();
   }
 
@@ -94,24 +92,6 @@ export class Account {
     } finally {
       this.saving.set(false);
     }
-  }
-
-  protected backdropDown(event: PointerEvent) {
-    this.pointerOutside = event.isPrimary && event.button === 0 && this.outside(event);
-  }
-
-  protected backdropUp(event: PointerEvent) {
-    const close = this.pointerOutside && event.isPrimary && event.button === 0 && this.outside(event);
-    this.pointerOutside = false;
-    if (close) this.dialog().close();
-  }
-
-  protected backdropCancel() { this.pointerOutside = false; }
-
-  private outside(event: PointerEvent) {
-    const box = this.dialog().getBoundingClientRect();
-    return event.clientX < box.left || event.clientX >= box.right ||
-      event.clientY < box.top || event.clientY >= box.bottom;
   }
 
   private dialog() { return this.dataDialog().nativeElement; }

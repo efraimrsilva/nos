@@ -1,3 +1,9 @@
+## 2026-11-15 — v4.0.0-alpha.2 — A02 da migração Angular
+
+A01 confirmada no GitHub em `50fd490`. A02 validou estrutura responsiva, navegação com histórico e fechamento comum de diálogos na prévia local. [Registro e evidências](registros/registro-v4.0.0-alpha.2-2026-11-15-imp-interface-compartilhada-fun-navegacao-angular.md).
+
+---
+
 ## 2026-11-15 — v4.0.0-alpha.1 — A01 da migração Angular
 
 Criada a branch `codex/migracao-angular` a partir de `604a142`. A prévia isolada lê e atualiza o nome da própria conta no Supabase local. A linha Next.js permanece em v3.11.1. [Registro e evidências](registros/registro-v4.0.0-alpha.1-2026-11-15-imp-base-angular-fun-edicao-nome.md).

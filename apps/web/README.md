@@ -1,6 +1,6 @@
 # Nós · prévia Angular
 
-Aplicação Angular separada do Next.js durante a migração. A prévia atual cobre a leitura e edição do próprio nome em `/configuracoes/conta`.
+Aplicação Angular separada do Next.js durante a migração. A prévia tem Início e Minha conta, com barra lateral no computador e menu Mais no celular. Em `/configuracoes/conta`, leia e edite o próprio nome.
 
 Da raiz, com Node.js 24.15 ou superior da série 24 e Docker Desktop:
 

@@ -1,6 +1,5 @@
-<header class="topbar"><b>nós<span>.</span></b><span>Prévia local · Angular</span></header>
-<main>
-  <h1>Minha conta</h1>
+<section class="account">
+  <h1 tabindex="-1">Minha conta</h1>
   <p>Configurações do seu perfil.</p>
   @if (profile.loading()) {
     <p role="status">Carregando sua conta…</p>
@@ -29,11 +28,10 @@
   @if (profile.notice() || authError()) {
     <p role="alert" class="error">{{ authError() || profile.notice() }}</p>
   }
-</main>
+</section>
 
-<dialog #dataDialog id="account-data" aria-labelledby="account-title" aria-describedby="account-description"
-  (close)="resetDialog()" (pointerdown)="backdropDown($event)" (pointerup)="backdropUp($event)"
-  (pointercancel)="backdropCancel()">
+<dialog #dataDialog class="shared-dialog" id="account-data" aria-labelledby="account-title"
+  aria-describedby="account-description" (close)="resetDialog()">
   <header class="dialog-header">
     <div>
       <h2 id="account-title">Dados da conta</h2>

@@ -1,3 +1,12 @@
+## Prévia Angular — v4.0.0-alpha.2 — 2026-11-15
+
+| Origem | Modal e gatilho | Permissão, fechamento e resultado |
+|---|---|---|
+| Tela 66, prévia Angular | **Dados da conta**, botão de mesmo nome | Sessão autenticada. X, Escape ou gesto externo fecha e descarta o rascunho sem envio. Os envios continuam vinculados à conta autenticada. |
+| Barra móvel, prévia Angular | **Todos os seus caminhos**, botão Mais | Disponível aos visitantes da prévia. X, Escape ou gesto externo volta ao botão Mais. Selecionar destino fecha o menu e leva o foco ao conteúdo quando muda de rota. |
+
+Um gesto deve iniciar e terminar fora do diálogo. Padding e gesto iniciado dentro mantêm a caixa. Camadas aninhadas fecham somente a superior. O clique de fechamento é consumido para preservar os controles que estavam sob o backdrop. A Tela 66 e a guia Migração registram o recorte. [Registro A02](../registros/registro-v4.0.0-alpha.2-2026-11-15-imp-interface-compartilhada-fun-navegacao-angular.md).
+
 ## Atualização — v3.11.0 — 2026-11-07
 
 Sincronização periódica dos nomes de perfil preserva os modais existentes Integrantes do Núcleo e Participação de pessoa já abertos, atualizando nomes/iniciais/títulos sem recarga do documento. Dados da conta continua sendo o formulário de edição; sem modal novo. Teste com2 sessões locais conferiu os diálogos simultaneamente abertos. Fechamento, foco, permissões e rascunhos preservados.

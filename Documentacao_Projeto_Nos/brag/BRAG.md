@@ -1,3 +1,9 @@
+## 2026-11-15 — v4.0.0-alpha.2 — Navegação e diálogos da prévia Angular
+
+**Problema:** a primeira rota Angular tinha cabeçalho e fechamento de diálogo próprios. **Contribuição:** estrutura raiz responsiva com navegação por teclado e fechamento compartilhado. **Resultado verificado:** o cabeçalho permanece durante a navegação, falhas têm recuperação e toques de fechamento não acionam controles de fundo. **Benefício esperado:** novos módulos reaproveitam a mesma estrutura e regra de interação. [Evidência](../_andamento/registros/registro-v4.0.0-alpha.2-2026-11-15-imp-interface-compartilhada-fun-navegacao-angular.md).
+
+---
+
 ## 2026-11-15 — v4.0.0-alpha.1 — Primeiro fluxo protegido em Angular
 
 **Problema:** antes de portar as jornadas, era preciso provar que a interface Angular podia escrever dados da conta com a sessão própria. **Contribuição:** pacote isolado com build reproduzível e recorte de edição do nome. **Resultado verificado:** leitura, validação, persistência e isolamento entre contas no Supabase local; tipos e builds dos dois frameworks passaram. **Benefício esperado:** reduzir o risco de migração ao verificar os contratos por etapa. [Evidência](../_andamento/registros/registro-v4.0.0-alpha.1-2026-11-15-imp-base-angular-fun-edicao-nome.md).

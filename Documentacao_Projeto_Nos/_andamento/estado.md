@@ -1,18 +1,18 @@
-# Estado atual — Next.js v3.11.1 · Angular v4.0.0-alpha.1 — 2026-11-15
+# Estado atual — Next.js v3.11.1 · Angular v4.0.0-alpha.2 — 2026-11-15
 
-**Objetivo e escopo:** substituir Next.js em 14 entregas. A01 validada localmente na prévia Angular: em `/configuracoes/conta`, abrir Dados da conta, ler e editar o nome, validar, salvar e conferir após recarregar. Sessão e isolamento verificados com Supabase local. A02–A14 pendentes.
+**Objetivo e escopo:** substituir Next.js em 14 entregas. A01 e A02 concluídas localmente. Início e Conta compartilham layout, navegação com histórico, estados de rota e diálogos nativos. A03–A14 pendentes.
 
-**Base e situação:** DOCS_DIR `Documentacao_Projeto_Nos`; branch `codex/migracao-angular`, base `604a142`. Prévia independente em `apps/web` (Angular 22, TypeScript 6.0, lockfile próprio). A01 não alterou hospedagem, esquema ou ambiente remoto. O commit `604a142` contém o plano e a guia Migração; a pendência daquele conjunto foi encerrada.
+**Base e Git:** DOCS_DIR `Documentacao_Projeto_Nos`. Branch `codex/migracao-angular`. A01 confirmada no objeto `50fd490` e em `refs/heads/codex/migracao-angular` no GitHub. A02 local. A linha Next.js permanece em v3.11.1 e tem publicação própria.
 
-**Arquivos e decisões:** `apps/web/src/app/account.*` apresenta o recorte; `preview-profile.ts` valida sessão e vincula a escrita à credencial verificada. `scripts/start-angular-local.mjs` serve somente a configuração pública local no modo de desenvolvimento. Sessões separadas entre Angular e Next.js. Layout e navegação entram em A02; autenticação de produto em A03.
+**Arquivos e decisões:** `apps/web/src/app/app.*` mantém a estrutura raiz. `app.routes.ts` resolve Início provisório, Conta carregada sob demanda e endereço desconhecido. `shared/dialog-backdrop-dismiss.ts` cobre o menu Mais e Dados da conta. Movimentos respeitam a configuração do sistema. Em erro de carregamento, Recarregar página reabre a rota para permitir nova busca do módulo. A Conta reaproveita a tentativa de inicialização do Supabase durante navegação rápida.
 
-**Validação e ferramentas:** tipos e builds Angular/Next.js; seis casos Playwright Angular e dois de regressão Next.js em desktop/celular; Atlas (Migração, Visão global e Tela 66) e galeria. O verificador geral de MVP mantém a falha preexistente na expectativa de Google e Apple. Revisão independente encontrou mistura de suítes e descarte de rascunho em falha de sessão recuperável, corrigidos. Node 24.15.0, npm 11.11.1, Angular CLI 22.2.7 e Supabase local confirmados. Context7 e Superpowers consultados; Octocode já configurado, sem busca avançada externa nesta unidade.
+**Validação e ferramentas:** 13 casos Playwright aprovados e um descartado por se aplicar somente ao menu móvel. Tipos e builds Angular e Next.js aprovados. Revisão independente com ajustes de toque, recuperação de rota, link ativo e inicialização de sessão. Verificador geral do MVP conserva a expectativa preexistente de Google e Apple registrada na A01. Context7 consultado para o Router Angular. Octocode segue configurado, sem pesquisa avançada externa. Nenhum bloqueio para A03.
 
-**Próximo passo:** A02. Inventariar layout raiz, marca, estilos, menus e diálogos compartilhados. Portar a estrutura para Angular, mantendo-a montada durante a navegação, e verificar teclado, foco, botão voltar e fechamento dos diálogos.
+**Próximo passo:** A03. Conferir no Atlas as telas de acesso, confirmação, recuperação e boas-vindas. Portar a sessão de produto e os retornos de autenticação, preservando os caminhos existentes e validando os provedores configurados.
 
-**Continuidade Git:** A01 pronta, ainda sem commit. Sugestão: `feat(angular): validar edição do nome na prévia local`. Contador 63 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
+**Continuidade Git:** A02 pronta para commit. Sugestão `feat(angular): portar layout e navegação compartilhados da prévia`. Contador 64 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
 
-**Índice:** [Guia Migração](../wireframes/atlas/index.html#migracao) · [Plano vigente](planos/migracao-angular.md) · [Registro A01](registros/registro-v4.0.0-alpha.1-2026-11-15-imp-base-angular-fun-edicao-nome.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.1-2026-11-15-angular-nome-tela_66/index.html) · [Guia da prévia](../../apps/web/README.md) · [Guia Migração v3.11.1](registros/registro-v3.11.1-2026-11-13-imp-atlas-fun-roteiro-migracao-angular.md).
+**Índice:** [Guia Migração](../wireframes/atlas/index.html#migracao) · [Plano vigente](planos/migracao-angular.md) · [Registro A02](registros/registro-v4.0.0-alpha.2-2026-11-15-imp-interface-compartilhada-fun-navegacao-angular.md) · [Galeria A02](../wireframes/comparacoes/v4.0.0-alpha.2-2026-11-15-angular-interface-tela_66/index.html) · [Registro A01](registros/registro-v4.0.0-alpha.1-2026-11-15-imp-base-angular-fun-edicao-nome.md) · [Guia da prévia](../../apps/web/README.md).
 
 ---
 

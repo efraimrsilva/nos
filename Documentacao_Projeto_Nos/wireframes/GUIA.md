@@ -1,3 +1,5 @@
+**Prévia Angular v4.0.0-alpha.2 (15/11/2026):** A02 validada localmente. A guia Migração registra Início, Conta e o menu Mais da prévia, além da regra global de fechamento de Dados da conta e Mais. O desenho da Tela 66 representa a linha Next.js. [Comparações](comparacoes/v4.0.0-alpha.2-2026-11-15-angular-interface-tela_66/index.html).
+
 > **v3.11.1 — 13/11/2026:** a guia [Migração](atlas/index.html#migracao) apresenta as 14 entregas planejadas para substituir Next.js por Angular, com Supabase e navegação interna sem recarregar o documento. [Plano vigente](../_andamento/planos/migracao-angular.md).
 
 **Prévia Angular v4.0.0-alpha.1 (15/11/2026):** A01 validada localmente. A guia Migração e a ficha 66 indicam o recorte Dados da conta. O desenho da Tela 66 representa a linha Next.js v3.11.1. [Evidências desktop e celular](comparacoes/v4.0.0-alpha.1-2026-11-15-angular-nome-tela_66/index.html).

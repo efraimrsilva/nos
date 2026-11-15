@@ -109,3 +109,5 @@ Capturas devem usar exemplos sem informações privadas, tokens ou códigos reai
 - [v3.11.0 · Sincronização de nomes de perfil](v3.11.0-2026-11-07-nomes-perfil-tela_12-tela_13-tela_66/index.html) — Atlas antes/depois e duas sessões locais; nomes atualizados em detalhes e lista sem reload, com limites da captura anterior mobile explicitados.
 
 - [v4.0.0-alpha.1 — A01: edição de nome na prévia Angular, Tela 66](v4.0.0-alpha.1-2026-11-15-angular-nome-tela_66/index.html): referência Next.js, Atlas vivo e prévia com dados locais fictícios em 1440 e 390 px.
+
+- [v4.0.0-alpha.2 — A02: estrutura compartilhada Angular, Tela 66](./v4.0.0-alpha.2-2026-11-15-angular-interface-tela_66/index.html). Prévia antes e depois, Atlas vivo, Início provisório, Dados da conta e Mais. Desktop a 1440 px e celular a 390 px.

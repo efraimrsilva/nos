@@ -13,11 +13,19 @@ export class PreviewProfile {
   readonly notice = signal('');
   private config?: Config;
   private client?: SupabaseClient;
+  private connecting?: Promise<void>;
   private accountId: string | null = null;
   private revision = 0;
 
   async connect() {
     if (this.client) return;
+    // Reentrar na rota durante a primeira leitura compartilha o mesmo cliente e a assinatura de sessão.
+    this.connecting ??= this.initialize().finally(() => { this.connecting = undefined; });
+    return this.connecting;
+  }
+
+  private async initialize() {
+    this.loading.set(true);
     try {
       const response = await fetch('/supabase.json', { cache: 'no-store' });
       if (!response.ok) throw new Error();

@@ -295,3 +295,6 @@ for(const id of [1,2]){const screen=screens.find(item=>item.id===id);screen.rule
 
 // A ficha mantém o desenho da linha vigente; a prévia Angular tem escopo e evidências próprios.
 screens.find(s=>s.id===66).rule+=' Prévia Angular v4.0.0-alpha.1 (A01): /configuracoes/conta migra Dados da conta, com leitura e edição do próprio nome verificadas no Supabase local. Cabeçalho e navegação completos, demais seções e autenticação de produto aguardam as etapas indicadas na guia Migração.';
+
+// A ficha canônica continua representando a linha Next.js. A guia Migração identifica o recorte Angular.
+screens.find(s => s.id === 66).rule += ' Prévia Angular v4.0.0-alpha.2 (A02): Início e Minha conta compartilham estrutura persistente, menu lateral recolhível no desktop e barra móvel. No celular, Mais abre Todos os seus caminhos; ele e Dados da conta usam o fechamento compartilhado por X, Escape ou gesto externo.';
