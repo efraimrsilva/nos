@@ -36,6 +36,18 @@ export const routes: Routes = [
   { path: 'auth/recovery', loadComponent: loadCallback, data:{kind:'recovery'}, title: 'Recuperar acesso · Nós' },
   { path: 'auth/callback', loadComponent: loadCallback, data:{kind:'callback'}, title: 'Entrar · Nós' },
   { path: 'configuracoes/conta', loadComponent: () => import('./account').then(module => module.Account), title: 'Minha conta · Nós' },
+  {
+    path: '',
+    loadComponent: () => import('./nuclei/nuclei-area').then(module => module.NucleiArea),
+    children: [
+      {path:'nucleos',loadComponent:() => import('./nuclei/nuclei-list').then(module => module.NucleiList),title:'Seus Núcleos · Nós'},
+      {path:'nucleos/:id',loadComponent:() => import('./nuclei/nucleus-home').then(module => module.NucleusHome),title:'Início do Núcleo · Nós'},
+      {path:'comecar',loadComponent:() => import('./nuclei/nucleus-wizard').then(module => module.ChoosePath),title:'Escolher caminho · Nós'},
+      {path:'comecar/tipo',loadComponent:() => import('./nuclei/nucleus-wizard').then(module => module.ChooseType),title:'Tipo de Núcleo · Nós'},
+      {path:'comecar/proposito',loadComponent:() => import('./nuclei/nucleus-wizard').then(module => module.NucleusPurpose),title:'Propósito do Núcleo · Nós'},
+      {path:'comecar/convite-inicial/:id',loadComponent:() => import('./nuclei/nucleus-created').then(module => module.NucleusCreated),title:'Núcleo criado · Nós'},
+    ],
+  },
   { matcher: pending, loadComponent: loadEntry, title: 'Meu espaço · Nós' },
   { path: '**', component: NotFound, title: 'Página não encontrada · Nós' },
 ];

@@ -1,3 +1,7 @@
+## Prévia Angular — v4.0.0-alpha.4 — 2026-11-15
+
+A04 consulta Núcleos e integrantes com a sessão atual e segurança por linha (RLS). A criação explícita envia um identificador único com o rascunho validado. Repetir a mesma confirmação devolve o mesmo Núcleo. Em resposta incerta, a pessoa pode consultar Seus Núcleos. Nome e propósito do rascunho ficam em memória. O atalho de retorno é guardado por conta e valida vínculo antes de aparecer. A05 porta convites e A06 porta gestão. [Registro A04](../registros/registro-v4.0.0-alpha.4-2026-11-15-imp-nucleos-angular-fun-lista-selecao-e-criacao.md).
+
 # Núcleo compartilhado — v3.5.0
 
 ## Atualização vigente — Núcleos — v3.5.0 — 03/11/2026

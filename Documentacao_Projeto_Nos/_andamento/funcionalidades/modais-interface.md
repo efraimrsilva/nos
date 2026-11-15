@@ -1,3 +1,7 @@
+## Núcleos na prévia Angular — v4.0.0-alpha.4 — 2026-11-15
+
+**Começar com intenção (Tela 12)** abre pelo botão Criar um núcleo após entrar na conta. Mostra caminhos de tipo e convite. **Integrantes do Núcleo (Tela 13)** abre pelo botão Ver integrantes com vínculo confirmado e mostra nome e papel. X, Escape e gesto externo fecham ambos. Selecionar um caminho também fecha a primeira caixa. Ações administrativas entram em A06. [Registro A04](../registros/registro-v4.0.0-alpha.4-2026-11-15-imp-nucleos-angular-fun-lista-selecao-e-criacao.md).
+
 ## Acesso Angular — v4.0.0-alpha.3 — 2026-11-15
 
 Confirmar e-mail (Tela 03) e Recuperar acesso (Tela 04) reutilizam o diálogo nativo da prévia. Os caminhos `/conta/confirmar-email` e `/conta/recuperar` também abrem o modal diretamente. X, Escape e gesto externo fecham para Conta com o destino de retorno preservado. Os pedidos usam Supabase Auth e não liberam áreas privadas. [Registro A03](../registros/registro-v4.0.0-alpha.3-2026-11-15-imp-conta-angular-fun-autenticacao-e-recuperacao.md).

@@ -11,6 +11,9 @@
       </button>
       <span id="account-row-description">Nome e identificação</span>
     </section>
+    @if (last.hasValue() && last.value(); as nucleus) {
+      <a class="button secondary signout" [routerLink]="['/nucleos',nucleus.id]" [attr.title]="nucleus.name">Voltar ao Núcleo</a>
+    }
     <button type="button" class="secondary signout" [disabled]="busy()" (click)="signOut()">Sair da conta</button>
   } @else {
     <section class="card">

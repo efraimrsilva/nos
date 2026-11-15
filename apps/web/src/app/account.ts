@@ -1,5 +1,6 @@
-import { afterNextRender, Component, DestroyRef, computed, effect, inject, Injector, signal, viewChild, type ElementRef } from '@angular/core';
+import { afterNextRender, Component, DestroyRef, computed, effect, inject, Injector, resource, signal, viewChild, type ElementRef } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { NucleiData } from './nuclei/nuclei-data';
 import { displayName, PreviewProfile } from './preview-profile';
 
 @Component({
@@ -14,6 +15,11 @@ export class Account {
   private readonly router = inject(Router);
   private readonly injector = inject(Injector);
   protected readonly name = computed(() => displayName(this.profile.user()));
+  private readonly nuclei = inject(NucleiData);
+  protected readonly last = resource({
+    params:() => this.profile.user()?.id,
+    loader:({params,abortSignal}) => this.nuclei.last(params,abortSignal),
+  });
   protected readonly busy = signal(false);
   protected readonly authError = signal('');
   protected readonly editing = signal(false);

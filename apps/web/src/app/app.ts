@@ -14,6 +14,7 @@ import { RouteState } from './shared/route-state';
 export class App {
   protected readonly areas = [
     { label: 'Início', url: '/boas-vindas' },
+    { label: 'Seus Núcleos', url: '/nucleos' },
     { label: 'Minha conta', url: '/configuracoes/conta' },
   ];
   protected readonly activeMatch: IsActiveMatchOptions = {
@@ -37,7 +38,9 @@ export class App {
         const path = this.router.parseUrl(event.urlAfterRedirects).root.children['primary']
           ?.segments.map(segment => segment.path).join('/') ?? '';
         const account = path === 'conta' || path.startsWith('conta/');
-        const title = this.router.routerState.snapshot.root.firstChild?.title?.split(' · ')[0];
+        let route = this.router.routerState.snapshot.root;
+        while (route.firstChild) route = route.firstChild;
+        const title = route.title?.split(' · ')[0];
         this.activeLabel.set(this.areas.find(item => item.url === '/' + path)?.label ?? (account ? 'Sua conta' : title ?? ''));
         this.more()?.nativeElement.close();
         // Depois de Voltar, Avançar ou seguir um link interno, o foco acompanha o novo conteúdo.

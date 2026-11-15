@@ -1,3 +1,9 @@
+## 2026-11-15 — v4.0.0-alpha.4 — Criação de Núcleos protegida contra repetição
+
+**Problema:** a pessoa pode perder a resposta depois de confirmar a criação. **Contribuição:** o banco reutiliza o identificador da mesma confirmação ao receber o pedido novamente. **Resultado verificado:** uma resposta interrompida seguida de nova tentativa abriu um único Núcleo e preservou a associação de administrador. A segunda conta não viu o Núcleo. **Benefício esperado:** recuperar uma gravação sem duplicar espaços. [Registro A04](../_andamento/registros/registro-v4.0.0-alpha.4-2026-11-15-imp-nucleos-angular-fun-lista-selecao-e-criacao.md).
+
+---
+
 ## 2026-11-15 — v4.0.0-alpha.3 — Autenticação Angular com e-mails locais
 
 **Problema:** o editor de perfil usava entrada provisória. **Contribuição:** fluxo de Conta com callbacks, retorno validado e sessão de recuperação separada. **Resultado verificado:** cadastro, reenvio e confirmação, renovação, recuperação em outra aba e login com a nova senha. **Benefício esperado:** o fluxo de acesso fica disponível para os próximos módulos da migração. [Registro A03](../_andamento/registros/registro-v4.0.0-alpha.3-2026-11-15-imp-conta-angular-fun-autenticacao-e-recuperacao.md).

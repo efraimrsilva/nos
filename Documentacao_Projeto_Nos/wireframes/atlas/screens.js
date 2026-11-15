@@ -301,3 +301,6 @@ screens.find(s => s.id === 66).rule += ' Prévia Angular v4.0.0-alpha.2 (A02): I
 
 // A linha Angular usa os mesmos recortes, com evidências próprias na guia Migração.
 for (const id of [1,2,3,4,5,72]) screens.find(screen => screen.id === id).rule += ' Prévia Angular v4.0.0-alpha.3 (A03): fluxo de acesso e e-mails verificado localmente. Confirmar e-mail e Recuperar acesso usam o diálogo compartilhado. Google depende do provedor no ambiente. Veja a guia Migração.';
+
+// As fichas mantêm a linha Next.js. A guia Migração aponta as verificações da prévia Angular.
+for (const id of [6,7,8,12,13]) screens.find(screen => screen.id === id).rule += ' Prévia Angular v4.0.0-alpha.4 (A04): escolha, rascunho e criação com confirmação repetível, lista e Início protegidos por vínculo. Seleção reaparece só na própria conta. Convites seguem para A05 e gestão de integrantes para A06.';

@@ -1,3 +1,7 @@
+## MVP02 na prévia Angular — v4.0.0-alpha.4 — 2026-11-15
+
+A04 valida lista, escolha, criação, seleção por conta e resumo protegido. A migração de Convites fecha o percurso em A05. A cobertura e os resultados de caixa preta da linha Next.js foram preservados. [Registro A04](../registros/registro-v4.0.0-alpha.4-2026-11-15-imp-nucleos-angular-fun-lista-selecao-e-criacao.md).
+
 ## MVP01 na prévia Angular — v4.0.0-alpha.3 — 2026-11-15
 
 A03 valida localmente cadastro, login, sessão, confirmação, recuperação, saída e preservação do retorno para convite. Google depende do provedor configurado na prévia. Esta sincronização registra o recorte da migração e mantém os resultados de caixa preta anteriores. [Registro A03](../registros/registro-v4.0.0-alpha.3-2026-11-15-imp-conta-angular-fun-autenticacao-e-recuperacao.md).

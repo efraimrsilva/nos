@@ -1,0 +1,66 @@
+@if (state.isLoading()) { <p role="status">Carregando o Núcleo…</p> }
+@else if (state.error()) {
+  <section class="surface">
+    <h1 tabindex="-1">Início do Núcleo</h1><p role="alert">Não foi possível consultar o resumo do Núcleo.</p>
+    <button type="button" class="button" (click)="state.reload()">Tentar novamente</button>
+  </section>
+} @else if (state.value(); as view) {
+  <header class="nucleus-header">
+    <div><p class="kicker">{{ typeLabel(view.nucleus.type) }} · Início do Núcleo</p>
+      <h1 tabindex="-1">{{ view.nucleus.name }}</h1>
+      <p>{{ view.nucleus.purpose }}</p>
+      <span class="badge">{{ view.role === 'admin' ? 'Administrador' : 'Participante' }}</span>
+    </div>
+    <span class="badge">Espaço privado</span>
+  </header>
+  <div class="overview-grid">
+    <section class="surface">
+      <h2>Na agenda</h2>
+      @if (view.calendar.length) {
+        <ul class="summary-list">
+          @for (event of view.calendar; track event.id) {
+            <li><strong>{{ event.title }}</strong><span>{{ date(event.starts_at,event.time_zone).text }}</span></li>
+          }
+        </ul>
+      } @else { <p>Nada marcado por enquanto.</p> }
+    </section>
+    <section class="surface">
+      <h2>Núcleos onde estou</h2>
+      <p>{{ view.nucleus.name }}</p>
+      <button type="button" class="button secondary" (click)="people.showModal()" aria-haspopup="dialog">Ver integrantes</button>
+      <ul class="summary-list">
+        @for (space of view.spaces; track space.id) {
+          <li><a [routerLink]="['/nucleos',space.id]">{{ space.name }}</a><span>{{ typeLabel(space.type) }}</span></li>
+        }
+      </ul>
+      <a class="text-link" routerLink="/nucleos">Ver Seus Núcleos</a>
+    </section>
+    <section class="surface">
+      <h2>O que estamos cultivando</h2>
+      @if (view.agreements.length) {
+        <ul class="summary-list">
+          @for (agreement of view.agreements; track agreement.id) {
+            <li><strong>{{ agreement.title }}</strong><span>{{ status(agreement.status) }}</span></li>
+          }
+        </ul>
+      } @else { <p>Os primeiros acordos podem nascer de uma intenção simples.</p> }
+    </section>
+  </div>
+  <dialog #people class="shared-dialog" aria-labelledby="nucleus-people">
+    <header class="dialog-heading">
+      <h2 id="nucleus-people">Integrantes do Núcleo</h2>
+      <form method="dialog"><button class="icon-button" aria-label="Fechar integrantes" autofocus>×</button></form>
+    </header>
+    <ul class="summary-list">
+      @for (member of view.members; track member.user_id) {
+        <li><strong>{{ member.display_name }}</strong><span>{{ member.role === 'admin' ? 'Administrador' : 'Participante' }}</span></li>
+      }
+    </ul>
+  </dialog>
+} @else {
+  <section class="surface">
+    <h1 tabindex="-1">Núcleo indisponível</h1>
+    <p>Confira os espaços dos quais você faz parte.</p>
+    <a class="button" routerLink="/nucleos">Ver Seus Núcleos</a>
+  </section>
+}

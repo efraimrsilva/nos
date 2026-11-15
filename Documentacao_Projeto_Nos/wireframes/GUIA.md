@@ -1,3 +1,5 @@
+**Prévia Angular v4.0.0-alpha.4 (15/11/2026)** — A04 porta Escolher caminho, Tipo, Propósito, Seus Núcleos e Início. Os modais Começar com intenção e Integrantes do Núcleo têm evidência própria. A guia Migração distingue a consulta de integrantes da gestão que entra em A06. [Comparações](comparacoes/v4.0.0-alpha.4-2026-11-15-angular-nucleos-tela_06-tela_07-tela_08-tela_12-tela_13/index.html).
+
 **Prévia Angular v4.0.0-alpha.3 (15/11/2026)** — A03 porta Conta e Boas-vindas, confirmação, recuperação e sessão. As Telas 01–05 e 72 mantêm a representação do Next.js e apontam para a versão da prévia no roteiro de migração. [Comparações](comparacoes/v4.0.0-alpha.3-2026-11-15-angular-acesso-tela_01-tela_02-tela_03-tela_04-tela_05-tela_72/index.html).
 
 **Prévia Angular v4.0.0-alpha.2 (15/11/2026):** A02 validada localmente. A guia Migração registra Início, Conta e o menu Mais da prévia, além da regra global de fechamento de Dados da conta e Mais. O desenho da Tela 66 representa a linha Next.js. [Comparações](comparacoes/v4.0.0-alpha.2-2026-11-15-angular-interface-tela_66/index.html).

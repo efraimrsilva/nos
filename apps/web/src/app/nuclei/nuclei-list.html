@@ -1,0 +1,59 @@
+<div class="nucleus-workspace">
+<header class="nucleus-header">
+  <div><p class="kicker">Seus vínculos</p><h1 tabindex="-1">Seus Núcleos</h1>
+    <p>Vários laços. Seu próprio ritmo. Escolha o espaço que quer cuidar agora.</p></div>
+  <div class="nucleus-actions">
+    <a class="button secondary" routerLink="/comecar/convite">Entrar com convite</a>
+    <button type="button" class="button" (click)="paths.showModal()" aria-haspopup="dialog">Criar um núcleo</button>
+  </div>
+</header>
+@if (state.isLoading()) { <p role="status">Carregando seus Núcleos…</p> }
+@else if (state.error()) {
+  <section class="surface">
+    <p role="alert">Não foi possível consultar seus Núcleos.</p>
+    <button type="button" class="button" (click)="state.reload()">Tentar novamente</button>
+  </section>
+} @else if (state.value(); as result) {
+  @if (result.cards.length) {
+    <nav class="nucleus-cards" aria-label="Seus Núcleos">
+      @for (card of result.cards; track card.id) {
+        <a class="surface nucleus-card" [routerLink]="['/nucleos',card.id]" [attr.aria-label]="card.name">
+          <div class="nucleus-cover" [attr.data-type]="card.type" aria-hidden="true"></div>
+          <span class="badge">{{ typeLabel(card.type) }}</span>
+          <h2 [title]="card.name">{{ card.name }}</h2>
+          <p class="badge">{{ card.role === 'admin' ? 'Administrador' : 'Participante' }}</p>
+          <p>{{ card.activeAgreements }} {{ card.activeAgreements === 1 ? 'acordo ativo' : 'acordos ativos' }}</p>
+          <p><strong>{{ card.members.length }} {{ card.members.length === 1 ? 'pessoa' : 'pessoas' }}</strong></p>
+          <ul aria-label="Pessoas deste Núcleo">
+            @for (person of card.members; track person.user_id) {
+              <li><span class="avatar" aria-hidden="true">{{ initials(person.display_name) }}</span><span [title]="person.display_name">{{ person.display_name }}</span></li>
+            }
+          </ul>
+        </a>
+      }
+    </nav>
+  } @else {
+    <p class="surface" role="status">{{ page() === 1
+      ? 'Você ainda não participa de um Núcleo. Crie um espaço ou entre com um convite quando fizer sentido.'
+      : 'Não há Núcleos nesta página. Volte à página anterior.' }}</p>
+  }
+  @if (page() > 1 || result.hasNext) {
+    <nav class="nucleus-actions pagination" aria-label="Páginas de Núcleos">
+      @if (page() > 1) { <a class="button secondary" routerLink="/nucleos" [queryParams]="{pagina:page()-1}">Página anterior</a> }
+      @if (result.hasNext) { <a class="button secondary" routerLink="/nucleos" [queryParams]="{pagina:page()+1}">Próxima página</a> }
+    </nav>
+  }
+}
+
+<dialog #paths class="shared-dialog" aria-labelledby="creation-paths">
+  <header class="dialog-heading">
+    <h2 id="creation-paths">Começar com intenção</h2>
+    <form method="dialog"><button class="icon-button" aria-label="Fechar escolha" autofocus>×</button></form>
+  </header>
+  <p>Cada espaço começa com o vínculo e o propósito de vocês.</p>
+  <nav class="dialog-links" aria-label="Opções para começar">
+    <a routerLink="/comecar/tipo" (click)="paths.close()"><strong>Criar um núcleo</strong><span>Escolher vínculo, nome e propósito</span></a>
+    <a routerLink="/comecar/convite" (click)="paths.close()"><strong>Entrar com um convite</strong><span>Abrir um espaço que já existe</span></a>
+  </nav>
+</dialog>
+</div>

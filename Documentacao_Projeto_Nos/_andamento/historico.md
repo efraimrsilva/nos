@@ -1,3 +1,9 @@
+## 2026-11-15 — v4.0.0-alpha.4 — A04 da migração Angular
+
+A03 confirmada no GitHub em `688f880`. A04 portou lista, criação, seleção e Início do Núcleo. Duas contas conferiram acesso por vínculo e a repetição da confirmação devolveu o mesmo Núcleo após falha simulada de resposta. [Registro A04](registros/registro-v4.0.0-alpha.4-2026-11-15-imp-nucleos-angular-fun-lista-selecao-e-criacao.md).
+
+---
+
 ## 2026-11-15 — v4.0.0-alpha.3 — A03 da migração Angular
 
 A02 confirmada no GitHub em `fa70bdf`. A03 portou Conta, Boas-vindas, recuperação, confirmação e sessão da prévia. Fluxos com e-mail e renovação foram verificados no Supabase local. [Registro A03](registros/registro-v4.0.0-alpha.3-2026-11-15-imp-conta-angular-fun-autenticacao-e-recuperacao.md).

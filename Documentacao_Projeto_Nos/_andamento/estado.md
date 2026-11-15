@@ -1,18 +1,18 @@
-# Estado atual — Next.js v3.11.1 · Angular v4.0.0-alpha.3 — 2026-11-15
+# Estado atual — Next.js v3.11.1 · Angular v4.0.0-alpha.4 — 2026-11-15
 
-**Objetivo e escopo:** substituir Next.js em 14 entregas. A01–A03 validadas localmente. Conta, Boas-vindas, confirmação, recuperação e sessão por senha funcionam na prévia. Google exige provedor ativo no ambiente. A04–A14 pendentes.
+**Objetivo e escopo:** substituir Next.js em 14 entregas. A01–A04 validadas localmente. Prévia com Conta e sessão por senha, estrutura compartilhada, lista, seleção, criação e Início de Núcleos. Google exige provedor na prévia. A05–A14 pendentes.
 
-**Base e Git:** DOCS_DIR `Documentacao_Projeto_Nos`. Branch `codex/migracao-angular`. A02 confirmada no commit `fa70bdf` e na referência remota. A03 local. Linha Next.js em v3.11.1 com operação separada.
+**Base e Git:** DOCS_DIR `Documentacao_Projeto_Nos`. Branch `codex/migracao-angular`. A03 confirmada no objeto `688f880` e na referência remota. A04 local. Next.js segue em v3.11.1.
 
-**Arquivos e decisões:** `apps/web/src/app/auth/` recebe formulários, sessão de recuperação e callbacks. Regras de senha e destinos reutilizadas do Next.js. A sessão comum fica no navegador da prévia, enquanto a recuperação fica em memória. A lista local de retornos inclui 4200 no arquivo; a execução de teste usou 3200, já autorizado no contêiner ativo.
+**Arquivos e decisões:** `apps/web/src/app/nuclei/` protege a navegação com sessão verificada. O rascunho vive na página. O banco reutiliza o identificador da mesma confirmação. A seleção fica por conta e é conferida por vínculo. Migrações `20261115162000` e `20261115162100` aplicadas apenas localmente. Histórico divergente preexistente `20261112025922` preservado.
 
-**Validação e ferramentas:** Supabase e caixa de e-mail locais; tipos e builds Angular e Next.js, 17 verificações Angular e 36 verificações Next.js de sessão social e recuperação. Context7 e documentação oficial consultados para PKCE. Octocode segue configurado; esta unidade usou buscas locais pontuais. Verificadores de Migração, MVP e Visão global conferidos. O verificador do MVP agora acompanha o rótulo vigente Login Google. Sem bloqueio para A04.
+**Validação e ferramentas:** 21 testes de navegador aprovados, com um caso exclusivo de celular ignorado no desktop. Banco local: 139 verificações aprovadas em seis arquivos. Tipos e builds Angular e Next.js aprovados. Migração, MVP, Visão global e galeria verificadas. Revisão independente dos contratos e da repetição. Context7 e documentação oficial consultados. Octocode segue configurado, sem busca avançada externa. Nenhum bloqueio para A05.
 
-**Próximo passo:** A04. Conferir Seus Núcleos, Escolher caminho, Tipo e Propósito no Atlas. Portar lista, seleção e criação protegidas com o Supabase. O retorno para convite continuará apontando ao endereço reservado até A05.
+**Próximo passo:** A05. Conferir convite inicial, entrada por código, prévia, aceite e gestão no Atlas. Implementar e validar com duas contas. A confirmação da criação já abre o endereço reservado de convite inicial.
 
-**Continuidade Git:** A03 pronta para commit. Sugestão `feat(angular): migrar conta, sessão e recuperação de acesso`. Contador 65 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
+**Continuidade Git:** A04 pronta para commit. Sugestão `feat(angular): migrar lista, seleção e criação de núcleos`. Contador 66 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
 
-**Índice:** [Guia Migração](../wireframes/atlas/index.html#migracao) · [Plano vigente](planos/migracao-angular.md) · [Registro A03](registros/registro-v4.0.0-alpha.3-2026-11-15-imp-conta-angular-fun-autenticacao-e-recuperacao.md) · [Galeria A03](../wireframes/comparacoes/v4.0.0-alpha.3-2026-11-15-angular-acesso-tela_01-tela_02-tela_03-tela_04-tela_05-tela_72/index.html) · [Guia da prévia](../../apps/web/README.md).
+**Índice:** [Guia Migração](../wireframes/atlas/index.html#migracao) · [Plano vigente](planos/migracao-angular.md) · [Registro A04](registros/registro-v4.0.0-alpha.4-2026-11-15-imp-nucleos-angular-fun-lista-selecao-e-criacao.md) · [Galeria A04](../wireframes/comparacoes/v4.0.0-alpha.4-2026-11-15-angular-nucleos-tela_06-tela_07-tela_08-tela_12-tela_13/index.html) · [Guia da prévia](../../apps/web/README.md).
 
 ---
 

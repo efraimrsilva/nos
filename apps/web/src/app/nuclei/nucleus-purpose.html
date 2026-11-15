@@ -1,0 +1,38 @@
+@if (type(); as selected) {
+  <a class="text-link" routerLink="/comecar/tipo" [queryParams]="{tipo:selected.id}">Voltar</a>
+  <app-nucleus-steps [current]="2" />
+  <header class="nucleus-header"><div><p class="kicker">Um espaço com o jeito de vocês</p>
+    <h1 tabindex="-1">Qual o propósito de vocês?</h1><p>A bússola que guia as escolhas do Núcleo.</p></div></header>
+  <p class="badge">Tipo escolhido: {{ selected.label }}</p>
+  @if (preview()) {
+    <section class="surface wizard" aria-label="Rascunho do Núcleo">
+      <h2 tabindex="-1" #reviewHeading>Confira seu rascunho</h2>
+      <dl><dt>Nome do Núcleo</dt><dd>{{ name() }}</dd><dt>Nosso propósito</dt><dd>{{ purpose() }}</dd></dl>
+      <p>Ao confirmar, criaremos o Núcleo e sua participação como administrador.</p>
+      @if (error()) {
+        <p class="form-error" role="alert">{{ error() }}</p>
+        <p><a class="text-link" routerLink="/nucleos">Ver Seus Núcleos</a> para conferir se ele já foi criado.</p>
+      }
+      <form class="wizard-actions" (submit)="confirm($event)" [attr.aria-busy]="pending()">
+        @if (!attempted()) { <button class="button secondary" type="button" (click)="edit()">Editar</button> }
+        <button class="button" type="submit" [disabled]="pending()">{{ pending() ? 'Criando…' : 'Criar Núcleo' }}</button>
+      </form>
+    </section>
+  } @else {
+    <form class="surface wizard" (submit)="review($event)" novalidate>
+      <label for="nucleus-name">Nome do Núcleo</label>
+      <input #nameInput id="nucleus-name" type="text" autocomplete="off" maxlength="80" [value]="name()" (input)="name.set(nameInput.value)">
+      <label for="nucleus-purpose">Nosso propósito</label>
+      <textarea #purposeInput id="nucleus-purpose" rows="4" maxlength="500" [value]="purpose()" (input)="purpose.set(purposeInput.value)"></textarea>
+      <div class="suggestion">
+        <p>Sugestão para este tipo de Núcleo: {{ selected.description }}</p>
+        <button class="button secondary" type="button" (click)="purpose.set(selected.description)">Usar sugestão</button>
+      </div>
+      @if (error()) { <p class="form-error" role="alert">{{ error() }}</p> }
+      <div class="wizard-actions">
+        <p>O rascunho fica nesta página até você confirmar.</p>
+        <button class="button" type="submit">Continuar</button>
+      </div>
+    </form>
+  }
+}
