@@ -1,0 +1,83 @@
+<header class="topbar"><b>nós<span>.</span></b><span>Prévia local · Angular</span></header>
+<main>
+  <h1>Minha conta</h1>
+  <p>Configurações do seu perfil.</p>
+  @if (profile.loading()) {
+    <p role="status">Carregando sua conta…</p>
+  } @else if (profile.user(); as user) {
+    <section class="card" aria-label="Perfil">
+      <h2>{{ name() || 'Nome não informado' }}</h2>
+      <button type="button" class="row" (click)="openDialog()" aria-describedby="account-row-description">
+        Dados da conta
+      </button>
+      <span id="account-row-description">Nome e identificação</span>
+    </section>
+    <button type="button" class="secondary signout" [disabled]="busy()" (click)="signOut()">Sair da prévia</button>
+  } @else if (profile.available()) {
+    <section class="card">
+      <h2>Acesso à prévia</h2>
+      <p>Use uma conta descartável do Supabase local.</p>
+      <form (submit)="signIn($event, email, password)">
+        <label for="email">E-mail</label>
+        <input #email id="email" type="email" autocomplete="username" required [disabled]="busy()">
+        <label for="password">Senha</label>
+        <input #password id="password" type="password" autocomplete="current-password" required [disabled]="busy()">
+        <button type="submit" [disabled]="busy()">{{ busy() ? 'Entrando…' : 'Entrar na prévia' }}</button>
+      </form>
+    </section>
+  }
+  @if (profile.notice() || authError()) {
+    <p role="alert" class="error">{{ authError() || profile.notice() }}</p>
+  }
+</main>
+
+<dialog #dataDialog id="account-data" aria-labelledby="account-title" aria-describedby="account-description"
+  (close)="resetDialog()" (pointerdown)="backdropDown($event)" (pointerup)="backdropUp($event)"
+  (pointercancel)="backdropCancel()">
+  <header class="dialog-header">
+    <div>
+      <h2 id="account-title">Dados da conta</h2>
+      <p id="account-description">Nome e identificação do seu acesso.</p>
+    </div>
+    <form method="dialog">
+      <button class="icon secondary" aria-label="Fechar Dados da conta" autofocus>×</button>
+    </form>
+  </header>
+  @if (profile.user(); as user) {
+    <dl>
+      <dt>Nome</dt>
+      <dd class="name-value">
+        <span>{{ name() || 'Nome não informado' }}</span>
+        <button id="edit-name" class="icon secondary" type="button" aria-label="Editar nome do perfil"
+          title="Editar nome do perfil" [disabled]="saving()" (click)="edit()">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L9 17l-4 1 1-4Z"/>
+          </svg>
+        </button>
+      </dd>
+    </dl>
+    @if (editing()) {
+      <form class="editor" (submit)="save($event, input.value)">
+        <label for="profile-name">Nome do perfil</label>
+        <input #input id="profile-name" name="name" autocomplete="name" [value]="draft"
+          maxlength="80" aria-required="true" aria-describedby="name-help"
+          [attr.aria-invalid]="error() ? 'true' : null" (input)="error.set('')" [disabled]="saving()">
+        <p id="name-help">Use de 1 a 80 caracteres. Este nome aparece no seu perfil e nos seus Núcleos.</p>
+        @if (error()) { <p class="error" role="alert">{{ error() }}</p> }
+        <div class="actions">
+          <button type="submit" [disabled]="saving()">{{ saving() ? 'Salvando…' : 'Salvar nome' }}</button>
+          <button type="button" class="secondary" aria-label="Cancelar edição do nome"
+            [disabled]="saving()" (click)="cancel()">Cancelar</button>
+        </div>
+      </form>
+    }
+    @if (saved()) { <p role="status" class="success">Nome do perfil atualizado.</p> }
+    <dl>
+      <dt>E-mail</dt>
+      <dd class="account-email">{{ user.email }}</dd>
+      <dt>Confirmação de e-mail</dt>
+      <dd>{{ user.email_confirmed_at ? 'E-mail confirmado' : 'E-mail não confirmado' }}</dd>
+    </dl>
+  }
+</dialog>

@@ -19,6 +19,7 @@
     "start": "node --use-system-ca node_modules/next/dist/bin/next start --hostname 127.0.0.1",
     "typecheck": "next typegen && tsc --noEmit --incremental false",
     "test": "playwright test",
+    "test:angular": "playwright test --config=playwright.angular.config.mjs",
     "test:problem-reports": "node scripts/test-problem-reports.mjs",
     "test:account-notifications": "node --test scripts/test-account-notifications.mjs",
     "test:account-notifications:local": "node scripts/test-account-notifications-local.mjs",

@@ -107,3 +107,5 @@ Capturas devem usar exemplos sem informações privadas, tokens ou códigos reai
 - [v3.10.1 · Resumo de Núcleos](v3.10.1-2026-11-07-resumo-nucleos-tela_12-tela_13/index.html) — papéis e acordos ativos; Atlas antes/depois e aplicativo local, com limite das capturas anteriores explicitado.
 
 - [v3.11.0 · Sincronização de nomes de perfil](v3.11.0-2026-11-07-nomes-perfil-tela_12-tela_13-tela_66/index.html) — Atlas antes/depois e duas sessões locais; nomes atualizados em detalhes e lista sem reload, com limites da captura anterior mobile explicitados.
+
+- [v4.0.0-alpha.1 — A01: edição de nome na prévia Angular, Tela 66](v4.0.0-alpha.1-2026-11-15-angular-nome-tela_66/index.html): referência Next.js, Atlas vivo e prévia com dados locais fictícios em 1440 e 390 px.

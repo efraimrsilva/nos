@@ -1,16 +1,18 @@
-# Estado atual — v3.11.1 — 2026-11-13
+# Estado atual — Next.js v3.11.1 · Angular v4.0.0-alpha.1 — 2026-11-15
 
-**Objetivo e situação:** substituição completa do Next.js planejada em 14 entregas, agora visíveis na guia Migração do Atlas vivo. Angular assume a aplicação web. Supabase preserva autenticação e banco e atende as operações protegidas. A abordagem selecionada é prévia Angular isolada e virada após paridade, com navegação interna sem recarregar o documento. Implementação da migração pendente.
+**Objetivo e escopo:** substituir Next.js em 14 entregas. A01 validada localmente na prévia Angular: em `/configuracoes/conta`, abrir Dados da conta, ler e editar o nome, validar, salvar e conferir após recarregar. Sessão e isolamento verificados com Supabase local. A02–A14 pendentes.
 
-**Base e validação:** DOCS_DIR `Documentacao_Projeto_Nos`, branch `main`, base `c46ad54`. A versão dos manifestos e do título do Atlas é 3.11.1. A indicação 3.11.2 no rodapé do Atlas diverge dessa versão. Hospedagem, integrações protegidas e compatibilidade de sessão serão validadas antes da virada. Próximo passo: A01, conferir a Tela 66 no Atlas e validar edição do próprio nome com Angular e Supabase local.
+**Base e situação:** DOCS_DIR `Documentacao_Projeto_Nos`; branch `codex/migracao-angular`, base `604a142`. Prévia independente em `apps/web` (Angular 22, TypeScript 6.0, lockfile próprio). A01 não alterou hospedagem, esquema ou ambiente remoto. O commit `604a142` contém o plano e a guia Migração; a pendência daquele conjunto foi encerrada.
 
-**Versionamento da transição:** linha Next.js em `3.x`, prévia Angular a partir de `4.0.0-alpha.1` após A01, candidata `4.0.0-rc.1` após paridade e ensaio de retorno e `4.0.0` na virada pública. Versões futuras planejadas. [Convenção no plano](planos/migracao-angular.md#versionamento-durante-a-transição).
+**Arquivos e decisões:** `apps/web/src/app/account.*` apresenta o recorte; `preview-profile.ts` valida sessão e vincula a escrita à credencial verificada. `scripts/start-angular-local.mjs` serve somente a configuração pública local no modo de desenvolvimento. Sessões separadas entre Angular e Next.js. Layout e navegação entram em A02; autenticação de produto em A03.
 
-**Verificações do Atlas:** guia Migração aprovada em 1440 e 390 px. Visão global aprovada. A expectativa sobre Google e Apple no verificador do MVP também falha no Git anterior.
+**Validação e ferramentas:** tipos e builds Angular/Next.js; seis casos Playwright Angular e dois de regressão Next.js em desktop/celular; Atlas (Migração, Visão global e Tela 66) e galeria. O verificador geral de MVP mantém a falha preexistente na expectativa de Google e Apple. Revisão independente encontrou mistura de suítes e descarte de rascunho em falha de sessão recuperável, corrigidos. Node 24.15.0, npm 11.11.1, Angular CLI 22.2.7 e Supabase local confirmados. Context7 e Superpowers consultados; Octocode já configurado, sem busca avançada externa nesta unidade.
 
-**Continuidade Git:** plano e guia do Atlas formam uma unidade pendente, com a convenção de versões registrada no plano. Sugestão: `feat(atlas): apresentar roteiro de migração para Angular`. Contador 62 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
+**Próximo passo:** A02. Inventariar layout raiz, marca, estilos, menus e diálogos compartilhados. Portar a estrutura para Angular, mantendo-a montada durante a navegação, e verificar teclado, foco, botão voltar e fechamento dos diálogos.
 
-**Índice:** [Guia Migração](../wireframes/atlas/index.html#migracao) · [Plano vigente](planos/migracao-angular.md) · [Registro da entrega](registros/registro-v3.11.1-2026-11-13-imp-atlas-fun-roteiro-migracao-angular.md) · [Planejamento anterior](registros/registro-v3.11.1-2026-11-13-imp-planejamento-fun-substituicao-next-angular.md).
+**Continuidade Git:** A01 pronta, ainda sem commit. Sugestão: `feat(angular): validar edição do nome na prévia local`. Contador 63 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
+
+**Índice:** [Guia Migração](../wireframes/atlas/index.html#migracao) · [Plano vigente](planos/migracao-angular.md) · [Registro A01](registros/registro-v4.0.0-alpha.1-2026-11-15-imp-base-angular-fun-edicao-nome.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.1-2026-11-15-angular-nome-tela_66/index.html) · [Guia da prévia](../../apps/web/README.md) · [Guia Migração v3.11.1](registros/registro-v3.11.1-2026-11-13-imp-atlas-fun-roteiro-migracao-angular.md).
 
 ---
 

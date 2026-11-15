@@ -76,6 +76,8 @@ PostgreSQL — dados, funções, transações e políticas de acesso
 
 Exemplos para revisão técnica: [integração Supabase](src/lib/supabase/server.ts), [proxy de sessão](src/proxy.ts), [ações de acordos](src/features/agreements/actions.ts), [distribuição dos eventos da agenda](src/features/calendar/calendar-lanes.ts) e [migrações](supabase/migrations).
 
+A [prévia Angular](apps/web/README.md) tem instalação e execução separadas. O [plano de migração](Documentacao_Projeto_Nos/_andamento/planos/migracao-angular.md) descreve a sequência e os critérios para substituir o aplicativo atual.
+
 ## Qualidade e evidências de engenharia
 
 O repositório inclui testes de comportamento com Playwright, jornadas autenticadas com backend local, testes SQL com pgTAP, verificações de tipos e scripts de comparação do aplicativo com o Atlas visual. Os testes de navegador contemplam computador e emulação de celular; isso não substitui testes em dispositivos físicos.

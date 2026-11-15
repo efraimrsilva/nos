@@ -1,0 +1,50 @@
+.topbar {
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  padding: .65rem clamp(1rem, 4vw, 3.5rem); background: white; border-bottom: 1px solid #dae5e3;
+}
+.topbar b { color: #223747; font-size: 1.65rem; letter-spacing: -.06em; }
+.topbar b span { color: #00816d; }
+.topbar > span, main > p, section p, #account-description, #name-help, dt { color: #506170; }
+main { max-width: 58rem; padding: clamp(1rem, 5vw, 3rem); margin: auto; }
+main > p, section > p { margin-block: .25rem 1rem; }
+.card { border: 1px solid #d8e4e0; border-radius: 1rem; padding: 1.25rem; background: white; }
+.card h2 { overflow-wrap: anywhere; margin-block-end: .55rem; }
+.row { display: block; margin-top: .6rem; }
+.signout { margin-top: 1rem; }
+button { min-height: 2.75rem; padding: .45rem .9rem; border: 1px solid transparent; border-radius: .65rem; background: #096b5b; color: #fff; font-weight: 650; }
+button.secondary { background: white; border-color: #d8e4e0; color: #294655; }
+button.icon { display: grid; place-items: center; width: 2.75rem; padding: 0; flex: 0 0 auto; }
+form:not([method='dialog']) { display: grid; gap: .55rem; }
+section form { max-width: 24rem; }
+label { font-weight: 650; }
+input { width: 100%; min-width: 0; min-height: 2.75rem; border: 1px solid #9fadab; border-radius: .6rem; padding: .5rem .75rem; }
+dialog {
+  width: min(36.25rem, calc(100% - 2rem)); max-height: calc(100dvh - 2rem); overflow: auto;
+  padding: clamp(1rem, 4vw, 1.75rem); border: 1px solid #d5dfce; border-radius: .75rem;
+  background: #fdfcf8; color: #263b30;
+  box-shadow: 0 18px 50px #10292333;
+}
+dialog::backdrop { background: #17232e7a; }
+.dialog-header, .name-value, .actions { display: flex; align-items: center; gap: .8rem; }
+.dialog-header { justify-content: space-between; align-items: flex-start; }
+.dialog-header h2 { font: 500 clamp(1.4rem, 4vw, 1.8rem)/1.2 Georgia, serif; }
+#account-description { margin-top: 1rem; font-size: .9rem; }
+dialog .secondary { background: transparent; border-color: #d5dfce; color: #315944; }
+dialog button:not(.secondary) { background: #315944; }
+.dialog-header button { font-size: 1.35rem; }
+dl { margin: 1.35rem 0; }
+dl:last-child { margin-bottom: 0; }
+dt { font-size: .875rem; font-weight: 600; }
+dd { margin: .15rem 0 .6rem; overflow-wrap: anywhere; }
+dd:last-child { margin-bottom: 0; }
+.name-value > span { min-width: 0; }
+.editor { padding: 0; }
+.editor input { background: transparent; border-color: #a8b9a7; }
+#name-help { font-size: .9rem; }
+.actions { flex-wrap: wrap; }
+.error { color: #9a232e; }
+.success { color: #096b5b; font-weight: 650; }
+@media (prefers-reduced-motion: no-preference) {
+  .editor { animation: editor-in .16s ease-out; }
+  @keyframes editor-in { from { opacity: 0; transform: translateY(-3px); } }
+}

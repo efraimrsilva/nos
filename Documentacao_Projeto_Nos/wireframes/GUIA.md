@@ -1,5 +1,7 @@
 > **v3.11.1 — 13/11/2026:** a guia [Migração](atlas/index.html#migracao) apresenta as 14 entregas planejadas para substituir Next.js por Angular, com Supabase e navegação interna sem recarregar o documento. [Plano vigente](../_andamento/planos/migracao-angular.md).
 
+**Prévia Angular v4.0.0-alpha.1 (15/11/2026):** A01 validada localmente. A guia Migração e a ficha 66 indicam o recorte Dados da conta. O desenho da Tela 66 representa a linha Next.js v3.11.1. [Evidências desktop e celular](comparacoes/v4.0.0-alpha.1-2026-11-15-angular-nome-tela_66/index.html).
+
 > **v3.9.2 — 07/11/2026 — Produção:** Conta pública compacta, ícone oficial Google, transição suave com movimento reduzido e rodapé na base sem sobrepor conteúdo. Publicado e conferido em produção; deploy6aeea7ee5fe36058ee5cebd4. Histórico datado abaixo preservado.
 
 > **v3.9.1 — 07/11/2026:** somente Google como botão social na Conta; e-mail/senha preservados. Microsoft descartado; Apple sem botão e desativado. Google já confirmado em produção3.9.0; retirada do botão publicada e conferida em produção. Trechos datados abaixo são históricos.

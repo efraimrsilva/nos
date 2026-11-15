@@ -292,3 +292,6 @@ for(const id of [1,2]){const screen=screens.find(item=>item.id===id);screen.rule
 
 // v3.9.2: composição pública compacta e movimento acessível.
 for(const id of [1,2]){const screen=screens.find(item=>item.id===id);screen.rule+=' Conta pública sem título/descrição acima do painel, ícone oficial G local, transição suave de modo com reduced-motion e rodapé na base da tela ou após o conteúdo. Ajustes validados localmente; produção3.9.1.';}
+
+// A ficha mantém o desenho da linha vigente; a prévia Angular tem escopo e evidências próprios.
+screens.find(s=>s.id===66).rule+=' Prévia Angular v4.0.0-alpha.1 (A01): /configuracoes/conta migra Dados da conta, com leitura e edição do próprio nome verificadas no Supabase local. Cabeçalho e navegação completos, demais seções e autenticação de produto aguardam as etapas indicadas na guia Migração.';

@@ -1,3 +1,9 @@
+## 2026-11-15 — v4.0.0-alpha.1 — A01 da migração Angular
+
+Criada a branch `codex/migracao-angular` a partir de `604a142`. A prévia isolada lê e atualiza o nome da própria conta no Supabase local. A linha Next.js permanece em v3.11.1. [Registro e evidências](registros/registro-v4.0.0-alpha.1-2026-11-15-imp-base-angular-fun-edicao-nome.md).
+
+---
+
 ## 2026-11-13 — v3.11.1 — Versionamento da transição para Angular
 
 Registrada a linha `3.x` para manutenção do Next.js, a série `4.0.0-alpha.N` para marcos verificados na prévia, a candidata `4.0.0-rc.1` após o ensaio e a versão `4.0.0` para a virada pública. Mudança documental, sem incremento de versão. [Convenção no plano](planos/migracao-angular.md#versionamento-durante-a-transição).

@@ -1,3 +1,9 @@
+## 2026-11-15 — v4.0.0-alpha.1 — Primeiro fluxo protegido em Angular
+
+**Problema:** antes de portar as jornadas, era preciso provar que a interface Angular podia escrever dados da conta com a sessão própria. **Contribuição:** pacote isolado com build reproduzível e recorte de edição do nome. **Resultado verificado:** leitura, validação, persistência e isolamento entre contas no Supabase local; tipos e builds dos dois frameworks passaram. **Benefício esperado:** reduzir o risco de migração ao verificar os contratos por etapa. [Evidência](../_andamento/registros/registro-v4.0.0-alpha.1-2026-11-15-imp-base-angular-fun-edicao-nome.md).
+
+---
+
 ## 2026-11-06 — v3.9.0 — Acesso Google validado com autorização real
 
 **Problema:** fluxo social preparado ainda não tinha provedor configurado nem prova de autenticação externa. **Contribuição:** configuração assistida Google/Supabase, callbacks exatos, ativação local e sincronização de Atlas/contrato. **Resultado verificado:** usuário autorizou login real, retornou a /nucleos e manteve sessão após reload; Google ativo/Apple desativada, sem expor credenciais. **Benefício esperado:** alternativa de entrada no ambiente de desenvolvimento; publicação e disponibilidade geral ainda pendentes, sem métrica de uso. [Evidência](../_andamento/registros/registro-v3.9.0-2026-11-06-imp-google-fun-ativacao-login.md).
