@@ -1,5 +1,7 @@
 ## Atualização funcional vigente — v3.8.0 — 06/11/2026
 
+**Prévia Angular A07 · v4.0.0-alpha.7.** O Início abre Acordos. A lista e o detalhe exibem os termos atuais, a resposta própria e os totais compartilhados. **Nova proposta** tem revisão local, com retorno à edição. **Recusar proposta** abre uma confirmação com a versão lida. O registro legado `experience` aparece como Hábito sem regravação. Etapas guiadas, Essência e transições continuam como esboços. Teste do Hábito, momentos e histórico entram na A08. [Registro A07](../registros/registro-v4.0.0-alpha.7-2026-11-15-imp-acordos-angular-fun-propostas-e-respostas.md).
+
 Proposta → Hábito → Essência no aplicativo, com compatibilidade de leitura e momentos para o legado sem regravar termos, versões, categoria ou aceites. Nova criação normalizada para habit. Essência e passagens somente esboços, com o mesmo informe do Manifesto; sem critérios ou promoção inventados. Integração Hábito/evento, recorrência e mídia continuam planejadas. Mesmas73 fichas/13 etapas;39 recortes existentes e34 planejados, sem converter desenho em entrega funcional. Nova prévia: Acordos18 → Ver esboço de Essência → modal Nossa Essência36; X/Escape/fora, sem escrita. Casos manuais continuam Não executados pelo usuário. [Registro](../registros/registro-v3.8.0-2026-11-06-imp-acordos-fun-modelo-habito.md). As seções datadas abaixo preservam marcos anteriores.
 
 ---

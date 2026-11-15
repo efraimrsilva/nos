@@ -39,6 +39,168 @@ async function signIn(page, account, next = '/nucleos') {
   await expect(page).toHaveURL(next);
 }
 
+test('publica proposta sem aceite e atualiza respostas individuais no Angular', async ({page,accounts,browser},info) => {
+  test.setTimeout(75_000);
+  page.setDefaultTimeout(8000);
+  const [owner, member] = accounts;
+  const cfg = localSupabaseConfig();
+  const api = () => createClient(cfg.API_URL,cfg.PUBLISHABLE_KEY || cfg.ANON_KEY,{auth:{persistSession:false}});
+  const ownerClient = api(), memberClient = api();
+  for (const [client,account] of [[ownerClient,owner],[memberClient,member]]) {
+    const login = await client.auth.signInWithPassword({email:account.email,password:account.password});
+    if (login.error) throw new Error('Falha na sessão de preparação.');
+  }
+  const fixture = await ownerClient.rpc('create_nucleus',{nucleus_type:'amigos',nucleus_name:'Jardim de propostas',nucleus_purpose:'Cultivar encontros.'});
+  if (fixture.error || !/^[a-f0-9-]{36}$/i.test(fixture.data)) throw new Error('Falha no Núcleo de teste.');
+  const id = fixture.data;
+  const invite = await ownerClient.rpc('create_initial_invitation',{target_nucleus:id});
+  if (invite.error) throw new Error('Falha no convite da preparação.');
+  const entered = await memberClient.rpc('accept_invitation',{invitation_code:invite.data});
+  if (entered.error) throw new Error('Falha no vínculo da preparação.');
+  const legacy = randomUUID();
+  // Só a preparação local restaura a categoria antiga; o formulário usa o contrato atual.
+  execFileSync('docker',['exec','supabase_db_nos','psql','-U','postgres','-d','postgres','-v','ON_ERROR_STOP=1','-c',
+    `insert into public.nucleus_agreements(id,nucleus_id,created_by,category,title,description,timing,frequency,status) values
+     ('${legacy}','${id}','${owner.id}','experience','Hábito anterior','Termos preservados.','À tarde','Quinzenal','ended');`],{stdio:'ignore'});
+  const path = '/nucleos/' + id + '/acordos';
+  const capture = async (view,name) => {
+    if (process.env.NOS_AGREEMENTS_CAPTURE !== '1') return;
+    mkdirSync('artifacts/angular-a07',{recursive:true});
+    await view.screenshot({path:'artifacts/angular-a07/'+name+'-'+info.project.name+'.png',scale:'css'});
+  };
+  const second = await browser.newContext(info.project.use);
+  try {
+    const guest = await second.newPage();
+    guest.setDefaultTimeout(8000);
+    await signIn(page,owner,'/nucleos/'+id);
+    await page.getByRole('link',{name:'Ver acordos',exact:true}).click();
+    await expect(page).toHaveURL(path);
+    await page.getByRole('button',{name:'Enviar convite',exact:true}).click();
+    await capture(page,'convite');
+    await page.keyboard.press('Escape');
+    await page.getByRole('button',{name:'Ver esboço de Essência'}).click();
+    const essence = page.getByRole('dialog',{name:'Nossa Essência'});
+    await expect(essence.getByText('Esboço',{exact:true})).toBeVisible();
+    await capture(page,'essencia');
+    if (info.project.name === 'mobile') await page.touchscreen.tap(5,5);
+    else await page.mouse.click(5,5);
+    await expect(essence).toBeHidden();
+    await page.getByRole('button',{name:'Nova proposta',exact:true}).click();
+    const form = page.getByRole('dialog',{name:'Nova proposta'});
+    await form.getByLabel('O que vamos fazer?').fill('Conversar sem distrações');
+    await form.getByLabel('Como será?').fill('Reservar tempo para escutar.');
+    await form.getByLabel('Quando?',{exact:true}).fill('Depois do jantar');
+    await form.getByLabel('Com que frequência?').fill('Uma vez por semana');
+    await form.getByLabel('Duração do teste (dias)').fill('14');
+    await capture(page,'proposta');
+    await form.getByRole('button',{name:'Conferir proposta'}).click();
+    await expect(form.getByRole('heading',{name:'Confira antes de propor'})).toBeFocused();
+    expect((await ownerClient.from('nucleus_agreements').select('id').eq('nucleus_id',id)).data?.length).toBe(1);
+    await capture(page,'revisao');
+    await form.getByRole('button',{name:'Editar proposta'}).click();
+    await expect(form.getByLabel('O que vamos fazer?')).toHaveValue('Conversar sem distrações');
+    await form.getByRole('button',{name:'Conferir proposta'}).click();
+    await form.getByRole('button',{name:'Enviar proposta'}).click();
+    await expect(page.getByText(/Proposta enviada\. Escolha/)).toBeVisible();
+    const ownerCard = page.getByRole('button',{name:/Conversar sem distrações/});
+    await expect(ownerCard).toContainText('2 a decidir');
+    await capture(page,'acordos');
+    if (info.project.name === 'desktop') {
+      await page.getByRole('button',{name:'Painéis · Lado a lado'}).click();
+      await page.getByRole('navigation',{name:'Selecionar acordo'}).getByRole('button',{name:'Hábito anterior'}).click();
+      await expect(page.getByRole('region',{name:'Acordo selecionado'}).getByText('Termos preservados.')).toBeVisible();
+      await page.getByRole('button',{name:'Kanban · Fluxo'}).click();
+    }
+    await ownerCard.click();
+    const ownTerms = page.getByRole('dialog',{name:'Conversar sem distrações'});
+    await expect(ownTerms.getByText('Participação a decidir',{exact:true})).toBeVisible();
+    await capture(page,'respostas');
+    await signIn(guest,member,path);
+    await expect(guest.getByRole('button',{name:'Enviar convite',exact:true})).toHaveCount(0);
+    await guest.getByRole('button',{name:/Conversar sem distrações/}).click();
+    const guestTerms = guest.getByRole('dialog',{name:'Conversar sem distrações'});
+    await guestTerms.getByRole('button',{name:'Recusar proposta'}).click();
+    const decline = guest.getByRole('dialog',{name:'Recusar participação?'});
+    await expect(decline).toBeVisible();
+    await capture(guest,'recusa');
+    await decline.getByRole('button',{name:'Cancelar',exact:true}).click();
+    await expect(guestTerms.getByText('Participação a decidir',{exact:true})).toBeVisible();
+    await guestTerms.getByRole('button',{name:'Aceitar proposta'}).click();
+    await expect(guestTerms.getByText('Participação aceita · v1',{exact:true})).toBeVisible();
+    await expect(ownTerms.getByText('1 aceite',{exact:true})).toBeVisible({timeout:12000});
+    await expect(ownTerms.getByText('Participação a decidir',{exact:true})).toBeVisible();
+    await guestTerms.getByRole('button',{name:'Recusar proposta'}).click();
+    await decline.getByRole('button',{name:'Confirmar recusa'}).click();
+    await expect(ownTerms.getByText('1 recusa',{exact:true})).toBeVisible({timeout:12000});
+    await expect(ownTerms.getByText(/Proposta enviada · termos v1/)).toBeVisible();
+    if (info.project.name === 'desktop') {
+      await page.keyboard.press('Escape');
+      await page.getByRole('button',{name:'Painéis · Lado a lado'}).click();
+      const selection = page.getByRole('navigation',{name:'Selecionar acordo'});
+      const panel = page.getByRole('region',{name:'Acordo selecionado'});
+      await selection.getByRole('button',{name:/Conversar sem distrações/}).click();
+      let release;
+      const delayed = new Promise(resolve => { release = resolve; });
+      let committed;
+      const applied = new Promise(resolve => { committed = resolve; });
+      await page.route('**/rest/v1/rpc/respond_nucleus_agreement', async route => {
+        const result = await route.fetch();
+        committed(result.ok());
+        await delayed;
+        await route.fulfill({response:result});
+      }, {times:1});
+      try {
+        await panel.getByRole('button',{name:'Aceitar proposta'}).click();
+        expect(await applied).toBe(true);
+        await selection.getByRole('button',{name:/Hábito anterior/}).click();
+      } finally { release(); }
+      await selection.getByRole('button',{name:/Conversar sem distrações/}).click();
+      await expect(panel.getByText('Participação aceita · v1',{exact:true})).toBeVisible();
+      await page.getByRole('button',{name:'Kanban · Fluxo'}).click();
+      await ownerCard.click();
+    }
+    const created = await ownerClient.from('nucleus_agreements').select('id').eq('nucleus_id',id).eq('title','Conversar sem distrações').single();
+    if (created.error) throw new Error('Proposta de teste indisponível.');
+    const updated = await ownerClient.rpc('update_nucleus_agreement_terms',{
+      target_agreement:created.data.id,agreement_title:'Conversar sem distrações',agreement_description:'Termos revisados para manter a escolha.',
+      agreement_timing:'Depois do jantar',agreement_frequency:'Uma vez por semana',expected_terms_version:1,
+    });
+    expect(updated.error).toBeNull();
+    await expect(ownTerms.getByText('Termos revisados para manter a escolha.')).toBeVisible({timeout:12000});
+    await expect(ownTerms.getByText(/Proposta enviada · termos v2/)).toBeVisible();
+    await expect(ownTerms.getByText('Participação a decidir',{exact:true})).toBeVisible();
+    await ownTerms.getByRole('link',{name:'Abrir detalhe'}).click();
+    await expect(page.getByRole('heading',{name:'Conversar sem distrações',exact:true})).toBeVisible();
+    await capture(page,'detalhe');
+    await page.goto(path+'/'+legacy);
+    await expect(page.getByRole('heading',{name:'Hábito anterior'})).toBeVisible();
+    await expect(page.getByText('Termos preservados.',{exact:true})).toBeVisible();
+    await expect(page.getByRole('button',{name:'Aceitar proposta'})).toHaveCount(0);
+    await page.goto(path);
+    await page.getByRole('button',{name:'Nova proposta',exact:true}).click();
+    await form.getByLabel('O que vamos fazer?').fill('Resposta de envio perdida');
+    await form.getByLabel('Como será?').fill('Uma pausa para conversar.');
+    await form.getByLabel('Quando?',{exact:true}).fill('Depois do jantar');
+    await form.getByLabel('Com que frequência?').fill('Semanalmente');
+    await form.getByLabel('Duração do teste (dias)').fill('14');
+    let sends = 0;
+    await page.route('**/rest/v1/rpc/create_nucleus_agreement',async route => {
+      sends++;
+      expect((await route.fetch()).ok()).toBe(true);
+      await route.abort();
+    });
+    await form.getByRole('button',{name:'Conferir proposta'}).click();
+    await form.getByRole('button',{name:'Enviar proposta'}).click();
+    await expect(form.getByRole('alert')).toContainText('O envio não foi confirmado');
+    await expect(form.getByRole('button',{name:'Enviar proposta'})).toBeDisabled();
+    await form.getByRole('button',{name:'Fechar proposta'}).click();
+    await expect(page.getByRole('button',{name:/Resposta de envio perdida/})).toHaveCount(1);
+    expect(sends).toBe(1);
+    await page.goto('/nucleos/'+randomUUID()+'/acordos/'+legacy);
+    await expect(page.getByRole('heading',{name:'Acordo indisponível'})).toBeVisible();
+  } finally { await second.close(); }
+});
+
 test('muda identidade, aceita nomeação pela própria conta, sai e encerra', async ({page,accounts,browser},info) => {
   test.setTimeout(80_000);
   page.setDefaultTimeout(10000);

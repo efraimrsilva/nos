@@ -2,6 +2,8 @@
 
 Aplicação Angular separada do Next.js durante a migração. A prévia inclui entrada, criação de conta, confirmação de e-mail, recuperação de senha, criação de Núcleos, convites por código, integrantes e administração. Em `/configuracoes/conta`, leia e edite o próprio nome. No Início do Núcleo, abra **Ver integrantes** ou **Minha participação** para conferir as ações da conta conectada.
 
+No Início, **Ver acordos** abre a lista daquele Núcleo. A prévia permite revisar e enviar propostas, consultar os termos e responder pela conta conectada. Momentos, histórico e ações do ciclo serão portados na etapa de Hábito.
+
 Da raiz, com Node.js 24.15 ou superior da série 24 e Docker Desktop:
 
 ```powershell

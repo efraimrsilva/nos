@@ -1,3 +1,7 @@
+## Propostas e participação na prévia Angular — v4.0.0-alpha.7 — 2026-11-15
+
+A07 porta lista, proposta, conferência, resposta individual, detalhe dos termos e totais. O histórico de Hábito e sua administração seguem na A08. Resultados manuais da linha Next.js foram preservados. [Registro A07](../registros/registro-v4.0.0-alpha.7-2026-11-15-imp-acordos-angular-fun-propostas-e-respostas.md).
+
 ## Administração e participação na prévia Angular — v4.0.0-alpha.6 — 2026-11-15
 
 A06 porta identidade, integrantes, nomeação e aceite, saída individual e encerramento com preservação do histórico. As verificações são da prévia local e preservam os resultados de caixa preta da linha Next.js. [Registro A06](../registros/registro-v4.0.0-alpha.6-2026-11-15-imp-pessoas-angular-fun-administracao-e-participacao.md).

@@ -1,0 +1,28 @@
+<p>Uma conversa pode virar um combinado. Enviar a proposta não registra aceite.</p>
+<form #proposalForm class="agreement-form" (submit)="submit($event)" [attr.aria-busy]="pending()">
+  <fieldset class="agreement-fields" [hidden]="review() !== null" [disabled]="pending()">
+    <label>O que vamos fazer?<input #firstField name="title" required maxlength="100"></label>
+    <label for="proposal-description">Como será?</label>
+    <textarea id="proposal-description" name="description" rows="3" required maxlength="500"></textarea>
+    <label>Quando?<input name="timing" required maxlength="120" placeholder="Ex.: depois do jantar"></label>
+    <label>Com que frequência?<input name="frequency" required maxlength="120" placeholder="Ex.: uma vez por semana"></label>
+    <label>Duração do teste (dias)<input name="trialDays" type="number" min="7" max="30" step="1" aria-describedby="proposal-trial" required></label>
+    <p id="proposal-trial">Escolha de 7 a 30 dias. A administração organiza o teste e cada pessoa decide se participa.</p>
+  </fieldset>
+  @if (review(); as terms) {
+    <section aria-labelledby="proposal-review">
+      <h3 id="proposal-review" #reviewHeading tabindex="-1">Confira antes de propor</h3>
+      <dl class="agreement-facts">
+        <div><dt>O que vamos fazer?</dt><dd>{{ terms.title }}</dd></div>
+        <div><dt>Como será?</dt><dd>{{ terms.description }}</dd></div>
+        <div><dt>Quando?</dt><dd>{{ terms.timing }}</dd></div>
+        <div><dt>Com que frequência?</dt><dd>{{ terms.frequency }}</dd></div>
+        <div><dt>Duração do teste</dt><dd>{{ terms.trialDays }} dias</dd></div>
+      </dl>
+      <p>Depois de publicar, escolha explicitamente se aceita participar. Cada integrante decide por si.</p>
+      <button class="button secondary" type="button" [disabled]="pending() || unknown()" (click)="edit()">Editar proposta</button>
+    </section>
+  }
+  @if (error()) { <p class="form-error" role="alert">{{ error() }}</p> }
+  <button class="button" type="submit" [disabled]="pending() || unknown()">{{ pending() ? 'Enviando…' : review() ? 'Enviar proposta' : 'Conferir proposta' }}</button>
+</form>

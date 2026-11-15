@@ -50,6 +50,8 @@ export const routes: Routes = [
       {path:'comecar/convite',loadComponent:() => import('./invitations/invitation-entry').then(module => module.InvitationEntry),title:'Entrar por convite · Nós'},
       {path:'comecar/convite-inicial/:id',loadComponent:() => import('./invitations/initial-invitation').then(module => module.InitialInvitation),title:'Convite inicial · Nós'},
       {path:'nucleos/:id/convites',loadComponent:() => import('./invitations/invitation-management').then(module => module.InvitationManagement),title:'Gerenciar convites · Nós'},
+      {path:'nucleos/:id/acordos',loadComponent:() => import('./agreements/agreements-page').then(module => module.AgreementsPage),title:'Acordos do Núcleo · Nós'},
+      {path:'nucleos/:id/acordos/:agreementId',loadComponent:() => import('./agreements/agreement-detail').then(module => module.AgreementDetail),title:'Detalhe do acordo · Nós'},
     ],
   },
   { matcher: pending, loadComponent: loadEntry, title: 'Meu espaço · Nós' },

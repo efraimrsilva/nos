@@ -1,3 +1,9 @@
+## 2026-11-15 — v4.0.0-alpha.7 — Propostas e consentimento individual na prévia Angular
+
+**Problema:** a prévia ainda não permitia propor ou responder a um acordo. **Contribuição:** revisão local, confirmação explícita e leitura de resposta própria com totais agregados. **Resultado verificado:** publicar deixou as duas contas a decidir, a recusa individual preservou a proposta e uma revisão foi exibida na sessão já aberta. Um envio com resposta perdida não foi repetido pelo formulário. **Benefício esperado:** reduzir consentimento implícito e tornar a participação mais clara durante a migração. [Registro A07](../_andamento/registros/registro-v4.0.0-alpha.7-2026-11-15-imp-acordos-angular-fun-propostas-e-respostas.md).
+
+---
+
 ## 2026-11-15 — v4.0.0-alpha.6 — Administração dos Núcleos na prévia Angular
 
 **Problema:** a lista de integrantes da prévia era somente consulta e a identidade podia ficar desatualizada entre sessões. **Contribuição:** portar a gestão com as regras existentes do banco e atualizar dados preservando os formulários abertos. **Resultado verificado:** duas contas conferiram o envio de uma nomeação, o aceite pela pessoa nomeada, a atualização do propósito sem apagar rascunho, a saída e o encerramento. **Benefício esperado:** evitar decisões tomadas com dados desatualizados e manter o consentimento visível. [Registro A06](../_andamento/registros/registro-v4.0.0-alpha.6-2026-11-15-imp-pessoas-angular-fun-administracao-e-participacao.md).

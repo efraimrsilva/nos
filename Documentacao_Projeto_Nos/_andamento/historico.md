@@ -1,3 +1,9 @@
+## 2026-11-15 — v4.0.0-alpha.7 — A07 da migração Angular
+
+A06 confirmada no GitHub em `65e4ded`. A07 portou Acordos, conferência, criação e respostas individuais. Duas contas conferiram contagens e termos atualizados entre sessões, além da recusa individual e da leitura de um Hábito legado. Entrega local. [Registro A07](registros/registro-v4.0.0-alpha.7-2026-11-15-imp-acordos-angular-fun-propostas-e-respostas.md).
+
+---
+
 ## 2026-11-15 — v4.0.0-alpha.6 — A06 da migração Angular
 
 A05 confirmada no GitHub em `addd163`. A06 portou edição de identidade, integrantes, aceite administrativo, saída e encerramento. O teste com duas contas conferiu atualização do modal enquanto aberto e preservação do rascunho entre sessões. A entrega é local. [Registro A06](registros/registro-v4.0.0-alpha.6-2026-11-15-imp-pessoas-angular-fun-administracao-e-participacao.md).

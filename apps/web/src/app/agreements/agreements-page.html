@@ -1,0 +1,146 @@
+@if (state.error()) {
+  <section class="surface">
+    <h1 tabindex="-1">Acordos do Núcleo</h1><p role="alert">Não foi possível consultar os acordos.</p>
+    <button class="button" type="button" (click)="state.reload()">Tentar novamente</button>
+  </section>
+} @else if (state.isLoading() && !state.hasValue()) {
+  <p role="status">Carregando os acordos…</p>
+} @else if (counts.denied() || !state.value()) {
+  <section class="surface">
+    <h1 tabindex="-1">Acordos indisponíveis</h1><p>Confira os Núcleos dos quais você faz parte.</p>
+    <a class="button" routerLink="/nucleos">Ver Seus Núcleos</a>
+  </section>
+} @else if (state.value(); as view) {
+  <header class="nucleus-header agreement-heading">
+    <div><p class="kicker">Combinados do Núcleo · {{ view.name }}</p><h1 tabindex="-1">Cada combinado no seu tempo.</h1>
+      <p>Uma conversa pode começar uma prática compartilhada. Cada pessoa escolhe se deseja participar.</p>
+      <details><summary>Como funcionam os Acordos</summary>
+        <ol><li><strong>Proposta.</strong> Apresente a prática e combine os termos.</li>
+          <li><strong>Hábito.</strong> Cultive a prática respeitando a participação de cada pessoa.</li>
+          <li><strong>Essência · esboço.</strong> Os critérios ainda serão definidos. O tempo não gera avanço automático.</li></ol>
+      </details>
+    </div>
+    <div class="agreement-actions">
+      @if (view.role === 'admin') {
+        <button type="button" class="button secondary" aria-haspopup="dialog" (click)="inviteOpen.set(true); invitation.showModal()">Enviar convite</button>
+      }
+      <button type="button" class="button" aria-haspopup="dialog" [disabled]="editor.pending()" (click)="editor.reset(); proposal.showModal()">Nova proposta</button>
+    </div>
+  </header>
+  @if (notice()) { <p class="surface agreement-feedback" [attr.role]="uncertain()?'alert':'status'">{{ notice() }}</p> }
+  @if (stale()) { <p role="status">Não foi possível atualizar a lista. <button type="button" class="text-link" (click)="state.reload()">Tentar novamente</button></p> }
+  <div class="agreement-toolbar">
+    <label>Buscar nos acordos desta página
+      <input type="search" placeholder="Buscar no Núcleo" [value]="search()" (input)="search.set($any($event.target).value)">
+    </label>
+    @if (desktop()) {
+      <div class="agreement-actions" role="group" aria-label="Visualização de Acordos">
+        <button type="button" class="button secondary" [attr.aria-pressed]="mode()==='kanban'" (click)="mode.set('kanban')">Kanban · Fluxo</button>
+        <button type="button" class="button secondary" [attr.aria-pressed]="mode()==='panels'" (click)="mode.set('panels')">Painéis · Lado a lado</button>
+      </div>
+    }
+  </div>
+  <p role="status">{{ visible().length }} {{ visible().length===1?'acordo nesta página':'acordos nesta página' }} · a busca considera os registros carregados.</p>
+  @if (!visible().length) {
+    <p class="surface">{{ view.rows.length ? 'Nenhuma correspondência. Tente outra palavra ou limpe a busca.' : 'Nenhum acordo nesta página. Uma conversa pode começar uma nova proposta.' }}</p>
+  }
+  @if (counts.failed() && counts.totals().size) {
+    <p role="status">Exibindo a última contagem disponível. A atualização será tentada novamente.</p>
+  }
+  <ng-template #card let-item>
+    <button type="button" class="agreement-card" aria-haspopup="dialog" (click)="showDetails(item.id,details)">
+      <span class="badge">{{ item.status==='pending'?'Proposta':'Hábito' }}</span>
+      <strong>{{ item.title }}</strong>
+      <span>{{ item.timing }} · {{ item.frequency }}</span>
+      <app-agreement-totals [value]="counts.totals().get(item.id)" [failed]="counts.failed()" />
+      <span>{{ responseLabel(item) }} · {{ status(item.status) }}</span>
+    </button>
+  </ng-template>
+  <ng-template #essenceContent>
+    <h2>Essência</h2><p class="badge">Planejada</p>
+    <p>Reconhecimento voluntário de uma prática. Os critérios e consentimentos ainda serão definidos.</p>
+    <button class="button secondary" type="button" aria-haspopup="dialog" (click)="essence.showModal()">Ver esboço de Essência</button>
+  </ng-template>
+  @if (desktop() && mode()==='panels') {
+    <div class="agreement-panels">
+      <nav class="surface agreement-column" aria-label="Selecionar acordo">
+        <h2>Seus combinados</h2>
+        @for (item of visible(); track item.id) {
+          <button type="button" class="button secondary" aria-controls="agreement-selection" [attr.aria-pressed]="selected()?.id===item.id"
+            (click)="active.set(item.id)">{{ item.title }}</button>
+        }
+      </nav>
+      <section class="surface agreement-column" id="agreement-selection" aria-label="Acordo selecionado">
+        @if (selected(); as item) {
+          <h2>{{ item.title }}</h2>
+          <app-agreement-terms [scope]="view.scope" [agreement]="item" [count]="counts.totals().get(item.id)" [countFailed]="counts.failed()"
+            [countTick]="counts.received()" [link]="true" [loading]="state.isLoading() || stale()" (refreshed)="state.reload()" />
+        } @else { <p>Selecione um combinado para conferir os termos.</p> }
+      </section>
+      <aside class="surface agreement-column"><ng-container [ngTemplateOutlet]="essenceContent" /></aside>
+    </div>
+  } @else if (!desktop()) {
+    <ol class="agreement-mobile-list" aria-label="Lista de acordos">
+      @for (item of visible(); track item.id) {
+        <li><ng-container [ngTemplateOutlet]="card" [ngTemplateOutletContext]="{$implicit:item}" /></li>
+      }
+    </ol>
+    <section class="surface agreement-column"><ng-container [ngTemplateOutlet]="essenceContent" /></section>
+  } @else {
+    <div class="agreement-board" aria-label="Propostas, Hábitos e Essência">
+      <section class="surface agreement-column" aria-labelledby="proposals-column">
+        <h2 id="proposals-column">Propostas</h2>
+        <p>Termos apresentados e participação individual.</p>
+        @for (item of proposals(); track item.id) {
+          <ng-container [ngTemplateOutlet]="card" [ngTemplateOutletContext]="{$implicit:item}" />
+        } @empty { <p>Nenhuma proposta nesta página.</p> }
+      </section>
+      <section class="surface agreement-column" aria-labelledby="habits-column">
+        <h2 id="habits-column">Hábitos</h2>
+        <p>Práticas, termos e registros anteriores.</p>
+        @for (item of habits(); track item.id) {
+          <ng-container [ngTemplateOutlet]="card" [ngTemplateOutletContext]="{$implicit:item}" />
+        } @empty { <p>Nenhum hábito nesta página.</p> }
+      </section>
+      <section class="surface agreement-column"><ng-container [ngTemplateOutlet]="essenceContent" /></section>
+    </div>
+  }
+  @if (page()>1 || view.hasNext) {
+    <nav class="agreement-actions agreement-pagination" aria-label="Páginas dos acordos">
+      @if (page()>1) { <a class="button secondary" [routerLink]="[]" [queryParams]="{pagina:page()-1}">Página anterior</a> }
+      <span>Página {{ page() }}</span>
+      @if (view.hasNext) { <a class="button secondary" [routerLink]="[]" [queryParams]="{pagina:page()+1}">Próxima página</a> }
+    </nav>
+  }
+  <p class="agreement-pagination"><a class="text-link" [routerLink]="['/nucleos',view.scope.id]">Voltar ao Núcleo</a></p>
+  <dialog #proposal class="shared-dialog agreement-wide-dialog" aria-labelledby="proposal-title" (close)="!proposal.open && editor.reset()">
+    <header class="dialog-heading"><h2 id="proposal-title">Nova proposta</h2>
+      <form method="dialog"><button class="icon-button" aria-label="Fechar proposta" autofocus>×</button></form>
+    </header>
+    <app-proposal-editor #editor [scope]="view.scope" (completed)="finishProposal($event,proposal)" />
+  </dialog>
+  <dialog #details class="shared-dialog agreement-wide-dialog" aria-labelledby="agreement-dialog-title"
+    (close)="!details.open && showing.set(false)">
+    <header class="dialog-heading"><h2 id="agreement-dialog-title">{{ dialogItem()?.title ?? 'Termos do acordo' }}</h2>
+      <form method="dialog"><button class="icon-button" aria-label="Fechar termos" autofocus>×</button></form>
+    </header>
+    @if (dialogItem(); as item) {
+      <app-agreement-terms [scope]="view.scope" [agreement]="item" [count]="counts.totals().get(item.id)" [countFailed]="counts.failed()"
+        [countTick]="counts.received()" [live]="showing()" [link]="true" [loading]="state.isLoading() || stale()" (refreshed)="state.reload()">
+        @if (stale()) { <p role="status">Confira os termos atuais antes de responder. <button type="button" class="text-link" (click)="state.reload()">Atualizar termos</button></p> }
+      </app-agreement-terms>
+    } @else { <p>Este acordo está indisponível.</p> }
+  </dialog>
+  <dialog #invitation class="shared-dialog" aria-labelledby="agreement-invite-title" (close)="!invitation.open && inviteOpen.set(false)">
+    <header class="dialog-heading"><h2 id="agreement-invite-title">Enviar convite</h2>
+      <form method="dialog"><button class="icon-button" aria-label="Fechar convite" autofocus>×</button></form>
+    </header>
+    @if (view.role === 'admin') { <app-invitation-generator [scope]="view.scope" [visible]="inviteOpen()" /> }
+  </dialog>
+  <dialog #essence class="shared-dialog" aria-labelledby="agreement-essence-title">
+    <header class="dialog-heading"><h2 id="agreement-essence-title">Nossa Essência</h2>
+      <form method="dialog"><button class="icon-button" aria-label="Fechar Essência" autofocus>×</button></form>
+    </header>
+    <p class="badge">Esboço</p><p>Uma possibilidade para reconhecer práticas compartilhadas. Critérios, consentimentos e passagens ainda serão definidos.</p>
+  </dialog>
+}

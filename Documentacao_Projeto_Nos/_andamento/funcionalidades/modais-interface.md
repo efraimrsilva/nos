@@ -1,3 +1,7 @@
+## Propostas e participação na prévia Angular — v4.0.0-alpha.7 — 2026-11-15
+
+**Nova proposta** na Tela 18 abre para quem possui vínculo e conserva os termos na revisão da Tela 22. Publicar é uma ação explícita. **Termos do acordo** abre pelo cartão nas Telas 18/23, com detalhe navegável na Tela 24. **Recusar participação?** abre sobre os termos do acordo, indica a versão e só escreve ao confirmar. **Enviar convite** reutiliza a geração da A05 e aparece para administradores. **Nossa Essência** mostra o esboço da Tela 36. X, Escape e gesto externo fecham a camada superior. [Galeria](../../wireframes/comparacoes/v4.0.0-alpha.7-2026-11-15-angular-acordos-tela_18-tela_22-tela_23-tela_24-tela_36/index.html).
+
 ## Pessoas e administração na prévia Angular — v4.0.0-alpha.6 — 2026-11-15
 
 Na Tela 13, **Editar nome do Núcleo** e **Editar propósito do Núcleo** são ações de administrador com campos independentes. **Ver integrantes** abre a lista da Tela 73. O nome abre **Participação de …** com ações conforme papel e nomeação. **Encerrar Núcleo** exige administração, ciência explícita e digitação do nome corrente. Na Tela 71, **Revisar minha saída** abre a confirmação de saída individual. X, Escape e clique ou toque externo fecham somente a camada superior, sem disparar a ação. [Galeria](../../wireframes/comparacoes/v4.0.0-alpha.6-2026-11-15-angular-pessoas-tela_13-tela_71-tela_73/index.html).

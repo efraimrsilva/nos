@@ -2,6 +2,8 @@
 
 # Comparações de telas — procedimento permanente
 
+- [v4.0.0-alpha.7 · Propostas e respostas no Angular](v4.0.0-alpha.7-2026-11-15-angular-acordos-tela_18-tela_22-tela_23-tela_24-tela_36/index.html) — Telas 18, 22, 23, 24 e 36, com lista, revisão, recusa, detalhe e esboço em computador e celular.
+
 - [v4.0.0-alpha.6 · Pessoas e administração no Angular](v4.0.0-alpha.6-2026-11-15-angular-pessoas-tela_13-tela_71-tela_73/index.html) — Telas 13, 71 e 73, com os estados de participação, identidade, saída e encerramento em computador e celular. A galeria aponta para a composição anterior da A04.
 
 - [v3.8.0 · Modelo Hábito e esboço de Essência](v3.8.0-2026-11-06-modelo-habito-tela_18-tela_24-tela_36/index.html) —23 imagens; Acordos18, detalhe24 e Essência36, aplicativo local/Atlas, computador/celular. Legado preservado, novo modal sem composição anterior própria; limites e larguras na galeria.

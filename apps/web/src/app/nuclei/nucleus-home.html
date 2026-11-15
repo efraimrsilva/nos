@@ -54,10 +54,11 @@
       @if (view.agreements.length) {
         <ul class="summary-list">
           @for (agreement of view.agreements; track agreement.id) {
-            <li><strong>{{ agreement.title }}</strong><span>{{ status(agreement.status) }}</span></li>
+            <li><a [routerLink]="['/nucleos',view.nucleus.id,'acordos',agreement.id]">{{ agreement.title }}</a><span>{{ status(agreement.status) }}</span></li>
           }
         </ul>
       } @else { <p>Os primeiros acordos podem nascer de uma intenção simples.</p> }
+      <a class="text-link" [routerLink]="['/nucleos',view.nucleus.id,'acordos']">Ver acordos</a>
     </section>
   </div>
   <section class="surface nucleus-participation" aria-label="Minha participação">
