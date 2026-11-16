@@ -1,3 +1,7 @@
+## Conta, Preferências e Ajuda na prévia Angular — A10 em validação
+
+**Aparência (66)** abre pelo seletor autenticado e grava a escolha por conta. **Privacidade e visibilidade (67)** abre pela opção de visibilidade e grava a preferência para saídas futuras. **Apagar minha conta (69)** abre pelo bloco exclusivo e depende da frase exata e da sessão. **Relatar um problema (70)** abre em Ajuda e no cabeçalho, aceita somente e-mail confirmado e informa resultado do servidor. X, Escape e gesto externo fecham sem disparar envio ou exclusão. No Atlas os quatro modais são exemplos. [Registro A10](../registros/registro-v4.0.0-alpha.9-2026-11-16-imp-conta-angular-fun-preferencias-e-suporte.md).
+
 ## Agenda na prévia Angular — v4.0.0-alpha.9 — 2026-11-15
 
 **Adicionar evento (16)** abre por Novo momento para integrantes e exige dados válidos. **Editar evento (17)** abre no detalhe para autor associado ou administração; apenas remarcar pede nova resposta aos demais. **Remover evento (17)** exige a mesma permissão e ciência explícita; Manter evento cancela. X, Escape e gesto externo fecham sem confirmar. As respostas na Tela 15 são controles no detalhe. [Galeria A09](../../wireframes/comparacoes/v4.0.0-alpha.9-2026-11-15-angular-agenda-tela_14-tela_15-tela_16-tela_17/index.html).

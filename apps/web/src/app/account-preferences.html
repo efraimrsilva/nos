@@ -1,0 +1,63 @@
+<section class="surface" tabindex="-1" id="aparencia">
+  <h2>Aparência</h2>
+  <app-appearance-picker prefix="account-appearance" label="Escolher tema" />
+</section>
+
+<section class="surface" tabindex="-1" id="privacidade">
+  <h2>Privacidade</h2>
+  <button class="button" type="button" (click)="openPrivacy()">Visibilidade das próximas saídas</button>
+</section>
+
+<section class="surface" tabindex="-1" id="ajuda-e-suporte">
+  <h2>Ajuda e suporte</h2>
+  <p>Responsável pelo aplicativo: Sintagma Software.</p>
+  <p>Administradores gerenciam pessoas e convites. Cada pessoa decide se participa dos acordos do Núcleo.</p>
+  <p>O conteúdo compartilhado é preservado após a saída. Confira como ocultar sua autoria nas próximas saídas.</p>
+  <p>Para solicitar acesso, correção ou exportação de dados, use o formulário de suporte.</p>
+  <p><a routerLink="/conta" fragment="privacidade">Conferir privacidade</a></p>
+  <app-problem-report prefix="account-support" />
+</section>
+
+<section class="surface" tabindex="-1" id="apagar-minha-conta">
+  <h2>Apagar minha conta</h2>
+  <p>A exclusão é definitiva. Confira as consequências antes de confirmar.</p>
+  <button class="button" type="button" (click)="openRemoval()">Apagar minha conta</button>
+</section>
+
+<dialog #privacyDialog class="shared-dialog" aria-labelledby="privacy-title" (close)="resetPrivacy()">
+  <header><h2 id="privacy-title">Privacidade e visibilidade</h2>
+    <form method="dialog"><button class="icon-button" aria-label="Fechar Privacidade" autofocus>×</button></form>
+  </header>
+  <p>Somente pessoas associadas consultam o Núcleo e seu conteúdo compartilhado.</p>
+  <p>Esta preferência vale para suas próximas saídas. Ela preserva o conteúdo e oculta sua autoria, sem mudar saídas anteriores. O próprio texto ainda pode identificar você.</p>
+  @if (privacy.isLoading()) { <p role="status">Carregando preferência…</p> }
+  @else if (privacy.error()) {
+    <p role="alert">Não foi possível consultar sua preferência.</p>
+    <button type="button" class="icon-button" (click)="privacy.reload()">Tentar novamente</button>
+  } @else if (privacy.hasValue()) {
+    <form class="fields" (submit)="savePrivacy($event)">
+      <label class="choice"><input type="checkbox" [checked]="hide()" [disabled]="saving()"
+        (change)="hide.set($any($event.target).checked)"> Ocultar minha autoria nas interações após sair de um Núcleo</label>
+      <button class="button" type="submit" [disabled]="saving()">{{ saving() ? 'Salvando…' : 'Salvar preferência' }}</button>
+    </form>
+  }
+  @if (privacyMessage()) { <p role="status">{{ privacyMessage() }}</p> }
+  @if (privacyError()) { <p role="alert">{{ privacyError() }}</p> }
+</dialog>
+
+<dialog #removalDialog class="shared-dialog" aria-labelledby="removal-title" (close)="resetRemoval()">
+  <header><h2 id="removal-title">Apagar minha conta</h2>
+    <form method="dialog"><button class="icon-button" aria-label="Fechar exclusão" autofocus>×</button></form>
+  </header>
+  <p>Você perderá o acesso e sairá de todos os Núcleos. O histórico compartilhado permanece com autoria “Conta excluída”. Textos ainda podem identificar você.</p>
+  <p>Se você for a última pessoa, o Núcleo será encerrado e os convites serão revogados. Se você for a última pessoa administradora, a sucessão será definida por sorteio entre quem ficar.</p>
+  <form class="fields" (submit)="removeAccount($event)">
+    <label for="account-removal-phrase">Digite {{ phrase }} para confirmar</label>
+    <input #phraseInput id="account-removal-phrase" type="text" autocomplete="off" maxlength="12"
+      [value]="confirmation()" [disabled]="removing()" (input)="confirmation.set(phraseInput.value)">
+    <button class="button" type="submit" [disabled]="removing() || confirmation() !== phrase">
+      {{ removing() ? 'Confirmando exclusão…' : 'Confirmar exclusão' }}
+    </button>
+  </form>
+  @if (removalError()) { <p role="alert">{{ removalError() }}</p> }
+</dialog>

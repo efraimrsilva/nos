@@ -1,3 +1,7 @@
+## Conta, Preferências e Ajuda na prévia Angular — A10 em validação — 2026-11-16
+
+Telas 66, 67, 69 e 70. Tema por conta, preferência de autoria, exclusão confirmada e relato protegido seguem os contratos existentes. A conferência autenticada em desktop e celular permanece pendente. [Registro A10](../registros/registro-v4.0.0-alpha.9-2026-11-16-imp-conta-angular-fun-preferencias-e-suporte.md).
+
 ## Agenda na prévia Angular — v4.0.0-alpha.9 — 2026-11-15
 
 A09 porta as telas 14–17: mês, semana, lista móvel, presença e gestão de eventos. A paridade web do MVP deve ser conferida na mesma aplicação Angular em computador e celular. O empacotamento Android e iOS com Capacitor vem após a estabilização web. O banco mantém as travas e os controles de vínculo. Os resultados manuais da linha Next.js foram preservados. [Registro A09](../registros/registro-v4.0.0-alpha.9-2026-11-15-imp-agenda-angular-fun-calendario-e-eventos.md).

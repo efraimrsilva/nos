@@ -278,6 +278,12 @@ for(const id of [13,73])screens.find(s=>s.id===id).rule+=' v3.6.2: Ver integrant
 for(const id of [12,13,14,16,66,71,73])screens.find(s=>s.id===id).rule+=' v3.6.3: alterações administrativas de nome/propósito chegam aos integrantes sem recarregar documento, por conferência autenticada a cada três segundos em página visível/conectada; listas, navegação e seletores se atualizam. Modais e rascunhos preservados; falhas transitórias mantêm dados e próxima conferência retenta. Atlas offline apenas ilustra este contrato, sem sincronização entre sessões.';
 
 // Suporte é um modal compartilhado: não criar uma nova rota ou duplicar fichas.
+for(const [id, detail] of [
+  [66, 'A10 Angular em validação: Dados da conta, recuperação e confirmação, aparência por conta e atalhos em desktop e no menu Mais.'],
+  [67, 'A10 Angular em validação: Visibilidade das próximas saídas usa a preferência da conta e confirma após gravação.'],
+  [69, 'A10 Angular em validação: exclusão exige APAGAR CONTA e usa a identidade da sessão verificada.'],
+  [70, 'A10 Angular em validação: Relatar um problema abre em Ajuda e no cabeçalho. O serviço da prévia precisa de uma caixa local configurada.'],
+]) screens.find(screen => screen.id === id).rule += ' ' + detail;
 for(const id of [13,66,70,71])screens.find(s=>s.id===id).rule+=' v3.7.0: Relatar um problema no cabeçalho autenticado e em Ajuda e suporte (Conta, perfil e Mais); orientação também oferece atalho. Mesmo modal com descrição10–2000 e passos opcionais1000, envio explícito. Destinatário apenas servidor; conta com e-mail confirmado, uma tentativa por minuto no banco, sem armazenar conteúdo do relato. X/Escape/fora cancelam sem enviar; pendente bloqueia duplicação, erro preserva texto e sucesso requer aceite SMTP. Fluxo local e autenticação SMTP real validados; publicação e recebimento externo ainda não certificados. Atlas demonstra sem enviar e-mail.';
 journeys.push({name:'Relatar um problema',ids:[66,70,66],steps:['Abrir Ajuda ou atalho no cabeçalho','Descrever e enviar no modal','Receber confirmação ou corrigir/tentar depois'],rule:'Modal compartilhado, sem nova rota. Conta confirmada; destinatário oculto e envio no servidor. Autenticação SMTP real validada; implantação e recebimento externo ainda não certificados. No Atlas nenhum e-mail é enviado.'});
 

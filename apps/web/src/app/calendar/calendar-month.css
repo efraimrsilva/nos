@@ -12,5 +12,5 @@ td button.outside { color:var(--muted); }
 td button.marked { text-decoration:underline .16rem; text-underline-offset:.22rem; }
 td button:hover { background:var(--accent-soft); }
 td button[aria-current=date] { border-color:var(--leaf); }
-td button[aria-pressed=true] { background:var(--leaf); color:white; }
+td button[aria-pressed=true] { background:var(--leaf); color:var(--on-leaf, #fff); }
 .month-help { font-size:.8rem; color:var(--muted); margin-top:.55rem; }

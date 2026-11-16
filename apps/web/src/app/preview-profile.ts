@@ -149,6 +149,10 @@ export class PreviewProfile {
   async rename(value: string, expectedId: string) {
     const name = value.trim();
     if (!name || name.length > 80) return 'Informe um nome de 1 a 80 caracteres.';
+    return this.saveMetadata('name', name, expectedId, saveMessage);
+  }
+
+  async saveMetadata(key: 'name' | 'appearance_theme', value: string, expectedId: string, failure: string) {
     const revision = this.revision;
     const client = this.client;
     const config = this.config;
@@ -156,36 +160,51 @@ export class PreviewProfile {
     try {
       const { data: { session }, error: sessionError } = await client.auth.getSession();
       if (this.revision !== revision) return sessionMessage;
-      if (isAuthRetryableFetchError(sessionError)) return saveMessage;
+      if (isAuthRetryableFetchError(sessionError)) return failure;
       if (!session || (sessionError && (sessionError.status === 401 || sessionError.status === 403))) {
         this.reset(null, true);
         return sessionMessage;
       }
-      if (sessionError) return saveMessage;
+      if (sessionError) return failure;
+      if (session.user.id !== expectedId) return sessionMessage;
       const token = session.access_token;
       const { data, error } = await client.auth.getUser(token);
       if (this.revision !== revision) return sessionMessage;
-      if (error && error.status !== 401 && error.status !== 403 && !['session_not_found', 'bad_jwt'].includes(error.code ?? '')) return saveMessage;
+      if (error && error.status !== 401 && error.status !== 403 && !['session_not_found', 'bad_jwt'].includes(error.code ?? '')) return failure;
       if (error || data.user?.id !== expectedId) {
         this.reset(null, true);
         return sessionMessage;
       }
 
-      const response = await updateOwnUser(config, token, {data: {name}});
+      const response = await updateOwnUser(config, token, {data: {[key]: value}});
       if (this.revision !== revision) return sessionMessage;
       if (response.status === 401 || response.status === 403) {
         this.reset(null, true);
         return sessionMessage;
       }
-      if (!response.ok) return saveMessage;
+      if (!response.ok) return failure;
       const updated: User = await response.json();
       if (this.revision !== revision) return sessionMessage;
-      if (updated.id !== expectedId || updated.user_metadata?.['name'] !== name) return saveMessage;
+      if (updated.id !== expectedId || updated.user_metadata?.[key] !== value) return failure;
       this.user.set(updated);
       return '';
     } catch {
-      return saveMessage;
+      return failure;
     }
+  }
+
+  clearDeletedAccount(owner: string) {
+    // A RPC já revogou a conta. A remoção local preserva uma conta que acabou de entrar em outra aba.
+    if (this.user()?.id !== owner) return false;
+    try {
+      const stored = JSON.parse(localStorage.getItem(sessionKey) ?? 'null');
+      if (stored && stored.user?.id !== owner) return false;
+      localStorage.removeItem(sessionKey);
+    } catch {
+      // O serviço já confirmou a exclusão, mesmo se o armazenamento estiver indisponível.
+    }
+    this.reset(null);
+    return true;
   }
 }
 

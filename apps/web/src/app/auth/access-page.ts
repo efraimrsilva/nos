@@ -32,19 +32,27 @@ export class AccessPage {
       : mode === 'confirmar-email' || mode === 'confirmation' ? 'confirmation' : null;
   });
   protected readonly dialogTitle = computed(() => this.kind() === 'recovery' ? 'Recuperar acesso' : 'Confirmar e-mail');
-  protected readonly next = computed(() => safeAuthNext(this.query()['next']));
+  private readonly fragment = toSignal(this.route.fragment, {initialValue: this.route.snapshot.fragment});
+  protected readonly next = computed(() => {
+    const fragment = this.fragment();
+    const destination = fragment === 'privacidade' ? '/configuracoes/privacidade' : fragment === 'ajuda-e-suporte' ? '/ajuda' : undefined;
+    return safeAuthNext(this.query()['next'] ?? destination);
+  });
   protected readonly mode = computed(() => this.query()['modo'] === 'login' ||
-    this.query()['resultado'] === 'senha' || this.kind() === 'recovery' ? 'login' : 'signup');
+    this.requiresLogin() || this.kind() === 'recovery' ||
+    this.fragment() === 'privacidade' || this.fragment() === 'ajuda-e-suporte' ? 'login' : 'signup');
   protected readonly bannerError = computed(() => {
     const error: unknown = this.query()['erro'];
     return typeof error === 'string' && Object.hasOwn(errors, error) ? errors[error] : '';
   });
   protected readonly bannerStatus = computed(() => this.query()['resultado'] === 'senha'
     ? 'Senha atualizada. Entre com sua nova senha.'
-    : this.query()['erro'] === 'social-cancelado'
+    : this.query()['resultado'] === 'conta-excluida'
+      ? 'Sua conta foi excluída.'
+      : this.query()['erro'] === 'social-cancelado'
       ? 'O acesso foi cancelado. Você pode tentar novamente ou usar seu e-mail e senha.' : '');
   protected readonly completeName = computed(() => this.query()['completar'] === 'nome' && Boolean(this.profile.user()));
-  protected readonly requiresLogin = computed(() => this.query()['resultado'] === 'senha');
+  protected readonly requiresLogin = computed(() => ['senha', 'conta-excluida'].includes(this.query()['resultado']));
   protected readonly pending = signal(false);
   protected readonly error = signal('');
   protected readonly emailMessage = signal<{message: string; success: boolean} | null>(null);

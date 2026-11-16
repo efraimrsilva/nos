@@ -27,7 +27,7 @@ button:disabled { cursor: wait; opacity: .65; }
   display: inline-grid; place-items: center; min-height: 2.75rem; padding: .5rem .8rem;
   border: 1px solid var(--line); border-radius: .6rem; text-decoration: none; font-weight: 600;
 }
-.button { background: var(--leaf); color: white; }
+.button { background: var(--leaf); color: var(--on-leaf, #fff); }
 .icon-button { min-width: 2.75rem; color: var(--leaf); background: var(--surface); }
 .shared-dialog {
   width: min(36.25rem, calc(100% - 2rem)); max-height: calc(100dvh - 2rem); overflow: auto;

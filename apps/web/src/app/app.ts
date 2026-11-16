@@ -2,12 +2,16 @@ import { DOCUMENT } from '@angular/common';
 import { afterNextRender, Component, DestroyRef, inject, Injector, signal, viewChild, type ElementRef } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, NavigationError, NavigationSkipped, NavigationStart, Router, RouterLink, RouterLinkActive, RouterOutlet, type IsActiveMatchOptions } from '@angular/router';
+import { Appearance } from './appearance';
+import { AppearancePicker } from './appearance-picker';
+import { PreviewProfile } from './preview-profile';
+import { ProblemReport } from './problem-report';
 import { installDialogBackdropDismiss } from './shared/dialog-backdrop-dismiss';
 import { RouteState } from './shared/route-state';
 import { isNucleusId } from './nuclei/nucleus-model';
 
 @Component({
-  imports: [RouterLink, RouterLinkActive, RouterOutlet, RouteState],
+  imports: [RouterLink, RouterLinkActive, RouterOutlet, RouteState, ProblemReport, AppearancePicker],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
@@ -23,6 +27,7 @@ export class App {
     paths: 'exact', queryParams: 'ignored', fragment: 'ignored', matrixParams: 'ignored',
   };
   protected readonly router = inject(Router);
+  protected readonly profile = inject(PreviewProfile);
   protected readonly sidebarHidden = signal(false);
   protected readonly failedUrl = signal('');
   protected readonly activeLabel = signal('');
@@ -32,6 +37,7 @@ export class App {
   private initialNavigation = true;
 
   constructor() {
+    inject(Appearance);
     inject(DestroyRef).onDestroy(installDialogBackdropDismiss(inject(DOCUMENT)));
     this.router.events.pipe(takeUntilDestroyed()).subscribe(event => {
       if (event instanceof NavigationStart || event instanceof NavigationSkipped) this.failedUrl.set('');

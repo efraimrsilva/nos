@@ -1,3 +1,9 @@
+## 2026-11-16 — Angular A10 — Conta, Preferências e Ajuda em validação
+
+Implementação local dos controles de conta, privacidade e aparência e do serviço de relato da prévia. Verificação HTTP isolada e verificadores do Atlas disponíveis. Validação autenticada e versão nova aguardam ambiente local funcional. [Registro A10](registros/registro-v4.0.0-alpha.9-2026-11-16-imp-conta-angular-fun-preferencias-e-suporte.md).
+
+---
+
 ## 2026-11-15 — v4.0.0-alpha.9 — A09 da migração Angular
 
 A08 confirmada em `ec4f9bf` e A09 em `38a531f` na referência de acompanhamento. A09 portou Agenda, respostas e gestão de eventos, com validação local em duas larguras e nas rotinas concorrentes do banco. [Registro A09](registros/registro-v4.0.0-alpha.9-2026-11-15-imp-agenda-angular-fun-calendario-e-eventos.md).

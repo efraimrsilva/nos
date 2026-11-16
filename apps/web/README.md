@@ -31,4 +31,8 @@ npm --prefix apps/web run build
 npm run test:angular
 ```
 
-O Playwright usa a porta 3200 por padrão. Se estiver em uso, defina `NOS_ANGULAR_TEST_PORT` com uma porta livre. Para rodar os testes de e-mail, use uma porta autorizada na lista de retorno do Supabase local. Os testes criam e removem contas e mensagens descartáveis. A configuração pública local fica fora do build de produção. Conexão hospedada e regras de publicação serão ensaiadas nas etapas do [plano](../../Documentacao_Projeto_Nos/_andamento/planos/migracao-angular.md).
+O Playwright usa a porta 3200 por padrão. Se estiver em uso, defina `NOS_ANGULAR_TEST_PORT` com uma porta livre. Para rodar os testes de e-mail, use uma porta autorizada na lista de retorno do Supabase local. Os testes criam e removem contas e mensagens descartáveis.
+
+A A10 está em validação. Conta reúne aparência, privacidade, exclusão e Ajuda. O relato em desenvolvimento passa por um servidor local por trás do proxy Angular. Para ensaiar o envio, configure `NOS_ANGULAR_SUPPORT_SMTP_PORT` com a porta de uma caixa de testes SMTP (protocolo de transferência de correio simples) em `127.0.0.1` antes de iniciar a prévia. Sem a porta, o formulário informa indisponibilidade e preserva o texto. O servidor de desenvolvimento usa apenas a caixa local e retém a confirmação até o aceite do transporte.
+
+A configuração pública local fica fora do build de produção. Conexão hospedada e regras de publicação serão ensaiadas nas etapas do [plano](../../Documentacao_Projeto_Nos/_andamento/planos/migracao-angular.md).

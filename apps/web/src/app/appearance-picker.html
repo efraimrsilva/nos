@@ -1,0 +1,21 @@
+<button class="icon-button" type="button" (click)="picker.showModal()" aria-haspopup="dialog"
+  [attr.aria-controls]="prefix() + '-dialog'">{{ label() }}</button>
+<dialog #picker class="shared-dialog" [id]="prefix() + '-dialog'" [attr.aria-labelledby]="prefix() + '-title'">
+  <header><h2 [id]="prefix() + '-title'">Aparência</h2>
+    <form method="dialog"><button class="icon-button" aria-label="Fechar Aparência" autofocus>×</button></form>
+  </header>
+  <div class="theme-options">
+    @for (theme of appearance.themes; track theme.id) {
+      <button class="icon-button theme-option" type="button" [attr.aria-pressed]="appearance.selected() === theme.id"
+        (click)="appearance.select(theme.id)">
+        <span class="swatch" [style.background]="theme.canvas" [style.border-color]="theme.accent" aria-hidden="true"></span>
+        <span>{{ theme.name }}</span>
+      </button>
+    }
+  </div>
+  @if (appearance.saving()) { <p role="status">Salvando sua escolha…</p> }
+  @else if (appearance.feedback(); as feedback) {
+    @if (feedback.error) { <p role="alert">{{ feedback.error }}</p> }
+    @else { <p role="status">Tema salvo na sua conta.</p> }
+  }
+</dialog>

@@ -15,6 +15,22 @@
       <a class="button secondary signout" [routerLink]="['/nucleos',nucleus.id]" [attr.title]="nucleus.name">Voltar ao Núcleo</a>
     }
     <button type="button" class="secondary signout" [disabled]="busy()" (click)="signOut()">Sair da conta</button>
+    <section class="card account-access">
+      <h2>Entrar e recuperar</h2>
+      <a routerLink="/conta/recuperar" [queryParams]="{next: '/configuracoes/conta'}">Recuperar acesso</a>
+      <a routerLink="/conta/confirmar-email" [queryParams]="{next: '/configuracoes/conta'}">Confirmar e-mail</a>
+    </section>
+    <section class="card account-access">
+      <h2>Conta e Núcleos</h2>
+      <a routerLink="/nucleos">Seus Núcleos</a>
+    </section>
+    <section class="card account-access">
+      <h2>Notificações</h2>
+      <p>Preferências de notificação estão planejadas.</p>
+    </section>
+    @for (owner of [user.id]; track owner) {
+      <app-account-preferences #preferences />
+    }
   } @else {
     <section class="card">
       <h2>Acesso à conta</h2>

@@ -153,3 +153,34 @@ test('recusa gravação após revogação e vencimento da sessão', async ({page
   const untouched = await accounts.admin.auth.admin.getUserById(first.user.id);
   expect(untouched.data.user?.user_metadata.name).toBe('Pessoa Um');
 });
+
+test('salva aparência e privacidade para a conta conectada', async ({page, accounts}) => {
+  const [first, second] = accounts.users;
+  await page.goto(path);
+  await signIn(page, first);
+  await page.getByRole('button', {name: 'Escolher tema'}).click();
+  const appearance = page.getByRole('dialog', {name: 'Aparência'});
+  await appearance.getByRole('button', {name: /Azul — Oceano/}).click();
+  await expect(appearance.getByRole('status')).toContainText('Tema salvo');
+  await page.keyboard.press('Escape');
+
+  await page.goto('/configuracoes/privacidade');
+  await expect(page).toHaveURL(/\/conta#privacidade$/);
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'ocean');
+  await page.getByRole('button', {name: 'Visibilidade das próximas saídas'}).click();
+  const privacy = page.getByRole('dialog', {name: 'Privacidade e visibilidade'});
+  await privacy.getByRole('checkbox').check();
+  await privacy.getByRole('button', {name: 'Salvar preferência'}).click();
+  await expect(privacy.getByRole('status')).toContainText('Preferência salva');
+  await page.reload();
+  await page.getByRole('button', {name: 'Visibilidade das próximas saídas'}).click();
+  await expect(privacy.getByRole('checkbox')).toBeChecked();
+  await page.keyboard.press('Escape');
+  await page.getByRole('button', {name: 'Apagar minha conta', exact: true}).click();
+  const removal = page.getByRole('dialog', {name: 'Apagar minha conta'});
+  await expect(removal.getByRole('button', {name: 'Confirmar exclusão'})).toBeDisabled();
+  await page.keyboard.press('Escape');
+  await expect(removal).toBeHidden();
+  const unaffected = await accounts.admin.auth.admin.getUserById(second.user.id);
+  expect(unaffected.data.user?.user_metadata.appearance_theme).toBe('light');
+});

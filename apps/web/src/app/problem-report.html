@@ -1,0 +1,23 @@
+<button class="icon-button" type="button" (click)="open()">Relatar um problema</button>
+<dialog #dialog class="shared-dialog" [attr.aria-labelledby]="prefix() + '-title'" (close)="reset()">
+  <header>
+    <h2 [id]="prefix() + '-title'">Relatar um problema</h2>
+    <form method="dialog"><button class="icon-button" aria-label="Fechar relato" autofocus>×</button></form>
+  </header>
+  @if (sent()) {
+    <p role="status">Relato enviado.</p>
+  } @else {
+    <p>Seu e-mail confirmado acompanha o relato. Evite incluir senhas ou informações íntimas.</p>
+    <form class="fields" (submit)="submit($event)">
+      <label [for]="prefix() + '-description'">O que aconteceu?</label>
+      <textarea #descriptionInput [id]="prefix() + '-description'" rows="4" required minlength="10"
+        maxlength="2000" [value]="description()" [disabled]="busy()" (input)="description.set(descriptionInput.value)"></textarea>
+      <label [for]="prefix() + '-steps'">Como repetir? (opcional)</label>
+      <textarea #stepsInput [id]="prefix() + '-steps'" rows="3" maxlength="1000"
+        [value]="steps()" [disabled]="busy()" (input)="steps.set(stepsInput.value)"></textarea>
+      <button class="button" type="submit" [disabled]="busy() || coolingDown()">{{ busy() ? 'Enviando…' : 'Enviar relato' }}</button>
+    </form>
+    @if (error()) { <p role="alert">{{ error() }}</p> }
+    @if (coolingDown() && !error()) { <p role="status">Aguarde um minuto antes de enviar outro relato.</p> }
+  }
+</dialog>

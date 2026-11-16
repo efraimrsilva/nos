@@ -1,11 +1,14 @@
 .account > p, section > p { margin-block: .25rem 1rem; color: var(--muted); }
 #account-description, #name-help, dt { color: var(--muted); }
-.card { border: 1px solid var(--line); border-radius: 1rem; padding: 1.25rem; background: white; }
+.card { border: 1px solid var(--line); border-radius: 1rem; padding: 1.25rem; background: var(--surface); }
 .card h2 { overflow-wrap: anywhere; margin-block-end: .55rem; }
 .row { display: block; margin-top: .6rem; }
 .signout { margin-top: 1rem; }
-button { min-height: 2.75rem; padding: .45rem .9rem; border: 1px solid transparent; border-radius: .65rem; background: var(--leaf); color: #fff; font-weight: 650; }
-button.secondary { background: white; border-color: var(--line); color: #294655; }
+.account-access { display: grid; gap: .35rem; margin-top: 1rem; }
+.account-access a { color: var(--leaf); }
+.account-access p { margin: 0; }
+button { min-height: 2.75rem; padding: .45rem .9rem; border: 1px solid transparent; border-radius: .65rem; background: var(--leaf); color: var(--on-leaf, #fff); font-weight: 650; }
+button.secondary { background: var(--surface); border-color: var(--line); color: var(--leaf); }
 button.icon { display: grid; place-items: center; width: 2.75rem; padding: 0; flex: 0 0 auto; }
 form:not([method='dialog']) { display: grid; gap: .55rem; }
 section form { max-width: 24rem; }
@@ -15,8 +18,7 @@ input { width: 100%; min-width: 0; min-height: 2.75rem; border: 1px solid #9fada
 .dialog-header { justify-content: space-between; align-items: flex-start; }
 .dialog-header h2 { font: 500 clamp(1.4rem, 4vw, 1.8rem)/1.2 Georgia, serif; }
 #account-description { margin-top: 1rem; font-size: .9rem; }
-dialog .secondary { background: transparent; border-color: #d5dfce; color: #315944; }
-dialog button:not(.secondary) { background: #315944; }
+dialog .secondary { background: transparent; border-color: var(--line); color: var(--leaf); }
 .dialog-header button { font-size: 1.35rem; }
 dl { margin: 1.35rem 0; }
 dl:last-child { margin-bottom: 0; }
@@ -28,7 +30,7 @@ dd:last-child { margin-bottom: 0; }
 .editor input { background: transparent; border-color: #a8b9a7; }
 #name-help { font-size: .9rem; }
 .actions { flex-wrap: wrap; }
-.error { color: #9a232e; }
+.error { color: var(--theme-error, #9a232e); }
 .success { color: var(--leaf); font-weight: 650; }
 @media (prefers-reduced-motion: no-preference) {
   .editor { animation: editor-in .16s ease-out; }

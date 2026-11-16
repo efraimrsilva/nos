@@ -35,6 +35,9 @@ export const routes: Routes = [
   { path: 'auth/confirm', loadComponent: loadCallback, data:{kind:'confirm'}, title: 'Confirmar e-mail · Nós' },
   { path: 'auth/recovery', loadComponent: loadCallback, data:{kind:'recovery'}, title: 'Recuperar acesso · Nós' },
   { path: 'auth/callback', loadComponent: loadCallback, data:{kind:'callback'}, title: 'Entrar · Nós' },
+  { path: 'configuracoes', pathMatch: 'full', redirectTo: 'conta' },
+  { path: 'configuracoes/privacidade', pathMatch: 'full', redirectTo: '/conta#privacidade' },
+  { path: 'ajuda', pathMatch: 'full', redirectTo: '/conta#ajuda-e-suporte' },
   { path: 'configuracoes/conta', loadComponent: () => import('./account').then(module => module.Account), title: 'Minha conta · Nós' },
   {
     path: '',

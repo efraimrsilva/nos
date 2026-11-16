@@ -8,6 +8,10 @@
         <a [routerLink]="item.url" routerLinkActive="active" [routerLinkActiveOptions]="activeMatch"
           ariaCurrentWhenActive="page">{{ item.label }}</a>
       }
+      @if (profile.user()) {
+        <app-appearance-picker prefix="sidebar-appearance" />
+        <a routerLink="/ajuda">Ajuda</a>
+      }
     </nav>
   </aside>
 
@@ -23,7 +27,11 @@
         <span>Meu espaço</span><span aria-hidden="true">/</span><span>{{ activeLabel() }}</span>
       </div>
       <a class="brand mobile-brand" routerLink="/boas-vindas" aria-label="Nós — início">nós<span>.</span></a>
-      <span class="preview-label">Prévia local · Angular</span>
+      @if (profile.user()) {
+        <app-problem-report prefix="header-support" />
+      } @else {
+        <span class="preview-label">Prévia local · Angular</span>
+      }
     </header>
 
     <main id="conteudo" tabindex="-1" #content>
@@ -56,6 +64,10 @@
     @for (item of areas(); track item.url) {
       <a [routerLink]="item.url" routerLinkActive="active" [routerLinkActiveOptions]="activeMatch"
         ariaCurrentWhenActive="page" (click)="more.close()">{{ item.label }}</a>
+    }
+    @if (profile.user()) {
+      <app-appearance-picker prefix="mobile-appearance" />
+      <a routerLink="/ajuda" (click)="more.close()">Ajuda</a>
     }
   </nav>
 </dialog>

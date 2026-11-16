@@ -1,11 +1,13 @@
 import { afterNextRender, Component, DestroyRef, computed, effect, inject, Injector, resource, signal, viewChild, type ElementRef } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { AccountPreferences } from './account-preferences';
 import { NucleiData } from './nuclei/nuclei-data';
 import { displayName, PreviewProfile } from './preview-profile';
 
 @Component({
   selector: 'app-account',
-  imports: [RouterLink],
+  imports: [RouterLink, AccountPreferences],
   templateUrl: './account.html',
   styleUrl: './account.css',
 })
@@ -14,6 +16,8 @@ export class Account {
   private readonly destroy = inject(DestroyRef);
   private readonly router = inject(Router);
   private readonly injector = inject(Injector);
+  private readonly fragment = toSignal(inject(ActivatedRoute).fragment);
+  private readonly preferences = viewChild<AccountPreferences, ElementRef<HTMLElement>>('preferences', {read: ElementRef});
   protected readonly name = computed(() => displayName(this.profile.user()));
   private readonly nuclei = inject(NucleiData);
   protected readonly last = resource({
@@ -32,6 +36,14 @@ export class Account {
 
   constructor() {
     void this.profile.connect();
+    effect(() => {
+      const fragment = this.fragment();
+      const host = this.preferences()?.nativeElement;
+      if (!host || !fragment || !['aparencia', 'privacidade', 'ajuda-e-suporte', 'apagar-minha-conta'].includes(fragment)) return;
+      afterNextRender(() => {
+        if (host.isConnected && this.fragment() === fragment) host.querySelector<HTMLElement>('#' + fragment)?.focus();
+      }, {injector: this.injector});
+    });
     effect(() => {
       const user = this.profile.user();
       if (this.openedFor && user?.id !== this.openedFor) {

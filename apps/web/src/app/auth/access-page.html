@@ -73,7 +73,7 @@
   <form (submit)="sendEmail($event, assistanceEmail.value)" [attr.aria-busy]="emailPending()">
     <label for="assistance-email">E-mail da conta</label>
     <input #assistanceEmail id="assistance-email" type="email" autocomplete="email" maxlength="254"
-      [value]="access.pendingEmail()" autofocus>
+      [value]="profile.user()?.email || access.pendingEmail()" autofocus>
     @if (emailMessage(); as feedback) {
       <p [attr.role]="feedback.success ? 'status' : 'alert'" [class.auth-error]="!feedback.success">{{ feedback.message }}</p>
     }
