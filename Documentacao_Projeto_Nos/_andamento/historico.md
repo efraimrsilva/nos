@@ -1,6 +1,6 @@
 ## 2026-11-15 — v4.0.0-alpha.9 — A09 da migração Angular
 
-A08 confirmada na referência de acompanhamento em `ec4f9bf`. A09 portou Agenda, respostas e gestão de eventos, com validação local em duas larguras e nas rotinas concorrentes do banco. [Registro A09](registros/registro-v4.0.0-alpha.9-2026-11-15-imp-agenda-angular-fun-calendario-e-eventos.md).
+A08 confirmada em `ec4f9bf` e A09 em `38a531f` na referência de acompanhamento. A09 portou Agenda, respostas e gestão de eventos, com validação local em duas larguras e nas rotinas concorrentes do banco. [Registro A09](registros/registro-v4.0.0-alpha.9-2026-11-15-imp-agenda-angular-fun-calendario-e-eventos.md).
 
 ---
 
@@ -60,7 +60,7 @@ Registrada a linha `3.x` para manutenção do Next.js, a série `4.0.0-alpha.N` 
 
 ## 2026-11-13 — v3.11.1 — Guia Migração e abordagem selecionada
 
-O Atlas ganhou uma guia própria com 14 entregas planejadas. A decisão vigente usa Angular e Supabase, com prévia isolada, navegação interna contínua e virada após paridade. [Plano vigente](planos/migracao-angular.md) · [Registro](registros/registro-v3.11.1-2026-11-13-imp-atlas-fun-roteiro-migracao-angular.md).
+O Atlas ganhou uma guia própria com 14 entregas planejadas. O roteiro usa Angular para computador e celular no navegador e Supabase para autenticação e dados. A virada web ocorre após paridade nas duas larguras. Capacitor reaproveita a interface móvel na etapa nativa posterior. [Plano vigente](planos/migracao-angular.md) · [Registro](registros/registro-v3.11.1-2026-11-13-imp-atlas-fun-roteiro-migracao-angular.md).
 
 ---
 

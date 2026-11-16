@@ -65,7 +65,7 @@ Evidências do estado atual: [frontend e limites de segurança](_andamento/tecno
 
 ## Objetivo
 
-Definir os contratos de autenticação e proteção da privacidade afetiva na stack web-first (Next.js e Supabase), com evolução mobile via Capacitor. Separar decisões vigentes, propostas e validações necessárias antes da publicação.
+Definir os contratos de autenticação e proteção da privacidade afetiva na aplicação web com Supabase e evolução nativa via Capacitor. O [plano de migração](_andamento/planos/migracao-angular.md) define Angular como frontend de computador e celular. Separar decisões vigentes, propostas e validações necessárias antes da publicação.
 
 ---
 
@@ -84,6 +84,8 @@ Definir os contratos de autenticação e proteção da privacidade afetiva na st
 
 ## 2.1 Frontend Web
 
+**Destino da migração:** Angular e TypeScript, com uma interface responsiva para computador e celular. A prévia Angular usa o cliente Supabase no navegador para sessão. O isolamento depende das políticas e permissões do banco, e a hospedagem da prévia precisa validar o retorno dos fluxos de autenticação. Os itens abaixo descrevem a versão Next.js durante a transição.
+
 - **React + Next.js + TypeScript**: App Router e componentes de servidor, com interações no cliente quando necessárias.
 - **Tailwind CSS e componentes próprios**: Seguem v2.3 e a prioridade visual do Atlas vivo. shadcn/ui é opção de composição, sem adoção presumida de dependências.
 - **Modelo atual de autenticação**: Operações no servidor; cookies `HttpOnly`, `Secure` em produção e `SameSite=Lax`. O navegador não recebe os tokens para uso por um cliente Supabase de autenticação.
@@ -98,24 +100,15 @@ Definir os contratos de autenticação e proteção da privacidade afetiva na st
 
 ## 2.3 Mobile com Capacitor — fronteira pendente
 
-A ordem vigente é web, Android e depois iOS. Capacitor fornece a ponte para APIs nativas; não executa o servidor Next.js dentro do pacote do aplicativo.
+A ordem é estabilizar a aplicação web Angular, empacotar Android e depois iOS. O Capacitor reutilizará os arquivos da compilação Angular. O navegador móvel espelha a interface. O pacote nativo terá validação em dispositivo real.
 
-O projeto utiliza cookies, Server Actions e renderização dinâmica. Portanto, não assumir que sua compilação atual pode ser exportada diretamente para um pacote estático. A [documentação do Next.js sobre exportação estática](https://nextjs.org/docs/app/guides/static-exports) descreve restrições para recursos dependentes de servidor.
-
-Antes de empacotar Android, registrar uma decisão de arquitetura que escolha e valide:
-
-| Alternativa | Consequência a avaliar |
-|---|---|
-| Interface web hospedada carregada pelo shell | Dependência de rede, cookies na WebView, políticas de distribuição e integração com plugins |
-| Interface estática local com API remota | Adaptação dos recursos de servidor, autenticação por tokens e política de origens/CORS |
-
-O contrato deverá identificar hospedagem do servidor, origem web/nativa, endpoints, armazenamento, atualização do aplicativo e retorno de login/recuperação por deep link. Reutilizar componentes não significa reutilizar automaticamente o transporte de sessão.
+O contrato nativo deverá identificar a origem da aplicação, os serviços remotos, o armazenamento seguro e a limpeza da sessão, a atualização do aplicativo e os retornos de entrada e recuperação por links do aplicativo. A migração compara a sessão Angular com a do site anterior durante o ensaio web. [Plano de migração](_andamento/planos/migracao-angular.md)
 
 Plugins nativos são **candidatos**, não dependências aprovadas: verificar manutenção, licença, compatibilidade com a versão de Capacitor, Android/iOS suportados e acesso ao segredo condicionado à autenticação do sistema. A escolha exige prova em dispositivo real.
 
 ## 2.4 Infraestrutura
 
-Vercel hospeda o Next.js; Supabase Cloud fornece Auth e dados. Google Play Console e Apple Developer/TestFlight/App Store Connect pertencem às etapas mobile. Registrar configurações efetivas por ambiente sem incluir credenciais.
+O site Next.js usa Netlify durante a transição. A publicação estática do Angular será ensaiada na prévia. O Supabase Cloud fornece Auth e dados. Google Play Console e Apple Developer/TestFlight/App Store Connect pertencem às etapas mobile. Registrar configurações efetivas por ambiente sem incluir credenciais.
 
 ## 2.5 Justificativa e alternativas de autenticação
 

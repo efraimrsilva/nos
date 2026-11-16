@@ -2,9 +2,9 @@
 
 **Status:** guia implementada localmente. Migração planejada.
 
-**Objetivo e requisitos:** mostrar as 14 entregas em guia própria no Atlas vivo, registrar a comparação de estratégias e planejar navegação interna Angular sem recarregar o documento nem substituir toda a tela por um indicador de espera.
+**Objetivo e requisitos:** mostrar as 14 entregas em guia própria no Atlas vivo, registrar a arquitetura web responsiva e a sequência até o aplicativo nativo e planejar navegação interna Angular sem recarregar o documento nem substituir toda a tela por um indicador de espera.
 
-**Decisões e integrações:** usar Angular com Supabase, validar em prévia isolada e fazer uma virada após a paridade. O plano compara Module Federation, single-spa e Web Components. A guia apresenta resumos expansíveis e um link para a fonte detalhada. A tela atual do aplicativo serve de referência para a implementação futura.
+**Decisões e integrações:** usar Angular como único frontend web, com Supabase e uma interface responsiva para computador e celular. Validar em prévia isolada e fazer a virada após a paridade. Reutilizar a compilação no Capacitor após estabilizar a web, primeiro para Android e depois para iOS. A guia apresenta resumos expansíveis e um link para a fonte detalhada. A tela atual do aplicativo serve de referência para a implementação futura.
 
 **Arquivos:** Atlas `index.html`, `atlas.js`, `atlas.css`; verificador da guia, guia do Atlas, plano, registros de continuidade e manifestos de versão.
 

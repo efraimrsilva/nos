@@ -76,7 +76,7 @@ PostgreSQL — dados, funções, transações e políticas de acesso
 
 Exemplos para revisão técnica: [integração Supabase](src/lib/supabase/server.ts), [proxy de sessão](src/proxy.ts), [ações de acordos](src/features/agreements/actions.ts), [distribuição dos eventos da agenda](src/features/calendar/calendar-lanes.ts) e [migrações](supabase/migrations).
 
-A [prévia Angular](apps/web/README.md) tem instalação e execução separadas. O [plano de migração](Documentacao_Projeto_Nos/_andamento/planos/migracao-angular.md) descreve a sequência e os critérios para substituir o aplicativo atual.
+O [plano de migração](Documentacao_Projeto_Nos/_andamento/planos/migracao-angular.md) define Angular para a web de computador e celular. A interface móvel no navegador espelha o futuro aplicativo Capacitor. A [prévia Angular](apps/web/README.md) pode ser executada durante a transição.
 
 ## Qualidade e evidências de engenharia
 

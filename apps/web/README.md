@@ -1,6 +1,6 @@
 # Nós · prévia Angular
 
-Aplicação Angular separada do Next.js durante a migração. A prévia inclui entrada, criação de conta, confirmação de e-mail, recuperação de senha, criação de Núcleos, convites por código, integrantes e administração. Em `/configuracoes/conta`, leia e edite o próprio nome. No Início do Núcleo, abra **Ver integrantes** ou **Minha participação** para conferir as ações da conta conectada.
+Uma aplicação Angular para os navegadores de computador e celular. A interface móvel no navegador espelha a experiência que será empacotada com Capacitor após a estabilização web. Durante a migração, a prévia é executada separadamente do site Next.js. A prévia inclui entrada, criação de conta, confirmação de e-mail, recuperação de senha, criação de Núcleos, convites por código, integrantes e administração. Em `/configuracoes/conta`, leia e edite o próprio nome. No Início do Núcleo, abra **Ver integrantes** ou **Minha participação** para conferir as ações da conta conectada.
 
 No Início, **Ver acordos** abre a lista daquele Núcleo. É possível enviar propostas, responder pela conta conectada e consultar termos, momentos e versões anteriores. A administração controla teste, ativação, revisão e encerramento. O registro de momentos exige aceite dos termos vigentes.
 
