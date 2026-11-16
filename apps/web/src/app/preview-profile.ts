@@ -1,10 +1,10 @@
 import { DestroyRef, Injectable, inject, signal } from '@angular/core';
 import { createClient, isAuthRetryableFetchError, type Session, type SupabaseClient, type User } from '@supabase/supabase-js';
 
+import { readPublicConfig, type PublicConfig } from './auth/public-config';
 import { updateOwnUser } from './auth/supabase-user';
 
 const sessionKey = 'nos-angular-preview-session';
-type Config = { url: string; publicKey: string; google?: boolean };
 const sessionMessage = 'Não foi possível confirmar sua sessão. Entre novamente na conta.';
 const saveMessage = 'Não foi possível salvar seu nome. Tente novamente.';
 
@@ -15,7 +15,7 @@ export class PreviewProfile {
   readonly google = signal(false);
   readonly notice = signal('');
   private readonly destroy = inject(DestroyRef);
-  private config?: Config;
+  private config?: PublicConfig;
   private client?: SupabaseClient;
   private connecting?: Promise<void>;
   private accountId: string | null = null;
@@ -36,12 +36,12 @@ export class PreviewProfile {
   private async initialize() {
     this.loading.set(true);
     try {
-      const response = await fetch('/supabase.json', { cache: 'no-store' });
+      const response = await fetch('/supabase.json', {cache:'no-store', redirect:'error'});
       if (!response.ok) throw new Error();
-      const config: Config = await response.json();
-      if (location.hostname !== '127.0.0.1' ||
-          !/^http:\/\/(?:127\.0\.0\.1|localhost):\d+\/?$/.test(config.url) ||
-          !config.publicKey) throw new Error();
+      const local = location.protocol === 'http:' && ['127.0.0.1', 'localhost'].includes(location.hostname);
+      if (!local && location.protocol !== 'https:') throw new Error();
+      const config = readPublicConfig(await response.json(), local ? 'local' : 'hosted');
+      if (!config) throw new Error();
       this.config = config;
       this.client = createClient(config.url, config.publicKey, {
         auth: { storageKey: sessionKey, flowType: 'pkce', detectSessionInUrl: false },
@@ -67,7 +67,7 @@ export class PreviewProfile {
       window.addEventListener('storage', onStorage);
       this.destroy.onDestroy(() => window.removeEventListener('storage', onStorage));
     } catch {
-      this.notice.set('Inicie a prévia local com npm run start no pacote Angular.');
+      this.notice.set('Não foi possível carregar a configuração pública do serviço de autenticação.');
       this.loading.set(false);
     }
   }

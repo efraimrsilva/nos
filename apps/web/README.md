@@ -37,4 +37,4 @@ O Playwright usa a porta 3200 por padrão. Se estiver em uso, defina `NOS_ANGULA
 
 A A10 está em validação. Conta reúne aparência, privacidade, exclusão e Ajuda. O relato em desenvolvimento passa por um servidor local por trás do proxy Angular. Para ensaiar o envio, configure `NOS_ANGULAR_SUPPORT_SMTP_PORT` com a porta de uma caixa de testes SMTP (protocolo de transferência de correio simples) em `127.0.0.1` antes de iniciar a prévia. Sem a porta, o formulário informa indisponibilidade e preserva o texto. O servidor de desenvolvimento usa apenas a caixa local e retém a confirmação até o aceite do transporte.
 
-A configuração pública local fica fora do build de produção. Conexão hospedada e regras de publicação serão ensaiadas nas etapas do [plano](../../Documentacao_Projeto_Nos/_andamento/planos/migracao-angular.md).
+A configuração pública local fica fora do build de produção. O [ensaio hospedado](netlify/README.md) gera uma configuração HTTPS com chave pública e mantém as credenciais de envio nas funções. Conexão hospedada e regras de publicação serão ensaiadas nas etapas do [plano](../../Documentacao_Projeto_Nos/_andamento/planos/migracao-angular.md).

@@ -1,3 +1,9 @@
+## 2026-11-16 — Angular A12 — Integrações e hospedagem em validação
+
+Configuração separada da prévia, adaptadores de avisos e relatos e regra de navegação Angular. Validação isolada dos contratos com Node. Ensaio hospedado pendente. [Registro A12](registros/registro-v4.0.0-alpha.9-2026-11-16-imp-previa-hospedada-fun-integracoes-angular.md).
+
+---
+
 ## 2026-11-16 — Angular A11 — Prévias e navegação em validação
 
 Seis rotas ilustrativas, vínculo do Núcleo, navegação responsiva, totais pessoais e painel de notificações integrados localmente. A compilação e a confirmação autenticada continuam pendentes. [Registro A11](registros/registro-v4.0.0-alpha.9-2026-11-16-imp-previas-angular-fun-navegacao-e-totais.md).

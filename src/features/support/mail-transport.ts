@@ -5,10 +5,10 @@ import type { NewAccount } from "../account-notifications/handler";
 // Destinatário fixo no servidor. Não aceitar to/from/assunto vindos do formulário.
 const recipient = "sintagmasoftware@gmail.com";
 
-export async function sendNewAccountNotification(mail: NonNullable<ReturnType<typeof supportMailTransport>>, account: NewAccount) {
+export async function sendNewAccountNotification(mail: NonNullable<ReturnType<typeof supportMailTransport>>, account: NewAccount, to = recipient) {
   // Somente estes dois campos entram no relatório; sem metadados do Auth ou anexos.
   const result = await mail.transport.sendMail({
-    from: { name: "Nós", address: mail.from }, to: recipient,
+    from: { name: "Nós", address: mail.from }, to,
     subject: "Nós — Nova conta criada",
     text: `Nome: ${account.name}\nE-mail: ${account.email}`,
   });
@@ -30,11 +30,11 @@ export function supportMailTransport(env = process.env) {
   }) };
 }
 
-export async function sendProblemReport(mail: NonNullable<ReturnType<typeof supportMailTransport>>, input: ProblemReportInput, accountEmail: string, version: string) {
+export async function sendProblemReport(mail: NonNullable<ReturnType<typeof supportMailTransport>>, input: ProblemReportInput, accountEmail: string, version: string, to = recipient) {
   // Texto simples evita interpretar HTML/URLs enviados pelo usuário. O contato
   // vem da sessão validada, permitindo resposta sem revelar a caixa da equipe.
   const result = await mail.transport.sendMail({
-    from: { name: "Nós — suporte", address: mail.from }, to: recipient,
+    from: { name: "Nós — suporte", address: mail.from }, to,
     replyTo: accountEmail, subject: `[Nós v${version}] Relato de problema`,
     text: `Relato de problema no Nós\n\nTela: ${input.route}\nVersão: ${version}\nContato da conta: ${accountEmail}\n\nO que aconteceu?\n${input.description}\n\nComo repetir?\n${input.steps || "Não informado."}`,
   });

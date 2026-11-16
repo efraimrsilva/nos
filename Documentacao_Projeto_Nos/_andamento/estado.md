@@ -2,17 +2,17 @@
 
 **Objetivo e escopo:** Angular para desktop e navegador móvel. Após estabilizar a web, empacotar a mesma interface com Capacitor, primeiro no Android e depois no iOS.
 
-**Base e Git:** DOCS_DIR `Documentacao_Projeto_Nos`. Branch `codex/migracao-angular`, base `9a92ae8` com o código A10. A01–A09 portadas, A10 e A11 em validação. A12–A14 pendentes.
+**Base e Git:** DOCS_DIR `Documentacao_Projeto_Nos`. Branch `codex/migracao-angular`, base `a5c3833` com o código da A11. A01–A09 portadas. A10, A11 e A12 em validação. A13–A14 pendentes.
 
-**A11 local:** seis rotas sob `/nucleos/:id` em `apps/web/src/app/previews/`. Vínculo reutiliza `NucleiData.selected`. Navegação, totais pessoais e painel visual de notificações integrados ao shell. Ponte do Nós descarta o rascunho ao trocar de rota ou Núcleo. Sem migração do banco, publicação ou mudança de versão.
+**A12 local:** `apps/web/netlify.toml` define build, publicação estática e encaminhamento para as funções dos avisos e relatos. `scripts/build-angular-preview.mjs` gera o arquivo público com origem HTTPS e chave publicável. As funções reutilizam o contrato assinado, a reserva de relatos e o transporte de teste. Nenhuma migração, mudança de versão ou publicação.
 
-**Validação e bloqueios:** revisão independente estática, teste Angular preparado, verificadores Migração e MVP do Atlas aprovados e 36 imagens verificadas. A instalação Angular segue bloqueada pelo acesso ao registro npm. Playwright e banco param por Docker/Supabase local indisponível. A confirmação de e-mail em caixa local e da exclusão da A10 continuam pendentes. As migrações de Núcleos `20261115162000`, `20261115162100` e de Hábito `20261115182000`, `20261115182500` devem estar presentes na prévia antes dos testes; histórico divergente `20261112025922` preservado.
+**Validação e bloqueios:** 15 testes Node e verificador da guia Migração aprovados. Revisão independente estática concluída. Build da prévia e tipos Angular bloqueados pelo CLI ausente e registro npm com `ETIMEDOUT`. Tipos e build Next.js bloqueados por dependências locais ausentes. O Docker/Supabase local indisponível impediu o ensaio da fila real, além da validação pendente de A10–A11. A execução no Netlify, os retornos hospedados e a caixa de ensaio permanecem pendentes.
 
-**Próximo passo:** repor as dependências pelos lockfiles e iniciar Supabase local. Executar tipos, compilação, Playwright autenticado e testes de banco pertinentes a A10–A11, conferir desktop e celular no aplicativo e encerrar a validação. A12 tratará a hospedagem e as integrações operacionais.
+**Próximo passo:** restaurar as dependências pelos lockfiles e o Supabase local, executar tipos e builds e validar A10 e A11 no aplicativo. Completar A12 no ambiente Netlify/Supabase isolado com contas e caixa descartáveis, incluindo o roteiro de retorno. As migrações de Núcleos `20261115162000`, `20261115162100` e de Hábito `20261115182000`, `20261115182500` precisam estar presentes. Histórico divergente `20261112025922` preservado. A13 vem após o ensaio e os critérios de paridade.
 
-**Continuidade Git:** A10 commitada em `9a92ae8`, com validação pendente. A11 em validação com alterações locais. Contador 74 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
+**Continuidade Git:** A10 e A11 commitadas em `9a92ae8` e `a5c3833`, com verificações pendentes. A12 em validação com alterações locais. Contador 75 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
 
-**Índice:** [Registro A11](registros/registro-v4.0.0-alpha.9-2026-11-16-imp-previas-angular-fun-navegacao-e-totais.md) · [Galeria parcial A11](../wireframes/comparacoes/v4.0.0-alpha.9-2026-11-16-angular-previas-tela_38-tela_40-tela_44-tela_49-tela_55-tela_60-tela_62/index.html) · [Guia Migração](../wireframes/atlas/index.html#migracao) · [Plano vigente](planos/migracao-angular.md) · [Registro A10](registros/registro-v4.0.0-alpha.9-2026-11-16-imp-conta-angular-fun-preferencias-e-suporte.md) · [Guia da prévia](../../apps/web/README.md).
+**Índice:** [Registro A12](registros/registro-v4.0.0-alpha.9-2026-11-16-imp-previa-hospedada-fun-integracoes-angular.md) · [Roteiro Netlify](../../apps/web/netlify/README.md) · [Guia Migração](../wireframes/atlas/index.html#migracao) · [Plano vigente](planos/migracao-angular.md) · [Registro A11](registros/registro-v4.0.0-alpha.9-2026-11-16-imp-previas-angular-fun-navegacao-e-totais.md) · [Registro A10](registros/registro-v4.0.0-alpha.9-2026-11-16-imp-conta-angular-fun-preferencias-e-suporte.md).
 
 ---
 
