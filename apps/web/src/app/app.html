@@ -4,10 +4,7 @@
     <a class="brand" routerLink="/boas-vindas" aria-label="Nós — início">nós<span>.</span></a>
     <p class="caption">Cultivar juntos</p>
     <nav aria-label="Áreas do Nós">
-      @for (item of areas(); track item.url) {
-        <a [routerLink]="item.url" routerLinkActive="active" [routerLinkActiveOptions]="activeMatch"
-          ariaCurrentWhenActive="page">{{ item.label }}</a>
-      }
+      <app-navigation-links [items]="moreAreas()" [counts]="counts()" [showCounts]="countVisible()" />
       @if (profile.user()) {
         <app-appearance-picker prefix="sidebar-appearance" />
         <a routerLink="/ajuda">Ajuda</a>
@@ -28,7 +25,13 @@
       </div>
       <a class="brand mobile-brand" routerLink="/boas-vindas" aria-label="Nós — início">nós<span>.</span></a>
       @if (profile.user()) {
-        <app-problem-report prefix="header-support" />
+        <div class="header-tools">
+          <button class="icon-button" type="button" (click)="notifications.showModal()" aria-haspopup="dialog"
+            aria-controls="notifications-preview" aria-label="Notificações — esboço">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg>
+          </button>
+          <app-problem-report prefix="header-support" />
+        </div>
       } @else {
         <span class="preview-label">Prévia local · Angular</span>
       }
@@ -45,11 +48,8 @@
     </main>
   </div>
 
-  <nav class="mobile-nav" [class.mobile-nav-nucleus]="areas().length===4" aria-label="Navegação móvel">
-    @for (item of areas(); track item.url) {
-      <a [routerLink]="item.url" routerLinkActive="active" [routerLinkActiveOptions]="activeMatch"
-        ariaCurrentWhenActive="page">{{ item.label }}</a>
-    }
+  <nav class="mobile-nav" [class.mobile-nav-nucleus]="nucleusId() !== null" aria-label="Navegação móvel">
+    <app-navigation-links class="compact" [items]="mobileAreas()" [counts]="counts()" [showCounts]="countVisible()" [compact]="true" />
     <button type="button" aria-label="Mais áreas e preferências" aria-haspopup="dialog"
       aria-controls="more-areas" (click)="more.showModal()">Mais</button>
   </nav>
@@ -61,13 +61,24 @@
     <form method="dialog"><button class="icon-button" aria-label="Fechar menu" autofocus>×</button></form>
   </header>
   <nav aria-label="Todas as áreas">
-    @for (item of areas(); track item.url) {
-      <a [routerLink]="item.url" routerLinkActive="active" [routerLinkActiveOptions]="activeMatch"
-        ariaCurrentWhenActive="page" (click)="more.close()">{{ item.label }}</a>
-    }
+    <app-navigation-links [items]="moreAreas()" [counts]="counts()" [showCounts]="countVisible()" (followed)="more.close()" />
     @if (profile.user()) {
       <app-appearance-picker prefix="mobile-appearance" />
       <a routerLink="/ajuda" (click)="more.close()">Ajuda</a>
     }
   </nav>
+</dialog>
+
+<dialog class="shared-dialog" id="notifications-preview" #notifications aria-labelledby="notifications-title">
+  <header class="dialog-heading">
+    <h2 id="notifications-title">Novidades, no seu tempo.</h2>
+    <form method="dialog"><button class="icon-button" aria-label="Fechar notificações" autofocus>×</button></form>
+  </header>
+  <p>Esboço de funcionalidade · ainda não desenvolvido</p>
+  <p>Este será o lugar para acompanhar convites, propostas e cuidados que pedem sua atenção.</p>
+  @if (nucleusId(); as id) {
+    <a class="button" [routerLink]="['/nucleos', id, 'acordos']" (click)="notifications.close()">Consultar Acordos</a>
+  } @else {
+    <a class="button" routerLink="/nucleos" (click)="notifications.close()">Abrir Seus Núcleos</a>
+  }
 </dialog>

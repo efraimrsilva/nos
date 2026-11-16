@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Router, type Routes, type UrlMatcher } from '@angular/router';
 import { PreviewHome } from './preview-home';
 import { RouteState } from './shared/route-state';
-import { safeAuthNext } from './auth/auth-flow';
+import { sections } from './previews/examples';
 
 @Component({
   imports: [RouteState],
@@ -19,11 +19,6 @@ const matchAccess: UrlMatcher = parts => {
   return null;
 };
 
-const pending: UrlMatcher = parts => {
-  const path = '/' + parts.map(part => part.path).join('/');
-  // Mantém o retorno de convite e de Núcleo mesmo antes de as páginas desses módulos chegarem.
-  return parts.length > 0 && (path === '/nucleos' || safeAuthNext(path) === path) ? {consumed: parts} : null;
-};
 const loadEntry = () => import('./auth/entry-destination').then(module => module.EntryDestination);
 const loadCallback = () => import('./auth/auth-callback').then(module => module.AuthCallback);
 
@@ -53,6 +48,12 @@ export const routes: Routes = [
       {path:'comecar/convite',loadComponent:() => import('./invitations/invitation-entry').then(module => module.InvitationEntry),title:'Entrar por convite · Nós'},
       {path:'comecar/convite-inicial/:id',loadComponent:() => import('./invitations/initial-invitation').then(module => module.InitialInvitation),title:'Convite inicial · Nós'},
       {path:'nucleos/:id/convites',loadComponent:() => import('./invitations/invitation-management').then(module => module.InvitationManagement),title:'Gerenciar convites · Nós'},
+      ...Object.entries(sections).map(([preview, section]) => ({
+        path: 'nucleos/:id/' + preview,
+        loadComponent: () => import('./previews/nucleus-preview').then(module => module.NucleusPreview),
+        data: {preview},
+        title: section.label + ' · Nós',
+      })),
       {path:'nucleos/:id/agenda',loadComponent:() => import('./calendar/calendar-page').then(module => module.CalendarPage),title:'Agenda do Núcleo · Nós'},
       {path:'nucleos/:id/acordos',loadComponent:() => import('./agreements/agreements-page').then(module => module.AgreementsPage),title:'Acordos do Núcleo · Nós'},
       {path:'nucleos/:id/acordos/:agreementId',loadComponent:() => import('./agreements/agreement-detail').then(module => module.AgreementDetail),title:'Detalhe do acordo · Nós'},
@@ -61,6 +62,5 @@ export const routes: Routes = [
       {path:'nucleos/:id/acordos/:agreementId/revisar',loadComponent:() => import('./agreements/habit-workspace').then(module => module.HabitWorkspace),data:{cycle:'terms'},title:'Termos e histórico · Nós'},
     ],
   },
-  { matcher: pending, loadComponent: loadEntry, title: 'Meu espaço · Nós' },
   { path: '**', component: NotFound, title: 'Página não encontrada · Nós' },
 ];

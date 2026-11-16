@@ -1,3 +1,5 @@
+> **A11 Angular em validação:** reutiliza `get_navigation_counts()` com a credencial da conta conectada. Exibe os totais gerais nos destinos contextuais, incluindo Integrantes. O resultado anterior é descartado na troca de conta ou caminho. [Registro](../registros/registro-v4.0.0-alpha.9-2026-11-16-imp-previas-angular-fun-navegacao-e-totais.md).
+
 # Totais pessoais na navegação — v3.3.0
 
 Desktop: número textual à direita de Seus Núcleos, Acordos, Agenda e Pessoas. Celular: junto ao rótulo; Seus Núcleos no Mais e no atalho externo ao Núcleo. Sem fundo, círculo, sobreposição no ícone, alerta ou animação de notificação. Cores de texto seguem o tema da conta; ícones preservados.

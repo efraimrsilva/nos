@@ -1,3 +1,7 @@
+## Prévias do Núcleo e navegação na aplicação Angular — A11 em validação — 2026-11-16
+
+As Telas 38, 40, 44, 49, 55, 60 e 62 permanecem planejadas como funcionalidades. As rotas ilustrativas exigem vínculo e mantêm os exemplos sem persistência. [Registro A11](../registros/registro-v4.0.0-alpha.9-2026-11-16-imp-previas-angular-fun-navegacao-e-totais.md).
+
 ## Conta, Preferências e Ajuda na prévia Angular — A10 em validação — 2026-11-16
 
 Telas 66, 67, 69 e 70. Tema por conta, preferência de autoria, exclusão confirmada e relato protegido seguem os contratos existentes. A conferência autenticada em desktop e celular permanece pendente. [Registro A10](../registros/registro-v4.0.0-alpha.9-2026-11-16-imp-conta-angular-fun-preferencias-e-suporte.md).

@@ -18,6 +18,9 @@
 }
 .mobile-brand { font-size: 2rem; }
 .preview-label { text-align: end; }
+.header-tools { display: flex; flex-wrap: wrap; justify-content: end; gap: .35rem; }
+#notifications-preview p { margin-block: .65rem; }
+nav app-navigation-links + app-appearance-picker { margin-top: .5rem; }
 main {
   max-width: 58rem; padding: clamp(1rem, 5vw, 2.2rem);
   padding-bottom: calc(5.5rem + env(safe-area-inset-bottom)); margin-inline: auto;

@@ -1,3 +1,5 @@
+- [A11 · Prévias e navegação no Atlas](v4.0.0-alpha.9-2026-11-16-angular-previas-tela_38-tela_40-tela_44-tela_49-tela_55-tela_60-tela_62/index.html) — evidência do Atlas em desktop e celular durante a validação.
+
 - [A10 · Conta, preferências e suporte no Atlas](v4.0.0-alpha.9-2026-11-16-angular-controles-tela_66-tela_67-tela_69-tela_70/index.html) — 24 capturas do Atlas em computador e celular. A evidência do app Angular permanece pendente.
 
 - [v4.0.0-alpha.9 · Agenda no Angular](v4.0.0-alpha.9-2026-11-15-angular-agenda-tela_14-tela_15-tela_16-tela_17/index.html) — telas 14–17 em computador e celular, incluindo os três diálogos de gestão e a resposta no detalhe.

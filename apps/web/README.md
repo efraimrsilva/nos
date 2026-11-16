@@ -6,6 +6,8 @@ No Início, **Ver acordos** abre a lista daquele Núcleo. É possível enviar pr
 
 No Início do Núcleo, **Abrir agenda** e os links dos eventos levam à Agenda. O calendário mensal abre a semana escolhida; telas estreitas mostram a lista da semana. É possível criar, responder, editar e remover conforme o vínculo e as permissões já existentes no Supabase.
 
+Em validação na A11, o Início do Núcleo e a navegação dão acesso a seis prévias privadas. Os exemplos são editoriais. Na Ponte do Nós, o rascunho fica na memória da tela. Os totais pessoais usam a função existente do banco e o painel de notificações é ilustrativo.
+
 Da raiz, com Node.js 24.15 ou superior da série 24 e Docker Desktop:
 
 ```powershell

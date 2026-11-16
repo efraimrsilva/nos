@@ -1,0 +1,190 @@
+@if (state.isLoading()) {
+  <p role="status">Conferindo acesso à prévia…</p>
+} @else if (state.error()) {
+  <section class="surface">
+    <h1 tabindex="-1">Não foi possível abrir a prévia</h1>
+    <p role="alert">Não foi possível conferir seu vínculo neste momento.</p>
+    <button class="button" type="button" (click)="state.reload()">Tentar novamente</button>
+  </section>
+} @else if (state.value(); as access) {
+  @for (nucleus of [access.nucleus]; track nucleus.id) {
+    <header class="preview-header">
+      <a [routerLink]="['/nucleos', nucleus.id]">{{ nucleus.name }}</a>
+      <p class="preview-note">Esboço de funcionalidade · ainda não desenvolvido</p>
+      <p class="preview-note">{{ section.eyebrow }}</p>
+      <h1 tabindex="-1">{{ section.title }}</h1>
+      <p>{{ section.description }}</p>
+      <button type="button" class="icon-button" (click)="about.showModal()" aria-haspopup="dialog">O que está previsto nesta área?</button>
+    </header>
+    <nav class="preview-options" aria-label="Explorações de funcionalidades futuras">
+      @for (destination of destinations; track destination[0]) {
+        <a [routerLink]="['/nucleos', nucleus.id, destination[0]]"
+          [attr.aria-current]="destination[0] === kind ? 'page' : null">{{ destination[1].label }}</a>
+      }
+    </nav>
+
+    @switch (kind) {
+      @case ('arvore') {
+        <div class="preview-columns">
+          <section class="surface tree-example">
+            <h2>Uma árvore de possibilidades</h2>
+            <div class="tree-illustration" role="img" aria-label="Árvore ilustrativa de troncos entrelaçados, sem indicador de progresso">
+              <svg viewBox="0 0 520 440" aria-hidden="true"><ellipse cx="260" cy="391" rx="185" ry="24" fill="#d8e5c8" />
+          <path d="M224 390c23-56 39-99 25-166M276 390c-20-65-9-100 14-155" stroke="#9a7250" stroke-width="24" fill="none" stroke-linecap="round" />
+          <path d="M252 300c-43-35-72-61-83-99m97 82c38-28 61-50 69-84" stroke="#9a7250" stroke-width="13" fill="none" stroke-linecap="round" />
+          <ellipse cx="172" cy="190" rx="77" ry="82" fill="#6d944d" transform="rotate(-30 172 190)" />
+          <ellipse cx="327" cy="181" rx="88" ry="83" fill="#86a95f" transform="rotate(24 327 181)" />
+          <ellipse cx="243" cy="125" rx="87" ry="91" fill="#adc682" /><ellipse cx="271" cy="207" rx="79" ry="61" fill="#517844" />
+          <path d="M212 135c12 7 24 19 29 35m94-29c-19 11-30 26-32 45m-133-7c13 4 25 12 33 22" fill="none" stroke="#dceac8" stroke-width="3" stroke-linecap="round" opacity=".65" />
+          <circle cx="202" cy="223" r="7" fill="#d8a356" /><circle cx="304" cy="105" r="6" fill="#e2c26d" /><circle cx="336" cy="215" r="6" fill="#d89885" />
+          <path d="m84 340 7-17 7 17m315 8 7-20 7 20" fill="none" stroke="#8ba66d" stroke-width="3" stroke-linecap="round" />
+        </svg>
+            </div>
+            <div class="preview-options" aria-label="Significados da árvore">
+              @for (item of roots; track item.key) {
+                <button class="icon-button" type="button" [attr.aria-pressed]="root() === item" (click)="root.set(item)">{{ item.label }}</button>
+              }
+            </div>
+          </section>
+          <section class="surface example-panel" aria-live="polite">
+            <p class="preview-note">Exemplo ilustrativo · {{ root().label }}</p>
+            <h2>{{ root().title }}</h2><p>{{ root().text }}</p>
+            <p>Os critérios de representação ainda serão definidos. A árvore não calcula crescimento nem pontuação.</p>
+          </section>
+        </div>
+      }
+      @case ('memorias') {
+        <div class="preview-options" aria-label="Filtrar exemplos de memórias">
+          @for (option of filters; track option) {
+            <button class="icon-button" type="button" [attr.aria-pressed]="filter() === option" (click)="filterMemories(option)">{{ option }}</button>
+          }
+        </div>
+        <div class="preview-columns">
+          <section class="preview-cards" aria-label="Memórias de exemplo">
+            @for (item of visibleMemories(); track item.title) {
+              <button class="surface preview-card" type="button" [attr.data-tone]="item.tone" [attr.aria-pressed]="memory() === item" (click)="memory.set(item)">
+                <small>{{ item.type }}</small><strong>{{ item.title }}</strong><span>{{ item.date }}</span>
+              </button>
+            }
+          </section>
+          <section class="surface example-panel" aria-live="polite">
+            <p class="preview-note">Exemplo ilustrativo · texto editorial</p>
+            <h2>{{ memory().title }}</h2><p>{{ memory().text }}</p>
+            <button class="icon-button" type="button" (click)="detail.showModal()" aria-haspopup="dialog">Abrir detalhe da memória</button>
+          </section>
+        </div>
+        <dialog #detail class="shared-dialog" aria-labelledby="memory-example-title">
+          <header class="dialog-heading"><h2 id="memory-example-title">{{ memory().title }}</h2>
+            <form method="dialog"><button class="icon-button" autofocus aria-label="Fechar detalhe da memória">×</button></form>
+          </header>
+          <p>{{ memory().text }}</p><blockquote>{{ memory().caption }}</blockquote>
+          <p>Exemplo editorial. Nenhuma memória é salva ou compartilhada.</p>
+        </dialog>
+      }
+      @case ('conexoes') { <ng-container [ngTemplateOutlet]="profiles" /> }
+      @case ('perfis') { <ng-container [ngTemplateOutlet]="profiles" /> }
+      @case ('manifesto') {
+        <div class="preview-columns">
+          <section class="surface example-panel manifesto-example">
+            <p class="preview-note">Exemplo ilustrativo · Manifesto</p>
+            <h2>Mais presença. Mais espaço para nós.</h2>
+            <p>Queremos um lugar onde cada pessoa possa ser quem é. Onde o cuidado seja uma escolha e as conversas tenham tempo para acontecer.</p>
+            <p>Texto editorial para imaginar possibilidades. O Núcleo ainda não possui um manifesto aprovado nesta área.</p>
+          </section>
+          <section class="surface example-panel">
+            <h2>Uma intenção, muitos gestos.</h2>
+            @for (principle of principles; track principle.title) {
+              <details><summary>{{ principle.title }}</summary><p>{{ principle.text }}</p></details>
+            }
+          </section>
+        </div>
+      }
+      @case ('cuidado') {
+        <div class="preview-columns">
+          <section class="surface example-panel">
+            <p class="preview-note">Cartão de intenção · exemplo ilustrativo</p>
+            <h2>Uma conversa com intenção.</h2>
+            <p>Organize o que você gostaria de dizer para um encontro presencial. O texto fica nesta tela e se perde ao sair ou recarregar.</p>
+            <label for="care-draft">O que você quer expressar?</label>
+            <textarea id="care-draft" #draftInput rows="4" maxlength="1200" [value]="draft()" (input)="setDraft(draftInput.value)" aria-describedby="draft-note"></textarea>
+            <p id="draft-note">Rascunho temporário · {{ draft().length }}/1200 caracteres.</p>
+            <div class="preview-options">
+              <button class="button" type="button" (click)="togglePreparation()"
+                [attr.aria-expanded]="prepared()" aria-controls="care-preparation">{{ prepared() ? 'Fechar preparação' : 'Explorar preparação' }}</button>
+              @if (draft()) { <button class="icon-button" type="button" (click)="setDraft('')">Limpar rascunho</button> }
+            </div>
+            <section id="care-preparation" [hidden]="!prepared()" aria-label="Preparação ilustrativa">
+              <div class="preview-options">
+                @for (option of preparation; track option) {
+                  <button class="icon-button" type="button" [attr.aria-pressed]="option === step()" (click)="step.set(option)">{{ option }}</button>
+                }
+              </div>
+              <div aria-live="polite">
+                @switch (step()) {
+                  @case ('Intenção') { <p class="draft-preview">{{ draft().trim() || 'Eu gostaria de encontrar um tempo tranquilo para conversar.' }}</p> }
+                  @case ('Escuta') { <p>Como você tem vivido isso? O que gostaria que eu entendesse melhor?</p> }
+                  @case ('Pausa') { <p>Podemos retomar em outro momento, quando houver disponibilidade de ambos.</p> }
+                }
+              </div>
+            </section>
+          </section>
+          <section class="surface example-panel">
+            <h2>Um tempo ao vivo</h2><p>A preparação é individual. A prévia não envia mensagem, convite ou cartão.</p>
+            <a class="button" [routerLink]="['/nucleos', nucleus.id, 'agenda']">Abrir agenda existente</a>
+          </section>
+        </div>
+      }
+    }
+    <dialog #about class="shared-dialog" aria-labelledby="preview-about-title">
+      <header class="dialog-heading"><h2 id="preview-about-title">Sobre {{ section.label }}</h2>
+        <form method="dialog"><button class="icon-button" autofocus aria-label="Fechar explicação da prévia">×</button></form>
+      </header>
+      <p>{{ section.description }}</p>
+      <p>Os exemplos são ilustrativos. Regras de consentimento, privacidade e persistência serão definidas antes da implementação. As interações desta tela não salvam, enviam ou publicam conteúdo.</p>
+    </dialog>
+  }
+} @else {
+  <section class="surface">
+    <h1 tabindex="-1">Prévia indisponível</h1>
+    <p>Confira o endereço e se você participa do Núcleo.</p>
+    <a class="button" routerLink="/nucleos">Abrir Seus Núcleos</a>
+  </section>
+}
+
+<ng-template #profiles>
+  <div class="preview-columns">
+    <section class="surface example-panel">
+      <h2>{{ kind === 'perfis' ? 'Escolha um perfil de exemplo' : 'Encontros começam na curiosidade' }}</h2>
+      <p>Exemplo ilustrativo · pessoas e informações fictícias.</p>
+      <div class="preview-options" aria-label="Pessoas fictícias">
+        @for (item of people; track item.name) {
+          <button class="icon-button" type="button" [attr.aria-pressed]="person() === item" (click)="person.set(item)">{{ item.name }}</button>
+        }
+      </div>
+      <div aria-live="polite"><h3>Um pouco sobre {{ person().name }}</h3><p>{{ person().about }}</p></div>
+      <button class="icon-button" type="button" (click)="profileDetail.showModal()" aria-haspopup="dialog">Explorar perfil em detalhe</button>
+      <div class="preview-options" aria-label="Temas do perfil">
+        @for (item of topics; track item.key) {
+          <button class="icon-button" type="button" [attr.aria-pressed]="topic() === item.key" (click)="topic.set(item.key)">{{ item.label }}</button>
+        }
+      </div>
+      <div aria-live="polite">
+        @switch (topic()) {
+          @case ('care') { <p>{{ person().care }}</p> }
+          @case ('likes') { <ul>@for (like of person().likes; track like) { <li>{{ like }}</li> }</ul> }
+          @case ('wish') { <p>{{ person().wish }}</p> }
+        }
+      </div>
+    </section>
+    <section class="surface example-panel"><h2>Datas com significado</h2><p>{{ person().date }}</p>
+      <p>Compartilhamento, edição e preferências de visibilidade estão previstos para uma etapa futura.</p>
+    </section>
+  </div>
+  <dialog #profileDetail class="shared-dialog" aria-labelledby="profile-example-title">
+    <header class="dialog-heading"><h2 id="profile-example-title">Perfil de exemplo · {{ person().name }}</h2>
+      <form method="dialog"><button class="icon-button" autofocus aria-label="Fechar detalhe do perfil">×</button></form>
+    </header>
+    <p>{{ person().about }}</p><p>{{ person().care }}</p><p>{{ person().likes.join(' · ') }}</p>
+    <p>Pessoa fictícia. Nenhum perfil real é consultado.</p>
+  </dialog>
+</ng-template>

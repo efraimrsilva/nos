@@ -1,18 +1,18 @@
 # Estado atual — Next.js v3.11.1 · Angular v4.0.0-alpha.9 — 2026-11-16
 
-**Objetivo e escopo:** Angular como único frontend de destino em desktop e navegador móvel. Após Web estável e retirada operacional do Next.js, empacotar a mesma interface com Capacitor, primeiro para Android, depois iOS.
+**Objetivo e escopo:** Angular para desktop e navegador móvel. Após estabilizar a web, empacotar a mesma interface com Capacitor, primeiro no Android e depois no iOS.
 
-**Base e Git:** DOCS_DIR `Documentacao_Projeto_Nos`. Branch `codex/migracao-angular`, base `251a8a8`, com plano responsivo confirmado na referência de acompanhamento. A01–A09 portadas; A10 em validação. A11–A14 pendentes.
+**Base e Git:** DOCS_DIR `Documentacao_Projeto_Nos`. Branch `codex/migracao-angular`, base `9a92ae8` com o código A10. A01–A09 portadas, A10 e A11 em validação. A12–A14 pendentes.
 
-**Arquivos e situação:** A10 reúne controles em `apps/web/src/app/account*`, `appearance.ts` e `problem-report*`. Reutiliza operações de privacidade e exclusão do banco e metadados do Supabase. O proxy Angular encaminha relatos ao servidor local em `scripts/angular-support.mjs`. Hospedagem, Google e integrações operacionais continuam sujeitas ao ensaio do plano. As migrações de Núcleos `20261115162000` e `20261115162100` e de Hábito `20261115182000` e `20261115182500` devem estar presentes no destino da prévia. Histórico divergente preexistente `20261112025922` preservado.
+**A11 local:** seis rotas sob `/nucleos/:id` em `apps/web/src/app/previews/`. Vínculo reutiliza `NucleiData.selected`. Navegação, totais pessoais e painel visual de notificações integrados ao shell. Ponte do Nós descarta o rascunho ao trocar de rota ou Núcleo. Sem migração do banco, publicação ou mudança de versão.
 
-**Validação e bloqueios:** Context7 e fontes oficiais para Angular e Supabase. Teste HTTP local com Auth simulado e Atlas em duas larguras. O Supabase local não inicia sem o serviço Docker, e o registro npm não respondeu para repor Angular, Nodemailer e React Day Picker. Tipos, builds, suite Playwright autenticada, exclusão descartável e e-mail em caixa local permanecem pendentes. As versões foram preservadas.
+**Validação e bloqueios:** revisão independente estática, teste Angular preparado, verificadores Migração e MVP do Atlas aprovados e 36 imagens verificadas. A instalação Angular segue bloqueada pelo acesso ao registro npm. Playwright e banco param por Docker/Supabase local indisponível. A confirmação de e-mail em caixa local e da exclusão da A10 continuam pendentes. As migrações de Núcleos `20261115162000`, `20261115162100` e de Hábito `20261115182000`, `20261115182500` devem estar presentes na prévia antes dos testes; histórico divergente `20261112025922` preservado.
 
-**Próximo passo:** restaurar as dependências pelos lockfiles e iniciar Supabase local. Executar tipos, builds, testes Angular e verificações de banco pertinentes, ensaiar o SMTP local e conferir a interface em desktop e celular. Fechar A10 antes de iniciar A11.
+**Próximo passo:** repor as dependências pelos lockfiles e iniciar Supabase local. Executar tipos, compilação, Playwright autenticado e testes de banco pertinentes a A10–A11, conferir desktop e celular no aplicativo e encerrar a validação. A12 tratará a hospedagem e as integrações operacionais.
 
-**Continuidade Git:** A10 ainda em validação. A pendência documental anterior foi comprovada no commit `251a8a8`. Contador 73 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
+**Continuidade Git:** A10 commitada em `9a92ae8`, com validação pendente. A11 em validação com alterações locais. Contador 74 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
 
-**Índice:** [Registro A10](registros/registro-v4.0.0-alpha.9-2026-11-16-imp-conta-angular-fun-preferencias-e-suporte.md) · [Galeria parcial A10](../wireframes/comparacoes/v4.0.0-alpha.9-2026-11-16-angular-controles-tela_66-tela_67-tela_69-tela_70/index.html) · [Guia Migração](../wireframes/atlas/index.html#migracao) · [Plano vigente](planos/migracao-angular.md) · [Registro A09](registros/registro-v4.0.0-alpha.9-2026-11-15-imp-agenda-angular-fun-calendario-e-eventos.md) · [Guia da prévia](../../apps/web/README.md).
+**Índice:** [Registro A11](registros/registro-v4.0.0-alpha.9-2026-11-16-imp-previas-angular-fun-navegacao-e-totais.md) · [Galeria parcial A11](../wireframes/comparacoes/v4.0.0-alpha.9-2026-11-16-angular-previas-tela_38-tela_40-tela_44-tela_49-tela_55-tela_60-tela_62/index.html) · [Guia Migração](../wireframes/atlas/index.html#migracao) · [Plano vigente](planos/migracao-angular.md) · [Registro A10](registros/registro-v4.0.0-alpha.9-2026-11-16-imp-conta-angular-fun-preferencias-e-suporte.md) · [Guia da prévia](../../apps/web/README.md).
 
 ---
 

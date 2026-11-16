@@ -1,3 +1,5 @@
+**A11 Angular em validação (16/11/2026)** — Telas 38, 40, 44, 49, 55, 60 e 62 na guia Migração. As áreas preservam a classificação planejada e usam exemplos offline. [Galeria parcial](comparacoes/v4.0.0-alpha.9-2026-11-16-angular-previas-tela_38-tela_40-tela_44-tela_49-tela_55-tela_60-tela_62/index.html)
+
 **A10 Angular em validação (16/11/2026)** — Telas 66, 67, 69 e 70 na guia Migração. Aparência, Privacidade, Apagar minha conta e Relatar um problema estão representados no Atlas; a confirmação autenticada e de envio na prévia seguem pendentes. [Evidência Atlas](comparacoes/v4.0.0-alpha.9-2026-11-16-angular-controles-tela_66-tela_67-tela_69-tela_70/index.html)
 
 **Prévia Angular v4.0.0-alpha.9 (15/11/2026)** — A09 porta calendário mensal, grade semanal e lista móvel, presença e gestão nas Telas 14–17. O Atlas demonstra criação, edição e remoção com dados fictícios. [Comparações](comparacoes/v4.0.0-alpha.9-2026-11-15-angular-agenda-tela_14-tela_15-tela_16-tela_17/index.html).

@@ -757,3 +757,42 @@ test('convites preservam a escolha, a revogação e o vínculo confirmado', asyn
     await Promise.allSettled([page.goto('/boas-vindas'),guestContext.close()]);
   }
 });
+
+test('protege prévias do Núcleo e descarta o rascunho da Ponte ao navegar', async ({page, accounts, browser}, info) => {
+  const [owner, outsider] = accounts;
+  const cfg = localSupabaseConfig();
+  const client = createClient(cfg.API_URL, cfg.ANON_KEY, {auth:{persistSession:false}});
+  expect((await client.auth.signInWithPassword({email:owner.email,password:owner.password})).error).toBeNull();
+  const id = randomUUID();
+  const {data, error} = await client.rpc('create_nucleus_once', {
+    nucleus_type: 'familia', nucleus_name: 'Núcleo das prévias', nucleus_purpose: 'Um espaço para olhar os exemplos juntos.',
+    request_id: id,
+  });
+  expect(error).toBeNull();
+  expect(data).toBe(id);
+  const root = '/nucleos/' + id;
+  await signIn(page, owner, root + '/cuidado');
+  await expect(page.getByRole('heading',{name:'Conversar também é um cuidado.'})).toBeVisible();
+  const nav = page.getByRole('navigation', {name:info.project.name === 'mobile' ? 'Navegação móvel' : 'Áreas do Nós'});
+  await expect(nav.getByRole('link',{name:'Seus Núcleos', exact:true})).toHaveAttribute('aria-description', 'Total geral da sua conta: 1');
+  await page.getByRole('button',{name:'Notificações — esboço'}).click();
+  const notifications = page.getByRole('dialog',{name:'Novidades, no seu tempo.'});
+  await expect(notifications.getByRole('link',{name:'Consultar Acordos'})).toHaveAttribute('href', root + '/acordos');
+  await page.keyboard.press('Escape');
+  await expect(notifications).toBeHidden();
+  await page.getByLabel('O que você quer expressar?').fill('Rascunho apenas nesta página.');
+  await page.getByRole('button',{name:'Explorar preparação'}).click();
+  await expect(page.getByText('Rascunho apenas nesta página.', {exact:true})).toBeVisible();
+  await page.getByRole('navigation',{name:'Explorações de funcionalidades futuras'}).getByRole('link',{name:'Nossa árvore'}).click();
+  await expect(page.getByRole('heading',{name:'Raízes no que vivemos.'})).toBeVisible();
+  await page.goBack();
+  await expect(page.getByLabel('O que você quer expressar?')).toHaveValue('');
+  const isolated = await browser.newContext();
+  try {
+    const other = await isolated.newPage();
+    await signIn(other, outsider, root + '/cuidado');
+    await expect(other.getByRole('heading',{name:'Prévia indisponível'})).toBeVisible();
+    await expect(other.getByLabel('O que você quer expressar?')).toHaveCount(0);
+    await expect(other.getByText('Núcleo das prévias',{exact:true})).toHaveCount(0);
+  } finally { await isolated.close(); }
+});

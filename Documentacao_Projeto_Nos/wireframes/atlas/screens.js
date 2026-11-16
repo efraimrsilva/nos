@@ -328,3 +328,13 @@ screens.find(screen=>screen.id===14).rule += ' Prévia Angular v4.0.0-alpha.9 (A
 screens.find(screen=>screen.id===15).rule += ' A09: no painel do evento, somente a pessoa originalmente convidada e com vínculo pode responder por si. A resposta fica no painel.';
 screens.find(screen=>screen.id===16).rule += ' A09: Novo momento abre Adicionar evento para integrantes e só grava no envio válido.';
 screens.find(screen=>screen.id===17).rule += ' A09: Editar evento e Remover evento abrem para autor associado ou administrador. Remoção exige ciência explícita. X, Escape e gesto externo fecham os modais.';
+
+for (const [id, note] of [
+  [38, 'A11 Angular em validação: Nossa árvore usa ilustração e temas locais, sem indicador de crescimento.'],
+  [40, 'A11 Angular em validação: filtros e detalhe de memória usam somente exemplos editoriais.'],
+  [44, 'A11 Angular em validação: seleção e detalhe apresentam somente pessoas fictícias.'],
+  [49, 'A11 Angular em validação: a rota Perfis afetivos mostra exemplos e não consulta perfis reais.'],
+  [55, 'A11 Angular em validação: os princípios do manifesto são texto editorial.'],
+  [60, 'A11 Angular em validação: o painel do cabeçalho é ilustrativo e aponta para Acordos ou Seus Núcleos.'],
+  [62, 'A11 Angular em validação: a rota /nucleos/[id]/cuidado prepara o exemplo em memória e descarta o rascunho ao mudar de tela ou de Núcleo.'],
+]) screens.find(screen => screen.id === id).rule += ' ' + note;

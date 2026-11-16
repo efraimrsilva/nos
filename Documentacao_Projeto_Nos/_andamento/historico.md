@@ -1,3 +1,9 @@
+## 2026-11-16 — Angular A11 — Prévias e navegação em validação
+
+Seis rotas ilustrativas, vínculo do Núcleo, navegação responsiva, totais pessoais e painel de notificações integrados localmente. A compilação e a confirmação autenticada continuam pendentes. [Registro A11](registros/registro-v4.0.0-alpha.9-2026-11-16-imp-previas-angular-fun-navegacao-e-totais.md).
+
+---
+
 ## 2026-11-16 — Angular A10 — Conta, Preferências e Ajuda em validação
 
 Implementação local dos controles de conta, privacidade e aparência e do serviço de relato da prévia. Verificação HTTP isolada e verificadores do Atlas disponíveis. Validação autenticada e versão nova aguardam ambiente local funcional. [Registro A10](registros/registro-v4.0.0-alpha.9-2026-11-16-imp-conta-angular-fun-preferencias-e-suporte.md).

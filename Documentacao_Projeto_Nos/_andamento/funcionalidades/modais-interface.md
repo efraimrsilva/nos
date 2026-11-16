@@ -1,3 +1,7 @@
+## Prévias do Núcleo e notificações na aplicação Angular — A11 em validação
+
+**Sobre a área** explica o esboço para integrantes da prévia. **Detalhe de memória (40)** e **Perfil de exemplo (44 e 49)** expandem a seleção fictícia. **Notificações (60)** abre pelo cabeçalho com sessão e leva a Acordos ou Seus Núcleos. X, Escape e gesto externo usam o fechamento comum. Os modais do Atlas são ilustrativos. [Registro A11](../registros/registro-v4.0.0-alpha.9-2026-11-16-imp-previas-angular-fun-navegacao-e-totais.md).
+
 ## Conta, Preferências e Ajuda na prévia Angular — A10 em validação
 
 **Aparência (66)** abre pelo seletor autenticado e grava a escolha por conta. **Privacidade e visibilidade (67)** abre pela opção de visibilidade e grava a preferência para saídas futuras. **Apagar minha conta (69)** abre pelo bloco exclusivo e depende da frase exata e da sessão. **Relatar um problema (70)** abre em Ajuda e no cabeçalho, aceita somente e-mail confirmado e informa resultado do servidor. X, Escape e gesto externo fecham sem disparar envio ou exclusão. No Atlas os quatro modais são exemplos. [Registro A10](../registros/registro-v4.0.0-alpha.9-2026-11-16-imp-conta-angular-fun-preferencias-e-suporte.md).
