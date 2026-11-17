@@ -1,8 +1,8 @@
-# Estado atual — Next.js v3.11.1 · Angular v4.0.0-alpha.13 — 2026-11-17
+# Estado atual — Next.js v3.11.1 · Angular v4.0.0-alpha.14 — 2026-11-17
 
 **Objetivo:** Angular na web de computador e celular. Após a virada, empacotar a interface com Capacitor no Android e depois no iOS. A01–A11 verificadas. A12 tem rascunho hospedado com login confirmado pelo usuário e fila testada localmente. A13 tem recorte local de compatibilidade dos caminhos e transporte de produção, com publicação adiada a pedido do usuário.
 
-**Base e Git:** DOCS_DIR `Documentacao_Projeto_Nos`. Branch `codex/migracao-angular`, base `9eea509`, árvore limpa no início. O objeto `856f873` contém o registro da confirmação manual do login na prévia. A preparação da A13 consta no commit `fef30b5`. A versão atual inclui localmente os passos 01 e 02 da paridade visual.
+**Base e Git:** DOCS_DIR `Documentacao_Projeto_Nos`. Branch `codex/migracao-angular`, base `6a73da9`, árvore limpa no início. O objeto `856f873` contém o registro da confirmação manual do login na prévia. A preparação da A13 consta no commit `fef30b5`. O commit `6a73da9` contém os passos 01 e 02. A versão atual inclui a estrutura do passo 03.
 
 **Netlify, referência da A12:** rascunho `6afbcf907b3227096c6e364b`, contexto `deploy-preview`, estado `ready`. Acesso pela CLI autorizado pelo usuário. O domínio principal conservou a publicação `6af77e4a9a6348f87af8b9e1`, com Next.js em `/conta`. A prévia usa a configuração pública do Supabase existente com Google desativado e sem credenciais de envio configuradas. [Abrir rascunho](https://6afbcf907b3227096c6e364b--noslife.netlify.app/conta).
 
@@ -12,11 +12,11 @@
 
 **Retorno manual:** Foi confirmado o funcionamento do e-mail de recuperação de senha mas o envio de relatos de problema ainda não funciona. Ambiente, versão e detalhes da falha não foram informados. O reteste dos relatos foi adiado a pedido do usuário. [Resultados relatados](testes-caixa-preta/resultados.md).
 
-**Paridade visual:** 16 passos na guia Migração e 73 fichas referenciadas. Passos 01 e 02 validados localmente. Passo 03 retoma estrutura, ícones e navegação autenticada. [Registro do passo 02](registros/registro-v4.0.0-alpha.13-2026-11-17-imp-paridade-angular-fun-assistencia-e-boas-vindas.md).
+**Paridade visual:** código Next.js v3.11.1 é a referência primária. [Mapa de arquivos](planos/paridade-angular-fontes.md). Passos 01 e 02 validados; estrutura do passo 03 validada em desktop e celular. Próximo passo: comparar e portar os controles incorporados do perfil e do Mais e o lembrete de suporte antes de encerrar o passo 03. [Registro](registros/registro-v4.0.0-alpha.14-2026-11-17-imp-paridade-angular-fun-estrutura-autenticada.md).
 
 **Limite e próximo passo para a virada:** Antes da virada, comprovar renovação de sessão, envio e fila hospedados e retorno em ambiente isolado. Reconfirmar as quatro migrações do [registro da A13](registros/registro-v4.0.0-alpha.11-2026-11-17-imp-preparacao-angular-fun-transporte-e-paridade.md) no destino antes de qualquer aplicação. Preparar a candidata após essas provas, conforme o [roteiro](../../apps/web/netlify/README.md).
 
-**Continuidade Git:** preparação A13 e retorno manual conferidos nos objetos `fef30b5` e `9eea509`. Pendente o commit da paridade visual e abertura da Conta. Sugestão `feat(angular): restaurar abertura da Conta e planejar paridade visual`. A assistência e Boas-vindas compõem a segunda unidade local pendente. Sugestão `feat(angular): restaurar assistência e boas-vindas`. Contador 82 conclusões acompanhadas, lacuna histórica preservada e último marco 100.
+**Continuidade Git:** passos 01 e 02 conferidos no commit `6a73da9`. Estrutura do passo 03 em alterações locais, pronta para commit. Sugestão `feat(angular): portar estrutura autenticada do Next.js`. Contador 83 conclusões acompanhadas e último marco 100.
 
 **Índice:** [Preparação local da A13](registros/registro-v4.0.0-alpha.11-2026-11-17-imp-preparacao-angular-fun-transporte-e-paridade.md) · [Registro do ensaio](registros/registro-v4.0.0-alpha.10-2026-11-17-imp-ensaio-angular-fun-rascunho-netlify-e-fila.md) · [Plano de migração](planos/migracao-angular.md) · [Guia Migração](../wireframes/atlas/index.html#migracao) · [Roteiro de ensaio](../../apps/web/netlify/README.md) · [Validação A10–A12 anterior](registros/registro-v4.0.0-alpha.10-2026-11-17-imp-validacao-angular-fun-conta-navegacao-e-integracoes.md).
 

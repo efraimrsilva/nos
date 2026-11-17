@@ -1,15 +1,18 @@
 import { Component, DestroyRef, effect, inject, input, signal, viewChild, type ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { parseProblemReport } from '../../../../src/features/support/input';
+import { NavIcon } from './shared/nav-icon';
 import { PreviewProfile } from './preview-profile';
 
 @Component({
   selector: 'app-problem-report',
+  imports:[NavIcon],
   templateUrl: './problem-report.html',
   styleUrl: './account-preferences.css',
 })
 export class ProblemReport {
   readonly prefix = input.required<string>();
+  readonly iconOnly = input(false);
   private readonly profile = inject(PreviewProfile);
   private readonly router = inject(Router);
   private readonly destroy = inject(DestroyRef);

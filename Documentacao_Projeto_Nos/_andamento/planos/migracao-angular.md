@@ -1,6 +1,6 @@
 # Plano de migração para Angular
 
-O roteiro detalhado de paridade visual está na [guia Migração do Atlas](../../wireframes/atlas/index.html#migracao), em 16 passos que abrangem as 73 fichas. Execute o passo correspondente antes de concluir a paridade da virada.
+A [guia Migração do Atlas](../../wireframes/atlas/index.html#migracao) reúne os 16 passos e 73 fichas. Na implementação, consulte primeiro o [código Next.js v3.11.1 por recorte](paridade-angular-fontes.md) e use o Atlas para conferir a apresentação. Execute o passo correspondente antes de concluir a paridade da virada.
 
 
 **Status:** A01–A11 validadas na prévia v4.0.0-alpha.10. A12 tem rascunho no Netlify, login confirmado pelo usuário e fila testada em banco local isolado. A13 tem [preparação local v4.0.0-alpha.11](../registros/registro-v4.0.0-alpha.11-2026-11-17-imp-preparacao-angular-fun-transporte-e-paridade.md), com conferência dos 32 caminhos e suporte ao transporte de e-mail oficial. Continuam pendentes as provas hospedadas de sessão e e-mail, o ensaio de retorno, a virada pública e A14. Linha Next.js em v3.11.1.

@@ -4,7 +4,13 @@
     <a class="brand" routerLink="/boas-vindas" aria-label="Nós — início">nós<span>.</span></a>
     <p class="caption">Cultivar juntos</p>
     <nav aria-label="Áreas do Nós">
-      <app-navigation-links [items]="moreAreas()" [counts]="counts()" [showCounts]="countVisible()" />
+      @for (group of groups(); track group.label) {
+        <section class="nav-group" [attr.aria-label]="group.label">
+          <h2>{{ group.label }}</h2>
+          <app-navigation-links [items]="group.items" [counts]="counts()" [showCounts]="countVisible()" [path]="currentPath()" [nucleusName]="currentNucleus()?.name ?? ''" />
+        </section>
+      }
+      <p class="shell-version">Versão {{ version }}</p>
       @if (profile.user()) {
         <app-appearance-picker prefix="sidebar-appearance" />
         <a routerLink="/ajuda">Ajuda</a>
@@ -37,16 +43,25 @@
           (click)="sidebarHidden.update(hidden => !hidden)">
           <span class="sidebar-icon" aria-hidden="true"></span>
         </button>
-        <span>Meu espaço</span><span aria-hidden="true">/</span><span>{{ activeLabel() }}</span>
+        @if (currentNucleus(); as nucleus) {
+          <a class="breadcrumb-context" [routerLink]="['/nucleos',nucleus.id]">{{ nucleus.name }}</a>
+        } @else { <span class="breadcrumb-context">Meu espaço</span> }<span aria-hidden="true">/</span><span>{{ activeLabel() }}</span>
       </div>
       <a class="brand mobile-brand" routerLink="/boas-vindas" aria-label="Nós — início">nós<span>.</span></a>
       @if (profile.user()) {
+        @if (currentNucleus(); as nucleus) {
+          <a class="mobile-context" routerLink="/nucleos" title="Trocar de Núcleo" aria-label="Trocar de Núcleo" [attr.aria-description]="'Núcleo atual: ' + nucleus.name">{{ nucleus.name }} <span aria-hidden="true">⌄</span></a>
+        }
         <div class="header-tools">
-          <button class="icon-button" type="button" (click)="notifications.showModal()" aria-haspopup="dialog"
+          <app-problem-report prefix="header-support" [iconOnly]="true" />
+          <button class="icon-button" type="button" popovertarget="notifications-preview" aria-haspopup="dialog"
             aria-controls="notifications-preview" aria-label="Notificações — esboço">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg>
+            <app-nav-icon name="bell" />
           </button>
-          <app-problem-report prefix="header-support" />
+          <a class="icon-button account-trigger account-mobile-link" routerLink="/configuracoes/conta"
+            aria-label="Minha conta">{{ initials() }}</a>
+          <button class="icon-button account-trigger account-desktop-trigger" type="button" popovertarget="shell-account"
+            aria-haspopup="dialog" aria-controls="shell-account" aria-label="Abrir opções da conta">{{ initials() }}</button>
         </div>
       } @else {
         <span class="preview-label">Prévia local · Angular</span>
@@ -71,10 +86,11 @@
     }
   </div>
 
-  <nav class="mobile-nav" [class.mobile-nav-nucleus]="nucleusId() !== null" aria-label="Navegação móvel">
-    <app-navigation-links class="compact" [items]="mobileAreas()" [counts]="counts()" [showCounts]="countVisible()" [compact]="true" />
+  <nav class="mobile-nav" [class.mobile-nav-nucleus]="contextId() !== null" [class.mobile-nav-pair]="mobileAreas().length === 1" aria-label="Navegação móvel">
+    <app-navigation-links class="compact" [items]="mobileAreas()" [counts]="counts()" [showCounts]="countVisible()" [compact]="true" [path]="currentPath()" [nucleusName]="currentNucleus()?.name ?? ''" />
     <button type="button" aria-label="Mais áreas e preferências" aria-haspopup="dialog"
-      aria-controls="more-areas" (click)="more.showModal()">Mais</button>
+      aria-controls="more-areas" (click)="more.showModal()"
+      [class.active]="!publicLayout() && !mobileAreaActive()"><app-nav-icon name="more" /><span>Mais</span></button>
   </nav>
 </div>
 
@@ -84,7 +100,12 @@
     <form method="dialog"><button class="icon-button" aria-label="Fechar menu" autofocus>×</button></form>
   </header>
   <nav aria-label="Todas as áreas">
-    <app-navigation-links [items]="moreAreas()" [counts]="counts()" [showCounts]="countVisible()" (followed)="more.close()" />
+    @for (group of menuGroups(); track group.label) {
+      <section class="nav-group" [attr.aria-label]="group.label">
+        <h3>{{ group.label }}</h3>
+        <app-navigation-links [items]="group.items" [counts]="counts()" [showCounts]="countVisible()" [path]="currentPath()" (followed)="more.close()" />
+      </section>
+    }
     @if (profile.user()) {
       <app-appearance-picker prefix="mobile-appearance" />
       <a routerLink="/ajuda" (click)="more.close()">Ajuda</a>
@@ -92,16 +113,34 @@
   </nav>
 </dialog>
 
-<dialog class="shared-dialog" id="notifications-preview" #notifications aria-labelledby="notifications-title">
+<div class="account-shortcuts notifications-panel" popover="auto" role="dialog" id="notifications-preview" #notifications aria-labelledby="notifications-title">
   <header class="dialog-heading">
     <h2 id="notifications-title">Novidades, no seu tempo.</h2>
-    <form method="dialog"><button class="icon-button" aria-label="Fechar notificações" autofocus>×</button></form>
+    <button class="icon-button" type="button" aria-label="Fechar notificações" popovertarget="notifications-preview" popovertargetaction="hide">×</button>
   </header>
   <p>Esboço de funcionalidade · ainda não desenvolvido</p>
   <p>Este será o lugar para acompanhar convites, propostas e cuidados que pedem sua atenção.</p>
-  @if (nucleusId(); as id) {
-    <a class="button" [routerLink]="['/nucleos', id, 'acordos']" (click)="notifications.close()">Consultar Acordos</a>
+  @if (contextId(); as id) {
+    <a class="button" [routerLink]="['/nucleos', id, 'acordos']" (click)="notifications.hidePopover()">Consultar Acordos</a>
   } @else {
-    <a class="button" routerLink="/nucleos" (click)="notifications.close()">Abrir Seus Núcleos</a>
+    <a class="button" routerLink="/nucleos" (click)="notifications.hidePopover()">Abrir Seus Núcleos</a>
   }
-</dialog>
+</div>
+
+<div #accountMenu id="shell-account" popover="auto" role="dialog" class="account-shortcuts" aria-labelledby="shell-account-title">
+  <header class="dialog-heading">
+    <div class="grid gap-1">
+      <p class="account-kicker">Sua conta</p>
+      <h2 id="shell-account-title">Conta, Preferências e Ajuda</h2>
+      <p class="account-context">Seu espaço, sem sair do Núcleo.</p>
+    </div>
+    <button type="button" class="icon-button" aria-label="Fechar opções da conta" popovertarget="shell-account" popovertargetaction="hide">×</button>
+  </header>
+  <nav aria-label="Atalhos da conta">
+    <a routerLink="/configuracoes/conta" (click)="accountMenu.hidePopover()">Minha conta</a>
+    <a routerLink="/nucleos" (click)="accountMenu.hidePopover()">Trocar de Núcleo</a>
+    <app-appearance-picker prefix="header-appearance" />
+    <a routerLink="/configuracoes/privacidade" (click)="accountMenu.hidePopover()">Privacidade</a>
+    <a routerLink="/ajuda" (click)="accountMenu.hidePopover()">Ajuda e suporte</a>
+  </nav>
+</div>

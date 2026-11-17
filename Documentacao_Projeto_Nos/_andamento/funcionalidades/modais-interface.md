@@ -1,3 +1,7 @@
+## Estrutura autenticada Angular — v4.0.0-alpha.14
+
+**Mais** abre como diálogo da barra móvel. **Conta, Preferências e Ajuda** é painel flutuante no desktop; no celular, o avatar navega à Conta. **Notificações (60)** é painel flutuante ilustrativo. X, Escape e ação externa fecham os painéis; o menu Mais usa o fechamento nativo compartilhado. [Registro](../registros/registro-v4.0.0-alpha.14-2026-11-17-imp-paridade-angular-fun-estrutura-autenticada.md).
+
 ## Paridade pública Angular — v4.0.0-alpha.13 — 17/11/2026
 
 **Confirmar e-mail (03)** e **Recuperar acesso (04)** mantêm os gatilhos e os endereços diretos, o campo de e-mail, as orientações e o status retornado pelo serviço. X, Escape e gesto externo fecham sem enviar e mantêm o destino permitido. A prova de recuperação abre a rota Redefinir senha (05). [Registro](../registros/registro-v4.0.0-alpha.13-2026-11-17-imp-paridade-angular-fun-assistencia-e-boas-vindas.md).

@@ -1,3 +1,7 @@
+## 17/11/2026 — Estrutura autenticada durante a migração Angular
+
+A estrutura Angular passou a portar a navegação do código Next.js e a usar os utilitários Tailwind existentes. A troca de Núcleo, o nome contextual e os atalhos foram conferidos em desktop e celular. A consistência esperada com a referência é documentada, sem medição com usuários. [Registro](../_andamento/registros/registro-v4.0.0-alpha.14-2026-11-17-imp-paridade-angular-fun-estrutura-autenticada.md).
+
 ## 17/11/2026 — Assistência e Boas-vindas na migração Angular
 
 A prévia exibia a navegação interna na entrada pública e simplificava os avisos de acesso. A interface recuperou a composição pública e as orientações dos diálogos, preservando o percurso de e-mail descartável em desktop e celular. O benefício esperado é tornar o próximo passo mais claro; não houve medição com usuários. [Registro](../_andamento/registros/registro-v4.0.0-alpha.13-2026-11-17-imp-paridade-angular-fun-assistencia-e-boas-vindas.md).

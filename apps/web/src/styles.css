@@ -1,3 +1,9 @@
+/* Reutiliza utilitários Tailwind do Next.js sem ativar o reset global na prévia. */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+@source "./app/app.html";
+
 :root {
   color-scheme: light;
   --canvas: #f5f7f1;

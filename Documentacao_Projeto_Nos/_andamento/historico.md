@@ -1,3 +1,9 @@
+## 2026-11-17 — v4.0.0-alpha.14 — Estrutura autenticada e referência de código
+
+Grupos, ícones, contexto do Núcleo e popovers portados do Next.js. Tailwind 4 configurado para os templates da estrutura. A guia Migração aponta para o mapa de código. [Registro](registros/registro-v4.0.0-alpha.14-2026-11-17-imp-paridade-angular-fun-estrutura-autenticada.md).
+
+---
+
 ## 2026-11-17 — v4.0.0-alpha.13 — Passo 02 da paridade visual
 
 Estrutura pública, Boas-vindas, confirmação e recuperação revistas no Angular. Percurso de e-mail descartável preservado. [Registro](registros/registro-v4.0.0-alpha.13-2026-11-17-imp-paridade-angular-fun-assistencia-e-boas-vindas.md).

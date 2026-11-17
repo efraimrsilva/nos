@@ -1,17 +1,34 @@
 import { Component, input, output } from '@angular/core';
 import { RouterLink, RouterLinkActive, type IsActiveMatchOptions } from '@angular/router';
+import { NavIcon, type NavIconName } from './shared/nav-icon';
 import type { NavigationCounts } from '../../../../src/features/navigation/counts';
 
-export type NavigationItem = {label: string; url: string; count?: keyof NavigationCounts};
+export type NavigationItem = {label: string; url: string; count?: keyof NavigationCounts; icon: NavIconName; tone?: string; planned?: boolean};
+
+export function navAreaMatches(url: string, path: string) {
+  const target = url.slice(1);
+  const parent = {memorias:'arvore',perfis:'conexoes',cuidado:'manifesto'} as Record<string,string>;
+  const [area,id,section] = path.split('/');
+  if (target === 'configuracoes/conta' && (path === 'conta' || path === 'ajuda' ||
+      path.startsWith('configuracoes/') || ['convites','sair'].includes(section))) return true;
+  if (target === 'nucleos' && (path === 'comecar' || path.startsWith('comecar/'))) return true;
+  return (target.endsWith('/acordos') && path.startsWith(target + '/')) ||
+    (area === 'nucleos' && Boolean(parent[section]) && target === [area,id,parent[section]].join('/'));
+}
 
 @Component({
   selector: 'app-navigation-links',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, NavIcon],
   template: `
     @for (item of items(); track item.url) {
       <a [routerLink]="item.url" routerLinkActive="active" [routerLinkActiveOptions]="activeMatch"
         ariaCurrentWhenActive="page" [attr.aria-description]="item.count && showCounts() ? description(counts()?.[item.count]) : null"
-        (click)="followed.emit()">{{ item.label }}
+        (click)="followed.emit()" [class.in-area]="inArea(item.url)">
+        <app-nav-icon [name]="item.icon" [attr.data-tone]="item.tone ?? null" />
+        <span class="link-label">{{ item.label }}
+          @if (item.icon === 'home' && nucleusName()) { <small class="nucleus-name" [attr.title]="nucleusName()">{{ nucleusName() }}</small> }
+        </span>
+        @if (item.planned) { <span title="Esboço de funcionalidade" aria-hidden="true">○</span> }
         @if (item.count; as key) {
           @if (showCounts()) {
             @let value = counts()?.[key];
@@ -27,10 +44,18 @@ export type NavigationItem = {label: string; url: string; count?: keyof Navigati
     :host { display: contents; }
     a { display:flex; align-items:center; gap:.25rem; min-height:2.75rem; padding:.5rem .7rem; border-radius:.45rem; color:var(--muted); text-decoration:none; }
     a:hover, a.active { background:var(--accent-soft); color:var(--leaf); }
-    a.active { font-weight:700; }
+    a.active, a.in-area { font-weight:700; background:var(--accent-soft); color:var(--leaf); box-shadow:inset 3px 0 var(--leaf); }
+    [data-tone="blue"] { --icon-tone:#44799c; }
+    [data-tone="amber"] { --icon-tone:#ad6c29; }
+    [data-tone="rose"] { --icon-tone:#b85270; }
+    [data-tone="violet"] { --icon-tone:#825ca0; }
+    .link-label { min-width:0; }
+    .nucleus-name { display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:.7rem; }
     .count { margin-inline-start:auto; font-size:.8em; }
     @media(max-width:700px) {
-      :host(.compact) a { justify-content:center; text-align:center; padding-inline:.13rem; font-size:.78rem; line-height:1.3; }
+      :host(.compact) a { display:grid; justify-items:center; align-content:center; min-width:0; text-align:center; padding:.28rem .08rem; font-size:.68rem; line-height:1.18; }
+      :host(.compact) a.active, :host(.compact) a.in-area { box-shadow:inset 0 3px var(--leaf); }
+      :host(.compact) .count { font-variant-numeric:tabular-nums; }
       :host(.compact) .count { margin-inline-start:0; }
     }
   `,
@@ -40,6 +65,10 @@ export class NavigationLinks {
   readonly counts = input<NavigationCounts | null>(null);
   readonly showCounts = input(false);
   readonly compact = input(false);
+  readonly path = input('');
+
+  readonly nucleusName = input('');
+  protected inArea(url: string) { return navAreaMatches(url,this.path()); }
   readonly followed = output<void>();
   protected readonly activeMatch: IsActiveMatchOptions = {
     paths: 'exact', queryParams: 'ignored', fragment: 'ignored', matrixParams: 'ignored',

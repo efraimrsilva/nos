@@ -1,3 +1,5 @@
+**Prévia Angular v4.0.0-alpha.14 (17/11/2026)** — Estrutura autenticada do passo 03. O [mapa de código Next.js](../_andamento/planos/paridade-angular-fontes.md) orienta a implementação. [Comparação local](comparacoes/v4.0.0-alpha.14-2026-11-17-angular-estrutura-tela_12-tela_13-tela_60-tela_66/index.html)
+
 **Prévia Angular v4.0.0-alpha.13 (17/11/2026)** — Passo 02 da guia Migração. Cabeçalho e rodapé públicos, composição de Boas-vindas e assistência nas fichas 03–05 e 72. [Comparação local](comparacoes/v4.0.0-alpha.13-2026-11-17-angular-acesso-publico-tela_03-tela_04-tela_05-tela_72/index.html)
 
 **Prévia Angular v4.0.0-alpha.12 — 17/11/2026.** A guia Migração reúne os 16 passos de paridade visual. A abertura da Conta (01–02) recupera a árvore, a reflexão pausável e a composição do formulário. [Comparação local](comparacoes/v4.0.0-alpha.12-2026-11-17-angular-conta-tela_01-tela_02/index.html)

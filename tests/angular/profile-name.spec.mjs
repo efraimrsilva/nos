@@ -260,3 +260,27 @@ test('relata pela Ajuda, confirma o envio e respeita o limite no cabeçalho', as
   await expect(dialog.getByRole('alert')).toContainText('Aguarde');
   await expect(dialog.getByLabel('O que aconteceu?')).toHaveValue(description);
 });
+
+test('abre os atalhos de perfil e mantém a navegação acessível', async ({page, accounts}, info) => {
+  await signIn(page, accounts.users[0]);
+  if (info.project.name === 'mobile') {
+    const header = page.getByRole('banner');
+    await expect(header.getByRole('link',{name:'Minha conta',exact:true})).toBeVisible();
+    await expect(page.getByRole('navigation',{name:'Navegação móvel'}).getByRole('link',{name:'Seus Núcleos',exact:true}).locator('svg')).toBeVisible();
+    return;
+  }
+  const profile = page.getByRole('button',{name:'Abrir opções da conta'});
+  await profile.click();
+  const menu = page.getByRole('dialog',{name:'Conta, Preferências e Ajuda'});
+  await expect(menu.getByRole('link',{name:'Minha conta',exact:true})).toBeVisible();
+  await menu.getByRole('button',{name:'Aparência',exact:true}).click();
+  const appearance = page.getByRole('dialog',{name:'Aparência'});
+  await expect(appearance).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(appearance).toBeHidden();
+  await expect(menu).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(profile).toBeFocused();
+  const nav = page.getByRole('navigation',{name:info.project.name==='mobile'?'Navegação móvel':'Áreas do Nós'});
+  await expect(nav.getByRole('link',{name:'Seus Núcleos',exact:true}).locator('svg')).toBeVisible();
+});

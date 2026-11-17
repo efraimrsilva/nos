@@ -1,4 +1,6 @@
-<button class="icon-button" type="button" (click)="open()">Relatar um problema</button>
+<button class="icon-button" type="button" (click)="open()" aria-label="Relatar um problema" aria-haspopup="dialog" title="Relatar um problema">
+  @if (iconOnly()) { <app-nav-icon name="bug" /> } @else { Relatar um problema }
+</button>
 <dialog #dialog class="shared-dialog" [attr.aria-labelledby]="prefix() + '-title'" (close)="reset()">
   <header>
     <h2 [id]="prefix() + '-title'">Relatar um problema</h2>
