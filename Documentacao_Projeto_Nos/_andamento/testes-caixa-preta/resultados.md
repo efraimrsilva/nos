@@ -1,3 +1,7 @@
+## 2026-11-17 — confirmação manual de entrada na prévia Angular v4.0.0-alpha.10
+
+O usuário relatou que se autenticou e entrou no sistema, no contexto do rascunho Netlify da A12. Navegador, dispositivo e método de autenticação não foram informados. Evidência observacional sem atribuir aprovação aos IDs do roteiro. [Registro do ensaio](../registros/registro-v4.0.0-alpha.10-2026-11-17-imp-ensaio-angular-fun-rascunho-netlify-e-fila.md).
+
 ## Evidência técnica — modelo Hábito — v3.8.0 — 06/11/2026
 
 Regressões inicialmente falharam pelo agrupamento antigo e negativa de momento legado; após correção, quatro testes unitários e14 asserções SQL novas passaram. Oito regressões autenticadas existentes passaram; teste novo falhou por seletor de status ambíguo e passou em desktop/mobile após delimitá-lo. Tipos, três verificadores do Atlas e recuperação transacional aprovados. Build3.8.0 e rodada final8 autenticados aprovados; mais2 verificações dirigidas do fechamento por X/Escape/fora aprovadas. Galeria23 imagens e27 referências novas conferidas, conforme [registro](../registros/registro-v3.8.0-2026-11-06-imp-acordos-fun-modelo-habito.md). Suíte ampla de banco:198 asserções passaram, mas email_confirmation.sql abortou por função preexistente ausente. Nenhum caso manual aprovado por inferência; preservar os históricos abaixo.

@@ -1,6 +1,6 @@
 # Estado atual — Next.js v3.11.1 · Angular v4.0.0-alpha.10 — 2026-11-17
 
-**Objetivo:** Angular na web de computador e celular. Após a virada, empacotar a mesma interface com Capacitor no Android e depois no iOS. A01–A11 verificadas localmente. A12 tem rascunho hospedado com rotas verificadas e fila completa comprovada localmente. Falta o ensaio hospedado com sessão, envio e retorno antes de A13–A14.
+**Objetivo:** Angular na web de computador e celular. Após a virada, empacotar a mesma interface com Capacitor no Android e depois no iOS. A01–A11 verificadas localmente. A12 tem rascunho hospedado com rotas verificadas e fila completa comprovada localmente. O usuário confirmou a entrada autenticada no rascunho. Falta validar renovação da sessão, fluxos de e-mail e retorno de implantação antes de A13–A14.
 
 **Base e Git:** DOCS_DIR `Documentacao_Projeto_Nos`. Branch `codex/migracao-angular`. O objeto `5079186` contém as correções e a validação de Conta, navegação e integrações. Baseline de código A12 em `c2b243d`; as mudanças desta rodada são documentais.
 
@@ -10,7 +10,7 @@
 
 **Limite e próximo passo:** confirmar Supabase de ensaio e caixa descartável para realizar retornos autenticados, renovação de sessão, fila hospedada e ensaio de retorno conforme o [roteiro](../../apps/web/netlify/README.md). Depois revisar os critérios de A13 e a decisão sobre virada pública. Context7 e fontes oficiais consultados para CLI e separação dos projetos locais.
 
-**Continuidade Git:** commit anterior confirmado em `5079186`. Registro documental da rodada pronto para commit. Sugestão `docs(migracao): registrar ensaio da A12 no Netlify`. Contador 77 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
+**Continuidade Git:** o ensaio anterior consta em `54f2921`. Registro da confirmação manual pronto para commit. Sugestão `docs(migracao): registrar login validado na prévia Angular`. Contador 78 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
 
 **Índice:** [Registro do ensaio](registros/registro-v4.0.0-alpha.10-2026-11-17-imp-ensaio-angular-fun-rascunho-netlify-e-fila.md) · [Plano de migração](planos/migracao-angular.md) · [Guia Migração](../wireframes/atlas/index.html#migracao) · [Roteiro de ensaio](../../apps/web/netlify/README.md) · [Validação A10–A12 anterior](registros/registro-v4.0.0-alpha.10-2026-11-17-imp-validacao-angular-fun-conta-navegacao-e-integracoes.md).
 

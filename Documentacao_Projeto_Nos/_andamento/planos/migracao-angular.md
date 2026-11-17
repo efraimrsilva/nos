@@ -1,6 +1,6 @@
 # Plano de substituição do Next.js por Angular
 
-**Status:** A01–A11 validadas na prévia local v4.0.0-alpha.10. A12 tem rascunho no Netlify com rotas verificadas e fila testada localmente em banco isolado. Autenticação e envio hospedados, retorno de implantação e A13–A14 estão pendentes. Linha Next.js em v3.11.1.
+**Status:** A01–A11 validadas na prévia local v4.0.0-alpha.10. A12 tem rascunho no Netlify com rotas verificadas e fila testada localmente em banco isolado. Entrada autenticada no rascunho confirmada pelo usuário. Renovação da sessão, fluxos de e-mail hospedados, retorno de implantação e A13–A14 estão pendentes. Linha Next.js em v3.11.1.
 
 **Objetivo:** entregar o Nós em Angular para navegadores de computador e celular. A interface móvel no navegador espelha a experiência que será empacotada com Capacitor. Preservar funcionalidades, URLs públicas e dados e fazer a virada web após a paridade.
 
