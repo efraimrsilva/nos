@@ -1,6 +1,6 @@
 # Plano de substituição do Next.js por Angular
 
-**Status:** A01–A11 validadas na prévia local v4.0.0-alpha.10. A12 passou nas verificações locais de artefato e receptor. O ensaio hospedado e A13–A14 estão pendentes. Linha Next.js em v3.11.1.
+**Status:** A01–A11 validadas na prévia local v4.0.0-alpha.10. A12 tem rascunho no Netlify com rotas verificadas e fila testada localmente em banco isolado. Autenticação e envio hospedados, retorno de implantação e A13–A14 estão pendentes. Linha Next.js em v3.11.1.
 
 **Objetivo:** entregar o Nós em Angular para navegadores de computador e celular. A interface móvel no navegador espelha a experiência que será empacotada com Capacitor. Preservar funcionalidades, URLs públicas e dados e fazer a virada web após a paridade.
 
@@ -77,7 +77,7 @@ Cada linha é uma unidade de trabalho revisável. A coluna de aceite indica a ev
 
 **A09 verificada localmente:** [registro e evidências](../registros/registro-v4.0.0-alpha.9-2026-11-15-imp-agenda-angular-fun-calendario-e-eventos.md). Calendário, navegação, criação, edição, remoção e respostas usam o contrato vigente, sem nova migração.
 
-**Entregas localmente verificadas:** A10 e A11. [Registro da retomada](../registros/registro-v4.0.0-alpha.10-2026-11-17-imp-validacao-angular-fun-conta-navegacao-e-integracoes.md). [Registro A11](../registros/registro-v4.0.0-alpha.9-2026-11-16-imp-previas-angular-fun-navegacao-e-totais.md). A12 prepara a configuração, as funções e o [ensaio hospedado](../../../apps/web/netlify/README.md), com ensaio hospedado pendente após os testes locais. [Registro A12](../registros/registro-v4.0.0-alpha.9-2026-11-16-imp-previa-hospedada-fun-integracoes-angular.md).
+**Entregas localmente verificadas:** A10 e A11. [Registro da retomada](../registros/registro-v4.0.0-alpha.10-2026-11-17-imp-validacao-angular-fun-conta-navegacao-e-integracoes.md). [Registro A11](../registros/registro-v4.0.0-alpha.9-2026-11-16-imp-previas-angular-fun-navegacao-e-totais.md). A12 prepara a configuração, as funções e o [ensaio hospedado](../../../apps/web/netlify/README.md), com rascunho verificado no Netlify e prova local da fila completa. [Registro do ensaio](../registros/registro-v4.0.0-alpha.10-2026-11-17-imp-ensaio-angular-fun-rascunho-netlify-e-fila.md). [Registro A12](../registros/registro-v4.0.0-alpha.9-2026-11-16-imp-previa-hospedada-fun-integracoes-angular.md).
 
 ### Execução da A08
 

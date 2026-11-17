@@ -1,3 +1,9 @@
+## 2026-11-17 — v4.0.0-alpha.10 — Ensaio da A12 no Netlify e na fila local
+
+O mesmo projeto Netlify recebeu o rascunho Angular `6afbcf907b3227096c6e364b`. A publicação pública seguiu no mesmo deploy. A fila completa foi conferida em um Supabase local isolado, com falha, retentativa e prova de envio único. [Registro](registros/registro-v4.0.0-alpha.10-2026-11-17-imp-ensaio-angular-fun-rascunho-netlify-e-fila.md).
+
+---
+
 ## 2026-11-17 — v4.0.0-alpha.10 — Validação de Conta, navegação e integrações Angular
 
 A10 e A11 verificadas em computador e celular. A12 confirmou o artefato e o receptor com Supabase e caixa descartável locais. A fila completa e o retorno hospedado permanecem como próximo passo. [Registro](registros/registro-v4.0.0-alpha.10-2026-11-17-imp-validacao-angular-fun-conta-navegacao-e-integracoes.md).

@@ -1,3 +1,9 @@
+## 2026-11-17 — v4.0.0-alpha.10 — Prova de implantação e retentativa da fila Angular
+
+A prévia ainda precisava de prova hospedada das rotas e de um ensaio completo da fila. O rascunho ficou acessível no mesmo Netlify, com a publicação principal preservada. No Supabase de ensaio, a falha liberou a reserva, a retentativa confirmou o envio e a repetição não gerou outra mensagem. [Registro](../_andamento/registros/registro-v4.0.0-alpha.10-2026-11-17-imp-ensaio-angular-fun-rascunho-netlify-e-fila.md).
+
+---
+
 ## 2026-11-17 — v4.0.0-alpha.10 — Validação integrada da Conta Angular
 
 A Conta e as prévias ainda aguardavam confirmação no aplicativo. O carregamento sob demanda do Supabase reduziu a compilação inicial de 535,83 kB para 312,94 kB no ensaio. Contas descartáveis confirmaram a exclusão com histórico preservado e o relato com limite de envio. A evidência é local. [Registro](../_andamento/registros/registro-v4.0.0-alpha.10-2026-11-17-imp-validacao-angular-fun-conta-navegacao-e-integracoes.md).
