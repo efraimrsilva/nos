@@ -1,3 +1,7 @@
+## 2026-11-17 — retorno manual sobre recuperação de senha e relatos de problema
+
+O usuário confirmou o funcionamento do e-mail de recuperação de senha e relatou que o envio de relatos de problema ainda não funciona. Ambiente, versão e detalhes da falha não foram informados. O reteste dos relatos foi adiado a pedido do usuário. Evidência observacional, sem associação a IDs do roteiro. A confirmação se refere ao e-mail de recuperação.
+
 ## 2026-11-17 — confirmação manual de entrada na prévia Angular v4.0.0-alpha.10
 
 O usuário relatou que se autenticou e entrou no sistema, no contexto do rascunho Netlify da A12. Navegador, dispositivo e método de autenticação não foram informados. Evidência observacional sem atribuir aprovação aos IDs do roteiro. [Registro do ensaio](../registros/registro-v4.0.0-alpha.10-2026-11-17-imp-ensaio-angular-fun-rascunho-netlify-e-fila.md).

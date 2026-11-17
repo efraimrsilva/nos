@@ -1,3 +1,9 @@
+## 2026-11-17 — Retorno manual sobre e-mails
+
+O usuário confirmou o funcionamento do e-mail de recuperação de senha e relatou falha no envio de relatos de problema. Reteste de relatos adiado a pedido do usuário. [Resultados relatados](testes-caixa-preta/resultados.md).
+
+---
+
 ## 2026-11-17 — v4.0.0-alpha.11 — Preparação local da A13
 
 Os 32 caminhos do Next.js foram abertos no Angular em computador e celular. Os adaptadores ganharam configuração separada para o transporte oficial, com validação local. Publicação adiada a pedido do usuário. [Registro](registros/registro-v4.0.0-alpha.11-2026-11-17-imp-preparacao-angular-fun-transporte-e-paridade.md).

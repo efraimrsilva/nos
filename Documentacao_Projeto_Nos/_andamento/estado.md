@@ -10,9 +10,11 @@
 
 **Verificação da A13 local:** 32 caminhos abertos em 1440 e 390 pixels. Playwright com 21 aprovados e três ignorados. 19 testes Node de integrações aprovados. Tipos e builds Next.js e Angular aprovados. As duas funções foram empacotadas e importadas localmente. Guia Migração do Atlas conferida. Context7 e documentação oficial Netlify consultados. Sem aplicação de migrações remotas, envios oficiais ou publicação.
 
+**Retorno manual:** Foi confirmado o funcionamento do e-mail de recuperação de senha mas o envio de relatos de problema ainda não funciona. Ambiente, versão e detalhes da falha não foram informados. O reteste dos relatos foi adiado a pedido do usuário. [Resultados relatados](testes-caixa-preta/resultados.md).
+
 **Limite e próximo passo:** seguir com os ajustes pendentes que o usuário priorizar. Antes da virada, comprovar renovação de sessão, envio e fila hospedados e retorno em ambiente isolado. Reconfirmar as quatro migrações do [registro da A13](registros/registro-v4.0.0-alpha.11-2026-11-17-imp-preparacao-angular-fun-transporte-e-paridade.md) no destino antes de qualquer aplicação. Preparar a candidata após essas provas, conforme o [roteiro](../../apps/web/netlify/README.md).
 
-**Continuidade Git:** preparação local da A13 pronta para commit quando solicitado. Sugestão `feat(angular): preparar transporte e validar rotas da virada`. Contador 79 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
+**Continuidade Git:** preparação da A13 conferida no objeto `fef30b5`. Pendente o registro documental do retorno manual, sugestão `docs(migracao): registrar retorno sobre recuperação e relatos`. Contador 80 conclusões acompanhadas, lacuna histórica preservada e último marco de auditoria 100.
 
 **Índice:** [Preparação local da A13](registros/registro-v4.0.0-alpha.11-2026-11-17-imp-preparacao-angular-fun-transporte-e-paridade.md) · [Registro do ensaio](registros/registro-v4.0.0-alpha.10-2026-11-17-imp-ensaio-angular-fun-rascunho-netlify-e-fila.md) · [Plano de migração](planos/migracao-angular.md) · [Guia Migração](../wireframes/atlas/index.html#migracao) · [Roteiro de ensaio](../../apps/web/netlify/README.md) · [Validação A10–A12 anterior](registros/registro-v4.0.0-alpha.10-2026-11-17-imp-validacao-angular-fun-conta-navegacao-e-integracoes.md).
 
