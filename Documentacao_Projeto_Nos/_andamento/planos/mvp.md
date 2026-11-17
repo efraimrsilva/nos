@@ -1,3 +1,7 @@
+## Conta e prévias na aplicação Angular — v4.0.0-alpha.10 — 2026-11-17
+
+A10 e A11 verificadas na prévia local. Aparência, privacidade, exclusão e relato foram conferidos com contas descartáveis. A navegação contextual apresenta seis prévias ilustrativas do Núcleo. A caixa local recebeu os relatos de teste. [Registro](../registros/registro-v4.0.0-alpha.10-2026-11-17-imp-validacao-angular-fun-conta-navegacao-e-integracoes.md).
+
 ## Prévias do Núcleo e navegação na aplicação Angular — A11 em validação — 2026-11-16
 
 As Telas 38, 40, 44, 49, 55, 60 e 62 permanecem planejadas como funcionalidades. As rotas ilustrativas exigem vínculo e mantêm os exemplos sem persistência. [Registro A11](../registros/registro-v4.0.0-alpha.9-2026-11-16-imp-previas-angular-fun-navegacao-e-totais.md).

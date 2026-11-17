@@ -1,3 +1,9 @@
+## 2026-11-17 — v4.0.0-alpha.10 — Validação de Conta, navegação e integrações Angular
+
+A10 e A11 verificadas em computador e celular. A12 confirmou o artefato e o receptor com Supabase e caixa descartável locais. A fila completa e o retorno hospedado permanecem como próximo passo. [Registro](registros/registro-v4.0.0-alpha.10-2026-11-17-imp-validacao-angular-fun-conta-navegacao-e-integracoes.md).
+
+---
+
 ## 2026-11-16 — Angular A12 — Integrações e hospedagem em validação
 
 Configuração separada da prévia, adaptadores de avisos e relatos e regra de navegação Angular. Validação isolada dos contratos com Node. Ensaio hospedado pendente. [Registro A12](registros/registro-v4.0.0-alpha.9-2026-11-16-imp-previa-hospedada-fun-integracoes-angular.md).

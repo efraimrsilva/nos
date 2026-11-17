@@ -1,4 +1,5 @@
 import { randomUUID } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 import { mkdirSync } from 'node:fs';
 import { test as base, expect } from '@playwright/test';
 import { createClient } from '@supabase/supabase-js';
@@ -23,7 +24,9 @@ const test = base.extend({
       await use({ users, admin });
     } finally {
       const results = await Promise.all(users.map(({user}) => admin.auth.admin.deleteUser(user.id)));
-      if (results.some(result => result.error)) throw new Error('Não foi possível limpar as contas de teste locais.');
+      if (results.some(result => result.error && result.error.status !== 404)) {
+        throw new Error('Não foi possível limpar as contas de teste locais.');
+      }
     }
   },
 });
@@ -183,4 +186,77 @@ test('salva aparência e privacidade para a conta conectada', async ({page, acco
   await expect(removal).toBeHidden();
   const unaffected = await accounts.admin.auth.admin.getUserById(second.user.id);
   expect(unaffected.data.user?.user_metadata.appearance_theme).toBe('light');
+});
+
+test('confirma a exclusão Angular e preserva o evento para a outra conta', async ({page, accounts, browser}, info) => {
+  const [first, second] = accounts.users;
+  const nucleus = randomUUID(), event = randomUUID();
+  const sql = input => execFileSync('docker', ['exec', '-i', 'supabase_db_nos', 'psql', '-U', 'postgres', '-d', 'postgres',
+    '-At', '-v', 'ON_ERROR_STOP=1'], {input, encoding:'utf8'}).trim();
+  const peer = await browser.newContext(info.project.use);
+  try {
+    // Os identificadores são exclusivos desta execução e o evento permanece após apagar o autor.
+    sql(`insert into public.nuclei(id,type,name,purpose,created_by)
+      values('${nucleus}','amigos','Jardim de teste','Preservar o histórico','${first.user.id}');
+      insert into public.nucleus_members(nucleus_id,user_id,role)
+      values('${nucleus}','${first.user.id}','admin'),('${nucleus}','${second.user.id}','member');
+      insert into public.nucleus_events(id,nucleus_id,created_by,title,starts_at,ends_at,time_zone)
+      values('${event}','${nucleus}','${first.user.id}','Encontro preservado',now()+interval '1 day',now()+interval '25 hours','UTC');
+      insert into public.nucleus_event_participants(event_id,user_id,response)
+      values('${event}','${first.user.id}','declined'),('${event}','${second.user.id}','accepted');`);
+    await page.goto(path);
+    await signIn(page, first);
+    const open = page.getByRole('button', {name:'Apagar minha conta', exact:true});
+    await open.click();
+    const dialog = page.getByRole('dialog', {name:'Apagar minha conta'});
+    const phrase = dialog.getByRole('textbox'), submit = dialog.getByRole('button', {name:'Confirmar exclusão'});
+    await phrase.fill('apagar conta');
+    await expect(submit).toBeDisabled();
+    await phrase.fill('APAGAR CONTA');
+    await page.keyboard.press('Escape');
+    await expect(dialog).toBeHidden();
+    expect(sql(`select count(*) from auth.users where id='${first.user.id}';`)).toBe('1');
+    await open.click();
+    await expect(phrase).toHaveValue('');
+    await phrase.fill('APAGAR CONTA');
+    await submit.click();
+    await expect(page).toHaveURL(/\/conta\?resultado=conta-excluida$/);
+    expect(sql(`select count(*) from auth.users where id='${first.user.id}';`)).toBe('0');
+    const other = await peer.newPage();
+    await other.goto(path);
+    await signIn(other, second);
+    await other.goto('/nucleos/'+nucleus+'/agenda#evento-'+event);
+    await expect(other.getByRole('heading', {name:'Encontro preservado'})).toBeVisible();
+    await expect(other.getByText('Criado por Conta excluída.', {exact:true})).toBeVisible();
+    await expect(other.getByText('1 com presença confirmada', {exact:true})).toBeVisible();
+    expect(sql(`select role from public.nucleus_members where nucleus_id='${nucleus}' and user_id='${second.user.id}';`)).toBe('admin');
+  } finally {
+    await peer.close();
+    sql(`delete from public.nuclei where id='${nucleus}';`);
+  }
+});
+
+test('relata pela Ajuda, confirma o envio e respeita o limite no cabeçalho', async ({page, accounts}) => {
+  test.skip(!process.env.NOS_ANGULAR_SUPPORT_SMTP_PORT, 'Requer caixa SMTP descartável em loopback.');
+  await page.goto(path);
+  await signIn(page, accounts.users[0]);
+  await page.goto('/ajuda');
+  await expect(page).toHaveURL(/\/conta#ajuda-e-suporte$/);
+  const support = page.getByRole('main').getByRole('button', {name:'Relatar um problema'});
+  const dialog = page.getByRole('dialog', {name:'Relatar um problema'});
+  const description = 'Relato descartável '+randomUUID();
+  const fill = async () => {
+    await dialog.getByLabel('O que aconteceu?').fill(description);
+    await dialog.getByRole('button', {name:'Enviar relato'}).click();
+  };
+  await support.click();
+  await fill();
+  await expect(dialog.getByRole('status')).toHaveText('Relato enviado.');
+  await page.keyboard.press('Escape');
+  await page.getByRole('banner').getByRole('button', {name:'Relatar um problema'}).click();
+  const limited = page.waitForResponse(response => response.url().endsWith('/api/problem-report') && response.status()===429);
+  await fill();
+  await limited;
+  await expect(dialog.getByRole('alert')).toContainText('Aguarde');
+  await expect(dialog.getByLabel('O que aconteceu?')).toHaveValue(description);
 });

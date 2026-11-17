@@ -1,5 +1,5 @@
 import { DestroyRef, Injectable, inject, signal } from '@angular/core';
-import { createClient, isAuthRetryableFetchError, type Session, type SupabaseClient, type User } from '@supabase/supabase-js';
+import type { Session, SupabaseClient, User } from '@supabase/supabase-js';
 
 import { readPublicConfig, type PublicConfig } from './auth/public-config';
 import { updateOwnUser } from './auth/supabase-user';
@@ -17,6 +17,7 @@ export class PreviewProfile {
   private readonly destroy = inject(DestroyRef);
   private config?: PublicConfig;
   private client?: SupabaseClient;
+  private isRetryableAuthError?: typeof import('@supabase/supabase-js').isAuthRetryableFetchError;
   private connecting?: Promise<void>;
   private accountId: string | null = null;
   private revision = 0;
@@ -42,6 +43,9 @@ export class PreviewProfile {
       if (!local && location.protocol !== 'https:') throw new Error();
       const config = readPublicConfig(await response.json(), local ? 'local' : 'hosted');
       if (!config) throw new Error();
+      // O cabeçalho observa a sessão, mas a página pública só carrega o SDK ao abrir uma rota de acesso.
+      const { createClient, isAuthRetryableFetchError } = await import('@supabase/supabase-js');
+      this.isRetryableAuthError = isAuthRetryableFetchError;
       this.config = config;
       this.client = createClient(config.url, config.publicKey, {
         auth: { storageKey: sessionKey, flowType: 'pkce', detectSessionInUrl: false },
@@ -76,7 +80,7 @@ export class PreviewProfile {
     try {
       const { data, error } = await this.client!.auth.getUser(session.access_token);
       if (this.revision !== revision) return;
-      if (isAuthRetryableFetchError(error) || (error?.status ?? 0) >= 500) {
+      if (this.isRetryableAuthError?.(error) || (error?.status ?? 0) >= 500) {
         this.notice.set('Não foi possível conferir sua sessão. Tente novamente em instantes.');
       } else if (error || data.user?.id !== session.user.id) this.reset(null, true);
       else this.user.set(data.user);
@@ -100,7 +104,7 @@ export class PreviewProfile {
       const result = await this.client?.auth.signInWithPassword({ email: email.trim(), password });
       if (result && !result.error) return '';
       if (result?.error?.status === 429) return 'Muitas tentativas de acesso. Aguarde um pouco antes de tentar novamente.';
-      if (!result || isAuthRetryableFetchError(result.error) || (result.error?.status ?? 0) >= 500) {
+      if (!result || this.isRetryableAuthError?.(result.error) || (result.error?.status ?? 0) >= 500) {
         return 'Não foi possível acessar o serviço de autenticação. Tente novamente em instantes.';
       }
       if (result.error?.code === 'email_not_confirmed') return 'Confirme seu e-mail antes de entrar na conta.';
@@ -160,7 +164,7 @@ export class PreviewProfile {
     try {
       const { data: { session }, error: sessionError } = await client.auth.getSession();
       if (this.revision !== revision) return sessionMessage;
-      if (isAuthRetryableFetchError(sessionError)) return failure;
+      if (this.isRetryableAuthError?.(sessionError)) return failure;
       if (!session || (sessionError && (sessionError.status === 401 || sessionError.status === 403))) {
         this.reset(null, true);
         return sessionMessage;

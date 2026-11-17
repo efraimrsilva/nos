@@ -279,10 +279,10 @@ for(const id of [12,13,14,16,66,71,73])screens.find(s=>s.id===id).rule+=' v3.6.3
 
 // Suporte é um modal compartilhado: não criar uma nova rota ou duplicar fichas.
 for(const [id, detail] of [
-  [66, 'A10 Angular em validação: Dados da conta, recuperação e confirmação, aparência por conta e atalhos em desktop e no menu Mais.'],
-  [67, 'A10 Angular em validação: Visibilidade das próximas saídas usa a preferência da conta e confirma após gravação.'],
-  [69, 'A10 Angular em validação: exclusão exige APAGAR CONTA e usa a identidade da sessão verificada.'],
-  [70, 'A10 Angular em validação: Relatar um problema abre em Ajuda e no cabeçalho. O serviço da prévia precisa de uma caixa local configurada.'],
+  [66, 'A10 Angular verificada localmente: Dados da conta, recuperação e confirmação, aparência por conta e atalhos em desktop e no menu Mais.'],
+  [67, 'A10 Angular verificada localmente: Visibilidade das próximas saídas usa a preferência da conta e confirma após gravação.'],
+  [69, 'A10 Angular verificada localmente: exclusão exige APAGAR CONTA e usa a identidade da sessão verificada.'],
+  [70, 'A10 Angular verificada localmente: Relatar um problema abre em Ajuda e no cabeçalho. O serviço da prévia precisa de uma caixa local configurada.'],
 ]) screens.find(screen => screen.id === id).rule += ' ' + detail;
 for(const id of [13,66,70,71])screens.find(s=>s.id===id).rule+=' v3.7.0: Relatar um problema no cabeçalho autenticado e em Ajuda e suporte (Conta, perfil e Mais); orientação também oferece atalho. Mesmo modal com descrição10–2000 e passos opcionais1000, envio explícito. Destinatário apenas servidor; conta com e-mail confirmado, uma tentativa por minuto no banco, sem armazenar conteúdo do relato. X/Escape/fora cancelam sem enviar; pendente bloqueia duplicação, erro preserva texto e sucesso requer aceite SMTP. Fluxo local e autenticação SMTP real validados; publicação e recebimento externo ainda não certificados. Atlas demonstra sem enviar e-mail.';
 journeys.push({name:'Relatar um problema',ids:[66,70,66],steps:['Abrir Ajuda ou atalho no cabeçalho','Descrever e enviar no modal','Receber confirmação ou corrigir/tentar depois'],rule:'Modal compartilhado, sem nova rota. Conta confirmada; destinatário oculto e envio no servidor. Autenticação SMTP real validada; implantação e recebimento externo ainda não certificados. No Atlas nenhum e-mail é enviado.'});
@@ -330,11 +330,11 @@ screens.find(screen=>screen.id===16).rule += ' A09: Novo momento abre Adicionar 
 screens.find(screen=>screen.id===17).rule += ' A09: Editar evento e Remover evento abrem para autor associado ou administrador. Remoção exige ciência explícita. X, Escape e gesto externo fecham os modais.';
 
 for (const [id, note] of [
-  [38, 'A11 Angular em validação: Nossa árvore usa ilustração e temas locais, sem indicador de crescimento.'],
-  [40, 'A11 Angular em validação: filtros e detalhe de memória usam somente exemplos editoriais.'],
-  [44, 'A11 Angular em validação: seleção e detalhe apresentam somente pessoas fictícias.'],
-  [49, 'A11 Angular em validação: a rota Perfis afetivos mostra exemplos e não consulta perfis reais.'],
-  [55, 'A11 Angular em validação: os princípios do manifesto são texto editorial.'],
-  [60, 'A11 Angular em validação: o painel do cabeçalho é ilustrativo e aponta para Acordos ou Seus Núcleos.'],
-  [62, 'A11 Angular em validação: a rota /nucleos/[id]/cuidado prepara o exemplo em memória e descarta o rascunho ao mudar de tela ou de Núcleo.'],
+  [38, 'A11 Angular verificada localmente: Nossa árvore usa ilustração e temas locais, sem indicador de crescimento.'],
+  [40, 'A11 Angular verificada localmente: filtros e detalhe de memória usam somente exemplos editoriais.'],
+  [44, 'A11 Angular verificada localmente: seleção e detalhe apresentam somente pessoas fictícias.'],
+  [49, 'A11 Angular verificada localmente: a rota Perfis afetivos mostra exemplos e não consulta perfis reais.'],
+  [55, 'A11 Angular verificada localmente: os princípios do manifesto são texto editorial.'],
+  [60, 'A11 Angular verificada localmente: o painel do cabeçalho é ilustrativo e aponta para Acordos ou Seus Núcleos.'],
+  [62, 'A11 Angular verificada localmente: a rota /nucleos/[id]/cuidado prepara o exemplo em memória e descarta o rascunho ao mudar de tela ou de Núcleo.'],
 ]) screens.find(screen => screen.id === id).rule += ' ' + note;

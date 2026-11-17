@@ -2,6 +2,12 @@
 
 Use um site de ensaio e um projeto Supabase exclusivos para contas descartáveis. O site tem base na raiz do repositório, **Package directory** `apps/web` e a configuração desse pacote. Confirme que o build usa `apps/web/netlify.toml` e que a integração Next.js não está instalada no site de ensaio. A instalação da raiz fornece as bibliotecas das funções. O comando do site instala também as dependências do Angular e publica `apps/web/dist/nos-web/browser`. A configuração Netlify da raiz continua responsável pelo site atual. [Configuração para monorepos](https://docs.netlify.com/build/configure-builds/monorepos/)
 
+## Ensaio no site existente
+
+Para testar a entrega estática no site atual, publique um rascunho do Netlify com URL própria. Confira os links diretos, os cabeçalhos, o 404 da API e as funções sem credenciais de envio. Registre o deploy público antes e depois para confirmar que o rascunho não assume o domínio principal.
+
+O teste completo da fila e do e-mail ainda requer um Supabase de ensaio e uma caixa descartável. O projeto do site atual já usa a fila de usuários reais. O rascunho pode testar o acesso público sem alterar as configurações globais do Auth ou do Vault.
+
 ## Variáveis por escopo
 
 | Escopo | Variáveis |

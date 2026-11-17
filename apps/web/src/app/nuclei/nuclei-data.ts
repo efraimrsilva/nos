@@ -1,5 +1,4 @@
 import { inject, Injectable } from '@angular/core';
-import { createClient } from '@supabase/supabase-js';
 import { PreviewProfile } from '../preview-profile';
 import { isNucleusId, type NucleusTypeId } from './nucleus-model';
 
@@ -14,6 +13,7 @@ export class NucleiData {
 
   async clientForAccount(owner: string, verify = false) {
     const connection = await this.profile.connection();
+    const { createClient } = await import('@supabase/supabase-js');
     if (!connection || this.profile.user()?.id !== owner) throw new Error('Sessão indisponível.');
     const {data, error} = await connection.client.auth.getSession();
     const session = data.session;

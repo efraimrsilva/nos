@@ -1,3 +1,9 @@
+## 2026-11-17 — v4.0.0-alpha.10 — Validação integrada da Conta Angular
+
+A Conta e as prévias ainda aguardavam confirmação no aplicativo. O carregamento sob demanda do Supabase reduziu a compilação inicial de 535,83 kB para 312,94 kB no ensaio. Contas descartáveis confirmaram a exclusão com histórico preservado e o relato com limite de envio. A evidência é local. [Registro](../_andamento/registros/registro-v4.0.0-alpha.10-2026-11-17-imp-validacao-angular-fun-conta-navegacao-e-integracoes.md).
+
+---
+
 ## 2026-11-15 — v4.0.0-alpha.9 — Agenda e gestão de eventos no Angular
 
 **Problema:** a prévia não permitia abrir a Agenda nem responder a um evento. **Contribuição:** portar a rota, calendário, detalhe, resposta individual e gestão com as funções já autorizadas no banco. **Resultado verificado:** a remarcação voltou a pedir resposta, alterações textuais preservaram a presença e contas sem vínculo não abriram a Agenda. **Benefício esperado:** manter a organização dos encontros durante a substituição do frontend. [Registro A09](../_andamento/registros/registro-v4.0.0-alpha.9-2026-11-15-imp-agenda-angular-fun-calendario-e-eventos.md).

@@ -1,6 +1,6 @@
 {
   "name": "nos-web",
-  "version": "4.0.0-alpha.9",
+  "version": "4.0.0-alpha.10",
   "scripts": {
     "start": "node ../../scripts/start-angular-local.mjs",
     "prebuild": "node ../../scripts/prepare-angular-assets.mjs",

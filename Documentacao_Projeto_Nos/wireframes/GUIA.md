@@ -1,8 +1,4 @@
-**A12 Angular em validação (16/11/2026)** — A guia Migração indica o recorte operacional da prévia, com configuração pública, retornos de autenticação, receptor de avisos e relatos. O Atlas descreve o estado do ensaio sem executar integrações externas. [Registro A12](../_andamento/registros/registro-v4.0.0-alpha.9-2026-11-16-imp-previa-hospedada-fun-integracoes-angular.md)
-
-**A11 Angular em validação (16/11/2026)** — Telas 38, 40, 44, 49, 55, 60 e 62 na guia Migração. As áreas preservam a classificação planejada e usam exemplos offline. [Galeria parcial](comparacoes/v4.0.0-alpha.9-2026-11-16-angular-previas-tela_38-tela_40-tela_44-tela_49-tela_55-tela_60-tela_62/index.html)
-
-**A10 Angular em validação (16/11/2026)** — Telas 66, 67, 69 e 70 na guia Migração. Aparência, Privacidade, Apagar minha conta e Relatar um problema estão representados no Atlas; a confirmação autenticada e de envio na prévia seguem pendentes. [Evidência Atlas](comparacoes/v4.0.0-alpha.9-2026-11-16-angular-controles-tela_66-tela_67-tela_69-tela_70/index.html)
+**Prévia Angular v4.0.0-alpha.10 (17/11/2026)** — A10 e A11 verificadas com contas descartáveis, em computador e celular. A12 tem artefato e receptor verificados localmente. O ensaio hospedado permanece aberto. [Galeria](comparacoes/v4.0.0-alpha.10-2026-11-17-angular-conta-e-previas-tela_38-tela_40-tela_44-tela_49-tela_55-tela_60-tela_62-tela_66-tela_67-tela_69-tela_70/index.html) · [Registro](../_andamento/registros/registro-v4.0.0-alpha.10-2026-11-17-imp-validacao-angular-fun-conta-navegacao-e-integracoes.md).
 
 **Prévia Angular v4.0.0-alpha.9 (15/11/2026)** — A09 porta calendário mensal, grade semanal e lista móvel, presença e gestão nas Telas 14–17. O Atlas demonstra criação, edição e remoção com dados fictícios. [Comparações](comparacoes/v4.0.0-alpha.9-2026-11-15-angular-agenda-tela_14-tela_15-tela_16-tela_17/index.html).
 

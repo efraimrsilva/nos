@@ -1,4 +1,4 @@
-import { afterNextRender, Component, DestroyRef, computed, effect, inject, Injector, resource, signal, viewChild, type ElementRef } from '@angular/core';
+import { afterNextRender, Component, DestroyRef, computed, effect, inject, Injector, resource, signal, viewChild, ElementRef } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AccountPreferences } from './account-preferences';

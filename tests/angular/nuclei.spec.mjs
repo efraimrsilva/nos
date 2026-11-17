@@ -563,7 +563,11 @@ test('cria uma vez mesmo após perder a resposta e abre núcleo autorizado', asy
   await expect(page).toHaveURL(path);
   await page.reload();
   await expect(page.getByRole('heading',{name:'Jardim de teste'})).toBeVisible();
-  await page.getByRole('link',{name:'Minha conta',exact:true}).first().click();
+  const accountNav = info.project.name === 'mobile'
+    ? page.getByRole('dialog',{name:'Todos os seus caminhos'})
+    : page.getByRole('navigation',{name:'Áreas do Nós'});
+  if (info.project.name === 'mobile') await page.getByRole('button',{name:'Mais áreas e preferências'}).click();
+  await accountNav.getByRole('link',{name:'Minha conta',exact:true}).click();
   await page.getByRole('link',{name:'Voltar ao Núcleo'}).click();
   await expect(page).toHaveURL(path);
 
@@ -787,6 +791,22 @@ test('protege prévias do Núcleo e descarta o rascunho da Ponte ao navegar', as
   await expect(page.getByRole('heading',{name:'Raízes no que vivemos.'})).toBeVisible();
   await page.goBack();
   await expect(page.getByLabel('O que você quer expressar?')).toHaveValue('');
+  const previews = page.getByRole('navigation',{name:'Explorações de funcionalidades futuras'});
+  const destinations = [
+    ['memorias','Há instantes que ficam.'],
+    ['conexoes','Conhecer para cuidar.'],
+    ['perfis','Um jeito único de estar no Nós.'],
+    ['manifesto','O que escolhemos cultivar.'],
+    ['arvore','Raízes no que vivemos.'],
+    ['cuidado','Conversar também é um cuidado.'],
+  ];
+  for (const [destination,title] of destinations) {
+    const link = previews.locator('a[href="' + root + '/' + destination + '"]');
+    await link.click();
+    await expect(link).toHaveAttribute('aria-current','page');
+    await expect(page.getByRole('main').getByRole('heading',{name:title,exact:true})).toBeVisible();
+    await expect(page.getByRole('main').getByText('Esboço de funcionalidade · ainda não desenvolvido',{exact:true})).toBeVisible();
+  }
   const isolated = await browser.newContext();
   try {
     const other = await isolated.newPage();
