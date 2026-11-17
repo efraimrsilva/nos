@@ -230,7 +230,7 @@
         <h2 id="migration-title" tabindex="-1">Migração para Angular</h2>
         <p>
           <span class="badge planned">Planejada</span> A substituição pública segue planejada.
-          A01–A11 foram verificadas na prévia <strong>v4.0.0-alpha.10</strong>. A preparação local da virada está em <strong>v4.0.0-alpha.11</strong>. A entrada com Google depende da configuração do provedor no ambiente.
+          A01–A11 foram verificadas na prévia <strong>v4.0.0-alpha.10</strong>. A preparação da virada foi verificada na v4.0.0-alpha.11. A paridade da entrada e da assistência está na prévia <strong>v4.0.0-alpha.13</strong>. A entrada com Google depende da configuração do provedor no ambiente.
         </p>
         <p>
           O Angular será a aplicação web em computador e celular. A interface
@@ -385,6 +385,107 @@
             Next.js.
           </p>
         </details>
+        <section class="migration-visual-roadmap" aria-labelledby="migration-visual-title">
+          <h3 id="migration-visual-title">Paridade de interface com o Atlas v3.11.1</h3>
+          <p>Use os passos abaixo para recuperar composição, sequências, ícones, avisos e microinterações no Angular. Abra as fichas no Atlas vivo. Telas de funcionalidades planejadas permanecem ilustrativas.</p>
+          <p>Em cada passo, compare computador (1440 px) e celular (390 px), confira foco, teclado, toque e movimento reduzido, e confirme os estados e os diálogos afetados. Guarde as capturas e registre os limites da verificação.</p>
+          <details data-visual-step="01">
+            <summary>01 · Conta · entrada e identidade · validada localmente</summary>
+            <p>Árvore, oito pontos de luz, reflexão pausável, ícone do Google, alternância, visibilidade da senha e composição compacta.</p>
+            <p><strong>Aceite.</strong> Conferir cadastro e login, foco na alternância, teclado e movimento reduzido. Veja a <a href="../comparacoes/v4.0.0-alpha.12-2026-11-17-angular-conta-tela_01-tela_02/index.html">comparação local</a>.</p>
+            <p><a href="#tela-01">01</a> · <a href="#tela-02">02</a></p>
+          </details>
+          <details data-visual-step="02">
+            <summary>02 · Acesso · assistência e boas-vindas · validada localmente</summary>
+            <p>Cabeçalho público, rodapé, boas-vindas, avisos de envio, modais de confirmação e recuperação e feedback de nova senha.</p>
+            <p><strong>Aceite.</strong> Abrir link direto, fechar por X/Escape/fora, conferir retorno, erro e sucesso conforme o estado de autenticação. <a href="../comparacoes/v4.0.0-alpha.13-2026-11-17-angular-acesso-publico-tela_03-tela_04-tela_05-tela_72/index.html">Comparação local</a>.</p>
+            <p><a href="#tela-03">03</a> · <a href="#tela-04">04</a> · <a href="#tela-05">05</a> · <a href="#tela-72">72</a></p>
+          </details>
+          <details data-visual-step="03">
+            <summary>03 · Estrutura autenticada · navegação e cabeçalho</summary>
+            <p>Ícones, grupos e área ativa, recolhimento desktop, barra móvel, Mais, troca de Núcleo, totais, painel de perfil e avisos visuais.</p>
+            <p><strong>Aceite.</strong> Conferir destinos com teclado e toque, contexto ao trocar de Núcleo e ausência de saltos entre rotas.</p>
+            <p><a href="#tela-12">12</a> · <a href="#tela-13">13</a> · <a href="#tela-60">60</a> · <a href="#tela-66">66</a></p>
+          </details>
+          <details data-visual-step="04">
+            <summary>04 · Começar · escolha, tipo e propósito</summary>
+            <p>Sequência de escolha, progresso, cartões de tipo, propósito, conferência e passagem ao convite inicial.</p>
+            <p><strong>Aceite.</strong> Voltar sem perder o rascunho aplicável; confirmar antes de escrever e evitar dupla criação.</p>
+            <p><a href="#tela-06">06</a> · <a href="#tela-07">07</a> · <a href="#tela-08">08</a> · <a href="#tela-09">09</a></p>
+          </details>
+          <details data-visual-step="05">
+            <summary>05 · Convites · entrada, aceite e gestão</summary>
+            <p>Campo do código, prévia, aceite explícito, copiar, lista, filtros, preparo e revogação.</p>
+            <p><strong>Aceite.</strong> Conferir etapa inicial, erro, aguardando serviço, cópia confirmada e permissões por papel.</p>
+            <p><a href="#tela-10">10</a> · <a href="#tela-11">11</a> · <a href="#tela-58">58</a> · <a href="#tela-59">59</a></p>
+          </details>
+          <details data-visual-step="06">
+            <summary>06 · Seus Núcleos, Início e participação</summary>
+            <p>Cartões, emblemas de papel, integrantes, edição de identidade, nomeação, saída e encerramento.</p>
+            <p><strong>Aceite.</strong> Preservar leitura e ações por papel, confirmação destrutiva e atualização de nome sem perder rascunho.</p>
+            <p><a href="#tela-12">12</a> · <a href="#tela-13">13</a> · <a href="#tela-71">71</a> · <a href="#tela-73">73</a></p>
+          </details>
+          <details data-visual-step="07">
+            <summary>07 · Agenda · consulta e presença</summary>
+            <p>Calendário mensal, seletor de mês/ano, semana em grade ou lista móvel, detalhe, marcadores e presença.</p>
+            <p><strong>Aceite.</strong> Conferir mudança de mês, leitura por teclado, dias com eventos e estados vazio/carregando/erro.</p>
+            <p><a href="#tela-14">14</a> · <a href="#tela-15">15</a></p>
+          </details>
+          <details data-visual-step="08">
+            <summary>08 · Agenda · criação, edição e remoção</summary>
+            <p>Formulários, hierarquia de horários, estado de envio, remarcação, confirmação de exclusão e retorno à semana.</p>
+            <p><strong>Aceite.</strong> Conferir as mesmas ações por toque e teclado e feedback apenas após confirmação.</p>
+            <p><a href="#tela-16">16</a> · <a href="#tela-17">17</a></p>
+          </details>
+          <details data-visual-step="09">
+            <summary>09 · Acordos · lista, proposta e participação</summary>
+            <p>Kanban e lista móvel, cartões, totais, formulário, conferência e aceite ou recusa. Fichas guiadas planejadas conservam seu estado.</p>
+            <p><strong>Aceite.</strong> Testar antes e depois da revisão, foco dos diálogos e resultados com duas contas.</p>
+            <p><a href="#tela-18">18</a> · <a href="#tela-19">19</a> · <a href="#tela-20">20</a> · <a href="#tela-21">21</a> · <a href="#tela-22">22</a> · <a href="#tela-23">23</a></p>
+          </details>
+          <details data-visual-step="10">
+            <summary>10 · Hábitos · detalhe, momento e gestão do ciclo</summary>
+            <p>Hierarquia do detalhe, histórico, registro, confirmação de período e apresentação dos estados de legado e reflexão.</p>
+            <p><strong>Aceite.</strong> Preservar leitura histórica, escolha voluntária, limites de permissão e estado da versão em alterações.</p>
+            <p><a href="#tela-24">24</a> · <a href="#tela-25">25</a> · <a href="#tela-26">26</a> · <a href="#tela-27">27</a> · <a href="#tela-28">28</a> · <a href="#tela-29">29</a></p>
+          </details>
+          <details data-visual-step="11">
+            <summary>11 · Hábitos · termos, versões e esboços</summary>
+            <p>Histórico de versões, revisão, encerramento e prévias de agendamento e Essência.</p>
+            <p><strong>Aceite.</strong> Conferir a sequência de conferência e aceite; manter dados ilustrativos identificados.</p>
+            <p><a href="#tela-30">30</a> · <a href="#tela-31">31</a> · <a href="#tela-32">32</a> · <a href="#tela-33">33</a> · <a href="#tela-34">34</a> · <a href="#tela-35">35</a> · <a href="#tela-36">36</a> · <a href="#tela-37">37</a></p>
+          </details>
+          <details data-visual-step="12">
+            <summary>12 · Árvore e Memórias</summary>
+            <p>Ilustração, marcos, seleção e filtros, detalhe de memória e estados de galeria e gratidão como esboços.</p>
+            <p><strong>Aceite.</strong> Conferir as interações locais sem simular gravação nem calcular evolução.</p>
+            <p><a href="#tela-38">38</a> · <a href="#tela-39">39</a> · <a href="#tela-40">40</a> · <a href="#tela-41">41</a> · <a href="#tela-42">42</a> · <a href="#tela-43">43</a></p>
+          </details>
+          <details data-visual-step="13">
+            <summary>13 · Conexões e perfis</summary>
+            <p>Seletores, cartões, afinidades, detalhes, preferências de visibilidade e esboços de edição.</p>
+            <p><strong>Aceite.</strong> Exemplos fictícios, navegação reversível e ausência de dados privados.</p>
+            <p><a href="#tela-44">44</a> · <a href="#tela-45">45</a> · <a href="#tela-46">46</a> · <a href="#tela-47">47</a> · <a href="#tela-48">48</a> · <a href="#tela-49">49</a> · <a href="#tela-50">50</a> · <a href="#tela-51">51</a> · <a href="#tela-52">52</a> · <a href="#tela-53">53</a> · <a href="#tela-54">54</a></p>
+          </details>
+          <details data-visual-step="14">
+            <summary>14 · Manifesto e Ponte do Nós</summary>
+            <p>Leitura do manifesto, revisão e compartilhamento ilustrativos, preparação da conversa e cartão temporário.</p>
+            <p><strong>Aceite.</strong> Preservar estados de esboço e limpar o rascunho ao sair ou trocar de Núcleo.</p>
+            <p><a href="#tela-55">55</a> · <a href="#tela-56">56</a> · <a href="#tela-57">57</a> · <a href="#tela-61">61</a> · <a href="#tela-62">62</a> · <a href="#tela-63">63</a> · <a href="#tela-64">64</a> · <a href="#tela-65">65</a></p>
+          </details>
+          <details data-visual-step="15">
+            <summary>15 · Conta autenticada, privacidade e suporte</summary>
+            <p>Seções, ícones, aparência, estados das preferências e modais de dados, exclusão e relato.</p>
+            <p><strong>Aceite.</strong> Conferir confirmação, preservação de texto em falha e contraste dos temas. A integração operacional de relatos segue o reteste registrado.</p>
+            <p><a href="#tela-66">66</a> · <a href="#tela-67">67</a> · <a href="#tela-68">68</a> · <a href="#tela-69">69</a> · <a href="#tela-70">70</a></p>
+          </details>
+          <details data-visual-step="16">
+            <summary>16 · Revisão transversal</summary>
+            <p>Revisitar as 73 fichas pelas etapas anteriores e conferir tipografia, ícones, avisos, movimento reduzido e estados vazios, de erro e de permissão.</p>
+            <p><strong>Aceite.</strong> Comparar com o Atlas nas duas larguras, ampliar onde necessário e registrar as evidências antes da virada.</p>
+            <p><a href="#tela-01">01</a> · <a href="#tela-13">13</a> · <a href="#tela-14">14</a> · <a href="#tela-18">18</a> · <a href="#tela-66">66</a></p>
+          </details>
+        </section>
       </section>
       <footer class="main-footer">
         <span>PROJETO NÓS</span>

@@ -1,3 +1,7 @@
+- [v4.0.0-alpha.13 · Assistência e Boas-vindas no Angular](v4.0.0-alpha.13-2026-11-17-angular-acesso-publico-tela_03-tela_04-tela_05-tela_72/index.html) — 24 imagens do Atlas e da prévia local em desktop e celular.
+
+- [v4.0.0-alpha.12 · Abertura da Conta no Angular](v4.0.0-alpha.12-2026-11-17-angular-conta-tela_01-tela_02/index.html) — 10 imagens do Atlas e da prévia local em computador e celular.
+
 - [v4.0.0-alpha.10 · Conta, preferências e prévias no Angular](v4.0.0-alpha.10-2026-11-17-angular-conta-e-previas-tela_38-tela_40-tela_44-tela_49-tela_55-tela_60-tela_62-tela_66-tela_67-tela_69-tela_70/index.html) — 32 capturas autenticadas em computador e celular, com links para as comparações anteriores do Atlas.
 
 - [A11 · Prévias e navegação no Atlas](v4.0.0-alpha.9-2026-11-16-angular-previas-tela_38-tela_40-tela_44-tela_49-tela_55-tela_60-tela_62/index.html) — evidência do Atlas em desktop e celular durante a validação.

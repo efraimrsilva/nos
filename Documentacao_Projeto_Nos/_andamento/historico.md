@@ -1,3 +1,15 @@
+## 2026-11-17 — v4.0.0-alpha.13 — Passo 02 da paridade visual
+
+Estrutura pública, Boas-vindas, confirmação e recuperação revistas no Angular. Percurso de e-mail descartável preservado. [Registro](registros/registro-v4.0.0-alpha.13-2026-11-17-imp-paridade-angular-fun-assistencia-e-boas-vindas.md).
+
+---
+
+## 2026-11-17 — v4.0.0-alpha.12 — Paridade visual e abertura da Conta
+
+Guia Migração detalha 16 passos. Passo 01 recupera a abertura da Conta no Angular e foi validado em duas larguras. [Registro](registros/registro-v4.0.0-alpha.12-2026-11-17-imp-paridade-angular-fun-abertura-da-conta.md).
+
+---
+
 ## 2026-11-17 — Retorno manual sobre e-mails
 
 O usuário confirmou o funcionamento do e-mail de recuperação de senha e relatou falha no envio de relatos de problema. Reteste de relatos adiado a pedido do usuário. [Resultados relatados](testes-caixa-preta/resultados.md).

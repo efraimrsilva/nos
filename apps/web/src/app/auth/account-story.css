@@ -1,0 +1,44 @@
+:host { display:block; min-width:0; }
+.account-story {
+  position:relative; display:grid; gap:.65rem; align-content:start; padding:clamp(1rem,3vw,2rem);
+  border:1px solid var(--line); border-radius:.75rem; background:var(--hero);
+}
+h2 { font:500 clamp(1.55rem,4vw,3rem)/1.12 Georgia,serif; }
+em { color:var(--leaf); }
+.welcome-kicker { color:var(--leaf); font-size:.75rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+.account-story:has(.welcome-kicker) { min-height:0; gap:1rem; }
+.account-tree { position:relative; width:min(58%, 11rem); justify-self:center; }
+img { display:block; width:100%; height:auto; }
+.account-tree-lights { position:absolute; inset:8% 4% 12%; pointer-events:none; }
+.account-tree-lights > span {
+  position:absolute; left:calc(20% + var(--light) * 8%); top:78%; width:4px; height:4px;
+  border-radius:50%; background:#ffe6ab; box-shadow:0 0 9px 2px #edc975;
+  animation:story-light 10s calc(var(--light) * -1.25s) linear infinite both;
+}
+.reflection { display:grid; gap:.35rem; text-align:center; }
+.reflection p { min-block-size:3lh; display:grid; align-content:center; color:var(--leaf); font:italic 1rem/1.45 Georgia,serif; }
+.reflection-track { height:3px; overflow:hidden; border-radius:3px; background:var(--line); }
+.reflection-track > span { display:block; height:100%; background:var(--leaf); transform-origin:left; animation:story-progress 10s linear both; }
+.reflection-track > .reverse-cycle { animation-name:story-progress-alternate; }
+.reflection button { justify-self:center; min-height:44px; background:transparent; border:0; color:var(--leaf); }
+.story-paused .reflection-track > span, .story-paused .account-tree-lights > span { animation-play-state:paused; }
+@media (min-width: 960px) {
+  .account-story { min-height:34rem; align-content:space-between; }
+  .account-tree { width:min(86%, 21rem); }
+}
+@media (prefers-reduced-motion:no-preference) {
+  .account-tree { animation:story-arrive .75s ease-out both; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .account-tree-lights { display:none; }
+  .account-tree-lights > span { animation:none; }
+}
+@keyframes story-arrive { from { opacity:0; transform:scale(.95); } }
+@keyframes story-light {
+  0%,100% { opacity:0; transform:translate(0,0); }
+  25%,65% { opacity:.9; }
+  90% { transform:translate(calc((var(--light) - 3) * 6px),-95px); }
+}
+@keyframes story-progress { from { transform:scaleX(0); } to { transform:scaleX(1); } }
+/* Alternar o nome reinicia a barra sem desmontar o texto nem o botão de pausa. */
+@keyframes story-progress-alternate { from { transform:scaleX(0); } to { transform:scaleX(1); } }

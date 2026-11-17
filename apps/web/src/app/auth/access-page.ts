@@ -2,6 +2,7 @@ import { Component, DestroyRef, computed, effect, inject, signal, viewChild, typ
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Account } from '../account';
+import { AccountStory } from './account-story';
 import { AccessAuth } from './access-auth';
 import { accessLink, passwordHelp, safeAuthNext } from './auth-flow';
 
@@ -13,7 +14,7 @@ const errors: Record<string, string> = {
 };
 
 @Component({
-  imports: [RouterLink, Account],
+  imports: [RouterLink, Account, AccountStory],
   templateUrl: './access-page.html',
   styleUrl: './auth.css',
 })

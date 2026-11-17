@@ -6,8 +6,14 @@ import { accessLink, isValidPassword, passwordHelp, safeAuthNext } from './auth-
 @Component({
   imports: [RouterLink],
   template: `
-    <section class="surface auth-card">
-      <h1 tabindex="-1">Redefinir senha</h1>
+    <div class="auth-focused">
+      <a class="auth-back" [routerLink]="link('/conta?modo=login')"><span aria-hidden="true">←</span> Voltar para Conta</a>
+      <header>
+        <p class="auth-kicker">Sua conta</p>
+        <h1 tabindex="-1">Redefinir senha</h1>
+        <p>Um novo acesso, com segurança.</p>
+      </header>
+      <section class="surface auth-card">
       @if (recovery.ready()) {
         <p>Crie uma nova senha para voltar à sua conta.</p>
         <form (submit)="save($event, password.value, confirmation.value)" [attr.aria-busy]="pending()">
@@ -20,7 +26,6 @@ import { accessLink, isValidPassword, passwordHelp, safeAuthNext } from './auth-
               {{ showPassword() ? 'Ocultar' : 'Mostrar' }}
             </button>
           </div>
-          <p id="password-help">{{ help }}</p>
           <label for="confirm-password">Confirmar senha</label>
           <div class="password-field">
             <input #confirmation id="confirm-password" [type]="showConfirmation() ? 'text' : 'password'"
@@ -30,6 +35,7 @@ import { accessLink, isValidPassword, passwordHelp, safeAuthNext } from './auth-
               {{ showConfirmation() ? 'Ocultar' : 'Mostrar' }}
             </button>
           </div>
+          <p id="password-help" class="auth-note">{{ help }} Ao salvar, será necessário entrar novamente.</p>
           @if (error()) { <p role="alert" class="auth-error">{{ error() }}</p> }
           <button type="submit" class="button" [disabled]="pending()">Salvar nova senha</button>
         </form>
@@ -37,8 +43,8 @@ import { accessLink, isValidPassword, passwordHelp, safeAuthNext } from './auth-
         <p role="alert">Abra um link de recuperação válido para redefinir sua senha.</p>
         <a class="button" [routerLink]="link('/conta/recuperar')">Solicitar outro link</a>
       }
-      <p><a [routerLink]="link('/conta?modo=login')">Voltar para entrar</a></p>
-    </section>
+      </section>
+    </div>
   `,
   styleUrl: './auth.css',
 })

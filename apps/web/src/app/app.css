@@ -67,3 +67,16 @@ nav .active { font-weight: 700; }
   .shell { transition: grid-template-columns .22s ease; }
   .sidebar { transition: opacity .18s ease, transform .22s ease, visibility .22s; }
 }
+
+/* A entrada pública usa a mesma saída de rotas e o mesmo ponto de foco da estrutura autenticada. */
+.shell.public-layout { grid-template-columns:minmax(0,1fr); }
+.public-layout .sidebar, .public-layout .mobile-nav { display:none; }
+.public-layout .body { display:flex; flex-direction:column; min-height:100svh; }
+.public-layout main { width:100%; max-width:76rem; padding-bottom:2rem; }
+.public-layout .header { padding-inline:clamp(1rem,5vw,3rem); }
+.public-brand, .public-privacy { display:inline-flex; align-items:center; gap:.55rem; }
+.public-brand svg, .public-privacy svg { flex:none; }
+.public-brand span span { color:#99501b; }
+.public-privacy { max-width:13rem; font-size:.76rem; line-height:1.3; }
+.public-footer { margin-top:auto; display:flex; flex-wrap:wrap; justify-content:center; gap:.2rem .5rem; padding:1rem; border-top:1px solid var(--line); color:var(--muted); text-align:center; font-size:.8rem; }
+.public-footer a { color:var(--leaf); }

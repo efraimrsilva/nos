@@ -25,7 +25,13 @@ export class App {
   protected readonly profile = inject(PreviewProfile);
   private readonly data = inject(NucleiData);
   protected readonly nucleusId = signal<string | null>(null);
-  private readonly currentPath = signal('');
+  protected readonly currentPath = signal('');
+  protected readonly publicLayout = computed(() => {
+    const path = this.currentPath();
+    return path === 'boas-vindas' || path === 'conta/nova-senha' ||
+      (!this.profile.user() && (path === 'conta' || path.startsWith('conta/'))) ||
+      path.startsWith('auth/');
+  });
   private readonly nucleusList: NavigationItem = {label: 'Seus Núcleos', url: '/nucleos', count: 'nuclei'};
   private readonly account: NavigationItem = {label: 'Minha conta', url: '/configuracoes/conta'};
   protected readonly countVisible = computed(() => {

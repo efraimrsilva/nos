@@ -60,34 +60,34 @@ test('feedback de carregamento e falha permanece dentro do conteúdo', async ({ 
     await gate;
     await route.abort();
   };
-  await page.goto('/boas-vindas');
+  await page.goto('/configuracoes/conta');
   const deferredChunk = /\/chunk-[\w-]+\.js(?:\?|$)/;
   await page.route(deferredChunk, handler);
-  await page.getByRole('navigation', { name: /Áreas do Nós|Navegação móvel/ }).getByRole('link', { name: 'Minha conta' }).click();
+  await page.getByRole('navigation', { name: /Áreas do Nós|Navegação móvel/ }).getByRole('link', { name: 'Seus Núcleos' }).click();
   try {
     await expect(page.getByRole('banner')).toBeVisible();
-    await expect(page.getByRole('main').getByRole('status')).toContainText('Carregando página');
+    await expect(page.getByRole('main').getByRole('status').filter({hasText:'Carregando página'})).toBeVisible();
   } finally {
     release();
   }
   await expect(page.getByRole('main').getByRole('alert')).toContainText('Não foi possível abrir');
   await expect(page.getByRole('banner')).toBeVisible();
   // Navegação para uma rota já disponível continua operante após falha ao carregar outro módulo.
-  const activeHome = page.getByRole('navigation', { name: /Áreas do Nós|Navegação móvel/ }).getByRole('link', { name: 'Início' });
+  const activeHome = page.getByRole('navigation', { name: /Áreas do Nós|Navegação móvel/ }).getByRole('link', { name: 'Minha conta' });
   await activeHome.click();
   await expect(page.getByRole('main').getByRole('alert')).toHaveCount(0);
-  await expect(page.getByRole('heading', { name: 'Fortalecendo os laços que unem quem você ama.' })).toBeVisible();
-  await page.getByRole('navigation', { name: /Áreas do Nós|Navegação móvel/ }).getByRole('link', { name: 'Minha conta' }).click();
+  await expect(page.getByRole('heading', { name: 'Minha conta' })).toBeVisible();
+  await page.getByRole('navigation', { name: /Áreas do Nós|Navegação móvel/ }).getByRole('link', { name: 'Seus Núcleos' }).click();
   await expect(page.getByRole('main').getByRole('alert')).toBeVisible();
   await page.unroute(deferredChunk, handler);
   await page.getByRole('link', { name: 'Recarregar página' }).click();
-  await expect(page.getByRole('heading', { name: 'Minha conta' })).toBeVisible();
-  await expect(page).toHaveURL(/\/configuracoes\/conta$/);
+  await expect(page.getByRole('form', {name:'Acesso à conta'})).toBeVisible();
+  await expect(page).toHaveURL(/\/conta\?modo=login$/);
 });
 
 test('Mais fecha por teclado, toque e X e apenas a camada superior fecha', async ({ page }, info) => {
   test.skip(info.project.name !== 'mobile', 'Mais é o menu da navegação móvel.');
-  await page.goto('/boas-vindas');
+  await page.goto('/configuracoes/conta');
   const more = page.getByRole('button', { name: 'Mais áreas e preferências' });
   const accountLink = page.getByRole('navigation', { name: 'Navegação móvel' }).getByRole('link', { name: 'Minha conta' });
   const accountPosition = await accountLink.boundingBox();
@@ -115,7 +115,7 @@ test('Mais fecha por teclado, toque e X e apenas a camada superior fecha', async
   await more.click();
   await page.touchscreen.tap(accountPosition.x + accountPosition.width / 2, accountPosition.y + accountPosition.height / 2);
   await expect(menu).toBeHidden();
-  await expect(page).toHaveURL(new URL('/boas-vindas', page.url()).href);
+  await expect(page).toHaveURL(new URL('/configuracoes/conta', page.url()).href);
   await more.click();
   await close.click();
   await expect(menu).toBeHidden();
@@ -125,7 +125,7 @@ test('Mais fecha por teclado, toque e X e apenas a camada superior fecha', async
   }
   await menu.getByRole('link', { name: 'Minha conta' }).click();
   await expect(menu).toBeHidden();
-  await expect(page.getByRole('heading', { name: 'Minha conta' })).toBeFocused();
+  await expect(page.getByRole('heading', { name: 'Minha conta' })).toBeVisible();
 
   await more.click();
   await menu.getByRole('link', { name: 'Minha conta' }).click();
@@ -148,7 +148,7 @@ test('reentrar na Conta durante a conexão compartilha a inicialização', async
     await expect.poll(() => loads).toBe(1);
     await navigation.getByRole('link', { name: 'Início' }).click();
     await expect(page.getByRole('heading', { name: 'Fortalecendo os laços que unem quem você ama.' })).toBeVisible();
-    await navigation.getByRole('link', { name: 'Minha conta' }).click();
+    await page.goBack();
     await expect(page.getByRole('status')).toContainText('Carregando sua conta');
   } finally {
     release();

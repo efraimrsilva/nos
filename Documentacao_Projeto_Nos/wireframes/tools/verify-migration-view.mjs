@@ -19,7 +19,16 @@ try {
     assert.equal(await panel.isVisible(), true);
     assert.equal(await tab.getAttribute('aria-pressed'), 'true');
     assert.match(page.url(), /#migracao$/);
-    assert.equal(await panel.locator('details').count(), 14);
+    assert.equal(await panel.locator(':scope > details').count(), 14);
+    const visual = panel.locator('.migration-visual-roadmap');
+    assert.equal(await visual.locator('details').count(), 16);
+    const ids = await visual.locator('a[href^="#tela-"]').evaluateAll(links =>
+      [...new Set(links.map(link => Number(link.getAttribute('href').slice(6))))].sort((a,b) => a-b));
+    assert.deepEqual(ids, Array.from({length:73},(_,index)=>index+1));
+    const last = visual.locator('details').last();
+    await last.locator('summary').focus();
+    await last.locator('summary').press('Enter');
+    assert.equal(await last.getAttribute('open'), '');
     assert.match(await panel.innerText(), /Planejada/);
     assert.doesNotMatch(await panel.innerText(), /Nest\.?JS/i);
     const first = panel.locator('details').first();

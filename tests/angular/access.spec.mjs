@@ -135,3 +135,38 @@ test('permite abrir ajuda, valida o retorno e informa indisponibilidade do Auth'
     }
   }
 });
+
+test('apresenta a abertura da Conta e respeita movimento reduzido', async ({page}) => {
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await page.goto('/conta');
+  await expect(page.getByRole('region',{name:'Uma reflexão para começar'})).toBeVisible();
+  await expect(page.locator('.account-tree-lights > span')).toHaveCount(8);
+  const password = page.getByLabel('Senha',{exact:true});
+  const toggle = page.getByRole('button',{name:'Mostrar senha'});
+  await toggle.click();
+  await expect(password).toHaveAttribute('type','text');
+  await expect(page.getByRole('button',{name:'Ocultar senha'})).toBeFocused();
+  const phrase = page.locator('[data-reflection-phrase]');
+  await expect(phrase).not.toBeEmpty();
+  await expect(page.getByRole('button',{name:'Pausar frases'})).toBeHidden();
+});
+
+test('mostra a estrutura pública e preserva o destino ao fechar a assistência', async ({page}) => {
+  await page.goto('/boas-vindas');
+  const header = page.getByRole('banner');
+  await expect(header.getByText('Um espaço privado para seus vínculos')).toBeVisible();
+  await expect(page.getByRole('contentinfo').getByRole('link',{name:'Sintagma Software'})).toBeVisible();
+  await expect(page.getByRole('navigation',{name:'Navegação móvel'})).toBeHidden();
+  await expect(page.getByText('Toda relação pode encontrar um jeito próprio de florescer.')).toBeVisible();
+  await page.getByRole('link',{name:'Entrar na minha conta'}).click();
+  await page.goto('/conta/recuperar?next=%2Fcomecar%2Fconvite');
+  const dialog = page.getByRole('dialog',{name:'Recuperar acesso'});
+  await expect(dialog.getByText(/Nunca compartilhe o link recebido/)).toBeVisible();
+  await expect(dialog.getByLabel('E-mail da conta')).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(dialog).toBeHidden();
+  await expect(page).toHaveURL(/\/conta\?modo=login&next=%2Fcomecar%2Fconvite$/i);
+  await page.goto('/conta/nova-senha?next=%2Fcomecar%2Fconvite');
+  await expect(page.getByRole('heading',{name:'Redefinir senha'})).toBeVisible();
+  await expect(page.getByRole('link',{name:'Voltar para Conta'})).toHaveAttribute('href',/next=%2Fcomecar%2Fconvite/i);
+});

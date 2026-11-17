@@ -1,0 +1,31 @@
+<aside class="account-story" [class.story-paused]="paused()">
+  @if (welcome()) {
+    <p class="welcome-kicker">Pequenos gestos. Vínculos reais.</p>
+    <h2>Mais presença.<br>Mais espaço para <em>nós.</em></h2>
+  } @else {
+    <h2>Pequenos gestos.<br><em>Vínculos reais.</em></h2>
+  }
+  @if (!welcome()) {
+  <div class="account-tree">
+    <img src="/brand/nos-tree.png" width="877" height="875" alt="Árvore com troncos entrelaçados">
+    <span class="account-tree-lights" aria-hidden="true">
+      @for (light of lights; track light) { <span [style.--light]="light"></span> }
+    </span>
+  </div>
+  }
+  <section class="reflection" aria-label="Uma reflexão para começar">
+    @for (text of [phrase()]; track $index) {
+      <p data-reflection-phrase aria-live="off">{{ text }}</p>
+      @if (!reduced()) {
+        <span class="reflection-track" aria-hidden="true">
+          @for (position of [cycle()]; track $index) { <span [class.reverse-cycle]="position % 2 === 1"></span> }
+        </span>
+      }
+    }
+    @if (!reduced()) {
+      <button type="button" (click)="toggle()" [attr.aria-label]="paused() ? 'Retomar frases' : 'Pausar frases'">
+        {{ paused() ? 'Retomar' : 'Pausar' }}
+      </button>
+    }
+  </section>
+</aside>

@@ -1,3 +1,7 @@
+**Prévia Angular v4.0.0-alpha.13 (17/11/2026)** — Passo 02 da guia Migração. Cabeçalho e rodapé públicos, composição de Boas-vindas e assistência nas fichas 03–05 e 72. [Comparação local](comparacoes/v4.0.0-alpha.13-2026-11-17-angular-acesso-publico-tela_03-tela_04-tela_05-tela_72/index.html)
+
+**Prévia Angular v4.0.0-alpha.12 — 17/11/2026.** A guia Migração reúne os 16 passos de paridade visual. A abertura da Conta (01–02) recupera a árvore, a reflexão pausável e a composição do formulário. [Comparação local](comparacoes/v4.0.0-alpha.12-2026-11-17-angular-conta-tela_01-tela_02/index.html)
+
 **Preparação da virada A13 (17/11/2026)** — A prévia local Angular v4.0.0-alpha.11 passou pela abertura dos 32 caminhos em computador e celular e ganhou configuração de e-mail para a futura produção. A hospedagem segue na etapa de ensaio. [Registro](../_andamento/registros/registro-v4.0.0-alpha.11-2026-11-17-imp-preparacao-angular-fun-transporte-e-paridade.md).
 
 **Ensaio A12 (17/11/2026)** — A prévia Angular v4.0.0-alpha.10 está em um rascunho do Netlify noslife. As rotas públicas foram verificadas no site de ensaio. A fila foi verificada em um Supabase local isolado. [Abrir rascunho](https://6afbcf907b3227096c6e364b--noslife.netlify.app/conta) · [Registro](../_andamento/registros/registro-v4.0.0-alpha.10-2026-11-17-imp-ensaio-angular-fun-rascunho-netlify-e-fila.md).

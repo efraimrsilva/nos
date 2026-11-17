@@ -1,3 +1,7 @@
+## Paridade pública Angular — v4.0.0-alpha.13 — 17/11/2026
+
+**Confirmar e-mail (03)** e **Recuperar acesso (04)** mantêm os gatilhos e os endereços diretos, o campo de e-mail, as orientações e o status retornado pelo serviço. X, Escape e gesto externo fecham sem enviar e mantêm o destino permitido. A prova de recuperação abre a rota Redefinir senha (05). [Registro](../registros/registro-v4.0.0-alpha.13-2026-11-17-imp-paridade-angular-fun-assistencia-e-boas-vindas.md).
+
 ## Prévias do Núcleo e notificações na aplicação Angular — A11 verificada localmente
 
 **Sobre a área** explica o esboço para integrantes da prévia. **Detalhe de memória (40)** e **Perfil de exemplo (44 e 49)** expandem a seleção fictícia. **Notificações (60)** abre pelo cabeçalho com sessão e leva a Acordos ou Seus Núcleos. X, Escape e gesto externo usam o fechamento comum. Os modais do Atlas são ilustrativos. [Registro A11](../registros/registro-v4.0.0-alpha.9-2026-11-16-imp-previas-angular-fun-navegacao-e-totais.md).

@@ -1,7 +1,6 @@
 .auth-layout {
   display: grid; gap: clamp(1rem,4vw,3rem); align-items: center;
 }
-.auth-intro { display: none; }
 .auth-field[hidden] { display: none; }
 .auth-card { width: min(100%, 32rem); margin-inline: auto; }
 .auth-card > h1 { margin-bottom: 1rem; }
@@ -26,8 +25,27 @@
 .auth-dialog-heading h2 { font: 500 1.8rem/1.2 Georgia, serif; }
 @media (min-width: 960px) {
   .auth-layout { grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); }
-  .auth-intro { display:grid; justify-items:center; gap:.75rem; padding:1.25rem; border-radius:.75rem; background:var(--hero); text-align:center; }
-  .auth-intro img { display:block; width:min(100%, 17.5rem); height:auto; }
-  .auth-intro h2 { font: 500 clamp(1.55rem, 2.75vw, 2.5rem)/1.15 Georgia, serif; }
-  .auth-intro p { font: 500 1.25rem/1.4 Georgia, serif; }
 }
+
+.auth-secondary { width:100%; display:flex; align-items:center; justify-content:center; gap:.55rem; }
+.auth-divider { display:flex; align-items:center; gap:.5rem; margin-block:.8rem; font-size:.85rem; }
+.auth-divider::before, .auth-divider::after { content:""; flex:1; border-top:1px solid var(--line); }
+.auth-modes a { flex:1; text-align:center; }
+.auth-card > h1 { font:500 clamp(1.3rem,3vw,1.8rem)/1.2 Georgia,serif; }
+.auth-card [type="submit"] { width:100%; }
+.auth-assistance a { display:inline-flex; align-items:center; min-height:44px; }
+@media (prefers-reduced-motion:no-preference) {
+  .auth-layout .auth-card { animation:auth-enter .24s ease-out both; }
+}
+@keyframes auth-enter { from { opacity:0; transform:translateY(6px); } }
+
+.auth-note { border-inline-start:3px solid var(--line); padding:.7rem .9rem; background:var(--accent-soft); color:var(--ink); font-size:.9rem; }
+.auth-feedback { margin-block:.2rem; padding:.55rem .7rem; border-radius:.45rem; background:var(--accent-soft); }
+.auth-dialog-heading h2 { font-family:inherit; font-size:clamp(1.35rem,3vw,1.65rem); font-weight:600; line-height:1.2; }
+#access-assistance form [type="submit"] { width:100%; }
+#access-assistance::backdrop { backdrop-filter:blur(3px); }
+.auth-focused { display:grid; gap:1.1rem; max-width:36rem; margin-inline:auto; }
+.auth-focused .auth-card { width:100%; }
+.auth-focused header { display:grid; gap:.45rem; }
+.auth-back { color:var(--leaf); width:fit-content; display:inline-flex; align-items:center; gap:.45rem; min-height:44px; }
+.auth-kicker { color:var(--leaf); text-transform:uppercase; letter-spacing:.14em; font-size:.75rem; font-weight:700; }

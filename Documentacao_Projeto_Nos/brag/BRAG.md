@@ -1,3 +1,11 @@
+## 17/11/2026 — Assistência e Boas-vindas na migração Angular
+
+A prévia exibia a navegação interna na entrada pública e simplificava os avisos de acesso. A interface recuperou a composição pública e as orientações dos diálogos, preservando o percurso de e-mail descartável em desktop e celular. O benefício esperado é tornar o próximo passo mais claro; não houve medição com usuários. [Registro](../_andamento/registros/registro-v4.0.0-alpha.13-2026-11-17-imp-paridade-angular-fun-assistencia-e-boas-vindas.md).
+
+## 17/11/2026 — Abertura da Conta na migração Angular
+
+A prévia simplificava a composição e omitia a reflexão e o movimento da referência. O primeiro recorte recuperou esses elementos e registrou a sequência completa de paridade no Atlas. Tipos, build e seis verificações Playwright focadas passaram. A melhoria de orientação e consistência visual é esperada; não foi medida com usuários. [Registro](../_andamento/registros/registro-v4.0.0-alpha.12-2026-11-17-imp-paridade-angular-fun-abertura-da-conta.md).
+
 ## 2026-11-17 — v4.0.0-alpha.11 — Transporte de produção e abertura direta de caminhos Angular
 
 O Angular só tinha transporte para a caixa de ensaio. A preparação reutilizou o transporte da equipe e separou as configurações da prévia e do domínio oficial. Os testes locais comprovaram o isolamento e a abertura dos 32 caminhos em duas larguras. A entrega efetiva de e-mail no serviço hospedado continua por verificar. [Registro](../_andamento/registros/registro-v4.0.0-alpha.11-2026-11-17-imp-preparacao-angular-fun-transporte-e-paridade.md).

@@ -36,6 +36,10 @@ main{margin-left:244px;padding:40px clamp(22px,4vw,72px) 28px;max-width:2000px}.
 .migration-plan details{margin-block:.5rem;padding:.75rem 1rem;border:1px solid var(--line);border-radius:9px;background:var(--card)}
 .migration-plan summary{cursor:pointer;font-weight:600}
 .migration-plan details p{margin:.65rem 0 0}
+.migration-visual-roadmap{margin-block-start:2rem;border-top:1px solid var(--line);padding-block-start:1rem}
+.migration-visual-roadmap h3{margin-block:.25rem .75rem;font-size:clamp(1.25rem,3vw,1.65rem)}
+.migration-visual-roadmap>p{max-width:70ch}
+.migration-visual-roadmap a{display:inline-block;padding:.15rem .25rem}
 .view-tabs{flex-wrap:wrap}
 body[data-view=migration] .atlas-heading p+p,body[data-view=migration] .toolbar label{display:none}
 @media print{body[data-view=migration] #atlas-view{display:none!important}.migration-plan details{break-inside:avoid}}

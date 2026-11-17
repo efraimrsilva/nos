@@ -1,5 +1,5 @@
 <a class="skip" href="#conteudo" (click)="skipToContent($event)">Pular para o conteúdo</a>
-<div class="shell" [class.sidebar-hidden]="sidebarHidden()">
+<div class="shell" [class.sidebar-hidden]="sidebarHidden()" [class.public-layout]="publicLayout()">
   <aside id="desktop-navigation" class="sidebar" [attr.inert]="sidebarHidden() ? '' : null">
     <a class="brand" routerLink="/boas-vindas" aria-label="Nós — início">nós<span>.</span></a>
     <p class="caption">Cultivar juntos</p>
@@ -14,6 +14,22 @@
 
   <div class="body">
     <header class="header">
+      @if (publicLayout()) {
+        <a class="brand public-brand" routerLink="/boas-vindas" aria-label="Nós — início">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <rect x="1" y="1" width="30" height="30" rx="9"/><path d="M15 24v-9m-4 9h10M15 17c-5 0-7-2-7-6 4 0 7 2 7 6Zm0-3c0-6 3-8 8-8 0 5-3 8-8 8Z"/>
+          </svg>
+          <span>nós<span>.</span></span>
+        </a>
+        @if (currentPath() === 'boas-vindas' || currentPath() === 'conta/nova-senha') {
+          <span class="public-privacy">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4m-4 6v2"/>
+            </svg>
+            Um espaço privado para seus vínculos
+          </span>
+        }
+      } @else {
       <div class="desktop-heading">
         <button class="icon-button sidebar-toggle" type="button" aria-controls="desktop-navigation"
           [attr.aria-expanded]="!sidebarHidden()"
@@ -35,6 +51,7 @@
       } @else {
         <span class="preview-label">Prévia local · Angular</span>
       }
+      }
     </header>
 
     <main id="conteudo" tabindex="-1" #content>
@@ -46,6 +63,12 @@
       }
       <router-outlet />
     </main>
+    @if (publicLayout() && (currentPath() === 'conta' || currentPath() === 'boas-vindas')) {
+      <footer class="public-footer">
+        <span>© 2026 Nós - Pequenos gestos. Vínculos reais.</span>
+        <span>Desenvolvido com 💖 por <a href="https://sintagmasoftware.netlify.app/">Sintagma Software</a>. Todos os direitos reservados.</span>
+      </footer>
+    }
   </div>
 
   <nav class="mobile-nav" [class.mobile-nav-nucleus]="nucleusId() !== null" aria-label="Navegação móvel">

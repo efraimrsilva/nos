@@ -45,7 +45,7 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
-                "glob": "nos-tree.png",
+                "glob": "*.png",
                 "input": ".brand",
                 "output": "/brand/"
               }
@@ -79,7 +79,7 @@
               "sourceMap": true,
               "assets": [
                 {
-                  "glob": "nos-tree.png",
+                  "glob": "*.png",
                   "input": ".brand",
                   "output": "/brand/"
                 },

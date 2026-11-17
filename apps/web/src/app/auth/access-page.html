@@ -19,11 +19,7 @@
     <app-account />
   } @else {
     <section class="auth-layout">
-      <div class="auth-intro">
-        <h2>Pequenos gestos. Vínculos reais.</h2>
-        <img src="/brand/nos-tree.png" width="877" height="875" alt="Árvore com troncos entrelaçados">
-        <p>Vínculos reais. Pequenos cuidados. No tempo de vocês.</p>
-      </div>
+      <app-account-story />
       <div class="surface auth-card">
         <h1 tabindex="-1">Sua conta no Nós</h1>
         <nav class="auth-modes" aria-label="Modo de acesso">
@@ -31,23 +27,29 @@
           <a [routerLink]="link('/conta?modo=login')" [attr.aria-current]="mode() === 'login' ? 'page' : null" (click)="clearCredentials(password)">Já tenho conta</a>
         </nav>
         @if (profile.google()) {
-          <button type="button" class="button auth-secondary" [disabled]="pending()" (click)="google()">Continuar com Google</button>
+          <button type="button" class="button auth-secondary" [disabled]="pending()" (click)="google()"><img src="/brand/google-g.png" width="20" height="20" alt="">Continuar com Google</button>
+          <p class="auth-divider">ou continue com seu e-mail</p>
         }
         <form aria-label="Acesso à conta" [attr.aria-busy]="pending()"
           (submit)="submit($event, name.value, email.value, password.value)">
           <div [hidden]="mode() !== 'signup'" class="auth-field">
             <label for="access-name">Nome</label>
-            <input #name id="access-name" name="name" autocomplete="name" maxlength="80">
+            <input #name id="access-name" name="name" autocomplete="name" maxlength="80" placeholder="Como prefere ser chamado?">
           </div>
           <label for="access-email">E-mail</label>
-          <input #email id="access-email" name="email" type="email" autocomplete="username" maxlength="254">
+          <input #email id="access-email" name="email" type="email" autocomplete="username" maxlength="254" placeholder="seu@email.com">
           <label for="access-password">Senha</label>
           <div class="password-field">
             <input #password id="access-password" name="password" [type]="showPassword() ? 'text' : 'password'"
               [autocomplete]="mode() === 'signup' ? 'new-password' : 'current-password'" maxlength="128"
               [attr.aria-describedby]="mode() === 'signup' ? 'access-help' : null">
             <button type="button" class="icon-button" (click)="showPassword.update(show => !show)"
-              [attr.aria-label]="showPassword() ? 'Ocultar senha' : 'Mostrar senha'">{{ showPassword() ? 'Ocultar' : 'Mostrar' }}</button>
+              [attr.aria-label]="showPassword() ? 'Ocultar senha' : 'Mostrar senha'">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/>
+                @if (showPassword()) { <path d="m4 4 16 16"/> }
+              </svg>
+            </button>
           </div>
           @if (mode() === 'signup') { <p id="access-help">{{ help }}</p> }
           @if (error()) { <p role="alert" class="auth-error">{{ error() }}</p> }
@@ -69,13 +71,16 @@
     <h2 id="assistance-title">{{ dialogTitle() }}</h2>
     <form method="dialog"><button class="icon-button" [attr.aria-label]="'Fechar ' + dialogTitle()">×</button></form>
   </header>
-  <p>{{ kind() === 'recovery' ? 'Informe o e-mail da conta para receber as instruções.' : 'Confira sua caixa de entrada ou solicite um novo link de confirmação.' }}</p>
+  <p>{{ kind() === 'recovery' ? 'Vamos ajudar você a voltar.' : 'Um pequeno passo para proteger sua conta.' }}</p>
   <form (submit)="sendEmail($event, assistanceEmail.value)" [attr.aria-busy]="emailPending()">
     <label for="assistance-email">E-mail da conta</label>
     <input #assistanceEmail id="assistance-email" type="email" autocomplete="email" maxlength="254"
-      [value]="profile.user()?.email || access.pendingEmail()" autofocus>
+      [value]="profile.user()?.email || access.pendingEmail()" autofocus aria-describedby="assistance-note">
+    <p id="assistance-note" class="auth-note">{{ kind() === 'recovery'
+      ? 'Vamos verificar se este e-mail possui uma conta. Se existir, enviaremos as instruções para recuperar o acesso. Nunca compartilhe o link recebido.'
+      : 'Vamos verificar se este e-mail já está confirmado. Se a confirmação estiver pendente, enviaremos um novo link. Nunca compartilhe o link de acesso.' }}</p>
     @if (emailMessage(); as feedback) {
-      <p [attr.role]="feedback.success ? 'status' : 'alert'" [class.auth-error]="!feedback.success">{{ feedback.message }}</p>
+      <p [attr.role]="feedback.success ? 'status' : 'alert'" class="auth-feedback" [class.auth-error]="!feedback.success">{{ feedback.message }}</p>
     }
     <button type="submit" class="button" [disabled]="emailPending()">
       {{ emailPending() ? 'Aguarde…' : kind() === 'recovery' ? 'Enviar instruções' : 'Reenviar confirmação' }}
