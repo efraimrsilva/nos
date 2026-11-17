@@ -3,7 +3,7 @@ import { createHmac } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 import { readPublicConfig } from '../apps/web/src/app/auth/public-config.ts';
-import { createPreviewMail } from '../apps/web/netlify/preview-mail.mjs';
+import { createHostedMail, createPreviewMail, readHostedConfig, selectMailMode } from '../apps/web/netlify/preview-mail.mjs';
 import { createNotificationEndpoint } from '../apps/web/netlify/functions/account-notifications.mjs';
 
 const key = 'sb_publishable_fixture';
@@ -88,6 +88,79 @@ test('integra o contrato assinado ao cliente e não reenvia evento confirmado', 
 test('transporte de ensaio recusa destinatário fora da caixa de teste', async () => {
   assert.equal(await createPreviewMail({}),null);
   assert.equal(await createPreviewMail({NOS_ANGULAR_SANDBOX_MAIL_TO:'person@example.com'}),null);
+});
+
+test('somente o deploy publicado no domínio oficial pode selecionar envio de produção', () => {
+  const domain = 'https://noslife.netlify.app';
+  const official = new Request(domain + '/api/problem-report');
+  const env = {APP_ORIGIN:domain,NOS_ANGULAR_PRODUCTION_MAIL:'1'};
+  const published = {deploy:{context:'production',published:true},site:{url:domain}};
+  const preview = {deploy:{context:'deploy-preview',published:false},site:{url:domain}};
+  assert.equal(selectMailMode(env,official,published),'production');
+  assert.equal(selectMailMode(env,official,preview),'sandbox');
+  assert.equal(selectMailMode(env,official),'sandbox');
+  assert.equal(selectMailMode({...env,NOS_ANGULAR_PRODUCTION_MAIL:'0'},official,published),'sandbox');
+  assert.equal(selectMailMode(env,official,{...published,deploy:{...published.deploy,published:false}}),null);
+  const alias = new Request('https://draft--noslife.netlify.app/api/problem-report',{
+    headers:{'x-forwarded-host':'noslife.netlify.app'},
+  });
+  assert.equal(selectMailMode(env,alias,published),null);
+  assert.equal(selectMailMode(env,official,{...published,site:{url:'https://other.netlify.app'}}),null);
+});
+
+test('transporte oficial usa configuração autenticada e o de ensaio não usa variáveis oficiais', async () => {
+  const official = {
+    SUPPORT_SMTP_HOST:'mail.example.test',SUPPORT_SMTP_USER:'fixture',
+    SUPPORT_SMTP_PASSWORD:'fixture-only',SUPPORT_MAIL_FROM:'sender@example.test',
+  };
+  assert.ok(await createHostedMail(official,'production'));
+  assert.equal(await createHostedMail(official,'sandbox'),null);
+  assert.equal(await createHostedMail({...official,SUPPORT_SMTP_PASSWORD:''},'production'),null);
+  assert.equal(await createHostedMail({
+    ...official, SUPPORT_SMTP_HOST:'127.0.0.1', SUPPORT_SMTP_PASSWORD:'', NOS_AUTH_TEST:'1',
+  },'production'),null);
+});
+
+test('receptor usa o contexto entregue pela Netlify e recusa deploy de produção desativado', async () => {
+  const domain = 'https://noslife.netlify.app';
+  const env = {
+    APP_ORIGIN:domain,NOS_ANGULAR_PRODUCTION_MAIL:'1',
+    NOS_ANGULAR_PRODUCTION_SUPABASE_URL:hosted.url,NOS_ANGULAR_PRODUCTION_SUPABASE_PUBLIC_KEY:key,
+    NOS_ANGULAR_PRODUCTION_SUPABASE_SERVICE_ROLE_KEY:'fixture-service',
+    NOS_ANGULAR_PRODUCTION_ACCOUNT_NOTIFICATION_SECRET:'fixture-secret-with-more-than-32-characters',
+  };
+  const modes = [];
+  const handler = createNotificationEndpoint(env,{mailer:async (_env,mode)=>{
+    modes.push(mode);
+    return {sendNotification:async()=>assert.fail('Uma chamada sem assinatura não deve enviar e-mail.')};
+  }});
+  const request=()=>new Request(domain+'/api/account-notifications',{method:'POST',body:'{}'});
+  assert.equal((await handler(request(),{deploy:{context:'deploy-preview',published:false},site:{url:domain}})).status,503);
+  assert.equal((await handler(request(),{deploy:{context:'production',published:false},site:{url:domain}})).status,503);
+  assert.deepEqual(modes,[]);
+  assert.equal((await handler(request(),{deploy:{context:'production',published:true},site:{url:domain}})).status,401);
+  assert.deepEqual(modes,['production']);
+
+  const sandboxOnly = createNotificationEndpoint({
+    APP_ORIGIN:domain,NOS_ANGULAR_PRODUCTION_MAIL:'1',
+    NOS_ANGULAR_SUPABASE_URL:hosted.url,NOS_ANGULAR_SUPABASE_PUBLIC_KEY:key,
+    NOS_ANGULAR_SUPABASE_SERVICE_ROLE_KEY:'sandbox-service',
+    NOS_ANGULAR_ACCOUNT_NOTIFICATION_SECRET:'sandbox-secret-with-more-than-32-characters',
+  },{mailer:async()=>assert.fail('Produção não pode aproveitar credenciais da prévia.')});
+  assert.equal((await sandboxOnly(request(),{deploy:{context:'production',published:true},site:{url:domain}})).status,503);
+});
+
+test('cada build e função lê apenas a configuração pública do seu ambiente', () => {
+  const prodUrl='https://official.example.test';
+  const env={
+    NOS_ANGULAR_SUPABASE_URL:hosted.url,NOS_ANGULAR_SUPABASE_PUBLIC_KEY:key,
+    NOS_ANGULAR_PRODUCTION_SUPABASE_URL:prodUrl,NOS_ANGULAR_PRODUCTION_SUPABASE_PUBLIC_KEY:'sb_publishable_official',
+    NOS_ANGULAR_PRODUCTION_GOOGLE:'1',
+  };
+  assert.deepEqual(readHostedConfig(env,'production'),{url:prodUrl,publicKey:'sb_publishable_official',google:true});
+  assert.deepEqual(readHostedConfig(env,'sandbox'),{url:hosted.url,publicKey:key,google:false});
+  const onlyPreview={NOS_ANGULAR_SUPABASE_URL:hosted.url,NOS_ANGULAR_SUPABASE_PUBLIC_KEY:key};
+  assert.equal(readHostedConfig(onlyPreview,'production'),null);
 });
 
 test('Netlify reserva as APIs antes da rota padrão Angular e não fixa segredos', () => {

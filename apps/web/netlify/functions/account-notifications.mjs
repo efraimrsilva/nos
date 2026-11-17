@@ -1,17 +1,17 @@
 import { createClient } from '@supabase/supabase-js';
 import { handleAccountNotification } from '../../../../src/features/account-notifications/handler.ts';
-import { createPreviewMail, readPreviewConfig } from '../preview-mail.mjs';
+import { createHostedMail, readHostedConfig, readNotificationCredentials, selectMailMode } from '../preview-mail.mjs';
 
-export function createNotificationEndpoint(env, {client = createClient, mailer = createPreviewMail} = {}) {
-  return async request => {
+export function createNotificationEndpoint(env, {client = createClient, mailer = createHostedMail} = {}) {
+  return async (request,context) => {
     if (request.method !== 'POST') {
       return new Response(null, {status:405, headers:{Allow:'POST','Cache-Control':'no-store'}});
     }
-    const config = readPreviewConfig(env);
-    const serviceKey = env.NOS_ANGULAR_SUPABASE_SERVICE_ROLE_KEY;
-    const secret = env.NOS_ANGULAR_ACCOUNT_NOTIFICATION_SECRET ?? '';
+    const mode = selectMailMode(env,request,context);
+    const config = readHostedConfig(env,mode);
+    const {serviceKey,secret = ''} = readNotificationCredentials(env,mode) ?? {};
     let mail;
-    try { if (config && serviceKey && secret.length >= 32) mail = await mailer(env); }
+    try { if (mode && config && serviceKey && secret.length >= 32) mail = await mailer(env,mode); }
     catch { /* Falha do transporte retorna o mesmo 503 sem detalhes internos. */ }
 
     // A função aprova assinatura e envelope antes de usar o cliente administrativo.

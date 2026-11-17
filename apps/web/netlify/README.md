@@ -34,6 +34,27 @@ O build só grava URL, chave pública e opção Google no arquivo `supabase.json
 
 [Retornos do Supabase Auth](https://supabase.com/docs/guides/auth/redirect-urls) · [Funções Netlify](https://docs.netlify.com/build/functions/configuration/)
 
+## Preparação da produção para A13
+
+A configuração de produção tem variáveis próprias, com os escopos abaixo. O comando `node scripts/build-angular-preview.mjs --production` gera o artefato Angular de produção. O comando de build da prévia continua sem esse argumento. A mudança de configuração do site público e a publicação dependem da decisão de virada.
+
+| Escopo | Variáveis de produção |
+| --- | --- |
+| Build e Functions | `NOS_ANGULAR_PRODUCTION_SUPABASE_URL` e `NOS_ANGULAR_PRODUCTION_SUPABASE_PUBLIC_KEY`. Ambos os escopos devem usar o mesmo projeto Supabase. |
+| Build | `NOS_ANGULAR_PRODUCTION_GOOGLE=1` após conferir provedor e retornos. |
+| Functions | `NOS_ANGULAR_PRODUCTION_MAIL=1` ativa a seleção de transporte oficial. `APP_ORIGIN` deve ser a origem HTTPS canônica, sem barra final, igual à origem que a Netlify fornece em `context.site.url`. |
+| Functions | `NOS_ANGULAR_PRODUCTION_SUPABASE_SERVICE_ROLE_KEY` e `NOS_ANGULAR_PRODUCTION_ACCOUNT_NOTIFICATION_SECRET` para a fila de avisos. |
+| Functions | `SUPPORT_SMTP_HOST`, `SUPPORT_SMTP_PORT`, `SUPPORT_SMTP_USER`, `SUPPORT_SMTP_PASSWORD` e `SUPPORT_MAIL_FROM` para usar o transporte e o destino da equipe compartilhados com o Next.js. |
+
+O transporte oficial exige contexto de produção publicado no domínio canônico. O rascunho e a prévia leem apenas o transporte descartável. Um site de ensaio pode usar o contexto `production` próprio com a caixa de captura quando o envio oficial estiver desabilitado. O [registro local da A13](../../../Documentacao_Projeto_Nos/_andamento/registros/registro-v4.0.0-alpha.11-2026-11-17-imp-preparacao-angular-fun-transporte-e-paridade.md) delimita a evidência desta etapa. [Contexto de deploy das funções](https://docs.netlify.com/build/functions/api/#deploy) · [Escopos de variáveis](https://docs.netlify.com/build/functions/environment-variables/).
+
+### Conferência para quando a virada for autorizada
+
+1. Concluir a prova hospedada de autenticação e e-mail e o retorno em ambiente isolado. Confirmar a compatibilidade das migrações com o Next.js, registrar as pendentes no destino e revisar a cópia de recuperação antes de qualquer aplicação.
+2. Registrar em local de acesso restrito as referências do deploy Next.js e do destino anterior da fila. Preparar o artefato Angular, conferir os retornos de autenticação e confirmar que a configuração pública do artefato e as funções apontam para o mesmo projeto.
+3. Após promover o Angular, conferir links diretos, autenticação, permissões e gravações críticas. O receptor publicado deve devolver 401 ao receber um POST sem assinatura. Essa resposta verifica o caminho e a presença da configuração que o receptor exige. Confirmar o transporte e a fila com o evento autorizado, observando a entrega, a marcação no banco e a repetição.
+4. Se houver falha crítica, restaurar o deploy Next.js registrado e o destino anterior da fila, se alterado, preservando migrações compatíveis. Conferir autenticação, dados e avisos após o retorno.
+
 ## Verificação local da implementação
 
 Da raiz, com as dependências instaladas:

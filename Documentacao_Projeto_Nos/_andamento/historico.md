@@ -1,3 +1,9 @@
+## 2026-11-17 — v4.0.0-alpha.11 — Preparação local da A13
+
+Os 32 caminhos do Next.js foram abertos no Angular em computador e celular. Os adaptadores ganharam configuração separada para o transporte oficial, com validação local. Publicação adiada a pedido do usuário. [Registro](registros/registro-v4.0.0-alpha.11-2026-11-17-imp-preparacao-angular-fun-transporte-e-paridade.md).
+
+---
+
 ## 2026-11-17 — v4.0.0-alpha.10 — Ensaio da A12 no Netlify e na fila local
 
 O mesmo projeto Netlify recebeu o rascunho Angular `6afbcf907b3227096c6e364b`. A publicação pública seguiu no mesmo deploy. A fila completa foi conferida em um Supabase local isolado, com falha, retentativa e prova de envio único. [Registro](registros/registro-v4.0.0-alpha.10-2026-11-17-imp-ensaio-angular-fun-rascunho-netlify-e-fila.md).

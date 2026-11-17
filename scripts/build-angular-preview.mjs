@@ -1,16 +1,19 @@
 import { spawnSync } from 'node:child_process';
 import { copyFileSync, existsSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { readPublicConfig } from '../apps/web/src/app/auth/public-config.ts';
+import { readHostedConfig } from '../apps/web/netlify/preview-mail.mjs';
 
 const app = new URL('../apps/web/', import.meta.url);
-const config = readPublicConfig({
-  url: process.env.NOS_ANGULAR_SUPABASE_URL,
-  publicKey: process.env.NOS_ANGULAR_SUPABASE_PUBLIC_KEY,
-  google: process.env.NOS_ANGULAR_GOOGLE === '1',
-}, 'hosted');
+const args = process.argv.slice(2);
+if (args.length && (args.length !== 1 || args[0] !== '--production')) {
+  console.error('Use node scripts/build-angular-preview.mjs [--production].');
+  process.exit(1);
+}
+const mode = args.length ? 'production' : 'sandbox';
+const config = readHostedConfig(process.env,mode);
 if (!config) {
-  console.error('Configure NOS_ANGULAR_SUPABASE_URL (HTTPS) e NOS_ANGULAR_SUPABASE_PUBLIC_KEY (publishable ou anon) para a prévia.');
+  const prefix = mode === 'production' ? 'NOS_ANGULAR_PRODUCTION_' : 'NOS_ANGULAR_';
+  console.error('Configure '+prefix+'SUPABASE_URL (HTTPS) e '+prefix+'SUPABASE_PUBLIC_KEY (publishable ou anon).');
   process.exit(1);
 }
 

@@ -1,3 +1,9 @@
+## 2026-11-17 — v4.0.0-alpha.11 — Transporte de produção e abertura direta de caminhos Angular
+
+O Angular só tinha transporte para a caixa de ensaio. A preparação reutilizou o transporte da equipe e separou as configurações da prévia e do domínio oficial. Os testes locais comprovaram o isolamento e a abertura dos 32 caminhos em duas larguras. A entrega efetiva de e-mail no serviço hospedado continua por verificar. [Registro](../_andamento/registros/registro-v4.0.0-alpha.11-2026-11-17-imp-preparacao-angular-fun-transporte-e-paridade.md).
+
+---
+
 ## 2026-11-17 — v4.0.0-alpha.10 — Prova de implantação e retentativa da fila Angular
 
 A prévia ainda precisava de prova hospedada das rotas e de um ensaio completo da fila. O rascunho ficou acessível no mesmo Netlify, com a publicação principal preservada. No Supabase de ensaio, a falha liberou a reserva, a retentativa confirmou o envio e a repetição não gerou outra mensagem. [Registro](../_andamento/registros/registro-v4.0.0-alpha.10-2026-11-17-imp-ensaio-angular-fun-rascunho-netlify-e-fila.md).

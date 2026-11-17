@@ -1,10 +1,49 @@
 import { readPublicConfig } from '../src/app/auth/public-config.ts';
 
-export function readPreviewConfig(env) {
+const prefixFor = mode => mode === 'production' ? 'NOS_ANGULAR_PRODUCTION_' : 'NOS_ANGULAR_';
+
+export function readHostedConfig(env,mode) {
+  if (!mode) return null;
+  const prefix = prefixFor(mode);
   return readPublicConfig({
-    url: env.NOS_ANGULAR_SUPABASE_URL,
-    publicKey: env.NOS_ANGULAR_SUPABASE_PUBLIC_KEY,
+    url: env[prefix+'SUPABASE_URL'],
+    publicKey: env[prefix+'SUPABASE_PUBLIC_KEY'],
+    google: env[prefix+'GOOGLE'] === '1',
   }, 'hosted');
+}
+
+export function readNotificationCredentials(env,mode) {
+  if (!mode) return null;
+  const prefix = prefixFor(mode);
+  return {
+    serviceKey:env[prefix+'SUPABASE_SERVICE_ROLE_KEY'],
+    secret:env[prefix+'ACCOUNT_NOTIFICATION_SECRET'] ?? '',
+  };
+}
+
+export function selectMailMode(env,request,context) {
+  // O site isolado também pode usar o contexto production para a sua caixa descartável.
+  if (env.NOS_ANGULAR_PRODUCTION_MAIL !== '1' || context?.deploy?.context !== 'production') return 'sandbox';
+  const origin = new URL(request.url).origin;
+  const site = context.site?.url;
+  // O contexto da plataforma e a origem canônica impedem envio oficial por URLs de ensaio ou por snapshots antigos.
+  if (context.deploy.published !== true || !origin.startsWith('https://') || origin !== env.APP_ORIGIN ||
+      !site || !URL.canParse(site) || new URL(site).origin !== origin) return null;
+  return 'production';
+}
+
+export async function createHostedMail(env,mode) {
+  if (mode === 'sandbox') return createPreviewMail(env);
+  if (mode !== 'production') return null;
+  const {supportMailTransport, sendNewAccountNotification, sendProblemReport} =
+    await import('../../../src/features/support/mail-transport.ts');
+  // Reutiliza o SMTP e o destinatário fixo do Next.js. O modo local não se aplica ao deploy publicado.
+  const transport = supportMailTransport({...env,NOS_AUTH_TEST:undefined});
+  if (!transport) return null;
+  return {
+    sendNotification: account => sendNewAccountNotification(transport,account),
+    sendReport: (report,email,version) => sendProblemReport(transport,report,email,version),
+  };
 }
 
 export async function createPreviewMail(env) {
