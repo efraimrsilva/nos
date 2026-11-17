@@ -1,3 +1,5 @@
+> **Angular v4.0.0-alpha.16 — 17/11/2026.** Telas 66, 67 e 70. Os controles autenticados aparecem no perfil desktop e no Mais móvel, e o cabeçalho exibe o lembrete temporário de relato. As rotas de assistência e a demonstração ilustrativa do Atlas estão descritas no [passo 03 da guia Migração](atlas/index.html#migracao).
+
 > **v3.9.2 — 07/11/2026 — Produção:** Conta pública compacta, ícone oficial Google, transição suave com movimento reduzido e rodapé na base sem sobrepor conteúdo. Publicado e conferido em produção; deploy6aeea7ee5fe36058ee5cebd4. Histórico datado abaixo preservado.
 
 > **v3.9.1 — 07/11/2026:** somente Google como botão social na Conta; e-mail/senha preservados. Microsoft descartado; Apple sem botão e desativado. Google já confirmado em produção3.9.0; retirada do botão publicada e conferida em produção. Trechos datados abaixo são históricos.

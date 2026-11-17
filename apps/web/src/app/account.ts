@@ -1,17 +1,21 @@
-import { afterNextRender, Component, DestroyRef, computed, effect, inject, Injector, resource, signal, viewChild, ElementRef } from '@angular/core';
+import { afterNextRender, Component, DestroyRef, computed, effect, inject, Injector, input, resource, signal, viewChild, ElementRef } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AccountPreferences } from './account-preferences';
 import { NucleiData } from './nuclei/nuclei-data';
+import { profileLetters } from './nuclei/nucleus-model';
 import { displayName, PreviewProfile } from './preview-profile';
+import { NavIcon } from './shared/nav-icon';
 
 @Component({
   selector: 'app-account',
-  imports: [RouterLink, AccountPreferences],
+  imports: [RouterLink, AccountPreferences, NavIcon],
   templateUrl: './account.html',
   styleUrl: './account.css',
 })
 export class Account {
+  readonly prefix = input('account');
+  protected readonly embedded = computed(() => this.prefix() !== 'account');
   protected readonly profile = inject(PreviewProfile);
   private readonly destroy = inject(DestroyRef);
   private readonly router = inject(Router);
@@ -19,9 +23,10 @@ export class Account {
   private readonly fragment = toSignal(inject(ActivatedRoute).fragment);
   private readonly preferences = viewChild<AccountPreferences, ElementRef<HTMLElement>>('preferences', {read: ElementRef});
   protected readonly name = computed(() => displayName(this.profile.user()));
+  protected readonly initials = computed(() => profileLetters(this.name()));
   private readonly nuclei = inject(NucleiData);
   protected readonly last = resource({
-    params:() => this.profile.user()?.id,
+    params:() => this.embedded() ? undefined : this.profile.user()?.id,
     loader:({params,abortSignal}) => this.nuclei.last(params,abortSignal),
   });
   protected readonly busy = signal(false);
@@ -39,7 +44,7 @@ export class Account {
     effect(() => {
       const fragment = this.fragment();
       const host = this.preferences()?.nativeElement;
-      if (!host || !fragment || !['aparencia', 'privacidade', 'ajuda-e-suporte', 'apagar-minha-conta'].includes(fragment)) return;
+      if (this.embedded() || !host || !fragment || !['aparencia', 'privacidade', 'ajuda-e-suporte', 'apagar-minha-conta'].includes(fragment)) return;
       afterNextRender(() => {
         if (host.isConnected && this.fragment() === fragment) host.querySelector<HTMLElement>('#' + fragment)?.focus();
       }, {injector: this.injector});
@@ -59,7 +64,8 @@ export class Account {
     try {
       const error = await this.profile.signOut();
       this.authError.set(error);
-      if (!error && !this.destroy.destroyed) await this.router.navigateByUrl('/conta?modo=login');
+      // A saída ainda leva ao acesso se o menu for fechado durante a revogação.
+      if (!error && !this.profile.user()) await this.router.navigateByUrl('/conta?modo=login');
     }
     finally { this.busy.set(false); }
   }
@@ -118,7 +124,7 @@ export class Account {
 
   private focus(id: string) {
     afterNextRender(() => {
-      if (this.dialog().open) this.dialog().querySelector<HTMLElement>('#' + id)?.focus();
+      if (!this.destroy.destroyed && this.dialog().open) this.dialog().querySelector<HTMLElement>('#' + this.prefix() + '-' + id)?.focus();
     }, { injector: this.injector });
   }
 }

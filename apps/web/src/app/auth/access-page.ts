@@ -16,7 +16,7 @@ const errors: Record<string, string> = {
 @Component({
   imports: [RouterLink, Account, AccountStory],
   templateUrl: './access-page.html',
-  styleUrl: './auth.css',
+  styleUrls: ['./auth.css', './access-panel.css'],
 })
 export class AccessPage {
   protected readonly access = inject(AccessAuth);
@@ -55,6 +55,10 @@ export class AccessPage {
   protected readonly completeName = computed(() => this.query()['completar'] === 'nome' && Boolean(this.profile.user()));
   protected readonly requiresLogin = computed(() => ['senha', 'conta-excluida'].includes(this.query()['resultado']));
   protected readonly pending = signal(false);
+  protected readonly googlePending = signal(false);
+  protected readonly googleError = signal('');
+  protected readonly formHeight = signal<number | null>(null);
+  private readonly formContent = viewChild<ElementRef<HTMLElement>>('formContent');
   protected readonly error = signal('');
   protected readonly emailMessage = signal<{message: string; success: boolean} | null>(null);
   protected readonly emailPending = signal(false);
@@ -63,6 +67,14 @@ export class AccessPage {
 
   constructor() {
     void this.profile.connect();
+    effect(onCleanup => {
+      const content = this.formContent()?.nativeElement;
+      if (!content) { this.formHeight.set(null); return; }
+      // Mede o formulário real, inclusive avisos e quebras de linha no celular.
+      const observer = new ResizeObserver(() => this.formHeight.set(content.offsetHeight));
+      observer.observe(content);
+      onCleanup(() => observer.disconnect());
+    });
     effect(() => {
       const kind = this.kind();
       const dialog = this.dialog()?.nativeElement;
@@ -73,15 +85,16 @@ export class AccessPage {
 
   protected link(path: string) { return this.router.parseUrl(accessLink(path, this.next())); }
 
-  protected clearCredentials(password: HTMLInputElement) {
-    password.value = '';
+  protected clearCredentials(form: HTMLFormElement, mode: 'login' | 'signup') {
+    if (mode === this.mode()) return;
+    form.reset();
     this.error.set('');
     this.showPassword.set(false);
   }
 
   protected async submit(event: Event, name: string, email: string, password: string) {
     event.preventDefault();
-    if (this.pending()) return;
+    if (this.pending() || this.googlePending()) return;
     this.pending.set(true);
     this.error.set('');
     try {
@@ -93,10 +106,11 @@ export class AccessPage {
   }
 
   protected async google() {
-    if (this.pending()) return;
-    this.pending.set(true);
-    try { this.error.set(await this.access.startGoogle(this.next())); }
-    finally { this.pending.set(false); }
+    if (this.pending() || this.googlePending()) return;
+    this.googlePending.set(true);
+    this.googleError.set('');
+    try { this.googleError.set(await this.access.startGoogle(this.next())); }
+    finally { this.googlePending.set(false); }
   }
 
   protected async sendEmail(event: Event, email: string) {

@@ -1,31 +1,68 @@
-<section class="surface" tabindex="-1" id="aparencia">
-  <h2>Aparência</h2>
-  <app-appearance-picker prefix="account-appearance" label="Escolher tema" />
+<section class="surface" tabindex="-1" [id]="embedded() ? prefix() + '-aparencia' : 'aparencia'">
+  @if (embedded()) { <h3>Aparência</h3> } @else { <h2>Aparência</h2> }
+  <app-appearance-picker [prefix]="prefix() + '-appearance'" label="Escolher tema" [embedded]="embedded()" />
 </section>
 
-<section class="surface" tabindex="-1" id="privacidade">
-  <h2>Privacidade</h2>
-  <button class="button" type="button" (click)="openPrivacy()">Visibilidade das próximas saídas</button>
+<section class="surface" tabindex="-1" [id]="embedded() ? prefix() + '-privacidade' : 'privacidade'">
+  @if (embedded()) { <h3>Privacidade</h3> } @else { <h2>Privacidade</h2> }
+  <button [class]="embedded() ? 'account-option' : 'button'" type="button" (click)="openPrivacy()">
+    @if (embedded()) { <span class="option-icon"><app-nav-icon name="lock" /></span> }
+    <span>Visibilidade das próximas saídas @if (embedded()) { <small>Uma escolha para as próximas ações</small> }</span>
+  </button>
+  @if (embedded()) {
+    <button class="account-option" type="button" (click)="openHelp('Dados e autonomia')">
+      <span class="option-icon"><app-nav-icon name="book" /></span>
+      <span>Dados e autonomia<small>Orientações e limites do produto</small></span>
+    </button>
+  }
 </section>
 
-<section class="surface" tabindex="-1" id="ajuda-e-suporte">
-  <h2>Ajuda e suporte</h2>
-  <p>Responsável pelo aplicativo: Sintagma Software.</p>
-  <p>Administradores gerenciam pessoas e convites. Cada pessoa decide se participa dos acordos do Núcleo.</p>
-  <p>O conteúdo compartilhado é preservado após a saída. Confira como ocultar sua autoria nas próximas saídas.</p>
-  <p>Para solicitar acesso, correção ou exportação de dados, use o formulário de suporte.</p>
-  <p><a routerLink="/conta" fragment="privacidade">Conferir privacidade</a></p>
-  <app-problem-report prefix="account-support" />
+<section class="surface" tabindex="-1" [id]="embedded() ? prefix() + '-ajuda' : 'ajuda-e-suporte'">
+  @if (embedded()) {
+    <h3>Ajuda e suporte</h3>
+    <app-problem-report [prefix]="prefix() + '-support'" [embedded]="true" />
+    <button class="account-option" type="button" (click)="openHelp('Ajuda e suporte')">
+      <span class="option-icon"><app-nav-icon name="message" /></span>
+      <span>Preciso de orientação<small>Responsável e canal de contato</small></span>
+    </button>
+    <button class="account-option" type="button" (click)="openHelp('Entender os combinados')">
+      <span class="option-icon"><app-nav-icon name="book" /></span>
+      <span>Entender os combinados<small>Participação, termos e administração</small></span>
+    </button>
+  } @else {
+    <h2>Ajuda e suporte</h2>
+    <ng-container [ngTemplateOutlet]="helpContent" />
+    <app-problem-report [prefix]="prefix() + '-support'" />
+  }
 </section>
 
+@if (!embedded()) {
 <section class="surface" tabindex="-1" id="apagar-minha-conta">
   <h2>Apagar minha conta</h2>
   <p>A exclusão é definitiva. Confira as consequências antes de confirmar.</p>
   <button class="button" type="button" (click)="openRemoval()">Apagar minha conta</button>
 </section>
+}
 
-<dialog #privacyDialog class="shared-dialog" aria-labelledby="privacy-title" (close)="resetPrivacy()">
-  <header><h2 id="privacy-title">Privacidade e visibilidade</h2>
+<ng-template #helpContent>
+  <p>Responsável pelo aplicativo: Sintagma Software.</p>
+  <p>Administradores gerenciam pessoas e convites. Cada pessoa decide se participa dos acordos do Núcleo.</p>
+  <p>O conteúdo compartilhado é preservado após a saída. Confira como ocultar sua autoria nas próximas saídas.</p>
+  <p>Para solicitar acesso, correção ou exportação de dados, use o formulário de suporte.</p>
+  <p><a routerLink="/conta" fragment="privacidade">Conferir privacidade</a></p>
+</ng-template>
+
+@if (embedded()) {
+  <dialog #helpDialog class="shared-dialog" [attr.aria-labelledby]="prefix() + '-help-title'">
+    <header><h2 [id]="prefix() + '-help-title'">{{ helpTitle() }}</h2>
+      <form method="dialog"><button class="icon-button" aria-label="Fechar orientação" autofocus>×</button></form>
+    </header>
+    <ng-container [ngTemplateOutlet]="helpContent" />
+  </dialog>
+}
+
+<dialog #privacyDialog class="shared-dialog" [attr.aria-labelledby]="prefix() + '-privacy-title'" (close)="resetPrivacy()">
+  <header><h2 [id]="prefix() + '-privacy-title'">Privacidade e visibilidade</h2>
     <form method="dialog"><button class="icon-button" aria-label="Fechar Privacidade" autofocus>×</button></form>
   </header>
   <p>Somente pessoas associadas consultam o Núcleo e seu conteúdo compartilhado.</p>
@@ -45,6 +82,7 @@
   @if (privacyError()) { <p role="alert">{{ privacyError() }}</p> }
 </dialog>
 
+@if (!embedded()) {
 <dialog #removalDialog class="shared-dialog" aria-labelledby="removal-title" (close)="resetRemoval()">
   <header><h2 id="removal-title">Apagar minha conta</h2>
     <form method="dialog"><button class="icon-button" aria-label="Fechar exclusão" autofocus>×</button></form>
@@ -61,3 +99,4 @@
   </form>
   @if (removalError()) { <p role="alert">{{ removalError() }}</p> }
 </dialog>
+}

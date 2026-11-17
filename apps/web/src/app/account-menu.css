@@ -1,0 +1,63 @@
+/* As opções ficam em componentes diferentes, mas compartilham a mesma apresentação nos dois menus. */
+.embedded-account {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: .875rem;
+}
+.embedded-account :is(.card, .surface) {
+  display: block;
+  min-width: 0;
+  margin: 0;
+  padding: 1.1rem;
+  border-radius: .875rem;
+}
+.embedded-account h3 { margin: 0 0 .75rem; font-size: 1.06rem; }
+.embedded-account .embedded-profile {
+  display: grid;
+  justify-items: start;
+  gap: .3rem;
+  overflow-wrap: anywhere;
+}
+.embedded-account .embedded-profile p { color: var(--muted); font-size: .84rem; }
+.profile-initials {
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  aspect-ratio: 1;
+  margin-bottom: .25rem;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--leaf);
+  font-size: 1.2rem;
+}
+.embedded-account .account-option {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  width: 100%;
+  min-height: 3.7rem;
+  padding: .4rem .35rem;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: .55rem;
+  background: transparent;
+  color: var(--ink);
+  text-align: start;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.embedded-account .account-option:hover { background: var(--accent-soft); }
+.embedded-account .account-option small { display: block; color: var(--muted); font-weight: 400; margin-top: .15rem; }
+.embedded-account .option-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 2rem;
+  height: 2rem;
+  border-radius: .5rem;
+  background: var(--accent-soft);
+}
+@media (max-width: 700px) {
+  .embedded-account { grid-template-columns: minmax(0, 1fr); }
+}

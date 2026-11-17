@@ -1,3 +1,15 @@
+## Perfil, Mais e relato no Angular — v4.0.0-alpha.16 — 2026-11-17
+
+| Gatilho | Modal e resultado autenticado |
+|---|---|
+| Avatar desktop ou Mais no celular | Abre seis grupos da própria conta. Escolher um destino fecha a camada de origem. X, Escape ou gesto externo devolvem o foco ao gatilho. |
+| Dados da conta, Escolher tema ou Visibilidade das próximas saídas | Consulta ou edita nome, tema e privacidade com as permissões existentes. Fechar o modal mantém o menu aberto. |
+| Sair da conta | Solicita confirmação antes de encerrar a sessão. X, Escape e gesto externo descartam a confirmação. |
+| Dados e autonomia, Preciso de orientação ou Entender os combinados | Abre as orientações no contexto. Consultar privacidade pela página da Conta é navegação. |
+| Relatar um problema no cabeçalho ou em Ajuda e suporte | Abre o formulário autenticado. Se o botão do cabeçalho estiver expandido, acionar o relato recolhe o lembrete. O envio usa o serviço existente. |
+
+Recuperação e confirmação são links para as rotas de assistência, onde os diálogos recebem o contexto da própria rota. O Atlas demonstra os controles com dados ilustrativos. [Registro](../registros/registro-v4.0.0-alpha.16-2026-11-17-imp-estrutura-angular-fun-perfil-mais-e-suporte.md).
+
 ## Estrutura autenticada Angular — v4.0.0-alpha.14
 
 **Mais** abre como diálogo da barra móvel. **Conta, Preferências e Ajuda** é painel flutuante no desktop; no celular, o avatar navega à Conta. **Notificações (60)** é painel flutuante ilustrativo. X, Escape e ação externa fecham os painéis; o menu Mais usa o fechamento nativo compartilhado. [Registro](../registros/registro-v4.0.0-alpha.14-2026-11-17-imp-paridade-angular-fun-estrutura-autenticada.md).

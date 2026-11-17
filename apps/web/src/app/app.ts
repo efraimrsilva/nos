@@ -2,10 +2,12 @@ import { DOCUMENT } from '@angular/common';
 import { afterNextRender, Component, computed, DestroyRef, effect, inject, Injector, resource, signal, viewChild, type ElementRef } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, NavigationError, NavigationSkipped, NavigationStart, Router, RouterLink, RouterOutlet } from '@angular/router';
+import { Account } from './account';
 import { Appearance } from './appearance';
 import { AppearancePicker } from './appearance-picker';
 import { displayName, PreviewProfile } from './preview-profile';
 import { ProblemReport } from './problem-report';
+import { clearProblemReportReminder } from './problem-report-reminder';
 import { installDialogBackdropDismiss } from './shared/dialog-backdrop-dismiss';
 import { RouteState } from './shared/route-state';
 import { isNucleusId, profileLetters } from './nuclei/nucleus-model';
@@ -17,7 +19,7 @@ import { NavIcon } from './shared/nav-icon';
 import manifest from '../../package.json';
 
 @Component({
-  imports: [RouterLink, RouterOutlet, RouteState, ProblemReport, AppearancePicker, NavigationLinks, NavIcon],
+  imports: [RouterLink, RouterOutlet, RouteState, Account, ProblemReport, AppearancePicker, NavigationLinks, NavIcon],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrls: ['./app.css', './shell-navigation.css'],
@@ -106,6 +108,8 @@ export class App {
   });
   protected readonly counts = computed(() => this.totals.hasValue() && !this.totals.isLoading() ? this.totals.value() : null);
   protected readonly sidebarHidden = signal(false);
+  protected readonly profileMenuOpen = signal(false);
+  protected readonly moreOpen = signal(false);
   protected readonly failedUrl = signal('');
   protected readonly activeLabel = signal('');
   private readonly injector = inject(Injector);
@@ -118,19 +122,27 @@ export class App {
   constructor() {
     inject(Appearance);
     const mobile = matchMedia('(max-width:700px)');
-    const closeAccountOnMobile = () => { if (mobile.matches) this.accountMenu()?.nativeElement.hidePopover(); };
-    mobile.addEventListener('change',closeAccountOnMobile);
-    inject(DestroyRef).onDestroy(() => mobile.removeEventListener('change',closeAccountOnMobile));
+    const closeMenuOnResize = () => {
+      if (mobile.matches) this.accountMenu()?.nativeElement.hidePopover();
+      else this.more()?.nativeElement.close();
+    };
+    mobile.addEventListener('change', closeMenuOnResize);
+    inject(DestroyRef).onDestroy(() => mobile.removeEventListener('change', closeMenuOnResize));
     watchNucleusIdentity(
       () => this.selected.hasValue() ? this.selected.value()?.version : undefined,
       () => this.selected.isLoading(),
       () => this.selected.reload(),
     );
+    let previousAccount: string | undefined;
     effect(() => {
-      if (!this.profile.user()) {
+      const account = this.profile.user()?.id;
+      if (previousAccount && previousAccount !== account) {
+        clearProblemReportReminder(previousAccount);
         this.accountMenu()?.nativeElement.hidePopover();
+        this.more()?.nativeElement.close();
         this.notifications()?.nativeElement.hidePopover();
       }
+      previousAccount = account;
     });
     inject(DestroyRef).onDestroy(installDialogBackdropDismiss(inject(DOCUMENT)));
     this.router.events.pipe(takeUntilDestroyed()).subscribe(event => {
@@ -140,6 +152,7 @@ export class App {
         const path = this.router.parseUrl(event.urlAfterRedirects).root.children['primary']
           ?.segments.map(segment => segment.path).join('/') ?? '';
         const [area,id] = path.split('/');
+        const pathChanged = path !== this.currentPath();
         this.currentPath.set(path);
         this.nucleusId.set(area === 'nucleos' && isNucleusId(id) ? id : null);
         const account = path === 'conta' || path.startsWith('conta/');
@@ -151,7 +164,7 @@ export class App {
         this.notifications()?.nativeElement.hidePopover();
         this.accountMenu()?.nativeElement.hidePopover();
         // Depois de Voltar, Avançar ou seguir um link interno, o foco acompanha o novo conteúdo.
-        if (!this.initialNavigation) this.focusPage();
+        if (!this.initialNavigation && pathChanged) this.focusPage();
         this.initialNavigation = false;
       }
     });
@@ -160,6 +173,24 @@ export class App {
   protected skipToContent(event: Event) {
     event.preventDefault();
     this.content().nativeElement.focus();
+  }
+
+  protected openMore(dialog: HTMLDialogElement) {
+    this.moreOpen.set(true);
+    dialog.showModal();
+  }
+
+  protected closeMoreOnLink(event: MouseEvent, dialog: HTMLDialogElement) {
+    if (this.isPlainLinkClick(event)) dialog.close();
+  }
+
+  protected closeProfileOnLink(event: MouseEvent, panel: HTMLElement) {
+    if (this.isPlainLinkClick(event)) panel.hidePopover();
+  }
+
+  private isPlainLinkClick(event: MouseEvent) {
+    return event.button === 0 && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey &&
+      event.target instanceof Element && Boolean(event.target.closest('a[href]'));
   }
 
   private focusPage() {

@@ -1,3 +1,11 @@
+## 17/11/2026 — Controles da Conta e lembrete no Angular
+
+Os menus tinham atalhos para outras páginas. Agora, perfil desktop e Mais móvel reutilizam os seis grupos da Conta e seus controles locais. Os testes confirmaram o retorno de foco após fechar o modal interno e o prazo do lembrete ao mudar de rota e entrar novamente. [Registro](../_andamento/registros/registro-v4.0.0-alpha.16-2026-11-17-imp-estrutura-angular-fun-perfil-mais-e-suporte.md).
+
+## 17/11/2026 — Base Tailwind e entrada Angular
+
+A configuração registrava apenas o template da estrutura e a entrada divergia do comportamento de referência. Agora, o Angular disponibiliza os utilitários e tokens para todos os componentes e mede a altura real da Conta. Testes verificaram mudança de modo, foco e acesso integrado em duas larguras. [Registro](../_andamento/registros/registro-v4.0.0-alpha.15-2026-11-17-imp-paridade-angular-fun-tailwind-e-entrada.md).
+
 ## 17/11/2026 — Estrutura autenticada durante a migração Angular
 
 A estrutura Angular passou a portar a navegação do código Next.js e a usar os utilitários Tailwind existentes. A troca de Núcleo, o nome contextual e os atalhos foram conferidos em desktop e celular. A consistência esperada com a referência é documentada, sem medição com usuários. [Registro](../_andamento/registros/registro-v4.0.0-alpha.14-2026-11-17-imp-paridade-angular-fun-estrutura-autenticada.md).

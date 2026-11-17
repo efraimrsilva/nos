@@ -1,35 +1,78 @@
-<section class="account">
-  <h1 tabindex="-1">Minha conta</h1>
-  <p>Configurações do seu perfil.</p>
+<section class="account" [class.embedded-account]="embedded()" [attr.aria-label]="embedded() ? 'Preferências da conta' : null">
+  @if (!embedded()) {
+    <h1 tabindex="-1">Minha conta</h1>
+    <p>Configurações do seu perfil.</p>
+  }
   @if (profile.loading()) {
     <p role="status">Carregando sua conta…</p>
   } @else if (profile.user(); as user) {
     <section class="card" aria-label="Perfil">
-      <h2>{{ name() || 'Nome não informado' }}</h2>
-      <button type="button" class="row" (click)="openDialog()" aria-describedby="account-row-description">
-        Dados da conta
+      @if (embedded()) {
+        <h3>Perfil</h3>
+        <div class="embedded-profile">
+          <span class="profile-initials" aria-hidden="true">{{ initials() }}</span>
+          <strong>{{ name() || 'Sua conta' }}</strong>
+          <p>Você está conectado como {{ user.email || 'membro do Nós' }}.</p>
+        </div>
+      } @else {
+        <h2>{{ name() || 'Nome não informado' }}</h2>
+      }
+      <button type="button" class="row" [class.account-option]="embedded()" (click)="openDialog()"
+        [attr.aria-describedby]="prefix() + '-row-description'">
+        @if (embedded()) { <span class="option-icon"><app-nav-icon name="lock" /></span> }
+        <span>Dados da conta
+          @if (embedded()) { <small [id]="prefix() + '-row-description'">Nome e identificação</small> }
+        </span>
       </button>
-      <span id="account-row-description">Nome e identificação</span>
+      @if (!embedded()) { <span [id]="prefix() + '-row-description'">Nome e identificação</span> }
     </section>
-    @if (last.hasValue() && last.value(); as nucleus) {
-      <a class="button secondary signout" [routerLink]="['/nucleos',nucleus.id]" [attr.title]="nucleus.name">Voltar ao Núcleo</a>
+    @if (!embedded()) {
+      @if (last.hasValue() && last.value(); as nucleus) {
+        <a class="button secondary signout" [routerLink]="['/nucleos',nucleus.id]" [attr.title]="nucleus.name">Voltar ao Núcleo</a>
+      }
+      <button type="button" class="secondary signout" [disabled]="busy()" (click)="signOut()">Sair da conta</button>
     }
-    <button type="button" class="secondary signout" [disabled]="busy()" (click)="signOut()">Sair da conta</button>
     <section class="card account-access">
-      <h2>Entrar e recuperar</h2>
-      <a routerLink="/conta/recuperar" [queryParams]="{next: '/configuracoes/conta'}">Recuperar acesso</a>
-      <a routerLink="/conta/confirmar-email" [queryParams]="{next: '/configuracoes/conta'}">Confirmar e-mail</a>
+      @if (embedded()) { <h3>Entrar e recuperar</h3> } @else { <h2>Entrar e recuperar</h2> }
+      <a [class.account-option]="embedded()" routerLink="/conta/recuperar" [queryParams]="{next: '/configuracoes/conta'}">
+        @if (embedded()) { <span class="option-icon"><app-nav-icon name="lock" /></span> }
+        <span>Recuperar acesso @if (embedded()) { <small>Link de recuperação e nova senha</small> }</span>
+      </a>
+      <a [class.account-option]="embedded()" routerLink="/conta/confirmar-email" [queryParams]="{next: '/configuracoes/conta'}">
+        @if (embedded()) { <span class="option-icon"><app-nav-icon name="check" /></span> }
+        <span>Confirmar e-mail @if (embedded()) { <small>{{ user.email_confirmed_at ? 'Seu e-mail já está confirmado' : 'Conferir a etapa de confirmação' }}</small> }</span>
+      </a>
+      @if (embedded()) {
+        <button type="button" class="account-option" (click)="signOutDialog.showModal()">
+          <span class="option-icon"><app-nav-icon name="logout" /></span>
+          <span>Sair da conta<small>Encerrar acesso com segurança</small></span>
+        </button>
+        <dialog #signOutDialog class="shared-dialog" [attr.aria-labelledby]="prefix() + '-signout-title'" (close)="authError.set('')">
+          <header class="dialog-header">
+            <h2 [id]="prefix() + '-signout-title'">Sair da conta</h2>
+            <form method="dialog"><button class="icon secondary" aria-label="Fechar saída" autofocus>×</button></form>
+          </header>
+          <p>Sair encerra a sessão e mantém sua participação nos Núcleos. Para voltar, entre novamente com sua conta.</p>
+          <button type="button" class="signout" [disabled]="busy()" (click)="signOut()">{{ busy() ? 'Saindo…' : 'Confirmar saída' }}</button>
+          @if (authError()) { <p role="alert" class="error">{{ authError() }}</p> }
+        </dialog>
+      }
     </section>
     <section class="card account-access">
-      <h2>Conta e Núcleos</h2>
-      <a routerLink="/nucleos">Seus Núcleos</a>
+      @if (embedded()) { <h3>Conta e Núcleos</h3> } @else { <h2>Conta e Núcleos</h2> }
+      <a routerLink="/nucleos" [class.account-option]="embedded()">
+        @if (embedded()) { <span class="option-icon"><app-nav-icon name="users" /></span> }
+        <span>Seus Núcleos @if (embedded()) { <small>Escolher um vínculo ou criar e entrar em um Núcleo</small> }</span>
+      </a>
     </section>
-    <section class="card account-access">
-      <h2>Notificações</h2>
-      <p>Preferências de notificação estão planejadas.</p>
-    </section>
+    @if (!embedded()) {
+      <section class="card account-access">
+        <h2>Notificações</h2>
+        <p>Preferências de notificação estão planejadas.</p>
+      </section>
+    }
     @for (owner of [user.id]; track owner) {
-      <app-account-preferences #preferences />
+      <app-account-preferences #preferences [prefix]="prefix()" [class.embedded-preferences]="embedded()" />
     }
   } @else {
     <section class="card">
@@ -38,17 +81,17 @@
       <a class="button" routerLink="/conta" [queryParams]="{modo: 'login', next: '/configuracoes/conta'}">Entrar na conta</a>
     </section>
   }
-  @if (profile.notice() || authError()) {
+  @if (!embedded() && (profile.notice() || authError())) {
     <p role="alert" class="error">{{ authError() || profile.notice() }}</p>
   }
 </section>
 
-<dialog #dataDialog class="shared-dialog" id="account-data" aria-labelledby="account-title"
-  aria-describedby="account-description" (close)="resetDialog()">
+<dialog #dataDialog class="shared-dialog" [id]="prefix() + '-data'" [attr.aria-labelledby]="prefix() + '-title'"
+  [attr.aria-describedby]="prefix() + '-description'" (close)="resetDialog()">
   <header class="dialog-header">
     <div>
-      <h2 id="account-title">Dados da conta</h2>
-      <p id="account-description">Nome e identificação do seu acesso.</p>
+      <h2 [id]="prefix() + '-title'">Dados da conta</h2>
+      <p class="account-description" [id]="prefix() + '-description'">Nome e identificação do seu acesso.</p>
     </div>
     <form method="dialog">
       <button class="icon secondary" aria-label="Fechar Dados da conta" autofocus>×</button>
@@ -59,7 +102,7 @@
       <dt>Nome</dt>
       <dd class="name-value">
         <span>{{ name() || 'Nome não informado' }}</span>
-        <button id="edit-name" class="icon secondary" type="button" aria-label="Editar nome do perfil"
+        <button [id]="prefix() + '-edit-name'" class="icon secondary" type="button" aria-label="Editar nome do perfil"
           title="Editar nome do perfil" [disabled]="saving()" (click)="edit()">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -70,11 +113,11 @@
     </dl>
     @if (editing()) {
       <form class="editor" (submit)="save($event, input.value)">
-        <label for="profile-name">Nome do perfil</label>
-        <input #input id="profile-name" name="name" autocomplete="name" [value]="draft"
-          maxlength="80" aria-required="true" aria-describedby="name-help"
+        <label [for]="prefix() + '-profile-name'">Nome do perfil</label>
+        <input #input [id]="prefix() + '-profile-name'" name="name" autocomplete="name" [value]="draft"
+          maxlength="80" aria-required="true" [attr.aria-describedby]="prefix() + '-name-help'"
           [attr.aria-invalid]="error() ? 'true' : null" (input)="error.set('')" [disabled]="saving()">
-        <p id="name-help">Use de 1 a 80 caracteres. Este nome aparece no seu perfil e nos seus Núcleos.</p>
+        <p class="name-help" [id]="prefix() + '-name-help'">Use de 1 a 80 caracteres. Este nome aparece no seu perfil e nos seus Núcleos.</p>
         @if (error()) { <p class="error" role="alert">{{ error() }}</p> }
         <div class="actions">
           <button type="submit" [disabled]="saving()">{{ saving() ? 'Salvando…' : 'Salvar nome' }}</button>

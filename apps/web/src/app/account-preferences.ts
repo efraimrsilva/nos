@@ -1,23 +1,28 @@
-import { Component, DestroyRef, effect, inject, resource, signal, viewChild, type ElementRef } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
+import { Component, DestroyRef, computed, effect, inject, input, resource, signal, viewChild, type ElementRef } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { ACCOUNT_DELETION_PHRASE, isAccountDeletionConfirmed } from '../../../../src/features/controls/account-deletion-input';
 import { AppearancePicker } from './appearance-picker';
 import { NucleiData } from './nuclei/nuclei-data';
 import { ProblemReport } from './problem-report';
 import { PreviewProfile } from './preview-profile';
+import { NavIcon } from './shared/nav-icon';
 
 @Component({
   selector: 'app-account-preferences',
-  imports: [RouterLink, ProblemReport, AppearancePicker],
+  imports: [RouterLink, ProblemReport, AppearancePicker, NavIcon, NgTemplateOutlet],
   templateUrl: './account-preferences.html',
   styleUrl: './account-preferences.css',
 })
 export class AccountPreferences {
+  readonly prefix = input('account');
+  protected readonly embedded = computed(() => this.prefix() !== 'account');
   private readonly profile = inject(PreviewProfile);
   private readonly data = inject(NucleiData);
   private readonly router = inject(Router);
   private readonly destroy = inject(DestroyRef);
   private readonly privacyDialog = viewChild.required<ElementRef<HTMLDialogElement>>('privacyDialog');
+  private readonly helpDialog = viewChild<ElementRef<HTMLDialogElement>>('helpDialog');
   private readonly removalDialog = viewChild.required<ElementRef<HTMLDialogElement>>('removalDialog');
   protected readonly privacy = resource({
     params: () => this.profile.user()?.id,
@@ -29,6 +34,7 @@ export class AccountPreferences {
     },
   });
   protected readonly hide = signal(false);
+  protected readonly helpTitle = signal('');
   protected readonly saving = signal(false);
   protected readonly privacyMessage = signal('');
   protected readonly privacyError = signal('');
@@ -55,6 +61,11 @@ export class AccountPreferences {
   protected openPrivacy() {
     this.privacyOwner = this.profile.user()?.id;
     if (this.privacyOwner) this.privacyDialog().nativeElement.showModal();
+  }
+
+  protected openHelp(title: string) {
+    this.helpTitle.set(title);
+    this.helpDialog()?.nativeElement.showModal();
   }
 
   protected resetPrivacy() {

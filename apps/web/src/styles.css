@@ -2,7 +2,19 @@
 @layer theme, base, components, utilities;
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/utilities.css" layer(utilities) source(none);
-@source "./app/app.html";
+@import "./app/account-menu.css";
+@source "./app";
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-forest: var(--ink);
+  --color-leaf: var(--leaf);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-lilac: #7955a5;
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-display: Georgia, serif;
+}
 
 :root {
   color-scheme: light;

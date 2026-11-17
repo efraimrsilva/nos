@@ -261,26 +261,86 @@ test('relata pela Ajuda, confirma o envio e respeita o limite no cabeçalho', as
   await expect(dialog.getByLabel('O que aconteceu?')).toHaveValue(description);
 });
 
-test('abre os atalhos de perfil e mantém a navegação acessível', async ({page, accounts}, info) => {
+test('usa os controles incorporados no perfil desktop e no Mais móvel', async ({page, accounts}, info) => {
   await signIn(page, accounts.users[0]);
-  if (info.project.name === 'mobile') {
+  const mobile = info.project.name === 'mobile';
+  if (mobile) {
     const header = page.getByRole('banner');
     await expect(header.getByRole('link',{name:'Minha conta',exact:true})).toBeVisible();
     await expect(page.getByRole('navigation',{name:'Navegação móvel'}).getByRole('link',{name:'Seus Núcleos',exact:true}).locator('svg')).toBeVisible();
-    return;
   }
-  const profile = page.getByRole('button',{name:'Abrir opções da conta'});
+  const profile = page.getByRole('button',{ name: mobile ? 'Mais áreas e preferências' : 'Abrir opções da conta' });
   await profile.click();
-  const menu = page.getByRole('dialog',{name:'Conta, Preferências e Ajuda'});
-  await expect(menu.getByRole('link',{name:'Minha conta',exact:true})).toBeVisible();
-  await menu.getByRole('button',{name:'Aparência',exact:true}).click();
+  const menu = page.getByRole('dialog',{ name: mobile ? 'Todos os seus caminhos' : 'Conta, Preferências e Ajuda' });
+  const controls = menu.getByRole('region',{name:'Preferências da conta'});
+  await expect(controls.getByRole('heading')).toHaveText([
+    'Perfil','Entrar e recuperar','Conta e Núcleos','Aparência','Privacidade','Ajuda e suporte',
+  ]);
+  const dataTrigger = controls.getByRole('button',{name:'Dados da conta'});
+  await dataTrigger.click();
+  const data = page.getByRole('dialog',{name:'Dados da conta'});
+  await data.getByRole('button',{name:'Editar nome do perfil'}).click();
+  await expect(data.getByRole('textbox',{name:'Nome do perfil'})).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(data).toBeHidden();
+  await expect(dataTrigger).toBeFocused();
+
+  await controls.getByRole('button',{name:'Escolher tema'}).click();
   const appearance = page.getByRole('dialog',{name:'Aparência'});
   await expect(appearance).toBeVisible();
-  await page.keyboard.press('Escape');
+  if (mobile) await page.touchscreen.tap(2,2);
+  else await page.mouse.click(2,2);
   await expect(appearance).toBeHidden();
+  await expect(menu).toBeVisible();
+  await controls.getByRole('button',{name:'Sair da conta'}).click();
+  await expect(page.getByRole('dialog',{name:'Sair da conta'})).toBeVisible();
+  await page.keyboard.press('Escape');
   await expect(menu).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(profile).toBeFocused();
-  const nav = page.getByRole('navigation',{name:info.project.name==='mobile'?'Navegação móvel':'Áreas do Nós'});
-  await expect(nav.getByRole('link',{name:'Seus Núcleos',exact:true}).locator('svg')).toBeVisible();
+  await profile.click();
+  await controls.getByRole('link',{name:/Seus Núcleos/}).click();
+  await expect(page).toHaveURL(/\/nucleos$/);
+  await expect(menu).toBeHidden();
+});
+
+test('expande o relato entre rotas e reinicia o prazo após nova sessão', async ({page, accounts}) => {
+  await page.clock.install();
+  await signIn(page, accounts.users[0]);
+  const banner = page.getByRole('banner');
+  const anchor = banner.locator('.problem-report-anchor');
+  const report = banner.getByRole('button',{name:'Relatar um problema'});
+  await expect(anchor).toHaveAttribute('data-reminder-visible','false');
+  await page.clock.fastForward(45_000);
+  await page.getByRole('navigation',{name:/Áreas do Nós|Navegação móvel/}).getByRole('link',{name:'Seus Núcleos'}).click();
+  await expect(page).toHaveURL(/\/nucleos$/);
+  await expect(anchor).toHaveAttribute('data-reminder-visible','false');
+  await page.clock.fastForward(15_000);
+  await expect(anchor).toHaveAttribute('data-reminder-visible','true');
+  await report.click();
+  const dialog = page.getByRole('dialog',{name:'Relatar um problema'});
+  await expect(dialog.getByLabel('O que aconteceu?')).toBeVisible();
+  await expect(anchor).toHaveAttribute('data-reminder-visible','false');
+  await page.keyboard.press('Escape');
+  await page.goBack();
+  await expect(page.getByRole('heading',{name:'Pessoa Um'})).toBeVisible();
+  const opener = page.getByRole('button',{name:/Abrir opções da conta|Mais áreas e preferências/}).filter({visible:true});
+  await opener.click();
+  await page.getByRole('region',{name:'Preferências da conta'}).getByRole('button',{name:'Sair da conta'}).click();
+  await page.getByRole('button',{name:'Confirmar saída'}).click();
+  await expect(page).toHaveURL(/\/conta\?modo=login$/);
+  await signIn(page, accounts.users[0]);
+  await expect(anchor).toHaveAttribute('data-reminder-visible','false');
+  // Uma aba em segundo plano não deve consumir os dez segundos de leitura.
+  await page.evaluate(() => Object.defineProperty(document, 'visibilityState', {configurable:true, value:'hidden'}));
+  await page.clock.fastForward(60_000);
+  await expect(anchor).toHaveAttribute('data-reminder-visible','false');
+  await page.clock.fastForward(15_000);
+  await page.evaluate(() => {
+    Object.defineProperty(document, 'visibilityState', {configurable:true, value:'visible'});
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+  await expect(anchor).toHaveAttribute('data-reminder-visible','true');
+  await page.clock.fastForward(10_000);
+  await expect(anchor).toHaveAttribute('data-reminder-visible','false');
 });

@@ -1,6 +1,24 @@
-<button class="icon-button" type="button" (click)="open()" aria-label="Relatar um problema" aria-haspopup="dialog" title="Relatar um problema">
-  @if (iconOnly()) { <app-nav-icon name="bug" /> } @else { Relatar um problema }
-</button>
+@if (iconOnly()) {
+  <div class="problem-report-anchor" [attr.data-reminder-visible]="reminderVisible()">
+    <button class="icon-button problem-report-header" type="button" (click)="open()"
+      aria-label="Relatar um problema" aria-haspopup="dialog" title="Relatar um problema">
+      <app-nav-icon name="bug" />
+      <span class="problem-report-label" aria-hidden="true">
+        <strong>Encontrou algum problema?</strong>
+        <small>Relatar um problema</small>
+      </span>
+    </button>
+    <span class="sr-only" aria-live="polite">{{ reminderVisible() ? 'Encontrou algum problema? Selecione Relatar um problema no cabeçalho.' : '' }}</span>
+  </div>
+} @else {
+  <button [class]="embedded() ? 'account-option' : 'icon-button'" type="button" (click)="open()"
+    aria-label="Relatar um problema" aria-haspopup="dialog">
+    @if (embedded()) { <span class="option-icon"><app-nav-icon name="bug" /></span> }
+    <span>Relatar um problema
+      @if (embedded()) { <small>Avise a equipe sobre algo que não funcionou</small> }
+    </span>
+  </button>
+}
 <dialog #dialog class="shared-dialog" [attr.aria-labelledby]="prefix() + '-title'" (close)="reset()">
   <header>
     <h2 [id]="prefix() + '-title'">Relatar um problema</h2>

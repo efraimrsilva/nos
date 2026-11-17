@@ -170,3 +170,22 @@ test('mostra a estrutura pública e preserva o destino ao fechar a assistência'
   await expect(page.getByRole('heading',{name:'Redefinir senha'})).toBeVisible();
   await expect(page.getByRole('link',{name:'Voltar para Conta'})).toHaveAttribute('href',/next=%2Fcomecar%2Fconvite/i);
 });
+
+test('troca o modo sem perder o foco e reajusta a altura real do formulário', async ({page}) => {
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await page.goto('/conta?next=%2Fcomecar%2Fconvite');
+  const sizes = page.locator('.auth-mode-size');
+  const login = page.getByRole('link',{name:'Já tenho conta'});
+  await expect(sizes).toBeVisible();
+  await expect.poll(() => sizes.evaluate(el => Boolean(el.style.height))).toBe(true);
+  const signupHeight = (await sizes.boundingBox()).height;
+  await page.getByLabel('Senha',{exact:true}).fill('Aa1!temporaria');
+  await login.focus();
+  await login.press('Enter');
+  await expect(login).toBeFocused();
+  await expect(login).toHaveAttribute('aria-current','page');
+  await expect(page.getByLabel('Nome',{exact:true})).toBeHidden();
+  await expect(page.getByLabel('Senha',{exact:true})).toHaveValue('');
+  await expect(page).toHaveURL(/modo=login&next=%2Fcomecar%2Fconvite/i);
+  await expect.poll(async () => (await sizes.boundingBox()).height).toBeLessThan(signupHeight);
+});

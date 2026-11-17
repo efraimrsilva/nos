@@ -22,10 +22,12 @@
 #notifications-preview p { margin-block: .65rem; }
 nav app-navigation-links + app-appearance-picker { margin-top: .5rem; }
 main {
+  scroll-margin-top: 4.5rem;
   max-width: 58rem; padding: clamp(1rem, 5vw, 2.2rem);
   padding-bottom: calc(5.5rem + env(safe-area-inset-bottom)); margin-inline: auto;
 }
 main:focus, main h1:focus { outline: none; }
+main h1 { scroll-margin-top: 4.5rem; }
 nav a, .mobile-nav button {
   display: flex; align-items: center; min-height: 2.75rem; padding: .55rem .8rem; border-radius: .45rem;
   color: var(--muted); text-decoration: none; background: none; border: 0;

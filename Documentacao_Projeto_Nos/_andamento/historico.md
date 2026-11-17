@@ -1,3 +1,15 @@
+## 2026-11-17 — v4.0.0-alpha.16 — Perfil, Mais e lembrete de relato
+
+Passo 03 na prévia local. Seis seções de Conta no perfil desktop e no Mais, com diálogos aninhados. O lembrete acompanha as rotas e reinicia após nova sessão. [Registro](registros/registro-v4.0.0-alpha.16-2026-11-17-imp-estrutura-angular-fun-perfil-mais-e-suporte.md).
+
+---
+
+## 2026-11-17 — v4.0.0-alpha.15 — Base Tailwind e telas 01–02
+
+Utilitários e tokens globais no Angular. Entrada portada a partir de AuthForm, PasswordInput e account-motion.css. [Registro](registros/registro-v4.0.0-alpha.15-2026-11-17-imp-paridade-angular-fun-tailwind-e-entrada.md).
+
+---
+
 ## 2026-11-17 — v4.0.0-alpha.14 — Estrutura autenticada e referência de código
 
 Grupos, ícones, contexto do Núcleo e popovers portados do Next.js. Tailwind 4 configurado para os templates da estrutura. A guia Migração aponta para o mapa de código. [Registro](registros/registro-v4.0.0-alpha.14-2026-11-17-imp-paridade-angular-fun-estrutura-autenticada.md).

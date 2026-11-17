@@ -1,0 +1,33 @@
+/* Regras de AuthForm e account-motion.css do Next.js, adaptadas ao template Angular. */
+.access-panel > .sr-only { margin:0; }
+.access-panel { padding:clamp(1.25rem,2.5vw,1.625rem); }
+.access-panel .auth-modes { display:grid; grid-template-columns:1fr 1fr; position:relative; gap:0; padding:0; }
+.access-panel .auth-modes::after { content:""; position:absolute; bottom:0; left:0; height:2px; width:50%; background:var(--leaf); pointer-events:none; }
+.access-panel[data-auth-mode="login"] .auth-modes::after { transform:translateX(100%); }
+.access-panel .auth-modes a { display:grid; place-items:center; min-height:47px; padding:.5rem .25rem; font-size:.875rem; }
+.access-panel .auth-modes a[aria-current] { background:transparent; }
+.access-panel .auth-modes a:hover { background:var(--accent-soft); }
+.auth-mode-size { overflow:clip; overflow-clip-margin:5px; }
+.auth-mode-content { display:flow-root; }
+.access-panel .auth-fields { gap:1.125rem; margin-block:1.5rem 0; }
+.access-panel .auth-field { gap:.45rem; }
+.access-panel .auth-field label { font-size:.875rem; }
+.access-panel .auth-field:focus-within label { color:var(--leaf); }
+.access-panel .auth-field input:focus { border-color:var(--leaf); box-shadow:0 0 0 3px color-mix(in srgb,var(--leaf) 12%,transparent); }
+.access-panel input { border-color:var(--line); }
+.access-panel .password-field { position:relative; display:block; }
+.access-panel .password-field input { padding-inline-end:5.6rem; }
+.access-panel .password-field input::-ms-reveal { display:none; }
+.access-panel .password-toggle { position:absolute; inset-inline-end:.2rem; top:50%; transform:translateY(-50%); min-width:4.75rem; min-height:44px; border:0; border-radius:.4rem; background:none; color:var(--leaf); font-size:.75rem; cursor:pointer; }
+.access-panel .password-toggle:focus-visible { outline-offset:-2px; }
+.access-panel .auth-assistance { justify-content:space-between; gap:.25rem 1rem; margin-top:1rem; font-size:.75rem; }
+.access-panel .auth-assistance a { text-underline-offset:4px; }
+.auth-social .auth-secondary { margin-top:1rem; }
+.auth-social img { flex:none; object-fit:contain; }
+.auth-social p[role="status"] { color:var(--muted); font-size:.8rem; }
+@media (prefers-reduced-motion:no-preference) {
+  .access-panel .auth-modes::after { transition:transform .45s cubic-bezier(.22,1,.36,1); }
+  .auth-mode-size { transition:height .24s cubic-bezier(.22,1,.36,1); }
+  .access-panel .auth-fields { animation:auth-enter .18s ease-out both; }
+  .access-panel .auth-field input { transition:border-color .25s,box-shadow .3s; }
+}

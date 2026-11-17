@@ -1,3 +1,7 @@
+- [v4.0.0-alpha.16 · Perfil, Mais e lembrete](v4.0.0-alpha.16-2026-11-17-perfil-lembrete-tela_66-tela_67-tela_70/index.html) — 22 capturas do Angular e do Atlas em duas larguras.
+
+- [v4.0.0-alpha.15 · Tailwind e entrada](v4.0.0-alpha.15-2026-11-17-tailwind-entrada-tela_01-tela_02/index.html) — 12 capturas em desktop e celular.
+
 - [v4.0.0-alpha.14 · Estrutura autenticada](v4.0.0-alpha.14-2026-11-17-angular-estrutura-tela_12-tela_13-tela_60-tela_66/index.html) — 17 imagens em desktop e celular.
 
 - [v4.0.0-alpha.13 · Assistência e Boas-vindas no Angular](v4.0.0-alpha.13-2026-11-17-angular-acesso-publico-tela_03-tela_04-tela_05-tela_72/index.html) — 24 imagens do Atlas e da prévia local em desktop e celular.

@@ -167,6 +167,8 @@ button:is([aria-label^="Fechar" i],[data-atlas-close]):is(:hover,:focus-visible)
 @media(max-width:600px){.live-member-table th:first-child{width:55%}.live-member-table th:nth-child(2){width:45%}}
 /* A lista em modal respeita a moldura móvel selecionada no Atlas, mesmo na ferramenta desktop. */
 body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog:has(.live-member-table){width:min(402px,calc(100vw - 24px))}
+body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog:has(.live-menu-groups){width:min(402px,calc(100vw - 24px))}
+body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog:has(.live-menu-groups) :is(.live-menu-groups,.live-account-preferences){grid-template-columns:minmax(0,1fr)}
 body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog .live-member-table th:first-child{width:55%}
 body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog .live-member-table th:nth-child(2){width:45%}
 .atlas-live-dialog:has(.live-member-table){width:min(580px,calc(100vw - 32px))}

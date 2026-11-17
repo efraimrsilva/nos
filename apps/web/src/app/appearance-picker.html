@@ -1,5 +1,8 @@
-<button class="icon-button" type="button" (click)="picker.showModal()" aria-haspopup="dialog"
-  [attr.aria-controls]="prefix() + '-dialog'">{{ label() }}</button>
+<button [class]="embedded() ? 'account-option' : 'icon-button'" type="button" (click)="picker.showModal()" aria-haspopup="dialog"
+  [attr.aria-controls]="prefix() + '-dialog'">
+  @if (embedded()) { <span class="option-icon"><app-nav-icon name="appearance" /></span> }
+  <span>{{ label() }} @if (embedded()) { <small>Personalizar as cores do seu espaço</small> }</span>
+</button>
 <dialog #picker class="shared-dialog" [id]="prefix() + '-dialog'" [attr.aria-labelledby]="prefix() + '-title'">
   <header><h2 [id]="prefix() + '-title'">Aparência</h2>
     <form method="dialog"><button class="icon-button" aria-label="Fechar Aparência" autofocus>×</button></form>

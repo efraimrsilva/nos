@@ -1,0 +1,46 @@
+.problem-report-anchor {
+  position: relative;
+  width: 2.75rem;
+  height: 2.75rem;
+}
+.problem-report-anchor > .problem-report-header {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: 0;
+  translate: 0 -50%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  gap: 0;
+  line-height: 1.25;
+  width: 100%;
+  height: 100%;
+  padding: 0 calc((2.75rem - 22px) / 2);
+  overflow: hidden;
+  color: var(--muted);
+}
+.problem-report-header:hover, .problem-report-header:focus-visible { background: var(--accent-soft); }
+.problem-report-label {
+  flex: 0 0 12rem;
+  padding-inline: .45rem;
+  text-align: start;
+  font-weight: 400;
+  opacity: 0;
+}
+.problem-report-label strong, .problem-report-label small { display: block; }
+.problem-report-label strong { font-size: .81rem; }
+.problem-report-label small { color: var(--muted); font-size: .72rem; }
+.problem-report-anchor[data-reminder-visible="true"] > .problem-report-header {
+  width: min(252px, calc(100vw - 115px));
+  height: 54px;
+  border-color: var(--leaf);
+  color: var(--ink);
+  box-shadow: 0 5px 18px #152c3529;
+}
+.problem-report-anchor[data-reminder-visible="true"] .problem-report-label { flex: 1 1 auto; min-width: 0; opacity: 1; }
+@media (prefers-reduced-motion: no-preference) {
+  .problem-report-header { transition: width .48s cubic-bezier(.22,1,.36,1), height .48s cubic-bezier(.22,1,.36,1), border-color .3s, box-shadow .3s; }
+  .problem-report-label { transition: opacity .15s ease; }
+  .problem-report-anchor[data-reminder-visible="true"] .problem-report-label { transition-delay: .12s; }
+}

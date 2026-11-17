@@ -1,3 +1,7 @@
+**Prévia Angular v4.0.0-alpha.16 (17/11/2026)** — Perfil desktop, Mais móvel e lembrete de relato no passo 03 da guia Migração. As fichas 66, 67 e 70 registram o fluxo Angular. [Comparação local](comparacoes/v4.0.0-alpha.16-2026-11-17-perfil-lembrete-tela_66-tela_67-tela_70/index.html)
+
+**Prévia Angular v4.0.0-alpha.15 (17/11/2026)** — Telas 01–02 portadas a partir do código Next.js, com base Tailwind global na prévia. [Comparação local](comparacoes/v4.0.0-alpha.15-2026-11-17-tailwind-entrada-tela_01-tela_02/index.html)
+
 **Prévia Angular v4.0.0-alpha.14 (17/11/2026)** — Estrutura autenticada do passo 03. O [mapa de código Next.js](../_andamento/planos/paridade-angular-fontes.md) orienta a implementação. [Comparação local](comparacoes/v4.0.0-alpha.14-2026-11-17-angular-estrutura-tela_12-tela_13-tela_60-tela_66/index.html)
 
 **Prévia Angular v4.0.0-alpha.13 (17/11/2026)** — Passo 02 da guia Migração. Cabeçalho e rodapé públicos, composição de Boas-vindas e assistência nas fichas 03–05 e 72. [Comparação local](comparacoes/v4.0.0-alpha.13-2026-11-17-angular-acesso-publico-tela_03-tela_04-tela_05-tela_72/index.html)

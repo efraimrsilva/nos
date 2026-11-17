@@ -3,16 +3,18 @@ import { Router } from '@angular/router';
 import { parseProblemReport } from '../../../../src/features/support/input';
 import { NavIcon } from './shared/nav-icon';
 import { PreviewProfile } from './preview-profile';
+import { dismissProblemReportReminder, watchProblemReportReminder } from './problem-report-reminder';
 
 @Component({
   selector: 'app-problem-report',
   imports:[NavIcon],
   templateUrl: './problem-report.html',
-  styleUrl: './account-preferences.css',
+  styleUrls: ['./account-preferences.css', './problem-report.css'],
 })
 export class ProblemReport {
   readonly prefix = input.required<string>();
   readonly iconOnly = input(false);
+  readonly embedded = input(false);
   private readonly profile = inject(PreviewProfile);
   private readonly router = inject(Router);
   private readonly destroy = inject(DestroyRef);
@@ -23,10 +25,18 @@ export class ProblemReport {
   protected readonly error = signal('');
   protected readonly sent = signal(false);
   protected readonly coolingDown = signal(false);
+  protected readonly reminderVisible = signal(false);
   private owner: string | undefined;
   private timer: ReturnType<typeof setTimeout> | undefined;
 
   constructor() {
+    effect(onCleanup => {
+      const account = this.profile.user()?.id;
+      this.reminderVisible.set(false);
+      if (account && this.iconOnly()) {
+        onCleanup(watchProblemReportReminder(account, visible => this.reminderVisible.set(visible)));
+      }
+    });
     effect(() => {
       const id = this.profile.user()?.id;
       if (this.owner && this.owner !== id) this.dialog().nativeElement.close();
@@ -36,7 +46,13 @@ export class ProblemReport {
 
   protected open() {
     this.owner = this.profile.user()?.id;
-    if (this.owner) this.dialog().nativeElement.showModal();
+    if (this.owner) {
+      if (this.reminderVisible()) {
+        dismissProblemReportReminder(this.owner);
+        this.reminderVisible.set(false);
+      }
+      this.dialog().nativeElement.showModal();
+    }
   }
 
   protected reset() {

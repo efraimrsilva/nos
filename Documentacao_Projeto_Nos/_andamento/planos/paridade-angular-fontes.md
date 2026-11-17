@@ -16,5 +16,11 @@ O código Next.js v3.11.1 no commit `604a142` é a referência principal. Antes 
 
 ## Estilos
 
-O Angular usa o Tailwind 4 já instalado pelo lockfile da raiz, com o mesmo plugin PostCSS. O ponto de entrada Angular carrega tema e utilitários e lista explicitamente os templates portados. O Preflight (reset global) fica fora dessa entrada para preservar os estilos Angular existentes. Ao portar um componente, confira as classes do Next.js e inclua seu template em `@source` quando usar os utilitários. Reuse a paleta e os ativos; porte apenas as regras específicas do componente, adaptando seletores e estados ao template Angular. Compare os estilos computados em 1440 e 390 px e verifique foco e movimento reduzido. [Tailwind com Angular](https://tailwindcss.com/docs/installation/framework-guides/angular) · [Preflight](https://tailwindcss.com/docs/preflight)
+O Angular usa o Tailwind 4 já instalado pelo lockfile da raiz, com o mesmo plugin PostCSS. O ponto de entrada Angular carrega tema e utilitários, registra toda a pasta `app` e disponibiliza nomes de tokens equivalentes ao Next.js sobre a paleta Angular. O Preflight (reset global) fica fora dessa entrada para preservar os estilos Angular existentes. Ao portar um componente, copie as classes úteis do template Next.js e mantenha classes dinâmicas completas para que o Tailwind as detecte. Reuse a paleta e os ativos; porte apenas as regras específicas do componente, adaptando seletores e estados ao template Angular. Compare os estilos computados em 1440 e 390 px e verifique foco e movimento reduzido. [Tailwind com Angular](https://tailwindcss.com/docs/installation/framework-guides/angular) · [Preflight](https://tailwindcss.com/docs/preflight)
 
+
+## Execução do passo 03
+
+- Portar o painel de perfil e o conteúdo do Mais com a mesma composição de seis seções, usando os componentes de conta do Angular com identificadores por contexto. Verificar navegação e fechamento das camadas com foco de retorno.
+- Aplicar ao botão de suporte a expansão temporária do Next.js. Verificar prazo entre rotas, clique, expiração e troca de sessão.
+- Conferir o resultado em Chromium desktop e móvel, atualizar a ficha do Atlas e guardar a comparação visual. Reutilizar Tailwind, popover e dialog nativos, evitando dependências adicionais.

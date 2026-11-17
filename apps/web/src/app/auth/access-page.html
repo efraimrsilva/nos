@@ -20,43 +20,51 @@
   } @else {
     <section class="auth-layout">
       <app-account-story />
-      <div class="surface auth-card">
-        <h1 tabindex="-1">Sua conta no Nós</h1>
+      <div class="surface auth-card access-panel" [attr.data-auth-mode]="mode()">
+        <h1 class="sr-only" tabindex="-1">Acesso à conta</h1>
         <nav class="auth-modes" aria-label="Modo de acesso">
-          <a [routerLink]="link('/conta')" [attr.aria-current]="mode() === 'signup' ? 'page' : null" (click)="clearCredentials(password)">Criar conta</a>
-          <a [routerLink]="link('/conta?modo=login')" [attr.aria-current]="mode() === 'login' ? 'page' : null" (click)="clearCredentials(password)">Já tenho conta</a>
+          <a [routerLink]="link('/conta')" [attr.aria-current]="mode() === 'signup' ? 'page' : null" (click)="clearCredentials(credentials,'signup')">Criar conta</a>
+          <a [routerLink]="link('/conta?modo=login')" [attr.aria-current]="mode() === 'login' ? 'page' : null" (click)="clearCredentials(credentials,'login')">Já tenho conta</a>
         </nav>
         @if (profile.google()) {
-          <button type="button" class="button auth-secondary" [disabled]="pending()" (click)="google()"><img src="/brand/google-g.png" width="20" height="20" alt="">Continuar com Google</button>
+          <div class="auth-social grid gap-2" role="group" aria-label="Outras formas de acesso" [attr.aria-busy]="googlePending()">
+            <button type="button" class="button auth-secondary" [disabled]="pending() || googlePending()" (click)="google()"><img src="/brand/google-g.png" width="20" height="20" alt="">Continuar com Google</button>
+            @if (googlePending()) { <p role="status">Abrindo acesso seguro…</p> }
+            @if (googleError()) { <p role="alert" class="auth-feedback auth-error">{{ googleError() }}</p> }
+          </div>
           <p class="auth-divider">ou continue com seu e-mail</p>
         }
-        <form aria-label="Acesso à conta" [attr.aria-busy]="pending()"
-          (submit)="submit($event, name.value, email.value, password.value)">
-          <div [hidden]="mode() !== 'signup'" class="auth-field">
-            <label for="access-name">Nome</label>
-            <input #name id="access-name" name="name" autocomplete="name" maxlength="80" placeholder="Como prefere ser chamado?">
+        <div class="auth-mode-size" [style.height.px]="formHeight()">
+          <div #formContent class="auth-mode-content">
+            <form #credentials class="auth-fields" novalidate aria-label="Acesso à conta" [attr.aria-busy]="pending()"
+              (submit)="submit($event, name.value, email.value, password.value)">
+              <div [hidden]="mode() !== 'signup'" class="auth-field">
+                <label for="access-name">Nome</label>
+                <input #name id="access-name" name="name" autocomplete="name" maxlength="80" placeholder="Como prefere ser chamado?">
+              </div>
+              <div class="auth-field">
+                <label for="access-email">E-mail</label>
+                <input #email id="access-email" name="email" type="email" autocomplete="username" maxlength="254" placeholder="seu@email.com">
+              </div>
+              <div class="auth-field">
+                <label for="access-password">Senha</label>
+                <div class="password-field">
+                  <input #password id="access-password" name="password" [type]="showPassword() ? 'text' : 'password'"
+                    [autocomplete]="mode() === 'signup' ? 'new-password' : 'current-password'" maxlength="128"
+                    [attr.aria-describedby]="mode() === 'signup' ? 'access-help' : null">
+                  <button type="button" class="password-toggle" aria-controls="access-password"
+                    (click)="showPassword.update(show => !show)"
+                    [attr.aria-label]="showPassword() ? 'Ocultar senha' : 'Mostrar senha'">{{ showPassword() ? 'Ocultar' : 'Mostrar' }}</button>
+                </div>
+                @if (mode() === 'signup') { <p id="access-help">{{ help }}</p> }
+              </div>
+              @if (error()) { <p role="alert" class="auth-feedback auth-error">{{ error() }}</p> }
+              <button type="submit" class="button" [disabled]="pending() || googlePending()">
+                {{ pending() ? 'Aguarde…' : mode() === 'signup' ? 'Criar conta' : 'Entrar' }}
+              </button>
+            </form>
           </div>
-          <label for="access-email">E-mail</label>
-          <input #email id="access-email" name="email" type="email" autocomplete="username" maxlength="254" placeholder="seu@email.com">
-          <label for="access-password">Senha</label>
-          <div class="password-field">
-            <input #password id="access-password" name="password" [type]="showPassword() ? 'text' : 'password'"
-              [autocomplete]="mode() === 'signup' ? 'new-password' : 'current-password'" maxlength="128"
-              [attr.aria-describedby]="mode() === 'signup' ? 'access-help' : null">
-            <button type="button" class="icon-button" (click)="showPassword.update(show => !show)"
-              [attr.aria-label]="showPassword() ? 'Ocultar senha' : 'Mostrar senha'">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
-                <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/>
-                @if (showPassword()) { <path d="m4 4 16 16"/> }
-              </svg>
-            </button>
-          </div>
-          @if (mode() === 'signup') { <p id="access-help">{{ help }}</p> }
-          @if (error()) { <p role="alert" class="auth-error">{{ error() }}</p> }
-          <button type="submit" class="button" [disabled]="pending()">
-            {{ pending() ? 'Aguarde…' : mode() === 'signup' ? 'Criar conta' : 'Entrar' }}
-          </button>
-        </form>
+        </div>
         <nav class="auth-assistance" aria-label="Ajuda para entrar">
           <a [routerLink]="link('/conta/recuperar')" aria-haspopup="dialog">Esqueci minha senha</a>
           <a [routerLink]="link('/conta/confirmar-email')" aria-haspopup="dialog">Confirmar e-mail</a>

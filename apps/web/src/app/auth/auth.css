@@ -3,7 +3,7 @@
 }
 .auth-field[hidden] { display: none; }
 .auth-card { width: min(100%, 32rem); margin-inline: auto; }
-.auth-card > h1 { margin-bottom: 1rem; }
+.auth-card > h1:not(.sr-only) { margin-bottom: 1rem; }
 .auth-card > p, #access-help, #password-help { color: var(--muted); }
 .auth-card form, dialog form:not([method='dialog']), .auth-field { display:grid; gap: .5rem; }
 .auth-card form, dialog form:not([method='dialog']) { margin-block: 1rem; }
