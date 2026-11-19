@@ -27,6 +27,9 @@ const paths = {
   sprout:'M12 22v-7M12 15a6 6 0 0 1-6-6H3a9 9 0 0 0 9 9m0-3a7 7 0 0 1 7-7h2a7 7 0 0 1-7 7z',
   church:'M12 2v6m-3-3h6M3 22v-9l9-6 9 6v9zM10 22v-5h4v5',
   lightbulb:'M9 18h6m-5 4h4m-5-7c0-2-3-3-3-7a6 6 0 1 1 12 0c0 4-3 5-3 7',
+  key:'M15 3a6 6 0 0 1 4 10.5 6 6 0 0 1-6.5.8L6 21H3v-4l7-7a6 6 0 0 1 5-7Zm2 5h.01',
+  shield:'M12 22c5-2 8-5.2 8-10V5l-8-3-8 3v7c0 4.8 3 8 8 10Zm-3-10 2 2 4-4',
+  copy:'M8 8h12v13H8zM16 8V3H3v13h5',
 } as const;
 
 @Component({

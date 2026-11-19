@@ -3,6 +3,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { PreviewProfile } from '../preview-profile';
 import { pageNumber } from '../nuclei/nucleus-model';
+import { NavIcon } from '../shared/nav-icon';
 import { InvitationGenerator } from './invitation-generator';
 import { InvitationsData, inviteDate, type InviteScope, type InviteSummary } from './invitations-data';
 
@@ -13,7 +14,7 @@ const filters = [
 ] as const;
 
 @Component({
-  imports:[RouterLink,InvitationGenerator],
+  imports:[RouterLink,InvitationGenerator,NavIcon],
   templateUrl:'./invitation-management.html',
 })
 export class InvitationManagement {

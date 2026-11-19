@@ -1,11 +1,12 @@
-import { afterNextRender, Component, DestroyRef, inject, Injector, signal, viewChild, type ElementRef } from '@angular/core';
+import { afterNextRender, Component, computed, DestroyRef, inject, Injector, signal, viewChild, type ElementRef } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { PreviewProfile } from '../preview-profile';
 import { findNucleusType } from '../nuclei/nucleus-model';
+import { NavIcon } from '../shared/nav-icon';
 import { InvitationsData, normalizeInviteCode, validInviteCode, type InvitePreview } from './invitations-data';
 
 @Component({
-  imports:[RouterLink],
+  imports:[RouterLink,NavIcon],
   templateUrl:'./invitation-entry.html',
 })
 export class InvitationEntry {
@@ -15,12 +16,14 @@ export class InvitationEntry {
   private readonly injector = inject(Injector);
   private readonly destroy = inject(DestroyRef);
   private readonly heading = viewChild<ElementRef<HTMLElement>>('previewTitle');
+  private readonly codeInput = viewChild<ElementRef<HTMLInputElement>>('input');
   private inspection?: AbortController;
   protected readonly code = signal('');
   protected readonly preview = signal<InvitePreview|null>(null);
   protected readonly inspecting = signal(false);
   protected readonly accepting = signal(false);
   protected readonly error = signal('');
+  protected readonly invalidFormat = computed(() => !!this.error() && !validInviteCode(normalizeInviteCode(this.code())));
 
   constructor() {
     this.destroy.onDestroy(() => this.inspection?.abort());
@@ -44,6 +47,8 @@ export class InvitationEntry {
     const code = normalizeInviteCode(this.code());
     if (!validInviteCode(code)) {
       this.error.set(code ? 'Informe um código válido de 32 caracteres.' : 'Informe o código de convite.');
+      // O leitor de tela encontra a descrição ligada ao campo depois da renderização.
+      afterNextRender(() => this.codeInput()?.nativeElement.focus(),{injector:this.injector});
       return;
     }
     const owner = this.profile.user()?.id;

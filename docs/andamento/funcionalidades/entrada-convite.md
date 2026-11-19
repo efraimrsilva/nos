@@ -1,3 +1,7 @@
+## Angular v4.0.0-alpha.19 — 2026-11-19
+
+O campo inválido recebe foco e tem a mensagem associada. A conferência leva o foco ao título da prévia. A gestão mantém os filtros, a confirmação de revogação e o preparo por diálogo. [Registro](../registros/registro-v4.0.0-alpha.19-2026-11-19-imp-paridade-angular-fun-convites.md).
+
 ## Prévia Angular — v4.0.0-alpha.5 — 2026-11-15
 
 O endereço de entrada redireciona para a Conta quando necessário e volta sem inserir o código automaticamente. O campo aceita espaços nas pontas e maiúsculas antes da validação. Conferir chama uma operação de leitura separada do aceite. Em erro de transporte durante o aceite, a prévia é preservada para repetir a mesma confirmação. Revogação ou expiração rejeitada pelo banco retira a prévia. [Registro A05](../registros/registro-v4.0.0-alpha.5-2026-11-15-imp-convites-angular-fun-geracao-aceite-e-revogacao.md).

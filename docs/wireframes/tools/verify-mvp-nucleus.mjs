@@ -18,15 +18,27 @@ try {
   for(const viewport of [{width:1440,height:1000},{width:390,height:844}]) {
     await page.setViewportSize(viewport);
     await page.evaluate(()=>openScreen(9));
+    await page.locator(`[data-width="${viewport.width===1440?'desktop':'mobile'}"]`).click();
     const preview=page.locator('#screen-preview .phone');
     await preview.getByRole('button',{name:'Gerenciar convites',exact:true}).click();
     assert.equal(await page.evaluate(()=>selectedId),59);
     assert.match(await preview.innerText(),/Próximas possibilidades · planejadas/);
     assert.match(await preview.innerText(),/não registra esse histórico/);
     assert.equal(await preview.getByRole('button',{name:'Aceitos',exact:true}).count(),0);
-    await preview.getByRole('button',{name:'Gerar ou compartilhar convite',exact:true}).click();
-    assert.equal(await page.evaluate(()=>selectedId),58);
-    assert.match(await preview.innerText(),/Copiar código/);
+    await preview.getByRole('button',{name:'Expirados',exact:true}).click();
+    assert.equal(await preview.getByRole('heading',{name:'Convites expirados'}).isVisible(),true);
+    assert.equal(await preview.getByRole('button',{name:/Revogar convite/}).count(),0);
+    await preview.getByRole('button',{name:'Ativos',exact:true}).click();
+    await preview.getByRole('button',{name:/Revogar convite/}).click();
+    const revoke=page.getByRole('dialog',{name:'Revogar convite'});
+    await revoke.getByRole('button',{name:'Cancelar',exact:true}).click();
+    assert.equal(await revoke.isVisible(),false);
+    await preview.getByRole('button',{name:/Preparar convite/}).click();
+    const prepare=page.getByRole('dialog',{name:'Preparar convite'});
+    await prepare.getByRole('button',{name:'Gerar convite · exemplo'}).click();
+    assert.match(await prepare.innerText(),/Copiar código/);
+    await page.keyboard.press('Escape');
+    assert.equal(await prepare.isVisible(),false);
     for(const state of ['empty','loading','error','blocked','success']) {
       await page.evaluate(()=>openScreen(59));
       await page.locator(`[data-state="${state}"]`).click();

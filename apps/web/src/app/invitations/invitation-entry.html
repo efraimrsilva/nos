@@ -1,36 +1,39 @@
-<a class="text-link" routerLink="/comecar">Voltar</a>
+<a class="invite-back" routerLink="/comecar"><app-nav-icon name="left" />Voltar</a>
 <header class="nucleus-header">
   <div><p class="kicker">Um convite para cultivar juntos</p>
     <h1 tabindex="-1">Você recebeu um convite?</h1>
     <p>Digite o código que te enviaram. Você poderá conhecer o Núcleo antes de decidir.</p>
   </div>
 </header>
-<div class="invite-grid">
-  <section class="surface" aria-label="Conferir um convite">
+<div class="invite-entry">
+  <section class="surface invite-entry-card" aria-label="Conferir um convite">
     <form class="invite-form" (submit)="inspect($event)" [attr.aria-busy]="inspecting()" novalidate>
       <label for="invitation-input">Código de convite</label>
       <input #input id="invitation-input" data-invitation-secret type="text" spellcheck="false" autocapitalize="off"
-        autocomplete="off" maxlength="128" placeholder="Cole o código recebido" [value]="code()" [disabled]="accepting()"
+        autocomplete="off" maxlength="128" placeholder="Cole o código recebido" required [value]="code()" [disabled]="accepting()"
+        [attr.aria-invalid]="invalidFormat() ? 'true' : null" [attr.aria-describedby]="error() && !preview() ? 'invite-entry-error' : null"
         (input)="edit(input.value)">
-      @if (error()) { <p class="form-error" role="alert">{{ error() }}</p> }
-      <button type="submit" class="button" [disabled]="inspecting() || accepting()">
+      @if (error() && !preview()) { <p id="invite-entry-error" class="form-error" role="alert">{{ error() }}</p> }
+      <button type="submit" class="button invite-icon-action" [disabled]="inspecting() || accepting()">
+        <app-nav-icon name="key" />
         {{ inspecting() ? 'Conferindo…' : 'Conferir convite' }}
       </button>
     </form>
   </section>
 
   @if (preview(); as view) {
-    <section class="surface invite-preview" aria-label="Prévia do convite">
+    <section class="surface invite-entry-card invite-preview" aria-label="Prévia do convite">
       <p class="kicker">Confira antes de aceitar</p>
       <h2 #previewTitle tabindex="-1">{{ view.name }}</h2>
       <span class="badge">{{ typeLabel(view.type) }}</span>
-      <p><strong>Propósito</strong> {{ view.purpose }}</p>
+      <p class="invite-purpose"><strong>Propósito</strong> {{ view.purpose }}</p>
       <p>Ao aceitar, você fará parte deste Núcleo e poderá ver o que é compartilhado nele.</p>
+      @if (error()) { <p class="form-error" role="alert">{{ error() }}</p> }
       <form class="invite-actions" (submit)="accept($event)" [attr.aria-busy]="accepting()">
-        <button class="button" type="submit" [disabled]="accepting()">{{ accepting() ? 'Aceitando…' : 'Aceitar convite' }}</button>
+        <button class="button invite-icon-action" type="submit" [disabled]="accepting()"><app-nav-icon name="shield" />{{ accepting() ? 'Aceitando…' : 'Aceitar convite' }}</button>
         @if (!accepting()) { <a class="button secondary" routerLink="/nucleos">Agora não</a> }
       </form>
     </section>
   }
 </div>
-<p><a class="text-link" routerLink="/nucleos">Voltar a Seus Núcleos</a></p>
+<p class="invite-note"><a class="invite-back" routerLink="/nucleos"><app-nav-icon name="left" />Voltar a Seus Núcleos</a></p>

@@ -213,6 +213,12 @@ document.addEventListener('click',event=>{
     preview.querySelector('.live-invite-code').focus();
     return;
   }
+  if(target.hasAttribute('data-invite-filter')){
+    const workspace=target.closest('[data-atlas-invite-management]');
+    workspace.querySelectorAll('[data-invite-filter]').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));
+    workspace.querySelectorAll('[data-invite-pane]').forEach(pane=>pane.hidden=pane.dataset.invitePane!==target.dataset.inviteFilter);
+    return;
+  }
   if(target.hasAttribute('data-local-tab')||target.dataset.localChoice){const group=target.parentElement;group.querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));showToast('Seleção local para revisão do desenho. Sem persistência.');return;}
   if(target.dataset.demo){showToast('Ação ilustrativa do documento. O contrato e a implementação estão descritos na ficha.');return;}
   if(target.dataset.globalArea){const heading=$(`#global-area-${target.dataset.globalArea} h2`);heading.scrollIntoView({block:'start'});heading.focus({preventScroll:true});return;}
@@ -259,7 +265,14 @@ document.addEventListener('submit',event=>{
     draft.hidden=false;
     draft.querySelector('[tabindex="-1"]')?.focus();
   }
-  if(form.dataset.localForm==='invitation'){if(!form.elements['invitation-code'].value.trim()){showToast('Cole um código para conferir a composição da prévia.');return;}form.closest('[data-local-content]').querySelector('.invitation-preview').hidden=false;showToast('Convite de exemplo. Nenhum código foi consultado.');}
+  if(form.dataset.localForm==='invitation'){
+    const field=form.elements['invitation-code'];
+    if(!field.value.trim()){showToast('Cole um código para conferir a composição da prévia.');field.focus();return;}
+    const preview=form.closest('[data-local-content]').querySelector('.invitation-preview');
+    preview.hidden=false;
+    preview.querySelector('[tabindex="-1"]')?.focus();
+    showToast('Convite de exemplo. Nenhum código foi consultado.');
+  }
   if(form.dataset.localForm==='account')showToast('Demonstração de formulário. Nenhuma conta foi criada e nenhum dado foi enviado.');
   if(form.dataset.localForm==='social-profile'){const panel=form.closest('.live-auth-panel'),feedback=panel.querySelector('.local-feedback');const name=form.elements['social-name'].value.trim();feedback.textContent=name&&name.length<=80?'Nome preenchido · exemplo. No aplicativo, salvar retorna ao destino interno de entrada.':'Informe um nome de 1 a 80 caracteres.';feedback.setAttribute('role',name&&name.length<=80?'status':'alert');showToast('Prévia local. Nenhum nome ou sessão foi salvo.');return;}
   if(form.dataset.localForm==='access'){

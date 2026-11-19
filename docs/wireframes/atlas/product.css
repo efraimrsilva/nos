@@ -272,6 +272,18 @@ body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog .live-member-t
 .live-purpose-summary dt { font-weight: 700; }
 .live-purpose-summary dd { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
 .live-initial-invite { display: grid; gap: .65rem; justify-items: start; }
+.live-invite-entry .live-panel { padding: clamp(20px,3vw,28px); }
+.live-invite-entry input[name="invitation-code"] { font-family: monospace; text-transform: uppercase; }
+.live-invite-entry input[name="invitation-code"]::placeholder { text-transform: none; }
+.live-invite-purpose { background: var(--soft); padding: .75rem 1rem; border-inline-start: 2px solid var(--leaf); }
+.live-invite-tabs { margin-block: 1rem; border-bottom: 1px solid var(--line); }
+.live-invite-tabs [aria-pressed="true"] { color:var(--leaf); border-bottom-color:var(--leaf); font-weight:700; }
+.live-invite-selected { display: grid; grid-template-columns: auto minmax(0,1fr) auto; align-items: center; gap: .75rem; padding: .65rem; background: var(--soft); border-radius: .5rem; }
+.live-invite-selected small { display: block; }
+.live-invite-workspace dd { margin: 0 0 .45rem; }
+@container (min-width: 701px) {
+  .live-grid.live-invite-workspace { grid-template-columns: minmax(0,1fr) minmax(13rem,18rem); }
+}
 @container (min-width: 1001px) {
   .live-onboarding .live-type-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }

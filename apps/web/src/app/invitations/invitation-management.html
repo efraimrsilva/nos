@@ -3,7 +3,7 @@
     <header class="nucleus-header">
       <div><p class="kicker">Pessoas e participação</p><h1 tabindex="-1">Um convite para estar perto.</h1>
         <p>Gerencie os convites de {{ item.name }}.</p></div>
-      <button class="button" type="button" aria-haspopup="dialog" (click)="preparing.set(true); prepare.showModal()">Preparar convite</button>
+      <button class="button invite-icon-action" type="button" aria-haspopup="dialog" (click)="preparing.set(true); prepare.showModal()"><app-nav-icon name="plus" />Preparar convite</button>
     </header>
     <nav class="invite-tabs" aria-label="Status dos convites">
       @for (option of filters; track option.key) {
@@ -14,13 +14,14 @@
     @if (state.isLoading()) { <p role="status">Atualizando convites…</p> }
     @if (success()) { <p class="surface" role="status">{{ success() }}</p> }
     @if (error() && !revokeDialog.open) { <p class="form-error" role="alert">{{ error() }}</p> }
-    <div class="invite-grid">
+    <div class="invite-grid invite-workspace" [attr.data-invite-filter]="item.filter">
       <section class="surface" aria-label="Convites do Núcleo">
         <h2>Convites {{ filter().key }}</h2>
         @for (row of item.rows; track row.id; let idx=$index) {
           <button type="button" class="invite-row" [attr.aria-pressed]="selected()?.id === row.id" (click)="selectedId.set(row.id)">
-            <strong>Convite {{ (page()-1)*20+idx+1 }}</strong>
-            <span>Criado em {{ date(row.created_at) }}</span>
+            <span class="invite-row-icon"><app-nav-icon name="key" /></span>
+            <span><strong>Convite {{ (page()-1)*20+idx+1 }}</strong><small>Criado em {{ date(row.created_at) }}</small></span>
+            <app-nav-icon name="right" />
           </button>
         } @empty {
           <p>Nenhum convite {{ filter().label.toLowerCase() }} nesta página.</p>
@@ -52,7 +53,7 @@
         @if (item.hasNext) { <a class="button secondary" [routerLink]="['/nucleos',item.scope.id,'convites']" [queryParams]="{status:item.filter,pagina:page()+1}">Próxima página</a> }
       </nav>
     }
-    <p class="invite-note"><a class="text-link" [routerLink]="['/nucleos',item.scope.id]">Voltar ao Núcleo</a></p>
+    <p class="invite-note"><a class="invite-back" [routerLink]="['/nucleos',item.scope.id]"><app-nav-icon name="left" />Voltar ao Núcleo</a></p>
     <dialog #prepare class="shared-dialog" aria-labelledby="prepare-invite-title" (close)="!prepare.open && preparing.set(false)">
       <header class="dialog-heading"><h2 id="prepare-invite-title">Preparar convite</h2>
         <form method="dialog"><button class="icon-button" aria-label="Fechar preparo" autofocus>×</button></form></header>

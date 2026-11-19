@@ -1,3 +1,7 @@
+## Convites no Angular — v4.0.0-alpha.19 — 2026-11-19
+
+Paridade 05 concluída localmente. O fluxo foi conferido desde a entrada por código até a gestão administrativa, incluindo preparo e confirmação de revogação. [Registro](../registros/registro-v4.0.0-alpha.19-2026-11-19-imp-paridade-angular-fun-convites.md).
+
 ## Criação de Núcleo no Angular — v4.0.0-alpha.18 — 2026-11-19
 
 Paridade 04 validada localmente nas Telas 06–09. O percurso mantém o tipo ao voltar de Propósito, preserva os textos ao editar a conferência e permite concluir após a criação sem enviar convite. A entrada por código e a gestão seguem no passo visual 05. [Registro](../registros/registro-v4.0.0-alpha.18-2026-11-19-imp-paridade-angular-fun-criacao-de-nucleo.md).

@@ -1,3 +1,7 @@
+## 19/11/2026 — Paridade do percurso de convites
+
+O aviso de formato inválido aparecia sem associação ao campo. A interface passou a devolver o foco e vincular o aviso, além de aproximar entrada e gestão da referência visual. Testes em duas larguras confirmaram foco, aceite explícito e preservação do vínculo confirmado após revogação. [Registro](../andamento/registros/registro-v4.0.0-alpha.19-2026-11-19-imp-paridade-angular-fun-convites.md).
+
 ## 19/11/2026 — Criação de Núcleos com conferência no Angular
 
 As etapas da criação ainda diferiam da referência visual e a validação do rascunho não associava o aviso aos campos. A entrega reutiliza o indicador de progresso, mostra o tipo nos cartões e direciona o foco ao campo que precisa de atenção. Em computador e celular, o teste confirmou que os textos permanecem ao editar e que repetir a confirmação após perder a resposta resulta em um único Núcleo. [Registro](../andamento/registros/registro-v4.0.0-alpha.18-2026-11-19-imp-paridade-angular-fun-criacao-de-nucleo.md).

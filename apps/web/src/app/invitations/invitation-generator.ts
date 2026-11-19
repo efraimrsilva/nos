@@ -1,23 +1,26 @@
 import { Component, DestroyRef, effect, inject, input, output, signal } from '@angular/core';
 import { PreviewProfile } from '../preview-profile';
+import { NavIcon } from '../shared/nav-icon';
 import { InvitationsData, inviteDate, type InviteCode, type InviteScope } from './invitations-data';
 
 @Component({
   selector:'app-invitation-generator',
+  imports:[NavIcon],
   template:`
     @if (visible()) {
     <section class="invite-generator" aria-label="Preparar convite">
       <p>Quem tiver o código pode conferir o Núcleo. Cada pessoa escolhe se quer participar, e o convite expira em sete dias.</p>
       @if (generated() ?? initial(); as invitation) {
-        <p><strong>Código de convite</strong></p>
+        <p class="invite-code-label"><app-nav-icon name="key" />Código de convite</p>
         <p class="invite-code" data-testid="invitation-code" data-invitation-secret>{{ invitation.code }}</p>
         <p>Expira em {{ date(invitation.expires_at) }}</p>
         <div class="invite-actions">
-          <button class="button" type="button" (click)="share(invitation.code)">Compartilhar código</button>
-          <button class="button secondary" type="button" (click)="copy(invitation.code)">Copiar código</button>
+          <button class="button invite-icon-action" type="button" (click)="share(invitation.code)">Compartilhar código <app-nav-icon name="diagonal" /></button>
+          <button class="button secondary invite-icon-action" type="button" (click)="copy(invitation.code)"><app-nav-icon name="copy" />Copiar código</button>
         </div>
       } @else {
-        <button class="button" type="button" [disabled]="pending()" (click)="generate()">
+        <button class="button invite-icon-action" type="button" [disabled]="pending()" (click)="generate()">
+          <app-nav-icon name="key" />
           {{ pending() ? 'Gerando…' : 'Gerar convite' }}
         </button>
       }

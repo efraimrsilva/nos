@@ -696,7 +696,12 @@ test('convites preservam a escolha, a revogação e o vínculo confirmado', asyn
     await guestPage.getByLabel('Código de convite',{exact:true}).fill('incompleto');
     await guestPage.getByRole('button',{name:'Conferir convite'}).click();
     await expect(guestPage.getByRole('alert')).toContainText('32 caracteres');
+    const codeInput = guestPage.getByLabel('Código de convite',{exact:true});
+    await expect(codeInput).toHaveAttribute('aria-invalid','true');
+    await expect(codeInput).toBeFocused();
     await inspect(first);
+    await expect(codeInput).not.toHaveAttribute('aria-invalid','true');
+    await expect(guestPage.getByRole('heading',{name:'Jardim de convites'})).toBeFocused();
     await capture(guestPage,'previa');
     await guestPage.getByRole('link',{name:'Agora não'}).click();
     await expect(guestPage.getByRole('status').filter({hasText:'Você ainda não participa'})).toBeVisible();
@@ -740,7 +745,9 @@ test('convites preservam a escolha, a revogação e o vínculo confirmado', asyn
     expect(second === first).toBe(false);
     expect(second === generatedWhileClosing).toBe(true);
     await capture(page,'preparar');
-    await page.keyboard.press('Escape');
+    // O fundo fecha o diálogo sem revogar ou disparar outra geração.
+    if (info.project.use.hasTouch) await page.touchscreen.tap(2,2);
+    else await page.mouse.click(2,2);
     await expect(generator).toBeHidden();
     await inspect(second);
     const acceptPath = '**/rest/v1/rpc/accept_invitation';

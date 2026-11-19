@@ -1,4 +1,14 @@
-# Estado atual — Angular v4.0.0-alpha.18 — 2026-11-19
+# Estado atual — Angular v4.0.0-alpha.19 — 2026-11-19
+
+**Paridade 05 concluída localmente.** As Telas 10, 11, 58 e 59 receberam os cartões, o realce de propósito, a apresentação do código e a composição da gestão. Formato inválido associa a mensagem ao campo e devolve o foco. Aceite, geração e revogação mantêm as permissões do Supabase. [Registro](registros/registro-v4.0.0-alpha.19-2026-11-19-imp-paridade-angular-fun-convites.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.19-2026-11-19-paridade-convites-tela-10-tela-11-tela-58-tela-59/index.html).
+
+**Continuidade.** DOCS_DIR `docs`. Branch `codex/migracao-angular`, base `c1eb035`, que inclui a entrega anterior. Contador 93, a partir de 92. Último marco registrado 100, preservado do histórico. Ferramentas: Superpowers, Context7 Angular 22, Playwright e Supabase local. Unidade pronta para commit: paridade de convites. Sugestão: `fix(angular): concluir paridade de convites`.
+
+**Próximo passo.** Paridade visual 06. Comparar Seus Núcleos, Início e participação com a referência Next.js, incluindo vazio, permissões e diálogos. A v4.0.0-alpha.19 está local. [Mapa de fontes](planos/paridade-angular-fontes.md).
+
+**Última validação.** Tipos, build, Playwright autenticado em computador e celular, 257 verificações do banco local e verificadores do Atlas aprovados. Compartilhamento pelo seletor nativo do sistema permanece sem verificação.
+
+## Histórico da entrega anterior
 
 **Paridade visual 04 concluída localmente.** Telas 06–09 com cartões, indicador de etapas, edição e revisão do rascunho e convite inicial opcional. Critérios verificados: tipo mantido ao voltar da Tela 08, nome e propósito mantidos ao editar a conferência, criação única após perda da resposta e abertura do Núcleo ao adiar o convite. [Registro da entrega](registros/registro-v4.0.0-alpha.18-2026-11-19-imp-paridade-angular-fun-criacao-de-nucleo.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.18-2026-11-19-paridade-comecar-tela-06-tela-07-tela-08-tela-09/index.html).
 
@@ -6,7 +16,7 @@
 
 **Verificações desta entrega.** Tipos e build Angular aprovados. Quatro testes Playwright autenticados, cobrindo criação e convites em computador e celular, e 257 verificações de banco local passaram. Atlas com simulação de campos, foco, edição e convite em 1440 e 390 pixels. As quatro pastas locais antigas de build do Next.js foram movidas para `arquivo/nextjs-local/`, ignorada pelo Git. O arquivo estético continua em [arquivo/nextjs](../../arquivo/nextjs/README.md).
 
-**Continuidade.** DOCS_DIR `docs`. Branch `codex/migracao-angular`, base `3a7e6cc`. Contador 92 conclusões acompanhadas, a partir de 91. Último marco de auditoria registrado 100, preservado do histórico. Ferramentas desta entrega: Superpowers, Context7 Angular 22, Git, rg, Playwright Chromium e Supabase local. Unidade pronta para commit: paridade do fluxo de criação de Núcleo, com organização local dos resíduos de build. Sugestão: `fix(angular): concluir paridade da criação de núcleos`.
+**Git.** A entrega 04 está incluída no commit `c1eb035`.
 
 **Próximo passo executável.** Paridade visual 05, Telas 10, 11, 58 e 59. Comparar entrada por código, aceite explícito, compartilhar/copiar, estado do serviço e gestão por papel com o [mapa de código Next.js](planos/paridade-angular-fontes.md). A v4.0.0-alpha.18 permanece local. O usuário confirmou o login no Angular em produção. Renovação de sessão e envios oficiais permanecem sem nova verificação.
 

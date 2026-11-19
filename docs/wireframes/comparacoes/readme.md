@@ -22,6 +22,8 @@
 
 # Comparações de telas — procedimento permanente
 
+- [v4.0.0-alpha.19 · Convites no Angular](v4.0.0-alpha.19-2026-11-19-paridade-convites-tela-10-tela-11-tela-58-tela-59/index.html) — entrada, prévia, código, gestão, preparo e revogação.
+
 - [v4.0.0-alpha.18 · Criação de Núcleo no Angular](v4.0.0-alpha.18-2026-11-19-paridade-comecar-tela-06-tela-07-tela-08-tela-09/index.html) — Telas 06–09, com conferência da Tela 08 em computador e celular.
 
 - [v4.0.0-alpha.8 · Ciclo de Hábito no Angular](v4.0.0-alpha.8-2026-11-15-angular-habito-tela-24-tela-25-tela-27-tela-28-tela-30-tela-31-tela-32-tela-33/index.html) — detalhe, momento, período, termos, histórico e encerramento em computador e celular, com referência ao detalhe anterior.

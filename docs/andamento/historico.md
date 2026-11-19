@@ -1,3 +1,7 @@
+## 2026-11-19 — Paridade 05 de convites
+
+Entrada, prévia, apresentação do código e gestão atualizadas conforme o Next.js. O teste confirmou foco no campo inválido e preservação de participantes após revogação. [Registro](registros/registro-v4.0.0-alpha.19-2026-11-19-imp-paridade-angular-fun-convites.md).
+
 ## 2026-11-19 — Paridade 04 no Angular e organização do legado
 
 As telas 06–09 receberam a composição de criação do Núcleo. A conferência preserva o rascunho ao editar. O teste local confirmou criação única em nova tentativa após perda de resposta. Quatro saídas antigas de build foram movidas para o arquivo local ignorado pelo Git. [Registro v4.0.0-alpha.18](registros/registro-v4.0.0-alpha.18-2026-11-19-imp-paridade-angular-fun-criacao-de-nucleo.md).
