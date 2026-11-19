@@ -1,6 +1,8 @@
 # Escolher caminho
 
-**Versão vigente do projeto:** 0.13.1
+**Angular v4.0.0-alpha.18.** Após o login, Seus Núcleos é a entrada padrão. A rota `/comecar` permite iniciar a criação ou abrir `/comecar/convite`. O tipo escolhido é recuperado ao voltar de Propósito para Tipo. Nome e propósito permanecem em memória enquanto a pessoa revisa e edita na tela de Propósito. A confirmação cria o Núcleo e o vínculo do administrador. A página de convite inicial permite seguir ao Núcleo sem gerar convite. [Registro](../registros/registro-v4.0.0-alpha.18-2026-11-19-imp-paridade-angular-fun-criacao-de-nucleo.md).
+
+## Referência histórica na versão 0.13.1
 
 ## Escopo autorizado
 

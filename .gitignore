@@ -9,6 +9,7 @@ node_modules/
 .next-verify/
 .next-authenticated/
 .next-supabase/
+/arquivo/nextjs-local/
 artifacts/
 next-env.d.ts
 out/

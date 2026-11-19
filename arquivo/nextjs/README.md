@@ -7,3 +7,5 @@ Este diretório guarda a estética da última publicação do Nós em Next.js, v
 - [Atlas](../../docs/wireframes/atlas/index.html#migracao), [comparações](../../docs/wireframes/comparacoes/readme.md) e [mapa de paridade](../../docs/andamento/planos/paridade-angular-fontes.md) mostram telas, estados, diálogos e o código que produziu as composições.
 
 O CSS é uma referência de leitura. As classes foram feitas para os componentes originais. O arquivo não contém um aplicativo executável e fica fora da compilação e da publicação Angular.
+
+As saídas antigas de build desta cópia de trabalho foram movidas para `arquivo/nextjs-local/`, uma pasta local ignorada pelo Git. Para consultar o código original em outra máquina, use o snapshot Git indicado acima.

@@ -1,64 +1,63 @@
-import { afterNextRender, Component, computed, DestroyRef, effect, inject, Injector, input, signal, viewChild, type ElementRef } from '@angular/core';
+import { afterNextRender, Component, computed, DestroyRef, effect, inject, Injector, signal, viewChild, type ElementRef } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { PreviewProfile } from '../preview-profile';
+import { NavIcon, type NavIconName } from '../shared/nav-icon';
 import { NucleiData } from './nuclei-data';
 import { findNucleusType, nucleusTypes, type NucleusTypeId } from './nucleus-model';
+import { NucleusSteps } from './nucleus-steps';
 
 @Component({
-  imports:[RouterLink],
+  imports:[RouterLink,NavIcon],
+  styleUrl:'./nucleus-wizard.css',
   template:`
-    <a class="text-link" routerLink="/nucleos">Voltar a Seus Núcleos</a>
+    <a class="wizard-back" routerLink="/nucleos"><app-nav-icon name="left" />Voltar a Seus Núcleos</a>
     <header class="nucleus-header">
       <div><p class="kicker">Seu primeiro passo</p><h1 tabindex="-1">Como você quer começar?</h1>
         <p>Crie um espaço novo ou junte-se a quem te convidou.</p></div>
     </header>
-    <nav class="overview-grid dialog-links" aria-label="Escolha como começar">
-      <a class="surface" routerLink="/comecar/tipo"><strong>Criar um núcleo</strong><span>Escolha o vínculo, o nome e o propósito de vocês.</span></a>
-      <a class="surface" routerLink="/comecar/convite"><strong>Entrar com um convite</strong><span>Recebeu um código de alguém? Confira o Núcleo antes de decidir.</span></a>
+    <nav class="wizard-paths" aria-label="Escolha como começar">
+      <a class="surface wizard-path" routerLink="/comecar/tipo">
+        <span class="wizard-path-icon"><app-nav-icon name="plus" /></span>
+        <span><strong>Criar um núcleo</strong><small>Dê um nome ao vínculo, escolha o propósito de vocês e convide quem faz parte.</small></span>
+        <app-nav-icon class="wizard-path-arrow" name="diagonal" />
+      </a>
+      <a class="surface wizard-path" routerLink="/comecar/convite">
+        <span class="wizard-path-icon"><app-nav-icon name="users" /></span>
+        <span><strong>Entrar com um convite</strong><small>Recebeu um código de alguém? Confira o Núcleo e decida se quer participar.</small></span>
+        <app-nav-icon class="wizard-path-arrow" name="diagonal" />
+      </a>
     </nav>
+    <p class="wizard-note">Um Núcleo é um espaço privado de cuidado para as relações da sua vida. Cada vínculo tem seu jeito de florescer.</p>
   `,
 })
 export class ChoosePath {}
 
 @Component({
-  selector:'app-nucleus-steps',
+  imports:[RouterLink,NucleusSteps,NavIcon],
+  styleUrl:'./nucleus-wizard.css',
   template:`
-    <ol class="steps" aria-label="Etapas da criação do Núcleo">
-      @for (label of labels; track label; let idx = $index) {
-        <li [attr.aria-current]="current() === idx+1 ? 'step' : null">{{ idx+1 }}. {{ label }}</li>
-      }
-    </ol>
-  `,
-})
-class NucleusSteps {
-  readonly current = input.required<number>();
-  protected readonly labels = ['Escolher relação','Definir propósito','Convidar pessoas'];
-}
-
-@Component({
-  imports:[RouterLink,NucleusSteps],
-  template:`
-    <a class="text-link" routerLink="/comecar">Voltar</a>
+    <a class="wizard-back" routerLink="/comecar"><app-nav-icon name="left" />Voltar</a>
     <app-nucleus-steps [current]="1" />
     <header class="nucleus-header"><div><p class="kicker">Um espaço com o jeito de vocês</p>
       <h1 tabindex="-1">Que relação vocês têm?</h1><p>Cada tipo de Núcleo cresce com objetivos diferentes.</p></div></header>
-    <form class="surface wizard" (submit)="choose($event)">
+    <form class="surface wizard-panel" (submit)="choose($event)">
       <fieldset aria-describedby="type-help">
-        <legend>Tipo de Núcleo</legend>
-        <div class="type-grid">
+        <legend class="wizard-screen-reader">Tipo de Núcleo</legend>
+        <div class="wizard-types">
           @for (item of types; track item.id) {
-            <label class="type-option">
+            <label class="wizard-type">
+              <app-nav-icon [name]="typeIcons[item.id]" />
+              <span><strong [id]="'label-'+item.id">{{ item.label }}</strong><small [id]="'desc-'+item.id">{{ item.description }}</small></span>
               <input type="radio" name="tipo" [value]="item.id" [checked]="selected() === item.id" (change)="selected.set(item.id)"
                 required [attr.aria-labelledby]="'label-'+item.id" [attr.aria-describedby]="'desc-'+item.id">
-              <span><strong [id]="'label-'+item.id">{{ item.label }}</strong><small [id]="'desc-'+item.id">{{ item.description }}</small></span>
             </label>
           }
         </div>
       </fieldset>
-      <div class="wizard-actions">
-        <p id="type-help">O tipo não altera as permissões do Núcleo.</p>
-        <button class="button" type="submit">Continuar</button>
+      <div class="wizard-panel-actions">
+        <p id="type-help">Escolha o tipo que melhor representa este vínculo para continuar. O tipo não altera permissões ou o acesso ao Núcleo.</p>
+        <button class="button wizard-continue" type="submit">Continuar <app-nav-icon name="right" /></button>
       </div>
     </form>
   `,
@@ -67,6 +66,10 @@ export class ChooseType {
   private readonly router = inject(Router);
   private readonly route = inject(ActivatedRoute);
   protected readonly types = nucleusTypes;
+  protected readonly typeIcons: Record<NucleusTypeId,NavIconName> = {
+    casal:'heart', familia:'home', irmaos:'users', pais:'handHeart', amigos:'smile',
+    equipes:'briefcase', comunidades:'links', mentorias:'sprout', 'grupos-religiosos':'church',
+  };
   protected readonly selected = signal<NucleusTypeId | undefined>(findNucleusType(this.route.snapshot.queryParams['tipo'])?.id);
 
   protected choose(event: Event) {
@@ -77,8 +80,9 @@ export class ChooseType {
 }
 
 @Component({
-  imports:[RouterLink,NucleusSteps],
+  imports:[RouterLink,NucleusSteps,NavIcon],
   templateUrl:'./nucleus-purpose.html',
+  styleUrl:'./nucleus-wizard.css',
 })
 export class NucleusPurpose {
   private readonly router = inject(Router);
@@ -90,6 +94,8 @@ export class NucleusPurpose {
   protected readonly type = computed(() => findNucleusType(this.query()['tipo']));
   protected readonly name = signal('');
   protected readonly purpose = signal('');
+  protected readonly nameInvalid = computed(() => !this.name().trim() || this.name().trim().length > 80);
+  protected readonly purposeInvalid = computed(() => !this.purpose().trim() || this.purpose().trim().length > 500);
   protected readonly preview = signal(false);
   protected readonly pending = signal(false);
   protected readonly error = signal('');
@@ -97,6 +103,7 @@ export class NucleusPurpose {
   private readonly injector = inject(Injector);
   private readonly reviewHeading = viewChild<ElementRef<HTMLElement>>('reviewHeading');
   private readonly nameInput = viewChild<ElementRef<HTMLInputElement>>('nameInput');
+  private readonly purposeInput = viewChild<ElementRef<HTMLTextAreaElement>>('purposeInput');
   private draftType = this.type()?.id;
   private request?: {id:string; owner:string; type:NucleusTypeId; name:string; purpose:string};
 
@@ -124,8 +131,12 @@ export class NucleusPurpose {
     event.preventDefault();
     const name = this.name().trim();
     const purpose = this.purpose().trim();
-    if (!name || !purpose || name.length > 80 || purpose.length > 500) {
+    if (this.nameInvalid() || this.purposeInvalid()) {
       this.error.set('Informe um nome de até 80 caracteres e um propósito de até 500 caracteres.');
+      // O foco segue após a renderização para incluir a mensagem ligada ao campo.
+      afterNextRender(() => {
+        (this.nameInvalid() ? this.nameInput() : this.purposeInput())?.nativeElement.focus();
+      },{injector:this.injector});
       return;
     }
     this.name.set(name);

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
-    <title>Nós — Atlas de wireframes · v4.0.0-alpha.17</title>
+    <title>Nós — Atlas de wireframes · v4.0.0-alpha.18</title>
     <link rel="stylesheet" href="atlas.css" />
     <link rel="stylesheet" href="product.css" />
     <link rel="stylesheet" href="global-view.css" />
@@ -31,7 +31,7 @@
       </p>
       <nav id="chapter-nav" aria-label="Áreas do produto"></nav>
       <div class="side-footer">
-        <span class="edition">ATLAS VIVO · v4.0.0-alpha.17 · 19 NOV 2026</span>
+        <span class="edition">ATLAS VIVO · v4.0.0-alpha.18 · 19 NOV 2026</span>
         <p>
           A guia Migração reúne as entregas planejadas para substituir o Next.js
           por Angular.
@@ -372,7 +372,7 @@
         </details>
         <section class="migration-visual-roadmap" aria-labelledby="migration-visual-title">
           <h3 id="migration-visual-title">Paridade de interface com o Atlas v3.11.1</h3>
-          <p><strong>Próximo passo:</strong> paridade visual 04, telas 06–09. Conferir escolha, tipo, propósito, conferência e retorno com o rascunho preservado.</p>
+          <p><strong>Próximo passo:</strong> paridade visual 05, telas 10, 11, 58 e 59. Conferir entrada por código, aceite, compartilhamento e gestão de convites.</p>
           <p>Porte cada passo a partir do código Next.js v3.11.1, incluindo componentes, estilos, estados e ações. O Atlas serve para a conferência visual e mantém as funcionalidades planejadas como ilustrações. <a href="../../andamento/planos/paridade-angular-fontes.md">Consultar os arquivos de referência de cada passo</a>.</p>
           <p>Em cada passo, compare computador (1440 px) e celular (390 px), confira foco, teclado, toque e movimento reduzido, e confirme os estados e os diálogos afetados. Guarde as capturas e registre os limites da verificação.</p>
           <details data-visual-step="01">
@@ -396,9 +396,10 @@
             <p><a href="#tela-12">12</a> · <a href="#tela-13">13</a> · <a href="#tela-60">60</a> · <a href="#tela-66">66</a> · <a href="#tela-67">67</a> · <a href="#tela-70">70</a></p>
           </details>
           <details data-visual-step="04">
-            <summary>04 · Começar · escolha, tipo e propósito</summary>
+            <summary>04 · Começar · escolha, tipo e propósito · validada localmente</summary>
             <p>Sequência de escolha, progresso, cartões de tipo, propósito, conferência e passagem ao convite inicial.</p>
-            <p><strong>Aceite.</strong> Voltar sem perder o rascunho aplicável; confirmar antes de escrever e evitar dupla criação.</p>
+            <p>A conferência ocorre na própria tela de propósito. Editar mantém os dois campos e Voltar da tela de propósito mantém o tipo escolhido. O convite inicial continua opcional após a criação.</p>
+            <p><a href="../comparacoes/v4.0.0-alpha.18-2026-11-19-paridade-comecar-tela-06-tela-07-tela-08-tela-09/index.html">Comparação local em computador e celular</a></p>
             <p><a href="#tela-06">06</a> · <a href="#tela-07">07</a> · <a href="#tela-08">08</a> · <a href="#tela-09">09</a></p>
           </details>
           <details data-visual-step="05">
@@ -479,7 +480,7 @@
           <details data-migration-phase="1" open>
             <summary>Fase 1 · Angular no ar e referência Next.js arquivada</summary>
             <ol>
-              <li>Concluir os passos de paridade 04–16 em computador e celular, preservando rotas, permissões, estados e diálogos.</li>
+              <li>Concluir os passos de paridade 05–16 em computador e celular, preservando rotas, permissões, estados e diálogos.</li>
               <li>No ensaio hospedado, comprovar sessão, confirmação e recuperação, fila e relatos de problema. Ensaiar o retorno ao deploy anterior e preparar a candidata.</li>
               <li>Publicar o Angular e conferir os fluxos críticos no domínio público. Se a sessão, as permissões, as gravações ou uma integração crítica falharem, restaurar a publicação anterior.</li>
               <li>Depois de confirmar a virada, arquivar a aplicação Next.js em <code>arquivo/nextjs/</code> e verificar que o Angular compila, é testado e pode ser publicado sem depender dessa pasta.</li>

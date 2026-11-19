@@ -1,3 +1,7 @@
+## Criação de Núcleo no Angular — v4.0.0-alpha.18 — 2026-11-19
+
+Paridade 04 validada localmente nas Telas 06–09. O percurso mantém o tipo ao voltar de Propósito, preserva os textos ao editar a conferência e permite concluir após a criação sem enviar convite. A entrada por código e a gestão seguem no passo visual 05. [Registro](../registros/registro-v4.0.0-alpha.18-2026-11-19-imp-paridade-angular-fun-criacao-de-nucleo.md).
+
 ## Conta e prévias na aplicação Angular — v4.0.0-alpha.10 — 2026-11-17
 
 A10 e A11 verificadas na prévia local. Aparência, privacidade, exclusão e relato foram conferidos com contas descartáveis. A navegação contextual apresenta seis prévias ilustrativas do Núcleo. A caixa local recebeu os relatos de teste. [Registro](../registros/registro-v4.0.0-alpha.10-2026-11-17-imp-validacao-angular-fun-conta-navegacao-e-integracoes.md).

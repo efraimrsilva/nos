@@ -1,3 +1,7 @@
+## 19/11/2026 — Criação de Núcleos com conferência no Angular
+
+As etapas da criação ainda diferiam da referência visual e a validação do rascunho não associava o aviso aos campos. A entrega reutiliza o indicador de progresso, mostra o tipo nos cartões e direciona o foco ao campo que precisa de atenção. Em computador e celular, o teste confirmou que os textos permanecem ao editar e que repetir a confirmação após perder a resposta resulta em um único Núcleo. [Registro](../andamento/registros/registro-v4.0.0-alpha.18-2026-11-19-imp-paridade-angular-fun-criacao-de-nucleo.md).
+
 ## 19/11/2026 — Virada para Angular e isolamento do legado
 
 A aplicação nova ainda dependia de caminhos e pacotes da linha Next.js. O Angular assumiu o domínio e passou a ter seu código ativo em apps/web. Build, testes e roteamento foram verificados. As referências Next.js documentam a aparência para a revisão de paridade. [Registro](../andamento/registros/registro-v4.0.0-alpha.17-2026-11-19-imp-isolamento-angular-fun-arquivo-visual-nextjs.md).

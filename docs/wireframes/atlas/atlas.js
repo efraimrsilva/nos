@@ -198,7 +198,21 @@ document.addEventListener('click',event=>{
   }
   // O escopo semântico acompanha as composições pública e interna, independentemente do CSS.
   if(target.hasAttribute('data-suggestion')){const content=target.closest('[data-local-content]');content.querySelector('[name="purpose"]').value=(nucleusOptions.find(option=>option[0]===onboardingType)||nucleusOptions[0])[2];return;}
-  if(target.hasAttribute('data-edit-draft')){const content=target.closest('[data-local-content]');content.querySelector('form').hidden=false;content.querySelector('.purpose-draft').hidden=true;return;}
+  if(target.hasAttribute('data-edit-draft')){
+    const draft=target.closest('.purpose-draft');
+    const form=draft.parentElement.querySelector('[data-local-form="purpose"]');
+    draft.hidden=true;
+    form.hidden=false;
+    form.elements['nucleus-name'].focus();
+    return;
+  }
+  if(target.hasAttribute('data-initial-invite')){
+    const preview=target.nextElementSibling;
+    target.hidden=true;
+    preview.hidden=false;
+    preview.querySelector('.live-invite-code').focus();
+    return;
+  }
   if(target.hasAttribute('data-local-tab')||target.dataset.localChoice){const group=target.parentElement;group.querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));showToast('Seleção local para revisão do desenho. Sem persistência.');return;}
   if(target.dataset.demo){showToast('Ação ilustrativa do documento. O contrato e a implementação estão descritos na ficha.');return;}
   if(target.dataset.globalArea){const heading=$(`#global-area-${target.dataset.globalArea} h2`);heading.scrollIntoView({block:'start'});heading.focus({preventScroll:true});return;}
@@ -230,7 +244,21 @@ document.addEventListener('submit',event=>{
     return;
   }
   if(form.dataset.localForm==='type'){onboardingType=form.elements['nucleus-type'].value;if(onboardingType)openScreen(8);}
-  if(form.dataset.localForm==='purpose'){const name=form.elements['nucleus-name'].value.trim(),purpose=form.elements.purpose.value.trim();if(!name||!purpose){showToast('Preencha o nome e o propósito para conferir o rascunho.');return;}const content=form.closest('[data-local-content]');content.querySelector('[data-draft-name]').textContent=name;content.querySelector('[data-draft-purpose]').textContent=purpose;form.hidden=true;content.querySelector('.purpose-draft').hidden=false;}
+  if(form.dataset.localForm==='purpose'){
+    const name=form.elements['nucleus-name'].value.trim(),purpose=form.elements.purpose.value.trim();
+    if(!name||!purpose){
+      showToast('Preencha o nome e o propósito para conferir o rascunho.');
+      form.elements[name?'purpose':'nucleus-name'].focus();
+      return;
+    }
+    // A conferência espelha a transição do Angular com dados da prévia em memória.
+    const draft=form.closest('[data-local-content]').querySelector('.purpose-draft');
+    draft.querySelector('[data-draft-name]').textContent=name;
+    draft.querySelector('[data-draft-purpose]').textContent=purpose;
+    form.hidden=true;
+    draft.hidden=false;
+    draft.querySelector('[tabindex="-1"]')?.focus();
+  }
   if(form.dataset.localForm==='invitation'){if(!form.elements['invitation-code'].value.trim()){showToast('Cole um código para conferir a composição da prévia.');return;}form.closest('[data-local-content]').querySelector('.invitation-preview').hidden=false;showToast('Convite de exemplo. Nenhum código foi consultado.');}
   if(form.dataset.localForm==='account')showToast('Demonstração de formulário. Nenhuma conta foi criada e nenhum dado foi enviado.');
   if(form.dataset.localForm==='social-profile'){const panel=form.closest('.live-auth-panel'),feedback=panel.querySelector('.local-feedback');const name=form.elements['social-name'].value.trim();feedback.textContent=name&&name.length<=80?'Nome preenchido · exemplo. No aplicativo, salvar retorna ao destino interno de entrada.':'Informe um nome de 1 a 80 caracteres.';feedback.setAttribute('role',name&&name.length<=80?'status':'alert');showToast('Prévia local. Nenhum nome ou sessão foi salvo.');return;}

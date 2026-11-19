@@ -1,5 +1,7 @@
 # Referência de código para a paridade Angular
 
+O passo 04 está validado localmente na v4.0.0-alpha.18. O [registro das telas 06–09](../registros/registro-v4.0.0-alpha.18-2026-11-19-imp-paridade-angular-fun-criacao-de-nucleo.md) contém a galeria e os resultados. O próximo recorte é o passo 05, com entrada por código, aceite e gestão de convites.
+
 O código Next.js v3.11.1 no commit `604a142` é a referência principal. Antes de portar um passo, leia a rota, os componentes, os estilos importados, o estado e as ações. O Atlas conferirá a apresentação e o inventário de telas, inclusive esboços. Registre divergências entre o código e o Atlas e preserve as regras de domínio e permissões vigentes. Mantenha Angular como único frontend da migração.
 
 Os caminhos desta tabela apontam para os estilos preservados e para o snapshot do Next.js no Git. O [arquivo visual](../../../arquivo/nextjs/README.md) reúne estilos, marca e referências de telas. A [sequência de implementação](migracao-angular.md#ordem-de-implementação) define quando arquivar e o que deve permanecer na base ativa.

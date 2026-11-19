@@ -1,12 +1,19 @@
 import { Component, inject, resource } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { NucleusSteps } from '../nuclei/nucleus-steps';
 import { PreviewProfile } from '../preview-profile';
 import { InvitationGenerator } from './invitation-generator';
 import { InvitationsData } from './invitations-data';
 
 @Component({
-  imports:[RouterLink,InvitationGenerator],
+  imports:[RouterLink,InvitationGenerator,NucleusSteps],
+  styles:`
+    .initial-invitation-panel { padding: 1.625rem; }
+    @media (max-width: 680px) {
+      .initial-invitation-panel { padding: 1.25rem; }
+    }
+  `,
   template:`
     @if (state.isLoading()) { <p role="status">Conferindo o convite inicial…</p> }
     @else if (state.error()) {
@@ -16,15 +23,13 @@ import { InvitationsData } from './invitations-data';
         <button class="button" type="button" (click)="state.reload()">Tentar novamente</button>
       </section>
     } @else if (state.value(); as view) {
-      <ol class="steps" aria-label="Etapas da criação do Núcleo">
-        <li>1. Escolher relação</li><li>2. Definir propósito</li><li aria-current="step">3. Convidar pessoas</li>
-      </ol>
+      <app-nucleus-steps [current]="3" />
       <header class="nucleus-header">
         <div><p class="kicker">Núcleo criado</p><h1 tabindex="-1">Convide quem faz parte</h1>
           <p>{{ view.name }} já é seu espaço privado. Convidar alguém agora é opcional.</p></div>
       </header>
       @for (item of [view]; track item.scope.id) {
-        <div class="surface">
+        <div class="surface initial-invitation-panel">
           <app-invitation-generator [scope]="item.scope" [initial]="item.active" />
           <a class="text-link" [routerLink]="['/nucleos',item.scope.id,'convites']">Gerenciar convites</a>
         </div>

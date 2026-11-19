@@ -519,9 +519,19 @@ test('cria uma vez mesmo após perder a resposta e abre núcleo autorizado', asy
   await page.getByRole('radio',{name:'Amigos',exact:true}).check();
   await capture('tipo');
   await page.getByRole('button',{name:'Continuar'}).click();
+  await page.getByRole('link',{name:'Voltar',exact:true}).click();
+  await expect(page.getByRole('radio',{name:'Amigos',exact:true})).toBeChecked();
+  await page.getByRole('button',{name:'Continuar'}).click();
   const name = page.getByLabel('Nome do Núcleo',{exact:true});
+  const purpose = page.getByLabel('Nosso propósito',{exact:true});
+  await page.getByRole('button',{name:'Continuar'}).click();
+  await expect(name).toHaveAttribute('aria-invalid','true');
+  await expect(name).toBeFocused();
+  await expect(purpose).toHaveAttribute('aria-invalid','true');
   await name.fill('Jardim de teste');
   await page.getByRole('button',{name:'Usar sugestão'}).click();
+  await expect(page.getByRole('alert')).toHaveCount(0);
+  const draft = await purpose.inputValue();
   await capture('proposito');
   await page.getByRole('button',{name:'Continuar'}).click();
   await expect(page.getByRole('heading',{name:'Confira seu rascunho'})).toBeVisible();
@@ -529,6 +539,8 @@ test('cria uma vez mesmo após perder a resposta e abre núcleo autorizado', asy
   await capture('revisao');
   await page.getByRole('button',{name:'Editar'}).click();
   await expect(name).toHaveValue('Jardim de teste');
+  await expect(purpose).toHaveValue(draft);
+  await expect(name).toBeFocused();
   await page.getByRole('button',{name:'Continuar'}).click();
   let requests = 0;
   const confirmed = page.getByRole('button',{name:'Criar Núcleo',exact:true});
@@ -555,7 +567,7 @@ test('cria uma vez mesmo após perder a resposta e abre núcleo autorizado', asy
   await page.getByRole('button',{name:'Fechar integrantes'}).click();
   await expect(people).toBeHidden();
   await page.getByRole('link',{name:'Ver Seus Núcleos'}).click();
-  const card = page.getByRole('link',{name:'Jardim de teste',exact:true});
+  const card = page.getByRole('navigation',{name:'Seus Núcleos',exact:true}).getByRole('link',{name:'Jardim de teste',exact:true});
   await expect(card).toHaveCount(1);
   await expect(card).toContainText('Pessoa A');
   await capture('lista');
