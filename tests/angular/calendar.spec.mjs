@@ -84,6 +84,7 @@ test('Agenda: mês, semana, resposta, remarcação e remoção', async ({page,br
     await expect(page.getByText('Evento salvo.',{exact:true})).toBeVisible();
     const detail=target=>target.getByRole('complementary',{name:'Seu próximo momento'});
     await expect(detail(page).getByRole('heading',{name:'Encontro no jardim'})).toBeVisible();
+    await expect(page.getByRole('table',{name:'Calendário mensal'}).getByRole('button',{name:/com evento/})).toHaveCount(1);
     await expect(page.getByRole('link',{name:'Agenda',exact:true})).toHaveAttribute('aria-current','page');
     await expect(page.locator('.calendar-week')).toBeVisible({visible:info.project.name==='desktop'});
     await expect(page.locator('.calendar-mobile-list')).toBeVisible({visible:info.project.name==='mobile'});
@@ -99,10 +100,19 @@ test('Agenda: mês, semana, resposta, remarcação e remoção', async ({page,br
     await signIn(member,guest,path);
     await expect(detail(member).getByRole('heading',{name:'Encontro no jardim'})).toBeVisible();
     await expect(detail(member).getByRole('button',{name:'Editar evento'})).toHaveCount(0);
+    const yes=detail(member).getByRole('button',{name:'Posso participar',exact:true});
+    const no=detail(member).getByRole('button',{name:'Não posso participar',exact:true});
+    await expect(yes).toHaveAttribute('aria-pressed','false');
+    await expect(no).toHaveAttribute('aria-pressed','false');
     await open(detail(member),'Não posso participar');
     await expect(detail(member).getByText('Precisa de novo horário')).toBeVisible();
+    await expect(no).toHaveAttribute('aria-pressed','true');
     await open(detail(member),'Posso participar');
     await expect(detail(member).getByText('Confirmado',{exact:true})).toBeVisible();
+    await member.reload();
+    await expect(yes).toHaveAttribute('aria-pressed','true');
+    await expect(no).toHaveAttribute('aria-pressed','false');
+    if(process.env.NOS_AGENDA_CAPTURE==='1') await detail(member).scrollIntoViewIfNeeded();
     await capture('presenca',member);
     await open(detail(page),'Editar evento');
     const edit=page.getByRole('dialog',{name:'Editar evento'});
@@ -127,6 +137,19 @@ test('Agenda: mês, semana, resposta, remarcação e remoção', async ({page,br
     await remove.getByRole('checkbox').check();
     await open(remove,'Confirmar remoção');
     await expect(page.getByText('Evento removido.',{exact:true})).toBeVisible();
+    await expect(page.getByText(/Nada marcado por enquanto/)).toBeVisible();
+    let releaseRead;
+    const readGate=new Promise(resolve=>{releaseRead=resolve;});
+    await page.route('**/rest/v1/rpc/get_nucleus_calendar',async route=>{
+      await readGate;
+      await route.fulfill({status:400,json:{message:'Falha de leitura simulada.'}});
+    },{times:1});
+    try {
+      await page.reload();
+      await expect(page.getByText('Carregando a agenda…',{exact:true})).toBeVisible();
+    } finally { releaseRead(); }
+    await expect(page.getByRole('alert')).toContainText('Não foi possível consultar a agenda');
+    await page.getByRole('button',{name:'Tentar novamente'}).click();
     await expect(page.getByText(/Nada marcado por enquanto/)).toBeVisible();
     await page.goto(path+'?pagina=2');
     await page.getByRole('link',{name:'Eventos anteriores'}).click();

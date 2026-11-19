@@ -46,7 +46,14 @@ try {
     assert.equal(await dialog.getByRole('checkbox').count(),1);
     await dialog.getByRole('button',{name:'Manter evento'}).click();
     assert.equal(await dialog.isVisible(),false);
-    assert.equal(await preview.getByRole('button',{name:'Posso participar · exemplo',exact:true}).isVisible(),true);
+    const yes=preview.getByRole('button',{name:'Posso participar · exemplo',exact:true});
+    const no=preview.getByRole('button',{name:'Não posso participar · exemplo',exact:true});
+    await no.click();
+    assert.equal(await no.getAttribute('aria-pressed'),'true');
+    assert.match(await preview.locator('.live-own-attendance').innerText(),/não posso participar/);
+    await yes.click();
+    assert.equal(await no.getAttribute('aria-pressed'),'false');
+    assert.equal(await yes.getAttribute('aria-pressed'),'true');
     assert.deepEqual(errors,[]);
     assert.deepEqual(external,[]);
     await page.close();

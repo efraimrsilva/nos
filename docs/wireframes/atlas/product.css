@@ -273,6 +273,10 @@ body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog .live-member-t
 .live-purpose-summary dd { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
 .live-initial-invite { display: grid; gap: .65rem; justify-items: start; }
 .live-leave-review { display: grid; gap: .65rem; justify-items: start; margin-top: 1rem; }
+.live-calendar-detail-info,.live-own-attendance { display:flex; align-items:center; gap:.55rem; }
+.live-own-attendance { background:var(--paper); border-inline-start:2px solid var(--leaf); padding:.6rem; }
+.live-calendar-presence .live-button { width:100%; }
+.live-calendar-presence .live-button[aria-pressed="true"] { background:var(--soft); border-color:var(--leaf); }
 @container (min-width: 701px) {
   .live-nucleus-overview { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }

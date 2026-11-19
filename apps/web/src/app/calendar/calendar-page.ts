@@ -6,10 +6,11 @@ import { PreviewProfile } from '../preview-profile';
 import { RouteState } from '../shared/route-state';
 import { CalendarData,type CalendarChange } from './calendar-data';
 import { CalendarMonth } from './calendar-month';
+import { NavIcon } from '../shared/nav-icon';
 import { attendance,clampDay,clock,dayMs,formInstant,localDateTime,maxDay,minDay,monthAndYear,overlaps,shortDay,shortMonth,weekLayout,weekMs,weekOf,type CalendarEvent } from './calendar-model';
 
 @Component({
-  imports:[RouterLink,RouteState,CalendarMonth],
+  imports:[RouterLink,RouteState,CalendarMonth,NavIcon],
   templateUrl:'./calendar-page.html',
   styleUrls:['./calendar-page.css','./calendar-dialog.css'],
 })

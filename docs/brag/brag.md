@@ -1,3 +1,7 @@
+## 19/11/2026 — Resposta de presença acessível na Agenda
+
+A resposta aparecia em texto separado dos botões. Agora ela também é exposta como estado do botão. Playwright confirmou que a escolha permanece após recarregar em computador e celular. [Registro](../andamento/registros/registro-v4.0.0-alpha.21-2026-11-19-imp-paridade-angular-fun-consulta-e-presenca-na-agenda.md).
+
 ## 19/11/2026 — Paridade do Início e de participação
 
 Os cartões ganharam uma identificação visual do vínculo e a tela de saída ganhou acesso à preferência de autoria. Playwright confirmou abertura da preferência antes da saída e atualização de identidade entre duas sessões com o rascunho preservado. [Registro](../andamento/registros/registro-v4.0.0-alpha.20-2026-11-19-imp-paridade-angular-fun-nucleos-e-participacao.md).

@@ -12,7 +12,7 @@
   <header class="agenda-heading">
     <div><p class="kicker">Agenda compartilhada</p><h1 tabindex="-1">Tempo para o que importa.</h1>
       <p>Planejem momentos no tempo de vocês. Cada pessoa decide se pode participar.</p></div>
-    <button type="button" class="button" aria-haspopup="dialog" [disabled]="busy() || state.isLoading() || uncertainCreate()" (click)="openEditor(editor,form)">Novo momento</button>
+    <button type="button" class="button agenda-icon-action flex items-center gap-2.5" aria-haspopup="dialog" [disabled]="busy() || state.isLoading() || uncertainCreate()" (click)="openEditor(editor,form)"><app-nav-icon name="plus" />Novo momento</button>
   </header>
   @if (notice()) { <p class="surface agenda-feedback" role="status">{{ notice() }}</p> }
   @if (error()) { <p class="surface agenda-feedback" role="alert">{{ error() }}
@@ -55,7 +55,7 @@
             <span class="agenda-date-tile"><strong>{{ dateNumber(event.starts_at) }}</strong><small>{{ shortMonth.format(dateMillis(event.starts_at)).replace('.', '') }}</small></span>
             <span><strong>{{ event.title }}</strong><small>{{ clock.format(dateMillis(event.starts_at)) }} UTC · {{ attendance(event).label }}</small></span><span aria-hidden="true">→</span>
           </button>
-        } @empty { <p>Nenhum momento nesta semana.</p> }
+        } @empty { <p class="flex items-center gap-2.5"><app-nav-icon name="calendar" />Nenhum momento nesta semana.</p> }
       </div>
       <p class="agenda-note">Horários da grade em UTC (Tempo Universal Coordenado). O detalhe mostra o fuso de cada encontro. A navegação considera os eventos desta página.</p>
       @if (events().length) {
@@ -70,22 +70,34 @@
       }
     </section>
     <aside class="surface agenda-detail" aria-labelledby="calendar-detail-heading">
-      <h2 id="calendar-detail-heading" tabindex="-1">{{ selected() ? 'Seu próximo momento' : 'Um tempo para vocês' }}</h2>
+      <header class="agenda-detail-header flex items-center justify-between gap-2.5">
+        <h2 id="calendar-detail-heading" tabindex="-1">{{ selected() ? 'Seu próximo momento' : 'Um tempo para vocês' }}</h2>
+        <app-nav-icon name="calendar" />
+      </header>
       @if (selected(); as event) {
         @if (presence(); as response) {
-          <p class="kicker">{{ day.format(dateMillis(event.starts_at)) }} · {{ clock.format(dateMillis(event.starts_at)) }} UTC</p>
+          <p class="kicker"><time [attr.datetime]="event.starts_at">{{ day.format(dateMillis(event.starts_at)) }} · {{ clock.format(dateMillis(event.starts_at)) }} UTC</time></p>
           <h3>{{ event.title }}</h3>
           @if (event.creator_deleted) { <p>Criado por Conta excluída.</p> }
           <p class="agenda-intention">{{ event.intention || 'Um momento para estar presente, do jeito que fizer sentido para vocês.' }}</p>
-          <p class="agenda-note">{{ date(event.starts_at,event.time_zone).text }} até {{ date(event.ends_at,event.time_zone).text }}<br>{{ date(event.starts_at,event.time_zone).zoneLabel }}</p>
-          <p>{{ response.current }} participante(s)<br><small>{{ response.accepted }} com presença confirmada</small></p>
+          <p class="agenda-note flex items-start gap-2.5"><app-nav-icon name="calendar" /><span>
+            <time [attr.datetime]="event.starts_at">{{ date(event.starts_at,event.time_zone).text }}</time>
+            até <time [attr.datetime]="event.ends_at">{{ date(event.ends_at,event.time_zone).text }}</time>
+            <small class="block">{{ date(event.starts_at,event.time_zone).zoneLabel }}</small>
+          </span></p>
+          <p class="flex items-start gap-2.5"><app-nav-icon name="users" /><span>
+            {{ response.current }} {{ response.current === 1 ? 'participante' : 'participantes' }}
+            <small class="block">{{ response.accepted }} com presença confirmada</small>
+          </span></p>
           @if (response.deleted) { <p>{{ response.deleted }} resposta(s) histórica(s) de Conta excluída.</p> }
-          <span class="badge">{{ response.label }}</span>
+          <span class="badge" [class.agenda-pending]="response.own?.response==='pending'">{{ response.label }}</span>
           @if (response.own; as own) {
-            <p>Sua resposta: {{ own.response==='accepted' ? 'vou participar' : own.response==='declined' ? 'não posso participar' : 'ainda não respondi' }}.</p>
-            <div class="agenda-actions">
-              <button class="button secondary" type="button" [disabled]="busy() || state.isLoading()" (click)="respond(event,'accepted')">Posso participar</button>
-              <button class="button secondary" type="button" [disabled]="busy() || state.isLoading()" (click)="respond(event,'declined')">Não posso participar</button>
+            <p class="agenda-own-response"><app-nav-icon [name]="own.response==='pending' ? 'calendar' : 'check'" />
+              <span>Sua resposta: {{ own.response==='accepted' ? 'vou participar' : own.response==='declined' ? 'não posso participar' : 'ainda não respondi' }}.</span>
+            </p>
+            <div class="agenda-actions agenda-presence" role="group" aria-label="Minha presença">
+              <button class="button secondary" type="button" [attr.aria-pressed]="own.response==='accepted'" [disabled]="busy() || state.isLoading()" (click)="respond(event,'accepted')">Posso participar</button>
+              <button class="button secondary" type="button" [attr.aria-pressed]="own.response==='declined'" [disabled]="busy() || state.isLoading()" (click)="respond(event,'declined')">Não posso participar</button>
             </div>
           }
           @if (event.can_manage) {

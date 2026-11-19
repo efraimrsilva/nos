@@ -1,3 +1,7 @@
+## Consulta e presença na Agenda — v4.0.0-alpha.21 — 2026-11-19
+
+Paridade 07 concluída localmente nas Telas 14 e 15. Seletor mensal, grade, lista móvel, detalhe e resposta própria conferidos. [Registro](../registros/registro-v4.0.0-alpha.21-2026-11-19-imp-paridade-angular-fun-consulta-e-presenca-na-agenda.md).
+
 ## Núcleos e participação no Angular — v4.0.0-alpha.20 — 2026-11-19
 
 Paridade 06 concluída localmente nas Telas 12, 13, 71 e 73. Acervo de cartões, resumo do Início, edição e gestão de participação conferidos em computador e celular. [Registro](../registros/registro-v4.0.0-alpha.20-2026-11-19-imp-paridade-angular-fun-nucleos-e-participacao.md).

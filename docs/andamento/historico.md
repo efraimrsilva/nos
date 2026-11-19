@@ -1,3 +1,7 @@
+## 2026-11-19 — Paridade 07 de consulta e presença na Agenda
+
+O detalhe passou a indicar a própria resposta por estilo e estado acessível. Foram conferidos marcadores, recuperação da consulta e presença após recarregar. [Registro](registros/registro-v4.0.0-alpha.21-2026-11-19-imp-paridade-angular-fun-consulta-e-presenca-na-agenda.md).
+
 ## 2026-11-19 — Paridade 06 de Núcleos e participação
 
 Cartões e papel do vínculo passaram a ter a mesma apresentação no Início e na lista. A saída ganhou um atalho para a preferência de autoria. A nomeação, o rascunho em outra sessão e o encerramento foram conferidos. [Registro](registros/registro-v4.0.0-alpha.20-2026-11-19-imp-paridade-angular-fun-nucleos-e-participacao.md).

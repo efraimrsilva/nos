@@ -23,12 +23,18 @@
 .calendar-event strong { line-height:1.25; }
 .calendar-mobile-list { display:none; }
 .agenda-detail { min-width:0; }
-.agenda-detail h2 { font-size:1.08rem; margin-bottom:1rem; }
+.agenda-detail-header { padding-bottom:.7rem; margin-bottom:1rem; border-bottom:1px solid var(--line); }
+.agenda-detail h2 { font-size:1.08rem; }
+.agenda-icon-action { display:flex; --icon-tone:currentColor; }
 .agenda-detail h3 { font:400 1.85rem/1.2 Georgia,serif; margin:.5rem 0; overflow-wrap:anywhere; }
 .agenda-detail p { margin:.7rem 0; overflow-wrap:anywhere; }
 .agenda-intention { white-space:pre-wrap; }
 .agenda-detail small,.agenda-list-event small { color:var(--muted); }
 .agenda-actions { display:flex; flex-wrap:wrap; gap:.55rem; margin-top:.65rem; }
+.agenda-pending { color:#624c1c; background:#f6e9d2; }
+.agenda-own-response { display:flex; align-items:center; gap:.55rem; background:var(--canvas); border-inline-start:2px solid var(--leaf); padding:.6rem; }
+.agenda-presence .button { flex:1 1 100%; text-align:center; }
+.agenda-presence .button[aria-pressed=true] { background:var(--accent-soft); border-color:var(--leaf); }
 .agenda-management { border-top:1px solid var(--line); padding-top:.75rem; }
 .agenda-management .button { width:100%; }
 .agenda-management .agenda-remove { color:#8a332d; }
