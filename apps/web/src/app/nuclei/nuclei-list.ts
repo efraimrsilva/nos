@@ -2,12 +2,14 @@ import { Component, computed, inject, resource } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { PreviewProfile } from '../preview-profile';
+import { NavIcon } from '../shared/nav-icon';
 import { findNucleusType, pageNumber, profileLetters } from './nucleus-model';
 import { NucleiData } from './nuclei-data';
 import { watchNucleusIdentity } from './nucleus-identity-sync';
+import { NucleusRoleBadge } from './nucleus-role-badge';
 
 @Component({
-  imports:[RouterLink],
+  imports:[RouterLink,NavIcon,NucleusRoleBadge],
   templateUrl:'./nuclei-list.html',
 })
 export class NucleiList {

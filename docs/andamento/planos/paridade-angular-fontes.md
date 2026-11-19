@@ -1,6 +1,6 @@
 # Referência de código para a paridade Angular
 
-O passo 04 está validado localmente na v4.0.0-alpha.18. O [registro das telas 06–09](../registros/registro-v4.0.0-alpha.18-2026-11-19-imp-paridade-angular-fun-criacao-de-nucleo.md) contém a galeria e os resultados. O [passo 05](../registros/registro-v4.0.0-alpha.19-2026-11-19-imp-paridade-angular-fun-convites.md) também está validado localmente. O próximo recorte é o passo 06, Seus Núcleos, Início e participação.
+O passo 04 está validado localmente na v4.0.0-alpha.18. O [registro das telas 06–09](../registros/registro-v4.0.0-alpha.18-2026-11-19-imp-paridade-angular-fun-criacao-de-nucleo.md) contém a galeria e os resultados. O [passo 05](../registros/registro-v4.0.0-alpha.19-2026-11-19-imp-paridade-angular-fun-convites.md) também está validado localmente. O [passo 06](../registros/registro-v4.0.0-alpha.20-2026-11-19-imp-paridade-angular-fun-nucleos-e-participacao.md) está validado localmente. O próximo recorte é o passo 07, Agenda, consulta e presença.
 
 O código Next.js v3.11.1 no commit `604a142` é a referência principal. Antes de portar um passo, leia a rota, os componentes, os estilos importados, o estado e as ações. O Atlas conferirá a apresentação e o inventário de telas, inclusive esboços. Registre divergências entre o código e o Atlas e preserve as regras de domínio e permissões vigentes. Mantenha Angular como único frontend da migração.
 

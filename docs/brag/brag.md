@@ -1,3 +1,7 @@
+## 19/11/2026 — Paridade do Início e de participação
+
+Os cartões ganharam uma identificação visual do vínculo e a tela de saída ganhou acesso à preferência de autoria. Playwright confirmou abertura da preferência antes da saída e atualização de identidade entre duas sessões com o rascunho preservado. [Registro](../andamento/registros/registro-v4.0.0-alpha.20-2026-11-19-imp-paridade-angular-fun-nucleos-e-participacao.md).
+
 ## 19/11/2026 — Paridade do percurso de convites
 
 O aviso de formato inválido aparecia sem associação ao campo. A interface passou a devolver o foco e vincular o aviso, além de aproximar entrada e gestão da referência visual. Testes em duas larguras confirmaram foco, aceite explícito e preservação do vínculo confirmado após revogação. [Registro](../andamento/registros/registro-v4.0.0-alpha.19-2026-11-19-imp-paridade-angular-fun-convites.md).

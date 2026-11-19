@@ -22,6 +22,8 @@
 
 # Comparações de telas — procedimento permanente
 
+- [v4.0.0-alpha.20 · Núcleos e participação no Angular](v4.0.0-alpha.20-2026-11-19-paridade-nucleos-tela-12-tela-13-tela-71-tela-73/index.html) — lista, Início, autoria, saída e diálogos de participação.
+
 - [v4.0.0-alpha.19 · Convites no Angular](v4.0.0-alpha.19-2026-11-19-paridade-convites-tela-10-tela-11-tela-58-tela-59/index.html) — entrada, prévia, código, gestão, preparo e revogação.
 
 - [v4.0.0-alpha.18 · Criação de Núcleo no Angular](v4.0.0-alpha.18-2026-11-19-paridade-comecar-tela-06-tela-07-tela-08-tela-09/index.html) — Telas 06–09, com conferência da Tela 08 em computador e celular.

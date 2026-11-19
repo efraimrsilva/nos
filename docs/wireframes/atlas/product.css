@@ -272,6 +272,10 @@ body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog .live-member-t
 .live-purpose-summary dt { font-weight: 700; }
 .live-purpose-summary dd { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
 .live-initial-invite { display: grid; gap: .65rem; justify-items: start; }
+.live-leave-review { display: grid; gap: .65rem; justify-items: start; margin-top: 1rem; }
+@container (min-width: 701px) {
+  .live-nucleus-overview { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
 .live-invite-entry .live-panel { padding: clamp(20px,3vw,28px); }
 .live-invite-entry input[name="invitation-code"] { font-family: monospace; text-transform: uppercase; }
 .live-invite-entry input[name="invitation-code"]::placeholder { text-transform: none; }

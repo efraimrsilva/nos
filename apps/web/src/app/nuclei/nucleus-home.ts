@@ -2,14 +2,16 @@ import { afterNextRender, Component, ElementRef, effect, inject, Injector, resou
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { PreviewProfile } from '../preview-profile';
+import { NavIcon } from '../shared/nav-icon';
 import { findNucleusType, formatCalendarEventDate, profileLetters } from './nucleus-model';
 import { NucleiData, type Member } from './nuclei-data';
 import { NucleusAction } from './nucleus-action';
 import { type ManagementOperation, type ManagementScope } from './nucleus-management-data';
 import { watchNucleusIdentity } from './nucleus-identity-sync';
+import { NucleusRoleBadge } from './nucleus-role-badge';
 
 @Component({
-  imports:[RouterLink,NucleusAction],
+  imports:[RouterLink,NucleusAction,NavIcon,NucleusRoleBadge],
   templateUrl:'./nucleus-home.html',
 })
 export class NucleusHome {

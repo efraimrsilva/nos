@@ -1,3 +1,7 @@
+## Núcleos e participação no Angular — v4.0.0-alpha.20 — 2026-11-19
+
+Paridade 06 concluída localmente nas Telas 12, 13, 71 e 73. Acervo de cartões, resumo do Início, edição e gestão de participação conferidos em computador e celular. [Registro](../registros/registro-v4.0.0-alpha.20-2026-11-19-imp-paridade-angular-fun-nucleos-e-participacao.md).
+
 ## Convites no Angular — v4.0.0-alpha.19 — 2026-11-19
 
 Paridade 05 concluída localmente. O fluxo foi conferido desde a entrada por código até a gestão administrativa, incluindo preparo e confirmação de revogação. [Registro](../registros/registro-v4.0.0-alpha.19-2026-11-19-imp-paridade-angular-fun-convites.md).

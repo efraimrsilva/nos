@@ -23,8 +23,8 @@ try {
     assert.deepEqual(await phases.evaluateAll(items => items.map(item => item.dataset.migrationPhase)), ['1','2','3','4']);
     assert.equal(await phases.first().getAttribute('open'), '');
     const web = await phases.first().innerText();
-    assert.match(web, /paridade 06–16[\s\S]*ensaio hospedado[\s\S]*Publicar o Angular[\s\S]*arquivo\/nextjs\//);
-    assert.match(await panel.innerText(), /Próximo passo:\s*paridade visual 06/);
+    assert.match(web, /paridade 07–16[\s\S]*ensaio hospedado[\s\S]*Publicar o Angular[\s\S]*arquivo\/nextjs\//);
+    assert.match(await panel.innerText(), /Próximo passo:\s*paridade visual 07/);
     for (const [index, title] of [[1,/Nx e backend NestJS/],[2,/Decisão de autenticação/],[3,/WebSocket e Capacitor/]]) {
       const summary = phases.nth(index).locator('summary');
       assert.match(await summary.innerText(), title);

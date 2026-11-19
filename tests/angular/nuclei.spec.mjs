@@ -451,6 +451,11 @@ test('muda identidade, aceita nomeação pela própria conta, sai e encerra', as
     await ownDetails.getByRole('link',{name:'Sair deste Núcleo'}).click();
     await expect(guest.getByText(/autoria dos registros será preservada/i)).toBeVisible();
     await capture(guest,'saida');
+    const privacy = guest.getByRole('link',{name:'Conferir minha preferência'});
+    await expect(privacy).toHaveAttribute('href','/conta#privacidade');
+    await privacy.click();
+    await expect(guest).toHaveURL('/conta#privacidade');
+    await guest.goBack();
     await guest.getByRole('button',{name:'Revisar minha saída'}).click();
     await capture(guest,'confirmar-saida');
     await guest.getByRole('dialog').getByRole('checkbox').check();

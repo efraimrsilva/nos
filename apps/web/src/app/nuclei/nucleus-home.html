@@ -17,19 +17,19 @@
           <button type="button" class="text-link" [disabled]="editing()" aria-haspopup="dialog" (click)="editIdentity('purpose',view.nucleus.purpose,editDialog)">Editar propósito</button>
         }
       </div>
-      <span class="badge">{{ view.role === 'admin' ? 'Administrador' : 'Participante' }}</span>
+      <app-nucleus-role-badge [admin]="view.role === 'admin'" />
     </div>
     @if (view.role === 'admin') {
       <div class="nucleus-actions">
         <a class="button secondary" [routerLink]="['/comecar/convite-inicial',view.nucleus.id]">Convidar pessoas</a>
         <a class="text-link" [routerLink]="['/nucleos',view.nucleus.id,'convites']">Gerenciar convites</a>
       </div>
-    } @else { <span class="badge">Espaço privado</span> }
+    }
   </header>
   @if (feedback()) { <p class="surface" role="status">{{ feedback() }}</p> }
   <div class="overview-grid">
     <section class="surface">
-      <h2>Na agenda</h2>
+      <h2 class="nucleus-panel-heading">Na agenda <app-nav-icon name="calendar" /></h2>
       @if (view.calendar.length) {
         <ul class="summary-list">
           @for (event of view.calendar; track event.id) {
@@ -40,8 +40,8 @@
       <a class="text-link" [routerLink]="['/nucleos',view.nucleus.id,'agenda']">Abrir agenda</a>
     </section>
     <section class="surface">
-      <h2>Núcleos onde estou</h2>
-      <p>{{ view.nucleus.name }}</p>
+      <h2 class="nucleus-panel-heading">Núcleos onde estou <app-nav-icon name="users" /></h2>
+      <p class="nucleus-current-space"><app-nav-icon name="home" />{{ view.nucleus.name }}</p>
       <button type="button" class="button secondary" (click)="openPeople(people)" aria-haspopup="dialog">Ver integrantes</button>
       <ul class="summary-list">
         @for (space of view.spaces; track space.id) {
@@ -50,8 +50,9 @@
       </ul>
       <a class="text-link" routerLink="/nucleos">Ver Seus Núcleos</a>
     </section>
-    <section class="surface">
-      <h2>O que estamos cultivando</h2>
+  </div>
+    <section class="surface nucleus-participation" aria-labelledby="cultivation-title">
+      <h2 class="nucleus-panel-heading" id="cultivation-title">O que estamos cultivando <app-nav-icon name="sprout" /></h2>
       @if (view.agreements.length) {
         <ul class="summary-list">
           @for (agreement of view.agreements; track agreement.id) {
@@ -61,7 +62,6 @@
       } @else { <p>Os primeiros acordos podem nascer de uma intenção simples.</p> }
       <a class="text-link" [routerLink]="['/nucleos',view.nucleus.id,'acordos']">Ver acordos</a>
     </section>
-  </div>
   <section class="surface nucleus-participation" aria-label="Funcionalidades planejadas">
     <h2>Explore as prévias</h2>
     <p>Exemplos ilustrativos de áreas planejadas para este espaço.</p>
@@ -109,7 +109,7 @@
         </header>
         @if (feedback()) { <p role="status">{{ feedback() }}</p> }
         <p>Administradores têm os mesmos poderes. Cada nomeação depende do aceite da pessoa. As informações pessoais privadas continuam protegidas.</p>
-        <p>{{ member.nomination_pending ? 'Nomeação para administrar aguardando aceite.' : member.role === 'admin' ? 'Cuida dos convites e da organização do Núcleo.' : 'Decide sobre sua própria participação.' }}</p>
+        <p class="nucleus-participation-summary">{{ member.nomination_pending ? 'Nomeação para administrar aguardando aceite.' : member.role === 'admin' ? 'Cuida dos convites e da organização do Núcleo.' : 'Decide sobre sua própria participação.' }}</p>
         @if (member.user_id === view.scope.owner) {
           @if (member.nomination_pending) {
             <app-nucleus-action [scope]="view.scope" operation="accept" label="Aceitar administração"
@@ -158,7 +158,7 @@
     <header class="dialog-heading"><h2 id="close-nucleus-title">Encerrar Núcleo</h2>
       <form method="dialog"><button class="icon-button" aria-label="Fechar encerramento" autofocus>×</button></form>
     </header>
-    <p>Todos perderão acesso a este Núcleo e os convites serão revogados. O histórico armazenado será preservado. A conta de cada pessoa continua disponível.</p>
+    <p class="nucleus-consequence">Todos perderão acesso a este Núcleo e os convites serão revogados. O histórico armazenado será preservado. A conta de cada pessoa continua disponível.</p>
     <p>Digite o nome atual do Núcleo: <strong>{{ view.nucleus.name }}</strong>.</p>
     <app-nucleus-action #closeForm [scope]="view.scope" operation="close" label="Confirmar encerramento"
       [field]="{label:'Nome atual do Núcleo',max:80}" [danger]="true"

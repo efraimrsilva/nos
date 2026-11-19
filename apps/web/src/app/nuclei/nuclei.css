@@ -8,18 +8,31 @@
 .nucleus-workspace { max-width:1120px; margin:auto; }
 .nucleus-cards,.overview-grid,.type-grid { display:grid; gap:1rem; grid-template-columns:minmax(0,1fr); }
 .nucleus-card,.dialog-links a { color:var(--ink); text-decoration:none; overflow-wrap:anywhere; }
-.nucleus-card { padding:0 1rem 1rem; overflow:hidden; }
-.nucleus-card h2 { font-size:1.25rem; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; }
+.nucleus-card { padding:clamp(1rem,2vw,1.4rem); overflow:hidden; }
+.nucleus-card h2 { font:1.8rem/1.25 Georgia,serif; margin:.65rem 0 .4rem; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; }
 .nucleus-card p { margin-top:.3rem; }
 .nucleus-card ul,.summary-list { list-style:none; margin:.7rem 0; padding:0; }
 .nucleus-card ul { overflow:auto; max-height:10rem; }
 .nucleus-card li,.summary-list li { display:flex; align-items:center; justify-content:space-between; gap:.6rem; padding:.35rem 0; border-top:1px solid var(--line); }
-.nucleus-card li { justify-content:start; }
+.nucleus-card li { justify-content:start; border-top:0; }
 .nucleus-card li span:last-child { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.nucleus-cover { height:2.7rem; background:#e6eddf; margin:0 -1rem .7rem; border-bottom:1px solid var(--line); }
-.nucleus-cover[data-type=casal] { background:#f3e0e3; }
-.nucleus-cover[data-type=familia] { background:#ebdfc8; }
-.nucleus-cover[data-type=amigos] { background:#e2e9f4; }
+.nucleus-cover { display:grid; place-items:center; min-height:6.25rem; background:#e6eddf; margin-bottom:1rem; border-radius:.55rem; --icon-tone:#345d44; }
+.nucleus-cover app-nav-icon svg { width:1.85rem; height:1.85rem; }
+.nucleus-cover[data-type=casal] { background:#f3e0e3; --icon-tone:#9a4f64; }
+.nucleus-cover[data-type=familia] { background:#ebdfc8; --icon-tone:#716037; }
+.nucleus-cover[data-type=amigos] { background:#e2e9f4; --icon-tone:#41628d; }
+.nucleus-role { gap:.35rem; }
+.nucleus-role app-nav-icon svg { width:.95rem; height:.95rem; }
+.nucleus-card .nucleus-members-heading { margin-top:1.2rem; }
+.nucleus-active-agreements,.nucleus-members-heading { color:var(--muted); font-size:.9rem; }
+.nucleus-empty,.nucleus-current-space,.nucleus-icon-action,.nucleus-back { display:flex; align-items:center; gap:.6rem; }
+.nucleus-icon-action { --icon-tone:currentColor; justify-content:center; }
+.nucleus-empty { padding:1.5rem; }
+.nucleus-back { min-height:2.75rem; color:var(--leaf); }
+.nucleus-panel-heading { display:flex; align-items:center; justify-content:space-between; gap:.75rem; font-size:1.25rem; margin-bottom:.55rem; }
+.nucleus-current-space { margin:.7rem 0; }
+.nucleus-participation-summary,.nucleus-consequence { padding:.75rem 1rem; margin:.65rem 0; border-inline-start:2px solid var(--leaf); background:var(--accent-soft); overflow-wrap:anywhere; }
+.nucleus-leave-review { display:grid; gap:.65rem; margin-top:1rem; justify-items:start; }
 .badge,.avatar { display:inline-flex; align-items:center; background:var(--accent-soft); color:var(--leaf); font-weight:600; }
 .badge { border-radius:.45rem; padding:.12rem .48rem; font-size:.8rem; }
 .avatar { width:2rem; height:2rem; flex:none; justify-content:center; border-radius:50%; font-family:Georgia,serif; }
@@ -29,6 +42,8 @@
 .dialog-links a { display:flex; flex-direction:column; border:1px solid var(--line); padding:.7rem; border-radius:.6rem; margin-top:.6rem; }
 .dialog-links span,.summary-list span { color:var(--muted); font-size:.9rem; }
 .dialog-links a:hover { background:var(--accent-soft); }
+.nucleus-path-links a { display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:.7rem; align-items:center; }
+.nucleus-path-links strong,.nucleus-path-links small { display:block; }
 .form-error { color:#9a232e; }
 .nucleus-identity-line { display:flex; align-items:baseline; flex-wrap:wrap; gap:.25rem .8rem; }
 .nucleus-identity-line p { white-space:pre-wrap; overflow-wrap:anywhere; }
@@ -62,7 +77,6 @@ button.nucleus-danger-text { color:#9a232e; }
   .nucleus-cards,.overview-grid,.type-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
 @media (min-width: 1200px) {
-  .nucleus-cards { grid-template-columns:repeat(auto-fit,minmax(0,300px)); }
   .type-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
 }
 @media (prefers-reduced-motion: no-preference) {

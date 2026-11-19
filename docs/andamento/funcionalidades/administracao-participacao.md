@@ -1,3 +1,5 @@
+**Paridade Angular v4.0.0-alpha.20.** A Tela 71 recupera o acesso à preferência de autoria antes da revisão de saída. Na lista e no Início, o papel exibido vem do vínculo consultado. [Registro](../registros/registro-v4.0.0-alpha.20-2026-11-19-imp-paridade-angular-fun-nucleos-e-participacao.md).
+
 ## Adequação de Acordos — contrato vigente — v3.8.0 — 06/11/2026
 
 **Prévia Angular A06 · v4.0.0-alpha.6.** Os formulários de identidade, nomeação, resposta, destituição, remoção, saída e encerramento usam as regras e a autorização já aplicadas no Supabase. A seção **Minha participação** é contextual ao Núcleo. [Organização do Núcleo](organizacao-nucleo.md) · [Registro A06](../registros/registro-v4.0.0-alpha.6-2026-11-15-imp-pessoas-angular-fun-administracao-e-participacao.md).

@@ -4,7 +4,7 @@
     <p>Vários laços. Seu próprio ritmo. Escolha o espaço que quer cuidar agora.</p></div>
   <div class="nucleus-actions">
     <a class="button secondary" routerLink="/comecar/convite">Entrar com convite</a>
-    <button type="button" class="button" (click)="paths.showModal()" aria-haspopup="dialog">Criar um núcleo</button>
+    <button type="button" class="button nucleus-icon-action" (click)="paths.showModal()" aria-haspopup="dialog"><app-nav-icon name="plus" />Criar um núcleo</button>
   </div>
 </header>
 @if (closed()) { <p class="surface" role="status">Núcleo encerrado. O histórico compartilhado foi preservado.</p> }
@@ -19,12 +19,14 @@
     <nav class="nucleus-cards" aria-label="Seus Núcleos">
       @for (card of result.cards; track card.id) {
         <a class="surface nucleus-card" [routerLink]="['/nucleos',card.id]" [attr.aria-label]="card.name">
-          <div class="nucleus-cover" [attr.data-type]="card.type" aria-hidden="true"></div>
+          <div class="nucleus-cover" [attr.data-type]="card.type" aria-hidden="true">
+            <app-nav-icon [name]="card.type === 'casal' ? 'heart' : card.type === 'familia' ? 'home' : 'users'" />
+          </div>
           <span class="badge">{{ typeLabel(card.type) }}</span>
           <h2 [title]="card.name">{{ card.name }}</h2>
-          <p class="badge">{{ card.role === 'admin' ? 'Administrador' : 'Participante' }}</p>
-          <p>{{ card.activeAgreements }} {{ card.activeAgreements === 1 ? 'acordo ativo' : 'acordos ativos' }}</p>
-          <p><strong>{{ card.members.length }} {{ card.members.length === 1 ? 'pessoa' : 'pessoas' }}</strong></p>
+          <app-nucleus-role-badge [admin]="card.role === 'admin'" />
+          <p class="nucleus-active-agreements">{{ card.activeAgreements }} {{ card.activeAgreements === 1 ? 'acordo ativo' : 'acordos ativos' }}</p>
+          <p class="nucleus-members-heading">{{ card.members.length }} {{ card.members.length === 1 ? 'pessoa' : 'pessoas' }}</p>
           <ul aria-label="Pessoas deste Núcleo">
             @for (person of card.members; track person.user_id) {
               <li><span class="avatar" aria-hidden="true">{{ initials(person.display_name) }}</span><span [title]="person.display_name">{{ person.display_name }}</span></li>
@@ -34,7 +36,7 @@
       }
     </nav>
   } @else {
-    <p class="surface" role="status">{{ page() === 1
+    <p class="surface nucleus-empty" role="status"><app-nav-icon name="sprout" />{{ page() === 1
       ? 'Você ainda não participa de um Núcleo. Crie um espaço ou entre com um convite quando fizer sentido.'
       : 'Não há Núcleos nesta página. Volte à página anterior.' }}</p>
   }
@@ -52,9 +54,9 @@
     <form method="dialog"><button class="icon-button" aria-label="Fechar escolha" autofocus>×</button></form>
   </header>
   <p>Cada espaço começa com o vínculo e o propósito de vocês.</p>
-  <nav class="dialog-links" aria-label="Opções para começar">
-    <a routerLink="/comecar/tipo" (click)="paths.close()"><strong>Criar um núcleo</strong><span>Escolher vínculo, nome e propósito</span></a>
-    <a routerLink="/comecar/convite" (click)="paths.close()"><strong>Entrar com um convite</strong><span>Abrir um espaço que já existe</span></a>
+  <nav class="dialog-links nucleus-path-links" aria-label="Opções para começar">
+    <a routerLink="/comecar/tipo" (click)="paths.close()"><app-nav-icon name="sprout" /><span><strong>Criar um núcleo</strong><small>Escolher vínculo, nome e propósito</small></span><app-nav-icon name="right" /></a>
+    <a routerLink="/comecar/convite" (click)="paths.close()"><app-nav-icon name="users" /><span><strong>Entrar com um convite</strong><small>Abrir um espaço que já existe</small></span><app-nav-icon name="right" /></a>
   </nav>
 </dialog>
 </div>

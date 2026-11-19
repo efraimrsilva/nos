@@ -1,8 +1,18 @@
-# Estado atual — Angular v4.0.0-alpha.19 — 2026-11-19
+# Estado atual — Angular v4.0.0-alpha.20 — 2026-11-19
+
+**Paridade visual 06 concluída localmente.** Telas 12, 13, 71 e 73 com cartões de Núcleos, emblemas de papel, resumo do Início e participação. A tela de saída ganhou o acesso à preferência de autoria. [Registro](registros/registro-v4.0.0-alpha.20-2026-11-19-imp-paridade-angular-fun-nucleos-e-participacao.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.20-2026-11-19-paridade-nucleos-tela-12-tela-13-tela-71-tela-73/index.html).
+
+**Verificações.** Build e tipos Angular, seis testes Playwright autenticados em computador e celular, 257 testes de banco local e verificadores do Atlas. Testes cobriram atualização de identidade entre sessões, rascunho mantido, nomeação com aceite, saída e encerramento. A primeira execução de referência não encontrou a mensagem de nome atualizado no celular. O recorte atualizado passou nos dois dispositivos.
+
+**Continuidade.** DOCS_DIR `docs`. Branch `codex/migracao-angular`, base `24929b3`. Contador 94, a partir de 93. Último marco registrado 100, preservado do histórico. Ferramentas: Superpowers, Context7 Angular 22, Playwright e Supabase local. Unidade pronta para commit: paridade de Núcleos e participação. Sugestão: `fix(angular): concluir paridade de núcleos e participação`.
+
+**Próximo passo.** Paridade 07, Agenda, consulta e presença. Comparar mês, semana, lista móvel, detalhes e respostas com a referência Next.js. A v4.0.0-alpha.20 está local. [Mapa de fontes](planos/paridade-angular-fontes.md).
+
+## Histórico da paridade 05
 
 **Paridade 05 concluída localmente.** As Telas 10, 11, 58 e 59 receberam os cartões, o realce de propósito, a apresentação do código e a composição da gestão. Formato inválido associa a mensagem ao campo e devolve o foco. Aceite, geração e revogação mantêm as permissões do Supabase. [Registro](registros/registro-v4.0.0-alpha.19-2026-11-19-imp-paridade-angular-fun-convites.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.19-2026-11-19-paridade-convites-tela-10-tela-11-tela-58-tela-59/index.html).
 
-**Continuidade.** DOCS_DIR `docs`. Branch `codex/migracao-angular`, base `c1eb035`, que inclui a entrega anterior. Contador 93, a partir de 92. Último marco registrado 100, preservado do histórico. Ferramentas: Superpowers, Context7 Angular 22, Playwright e Supabase local. Unidade pronta para commit: paridade de convites. Sugestão: `fix(angular): concluir paridade de convites`.
+**Git.** A entrega 05 está incluída no commit `24929b3`.
 
 **Próximo passo.** Paridade visual 06. Comparar Seus Núcleos, Início e participação com a referência Next.js, incluindo vazio, permissões e diálogos. A v4.0.0-alpha.19 está local. [Mapa de fontes](planos/paridade-angular-fontes.md).
 
