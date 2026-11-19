@@ -2,9 +2,9 @@
 
 **Produção A13:** Angular v4.0.0-alpha.16 publicado pelo Netlify no deploy `6aff4acac5b6a7d7da2938a9` a partir de `main@6e41268`. Rotas diretas Angular, configuração pública, resposta 404 da API desconhecida e 401 dos dois receptores sem autorização confirmados no domínio principal. O deploy Next.js `6af77e4a9a6348f87af8b9e1` (`604a142`) permanece como retorno. As quatro migrações obrigatórias estão registradas no Supabase hospedado, com permissões verificadas e assinaturas legadas preservadas. Sessão real e entrega de e-mails no domínio público seguem sem comprovação específica.
 
-**A14 — isolamento:** código Angular, regras de domínio, ativos e integrações estão em `apps/web`. O [arquivo visual](../../arquivo/nextjs/README.md) preserva estilos, marca e referências Next.js. O código executável antigo é recuperável pelo Git. Próximo passo de produto: retomar a paridade visual 04 (telas 06–09) com a referência arquivada. [Registro da virada e do isolamento](registros/registro-v4.0.0-alpha.17-2026-11-19-imp-isolamento-angular-fun-arquivo-visual-nextjs.md).
+**A14 — isolamento publicado:** main@e67cdae. O domínio público serviu o mesmo bundle Angular da compilação local, com rotas diretas, marca e respostas das integrações verificadas. código Angular, regras de domínio, ativos e integrações estão em `apps/web`. O [arquivo visual](../../arquivo/nextjs/README.md) preserva estilos, marca e referências Next.js. O código executável antigo é recuperável pelo Git. Próximo passo de produto: retomar a paridade visual 04 (telas 06–09) com a referência arquivada. [Registro da virada e do isolamento](registros/registro-v4.0.0-alpha.17-2026-11-19-imp-isolamento-angular-fun-arquivo-visual-nextjs.md).
 
-## Referências da preparação da virada
+## Referências históricas da preparação da virada
 
 
 **Decisão inicial de arquitetura:** Angular + TypeScript, Tailwind CSS, NestJS, PostgreSQL / Supabase, Capacitor, WebSocket e monorepo Nx. JWT próprio ou Supabase Auth e Vitest ou Jest são escolhas em aberto. Playwright continua como ferramenta de testes de navegador. A definição orienta a evolução da linha Angular. A [stack de destino e a situação de cada camada](planos/migracao-angular.md#stack-de-destino) são a referência vigente. A avaliação de NestJS de 07/11 fica como histórico.
@@ -35,7 +35,7 @@
 
 **Limite e próximo passo para a virada:** Antes da virada, comprovar renovação de sessão, envio e fila hospedados e retorno em ambiente isolado. Reconfirmar as quatro migrações do [registro da A13](registros/registro-v4.0.0-alpha.11-2026-11-17-imp-preparacao-angular-fun-transporte-e-paridade.md) no destino antes de qualquer aplicação. Preparar a candidata após essas provas, conforme o [roteiro](../../apps/web/netlify/README.md).
 
-**Continuidade Git:** documentação da stack pronta para commit. Sugestão `docs(arquitetura): registrar a stack de destino`. Reorganização de `docs` e atualização de referências também prontas para commit. Sugestão `docs: padronizar caminhos e atualizar links`. Roteiro da migração validado e pendente de commit. Sugestão `docs(migracao): organizar virada e arquivamento do Next.js`. Contador 90 conclusões acompanhadas e último marco de auditoria registrado 100. As conclusões anteriores sem registro no contador não foram estimadas.
+**Continuidade Git:** documentação da stack, reorganização da pasta docs e roteiro de migração incluídos no objeto fbfb2a1. Virada em 6e41268 e isolamento em e67cdae. Contador 91 conclusões acompanhadas e último marco de auditoria registrado 100. As conclusões anteriores sem registro no contador não foram estimadas.
 
 **Validação desta atualização:** guia Migração conferida com Playwright em 1440 e 390 pixels. As quatro fases ficam na seção Implementação após a paridade, depois do passo visual 16. A13 e A14 voltaram à lista principal, após A12, com atalhos na fase 1. A ordem e a cobertura das 73 fichas foram conferidas. Versões preservadas. Próximo passo executável: paridade visual 04 (Telas 06–09). As fases após A14 seguem planejadas.
 
