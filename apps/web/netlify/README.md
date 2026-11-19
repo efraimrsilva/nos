@@ -1,5 +1,7 @@
 # Ensaio Angular no Netlify
 
+O [plano de migração](../../../docs/andamento/planos/migracao-angular.md#fase-1--publicar-o-angular-e-arquivar-o-nextjs) define a ordem da virada. Fechar paridade e ensaiar o retorno antes de promover o Angular. Manter o projeto Next.js disponível até confirmar o Angular no domínio público. O arquivamento é uma entrega posterior à confirmação e preserva a referência do deploy anterior.
+
 Use um site de ensaio e um projeto Supabase exclusivos para contas descartáveis. O site tem base na raiz do repositório, **Package directory** `apps/web` e a configuração desse pacote. Confirme que o build usa `apps/web/netlify.toml` e que a integração Next.js não está instalada no site de ensaio. A instalação da raiz fornece as bibliotecas das funções. O comando do site instala também as dependências do Angular e publica `apps/web/dist/nos-web/browser`. A configuração Netlify da raiz continua responsável pelo site atual. [Configuração para monorepos](https://docs.netlify.com/build/configure-builds/monorepos/)
 
 ## Ensaio no site existente
@@ -10,7 +12,7 @@ O teste completo da fila e do e-mail ainda requer um Supabase de ensaio e uma ca
 
 Em 17/11/2026, o [rascunho Angular v4.0.0-alpha.10](https://6afbcf907b3227096c6e364b--noslife.netlify.app/conta) foi verificado inicialmente sem sessão. Depois, o usuário confirmou que conseguiu entrar no sistema. A [implantação de ensaio no Netlify](https://app.netlify.com/projects/noslife/deploys/6afbcf907b3227096c6e364b) deixou o domínio público no mesmo deploy Next.js. As páginas de retorno foram conferidas com `Referrer-Policy: no-referrer`, e as respostas das funções com `Cache-Control: no-store`.
 
-Para refazer a prova local da fila, inicie um projeto Supabase descartável em outro diretório, com identificador e portas próprios, usando uma cópia das migrações versionadas. Configure somente o Vault descartável para um receptor local com caixa de captura. Confira falha e liberação da reserva, nova tentativa, confirmação no banco e reenvio do mesmo evento. A [evidência da rodada](../../../Documentacao_Projeto_Nos/_andamento/registros/registro-v4.0.0-alpha.10-2026-11-17-imp-ensaio-angular-fun-rascunho-netlify-e-fila.md) registra o que foi observado.
+Para refazer a prova local da fila, inicie um projeto Supabase descartável em outro diretório, com identificador e portas próprios, usando uma cópia das migrações versionadas. Configure somente o Vault descartável para um receptor local com caixa de captura. Confira falha e liberação da reserva, nova tentativa, confirmação no banco e reenvio do mesmo evento. A [evidência da rodada](../../../docs/andamento/registros/registro-v4.0.0-alpha.10-2026-11-17-imp-ensaio-angular-fun-rascunho-netlify-e-fila.md) registra o que foi observado.
 
 ## Variáveis por escopo
 
@@ -46,7 +48,7 @@ A configuração de produção tem variáveis próprias, com os escopos abaixo. 
 | Functions | `NOS_ANGULAR_PRODUCTION_SUPABASE_SERVICE_ROLE_KEY` e `NOS_ANGULAR_PRODUCTION_ACCOUNT_NOTIFICATION_SECRET` para a fila de avisos. |
 | Functions | `SUPPORT_SMTP_HOST`, `SUPPORT_SMTP_PORT`, `SUPPORT_SMTP_USER`, `SUPPORT_SMTP_PASSWORD` e `SUPPORT_MAIL_FROM` para usar o transporte e o destino da equipe compartilhados com o Next.js. |
 
-O transporte oficial exige contexto de produção publicado no domínio canônico. O rascunho e a prévia leem apenas o transporte descartável. Um site de ensaio pode usar o contexto `production` próprio com a caixa de captura quando o envio oficial estiver desabilitado. O [registro local da A13](../../../Documentacao_Projeto_Nos/_andamento/registros/registro-v4.0.0-alpha.11-2026-11-17-imp-preparacao-angular-fun-transporte-e-paridade.md) delimita a evidência desta etapa. [Contexto de deploy das funções](https://docs.netlify.com/build/functions/api/#deploy) · [Escopos de variáveis](https://docs.netlify.com/build/functions/environment-variables/).
+O transporte oficial exige contexto de produção publicado no domínio canônico. O rascunho e a prévia leem apenas o transporte descartável. Um site de ensaio pode usar o contexto `production` próprio com a caixa de captura quando o envio oficial estiver desabilitado. O [registro local da A13](../../../docs/andamento/registros/registro-v4.0.0-alpha.11-2026-11-17-imp-preparacao-angular-fun-transporte-e-paridade.md) delimita a evidência desta etapa. [Contexto de deploy das funções](https://docs.netlify.com/build/functions/api/#deploy) · [Escopos de variáveis](https://docs.netlify.com/build/functions/environment-variables/).
 
 ### Conferência para quando a virada for autorizada
 

@@ -4,7 +4,7 @@ import { mkdirSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
-const gallery = path.resolve("Documentacao_Projeto_Nos/wireframes/comparacoes/v3.1.0-2026-10-23-exclusao-conta");
+const gallery = path.resolve("docs/wireframes/comparacoes/v3.1.0-2026-10-23-exclusao-conta");
 mkdirSync(gallery, { recursive: true });
 const browser = await chromium.launch();
 try {
@@ -12,7 +12,7 @@ try {
     const page = await browser.newPage({ viewport });
     const errors = [];
     page.on("pageerror", error => errors.push(error.message));
-    await page.goto(pathToFileURL(path.resolve("Documentacao_Projeto_Nos/wireframes/atlas/index.html")).href);
+    await page.goto(pathToFileURL(path.resolve("docs/wireframes/atlas/index.html")).href);
     await page.evaluate(() => openScreen(69));
     await page.locator("#screen-preview [data-live-delete-account]").first().click();
     const dialog = page.locator("#atlas-live-dialog");

@@ -1,0 +1,99 @@
+# Atualização vigente — Conta e entrada — v3.9.0 — 2026-11-06
+
+Google/Apple preparados no cadastro e no login, com retorno PKCE seguro, preservação de convites e complemento autenticado de nome. Google ativado e validado no desenvolvimento com Supabase hospedado: retorno a Seus Núcleos e sessão após recarregar confirmados. Apple permanece desativada; publicação Google no site hospedado pendente. Sem migração/deploy. [Contrato, ativação e limites](login-social.md). Os marcos seguintes preservam o histórico.
+
+---
+
+# Conta e entrada — v3.5.0
+
+## Atualização vigente — Conta e entrada — v3.5.0 — 03/11/2026
+
+Login, cadastro e definição de nova senha reutilizam `PasswordInput`, com botão próprio Mostrar/Ocultar, acionável por toque ou teclado. A alternância muda somente a visibilidade do valor atual, sem enviar formulário, apagar o campo ou alterar validação/autocomplete. O controle é desabilitado junto do campo durante processamento. Não enfraquece política de senha nem comprova mitigação dos riscos de autenticação registrados na auditoria anterior.
+
+A composição da árvore passa de cinco para oito luzes decorativas, sorteadas após hidratação e renovadas em cada passagem, com atrasos negativos para distribuição inicial. A decoração não recebe foco nem nome acessível. As animações da conta respeitam movimento reduzido. O painel desktop do perfil recebe a mesma entrada suave das seções da conta; a página `/conta` continua acessível no computador e no celular, e o painel menor não passa a existir no celular.
+
+O gatilho Apagar minha conta passa a ter texto, ícone e realce vermelhos nos nove temas, com foco visível. Isso não altera a confirmação `APAGAR CONTA`, autorização, retenção, impedimentos por Storage ou operação da exclusão. [Registro](../registros/registro-v3.5.0-2026-11-03-04-imp-conta-fun-feedback-e-acessibilidade.md) · [casos M01-AJU-001, M05-AJU-001–003](../testes-caixa-preta/ajustes-v3-5.md), Não executados pelo usuário.
+
+## Marcos e contratos históricos
+
+## Conferência de segurança — 2026-10-30
+
+O comportamento atual de confirmação/recuperação informa se o e-mail existe e está confirmado, inclusive sem sessão. A RPC pública `get_email_confirmation_status` permite essa consulta direta. As declarações históricas de mensagens neutras abaixo descrevem versões anteriores e foram substituídas por esse comportamento. A auditoria classifica a enumeração como risco de privacidade; o intervalo por cookie não controla a chamada direta. Nenhuma mitigação funcional foi aplicada nesta entrega documental. [Evidência, limites e correção proposta — SEG-001](../registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md).
+
+No Supabase local, cadastro direto aceitou senha de oito letras, embora o formulário exija letra, número e símbolo. A política do provedor precisa ser alinhada; configuração remota não foi aferida. Logout revoga renovação, mas token não expirado ainda acessou uma RPC local; não prometer encerramento instantâneo. [SEG-003/004 no relatório](../registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md). Recebimento externo, backups/restauração e configuração hospedada continuam exigindo evidência própria.
+
+## v3.1.3 — Identidade dos e-mails — 2026-10-27
+
+13 modelos em português com a identidade do Nós, um por situação de autenticação/segurança. Confirmação e recuperação mantêm os links e os fluxos existentes; modelos de convite administrativo, link de entrada, mudança de endereço e verificação não ativam novas funcionalidades. Avisos preservam a configuração de envio vigente. 13 assuntos e13 HTMLs aplicados e conferidos remotamente pela API oficial. Credencial da CLI reutilizada somente em memória; avisos desativados preservados. Prévias e leitura de configuração não comprovam recebimento. [Catálogo e operação](../../../supabase/templates/README.md) · [registro](../registros/registro-v3.1.3-2026-10-27-imp-emails-fun-modelos-personalizados.md) · [prévias](../../wireframes/comparacoes/2026-10-27-emails-personalizados/index.html).17 novos testes de caixa preta M01-081 a M01-097 integrados ao roteiro MVP01, ainda Não executados.
+
+## v0.14.1 — Operação online Netlify — 2026-10-13
+
+https://noslife.netlify.app conectado ao nos-dev. Netlify Production configurado com endereço/chave pública do Supabase e APP_ORIGIN; Supabase Site URL e retornos /auth/confirm e /auth/recovery online aplicados, preservando retornos locais. Deploy 6ace48f47aa1bb0b8a70bc68 publicado em main a219fb4. Login, acesso privado por cookies, saída e proteção após sair validados por HTTP com fixture confirmada e posteriormente removida. Contratos/telas mantidos.
+
+Cadastro público com confirmação externa permanece pendente: SMTP próprio desabilitado e usuário reconfirmou que senha de aplicativo Gmail ainda não foi liberada. Recuperação online completa também requer AUTH_RECOVERY_SECRET no servidor, ainda não configurado no Netlify. [Registro operacional](../registros/registro-v0.14.1-2026-10-13-03-imp-conexao-netlify-fun-acesso-online.md). Não confundir teste com fixture confirmada com cadastro/recebimento de e-mail certificado.
+
+## v0.14.1 — Conferência MVP etapa 01 — 2026-10-13
+
+Login mantém resposta genérica para credenciais inválidas; status 429 orienta aguardar, transporte/5xx informa indisponibilidade. Conta e raiz não interpretam falha do Auth como prova de logout: sinalizam consulta indisponível. Mensagens neutras de recuperação/reenvio preservadas. 100 testes gerais, tipos/build e jornada de e-mail local aprovados; revisão independente sem achados relevantes. Revogação global impede renovação, não promete invalidar imediatamente JWT emitido. SMTP Gmail aguarda Google liberar senha de app, confirmado nesta data. Etapa 01 não fecha operacionalmente sem recebimento externo e conferência de origem/URLs/segredo do ambiente de uso. [Registro](../registros/registro-v0.14.1-2026-10-13-imp-acesso-existente-fun-mvp-etapa-01.md), [comparação](../../wireframes/comparacoes/v0.14.1-2026-10-13-acesso-indisponivel-tela-01/index.html).
+
+## v0.13.3 — Percurso 04 Entrar por convite — 2026-10-10
+
+Chegada direta exige conta e retorna a Inserir convite, sem impor a lista antes da prévia. Cadastro/confirmação/recuperação preservam o destino; código fica fora das URLs atuais e precisa ser colado depois da autenticação. Prévia mostra tipo; Agora não retorna à lista sem vínculo. [Contrato](entrada-convite.md) e [registro](../registros/registro-v0.13.3-2026-10-10-imp-entrada-convite-fun-percurso-04.md). Sem alteração no contrato de autenticação ou aplicação SMTP remota.
+
+## Fluxos entregues
+
+- `/boas-vindas` entrega a Entrada afetiva opcional 72: árvore, marca, acolhimento e botões diretos de cadastro/login, sem espera. Conta mantém Voltar às boas-vindas no link superior; Conheça o Nós foi removido na v0.13.1. Elementos históricos de login social/aceite jurídico não são integrações existentes.
+
+- `/` abre `/conta` sem sessão e `/nucleos` autenticada. Login sem destino específico abre Seus Núcleos. Cadastro e login compartilham as abas existentes; sessão validada oferece continuar e sair.
+- Cadastro valida nome, e-mail e senha no servidor e segue para `/conta/confirmar-email`. Criar conta não cria Núcleo.
+- Confirmação aceita código PKCE (Proof Key for Code Exchange) no navegador de origem ou template direto `token_hash&type=email`. Rejeita parâmetros repetidos/misturados. `/auth/confirm` preserva retorno interno seguro. Link inválido oferece reenvio.
+- `/conta/confirmar-email` e `/conta/recuperar` encaminham aos modais de confirmação/recuperação da Conta. A ação consulta existência e confirmação antes do envio e apresenta estados distintos, inclusive em falha SMTP (protocolo de envio de e-mail). A divulgação atual está registrada como risco SEG-001; o helper antigo de mensagem neutra é exercitado em testes, mas não é chamado pela ação ativa. Diagnóstico operacional não deve incluir e-mail, URL ou token.
+- `/auth/recovery` verifica token direto com `type=recovery` ou código PKCE com método `recovery` no JWT (JSON Web Token) validado pelo Auth. Retira credenciais da URL antes da página.
+- `/conta/nova-senha` exige sessão validada e prova HMAC (Hash-based Message Authentication Code) assinada, vinculada a pessoa/sessão e com prazo de 15 minutos após validar o link. Login comum, cookie adulterado e prova vencida não autorizam o formulário nem a ação de escrita.
+- Senha e confirmação são validadas no servidor. Sucesso revoga globalmente refresh tokens, elimina a prova e orienta novo login. Falha de revogação exige entrar novamente, voltar a Conta e sair para tentar outra vez. JWT já emitido continua sujeito à expiração; não prometemos encerramento instantâneo de todo acesso.
+- Retorno de convite atravessa cadastro, confirmação, login e recuperação. Conferir convite continua separado do aceite explícito.
+
+## Política e configuração
+
+Senha atual: mínimo oito e máximo 128 caracteres, letra, número e símbolo. Validação comum em `src/features/auth/input.ts`; proposta documental de 15 caracteres permanece futura. Permite colar e usar gerenciador.
+
+`APP_ORIGIN` deve ser a origem externa exata do aplicativo. `AUTH_RECOVERY_SECRET` deve ser segredo de servidor aleatório com pelo menos 32 caracteres, igual entre instâncias; nunca usar prefixo `NEXT_PUBLIC_`. Chave local gerada em `.env.local` ignorado pelo Git. Rotacionar a chave invalida provas de recuperação em andamento, sem alterar senhas.
+
+No Auth autorizar `/auth/confirm` e `/auth/recovery`, incluindo os retornos com `?next=...` controlados pela aplicação. No `nos-dev`, foram preservados os retornos anteriores e acrescentados os necessários em `http://127.0.0.1:3000`; mínimo do Auth ajustado de seis para oito. Configuração temporária declarou apenas essas duas propriedades; os outros 11 campos remotos foram preservados e a comparação posterior encontrou zero divergências nas duas propriedades. Não enviar a URL de validação 3200 ao remoto.
+
+No Supabase local, os callbacks 3200 permitem a jornada isolada. Serviço de e-mail é Mailpit, com caixa local acessível pela URL da CLI (Command Line Interface). Link de e-mail local configurado com uma hora de validade; prova da aplicação limita a tela a 15 minutos após a verificação. PKCE depende do navegador que solicitou o link. Template direto pode apontar para `/auth/recovery?token_hash={{ .TokenHash }}&type=recovery` para outro navegador; template/remetente de produção exigem operação própria.
+
+Intervalo de 60 segundos por navegador e bloqueio de submissão pendente complementam os limites autoritativos do Supabase. Cookie local não é limite global contra abuso. Serviço remoto mantém seu intervalo de um minuto. SMTP próprio, domínio, entrega de mensagens e limites de lançamento público não foram certificados por esta entrega.
+
+## Visual e diferenças
+
+Paleta, tipografia, árvore, formulário em cartão, hierarquia e ações seguem a identidade existente. Telas 03–05 deixam a composição genérica de extensão e passam a usar OnboardingShell, com desenho atualizado no atlas. Conta ganha dois links. Conteúdo e origem das demais áreas permanecem fora do recorte.
+
+[Comparação visual antes/atlas/aplicação](../../wireframes/comparacoes/v0.12.0-2026-10-07-conta-entrada-tela-01-tela-02-tela-03-tela-04-tela-05-tela-72/index.html). Conforme decisão do usuário, qualquer mudança futura de um lado exige atualizar o outro e apresentar a diferença, incluindo capturas quando houver mudança visual.
+
+## v0.13.0 — Navegação e sessão
+
+Raiz sem sessão abre Conta; autenticada abre Seus Núcleos. Login/confirmação sem retorno específico segue para /nucleos. Todo /comecar e /nucleos exige sessão validada, inclusive rascunho e convite. Lista real sob RLS, seleção explícita e retorno do Início à lista. Token expirado com renovação válida mantém acesso; sessão não renovável pede login preservando destino. Esta decisão substitui o retorno padrão ao onboarding e o rascunho pré-login dos marcos anteriores. [Contrato vigente](navegacao-sessao.md).
+
+## Validação histórica da v0.12.0 e retomada
+
+108 testes Playwright desktop/mobile aprovados, análise de tipos e build. Jornada real local reproduzível em `scripts/verify-account-local.mjs`: cadastro, reenvio, confirmação, retorno de convite, recuperação PKCE/direta, validação, revogação de outra sessão, rejeição da senha antiga, novo login, link usado, prova adulterada e resposta neutra para e-mail inexistente. Contas/e-mails temporários removidos.
+
+Atlas: 72 prévias, 178 saídas, 360 estados, 13 percursos, 41 referências; sem erro JavaScript ou rede externa. Seis telas comparadas em duas larguras; títulos/subtítulos/rótulos/cor/fonte iguais. Código revisado independentemente; três achados P2 corrigidos. Configuração remota conferida, sem jornada autenticada remota nesta entrega.
+
+Próximo passo desta área: verificar entrega de e-mail com remetente aprovado no ambiente de publicação, configurar segredo de servidor nesse ambiente e conferir URLs HTTPS (Hypertext Transfer Protocol Secure). Próximo módulo do produto permanece Nossa Árvore, com contrato próprio antes de implementar indicadores.
+
+
+O Next.js omite os callbacks de confirmação/recuperação dos logs de requisição em desenvolvimento para não registrar credenciais da URL. Em publicação, o provedor/proxy deve redigir esses parâmetros nos próprios logs de acesso; a configuração local não controla logs externos.
+
+## v0.13.2 — Percurso 03 Recuperar acesso — 2026-10-09
+
+Sequência vigente: Conta (Já tenho conta) → Recuperar acesso → callback `/auth/recovery` validado, sem tela própria → Redefinir senha → Conta (novo login) → Seus Núcleos. Retorno interno específico é preservado e substitui a lista, sem aceitar convite automaticamente. Voltar para Conta nas telas 03–05 abre login. Callback rejeita parâmetros repetidos/misturados, inclusive vazios, antes de consultar Auth; JWT de PKCE ainda exige método recovery.
+
+Validação desta versão: 92 testes desktop/celular; tipos e build; recuperação real com e-mails locais, PKCE e token direto, senha antiga recusada, nova aceita, revogação de refresh token de outra sessão, link reutilizado/prova adulterada negados, link não consumido por entradas ambíguas, retorno específico e padrão; Atlas/Visão global e revisão independente sem P1–P3. Primeiras execuções tiveram espera insuficiente de compilação inicial; integrador passou após margem explícita e suíte completa passou na repetição. Não houve mudança em Boas-vindas.
+
+Remetente escolhido pelo usuário: `sintagmasoftware@gmail.com`. Conta criada em 2026-10-09; Google bloqueou geração de senha de app até confirmação com fator registrado por pelo menos sete dias. Configuração SMTP e comando de aplicação com prompt oculto preparados e conferidos em modo somente leitura. Falta a credencial após liberação, recebimento externo e ambiente HTTPS de publicação. [Roteiro](recuperacao-smtp-gmail.md), [registro](../registros/registro-v0.13.2-2026-10-09-imp-recuperacao-acesso-fun-percurso-03.md) e [comparação](../../wireframes/comparacoes/v0.13.2-2026-10-09-recuperar-acesso-tela-04-tela-05/index.html). A versão PATCH conclui as correções locais e preparação, sem afirmar conclusão da operação pública.
+
+Na v0.13.1, cadastro e login mantêm a largura e a posição da árvore/frases. Link inferior Conheça o Nós removido; Voltar às boas-vindas permanece. Respiro inferior preserva a composição do login. Alinhamento especial exige painel de autenticação; Conta autenticada mantém centralização. [Registro](../registros/registro-v0.13.1-2026-10-07-imp-conta-fun-alinhamento-visual.md) e [comparação](../../wireframes/comparacoes/v0.13.1-2026-10-07-conta-alinhamento-tela-01-tela-02/index.html).
+
+Atualizado em 2026-10-07. Escopo: telas 01–05 e 72 do Atlas vivo, funcionais e integradas ao Supabase Auth.

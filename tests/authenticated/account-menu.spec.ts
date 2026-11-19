@@ -3,7 +3,7 @@ import { randomUUID } from "node:crypto";
 import { mkdirSync } from "node:fs";
 import path from "node:path";
 
-const gallery = path.resolve("Documentacao_Projeto_Nos/wireframes/comparacoes/v3.4.2-2026-10-30-barra-lateral-tela_13");
+const gallery = path.resolve("docs/wireframes/comparacoes/v3.4.2-2026-10-30-barra-lateral-tela-13");
 
 test("conta preserva o Núcleo e oferece ações diretas no perfil desktop", async ({ page, account }, info) => {
   test.setTimeout(90_000);

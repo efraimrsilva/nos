@@ -48,16 +48,16 @@ test("listagem usa associações reais e não revela Núcleos alheios", async ({
     await page.goto("/nucleos");
     await expect(page.getByRole("heading", { name: "Jardim de teste" })).toBeVisible();
     await expect(page.getByText("Jardim privado de outra pessoa")).toHaveCount(0);
-    await page.screenshot({ path: `artifacts/regression-captures/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/app-12-${test.info().project.name}.png`, fullPage: true });
+    await page.screenshot({ path: `artifacts/regression-captures/v0.13.0-2026-10-07-sessao-navegacao-tela-01-tela-06-tela-12-tela-13/app-12-${test.info().project.name}.png`, fullPage: true });
     await page.getByRole("link", { name: /Jardim de teste/ }).click();
     await expect(page).toHaveURL(new RegExp(`/nucleos/${ownId}$`));
     await expect(page.getByRole("heading", { name: "Jardim de teste" })).toBeVisible();
-    await page.screenshot({ path: `artifacts/regression-captures/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/depois-inicio-${test.info().project.name}.png`, fullPage: true });
+    await page.screenshot({ path: `artifacts/regression-captures/v0.13.0-2026-10-07-sessao-navegacao-tela-01-tela-06-tela-12-tela-13/depois-inicio-${test.info().project.name}.png`, fullPage: true });
     await page.getByRole("main").getByRole("link", { name: "Seus Núcleos", exact: true }).click();
     await expect(page).toHaveURL(/\/nucleos$/);
     await page.goto("/conta");
     await expect(page.getByRole("heading", { name: "Conta, Preferências e Ajuda", exact: true })).toBeVisible();
-    await page.screenshot({ path: `artifacts/regression-captures/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13/depois-conta-autenticada-${test.info().project.name}.png`, fullPage: true });
+    await page.screenshot({ path: `artifacts/regression-captures/v0.13.0-2026-10-07-sessao-navegacao-tela-01-tela-06-tela-12-tela-13/depois-conta-autenticada-${test.info().project.name}.png`, fullPage: true });
     await page.goto(`/nucleos/${externalId}`);
     await expect(page.getByRole("heading", { name: "Jardim privado de outra pessoa" })).toHaveCount(0);
   } finally {
@@ -68,14 +68,14 @@ test("listagem usa associações reais e não revela Núcleos alheios", async ({
 
 test("atlas e aplicativo preservam composição e caminhos protegidos", async ({ page, context }) => {
   test.setTimeout(180_000);
-  const output = execFileSync(process.execPath, ["Documentacao_Projeto_Nos/wireframes/tools/verify-fidelity.mjs"], {
+  const output = execFileSync(process.execPath, ["docs/wireframes/tools/verify-fidelity.mjs"], {
     env: { ...process.env, NOS_VERIFY_ORIGIN: "http://127.0.0.1:3200", NOS_VERIFY_COOKIES: JSON.stringify(await context.cookies()) }, encoding: "utf8",
   });
   expect(JSON.parse(output.trim()).errors).toEqual([]);
   await page.goto("/nucleos");
   await expect(page.getByRole("status")).toContainText("ainda não participa");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  const dir = "artifacts/regression-captures/v0.13.0-2026-10-07-sessao-navegacao-tela_01-tela_06-tela_12-tela_13";
+  const dir = "artifacts/regression-captures/v0.13.0-2026-10-07-sessao-navegacao-tela-01-tela-06-tela-12-tela-13";
   await page.screenshot({ path: `${dir}/app-12-vazio-${test.info().project.name}.png`, fullPage: true });
   await page.goto("/comecar");
   await page.screenshot({ path: `${dir}/depois-comecar-${test.info().project.name}.png`, fullPage: true });
@@ -83,7 +83,7 @@ test("atlas e aplicativo preservam composição e caminhos protegidos", async ({
   await page.goto("/comecar");
   await expect(page.getByRole("heading", { name: "Sua conta no Nós" })).toBeVisible();
   await page.screenshot({ path: `${dir}/depois-bloqueio-${test.info().project.name}.png`, fullPage: true });
-  await page.goto(pathToFileURL(path.resolve("Documentacao_Projeto_Nos/wireframes/atlas/index.html")).href);
+  await page.goto(pathToFileURL(path.resolve("docs/wireframes/atlas/index.html")).href);
   await page.locator('[data-open="12"]').first().click();
   await page.screenshot({ path: `${dir}/depois-atlas-12-${test.info().project.name}.png`, fullPage: true });
 });

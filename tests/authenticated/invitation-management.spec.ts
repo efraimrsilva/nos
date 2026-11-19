@@ -4,7 +4,7 @@ import { createClient } from "@supabase/supabase-js";
 import { createServerClient } from "@supabase/ssr";
 import { test, expect, localSql } from "./fixtures";
 
-const gallery = "artifacts/regression-captures/v0.15.0-2026-10-13-mvp-02-tela_09-tela_13-tela_58-tela_59";
+const gallery = "artifacts/regression-captures/v0.15.0-2026-10-13-mvp-02-tela-09-tela-13-tela-58-tela-59";
 
 async function waitForDatabase(query: string) {
   const deadline = Date.now() + 5_000;

@@ -2,7 +2,7 @@ import { mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { test, expect } from './fixtures';
 
-const gallery = path.resolve('Documentacao_Projeto_Nos/wireframes/comparacoes/v3.4.1-2026-10-30-meia-noite-tela_66');
+const gallery = path.resolve('docs/wireframes/comparacoes/v3.4.1-2026-10-30-meia-noite-tela-66');
 test('Meia-noite apresenta superfícies pretas sobre fundo cinza escuro', async ({ page }, info) => {
   await page.setViewportSize(info.project.name === 'desktop' ? { width: 1440, height: 1000 } : { width: 390, height: 844 });
   await page.emulateMedia({ reducedMotion: 'reduce' });

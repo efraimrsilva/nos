@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A02 · Tela 66 · Prévia Angular v4.0.0-alpha.2</title>
+<style>
+body { margin: auto; max-width: 91rem; padding: 1.25rem; color: #293e35; background: #f5f7f1; font: 1rem/1.55 Arial,sans-serif; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,21rem),1fr)); gap: 1rem; }
+figure { margin: 0; background: #fffefa; border: 1px solid #dce3d6; padding: .75rem; border-radius: .75rem; }
+img { width: 100%; height: auto; display: block; }
+figcaption { margin-top: .6rem; }
+a { color: #345d44; }
+</style>
+<main>
+<h1>Layout e navegação Angular</h1>
+<p>A02 · v4.0.0-alpha.2 · 15/11/2026 · Tela 66 em <code>/configuracoes/conta</code>.</p>
+<p>O cabeçalho fica montado enquanto Início e Conta ocupam a área central. A barra lateral recolhe no desktop. No celular, a barra inferior contém Mais. A A01 só tinha a interface de Conta, sem o menu Mais ou o Início provisório.</p>
+<p><strong>Dados da conta</strong> abre pelo botão de mesmo nome com sessão autenticada. <strong>Todos os seus caminhos</strong> abre pelo botão Mais, disponível na prévia móvel. X, Escape e gesto externo fechado no próprio diálogo retornam o foco ao acionador. Escolher outro destino pelo menu leva o foco para o conteúdo aberto.</p>
+<p>Capturas em Chromium com Supabase local. A Conta sem sessão usa o formulário de entrada provisório. Dados da conta usa usuário descartável e e-mail coberto. Os desenhos do Atlas representam a linha Next.js. As opções completas de cada módulo ficam para as etapas do plano.</p>
+<p><a href="../../atlas/index.html#migracao">Guia Migração</a> · <a href="../../../andamento/registros/registro-v4.0.0-alpha.2-2026-11-15-imp-interface-compartilhada-fun-navegacao-angular.md">Registro da A02</a></p>
+<h2>Desktop a 1440 px</h2><div class="grid">
+<figure><img src="antes-angular-desktop.png" loading="lazy" alt="Conta na prévia A01"><figcaption>Conta na prévia A01</figcaption></figure>
+<figure><img src="atlas-desktop.png" loading="lazy" alt="Tela 66 no Atlas vivo"><figcaption>Tela 66 no Atlas vivo</figcaption></figure>
+<figure><img src="conta-desktop.png" loading="lazy" alt="Conta na prévia A02"><figcaption>Conta na prévia A02</figcaption></figure>
+<figure><img src="inicio-desktop.png" loading="lazy" alt="Início provisório da prévia A02"><figcaption>Início provisório da prévia A02</figcaption></figure>
+<figure><img src="../v4.0.0-alpha.1-2026-11-15-angular-nome-tela-66/depois-angular-modal-desktop.png" loading="lazy" alt="Dados da conta na prévia A01"><figcaption>Dados da conta na prévia A01</figcaption></figure>
+<figure><img src="dados-conta-desktop.png" loading="lazy" alt="Dados da conta na prévia A02"><figcaption>Dados da conta na prévia A02</figcaption></figure>
+</div>
+<h2>Celular a 390 px</h2><div class="grid">
+<figure><img src="antes-angular-mobile.png" loading="lazy" alt="Conta na prévia A01"><figcaption>Conta na prévia A01</figcaption></figure>
+<figure><img src="atlas-mobile.png" loading="lazy" alt="Tela 66 no Atlas vivo"><figcaption>Tela 66 no Atlas vivo</figcaption></figure>
+<figure><img src="conta-mobile.png" loading="lazy" alt="Conta na prévia A02"><figcaption>Conta na prévia A02</figcaption></figure>
+<figure><img src="inicio-mobile.png" loading="lazy" alt="Início provisório da prévia A02"><figcaption>Início provisório da prévia A02</figcaption></figure>
+<figure><img src="atlas-menu-mobile.png" loading="lazy" alt="Mais no Atlas vivo"><figcaption>Mais no Atlas vivo</figcaption></figure>
+<figure><img src="mais-mobile.png" loading="lazy" alt="Todos os seus caminhos na prévia A02"><figcaption>Todos os seus caminhos na prévia A02</figcaption></figure>
+<figure><img src="../v4.0.0-alpha.1-2026-11-15-angular-nome-tela-66/depois-angular-modal-mobile.png" loading="lazy" alt="Dados da conta na prévia A01"><figcaption>Dados da conta na prévia A01</figcaption></figure>
+<figure><img src="dados-conta-mobile.png" loading="lazy" alt="Dados da conta na prévia A02"><figcaption>Dados da conta na prévia A02</figcaption></figure>
+</div>
+</main>
+</html>

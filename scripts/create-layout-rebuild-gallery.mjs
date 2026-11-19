@@ -4,7 +4,7 @@ import path from "node:path";
 
 const { version } = JSON.parse(fs.readFileSync("package.json", "utf8"));
 const date = "2026-10-18";
-const root = path.resolve(`Documentacao_Projeto_Nos/wireframes/comparacoes/v${version}-${date}-layout-novo-integral`);
+const root = path.resolve(`docs/wireframes/comparacoes/v${version}-${date}-layout-novo-integral`);
 if (fs.existsSync(root)) throw new Error("A galeria já existe. Preserve as evidências históricas.");
 const manifests = ["desktop", "mobile"].flatMap(device => JSON.parse(fs.readFileSync(`artifacts/layout-rebuild-authenticated/manifest-${device}.json`, "utf8")));
 fs.mkdirSync(root);
@@ -23,12 +23,12 @@ for (const name of fs.readdirSync("artifacts/layout-rebuild-public").filter(name
   add(`artifacts/layout-rebuild-public/${name}`, `app-publico-${name}`, "Tela", name.replace(/\.png$/, ""), name.includes("mobile") ? "mobile" : name.includes("640") ? "640px" : "desktop", "Aplicativo público");
 }
 for (const name of fs.readdirSync("artifacts/rework-reference").filter(name => /-(desktop|mobile)\.png$/.test(name))) {
-  add(`artifacts/rework-reference/${name}`, `referencia-${name}`, "Referência", name.replace(/\.png$/, ""), name.includes("mobile") ? "mobile" : "desktop", "Telas/Layout novo · dados ilustrativos", name.includes("modal"));
+  add(`artifacts/rework-reference/${name}`, `referencia-${name}`, "Referência", name.replace(/\.png$/, ""), name.includes("mobile") ? "mobile" : "desktop", "telas/layout-novo · dados ilustrativos", name.includes("modal"));
 }
 for (const item of JSON.parse(fs.readFileSync("artifacts/layout-rebuild-atlas/manifest.json", "utf8"))) {
   add("artifacts/layout-rebuild-atlas/" + item.name, "atlas-" + item.name, "Atlas", item.title + " · " + item.name.replace(/\.png$/, ""), item.device, "Atlas vivo · Tela " + item.screen + (item.trigger ? " · Gatilho: " + item.trigger : ""), item.modal);
 }
-const previous = path.resolve("Documentacao_Projeto_Nos/wireframes/comparacoes/v2.0.0-2026-10-18-layout-atual-tela_01-a-tela_73");
+const previous = path.resolve("docs/wireframes/comparacoes/v2.0.0-2026-10-18-layout-atual-tela-01-a-tela-73");
 const compareAreas = { inicio:"overview", nucleos:"nuclei", agenda:"agenda", pessoas:"people", acordos:"agreements", conta:"account", configuracoes:"settings", arvore:"tree", conexoes:"connections", cuidado:"care" };
 const comparisons = [];
 for (const [label, reference] of Object.entries(compareAreas)) for (const device of ["desktop", "mobile"]) {

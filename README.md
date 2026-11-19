@@ -2,7 +2,9 @@
 
 Aplicação web full stack para organizar espaços compartilhados, construir acordos e acompanhar práticas de cuidado com participação voluntária. O projeto reúne interface responsiva, autenticação, regras de negócio no servidor e no banco, testes automatizados e documentação de produto.
 
-**[Acessar o aplicativo no Netlify](https://noslife.netlify.app)** · **[Tela de acesso](https://noslife.netlify.app/conta)** · **[Código-fonte](src)** · **[Documentação](Documentacao_Projeto_Nos/_andamento/estado.md)**
+**[Acessar o aplicativo no Netlify](https://noslife.netlify.app)** · **[Tela de acesso](https://noslife.netlify.app/conta)** · **[Código-fonte](src)** · **[Documentação](docs/andamento/estado.md)**
+
+**Documentação** · [Andamento](docs/andamento/readme.md) · [Regras de negócio](docs/regra-de-negocio/) · [Atlas vivo](docs/wireframes/atlas/index.html) · [Galerias](docs/wireframes/comparacoes/readme.md) · [Histórico de contribuições](docs/brag/brag.md)
 
 ## O problema e a proposta
 
@@ -27,6 +29,14 @@ Por exemplo, o desejo de ter mais tempo de qualidade em família pode se transfo
 | Interface                 | Navegação para computador e celular, componentes compartilhados, estados de carregamento, vazio, erro e sucesso e microinterações com tratamento de movimento reduzido. |
 
 ## Stack tecnológica
+
+### Stack de destino
+
+A decisão inicial de arquitetura define **Angular + TypeScript** com **Tailwind CSS**, backend **NestJS**, banco **PostgreSQL / Supabase**, mobile com **Capacitor**, tempo real por **WebSocket** e monorepo com **Nx**. A autenticação será por **JWT (JSON Web Token) próprio ou Supabase Auth**. Para testes, a direção é **Vitest ou Jest**, com **Playwright** para os fluxos no navegador. A adoção e as escolhas em aberto estão descritas no [plano de migração](docs/andamento/planos/migracao-angular.md#stack-de-destino).
+
+### Stack em uso e prévia Angular
+
+O site em uso está na linha Next.js. A [prévia Angular](apps/web/README.md) roda separadamente e já usa Angular, TypeScript, Tailwind CSS, Supabase e Playwright.
 
 As versões dos pacotes abaixo são as fixadas no `package-lock.json`. Os intervalos permitidos estão no `package.json`.
 
@@ -55,7 +65,7 @@ As versões dos pacotes abaixo são as fixadas no `package-lock.json`. Os interv
 
 ## Arquitetura e decisões técnicas
 
-O código da interface e do servidor é organizado no mesmo aplicativo Next.js, com funcionalidades agrupadas por domínio.
+Na linha Next.js, o código da interface e do servidor é organizado no mesmo aplicativo, com funcionalidades agrupadas por domínio.
 
 ```text
 Navegador — componentes React e estilos
@@ -76,7 +86,7 @@ PostgreSQL — dados, funções, transações e políticas de acesso
 
 Exemplos para revisão técnica: [integração Supabase](src/lib/supabase/server.ts), [proxy de sessão](src/proxy.ts), [ações de acordos](src/features/agreements/actions.ts), [distribuição dos eventos da agenda](src/features/calendar/calendar-lanes.ts) e [migrações](supabase/migrations).
 
-O [plano de migração](Documentacao_Projeto_Nos/_andamento/planos/migracao-angular.md) define Angular para a web de computador e celular. A interface móvel no navegador espelha o futuro aplicativo Capacitor. A [prévia Angular](apps/web/README.md) pode ser executada durante a transição.
+O [plano de migração](docs/andamento/planos/migracao-angular.md) define Angular para a web de computador e celular. A interface móvel no navegador espelha o futuro aplicativo Capacitor. A [prévia Angular](apps/web/README.md) pode ser executada durante a transição.
 
 ## Qualidade e evidências de engenharia
 
@@ -86,12 +96,12 @@ Evidências registradas em entregas anteriores:
 
 | Evidência                                                                                                                                                                      | Escopo e limite                                                                                                                                           |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Consolidação da interface e perfil — 30/10/2026](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.4.2-2026-10-30-imp-publicacao-github-fun-consolidacao-entregas.md) | Registro de tipos/build, 192 testes gerais e 12 autenticados aprovados naquela entrega.                                                                   |
-| [Auditoria de segurança — 30/10/2026](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md)              | 160 testes de banco e 70 públicos aprovados; seleção autenticada com 36 aprovações, 15 falhas e 1 ignorado. Achados e limitações permanecem documentados. |
-| [Ambiente Supabase local](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.3.0-2026-10-28-supabase-local.md)                                                          | Fluxos locais de cadastro, confirmação e recuperação, banco e e-mails de teste.                                                                           |
-| [Comparações visuais de conta e perfil](Documentacao_Projeto_Nos/wireframes/comparacoes/v3.3.1-2026-10-29-conta-perfil-tela_13-tela_66-tela_69/index.html)                     | Capturas históricas do aplicativo e do Atlas em computador e celular. Para visualizar a galeria HTML, abra-a localmente.                                  |
+| [Consolidação da interface e perfil — 30/10/2026](docs/andamento/registros/registro-v3.4.2-2026-10-30-imp-publicacao-github-fun-consolidacao-entregas.md) | Registro de tipos/build, 192 testes gerais e 12 autenticados aprovados naquela entrega.                                                                   |
+| [Auditoria de segurança — 30/10/2026](docs/andamento/registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md)              | 160 testes de banco e 70 públicos aprovados; seleção autenticada com 36 aprovações, 15 falhas e 1 ignorado. Achados e limitações permanecem documentados. |
+| [Ambiente Supabase local](docs/andamento/registros/registro-v3.3.0-2026-10-28-supabase-local.md)                                                          | Fluxos locais de cadastro, confirmação e recuperação, banco e e-mails de teste.                                                                           |
+| [Comparações visuais de conta e perfil](docs/wireframes/comparacoes/v3.3.1-2026-10-29-conta-perfil-tela-13-tela-66-tela-69/index.html)                     | Capturas históricas do aplicativo e do Atlas em computador e celular. Para visualizar a galeria HTML, abra-a localmente.                                  |
 
-Esses resultados pertencem às execuções e ambientes descritos nos registros. Não são uma nova execução das suítes nem devem ser somados como total único de testes. Os [testes de caixa preta](Documentacao_Projeto_Nos/_andamento/testes-caixa-preta/README.md) têm acompanhamento próprio e não recebem aprovação manual por inferência.
+Esses resultados pertencem às execuções e ambientes descritos nos registros. Não são uma nova execução das suítes nem devem ser somados como total único de testes. Os [testes de caixa preta](docs/andamento/testes-caixa-preta/readme.md) têm acompanhamento próprio e não recebem aprovação manual por inferência.
 
 ## Executar localmente
 
@@ -180,8 +190,8 @@ supabase/
   templates/              Modelos HTML de e-mail
 tests/                    Testes Playwright, incluindo jornadas autenticadas
 scripts/                  Automação, verificações e capturas
-Documentacao_Projeto_Nos/
-  _andamento/             Contratos, planos, registros e continuidade
+docs/
+  andamento/             Contratos, planos, registros e continuidade
   brag/                   Contribuições com evidências e limites
   wireframes/             Atlas vivo e comparações visuais
 ```
@@ -190,11 +200,11 @@ Documentacao_Projeto_Nos/
 
 O **Atlas vivo** é uma ferramenta própria em HTML, CSS e JavaScript para reunir desenhos, fichas de tela, navegação, estados e pendências. Ele diferencia o que está implementado do que é planejado e acompanha a evolução do produto. Para interagir com os arquivos HTML, abra-os em um navegador local; a visualização de código do GitHub não executa a ferramenta.
 
-- [Atlas vivo](Documentacao_Projeto_Nos/wireframes/atlas/index.html), [guia de uso](Documentacao_Projeto_Nos/wireframes/GUIA.md) e [cobertura](Documentacao_Projeto_Nos/wireframes/COBERTURA.md).
-- [Estado atual e próximos passos](Documentacao_Projeto_Nos/_andamento/estado.md) e [histórico de entregas](Documentacao_Projeto_Nos/_andamento/historico.md).
-- [Plano do MVP — produto mínimo viável](Documentacao_Projeto_Nos/_andamento/planos/mvp.md).
-- [Contrato de administração e participação](Documentacao_Projeto_Nos/_andamento/funcionalidades/administracao-participacao.md).
-- [Registros técnicos por entrega](Documentacao_Projeto_Nos/_andamento/registros) e [contribuições documentadas](Documentacao_Projeto_Nos/brag/BRAG.md).
+- [Atlas vivo](docs/wireframes/atlas/index.html), [guia de uso](docs/wireframes/guia.md) e [cobertura](docs/wireframes/cobertura.md).
+- [Estado atual e próximos passos](docs/andamento/estado.md) e [histórico de entregas](docs/andamento/historico.md).
+- [Plano do MVP — produto mínimo viável](docs/andamento/planos/mvp.md).
+- [Contrato de administração e participação](docs/andamento/funcionalidades/administracao-participacao.md).
+- [Registros técnicos por entrega](docs/andamento/registros) e [contribuições documentadas](docs/brag/brag.md).
 
 Os documentos conceituais das séries 1.x e 2.x preservam decisões e propostas históricas; suas edições não representam a versão do aplicativo. Para comportamento vigente, consulte o estado atual, os contratos correspondentes e o código.
 
@@ -204,6 +214,6 @@ O percurso **Proposta → Hábito → Essência** é a direção aprovada do pro
 
 Nossa Árvore, Memórias, Conexões, Perfis, Manifesto e Cuidado possuem recortes ilustrativos ou planejados, identificados na interface. Uploads, integrações externas, notificações e inteligência artificial não devem ser inferidos desses esboços.
 
-Há achados de segurança e pendências operacionais abertos, incluindo ajustes de testes autenticados, configuração de proteção local e comprovação de backup/restauração. Consulte a [auditoria de segurança](Documentacao_Projeto_Nos/_andamento/registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md) e o [estado atual](Documentacao_Projeto_Nos/_andamento/estado.md) para prioridades e evidências. A presença de RLS e testes não constitui certificação integral de segurança ou de lançamento.
+Há achados de segurança e pendências operacionais abertos, incluindo ajustes de testes autenticados, configuração de proteção local e comprovação de backup/restauração. Consulte a [auditoria de segurança](docs/andamento/registros/registro-v3.4.2-2026-10-30-imp-auditoria-seguranca-fun-avaliacao-rigorosa.md) e o [estado atual](docs/andamento/estado.md) para prioridades e evidências. A presença de RLS e testes não constitui certificação integral de segurança ou de lançamento.
 
-Consulte o [histórico operacional](Documentacao_Projeto_Nos/_andamento/historico.md) e os registros versionados vinculados ao estado atual para acompanhar as entregas anteriores.
+Consulte o [histórico operacional](docs/andamento/historico.md) e os registros versionados vinculados ao estado atual para acompanhar as entregas anteriores.

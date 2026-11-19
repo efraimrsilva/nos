@@ -85,7 +85,7 @@ test("agenda: criação, respostas, remarcação e remoção confirmada", async 
   if (person.error || !person.data.user) throw new Error("Falha ao criar participante local.");
   const memberId = person.data.user.id, nucleusId = randomUUID();
   const context = await page.context().browser()!.newContext({ viewport: page.viewportSize()! });
-  const gallery = "artifacts/regression-captures/v0.15.2-2026-10-13-mvp-04-tela_14-tela_16-tela_15-tela_17";
+  const gallery = "artifacts/regression-captures/v0.15.2-2026-10-13-mvp-04-tela-14-tela-16-tela-15-tela-17";
   try {
     localSql(`insert into public.nuclei(id,type,name,purpose,created_by) values('${nucleusId}','familia','Jardim da agenda','Cultivar presença.','${account.id}');
       insert into public.nucleus_members(nucleus_id,user_id,role) values('${nucleusId}','${account.id}','admin'),('${nucleusId}','${memberId}','member');`);

@@ -9,7 +9,7 @@ fs.mkdirSync(output, { recursive: true });
 const browser = await chromium.launch();
 try {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1080 }, reducedMotion: "reduce" });
-  await page.goto(pathToFileURL(path.resolve("Documentacao_Projeto_Nos/wireframes/atlas/index.html")).href);
+  await page.goto(pathToFileURL(path.resolve("docs/wireframes/atlas/index.html")).href);
   const inventory = await page.evaluate(() => screens.map(screen => ({ id: screen.id, title: screen.title })));
   const captures = [];
   await page.evaluate(() => openScreen(1));
@@ -19,7 +19,7 @@ try {
       await page.evaluate(id => { document.querySelectorAll("dialog[open]").forEach(dialog => dialog.close()); openScreen(id); }, screen.id);
       const preview = page.locator("#screen-preview .preview-wrap");
       await expect(preview.locator('[data-atlas-revision="3"]')).toHaveCount(1);
-      const name = `tela_${String(screen.id).padStart(2,"0")}-${device}.png`;
+      const name = `tela-${String(screen.id).padStart(2,"0")}-${device}.png`;
       await preview.screenshot({ path: path.join(output,name) });
       captures.push({ name, title: screen.title, screen: screen.id, device, modal: false });
       const controls = page.locator('#screen-preview .current-atlas-main [data-atlas-modal]:not([inert] *):visible');
@@ -30,7 +30,7 @@ try {
         await trigger.click();
         const dialog = page.locator("#atlas-live-dialog");
         await expect(dialog).toBeVisible();
-        const name = `tela_${String(screen.id).padStart(2,"0")}-modal-${index+1}-${device}.png`;
+        const name = `tela-${String(screen.id).padStart(2,"0")}-modal-${index+1}-${device}.png`;
         const title = await dialog.locator("#atlas-live-dialog-title").innerText();
         await dialog.screenshot({ path: path.join(output,name) });
         captures.push({ name, title, trigger: triggerName, screen: screen.id, device, modal: true });

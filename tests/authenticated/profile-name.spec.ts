@@ -2,7 +2,7 @@ import { mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { test, expect, localSql } from './fixtures';
 
-const gallery = path.resolve('Documentacao_Projeto_Nos/wireframes/comparacoes/v3.4.0-2026-10-30-nome-perfil-tela_13-tela_66');
+const gallery = path.resolve('docs/wireframes/comparacoes/v3.4.0-2026-10-30-nome-perfil-tela-13-tela-66');
 test('nome do perfil: cancelar, validar, salvar e persistir na própria conta', async ({ page, account }, info) => {
   mkdirSync(gallery, { recursive: true });
   localSql(`update auth.users set raw_user_meta_data=raw_user_meta_data || '{"appearance_theme":"light","profile_name_test":"preservado"}'::jsonb where id='${account.id}'`);

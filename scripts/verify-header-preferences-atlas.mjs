@@ -4,7 +4,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { chromium } from "@playwright/test";
 
-const gallery = path.resolve("Documentacao_Projeto_Nos/wireframes/comparacoes/v3.7.1-2026-11-05-cabecalho-preferencias-tela_13-tela_14-tela_60-tela_66");
+const gallery = path.resolve("docs/wireframes/comparacoes/v3.7.1-2026-11-05-cabecalho-preferencias-tela-13-tela-14-tela-60-tela-66");
 const before = process.env.NOS_UI_BEFORE === "1";
 mkdirSync(gallery, { recursive: true });
 const browser = await chromium.launch();
@@ -13,7 +13,7 @@ try {
     const page = await browser.newPage({ viewport: mobile ? { width: 430, height: 950 } : { width: 1600, height: 1100 } });
     const errors = [];
     page.on("pageerror", error => errors.push(error.message));
-    const url = pathToFileURL(path.resolve("Documentacao_Projeto_Nos/wireframes/atlas/index.html")).href;
+    const url = pathToFileURL(path.resolve("docs/wireframes/atlas/index.html")).href;
     const capture = async name => page.screenshot({ path: path.join(gallery, `${before ? "antes" : "depois"}-atlas-${mobile ? "mobile" : "desktop"}-${name}.png`), animations: "disabled" });
     await page.goto(url + "#tela-66");
     await page.getByRole("button", { name: mobile ? "Celular" : "Web", exact: true }).click();

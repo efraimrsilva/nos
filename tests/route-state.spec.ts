@@ -33,7 +33,7 @@ test('carregamento ao selecionar Núcleo exibe informe sem atalhos', async ({ pa
   await expect(page.getByRole('heading', { name: 'Carregando seu Núcleo…' })).toBeVisible();
   await expect(page.getByRole('status')).toContainText('Conferindo as informações…');
   await expect(page.locator('.route-state')).toHaveAttribute('aria-busy', 'true');
-  const dir = 'Documentacao_Projeto_Nos/wireframes/comparacoes/v3.4.3-2026-10-30-carregamento-tela_12-tela_13';
+  const dir = 'docs/wireframes/comparacoes/v3.4.3-2026-10-30-carregamento-tela-12-tela-13';
   mkdirSync(dir, { recursive: true });
   const before = process.env.NOS_CAPTURE_BEFORE === '1';
   await page.locator('.route-state').screenshot({ path: `${dir}/${before ? 'antes' : 'depois'}-componente-${info.project.name}.png` });
@@ -59,7 +59,7 @@ test('lista de Núcleos carrega sem atalhos no informe', async ({ page }, info) 
   await expect(page.getByRole('heading', { name: 'Carregando seus Núcleos…' })).toBeVisible();
   await expect(page.getByRole('status')).toContainText('Conferindo as informações…');
   const before = process.env.NOS_CAPTURE_BEFORE === '1';
-  const dir = 'Documentacao_Projeto_Nos/wireframes/comparacoes/v3.4.3-2026-10-30-carregamento-tela_12-tela_13';
+  const dir = 'docs/wireframes/comparacoes/v3.4.3-2026-10-30-carregamento-tela-12-tela-13';
   mkdirSync(dir, { recursive: true });
   await page.locator('.route-state').screenshot({ path: dir + '/' + (before ? 'antes' : 'depois') + '-lista-' + info.project.name + '.png' });
   if (before) return;

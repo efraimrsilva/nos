@@ -4,7 +4,7 @@ import path from 'node:path';
 import {test,expect,localSql} from './fixtures';
 import {withPeer} from './peer';
 
-const gallery=path.resolve('Documentacao_Projeto_Nos/wireframes/comparacoes/v3.11.0-2026-11-07-nomes-perfil-tela_12-tela_13-tela_66');
+const gallery=path.resolve('docs/wireframes/comparacoes/v3.11.0-2026-11-07-nomes-perfil-tela-12-tela-13-tela-66');
 test('nome de perfil chega a outra sessão com integrantes e detalhes abertos e lista atualiza após falha',async({page,account},info)=>{
  await withPeer(page,async peer=>{
   const id=randomUUID();

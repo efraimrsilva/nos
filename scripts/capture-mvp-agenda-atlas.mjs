@@ -5,12 +5,12 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 // Antes é extraído do commit de partida, preservando a referência real; somente Atlas offline.
-const gallery=path.resolve('Documentacao_Projeto_Nos/wireframes/comparacoes/v0.15.2-2026-10-13-mvp-04-tela_14-tela_16-tela_15-tela_17');
-const source=path.resolve('Documentacao_Projeto_Nos/wireframes/atlas');
+const gallery=path.resolve('docs/wireframes/comparacoes/v0.15.2-2026-10-13-mvp-04-tela-14-tela-16-tela-15-tela-17');
+const source=path.resolve('docs/wireframes/atlas');
 const baseline=path.resolve('artifacts/mvp04-atlas-baseline');
 mkdirSync(gallery,{recursive:true});cpSync(source,baseline,{recursive:true});
 for(const file of ['screens.js','mvp-plan.js','global-view.js','product-ui.js','index.html']) {
-  writeFileSync(path.join(baseline,file),execFileSync('git',['show',`06edf58:Documentacao_Projeto_Nos/wireframes/atlas/${file}`]));
+  writeFileSync(path.join(baseline,file),execFileSync('git',['show',`06edf58:docs/wireframes/atlas/${file}`]));
 }
 const browser=await chromium.launch();
 try {

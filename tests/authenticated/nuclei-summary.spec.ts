@@ -16,7 +16,7 @@ test('cartões contam somente acordos ativos por Núcleo e identificam o papel a
       for (const status of statuses) localSql(`insert into public.nucleus_agreements(nucleus_id,created_by,category,title,description,timing,frequency,status,trial_days)
         values('${ids[index]}','${account.id}','habit','Prática de teste','Presença','Noite','Semanal','${status}',7);`);
     }
-    const gallery = path.resolve('Documentacao_Projeto_Nos/wireframes/comparacoes/v3.10.1-2026-11-07-resumo-nucleos-tela_12-tela_13');
+    const gallery = path.resolve('docs/wireframes/comparacoes/v3.10.1-2026-11-07-resumo-nucleos-tela-12-tela-13');
     mkdirSync(gallery, { recursive: true });
     const phase = process.env.NOS_NUCLEI_BEFORE === '1' ? 'antes' : 'depois';
     await page.setViewportSize(info.project.name === 'desktop' ? { width: 1440, height: 1000 } : { width: 390, height: 844 });

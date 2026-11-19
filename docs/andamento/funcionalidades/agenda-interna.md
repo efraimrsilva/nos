@@ -1,0 +1,56 @@
+# Agenda interna — v3.5.0
+
+**Direção vigente — 06/11/2026 — v3.7.2:** [Proposta → Hábito → Essência](fluxo-proposta-habito-essencia.md). Experiência foi consolidada em Hábito; agendamento e pós-evento reutilizam os fluxos de Hábito. A implementação ainda conserva legado; esta revisão não migra dados. Marcos datados abaixo preservam o estado da época e não restabelecem a direção substituída.
+
+## Prévia Angular — v4.0.0-alpha.9 — 15/11/2026
+
+A09 conserva as regras e funções de banco usadas pelo Next.js. A navegação passa pelo Início, pelo atalho Agenda e pelos links dos próximos eventos. O calendário mensal próprio usa português e teclado; grade e lista consultam a página de eventos atual. Responder fica no detalhe; adicionar, editar e remover abrem diálogos. Sem migração nova. Alteração textual conserva o instante original, inclusive segundos não exibidos no formulário. O fuso do dispositivo é usado ao remarcar ou se o navegador não reconhece o fuso original. As travas serializam operações, mas não identificam se outra tela ainda mostra horários antigos. [Registro A09](../registros/registro-v4.0.0-alpha.9-2026-11-15-imp-agenda-angular-fun-calendario-e-eventos.md).
+
+## Atualização do Next.js — 03/11/2026
+
+Agenda já possui seletor mensal completo no computador e no celular, com `react-day-picker` 9.14.0, português do Brasil, semanas de segunda a domingo, seis linhas e dias adjacentes. Selecionar um dia abre a semana correspondente; mês e semana conservam sincronização quando atravessam meses. A grade semanal é apresentada acima de 900 pixels; até 900 pixels os eventos usam lista. Isso adapta a apresentação e conserva criação, detalhe, presença e gestão conforme as permissões.
+
+Mês/ano são selecionáveis e as setas atravessam 2030. A janela de anos acompanha o mês escolhido com cem anos anteriores e posteriores, limitada aos anos 1–9999; não existe corte fixo em 2030. Calendário e grade usam UTC (tempo universal coordenado) para manter a seleção estável. Dias sublinhados indicam eventos da página consultada, não uma busca integral de todos os eventos. Dias e opções dos seletores receberam contraste nos temas escuros.
+
+Esta atualização substitui a indicação antiga de visão mensal exclusivamente futura. Recorrência, calendários externos e as demais expansões continuam planejadas. Não altera regras de presença, consentimento, horários, remoção ou paginação. [Registro](../registros/registro-v3.5.0-2026-11-03-02-imp-agenda-fun-calendario-mensal.md) · [casos M04-CAL-001–004](../testes-caixa-preta/ajustes-v3-5.md), Não executados pelo usuário.
+
+## Marcos históricos
+
+**Atualização v1.0.0 — 14/10/2026:** [contrato administrativo](administracao-participacao.md) implementado localmente. Convites são geridos por administradores; Núcleos fechados não aceitam convites. Agenda usa consulta que protege autoria após saída e conserva a própria presença na reentrada. Autor associado ou administrador pode gerir eventos. Regras de criação, horários e respostas individuais permanecem.
+
+## Histórico e contratos anteriores
+
+**Data:** 2026-10-13. **Status:** recorte funcional validado localmente; publicação/prova online pendentes. Base existente v0.6.0 reconferida, sem migração nova.
+
+## Percurso e telas
+
+Início13 → Agenda14 → Novo16 → Evento/respostas15 → Editar17 opcional → Agenda14. Evento existente abre15 diretamente; ninguém precisa criar outro para responder. São seções de `/nucleos/[id]/agenda`, não quatro rotas. Links internos levam ao formulário e de volta aos eventos sem enviar. Editar/remover ficam em expansão contextual por evento. Fechar a expansão ou navegar sem salvar não grava alterações.
+
+| Tela | Implementação existente e conclusão atual | Limite reservado |
+|---|---|---|
+|14 Agenda|Lista cronológica dos eventos ainda não terminados, 50 por página, desempate por ID; início/fim/fuso e estado vazio|Visão mensal/dia, filtro por assunto e histórico de eventos passados|
+|16 Novo|Título até100, intenção opcional até500, início/término e fuso do dispositivo; feedback e validações|Local estruturado, recorrência, seleção individual e vínculos|
+|15 Evento|Título/intenção/datas; própria resposta e estado coletivo; Posso participar ou Não posso, com processamento compartilhado|Ainda não sei, sugestão de horário, rota individual, notificações e memórias|
+|17 Gestão|Autor/criador associado edita; aviso de remarcação; remoção contextual confirmada ou Manter evento sem gravação|Histórico de alterações, cancelamento com retenção, comunicação externa|
+
+## Contrato e integrações
+
+Sessão validada por `auth.getUser()`, associação atual conferida na página. Leitura usa RLS (segurança por linha) limitada ao Núcleo. Ações usam RPCs (chamadas de função no banco) autenticadas com `SECURITY DEFINER SET search_path = ''` e autorização própria. As RPCs existentes conservam a serialização por evento entre edição, resposta e remoção.
+
+Criar aceita a presença do autor e inclui os integrantes atuais como pendentes. Entrada posterior permite consultar, mas não cria convite/voto retroativo. Responder exige associação e participação original. Confirmado significa todos accepted; qualquer declined mostra Precisa de novo horário; silêncio permanece pending. Esse rótulo não muda o horário nem notifica outras pessoas. Respostas alheias são legíveis aos membros pelo contrato atual; a interface apresenta agregação e resposta própria.
+
+Título/intenção modificados conservam respostas quando os instantes não mudam. Mudança de início ou término redefine as respostas dos demais para pending e preserva a de quem edita. A edição conserva participantes originais, sem convidar recém-chegados. Datas aparecem no fuso declarado pelo evento; editor usa fuso do dispositivo e envia UTC (tempo universal coordenado) absoluto. `Intl` desconhecendo um fuso aceito no banco usa UTC como alternativa explícita.
+
+Remover exige primeiro abrir a confirmação com nome/consequência. Checkbox obrigatório, `confirmRemoval=yes` também exigido pela Server Action; abrir/manter não executam RPC. Confirmar apaga evento e respostas por cascata, sem desfazer. Esse campo demonstra intenção na interface; a autorização continua no banco. Foco entra na confirmação e retorna ao acionador ao cancelar. `useFormStatus` fornece feedback e bloqueia repetição enquanto uma resposta/remoção processa. Hover sutil respeita movimento reduzido; não há movimento contínuo.
+
+## Espaço futuro
+
+Aplicativo e Atlas reservam visão mensal/dia, recorrência, local, terceiro estado de resposta, sugestão de horário, participantes individuais e acesso restrito, notificações, vínculos com Hábitos/conversas, memória e calendários externos. Sem campos persistidos, contas conectadas ou sucesso simulado. Definir autoria/visibilidade/consentimento/retenção e conflitos antes de cada ampliação. Conversa de cuidado restrita não deve entrar na agenda atual de leitura pelo Núcleo.
+
+## Evidências e teste de caixa preta
+
+`tests/authenticated/calendar.spec.ts`: três casos em desktop/mobile, seis aprovados. Confirmação/ausência de ciência no servidor; paginação51 futuros mais1 passado; retorno sem criar; criação com término inválido; autor aceito/membro pendente; recusa/aceite; edição textual conservando resposta; remarcação redefinindo resposta; cancelar/confirmar remoção; RPC negada a membro sem autoria e a membro de outro Núcleo. Fixtures locais removidas. Suíte geral102 aprovada; tipos e build no registro de fechamento. [Atlas verificado](../../wireframes/tools/verify-mvp-agenda.mjs) e [galeria](../../wireframes/comparacoes/v0.15.2-2026-10-13-mvp-04-tela-14-tela-16-tela-15-tela-17/index.html).
+
+Manual: duas contas no mesmo Núcleo → Início/Abrir agenda → criar evento futuro → segunda pessoa responder → autor editar intenção e conferir conservação → remarcar e conferir nova pendência → abrir remoção/Manter e conferir persistência → confirmar ciência/remoção e conferir vazio. Conta fora do Núcleo não acessa; membro sem autoria não recebe gestão. Conferir teclado e celular, fuso e links de retorno.
+
+Limites: falha real de rede/banco não foi provocada; não se comprovaram notificações, operação pública ou recebimento de e-mail. Página é uma fotografia da leitura; recarregar após mudanças de outras pessoas. A validação usa somente Supabase local; produção e migrações remotas permanecem fora desta autorização. Próximo recorte funcional do roteiro: MVP05 controles, quando solicitado; pendências operacionais das etapas01/02 continuam separadas.

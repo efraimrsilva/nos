@@ -10,7 +10,7 @@ try {
   const errors = [], external = [];
   page.on("pageerror", error => errors.push(error.message));
   page.on("request", request => { if (/^https?:/.test(request.url())) external.push(request.url()); });
-  await page.goto(pathToFileURL(path.resolve("Documentacao_Projeto_Nos/wireframes/atlas/index.html")).href + "#tela-66");
+  await page.goto(pathToFileURL(path.resolve("docs/wireframes/atlas/index.html")).href + "#tela-66");
   const preview = page.locator("#screen-preview");
   await preview.locator("[data-atlas-menu]").click();
   await page.getByRole("dialog").locator("[data-live-appearance]").click();
@@ -21,7 +21,7 @@ try {
     assert.equal(await dialog.locator(".atlas-theme-sample").evaluate(element => getComputedStyle(element).backgroundColor), canvas);
     assert.match(await dialog.getByRole("status").innerText(), /nenhuma preferência salva/);
   }
-  const gallery = path.resolve("Documentacao_Projeto_Nos/wireframes/comparacoes/v3.2.1-2026-10-23-temas-solar-neon");
+  const gallery = path.resolve("docs/wireframes/comparacoes/v3.2.1-2026-10-23-temas-solar-neon");
   fs.mkdirSync(gallery, { recursive: true });
   await page.screenshot({ path: path.join(gallery, "atlas-66-temas.png") });
   await page.keyboard.press("Escape");

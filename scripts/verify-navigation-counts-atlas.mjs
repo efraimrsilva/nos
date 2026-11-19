@@ -4,7 +4,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { chromium } from "@playwright/test";
 
-const gallery = path.resolve("Documentacao_Projeto_Nos/wireframes/comparacoes/v3.3.0-2026-10-24-totais-navegacao");
+const gallery = path.resolve("docs/wireframes/comparacoes/v3.3.0-2026-10-24-totais-navegacao");
 fs.mkdirSync(gallery, { recursive: true });
 const browser = await chromium.launch();
 try {
@@ -12,7 +12,7 @@ try {
   const errors = [], external = [];
   page.on("pageerror", error => errors.push(error.message));
   page.on("request", request => { if (/^https?:/.test(request.url())) external.push(request.url()); });
-  await page.goto(pathToFileURL(path.resolve("Documentacao_Projeto_Nos/wireframes/atlas/index.html")).href + "#tela-13");
+  await page.goto(pathToFileURL(path.resolve("docs/wireframes/atlas/index.html")).href + "#tela-13");
   const preview = page.locator("#screen-preview");
   assert.equal(await preview.locator(".current-atlas-mobile .live-nav-count").count(), 3);
   assert.equal(await preview.locator(".current-atlas-mobile .live-nav-count").first().getAttribute("title"), "Total geral nos seus Núcleos · exemplo");

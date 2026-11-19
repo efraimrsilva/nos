@@ -5,7 +5,7 @@ import { pathToFileURL } from 'node:url';
 
 const stage=process.argv[2];
 if(!['antes','depois'].includes(stage))throw new Error('Informe antes ou depois.');
-const gallery=path.resolve('Documentacao_Projeto_Nos/wireframes/comparacoes/v1.1.0-2026-10-15-encerramento');
+const gallery=path.resolve('docs/wireframes/comparacoes/v1.1.0-2026-10-15-encerramento');
 mkdirSync(gallery,{recursive:true});
 const browser=await chromium.launch();
 try {
@@ -14,7 +14,7 @@ try {
   page.on('pageerror',error=>errors.push(error.message));
   for(const [label,viewport] of [['desktop',{width:1440,height:1000}],['mobile',{width:390,height:844}]]) {
     await page.setViewportSize(viewport);
-    await page.goto(pathToFileURL(path.resolve('Documentacao_Projeto_Nos/wireframes/atlas/index.html')).href+'#tela-73');
+    await page.goto(pathToFileURL(path.resolve('docs/wireframes/atlas/index.html')).href+'#tela-73');
     await page.evaluate(()=>document.fonts.ready);
     // Expandir apenas a área de captura permite conferir o formulário completo na galeria.
     await page.addStyleTag({content:'.toolbar{position:static!important}#screen-preview .phone,#screen-preview .extension-scroll{height:auto!important;max-height:none!important;overflow:visible!important}'});
@@ -34,7 +34,7 @@ try {
       if(!await form.locator('.local-feedback').innerText().then(text=>text.includes('Nenhum Núcleo real foi alterado')))throw new Error('Confirmação ilustrativa ausente.');
     }
     if(!await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth))throw new Error('Overflow no Atlas.');
-    await page.goto(pathToFileURL(path.resolve('Documentacao_Projeto_Nos/wireframes/atlas/index.html')).href+'#mvp');
+    await page.goto(pathToFileURL(path.resolve('docs/wireframes/atlas/index.html')).href+'#mvp');
     const phase=page.locator('#mvp-phase-controls');
     await phase.locator(':scope > summary').click();
     await phase.screenshot({path:path.join(gallery,`mvp-${stage}-${label}.png`)});

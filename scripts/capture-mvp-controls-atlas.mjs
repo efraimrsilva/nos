@@ -4,13 +4,13 @@ import { cpSync, mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
-const gallery=path.resolve('Documentacao_Projeto_Nos/wireframes/comparacoes/v0.16.0-2026-10-13-mvp-05-tela_66-tela_67-tela_69-tela_70-tela_71');
-const source=path.resolve('Documentacao_Projeto_Nos/wireframes/atlas');
+const gallery=path.resolve('docs/wireframes/comparacoes/v0.16.0-2026-10-13-mvp-05-tela-66-tela-67-tela-69-tela-70-tela-71');
+const source=path.resolve('docs/wireframes/atlas');
 const baseline=path.resolve('artifacts/mvp05-atlas-baseline');
 mkdirSync(gallery,{recursive:true});cpSync(source,baseline,{recursive:true});
 // O antes vem do commit de partida, sem reconstruir uma interface histórica inexistente.
 for(const file of ['screens.js','mvp-plan.js','global-view.js','product-ui.js','index.html']) {
-  writeFileSync(path.join(baseline,file),execFileSync('git',['show',`c40594f:Documentacao_Projeto_Nos/wireframes/atlas/${file}`]));
+  writeFileSync(path.join(baseline,file),execFileSync('git',['show',`c40594f:docs/wireframes/atlas/${file}`]));
 }
 const browser=await chromium.launch();
 try {

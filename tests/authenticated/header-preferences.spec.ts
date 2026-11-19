@@ -3,7 +3,7 @@ import { randomUUID } from "node:crypto";
 import { mkdirSync } from "node:fs";
 import path from "node:path";
 
-const gallery = path.resolve("Documentacao_Projeto_Nos/wireframes/comparacoes/v3.7.1-2026-11-05-cabecalho-preferencias-tela_13-tela_14-tela_60-tela_66");
+const gallery = path.resolve("docs/wireframes/comparacoes/v3.7.1-2026-11-05-cabecalho-preferencias-tela-13-tela-14-tela-60-tela-66");
 
 test("cabeçalho e preferências mantêm os atalhos e usam notificações suspensas", async ({ page, account }, info) => {
   test.setTimeout(120_000);

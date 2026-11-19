@@ -33,12 +33,12 @@ test("Atlas e aplicativo autenticado mantêm composição, estados e percursos",
   test.skip(testInfo.project.name !== "desktop", "O verificador já cobre desktop e celular.");
   test.setTimeout(120_000);
   // A sessão chega ao comparador somente em memória; nenhum cookie entra nos registros ou capturas.
-  execFileSync(process.execPath, ["Documentacao_Projeto_Nos/wireframes/tools/verify-fidelity.mjs"], {
+  execFileSync(process.execPath, ["docs/wireframes/tools/verify-fidelity.mjs"], {
     env: { ...process.env, NOS_VERIFY_ORIGIN: "http://127.0.0.1:3200", NOS_VERIFY_COOKIES: JSON.stringify(await context.cookies()) },
     stdio: "inherit",
   });
   const atlas = await context.newPage();
-  await atlas.goto(pathToFileURL(path.resolve("Documentacao_Projeto_Nos/wireframes/atlas/index.html")).href);
+  await atlas.goto(pathToFileURL(path.resolve("docs/wireframes/atlas/index.html")).href);
   // Capturas de regressão ficam nos artefatos; galerias versionadas são evidências históricas imutáveis.
   const dir = "artifacts/current-layout-invitation";
   for (const [label, viewport] of [["desktop", { width: 1440, height: 1000 }], ["mobile", { width: 390, height: 844 }]] as const) {
@@ -124,7 +124,7 @@ test("aceite explícito abre Início e lista sem duplicar nem elevar o papel", a
   await page.getByRole("button", { name: "Conferir convite" }).click();
   await expect(page.getByRole("button", { name: "Aceitar convite" })).toBeVisible();
   // Capturas usam somente texto ilustrativo; o código temporário é ocultado antes de gravar.
-  await page.screenshot({ path: `artifacts/regression-captures/v0.13.3-2026-10-10-entrar-convite-tela_10-tela_11/app-previa-${testInfo.project.name}.png`, fullPage: true, mask: [page.getByLabel("Código de convite")], maskColor: "#eff3e6" });
+  await page.screenshot({ path: `artifacts/regression-captures/v0.13.3-2026-10-10-entrar-convite-tela-10-tela-11/app-previa-${testInfo.project.name}.png`, fullPage: true, mask: [page.getByLabel("Código de convite")], maskColor: "#eff3e6" });
   await page.getByRole("button", { name: "Aceitar convite" }).click();
   await expect(page).toHaveURL(new RegExp(`/nucleos/${invitation.nucleusId}$`));
   await expect(page.getByRole("heading", { name: "Jardim do convite" })).toBeVisible();

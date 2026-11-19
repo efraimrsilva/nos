@@ -4,14 +4,14 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { chromium } from "@playwright/test";
 
-const gallery = path.resolve("Documentacao_Projeto_Nos/wireframes/comparacoes/v3.3.1-2026-10-29-conta-perfil-tela_13-tela_66-tela_69");
+const gallery = path.resolve("docs/wireframes/comparacoes/v3.3.1-2026-10-29-conta-perfil-tela-13-tela-66-tela-69");
 mkdirSync(gallery, { recursive: true });
 const browser = await chromium.launch();
 try {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
   const errors = [];
   page.on("pageerror", error => errors.push(error.message));
-  await page.goto(pathToFileURL(path.resolve("Documentacao_Projeto_Nos/wireframes/atlas/index.html")).href + "#tela-13");
+  await page.goto(pathToFileURL(path.resolve("docs/wireframes/atlas/index.html")).href + "#tela-13");
   await page.getByRole("button", { name: "Web", exact: true }).click();
   await page.locator("#screen-preview .live-profile-trigger").click();
   const panel = page.locator(".live-profile-popover:popover-open");

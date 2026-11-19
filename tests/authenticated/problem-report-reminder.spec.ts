@@ -2,7 +2,7 @@ import { test, expect } from "./fixtures";
 import { mkdirSync } from "node:fs";
 import path from "node:path";
 
-const gallery = path.resolve("Documentacao_Projeto_Nos/wireframes/comparacoes/v3.7.2-2026-11-05-lembrete-suporte-tela_12-tela_66-tela_70");
+const gallery = path.resolve("docs/wireframes/comparacoes/v3.7.2-2026-11-05-lembrete-suporte-tela-12-tela-66-tela-70");
 
 test("lembrete autenticado preserva o minuto entre telas, expira e abre o relato", async ({ page, account }, info) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });

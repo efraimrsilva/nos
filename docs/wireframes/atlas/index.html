@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>Nós — Atlas de wireframes · v3.11.1</title>
+    <link rel="stylesheet" href="atlas.css" />
+    <link rel="stylesheet" href="product.css" />
+    <link rel="stylesheet" href="global-view.css" />
+    <link rel="stylesheet" href="mvp.css" />
+    <link rel="stylesheet" href="account-motion.css" />
+    <script defer src="screens.js"></script>
+    <script defer src="approved-layouts.js"></script>
+    <script defer src="icons.js"></script>
+    <script defer src="assets/reflection-phrases.js"></script>
+    <script defer src="product-ui.js"></script>
+    <script defer src="global-view.js"></script>
+    <script defer src="mvp-plan.js"></script>
+    <script defer src="atlas.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#workspace">Ir para o conteúdo</a>
+    <aside class="sidebar" aria-label="Navegação do atlas">
+      <a class="brand" href="#tela-01"
+        ><span class="brand-mark">nós<span>✳</span></span
+        ><small>ATLAS DE PRODUTO</small></a
+      >
+      <p class="side-caption">
+        Um mapa para cultivar<br />cada parte da experiência.
+      </p>
+      <nav id="chapter-nav" aria-label="Áreas do produto"></nav>
+      <div class="side-footer">
+        <span class="edition">ATLAS VIVO · v3.11.1 · 15 NOV 2026</span>
+        <p>
+          A guia Migração reúne as entregas planejadas para substituir o Next.js
+          por Angular.
+        </p>
+        <a href="../guia.md">Guia e decisões do wireframe ↗</a>
+      </div>
+    </aside>
+    <main id="workspace" tabindex="-1">
+      <header class="masthead">
+        <div>
+          <p class="eyebrow">PROJETO NÓS / GUIA DE DESENVOLVIMENTO</p>
+          <h1>
+            Do primeiro acesso<br />ao cuidado que permanece<span>.</span>
+          </h1>
+          <p class="intro">
+            Todas as telas. Um contexto de cada vez.<br />Conta é o início;
+            consentimento acompanha todo o caminho.
+          </p>
+        </div>
+        <div class="cover-art" aria-hidden="true">
+          <img src="assets/tree.png" alt="" /><span
+            >Um jardim de possibilidades</span
+          >
+        </div>
+      </header>
+      <section class="overview" aria-label="Escopo e legenda">
+        <div>
+          <strong id="total-count">72</strong
+          ><span>telas e estados de fluxo</span>
+        </div>
+        <div><strong>37</strong><span>interfaces de origem mapeadas</span></div>
+        <div>
+          <strong id="planned-count"></strong
+          ><span>telas planejadas · pendentes</span>
+        </div>
+        <div>
+          <strong id="existing-count"></strong
+          ><span>recortes existentes · com limites</span>
+        </div>
+      </section>
+      <p class="planning-note">
+        <span class="dot"></span>Material de planejamento. Conteúdo ilustrativo;
+        botões navegam entre desenhos. Nenhuma conta, votação, gravação ou
+        mensagem é executada.
+      </p>
+      <p class="planning-note">
+        v3.9.0 · Lápis em Dados da conta edita o próprio nome com
+        salvar/cancelar e persistência autenticada; Atlas demonstra sem salvar
+        dados reais. Entrar com convite no cabeçalho de Seus Núcleos e em Conta
+        e Núcleos no perfil/página completa. Menu do perfil com seis seções;
+        Notificações e Apagar minha conta permanecem apenas na página completa.
+        Busca do topo da área logada removida. Perfil desktop abre painel
+        flutuante com seis seções da conta, ações em modais e contexto do Núcleo
+        preservado. Apagar minha conta em bloco próprio; opção Conta e segurança
+        removida. Entrada suave dos blocos da conta, respeitando movimento
+        reduzido. Último Núcleo preservado por conta neste navegador ao abrir
+        Conta, Preferências e Ajuda; atalhos desktop/mobile retornam ao mesmo
+        espaço. Conta, Preferências e Ajuda reunidas; Aparência padronizada,
+        avatares com letras do nome e barra lateral com controle animado. Nove
+        temas e cores dos ícones preservados.
+        <a href="../../andamento/funcionalidades/aparencia-conta.md"
+          >Contrato de aparência ↗</a
+        >
+      </p>
+      <p class="planning-note" id="habit-model-status">
+        Aplicativo local v3.9.0 · Proposta → Hábito → Essência. Hábito reúne
+        prática, momentos e revisões, inclusive registros legados sem regravar
+        termos ou aceites. Quadro de três colunas implementado; Essência e
+        passagens individuais continuam esboços com o mesmo informe de
+        Manifesto. Migração de funções validada somente localmente, sem
+        publicação remota.
+      </p>
+      <p class="planning-note" id="release-status">
+        v3.9.0 · O ícone de relato se expande após 1 minuto e volta ao tamanho
+        original após 10 segundos. Sino com painel suspenso. Agenda em
+        desenvolvimento com calendário interno disponível. Conta e relato com
+        textos simplificados. Identidade do Núcleo sincronizada entre
+        integrantes no aplicativo, sem recarregar, desktop/celular; o Atlas
+        permanece ilustrativo e offline. Relatar um problema em Ajuda,
+        perfil/Mais e cabeçalho autenticado, com destinatário oculto; Atlas
+        demonstra sem enviar e-mail. Consolidação local: propostas sem
+        Categoria, Acordos sem filtros globais, preservando busca local nos
+        registros carregados, contagens de participação sem atualizar a página,
+        calendário mensal com navegação por mês e ano, cartões de Núcleos com
+        integrantes, Início simplificado e paridade de navegação desktop/mobile.
+        Conta com mostrar/ocultar senha, oito luzes na árvore e movimento
+        reduzido respeitado. Atlas offline com dados ilustrativos; publicação
+        não comprovada por esta galeria.
+      </p>
+      <div class="toolbar">
+        <div class="view-tabs" role="group" aria-label="Modo de visualização">
+          <button data-view="atlas" aria-pressed="true">Atlas</button
+          ><button data-view="prototype" aria-pressed="false">
+            Tela a tela</button
+          ><button data-view="flows" aria-pressed="false">Percursos</button
+          ><button
+            data-view="migration"
+            aria-pressed="false"
+            aria-controls="migration-view"
+          >
+            Migração
+          </button>
+        </div>
+        <label class="search"
+          ><span class="sr-only">Buscar telas</span
+          ><input
+            id="search"
+            type="search"
+            placeholder="Buscar tela, rota ou pendência…"
+        /></label>
+        <label
+          ><span class="sr-only">Filtrar implementação</span
+          ><select id="status-filter">
+            <option value="all">Todas as situações</option>
+            <option value="Planejada">Planejadas · pendentes</option>
+            <option value="Recorte existente">Recortes existentes</option>
+          </select></label
+        >
+        <button id="print" class="quiet">Imprimir atlas</button>
+      </div>
+      <div class="atlas-heading">
+        <p id="result-count" aria-live="polite"></p>
+        <p>
+          <span class="badge planned">Planejada</span> contrato/implementação
+          pendente
+          <span class="badge existing">Recorte existente</span> consultar
+          limites
+        </p>
+      </div>
+      <section id="atlas-view" aria-label="Todas as telas"></section>
+      <section
+        id="mvp-view"
+        hidden
+        aria-label="MVP e Continuidade — caminho de implementação"
+      ></section>
+      <section
+        id="global-view"
+        hidden
+        aria-label="Visão global do projeto"
+      ></section>
+      <section
+        id="prototype-view"
+        hidden
+        aria-label="Inspeção da tela selecionada"
+      >
+        <div class="prototype-top">
+          <button id="previous" class="quiet">← Anterior</button>
+          <div
+            class="preview-width"
+            role="group"
+            aria-label="Largura da prévia"
+          >
+            <button data-width="mobile" aria-pressed="true">Celular</button
+            ><button data-width="desktop" aria-pressed="false">Web</button>
+          </div>
+          <button id="next" class="quiet">Próxima →</button>
+        </div>
+        <div class="inspection">
+          <div>
+            <div
+              class="state-tabs"
+              role="group"
+              aria-label="Estado de interface"
+            >
+              <button data-state="content" aria-pressed="true">Conteúdo</button
+              ><button data-state="empty" aria-pressed="false">Vazio</button
+              ><button data-state="loading" aria-pressed="false">
+                Carregando</button
+              ><button data-state="error" aria-pressed="false">Erro</button
+              ><button data-state="blocked" aria-pressed="false">
+                Sem permissão</button
+              ><button data-state="success" aria-pressed="false">
+                Sucesso
+              </button>
+            </div>
+            <div id="screen-preview"></div>
+          </div>
+          <aside
+            id="screen-spec"
+            class="spec-panel"
+            aria-label="Ficha de implementação"
+          ></aside>
+        </div>
+      </section>
+      <section
+        id="flows-view"
+        hidden
+        aria-label="Percursos do produto"
+      ></section>
+      <section
+        id="migration-view"
+        class="migration-plan"
+        hidden
+        aria-labelledby="migration-title"
+      >
+        <h2 id="migration-title" tabindex="-1">Migração para Angular</h2>
+        <p>
+          <span class="badge planned">Planejada</span> A substituição pública segue planejada.
+          A01–A11 foram verificadas na prévia <strong>v4.0.0-alpha.10</strong>. A preparação da virada foi verificada na v4.0.0-alpha.11. A prévia atual <strong>v4.0.0-alpha.16</strong> inclui os controles no perfil e no Mais e o lembrete de relato. A entrada com Google depende da configuração do provedor no ambiente.
+        </p>
+        <p>
+          O Angular será a aplicação web em computador e celular. A interface
+          móvel no navegador espelha a experiência prevista para o aplicativo.
+          Na prévia, o Supabase cuida da autenticação, dos dados e das operações protegidas.
+        </p>
+        <p>
+          Entre telas internas, a navegação mantém cabeçalho e menus visíveis.
+          Se os dados demorarem, o feedback aparece apenas na área afetada.
+        </p>
+        <details>
+          <summary>01 · Base Angular e edição do nome · validada localmente</summary>
+          <p>
+            <strong>Aceite.</strong> Persistência, sessão expirada e isolamento
+            entre contas.
+          </p>
+          <p>Tela 66: na prévia Angular, <code>/configuracoes/conta</code> abre Dados da conta
+            para ler e editar o próprio nome no Supabase local.</p>
+          <p><a href="#tela-66">Tela 66</a> ·
+            <a href="../comparacoes/v4.0.0-alpha.1-2026-11-15-angular-nome-tela-66/index.html">Comparação visual</a></p>
+        </details>
+        <details>
+          <summary>02 · Layout e navegação contínua · validada localmente</summary>
+          <p>
+            <strong>Aceite.</strong> Troca de rota sem recarregar o documento,
+            com estrutura persistente, teclado, foco e fechamento de modais.
+          </p>
+          <p>Prévia: Início e Minha conta navegam com cabeçalho persistente.
+            No desktop há barra lateral recolhível. No celular, Mais abre Todos os seus caminhos.
+            Dados da conta e Mais fecham por X, Escape ou gesto externo iniciado e concluído fora.</p>
+          <p><a href="#tela-66">Tela 66</a> · <a href="../comparacoes/v4.0.0-alpha.2-2026-11-15-angular-interface-tela-66/index.html">Comparação visual</a></p>
+        </details>
+        <details>
+          <summary>03 · Conta e sessão · verificada localmente</summary>
+          <p>
+            <strong>Aceite.</strong> Cadastro, login, confirmação, recuperação e
+            retorno do login social.
+          </p>
+          <p>O cadastro, a confirmação, a recuperação e a sessão por senha foram exercitados com e-mails do Supabase local. A prévia preserva os retornos técnicos e abre a redefinição em sessão separada. Google está preparado para um ambiente com o provedor habilitado.</p>
+          <p><a href="#tela-01">Tela 01</a> · <a href="../comparacoes/v4.0.0-alpha.3-2026-11-15-angular-acesso-tela-01-tela-02-tela-03-tela-04-tela-05-tela-72/index.html">Comparação visual</a></p>
+        </details>
+        <details>
+          <summary>04 · Criação e seleção de Núcleos · verificada localmente</summary>
+          <p>
+            <strong>Aceite.</strong> Rascunho, criação sem duplicidade e acesso
+            por vínculo.
+          </p>
+          <p>A prévia lista os Núcleos autorizados, revisa o rascunho antes de criar e mantém a seleção por conta. O Início mostra dados reais do Núcleo e o modal de integrantes é de consulta. A A05 acrescentou a geração e o aceite de convites.</p>
+          <p><a href="#tela-12">Tela 12</a> · <a href="../comparacoes/v4.0.0-alpha.4-2026-11-15-angular-nucleos-tela-06-tela-07-tela-08-tela-12-tela-13/index.html">Comparação visual</a></p>
+        </details>
+        <details>
+          <summary>05 · Convites · verificada localmente</summary>
+          <p>
+            <strong>Aceite.</strong> Geração, prévia, aceite e revogação com
+            duas contas.
+          </p>
+          <p>A prévia gera o código, permite conferir e aceitar, e oferece gestão por estado. Revogar bloqueia novos aceites e preserva quem já entrou. Preparar convite e Revogar convite estão na Tela 59.</p>
+          <p><a href="#tela-59">Tela 59</a> · <a href="../comparacoes/v4.0.0-alpha.5-2026-11-15-angular-convites-tela-09-tela-10-tela-11-tela-58-tela-59/index.html">Comparação visual</a></p>
+        </details>
+        <details>
+          <summary>06 · Pessoas e administração · verificada localmente</summary>
+          <p>
+            <strong>Aceite.</strong> Papéis, sincronização, saída e
+            encerramento.
+          </p>
+          <p>O Início da prévia traz a edição de identidade, o modal de integrantes e a seção Minha participação. O aceite de uma nomeação pertence à pessoa nomeada. Sair preserva o histórico compartilhado. Encerrar exige a confirmação do nome atual do Núcleo.</p>
+          <p><a href="#tela-13">Tela 13</a> · <a href="#tela-71">Tela 71</a> · <a href="#tela-73">Tela 73</a> · <a href="../comparacoes/v4.0.0-alpha.6-2026-11-15-angular-pessoas-tela-13-tela-71-tela-73/index.html">Comparação visual</a></p>
+        </details>
+        <details>
+          <summary>07 · Propostas e respostas · verificada localmente</summary>
+          <p>
+            <strong>Aceite.</strong> Consentimento, contagens e leitura de
+            registros anteriores.
+          </p>
+          <p>Lista com busca, conferência de proposta, participação por versão e contagens compartilhadas. O detalhe mostra os termos de registros existentes e o histórico do Hábito entra na A08.</p>
+          <p><a href="#tela-18">Tela 18</a> · <a href="#tela-22">Tela 22</a> · <a href="#tela-23">Tela 23</a> · <a href="#tela-24">Tela 24</a> · <a href="../comparacoes/v4.0.0-alpha.7-2026-11-15-angular-acordos-tela-18-tela-22-tela-23-tela-24-tela-36/index.html">Comparação visual</a></p>
+        </details>
+        <details>
+          <summary>08 · Ciclo de Hábitos · verificada localmente</summary>
+          <p>
+            <strong>Aceite.</strong> Preservação dos aceites, momentos, revisões
+            e histórico.
+          </p>
+          <p>O detalhe mostra momentos, período, termos e histórico. A administração confirma o ciclo e publica novas versões. Cada momento usa a versão lida e o aceite corrente.</p>
+          <p><a href="#tela-24">Tela 24</a> · <a href="#tela-27">Tela 27</a> · <a href="#tela-30">Tela 30</a> · <a href="../comparacoes/v4.0.0-alpha.8-2026-11-15-angular-habito-tela-24-tela-25-tela-27-tela-28-tela-30-tela-31-tela-32-tela-33/index.html">Comparação visual</a></p>
+        </details>
+        <details>
+          <summary>09 · Agenda · verificada localmente</summary>
+          <p>
+            <strong>Aceite.</strong> Calendário mensal e semanal, celular,
+            permissões e concorrência.
+          </p>
+          <p>Prévia Angular com mês e ano em português, seleção de data por teclado, semana em grade ou lista e detalhe com resposta individual. Criação, edição e remoção usam os diálogos compartilhados; o banco preserva a autorização e as travas existentes.</p>
+          <p><a href="#tela-14">Tela 14</a> · <a href="#tela-15">Tela 15</a> · <a href="#tela-16">Tela 16</a> · <a href="#tela-17">Tela 17</a> · <a href="../comparacoes/v4.0.0-alpha.9-2026-11-15-angular-agenda-tela-14-tela-15-tela-16-tela-17/index.html">Comparação visual</a></p>
+        </details>
+        <details>
+          <summary>10 · Configurações e suporte · verificada localmente</summary>
+          <p>Conta reúne temas, privacidade, Ajuda e exclusão com frase de confirmação.
+            Os diálogos usam a mesma interface Angular em computador e celular.
+            A conferência autenticada confirmou temas por conta, privacidade, exclusão e envio à caixa local.</p>
+          <p><a href="#tela-66">Tela 66</a> · <a href="#tela-67">Tela 67</a> · <a href="#tela-69">Tela 69</a> · <a href="#tela-70">Tela 70</a></p>
+          <p>
+            <strong>Aceite.</strong> Temas, privacidade, exclusão e envio
+            protegido.
+          </p>
+        </details>
+        <details>
+          <summary>11 · Áreas planejadas e navegação · verificada localmente</summary>
+          <p>As seis rotas Angular mostram exemplos do Núcleo. A navegação contextual
+            reúne os destinos, os totais pessoais e o painel ilustrativo de notificações. <a href="../comparacoes/v4.0.0-alpha.10-2026-11-17-angular-conta-e-previas-tela-38-tela-40-tela-44-tela-49-tela-55-tela-60-tela-62-tela-66-tela-67-tela-69-tela-70/index.html">Ver Conta e prévias no aplicativo</a>.</p>
+          <p><a href="#tela-38">Árvore</a> · <a href="#tela-40">Memórias</a> · <a href="#tela-44">Conexões</a> ·
+            <a href="#tela-49">Perfis</a> · <a href="#tela-55">Manifesto</a> ·
+            <a href="#tela-60">Notificações</a> · <a href="#tela-62">Ponte do Nós</a></p>
+          <p>
+            <strong>Aceite.</strong> Prévia ilustrativa, destinos, totais e
+            permissões.
+          </p>
+        </details>
+        <details>
+          <summary>12 · Integrações e ensaio de publicação · em validação</summary>
+          <p>A configuração isolada prepara os retornos de autenticação, o receptor assinado
+            e o relato de problema. O rascunho do Netlify teve rotas e funções verificadas sem sessão. A fila completa foi verificada em um Supabase local isolado. O usuário confirmou que entrou no rascunho. Renovação da sessão, caixa de ensaio hospedada e retorno de implantação seguem pendentes.</p>
+          <p><a href="https://6afbcf907b3227096c6e364b--noslife.netlify.app/conta">Abrir rascunho Angular</a></p>
+          <p>
+            <strong>Aceite.</strong> Fila de avisos, envio controlado e abertura
+            de links diretos.
+          </p>
+        </details>
+        <details id="migracao-passo-13" data-migration-delivery="13">
+          <summary>13 · Virada pública · em preparação local</summary>
+          <p>Os 32 caminhos foram abertos no Angular em computador e celular. O transporte oficial de e-mail foi preparado e testado localmente. A paridade final e as provas hospedadas seguem pendentes.</p>
+          <p><strong>Aceite.</strong> Paridade concluída, retorno ensaiado e fluxos críticos verificados no domínio público.</p>
+          <p><a href="../../andamento/registros/registro-v4.0.0-alpha.11-2026-11-17-imp-preparacao-angular-fun-transporte-e-paridade.md">Ver registro da preparação</a></p>
+        </details>
+        <details id="migracao-passo-14" data-migration-delivery="14">
+          <summary>14 · Arquivamento do Next.js · após confirmar a virada</summary>
+          <p>Guardar a aplicação Next.js em <code>arquivo/nextjs/</code> como referência consultável. Antes de mover os arquivos, separar os utilitários, ativos e testes usados pelo Angular.</p>
+          <p><strong>Aceite.</strong> Arquivo preservado e compilação, testes e publicação Angular independentes do código arquivado.</p>
+        </details>
+        <section class="migration-visual-roadmap" aria-labelledby="migration-visual-title">
+          <h3 id="migration-visual-title">Paridade de interface com o Atlas v3.11.1</h3>
+          <p><strong>Próximo passo:</strong> paridade visual 04, telas 06–09. Conferir escolha, tipo, propósito, conferência e retorno com o rascunho preservado.</p>
+          <p>Porte cada passo a partir do código Next.js v3.11.1, incluindo componentes, estilos, estados e ações. O Atlas serve para a conferência visual e mantém as funcionalidades planejadas como ilustrações. <a href="../../andamento/planos/paridade-angular-fontes.md">Consultar os arquivos de referência de cada passo</a>.</p>
+          <p>Em cada passo, compare computador (1440 px) e celular (390 px), confira foco, teclado, toque e movimento reduzido, e confirme os estados e os diálogos afetados. Guarde as capturas e registre os limites da verificação.</p>
+          <details data-visual-step="01">
+            <summary>01 · Conta · entrada e identidade · validada localmente</summary>
+            <p>Árvore, oito pontos de luz, reflexão pausável, ícone do Google, alternância, visibilidade da senha e composição compacta.</p>
+            <p><strong>Aceite.</strong> Conferir cadastro e login, foco na alternância, teclado e movimento reduzido. Veja a <a href="../comparacoes/v4.0.0-alpha.15-2026-11-17-tailwind-entrada-tela-01-tela-02/index.html">comparação desde o código Next.js</a>.</p>
+            <p><a href="#tela-01">01</a> · <a href="#tela-02">02</a></p>
+          </details>
+          <details data-visual-step="02">
+            <summary>02 · Acesso · assistência e boas-vindas · validada localmente</summary>
+            <p>Cabeçalho público, rodapé, boas-vindas, avisos de envio, modais de confirmação e recuperação e feedback de nova senha.</p>
+            <p><strong>Aceite.</strong> Abrir link direto, fechar por X/Escape/fora, conferir retorno, erro e sucesso conforme o estado de autenticação. <a href="../comparacoes/v4.0.0-alpha.13-2026-11-17-angular-acesso-publico-tela-03-tela-04-tela-05-tela-72/index.html">Comparação local</a>.</p>
+            <p><a href="#tela-03">03</a> · <a href="#tela-04">04</a> · <a href="#tela-05">05</a> · <a href="#tela-72">72</a></p>
+          </details>
+          <details data-visual-step="03">
+            <summary>03 · Estrutura autenticada · navegação e cabeçalho · prévia local validada</summary>
+            <p>Ícones, grupos e área ativa, recolhimento desktop, barra móvel, Mais, troca de Núcleo, totais, painel de perfil e avisos visuais.</p>
+            <p>Na prévia Angular, o avatar desktop e o Mais oferecem seis seções da conta. Os modais de dados, saída, tema, privacidade, orientação e relato abrem no contexto. Recuperação e confirmação seguem para suas rotas de assistência. As ações de participação ficam nas telas do Núcleo.</p>
+            <p>O atalho de relato se expande após 60 segundos por 10 segundos, com início em aba visível. No Atlas, o controle de prévia permite antecipar a demonstração.</p>
+            <p><a href="../comparacoes/v4.0.0-alpha.16-2026-11-17-perfil-lembrete-tela-66-tela-67-tela-70/index.html">Comparação de perfil, Mais e relato</a> · <a href="../comparacoes/v4.0.0-alpha.14-2026-11-17-angular-estrutura-tela-12-tela-13-tela-60-tela-66/index.html">Comparação da navegação</a></p>
+            <p><a href="#tela-12">12</a> · <a href="#tela-13">13</a> · <a href="#tela-60">60</a> · <a href="#tela-66">66</a> · <a href="#tela-67">67</a> · <a href="#tela-70">70</a></p>
+          </details>
+          <details data-visual-step="04">
+            <summary>04 · Começar · escolha, tipo e propósito</summary>
+            <p>Sequência de escolha, progresso, cartões de tipo, propósito, conferência e passagem ao convite inicial.</p>
+            <p><strong>Aceite.</strong> Voltar sem perder o rascunho aplicável; confirmar antes de escrever e evitar dupla criação.</p>
+            <p><a href="#tela-06">06</a> · <a href="#tela-07">07</a> · <a href="#tela-08">08</a> · <a href="#tela-09">09</a></p>
+          </details>
+          <details data-visual-step="05">
+            <summary>05 · Convites · entrada, aceite e gestão</summary>
+            <p>Campo do código, prévia, aceite explícito, copiar, lista, filtros, preparo e revogação.</p>
+            <p><strong>Aceite.</strong> Conferir etapa inicial, erro, aguardando serviço, cópia confirmada e permissões por papel.</p>
+            <p><a href="#tela-10">10</a> · <a href="#tela-11">11</a> · <a href="#tela-58">58</a> · <a href="#tela-59">59</a></p>
+          </details>
+          <details data-visual-step="06">
+            <summary>06 · Seus Núcleos, Início e participação</summary>
+            <p>Cartões, emblemas de papel, integrantes, edição de identidade, nomeação, saída e encerramento.</p>
+            <p><strong>Aceite.</strong> Preservar leitura e ações por papel, confirmação destrutiva e atualização de nome sem perder rascunho.</p>
+            <p><a href="#tela-12">12</a> · <a href="#tela-13">13</a> · <a href="#tela-71">71</a> · <a href="#tela-73">73</a></p>
+          </details>
+          <details data-visual-step="07">
+            <summary>07 · Agenda · consulta e presença</summary>
+            <p>Calendário mensal, seletor de mês/ano, semana em grade ou lista móvel, detalhe, marcadores e presença.</p>
+            <p><strong>Aceite.</strong> Conferir mudança de mês, leitura por teclado, dias com eventos e estados vazio/carregando/erro.</p>
+            <p><a href="#tela-14">14</a> · <a href="#tela-15">15</a></p>
+          </details>
+          <details data-visual-step="08">
+            <summary>08 · Agenda · criação, edição e remoção</summary>
+            <p>Formulários, hierarquia de horários, estado de envio, remarcação, confirmação de exclusão e retorno à semana.</p>
+            <p><strong>Aceite.</strong> Conferir as mesmas ações por toque e teclado e feedback apenas após confirmação.</p>
+            <p><a href="#tela-16">16</a> · <a href="#tela-17">17</a></p>
+          </details>
+          <details data-visual-step="09">
+            <summary>09 · Acordos · lista, proposta e participação</summary>
+            <p>Kanban e lista móvel, cartões, totais, formulário, conferência e aceite ou recusa. Fichas guiadas planejadas conservam seu estado.</p>
+            <p><strong>Aceite.</strong> Testar antes e depois da revisão, foco dos diálogos e resultados com duas contas.</p>
+            <p><a href="#tela-18">18</a> · <a href="#tela-19">19</a> · <a href="#tela-20">20</a> · <a href="#tela-21">21</a> · <a href="#tela-22">22</a> · <a href="#tela-23">23</a></p>
+          </details>
+          <details data-visual-step="10">
+            <summary>10 · Hábitos · detalhe, momento e gestão do ciclo</summary>
+            <p>Hierarquia do detalhe, histórico, registro, confirmação de período e apresentação dos estados de legado e reflexão.</p>
+            <p><strong>Aceite.</strong> Preservar leitura histórica, escolha voluntária, limites de permissão e estado da versão em alterações.</p>
+            <p><a href="#tela-24">24</a> · <a href="#tela-25">25</a> · <a href="#tela-26">26</a> · <a href="#tela-27">27</a> · <a href="#tela-28">28</a> · <a href="#tela-29">29</a></p>
+          </details>
+          <details data-visual-step="11">
+            <summary>11 · Hábitos · termos, versões e esboços</summary>
+            <p>Histórico de versões, revisão, encerramento e prévias de agendamento e Essência.</p>
+            <p><strong>Aceite.</strong> Conferir a sequência de conferência e aceite; manter dados ilustrativos identificados.</p>
+            <p><a href="#tela-30">30</a> · <a href="#tela-31">31</a> · <a href="#tela-32">32</a> · <a href="#tela-33">33</a> · <a href="#tela-34">34</a> · <a href="#tela-35">35</a> · <a href="#tela-36">36</a> · <a href="#tela-37">37</a></p>
+          </details>
+          <details data-visual-step="12">
+            <summary>12 · Árvore e Memórias</summary>
+            <p>Ilustração, marcos, seleção e filtros, detalhe de memória e estados de galeria e gratidão como esboços.</p>
+            <p><strong>Aceite.</strong> Conferir as interações locais sem simular gravação nem calcular evolução.</p>
+            <p><a href="#tela-38">38</a> · <a href="#tela-39">39</a> · <a href="#tela-40">40</a> · <a href="#tela-41">41</a> · <a href="#tela-42">42</a> · <a href="#tela-43">43</a></p>
+          </details>
+          <details data-visual-step="13">
+            <summary>13 · Conexões e perfis</summary>
+            <p>Seletores, cartões, afinidades, detalhes, preferências de visibilidade e esboços de edição.</p>
+            <p><strong>Aceite.</strong> Exemplos fictícios, navegação reversível e ausência de dados privados.</p>
+            <p><a href="#tela-44">44</a> · <a href="#tela-45">45</a> · <a href="#tela-46">46</a> · <a href="#tela-47">47</a> · <a href="#tela-48">48</a> · <a href="#tela-49">49</a> · <a href="#tela-50">50</a> · <a href="#tela-51">51</a> · <a href="#tela-52">52</a> · <a href="#tela-53">53</a> · <a href="#tela-54">54</a></p>
+          </details>
+          <details data-visual-step="14">
+            <summary>14 · Manifesto e Ponte do Nós</summary>
+            <p>Leitura do manifesto, revisão e compartilhamento ilustrativos, preparação da conversa e cartão temporário.</p>
+            <p><strong>Aceite.</strong> Preservar estados de esboço e limpar o rascunho ao sair ou trocar de Núcleo.</p>
+            <p><a href="#tela-55">55</a> · <a href="#tela-56">56</a> · <a href="#tela-57">57</a> · <a href="#tela-61">61</a> · <a href="#tela-62">62</a> · <a href="#tela-63">63</a> · <a href="#tela-64">64</a> · <a href="#tela-65">65</a></p>
+          </details>
+          <details data-visual-step="15">
+            <summary>15 · Conta autenticada, privacidade e suporte</summary>
+            <p>Seções, ícones, aparência, estados das preferências e modais de dados, exclusão e relato.</p>
+            <p><strong>Aceite.</strong> Conferir confirmação, preservação de texto em falha e contraste dos temas. A integração operacional de relatos segue o reteste registrado.</p>
+            <p><a href="#tela-66">66</a> · <a href="#tela-67">67</a> · <a href="#tela-68">68</a> · <a href="#tela-69">69</a> · <a href="#tela-70">70</a></p>
+          </details>
+          <details data-visual-step="16">
+            <summary>16 · Revisão transversal</summary>
+            <p>Revisitar as 73 fichas pelas etapas anteriores e conferir tipografia, ícones, avisos, movimento reduzido e estados vazios, de erro e de permissão.</p>
+            <p><strong>Aceite.</strong> Comparar com o Atlas nas duas larguras, ampliar onde necessário e registrar as evidências antes da virada.</p>
+            <p><a href="#tela-01">01</a> · <a href="#tela-13">13</a> · <a href="#tela-14">14</a> · <a href="#tela-18">18</a> · <a href="#tela-66">66</a></p>
+          </details>
+        </section>
+        <section class="migration-visual-roadmap" aria-labelledby="migration-sequence-title">
+          <h3 id="migration-sequence-title">Implementação após a paridade</h3>
+          <details data-migration-phase="1" open>
+            <summary>Fase 1 · Angular no ar e Next.js arquivado · em andamento</summary>
+            <ol>
+              <li>Concluir os passos de paridade 04–16 em computador e celular, preservando rotas, permissões, estados e diálogos.</li>
+              <li>No ensaio hospedado, comprovar sessão, confirmação e recuperação, fila e relatos de problema. Ensaiar o retorno ao deploy anterior e preparar a candidata.</li>
+              <li>Publicar o Angular e conferir os fluxos críticos no domínio público. Se a sessão, as permissões, as gravações ou uma integração crítica falharem, restaurar a publicação anterior.</li>
+              <li>Depois de confirmar a virada, arquivar a aplicação Next.js em <code>arquivo/nextjs/</code> e verificar que o Angular compila, é testado e pode ser publicado sem depender dessa pasta.</li>
+            </ol>
+            <p><a href="#migracao-passo-13">13 · Virada pública</a> · <a href="#migracao-passo-14">14 · Arquivamento do Next.js</a></p>
+            <p><strong>Avance quando:</strong> Angular estiver confirmado em produção e a cópia Next.js estiver preservada para consulta.</p>
+          </details>
+          <details data-migration-phase="2">
+            <summary>Fase 2 · Monorepo Nx e backend NestJS · planejada</summary>
+            <p>Organizar os aplicativos e bibliotecas no Nx. Portar um fluxo pequeno para o NestJS, mantendo Supabase Auth, PostgreSQL e as regras do banco. Avaliar Vitest ou Jest no primeiro recorte e reutilizar Playwright.</p>
+            <p><strong>Avance quando:</strong> o Angular continuar publicável e o primeiro fluxo comprovar integração, autorização e compatibilidade.</p>
+          </details>
+          <details data-migration-phase="3">
+            <summary>Fase 3 · Decisão de autenticação · planejada</summary>
+            <p>Comparar Supabase Auth com emissão própria de JWT (JSON Web Token). Se houver motivo para mudar, planejar a migração de identidade e sessão como entrega separada.</p>
+            <p><strong>Avance quando:</strong> a decisão estiver registrada e sessão, recuperação e permissões estiverem verificadas.</p>
+          </details>
+          <details data-migration-phase="4">
+            <summary>Fase 4 · WebSocket e Capacitor · planejada</summary>
+            <p>Validar atualização em tempo real em um fluxo com autorização, reconexão e recuperação de eventos. Com a web estável, validar o aplicativo Capacitor em aparelhos reais, primeiro Android e depois iOS.</p>
+            <p><strong>Conclua quando:</strong> o fluxo em tempo real e os dois pacotes tiverem evidências de teste separadas.</p>
+          </details>
+        </section>
+        <p>
+          <a href="../../andamento/planos/migracao-angular.md#ordem-de-implementação"
+            >Consultar o plano detalhado, critérios e dependências ↗</a
+          >
+        </p>
+      </section>
+      <footer class="main-footer">
+        <span>PROJETO NÓS</span>
+        <p>
+          O cuidado não é um placar. A proposta não é um acordo ativo.<br />O
+          espaço privado existe em cada tela, em cada decisão.
+        </p>
+        <a href="../cobertura.md">Consultar cobertura e pendências ↗</a>
+      </footer>
+    </main>
+    <div id="toast" role="status" class="toast" hidden></div>
+  </body>
+</html>

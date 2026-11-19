@@ -10,7 +10,7 @@ import { createServerClient } from "@supabase/ssr";
 
 const expect = baseExpect.configure({ timeout: 30_000 });
 const origin = "http://127.0.0.1:3150", api = "http://127.0.0.1:3151";
-const gallery = path.resolve("Documentacao_Projeto_Nos/wireframes/comparacoes/2026-10-27-confirmacao-email");
+const gallery = path.resolve("docs/wireframes/comparacoes/2026-10-27-confirmacao-email");
 mkdirSync(gallery, { recursive: true });
 const sends = [];
 const user = email => ({ id: "14000000-0000-4000-8000-000000000001", aud: "authenticated", role: "authenticated", email,
@@ -101,7 +101,7 @@ try {
       await context.close();
     }
     const page = await browser.newPage({ viewport });
-    await page.goto(pathToFileURL(path.resolve("Documentacao_Projeto_Nos/wireframes/atlas/index.html")).href);
+    await page.goto(pathToFileURL(path.resolve("docs/wireframes/atlas/index.html")).href);
     await page.evaluate(() => openScreen(1));
     await page.locator("#screen-preview [data-live-access=confirmation]").click();
     const dialog = page.locator("#atlas-live-dialog");

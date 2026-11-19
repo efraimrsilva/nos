@@ -3,7 +3,7 @@ import path from "node:path";
 import { test, expect, localSql } from "./fixtures";
 
 test("conta sem nome completa perfil e retorna ao destino do convite", async ({ page, account }, info) => {
-  const gallery = path.resolve("Documentacao_Projeto_Nos/wireframes/comparacoes/v3.9.0-2026-11-06-login-social-tela_01-tela_02");
+  const gallery = path.resolve("docs/wireframes/comparacoes/v3.9.0-2026-11-06-login-social-tela-01-tela-02");
   mkdirSync(gallery, { recursive: true });
   await page.goto("/conta?completar=nome&next=%2Fcomecar%2Fconvite");
   await expect(page.getByRole("heading", { name: "Como podemos chamar você?" })).toBeVisible();

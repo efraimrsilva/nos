@@ -1,6 +1,6 @@
 tmp/pdfs/extract_pdf_assets.py
-Documentacao_Projeto_Nos/Telas/desktop.ini
-Documentacao_Projeto_Nos/desktop.ini
+docs/telas/desktop.ini
+docs/desktop.ini
 tmp/pdfs/extract.json
 Projeto Nós - Atalho.lnk
 node_modules/

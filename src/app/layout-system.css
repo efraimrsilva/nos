@@ -1,4 +1,4 @@
-/* Sistema único da referência Telas/Layout novo. Não depende de estilos do primeiro layout. */
+/* Sistema único da referência telas/layout-novo. Não depende de estilos do primeiro layout. */
 :root { --surface:#fffefa; --accent-soft:#e6eddf; --nav-surface:#fafbf6; --hero:#e9efdf; }
 html { scroll-behavior:smooth; scroll-padding-top:24px; }
 .current-shell { display:grid; grid-template-columns:206px minmax(0,1fr); min-height:100svh; }
