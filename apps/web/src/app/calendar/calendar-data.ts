@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { parseCalendarEvent } from '../../../../../src/features/calendar/event-input';
+import { parseCalendarEvent } from '../../domain/calendar/event-input';
 import { NucleiData } from '../nuclei/nuclei-data';
 import { isNucleusId } from '../nuclei/nucleus-model';
 import type { CalendarEvent,CalendarScope } from './calendar-model';

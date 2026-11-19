@@ -1,7 +1,7 @@
 import { afterNextRender,Component,computed,effect,inject,Injector,resource,signal,untracked } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute,RouterLink } from '@angular/router';
-import { formatCalendarEventDate,parseCalendarEvent,parseCalendarPage } from '../../../../../src/features/calendar/event-input';
+import { formatCalendarEventDate,parseCalendarEvent,parseCalendarPage } from '../../domain/calendar/event-input';
 import { PreviewProfile } from '../preview-profile';
 import { RouteState } from '../shared/route-state';
 import { CalendarData,type CalendarChange } from './calendar-data';

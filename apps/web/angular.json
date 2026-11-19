@@ -46,7 +46,7 @@
             "assets": [
               {
                 "glob": "*.png",
-                "input": ".brand",
+                "input": "public/brand",
                 "output": "/brand/"
               }
             ],
@@ -80,7 +80,7 @@
               "assets": [
                 {
                   "glob": "*.png",
-                  "input": ".brand",
+                  "input": "public/brand",
                   "output": "/brand/"
                 },
                 {

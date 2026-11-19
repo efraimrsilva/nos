@@ -1,49 +1,38 @@
 {
   "name": "nos-app",
-  "version": "3.11.1",
+  "version": "4.0.0-alpha.17",
   "private": true,
   "engines": {
     "node": ">=24.15.0"
   },
   "scripts": {
-    "dev": "node scripts/dev.mjs",
-    "dev:local": "node --use-system-ca --use-env-proxy node_modules/next/dist/bin/next dev --hostname 127.0.0.1",
-    "dev:supabase": "node scripts/local-supabase.mjs",
+    "dev": "npm --prefix apps/web start",
+    "dev:local": "npm run dev",
+    "start": "npm run dev",
+    "build": "npm --prefix apps/web run build",
+    "typecheck": "npm --prefix apps/web run typecheck",
+    "test": "npm run test:angular",
+    "test:angular": "playwright test --config=playwright.angular.config.mjs",
+    "test:authenticated": "playwright test --config=playwright.angular.config.mjs",
     "supabase:start": "supabase start",
     "supabase:stop": "supabase stop",
     "supabase:status": "supabase status",
     "test:db": "supabase test db --local",
     "test:calendar-locks": "node scripts/verify-calendar-locks-local.mjs",
-    "test:authenticated": "node scripts/test-authenticated-local.mjs",
-    "build": "next build",
-    "start": "node --use-system-ca node_modules/next/dist/bin/next start --hostname 127.0.0.1",
-    "typecheck": "next typegen && tsc --noEmit --incremental false",
-    "test": "playwright test",
-    "test:angular": "playwright test --config=playwright.angular.config.mjs",
-    "test:problem-reports": "node scripts/test-problem-reports.mjs",
     "test:account-notifications": "node --test scripts/test-account-notifications.mjs",
-    "test:account-notifications:local": "node scripts/test-account-notifications-local.mjs",
-    "verify:support-mail": "node --use-system-ca --use-env-proxy --env-file-if-exists=.env.local scripts/verify-support-smtp.mjs"
+    "verify:support-mail": "node --use-system-ca --use-env-proxy --env-file-if-exists=.env.local scripts/verify-support-smtp.mjs",
+    "test:integrations": "node --test scripts/test-angular-preview.mjs scripts/test-angular-support.mjs scripts/test-account-notifications.mjs"
   },
   "dependencies": {
-    "@supabase/ssr": "^0.12.7",
     "@supabase/supabase-js": "^2.117.2",
     "@tailwindcss/postcss": "^4.3.3",
-    "lucide-react": "^1.48.0",
-    "next": "^16.3.6",
     "nodemailer": "10.3.1",
-    "react": "^19.3.0",
-    "react-day-picker": "9.14.0",
-    "react-dom": "^19.3.0",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@napi-rs/keyring": "2.1.2",
     "@playwright/test": "^1.63.0",
     "@types/node": "^26.6.2",
-    "@types/react": "^19.3.0",
-    "@types/react-dom": "^19.3.0",
-    "supabase": "2.118.0",
-    "typescript": "^7.0.2"
+    "supabase": "2.118.0"
   }
 }

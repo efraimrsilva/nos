@@ -1,7 +1,7 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { Component, DestroyRef, computed, effect, inject, input, resource, signal, viewChild, type ElementRef } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { ACCOUNT_DELETION_PHRASE, isAccountDeletionConfirmed } from '../../../../src/features/controls/account-deletion-input';
+import { ACCOUNT_DELETION_PHRASE, isAccountDeletionConfirmed } from '../domain/controls/account-deletion-input';
 import { AppearancePicker } from './appearance-picker';
 import { NucleiData } from './nuclei/nuclei-data';
 import { ProblemReport } from './problem-report';

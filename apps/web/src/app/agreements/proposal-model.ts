@@ -1,6 +1,6 @@
-import { parseAgreementProposal } from '../../../../../src/features/agreements/proposal-input';
-import { parseTrialDays } from '../../../../../src/features/agreements/habit-trial-input';
-export { agreementColumn, filterAgreementCards } from '../../../../../src/features/agreements/components/agreement-presentation';
+import { parseAgreementProposal } from '../../domain/agreements/proposal-input';
+import { parseTrialDays } from '../../domain/agreements/habit-trial-input';
+export { agreementColumn, filterAgreementCards } from '../../domain/agreements/components/agreement-presentation';
 
 export type AgreementScope = {owner:string; id:string};
 export type Response = 'accepted' | 'declined';

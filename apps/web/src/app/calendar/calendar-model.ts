@@ -1,4 +1,4 @@
-import { calendarEventLanes } from '../../../../../src/features/calendar/calendar-lanes';
+import { calendarEventLanes } from '../../domain/calendar/calendar-lanes';
 
 type CalendarParticipant = { response:string; is_own:boolean; account_deleted?:boolean };
 export type CalendarEvent = {

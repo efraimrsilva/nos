@@ -1,4 +1,11 @@
-# Estado atual — Next.js v3.11.1 · Angular v4.0.0-alpha.16 — 2026-11-19
+# Estado atual — Angular v4.0.0-alpha.17 — 2026-11-19
+
+**Produção A13:** Angular v4.0.0-alpha.16 publicado pelo Netlify no deploy `6aff4acac5b6a7d7da2938a9` a partir de `main@6e41268`. Rotas diretas Angular, configuração pública, resposta 404 da API desconhecida e 401 dos dois receptores sem autorização confirmados no domínio principal. O deploy Next.js `6af77e4a9a6348f87af8b9e1` (`604a142`) permanece como retorno. As quatro migrações obrigatórias estão registradas no Supabase hospedado, com permissões verificadas e assinaturas legadas preservadas. Sessão real e entrega de e-mails no domínio público seguem sem comprovação específica.
+
+**A14 — isolamento:** código Angular, regras de domínio, ativos e integrações estão em `apps/web`. O [arquivo visual](../../arquivo/nextjs/README.md) preserva estilos, marca e referências Next.js. O código executável antigo é recuperável pelo Git. Próximo passo de produto: retomar a paridade visual 04 (telas 06–09) com a referência arquivada. [Registro da virada e do isolamento](registros/registro-v4.0.0-alpha.17-2026-11-19-imp-isolamento-angular-fun-arquivo-visual-nextjs.md).
+
+## Referências da preparação da virada
+
 
 **Decisão inicial de arquitetura:** Angular + TypeScript, Tailwind CSS, NestJS, PostgreSQL / Supabase, Capacitor, WebSocket e monorepo Nx. JWT próprio ou Supabase Auth e Vitest ou Jest são escolhas em aberto. Playwright continua como ferramenta de testes de navegador. A definição orienta a evolução da linha Angular. A [stack de destino e a situação de cada camada](planos/migracao-angular.md#stack-de-destino) são a referência vigente. A avaliação de NestJS de 07/11 fica como histórico.
 

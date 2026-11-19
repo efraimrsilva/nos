@@ -3,7 +3,7 @@ import {once} from 'node:events';
 import {createServer} from 'node:http';
 import {test} from 'node:test';
 import {createSupportServer} from './angular-support.mjs';
-import {handlePreviewProblemReport} from '../src/features/support/preview-handler.mjs';
+import {handlePreviewProblemReport} from '../apps/web/server/support/preview-handler.mjs';
 
 async function listen(server) {
   server.listen(0, '127.0.0.1');

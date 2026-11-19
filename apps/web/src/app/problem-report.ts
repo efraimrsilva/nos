@@ -1,6 +1,6 @@
 import { Component, DestroyRef, effect, inject, input, signal, viewChild, type ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { parseProblemReport } from '../../../../src/features/support/input';
+import { parseProblemReport } from '../domain/support/input';
 import { NavIcon } from './shared/nav-icon';
 import { PreviewProfile } from './preview-profile';
 import { dismissProblemReportReminder, watchProblemReportReminder } from './problem-report-reminder';

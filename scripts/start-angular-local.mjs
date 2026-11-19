@@ -2,7 +2,6 @@ import { spawn } from 'node:child_process';
 import { once } from 'node:events';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import './prepare-angular-assets.mjs';
 import { localSupabaseConfig } from './local-supabase.mjs';
 import { createSupportServer } from './angular-support.mjs';
 

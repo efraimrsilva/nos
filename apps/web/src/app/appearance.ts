@@ -2,7 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Injectable, computed, effect, inject, signal, untracked } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { themes, resolveTheme, type ThemeId } from '../../../../src/features/appearance/themes';
+import { themes, resolveTheme, type ThemeId } from '../domain/appearance/themes';
 import { PreviewProfile } from './preview-profile';
 
 @Injectable({providedIn: 'root'})

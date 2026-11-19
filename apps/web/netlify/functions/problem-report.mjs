@@ -1,5 +1,5 @@
 import manifest from '../../package.json' with {type:'json'};
-import { handlePreviewProblemReport } from '../../../../src/features/support/preview-handler.mjs';
+import { handlePreviewProblemReport } from '../../server/support/preview-handler.mjs';
 import { createHostedMail, readHostedConfig, selectMailMode } from '../preview-mail.mjs';
 
 export default function problemReport(request,context) {

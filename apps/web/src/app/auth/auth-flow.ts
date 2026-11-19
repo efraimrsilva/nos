@@ -1,6 +1,6 @@
-export { isValidEmail, isValidPassword, passwordHelp, safeAuthNext, withAuthNext } from '../../../../../src/features/auth/input';
-export { parseRecoveryCredentials } from '../../../../../src/features/auth/recovery-credentials';
-import { safeAuthNext, withAuthNext } from '../../../../../src/features/auth/input';
+export { isValidEmail, isValidPassword, passwordHelp, safeAuthNext, withAuthNext } from '../../domain/auth/input';
+export { parseRecoveryCredentials } from '../../domain/auth/recovery-credentials';
+import { safeAuthNext, withAuthNext } from '../../domain/auth/input';
 
 export const defaultDestination = '/nucleos';
 export const accessLink = (path: string, next: string) => withAuthNext(path, safeAuthNext(next));

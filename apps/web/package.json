@@ -1,9 +1,8 @@
 {
   "name": "nos-web",
-  "version": "4.0.0-alpha.16",
+  "version": "4.0.0-alpha.17",
   "scripts": {
     "start": "node ../../scripts/start-angular-local.mjs",
-    "prebuild": "node ../../scripts/prepare-angular-assets.mjs",
     "build": "ng build",
     "typecheck": "ngc --noEmit -p tsconfig.app.json"
   },

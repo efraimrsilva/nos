@@ -34,8 +34,8 @@ try {
     }
     const closingDeliveries = panel.locator(':scope > details[data-migration-delivery]');
     assert.deepEqual(await closingDeliveries.locator('summary').allTextContents(), [
-      '13 · Virada pública · em preparação local',
-      '14 · Arquivamento do Next.js · após confirmar a virada',
+      '13 · Virada pública · Angular publicado',
+      '14 · Arquivamento visual do Next.js',
     ]);
     assert.equal(await panel.locator(':scope > details').count(), 14);
     assert.deepEqual(await phases.first().locator('a[href^="#migracao-passo-"]').evaluateAll(links => links.map(link => link.hash)), ['#migracao-passo-13','#migracao-passo-14']);

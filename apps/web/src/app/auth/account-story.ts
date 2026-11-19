@@ -1,5 +1,5 @@
 import { Component, DestroyRef, inject, input, signal } from '@angular/core';
-import { reflectionPhrases } from '../../../../../src/features/onboarding/reflection-phrases';
+import { reflectionPhrases } from '../../domain/onboarding/reflection-phrases';
 
 const interval = 10_000;
 

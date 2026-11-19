@@ -1,7 +1,7 @@
-import { parseAgreementProposal } from '../../../../../src/features/agreements/proposal-input';
+import { parseAgreementProposal } from '../../domain/agreements/proposal-input';
 import { accepted, type Agreement } from './proposal-model';
 
-export { habitMoodLabels,parseHabitMoment,parseHabitMomentCursor } from '../../../../../src/features/agreements/habit-moment-input';
+export { habitMoodLabels,parseHabitMoment,parseHabitMomentCursor } from '../../domain/agreements/habit-moment-input';
 
 export type CycleAction = 'start_test'|'activate'|'end';
 export const cycleLabels:Record<CycleAction,string> = {

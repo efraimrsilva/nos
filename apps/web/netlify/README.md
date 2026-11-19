@@ -1,8 +1,8 @@
 # Ensaio Angular no Netlify
 
-O [plano de migração](../../../docs/andamento/planos/migracao-angular.md#fase-1--publicar-o-angular-e-arquivar-o-nextjs) define a ordem da virada. Fechar paridade e ensaiar o retorno antes de promover o Angular. Manter o projeto Next.js disponível até confirmar o Angular no domínio público. O arquivamento é uma entrega posterior à confirmação e preserva a referência do deploy anterior.
+O [plano de migração](../../../docs/andamento/planos/migracao-angular.md#fase-1--publicar-o-angular-e-arquivar-o-nextjs) define a ordem da virada. O Angular foi confirmado no domínio público. A paridade visual continua com a [referência estética Next.js](../../../arquivo/nextjs/README.md). O deploy anterior fica registrado para retorno.
 
-Use um site de ensaio e um projeto Supabase exclusivos para contas descartáveis. O site tem base na raiz do repositório, **Package directory** `apps/web` e a configuração desse pacote. Confirme que o build usa `apps/web/netlify.toml` e que a integração Next.js não está instalada no site de ensaio. A instalação da raiz fornece as bibliotecas das funções. O comando do site instala também as dependências do Angular e publica `apps/web/dist/nos-web/browser`. A configuração Netlify da raiz continua responsável pelo site atual. [Configuração para monorepos](https://docs.netlify.com/build/configure-builds/monorepos/)
+Use um site de ensaio e um projeto Supabase exclusivos para contas descartáveis. O site tem base na raiz do repositório, **Package directory** `apps/web` e a configuração desse pacote. Confirme que o build usa `apps/web/netlify.toml` e que a integração Next.js não está instalada no site de ensaio. A instalação da raiz fornece as bibliotecas das funções. O comando do site instala também as dependências do Angular e publica `apps/web/dist/nos-web/browser`. A configuração Netlify da raiz publica o Angular no site principal. [Configuração para monorepos](https://docs.netlify.com/build/configure-builds/monorepos/)
 
 ## Ensaio no site existente
 
@@ -38,7 +38,7 @@ O build só grava URL, chave pública e opção Google no arquivo `supabase.json
 
 ## Preparação da produção para A13
 
-Com as builds automáticas reativadas, o `netlify.toml` da raiz nesta revisão aponta para Angular. Uma solicitação de mudanças para `main` pode gerar uma Deploy Preview. A branch `main` continua publicando o código já presente nela até receber o conjunto da virada. Confirme no log de build que a prévia usa o comando Angular e que o adaptador Next.js foi ignorado. O roteiro de retorno usa o deploy Next.js publicado, sem reconstruí-lo.
+Com as builds automáticas reativadas, o `netlify.toml` da raiz nesta revisão aponta para Angular. Uma solicitação de mudanças para `main` pode gerar uma Deploy Preview. A branch `main` publica Angular. Confirme no log de build que a prévia usa o comando Angular e que o adaptador Next.js foi ignorado. O roteiro de retorno usa o deploy Next.js publicado, sem reconstruí-lo.
 
 O comando `node scripts/build-angular-preview.mjs --production` gera o artefato Angular de produção. A prévia usa `NOS_ANGULAR_...` no contexto de ensaio, sem herdar credenciais de produção. Na virada do mesmo site, se as duas variáveis públicas Angular de produção estiverem ausentes, o build e as funções usam `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_SERVICE_ROLE_KEY` e `ACCOUNT_NOTIFICATION_SECRET` que já existem no Netlify. As duas últimas ficam restritas ao servidor. Se existir uma configuração pública Angular explícita, o conjunto inteiro de produção deve ser configurado para o mesmo Supabase.
 

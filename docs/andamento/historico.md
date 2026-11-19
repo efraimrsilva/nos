@@ -1,3 +1,9 @@
+## 2026-11-19 — Virada pública para Angular e isolamento visual do Next.js
+
+O Netlify publicou o Angular a partir de main. Quatro migrações foram aplicadas e verificadas no Supabase. A14 separou a aplicação ativa da referência visual Next.js, com validação do build e dos fluxos locais. [Registro](registros/registro-v4.0.0-alpha.17-2026-11-19-imp-isolamento-angular-fun-arquivo-visual-nextjs.md).
+
+---
+
 ## 2026-11-19 — Sequência da migração e arquivamento do Next.js
 
 A guia Migração passou a mostrar quatro fases. A13 publica e confirma a web Angular. A14 arquiva o Next.js após a confirmação, com o projeto preservado para consulta. As fases seguintes tratam de Nx/NestJS, autenticação e WebSocket/Capacitor. A guia foi conferida em desktop e celular. [Registro](registros/registro-v4.0.0-alpha.16-2026-11-19-imp-roteiro-angular-fun-publicacao-arquivamento-e-evolucao.md).

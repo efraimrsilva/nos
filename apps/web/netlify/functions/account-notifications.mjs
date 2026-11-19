@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import { handleAccountNotification } from '../../../../src/features/account-notifications/handler.ts';
+import { handleAccountNotification } from '../../server/account-notifications/handler.ts';
 import { createHostedMail, readHostedConfig, readNotificationCredentials, selectMailMode } from '../preview-mail.mjs';
 
 export function createNotificationEndpoint(env, {client = createClient, mailer = createHostedMail} = {}) {

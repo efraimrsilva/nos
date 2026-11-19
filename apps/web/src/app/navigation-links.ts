@@ -1,7 +1,7 @@
 import { Component, input, output } from '@angular/core';
 import { RouterLink, RouterLinkActive, type IsActiveMatchOptions } from '@angular/router';
 import { NavIcon, type NavIconName } from './shared/nav-icon';
-import type { NavigationCounts } from '../../../../src/features/navigation/counts';
+import type { NavigationCounts } from '../domain/navigation/counts';
 
 export type NavigationItem = {label: string; url: string; count?: keyof NavigationCounts; icon: NavIconName; tone?: string; planned?: boolean};
 

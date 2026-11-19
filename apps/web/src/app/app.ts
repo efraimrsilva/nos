@@ -14,7 +14,7 @@ import { isNucleusId, profileLetters } from './nuclei/nucleus-model';
 import { watchNucleusIdentity } from './nuclei/nucleus-identity-sync';
 import { NucleiData } from './nuclei/nuclei-data';
 import { NavigationLinks, navAreaMatches, type NavigationItem } from './navigation-links';
-import { readNavigationCounts } from '../../../../src/features/navigation/counts';
+import { readNavigationCounts } from '../domain/navigation/counts';
 import { NavIcon } from './shared/nav-icon';
 import manifest from '../../package.json';
 

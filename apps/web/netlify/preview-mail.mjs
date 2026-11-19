@@ -52,7 +52,7 @@ export async function createHostedMail(env,mode) {
   if (mode === 'sandbox') return createPreviewMail(env);
   if (mode !== 'production') return null;
   const {supportMailTransport, sendNewAccountNotification, sendProblemReport} =
-    await import('../../../src/features/support/mail-transport.ts');
+    await import('../server/support/mail-transport.ts');
   // Reutiliza o SMTP e o destinatário fixo do Next.js. O modo local não se aplica ao deploy publicado.
   const transport = supportMailTransport({...env,NOS_AUTH_TEST:undefined});
   if (!transport) return null;
@@ -67,7 +67,7 @@ export async function createPreviewMail(env) {
   const recipient = env.NOS_ANGULAR_SANDBOX_MAIL_TO ?? '';
   if (!/^[\w.+-]+@example\.test$/i.test(recipient)) return null;
   const {supportMailTransport, sendNewAccountNotification, sendProblemReport} =
-    await import('../../../src/features/support/mail-transport.ts');
+    await import('../server/support/mail-transport.ts');
   const transport = supportMailTransport({
     SUPPORT_SMTP_HOST: env.NOS_ANGULAR_SANDBOX_SMTP_HOST,
     SUPPORT_SMTP_PORT: env.NOS_ANGULAR_SANDBOX_SMTP_PORT,

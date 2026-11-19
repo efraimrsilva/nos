@@ -1,12 +1,12 @@
 import { createServer } from 'node:http';
 import { Readable } from 'node:stream';
-import { handlePreviewProblemReport } from '../src/features/support/preview-handler.mjs';
+import { handlePreviewProblemReport } from '../apps/web/server/support/preview-handler.mjs';
 
 export function createSupportServer({url, publicKey, version, smtpPort}) {
   const getSender = async () => {
     if (!smtpPort) return null;
     // A prévia local usa uma caixa descartável no loopback.
-    const {sendProblemReport, supportMailTransport} = await import('../src/features/support/mail-transport.ts');
+    const {sendProblemReport, supportMailTransport} = await import('../apps/web/server/support/mail-transport.ts');
     const mail = supportMailTransport({
       SUPPORT_SMTP_HOST:'127.0.0.1', SUPPORT_SMTP_PORT:smtpPort,
       SUPPORT_MAIL_FROM:'support@example.test', NOS_AUTH_TEST:'1',

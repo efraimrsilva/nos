@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createHmac } from 'node:crypto';
-import { handleAccountNotification } from '../src/features/account-notifications/handler.ts';
+import { handleAccountNotification } from '../apps/web/server/account-notifications/handler.ts';
 
 const secret = 'test-only-secret-with-at-least-32-characters';
 const id = 'aa000000-0000-4000-8000-000000000001';

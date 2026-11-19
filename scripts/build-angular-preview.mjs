@@ -17,8 +17,6 @@ if (!config) {
   process.exit(1);
 }
 
-const assets = spawnSync(process.execPath, [fileURLToPath(new URL('./prepare-angular-assets.mjs', import.meta.url))], {stdio:'inherit'});
-if (assets.status !== 0) process.exit(assets.status ?? 1);
 const angular = new URL('node_modules/@angular/cli/bin/ng.js', app);
 if (!existsSync(angular)) {
   console.error('Instale as dependências da prévia com npm ci --prefix apps/web.');
