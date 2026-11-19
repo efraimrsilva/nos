@@ -38,7 +38,9 @@ O build só grava URL, chave pública e opção Google no arquivo `supabase.json
 
 ## Preparação da produção para A13
 
-A configuração de produção tem variáveis próprias, com os escopos abaixo. O comando `node scripts/build-angular-preview.mjs --production` gera o artefato Angular de produção. O comando de build da prévia continua sem esse argumento. A mudança de configuração do site público e a publicação dependem da decisão de virada.
+Com as builds automáticas reativadas, o `netlify.toml` da raiz nesta revisão aponta para Angular. Uma solicitação de mudanças para `main` pode gerar uma Deploy Preview. A branch `main` continua publicando o código já presente nela até receber o conjunto da virada. Confirme no log de build que a prévia usa o comando Angular e que o adaptador Next.js foi ignorado. O roteiro de retorno usa o deploy Next.js publicado, sem reconstruí-lo.
+
+O comando `node scripts/build-angular-preview.mjs --production` gera o artefato Angular de produção. A prévia usa `NOS_ANGULAR_...` no contexto de ensaio, sem herdar credenciais de produção. Na virada do mesmo site, se as duas variáveis públicas Angular de produção estiverem ausentes, o build e as funções usam `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_SERVICE_ROLE_KEY` e `ACCOUNT_NOTIFICATION_SECRET` que já existem no Netlify. As duas últimas ficam restritas ao servidor. Se existir uma configuração pública Angular explícita, o conjunto inteiro de produção deve ser configurado para o mesmo Supabase.
 
 | Escopo | Variáveis de produção |
 | --- | --- |

@@ -2,8 +2,21 @@ import { readPublicConfig } from '../src/app/auth/public-config.ts';
 
 const prefixFor = mode => mode === 'production' ? 'NOS_ANGULAR_PRODUCTION_' : 'NOS_ANGULAR_';
 
+// Na virada do mesmo site, reutilize a configuração já hospedada sem copiar segredos.
+// Se houver uma configuração Angular explícita, dados e credenciais vêm desse conjunto.
+const useCurrentSiteConfig = (env,mode) => mode === 'production' &&
+  env.NOS_ANGULAR_PRODUCTION_SUPABASE_URL === undefined &&
+  env.NOS_ANGULAR_PRODUCTION_SUPABASE_PUBLIC_KEY === undefined;
+
 export function readHostedConfig(env,mode) {
   if (!mode) return null;
+  if (useCurrentSiteConfig(env,mode)) {
+    return readPublicConfig({
+      url:env.NEXT_PUBLIC_SUPABASE_URL,
+      publicKey:env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
+      google:env.NOS_ANGULAR_PRODUCTION_GOOGLE === '1',
+    },'hosted');
+  }
   const prefix = prefixFor(mode);
   return readPublicConfig({
     url: env[prefix+'SUPABASE_URL'],
@@ -14,6 +27,9 @@ export function readHostedConfig(env,mode) {
 
 export function readNotificationCredentials(env,mode) {
   if (!mode) return null;
+  if (useCurrentSiteConfig(env,mode)) {
+    return {serviceKey:env.SUPABASE_SERVICE_ROLE_KEY,secret:env.ACCOUNT_NOTIFICATION_SECRET ?? ''};
+  }
   const prefix = prefixFor(mode);
   return {
     serviceKey:env[prefix+'SUPABASE_SERVICE_ROLE_KEY'],

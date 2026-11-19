@@ -3,7 +3,7 @@ import { createHmac } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 import { readPublicConfig } from '../apps/web/src/app/auth/public-config.ts';
-import { createHostedMail, createPreviewMail, readHostedConfig, selectMailMode } from '../apps/web/netlify/preview-mail.mjs';
+import { createHostedMail, createPreviewMail, readHostedConfig, readNotificationCredentials, selectMailMode } from '../apps/web/netlify/preview-mail.mjs';
 import { createNotificationEndpoint } from '../apps/web/netlify/functions/account-notifications.mjs';
 
 const key = 'sb_publishable_fixture';
@@ -164,13 +164,38 @@ test('cada build e função lê apenas a configuração pública do seu ambiente
 });
 
 test('Netlify reserva as APIs antes da rota padrão Angular e não fixa segredos', () => {
-  const file = new URL('../apps/web/netlify.toml',import.meta.url);
-  const toml = readFileSync(file,'utf8');
+  const toml = readFileSync(new URL('../netlify.toml',import.meta.url),'utf8');
+  const preview = readFileSync(new URL('../apps/web/netlify.toml',import.meta.url),'utf8');
+  assert.equal(toml.slice(toml.indexOf('[functions]')).replaceAll('\r\n','\n'),
+    preview.slice(preview.indexOf('[functions]')).replaceAll('\r\n','\n'));
+  assert.match(toml,/\[context\.production\]\s+command = "[^"\n]+--production"/);
   const paths = Array.from(toml.matchAll(/^  from = "([^"]+)"/gm),match => match[1]);
   assert.deepEqual(paths,['/api/account-notifications','/api/problem-report','/api/*','/*']);
   assert.match(toml,/from = "\/api\/\*"\s+to = "\/404\.html"\s+status = 404/);
   assert.match(toml,/from = "\/\*"\s+to = "\/index\.html"\s+status = 200/);
   assert.match(toml,/Cache-Control = "no-store"/);
   assert.match(toml,/Referrer-Policy = "no-referrer"/);
-  assert.doesNotMatch(toml,/SERVICE_ROLE|SECRET|PASSWORD/);
+  assert.doesNotMatch(toml,/SERVICE_ROLE|ACCOUNT_NOTIFICATION_SECRET|PASSWORD/);
+});
+
+test('virada reaproveita a configuração do site atual somente em produção', () => {
+  const env = {
+    NEXT_PUBLIC_SUPABASE_URL: 'https://official.example.test',
+    NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: 'sb_publishable_official',
+    SUPABASE_SERVICE_ROLE_KEY: 'fixture-service',
+    ACCOUNT_NOTIFICATION_SECRET: 'fixture-notification-secret',
+  };
+  assert.deepEqual(readHostedConfig(env, 'production'), {
+    url: env.NEXT_PUBLIC_SUPABASE_URL, publicKey: env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY, google: false,
+  });
+  assert.deepEqual(readNotificationCredentials(env, 'production'), {
+    serviceKey: env.SUPABASE_SERVICE_ROLE_KEY, secret: env.ACCOUNT_NOTIFICATION_SECRET,
+  });
+  assert.equal(readHostedConfig(env, 'sandbox'), null);
+  assert.deepEqual(readNotificationCredentials(env, 'sandbox'), {serviceKey: undefined, secret: ''});
+
+  // Um projeto Angular distinto nunca pode herdar as credenciais do banco anterior.
+  const override = {...env, NOS_ANGULAR_PRODUCTION_SUPABASE_URL:'https://other.example.test'};
+  assert.equal(readHostedConfig(override, 'production'), null);
+  assert.deepEqual(readNotificationCredentials(override, 'production'), {serviceKey: undefined, secret: ''});
 });

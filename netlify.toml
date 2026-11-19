@@ -1,7 +1,45 @@
+# Site principal: a configuração entra em vigor somente ao publicar esta revisão.
 [build]
-  command = "npm run build && node scripts/clean-build-cache.mjs"
-  publish = ".next"
+  command = "npm ci --prefix apps/web && node scripts/build-angular-preview.mjs"
+  publish = "apps/web/dist/nos-web/browser"
 
 [build.environment]
-  # Remetente público e hostname SMTP já constam nos registros; senha e demais segredos seguem sob varredura.
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
   SECRETS_SCAN_OMIT_KEYS = "SUPPORT_MAIL_FROM,SUPPORT_SMTP_HOST"
+
+[context.production]
+  command = "npm ci --prefix apps/web && node scripts/build-angular-preview.mjs --production"
+
+[functions]
+  directory = "apps/web/netlify/functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/account-notifications"
+  to = "/.netlify/functions/account-notifications"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/problem-report"
+  to = "/.netlify/functions/problem-report"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/*"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "no-store"
+    Referrer-Policy = "no-referrer"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
