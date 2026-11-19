@@ -277,6 +277,12 @@ body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog .live-member-t
 .live-own-attendance { background:var(--paper); border-inline-start:2px solid var(--leaf); padding:.6rem; }
 .live-calendar-presence .live-button { width:100%; }
 .live-calendar-presence .live-button[aria-pressed="true"] { background:var(--soft); border-color:var(--leaf); }
+.live-calendar-editor { display:grid; gap:.85rem; }
+.live-calendar-editor .product-field { margin:0; }
+.live-calendar-dates { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.65rem; margin:0; padding:.75rem; min-width:0; border:1px solid var(--line); border-radius:.55rem; }
+.live-calendar-dates .live-footnote { grid-column:1/-1; margin:0; }
+.live-calendar-dates legend { font-weight:700; }
+@media(max-width:480px) { .live-calendar-dates { grid-template-columns:minmax(0,1fr); } }
 @container (min-width: 701px) {
   .live-nucleus-overview { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }

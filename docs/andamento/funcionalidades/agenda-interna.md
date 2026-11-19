@@ -1,5 +1,7 @@
 # Agenda interna — v3.5.0
 
+**Angular v4.0.0-alpha.22.** Criar e editar usam horários agrupados com fuso explícito e foco em erro. Cancelar retorna à Agenda. Reabrir edição recupera os dados confirmados e a remoção exige ciência explícita. [Registro](../registros/registro-v4.0.0-alpha.22-2026-11-19-imp-paridade-angular-fun-gestao-de-eventos.md).
+
 **Angular v4.0.0-alpha.21.** A resposta própria é indicada em texto e no estado acessível do botão após a leitura confirmada. Os marcadores do mês consideram os eventos da página atual. A grade usa Tempo Universal Coordenado (UTC) e o detalhe também apresenta o fuso do encontro. [Registro](../registros/registro-v4.0.0-alpha.21-2026-11-19-imp-paridade-angular-fun-consulta-e-presenca-na-agenda.md).
 
 **Direção vigente — 06/11/2026 — v3.7.2:** [Proposta → Hábito → Essência](fluxo-proposta-habito-essencia.md). Experiência foi consolidada em Hábito; agendamento e pós-evento reutilizam os fluxos de Hábito. A implementação ainda conserva legado; esta revisão não migra dados. Marcos datados abaixo preservam o estado da época e não restabelecem a direção substituída.

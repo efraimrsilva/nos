@@ -1,3 +1,7 @@
+## 2026-11-19 — Paridade 08 de gestão de eventos
+
+Os horários ganharam agrupamento e foco em erro. O cancelamento devolve o foco e o rascunho é descartado ao reabrir. Criação, remarcação e remoção foram verificadas localmente. [Registro](registros/registro-v4.0.0-alpha.22-2026-11-19-imp-paridade-angular-fun-gestao-de-eventos.md).
+
 ## 2026-11-19 — Paridade 07 de consulta e presença na Agenda
 
 O detalhe passou a indicar a própria resposta por estilo e estado acessível. Foram conferidos marcadores, recuperação da consulta e presença após recarregar. [Registro](registros/registro-v4.0.0-alpha.21-2026-11-19-imp-paridade-angular-fun-consulta-e-presenca-na-agenda.md).

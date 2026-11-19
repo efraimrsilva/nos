@@ -66,6 +66,7 @@ export class CalendarPage {
   protected readonly notice=signal('');
   protected readonly error=signal('');
   protected readonly dialogError=signal('');
+  protected readonly invalidTime=signal<'start'|'end'|null>(null);
   protected readonly busy=signal(false);
   protected readonly uncertainCreate=signal(false);
   protected readonly editing=signal<CalendarEvent|undefined>(undefined);
@@ -129,6 +130,7 @@ export class CalendarPage {
     if(this.busy() || this.state.isLoading()) return;
     this.editing.set(event);
     this.dialogError.set('');
+    this.invalidTime.set(null);
     // Reabrir o mesmo evento parte dos dados confirmados, inclusive após cancelar um rascunho.
     const title=form.elements.namedItem('title') as HTMLInputElement;
     title.value=event?.title ?? '';
@@ -149,15 +151,21 @@ export class CalendarPage {
 
   protected save(e:SubmitEvent,form:HTMLFormElement,dialog:HTMLDialogElement) {
     e.preventDefault();
+    if(this.busy() || this.state.isLoading()) return;
+    this.dialogError.set('');
+    this.invalidTime.set(null);
     const fields=new FormData(form), event=this.editing();
     const startsAt=formInstant(String(fields.get('start') ?? ''),event?.starts_at);
     const endsAt=formInstant(String(fields.get('end') ?? ''),event?.ends_at);
-    if(!startsAt || !endsAt || Date.parse(endsAt)<=Date.parse(startsAt)) {
-      this.dialogError.set('O término precisa ser posterior ao início e os horários precisam existir neste fuso.');
-      return;
-    }
-    if(Date.parse(endsAt)<=Date.now()) {
-      this.dialogError.set('Escolha um evento que termine no futuro.');
+    if(!startsAt || !endsAt || Date.parse(endsAt)<=Date.parse(startsAt) || Date.parse(endsAt)<=Date.now()) {
+      const field=startsAt ? 'end' : 'start';
+      const ordered=startsAt && endsAt && Date.parse(endsAt)>Date.parse(startsAt);
+      this.invalidTime.set(field);
+      this.dialogError.set(ordered ? 'Escolha um evento que termine no futuro.' : 'O término precisa ser posterior ao início e os horários precisam existir neste fuso.');
+      // O leitor de tela recebe a descrição ligada ao campo depois de renderizada.
+      afterNextRender(()=>{
+        if(dialog.open) (form.elements.namedItem(field) as HTMLInputElement).focus();
+      },{injector:this.injector});
       return;
     }
     const input={title:String(fields.get('title') ?? ''),intention:String(fields.get('intention') ?? ''),
@@ -167,6 +175,12 @@ export class CalendarPage {
     const parsed=(sameTime ? parseCalendarEvent({...input,timeZone:event.time_zone}) : null) ?? parseCalendarEvent(input);
     if(!parsed) { this.dialogError.set('Confira o título, a intenção, os horários e o fuso.'); return; }
     void this.apply({kind:'save',event,fields:parsed},dialog);
+  }
+
+  protected clearTimeError() {
+    if(!this.invalidTime()) return;
+    this.invalidTime.set(null);
+    this.dialogError.set('');
   }
 
   protected respond(event:CalendarEvent,response:'accepted'|'declined') {

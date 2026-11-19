@@ -5,6 +5,10 @@
 .agenda-form [role=alert] { color:#8a332d; }
 .agenda-form .agenda-consent { display:flex; gap:.6rem; align-items:flex-start; font-weight:400; }
 .agenda-consent input { accent-color:var(--leaf); inline-size:1.1rem; block-size:1.1rem; }
-.agenda-dates { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; }
+.agenda-dates { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; min-width:0; margin:0; padding:.65rem; border:1px solid var(--line); border-radius:.55rem; }
+.agenda-dates legend { font-weight:700; padding-inline:.25rem; }
+.agenda-zone { grid-column:1/-1; margin:0; }
+.agenda-form input[aria-invalid=true] { border-color:#8a332d; }
+.agenda-dialog-error,.agenda-removal-note { padding:.65rem .8rem; border-inline-start:2px solid #8a332d; overflow-wrap:anywhere; }
 .agenda-form .agenda-danger { background:#8a332d; color:white; }
 @media(max-width:480px) { .agenda-dates { grid-template-columns:minmax(0,1fr); } }

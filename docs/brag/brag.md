@@ -1,3 +1,7 @@
+## 19/11/2026 — Correção e cancelamento nos formulários da Agenda
+
+O erro de horário passou a identificar e focar o campo correspondente. Cancelar edição retorna à Agenda e reabrir recupera os dados salvos. O fluxo foi confirmado em computador e celular. [Registro](../andamento/registros/registro-v4.0.0-alpha.22-2026-11-19-imp-paridade-angular-fun-gestao-de-eventos.md).
+
 ## 19/11/2026 — Resposta de presença acessível na Agenda
 
 A resposta aparecia em texto separado dos botões. Agora ela também é exposta como estado do botão. Playwright confirmou que a escolha permanece após recarregar em computador e celular. [Registro](../andamento/registros/registro-v4.0.0-alpha.21-2026-11-19-imp-paridade-angular-fun-consulta-e-presenca-na-agenda.md).

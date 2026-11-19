@@ -1,3 +1,7 @@
+## Gestão de eventos na Agenda — v4.0.0-alpha.22 — 2026-11-19
+
+Paridade 08 concluída localmente. Formulário, cancelamento, remarcação e confirmação de remoção conferidos. [Registro](../registros/registro-v4.0.0-alpha.22-2026-11-19-imp-paridade-angular-fun-gestao-de-eventos.md).
+
 ## Consulta e presença na Agenda — v4.0.0-alpha.21 — 2026-11-19
 
 Paridade 07 concluída localmente nas Telas 14 e 15. Seletor mensal, grade, lista móvel, detalhe e resposta própria conferidos. [Registro](../registros/registro-v4.0.0-alpha.21-2026-11-19-imp-paridade-angular-fun-consulta-e-presenca-na-agenda.md).

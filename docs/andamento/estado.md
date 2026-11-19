@@ -1,8 +1,18 @@
-# Estado atual — Angular v4.0.0-alpha.21 — 2026-11-19
+# Estado atual — Angular v4.0.0-alpha.22 — 2026-11-19
+
+**Paridade 08 concluída localmente.** Telas 15, 16 e 17. Os diálogos de eventos agrupam os horários e o fuso, indicam o campo inválido e permitem cancelar com retorno ao acionador. O diálogo de remoção segue separado e exige confirmação explícita. [Registro](registros/registro-v4.0.0-alpha.22-2026-11-19-imp-paridade-angular-fun-gestao-de-eventos.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.22-2026-11-19-paridade-eventos-tela-15-tela-16-tela-17/index.html).
+
+**Validações.** Tipos, build, percurso autenticado em computador e celular, 257 verificações do banco local, quatro rotinas de concorrência e verificadores da Agenda e da guia Migração no Atlas. O Docker Desktop foi iniciado para recuperar o ambiente local.
+
+**Continuidade.** DOCS_DIR `docs`. Branch `codex/migracao-angular`, base `614ba95`. Contador 96, a partir de 95. Último marco registrado 100, preservado do histórico. Ferramentas: Superpowers, Context7 Angular 22, Playwright e Supabase local. Unidade pronta para commit: paridade da gestão de eventos. Sugestão: `fix(angular): concluir paridade da gestão de eventos`.
+
+**Próximo passo.** Paridade visual 09, Acordos, lista, proposta e participação. A v4.0.0-alpha.22 permanece local. [Guia Migração](../wireframes/atlas/index.html#migracao).
+
+## Histórico da paridade 07
 
 **Paridade 07 concluída localmente.** Telas 14 e 15. A Agenda reorganiza os seletores de mês e ano, apresenta data, fuso e participantes no detalhe e destaca a resposta própria confirmada. A lista móvel e a grade semanal consultam a mesma página. [Registro](registros/registro-v4.0.0-alpha.21-2026-11-19-imp-paridade-angular-fun-consulta-e-presenca-na-agenda.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.21-2026-11-19-paridade-agenda-tela-14-tela-15/index.html).
 
-**Continuidade.** DOCS_DIR `docs`. Branch `codex/migracao-angular`, base `13c0845`. Contador 95, a partir de 94. Último marco registrado 100, preservado do histórico. Ferramentas: Superpowers, Context7 Angular 22, Playwright e Supabase local. Unidade pronta para commit: paridade de consulta e presença na Agenda. Sugestão: `fix(angular): concluir paridade de consulta e presença na agenda`.
+**Git.** A entrega 07 está incluída no commit `614ba95`.
 
 **Próximo passo.** Paridade visual 08, criação, edição e remoção na Agenda. A v4.0.0-alpha.21 está local. [Guia Migração](../wireframes/atlas/index.html#migracao).
 

@@ -79,7 +79,10 @@ test('Agenda: mês, semana, resposta, remarcação e remoção', async ({page,br
     await form.getByLabel('Término').fill(local(5,13));
     await open(form,'Criar evento');
     await expect(form.getByRole('alert')).toContainText('posterior');
+    await expect(form.getByLabel('Término')).toHaveAttribute('aria-invalid','true');
+    await expect(form.getByLabel('Término')).toBeFocused();
     await form.getByLabel('Término').fill(local(5,15));
+    await expect(form.getByLabel('Término')).not.toHaveAttribute('aria-invalid','true');
     await open(form,'Criar evento');
     await expect(page.getByText('Evento salvo.',{exact:true})).toBeVisible();
     const detail=target=>target.getByRole('complementary',{name:'Seu próximo momento'});
@@ -117,6 +120,12 @@ test('Agenda: mês, semana, resposta, remarcação e remoção', async ({page,br
     await open(detail(page),'Editar evento');
     const edit=page.getByRole('dialog',{name:'Editar evento'});
     await capture('editar');
+    await edit.getByLabel('Título').fill('Alteração descartada');
+    await open(edit,'Cancelar');
+    await expect(edit).toBeHidden();
+    await expect(detail(page).getByRole('button',{name:'Editar evento'})).toBeFocused();
+    await open(detail(page),'Editar evento');
+    await expect(edit.getByLabel('Título')).toHaveValue('Encontro no jardim');
     await edit.getByLabel('Intenção do momento (opcional)').fill('Escutar com calma.');
     await open(edit,'Salvar alterações');
     await expect(edit).toBeHidden();

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
-    <title>Nós — Atlas de wireframes · v4.0.0-alpha.21</title>
+    <title>Nós — Atlas de wireframes · v4.0.0-alpha.22</title>
     <link rel="stylesheet" href="atlas.css" />
     <link rel="stylesheet" href="product.css" />
     <link rel="stylesheet" href="global-view.css" />
@@ -31,7 +31,7 @@
       </p>
       <nav id="chapter-nav" aria-label="Áreas do produto"></nav>
       <div class="side-footer">
-        <span class="edition">ATLAS VIVO · v4.0.0-alpha.21 · 19 NOV 2026</span>
+        <span class="edition">ATLAS VIVO · v4.0.0-alpha.22 · 19 NOV 2026</span>
         <p>
           A guia Migração reúne as entregas planejadas para substituir o Next.js
           por Angular.
@@ -372,7 +372,7 @@
         </details>
         <section class="migration-visual-roadmap" aria-labelledby="migration-visual-title">
           <h3 id="migration-visual-title">Paridade de interface com o Atlas v3.11.1</h3>
-          <p><strong>Próximo passo:</strong> paridade visual 08. Conferir criação, edição e remoção na Agenda.</p>
+          <p><strong>Próximo passo:</strong> paridade visual 09. Conferir lista, proposta e participação em Acordos.</p>
           <p>Porte cada passo a partir do código Next.js v3.11.1, incluindo componentes, estilos, estados e ações. O Atlas serve para a conferência visual e mantém as funcionalidades planejadas como ilustrações. <a href="../../andamento/planos/paridade-angular-fontes.md">Consultar os arquivos de referência de cada passo</a>.</p>
           <p>Em cada passo, compare computador (1440 px) e celular (390 px), confira foco, teclado, toque e movimento reduzido, e confirme os estados e os diálogos afetados. Guarde as capturas e registre os limites da verificação.</p>
           <details data-visual-step="01">
@@ -424,10 +424,11 @@
             <p><a href="#tela-14">14</a> · <a href="#tela-15">15</a></p>
           </details>
           <details data-visual-step="08">
-            <summary>08 · Agenda · criação, edição e remoção</summary>
+            <summary>08 · Agenda · criação, edição e remoção · validada localmente</summary>
             <p>Formulários, hierarquia de horários, estado de envio, remarcação, confirmação de exclusão e retorno à semana.</p>
             <p><strong>Aceite.</strong> Conferir as mesmas ações por toque e teclado e feedback apenas após confirmação.</p>
-            <p><a href="#tela-16">16</a> · <a href="#tela-17">17</a></p>
+            <p><a href="../comparacoes/v4.0.0-alpha.22-2026-11-19-paridade-eventos-tela-15-tela-16-tela-17/index.html">Galeria dos diálogos da Agenda</a></p>
+            <p><a href="#tela-15">15</a> · <a href="#tela-16">16</a> · <a href="#tela-17">17</a></p>
           </details>
           <details data-visual-step="09">
             <summary>09 · Acordos · lista, proposta e participação</summary>
@@ -483,7 +484,7 @@
           <details data-migration-phase="1" open>
             <summary>Fase 1 · Angular no ar e referência Next.js arquivada</summary>
             <ol>
-              <li>Concluir os passos de paridade 08–16 em computador e celular, preservando rotas, permissões, estados e diálogos.</li>
+              <li>Concluir os passos de paridade 09–16 em computador e celular, preservando rotas, permissões, estados e diálogos.</li>
               <li>No ensaio hospedado, comprovar sessão, confirmação e recuperação, fila e relatos de problema. Ensaiar o retorno ao deploy anterior e preparar a candidata.</li>
               <li>Publicar o Angular e conferir os fluxos críticos no domínio público. Se a sessão, as permissões, as gravações ou uma integração crítica falharem, restaurar a publicação anterior.</li>
               <li>Depois de confirmar a virada, arquivar a aplicação Next.js em <code>arquivo/nextjs/</code> e verificar que o Angular compila, é testado e pode ser publicado sem depender dessa pasta.</li>

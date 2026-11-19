@@ -22,6 +22,8 @@
 
 # Comparações de telas — procedimento permanente
 
+- [v4.0.0-alpha.22 · Gestão de eventos na Agenda](v4.0.0-alpha.22-2026-11-19-paridade-eventos-tela-15-tela-16-tela-17/index.html) — diálogos de criação, edição e remoção.
+
 - [v4.0.0-alpha.21 · Consulta e presença na Agenda](v4.0.0-alpha.21-2026-11-19-paridade-agenda-tela-14-tela-15/index.html) — mês, semana, lista móvel e detalhe.
 
 - [v4.0.0-alpha.20 · Núcleos e participação no Angular](v4.0.0-alpha.20-2026-11-19-paridade-nucleos-tela-12-tela-13-tela-71-tela-73/index.html) — lista, Início, autoria, saída e diálogos de participação.
