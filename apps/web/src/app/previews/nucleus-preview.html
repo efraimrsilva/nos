@@ -25,7 +25,7 @@
 
     @switch (kind) {
       @case ('arvore') {
-        <div class="preview-columns">
+        <div class="preview-columns garden-layout">
           <section class="surface tree-example">
             <h2>Uma árvore de possibilidades</h2>
             <div class="tree-illustration" role="img" aria-label="Árvore ilustrativa de troncos entrelaçados, sem indicador de progresso">
@@ -40,37 +40,53 @@
           <path d="m84 340 7-17 7 17m315 8 7-20 7 20" fill="none" stroke="#8ba66d" stroke-width="3" stroke-linecap="round" />
         </svg>
             </div>
-            <div class="preview-options" aria-label="Significados da árvore">
+            <p class="garden-caption">Cada gesto encontra seu tempo.</p>
+            <div class="preview-options garden-legend" role="group" aria-label="Significados da árvore">
               @for (item of roots; track item.key) {
                 <button class="icon-button" type="button" [attr.aria-pressed]="root() === item" (click)="root.set(item)">{{ item.label }}</button>
               }
             </div>
           </section>
-          <section class="surface example-panel" aria-live="polite">
-            <p class="preview-note">Exemplo ilustrativo · {{ root().label }}</p>
-            <h2>{{ root().title }}</h2><p>{{ root().text }}</p>
-            <p>Os critérios de representação ainda serão definidos. A árvore não calcula crescimento nem pontuação.</p>
-          </section>
+          <aside class="garden-context">
+            <section class="surface example-panel garden-purpose" aria-live="polite" aria-atomic="true">
+              <p class="preview-note">Exemplo ilustrativo · {{ root().label }}</p>
+              <h2>{{ root().title }}</h2><p>{{ root().text }}</p>
+            </section>
+            <section class="surface example-panel">
+              <h2>Sem pressa para florescer</h2>
+              <p>A árvore é uma metáfora visual. Os critérios de representação ainda serão definidos. A prévia não calcula crescimento nem pontuação.</p>
+              <p class="preview-note">Marcos e celebrações · planejados</p>
+            </section>
+          </aside>
         </div>
       }
       @case ('memorias') {
-        <div class="preview-options" aria-label="Filtrar exemplos de memórias">
+        <div class="preview-options memory-filters" role="group" aria-label="Filtrar exemplos de memórias">
           @for (option of filters; track option) {
             <button class="icon-button" type="button" [attr.aria-pressed]="filter() === option" (click)="filterMemories(option)">{{ option }}</button>
           }
+          <span class="preview-note">Sem fotos ou memórias reais</span>
         </div>
-        <div class="preview-columns">
-          <section class="preview-cards" aria-label="Memórias de exemplo">
+        <div class="preview-columns memory-layout">
+          <section class="preview-cards memory-grid" aria-label="Memórias de exemplo">
             @for (item of visibleMemories(); track item.title) {
               <button class="surface preview-card" type="button" [attr.data-tone]="item.tone" [attr.aria-pressed]="memory() === item" (click)="memory.set(item)">
-                <small>{{ item.type }}</small><strong>{{ item.title }}</strong><span>{{ item.date }}</span>
+                <span class="memory-art" aria-hidden="true">
+                  <app-nav-icon [name]="item.tone === 'green' ? 'tree' : item.tone === 'amber' ? 'appearance' : 'heart'" />
+                  <span>Exemplo ilustrativo</span>
+                </span>
+                <span class="memory-copy"><small>{{ item.type }}</small><strong>{{ item.title }}</strong><span>{{ item.date }}</span></span>
               </button>
             }
           </section>
-          <section class="surface example-panel" aria-live="polite">
-            <p class="preview-note">Exemplo ilustrativo · texto editorial</p>
-            <h2>{{ memory().title }}</h2><p>{{ memory().text }}</p>
+          <section class="surface example-panel memory-detail">
+            <div aria-live="polite" aria-atomic="true">
+              <p class="preview-note">Exemplo ilustrativo · texto editorial</p>
+              <h2>{{ memory().title }}</h2><p>{{ memory().text }}</p>
+              <blockquote>{{ memory().caption }}</blockquote>
+            </div>
             <button class="icon-button" type="button" (click)="detail.showModal()" aria-haspopup="dialog">Abrir detalhe da memória</button>
+            <p class="preview-note">Galeria de fotos e gratidão · planejadas</p>
           </section>
         </div>
         <dialog #detail class="shared-dialog" aria-labelledby="memory-example-title">
@@ -78,7 +94,7 @@
             <form method="dialog"><button class="icon-button" autofocus aria-label="Fechar detalhe da memória">×</button></form>
           </header>
           <p>{{ memory().text }}</p><blockquote>{{ memory().caption }}</blockquote>
-          <p>Exemplo editorial. Nenhuma memória é salva ou compartilhada.</p>
+          <p>Exemplo editorial. Galeria, envio de fotos e compartilhamento de memórias ainda estão planejados.</p>
         </dialog>
       }
       @case ('conexoes') { <ng-container [ngTemplateOutlet]="profiles" /> }

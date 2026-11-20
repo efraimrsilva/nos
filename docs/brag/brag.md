@@ -1,3 +1,7 @@
+## 20/11/2026 — Prévia navegável de Árvore e Memórias
+
+O Atlas passou a demonstrar seleção de tema, filtro e detalhe correspondente à memória selecionada. A jornada no Angular e na prévia offline confirmou a seleção e o retorno de foco após fechar o detalhe. [Registro](../andamento/registros/registro-v4.0.0-alpha.26-2026-11-20-imp-paridade-angular-fun-arvore-e-memorias.md).
+
 ## 20/11/2026 — Clareza na publicação de novos termos
 
 A edição identifica a versão de partida e pode ser cancelada com retorno de foco e descarte do rascunho. O histórico diferencia versão vigente e anterior. Playwright confirmou os estados após publicar e o novo aceite individual. [Registro](../andamento/registros/registro-v4.0.0-alpha.25-2026-11-20-imp-paridade-angular-fun-termos-e-versoes.md).

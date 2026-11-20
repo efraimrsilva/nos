@@ -1,10 +1,24 @@
+# Estado atual — Angular v4.0.0-alpha.26 — 2026-11-20
+
+**Paridade 12 concluída localmente.** Telas 38–43. Jardim ilustrativo com seleção de temas. Memórias com cartões, filtro e detalhe da seleção. Marcos, galeria e gratidão seguem planejados. [Registro](registros/registro-v4.0.0-alpha.26-2026-11-20-imp-paridade-angular-fun-arvore-e-memorias.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.26-2026-11-20-paridade-arvore-memorias-tela-38-tela-39-tela-40-tela-41-tela-42-tela-43/index.html).
+
+**Escopo e validação.** NucleusPreview, estilos, teste autenticado em tests/angular/nuclei.spec.mjs, Atlas e manifestos. Tipos, build, cenários Playwright antes/depois em computador e celular, guia Migração e Visão global, seletores e diálogo offline. Autorrevisão. As regras de vínculo e os serviços de dados foram preservados. Nenhuma dependência nova.
+
+**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base d433b97. Contador 100, a partir de 99. Marco auditado 100, preservando a origem e as lacunas anteriores. Over-engineering baixo no recorte. Reutilizados componentes, seletores, auxílio visual e diálogo nativo. O Atlas offline tem uma cópia pequena dos exemplos: conferir equivalência quando editar textos ou filtros. Evitar uma camada de geração enquanto não houver demanda em outras áreas. Superpowers e Playwright aplicados. Reaproveitada referência Angular 22 consultada no Context7, sem API adicional ou pesquisa avançada de dependências.
+
+**Unidade pronta para commit:** paridade de Árvore e Memórias. Sugestão: fix(angular): concluir paridade de árvore e memórias. Sem publicação.
+
+**Próximo passo.** Paridade 13, Conexões e perfis nas Telas 44–54. [Guia Migração](../wireframes/atlas/index.html#migracao).
+
+## Histórico da paridade 11
+
 # Estado atual — Angular v4.0.0-alpha.25 — 2026-11-20
 
 **Paridade 11 concluída localmente.** Telas 30–37. Termos vigentes, histórico por versão e revisão com cancelamento explícito. Encerramento preserva histórico. Agendamento, pós-evento e promoção para Essência permanecem planejados. Nossa Essência continua como diálogo informativo. [Registro](registros/registro-v4.0.0-alpha.25-2026-11-20-imp-paridade-angular-fun-termos-e-versoes.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.25-2026-11-20-paridade-termos-tela-30-tela-31-tela-32-tela-33-tela-34-tela-35-tela-36-tela-37/index.html).
 
 **Escopo, arquivos e validação.** Templates e estilos em apps/web/src/app/agreements, Playwright em tests/angular/nuclei.spec.mjs, Atlas e manifestos. Conferência em duas larguras, tipos, build, 257 verificações do banco local, MVP de Hábitos e guia Migração.
 
-**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base 78ee422. Contador 99, a partir de 98. Último marco registrado 100 preservado. Superpowers, Playwright e Supabase local. Context7 Angular 22 consultado anteriormente para o padrão mantido; pesquisa avançada de dependências desnecessária. Autorrevisão. Sem bloqueios. Unidade pronta para commit: paridade de termos e versões de Hábitos. Sugestão: fix(angular): concluir paridade de termos e versões de hábitos.
+**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base 78ee422. Contador 99, a partir de 98. Último marco registrado 100 preservado. Superpowers, Playwright e Supabase local. Context7 Angular 22 consultado anteriormente para o padrão mantido; pesquisa avançada de dependências desnecessária. Autorrevisão. Sem bloqueios. Paridade 11 incluída no commit d433b97.
 
 **Próximo passo.** Paridade visual 12, Árvore e Memórias, Telas 38–43. A entrega 11 permanece local. [Guia Migração](../wireframes/atlas/index.html#migracao).
 

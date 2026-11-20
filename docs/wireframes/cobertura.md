@@ -1,3 +1,5 @@
+**Paridade 12 · v4.0.0-alpha.26.** Árvore e Memórias são prévias nas Telas 38, 40 e 41. Marcos, galeria e gratidão nas Telas 39, 42 e 43 continuam planejados. [Galeria](comparacoes/v4.0.0-alpha.26-2026-11-20-paridade-arvore-memorias-tela-38-tela-39-tela-40-tela-41-tela-42-tela-43/index.html).
+
 **Paridade 11 · v4.0.0-alpha.25.** Termos, revisão e versões nas Telas 30–33. O diálogo Nossa Essência permanece ilustrativo e as Telas 34, 35 e 37 continuam planejadas. [Galeria](comparacoes/v4.0.0-alpha.25-2026-11-20-paridade-termos-tela-30-tela-31-tela-32-tela-33-tela-34-tela-35-tela-36-tela-37/index.html).
 
 **Paridade 10 · v4.0.0-alpha.24.** Detalhe, histórico, registro, período e contexto legado atualizados. Reflexões da Tela 26 continuam planejadas. [Galeria](comparacoes/v4.0.0-alpha.24-2026-11-20-paridade-habitos-tela-24-tela-25-tela-26-tela-27-tela-28-tela-29/index.html).

@@ -4,10 +4,11 @@ import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { NucleiData } from '../nuclei/nuclei-data';
 import { PreviewProfile } from '../preview-profile';
+import { NavIcon } from '../shared/nav-icon';
 import { memories, people, principles, roots, sections, topics, type PreviewKind } from './examples';
 
 @Component({
-  imports: [RouterLink, NgTemplateOutlet],
+  imports: [RouterLink, NgTemplateOutlet, NavIcon],
   templateUrl: './nucleus-preview.html',
   styleUrl: './nucleus-preview.css',
 })

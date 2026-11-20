@@ -821,6 +821,12 @@ test('convites preservam a escolha, a revogação e o vínculo confirmado', asyn
 });
 
 test('protege prévias do Núcleo e descarta o rascunho da Ponte ao navegar', async ({page, accounts, browser}, info) => {
+  const capture = async (name) => {
+    if (!process.env.NOS_TREE_CAPTURE) return;
+    const folder = 'artifacts/tree12-' + process.env.NOS_TREE_CAPTURE;
+    mkdirSync(folder,{recursive:true});
+    await page.screenshot({path:folder+'/'+name+'-'+info.project.name+'.png',scale:'css'});
+  };
   const [owner, outsider] = accounts;
   const cfg = localSupabaseConfig();
   const client = createClient(cfg.API_URL, cfg.ANON_KEY, {auth:{persistSession:false}});
@@ -864,6 +870,26 @@ test('protege prévias do Núcleo e descarta o rascunho da Ponte ao navegar', as
     await expect(link).toHaveAttribute('aria-current','page');
     await expect(page.getByRole('main').getByRole('heading',{name:title,exact:true})).toBeVisible();
     await expect(page.getByRole('main').getByText('Esboço de funcionalidade · ainda não desenvolvido',{exact:true})).toBeVisible();
+    if (destination==='arvore') {
+      await page.getByRole('button',{name:'Histórias',exact:true}).click();
+      await expect(page.getByRole('heading',{name:'O que vivemos também cria raízes.'})).toBeVisible();
+      await capture('arvore');
+    }
+    if (destination==='memorias') {
+      await page.getByRole('button',{name:'Pequenos gestos',exact:true}).click();
+      await expect(page.getByRole('heading',{name:'Nossa primeira caminhada',exact:true})).toBeVisible();
+      await expect(page.getByRole('button',{name:/O domingo no parque/})).toHaveCount(0);
+      await capture('memorias');
+      const detailTrigger = page.getByRole('button',{name:'Abrir detalhe da memória'});
+      await detailTrigger.click();
+      const memory = page.getByRole('dialog',{name:'Nossa primeira caminhada'});
+      await expect(memory).toBeVisible();
+      await capture('detalhe');
+      if (info.project.name==='mobile') await page.touchscreen.tap(5,5);
+      else await page.mouse.click(5,5);
+      await expect(memory).toBeHidden();
+      await expect(detailTrigger).toBeFocused();
+    }
   }
   const isolated = await browser.newContext();
   try {

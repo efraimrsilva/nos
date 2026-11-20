@@ -313,4 +313,9 @@ body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog .live-member-t
 .live-habit-moods input:checked + span { background:var(--soft); border-color:var(--leaf); font-weight:600; }
 .live-habit-moods input:focus-visible + span { outline:2px solid var(--leaf); outline-offset:2px; }
 .live-habit-timeline { list-style:none; border-inline-start:2px solid var(--line); padding-inline-start:1rem; }
+[data-atlas-tree] aside,[data-atlas-memories] [data-atlas-memory-detail] { display:grid; gap:.75rem; }
+[data-atlas-memory-select][aria-pressed="true"],[data-atlas-tree-select][aria-pressed="true"],[data-atlas-memory-filter][aria-pressed="true"] { border-color:var(--leaf); background:var(--soft); }
+[data-atlas-memories] .live-memory-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+[data-atlas-memories] .live-memory { min-width:0; overflow-wrap:anywhere; }
+[data-atlas-memory-open] { margin-block:.75rem; }
 @media (min-width:600px) { .atlas-live-dialog .live-habit-moods { grid-template-columns:repeat(4,minmax(0,1fr)); } }

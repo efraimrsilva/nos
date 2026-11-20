@@ -345,3 +345,5 @@ for (const id of [18,22,23]) screens.find(screen=>screen.id===id).rule += ' Angu
 for (const id of [24,25,27,28,29]) screens.find(screen=>screen.id===id).rule += ' Angular v4.0.0-alpha.24: detalhe com contexto de participação, linha do tempo, humor em cartões e visibilidade da nota explícita. Administrar o ciclo pode ser cancelado sem confirmar. Datas legadas ausentes são indicadas sem estimativa.';
 
 for (const id of [30,31,33]) screens.find(screen=>screen.id===id).rule += ' Angular v4.0.0-alpha.25: revisão com versão de partida, confirmação explícita e cancelamento com retorno ao acionador. O histórico separa versão vigente, versões anteriores e registros do modelo anterior.';
+
+for (const id of [38,40,41]) screens.find(screen=>screen.id===id).rule += ' Paridade Angular alpha.26: ilustração e seletores do jardim, cartões com filtro e detalhe da memória de exemplo em diálogo. X, Escape e clique ou toque no fundo fecham o diálogo. Exemplos editoriais sem persistência.';

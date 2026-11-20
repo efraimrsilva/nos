@@ -1,3 +1,7 @@
+## 2026-11-20 — Paridade 12 de Árvore e Memórias
+
+Jardim, ilustrações dos cartões e detalhe acompanhando o filtro, conferidos no Angular e no Atlas. Marcos, fotos e gratidão seguem no planejamento. [Registro](registros/registro-v4.0.0-alpha.26-2026-11-20-imp-paridade-angular-fun-arvore-e-memorias.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.26-2026-11-20-paridade-arvore-memorias-tela-38-tela-39-tela-40-tela-41-tela-42-tela-43/index.html).
+
 ## 2026-11-20 — Paridade 11 de termos, versões e esboços
 
 Revisão com cancelamento explícito, identificação da versão vigente e leitura do histórico. Novo aceite individual, histórico após encerramento e prévias conferidos. [Registro](registros/registro-v4.0.0-alpha.25-2026-11-20-imp-paridade-angular-fun-termos-e-versoes.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.25-2026-11-20-paridade-termos-tela-30-tela-31-tela-32-tela-33-tela-34-tela-35-tela-36-tela-37/index.html).
