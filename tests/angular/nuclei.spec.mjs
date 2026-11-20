@@ -875,6 +875,21 @@ test('protege prévias do Núcleo e descarta o rascunho da Ponte ao navegar', as
       await expect(page.getByRole('heading',{name:'O que vivemos também cria raízes.'})).toBeVisible();
       await capture('arvore');
     }
+    if (destination==='conexoes' || destination==='perfis') {
+      await page.getByRole('button',{name:/Lucas/}).click();
+      await page.getByRole('button',{name:'Gostos e afinidades',exact:true}).click();
+      await expect(page.getByRole('listitem').filter({hasText:'Música ao vivo'})).toBeVisible();
+      await expect(page.getByText(/aniversário em março/)).toBeVisible();
+      await capture(destination);
+      const profileTrigger = page.getByRole('button',{name:'Explorar perfil em detalhe'});
+      await profileTrigger.click();
+      const profile = page.getByRole('dialog',{name:'Perfil de exemplo · Lucas'});
+      await expect(profile).toBeVisible();
+      await capture(destination+'-detalhe');
+      await page.keyboard.press('Escape');
+      await expect(profile).toBeHidden();
+      await expect(profileTrigger).toBeFocused();
+    }
     if (destination==='memorias') {
       await page.getByRole('button',{name:'Pequenos gestos',exact:true}).click();
       await expect(page.getByRole('heading',{name:'Nossa primeira caminhada',exact:true})).toBeVisible();

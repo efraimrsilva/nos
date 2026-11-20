@@ -318,4 +318,8 @@ body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog .live-member-t
 [data-atlas-memories] .live-memory-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
 [data-atlas-memories] .live-memory { min-width:0; overflow-wrap:anywhere; }
 [data-atlas-memory-open] { margin-block:.75rem; }
+.live-profile-picker { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1rem; }
+.live-profile-picker .live-avatar { margin-inline-end:.2rem; }
+[data-atlas-profiles] [aria-pressed="true"] { border-color:var(--leaf); background:var(--soft); }
+.live-profile-topic { border-inline-start:3px solid var(--line); padding:.75rem 1rem; }
 @media (min-width:600px) { .atlas-live-dialog .live-habit-moods { grid-template-columns:repeat(4,minmax(0,1fr)); } }

@@ -1,6 +1,6 @@
 {
   "name": "nos-app",
-  "version": "4.0.0-alpha.26",
+  "version": "4.0.0-alpha.27",
   "private": true,
   "engines": {
     "node": ">=24.15.0"

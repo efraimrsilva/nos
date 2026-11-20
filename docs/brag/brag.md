@@ -1,3 +1,7 @@
+## 20/11/2026 — Seleção e detalhe de perfis fictícios
+
+Os cartões do Angular aproximam a composição da referência e o Atlas passou a acompanhar pessoa, tema e data selecionados. Playwright confirmou o diálogo correspondente e o retorno de foco em duas larguras. [Registro](../andamento/registros/registro-v4.0.0-alpha.27-2026-11-20-imp-paridade-angular-fun-conexoes-e-perfis.md).
+
 ## 20/11/2026 — Prévia navegável de Árvore e Memórias
 
 O Atlas passou a demonstrar seleção de tema, filtro e detalhe correspondente à memória selecionada. A jornada no Angular e na prévia offline confirmou a seleção e o retorno de foco após fechar o detalhe. [Registro](../andamento/registros/registro-v4.0.0-alpha.26-2026-11-20-imp-paridade-angular-fun-arvore-e-memorias.md).

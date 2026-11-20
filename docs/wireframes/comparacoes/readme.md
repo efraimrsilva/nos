@@ -1,3 +1,5 @@
+- [v4.0.0-alpha.27 · Conexões e perfis](v4.0.0-alpha.27-2026-11-20-paridade-conexoes-perfis-tela-44-tela-45-tela-46-tela-47-tela-48-tela-49-tela-50-tela-51-tela-52-tela-53-tela-54/index.html) — pessoas fictícias, temas, diálogos e fichas planejadas.
+
 - [v4.0.0-alpha.26 · Árvore e Memórias](v4.0.0-alpha.26-2026-11-20-paridade-arvore-memorias-tela-38-tela-39-tela-40-tela-41-tela-42-tela-43/index.html) — jardim, cartões, diálogo e desenhos planejados.
 
 - [v4.0.0-alpha.25 · Termos e versões de Hábitos](v4.0.0-alpha.25-2026-11-20-paridade-termos-tela-30-tela-31-tela-32-tela-33-tela-34-tela-35-tela-36-tela-37/index.html) — revisão, histórico, encerramento e esboços em duas larguras.

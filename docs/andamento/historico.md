@@ -1,3 +1,7 @@
+## 2026-11-20 — Paridade 13 de Conexões e perfis
+
+Cartões, temas, datas ilustrativas e diálogo com a pessoa fictícia selecionada no aplicativo e no Atlas. Edição, visibilidade e gestão de vínculos seguem planejadas. [Registro](registros/registro-v4.0.0-alpha.27-2026-11-20-imp-paridade-angular-fun-conexoes-e-perfis.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.27-2026-11-20-paridade-conexoes-perfis-tela-44-tela-45-tela-46-tela-47-tela-48-tela-49-tela-50-tela-51-tela-52-tela-53-tela-54/index.html).
+
 ## 2026-11-20 — Paridade 12 de Árvore e Memórias
 
 Jardim, ilustrações dos cartões e detalhe acompanhando o filtro, conferidos no Angular e no Atlas. Marcos, fotos e gratidão seguem no planejamento. [Registro](registros/registro-v4.0.0-alpha.26-2026-11-20-imp-paridade-angular-fun-arvore-e-memorias.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.26-2026-11-20-paridade-arvore-memorias-tela-38-tela-39-tela-40-tela-41-tela-42-tela-43/index.html).

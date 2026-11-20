@@ -1,3 +1,5 @@
+**Paridade 13 · v4.0.0-alpha.27.** Telas 44–54 conferidas. Conexões e Perfis afetivos são prévias com pessoas fictícias, temas e diálogo. Edição, visibilidade e compartilhamento seguem planejados. [Galeria](comparacoes/v4.0.0-alpha.27-2026-11-20-paridade-conexoes-perfis-tela-44-tela-45-tela-46-tela-47-tela-48-tela-49-tela-50-tela-51-tela-52-tela-53-tela-54/index.html).
+
 **Paridade 12 · v4.0.0-alpha.26.** Árvore e Memórias são prévias nas Telas 38, 40 e 41. Marcos, galeria e gratidão nas Telas 39, 42 e 43 continuam planejados. [Galeria](comparacoes/v4.0.0-alpha.26-2026-11-20-paridade-arvore-memorias-tela-38-tela-39-tela-40-tela-41-tela-42-tela-43/index.html).
 
 **Paridade 11 · v4.0.0-alpha.25.** Termos, revisão e versões nas Telas 30–33. O diálogo Nossa Essência permanece ilustrativo e as Telas 34, 35 e 37 continuam planejadas. [Galeria](comparacoes/v4.0.0-alpha.25-2026-11-20-paridade-termos-tela-30-tela-31-tela-32-tela-33-tela-34-tela-35-tela-36-tela-37/index.html).

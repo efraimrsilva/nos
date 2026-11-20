@@ -234,7 +234,7 @@ function habitProposalLayout(screen,interactive){
 const currentAreas=[['Início',13,'House'],['Acordos',18,'Heart'],['Agenda',14,'CalendarDays'],['Árvore e memórias',38,'TreeDeciduous'],['Conexões e perfis',44,'Network'],['Manifesto e cuidado',55,'Heart']];
 const livePlannedLabel='Esboço de funcionalidade · ainda não desenvolvido';
 const liveBadge=(label,tone='')=>`<span class="live-badge ${tone}">${escapeHtml(label)}</span>`;
-const liveBuildVersion='4.0.0-alpha.26';
+const liveBuildVersion='4.0.0-alpha.27';
 const liveModalLabel='<small class="live-modal-label">Modal</small>';
 const liveProposalButton=()=>`<button class="live-button" data-atlas-modal data-live-proposal>Nova proposta ${liveModalLabel}</button>`;
 const liveCreateNucleusButton=()=>`<button class="live-button" data-atlas-modal data-live-create-nucleus>Criar Núcleo ${liveModalLabel}</button>`;
@@ -400,9 +400,42 @@ function atlasSelectMemory(workspace,index){
  workspace.querySelectorAll("[data-atlas-memory-select]").forEach(button=>button.setAttribute("aria-pressed",String(Number(button.dataset.atlasMemorySelect)===index)));
  workspace.querySelector("[data-atlas-memory-detail]").innerHTML=atlasMemoryDetail(atlasMemoryExamples[index]);
 }
+// Exemplos editoriais sincronizados com Conexões e Perfis no Angular. Nenhum perfil é consultado.
+const atlasProfileExamples=[{"name":"Ana","initials":"AN","tone":"rose","about":"Gosto de dias tranquilos, de cozinhar com companhia e de conversas que não precisam ter uma conclusão.","care":"Uma mensagem no meio do dia. Companhia sem precisar preencher o silêncio.","wish":"Aprender uma receita nova a quatro mãos.","date":"Um aniversário em novembro · data fictícia","likes":["Café passado","Caminhadas","Cozinhar junto"]},{"name":"Lucas","initials":"LU","tone":"blue","about":"Me sinto perto quando encontro tempo para estar presente. Música e pequenos passeios costumam abrir boas conversas.","care":"Um convite com antecedência e liberdade para dizer como estou me sentindo.","wish":"Conhecer um lugar novo, sem roteiro apertado.","date":"Um aniversário em março · data fictícia","likes":["Música ao vivo","Passeios","Cinema em casa"]},{"name":"Bia","initials":"BI","tone":"green","about":"Guardo carinho por histórias, plantas e encontros ao redor da mesa. Gosto de escutar como foi o dia de quem está perto.","care":"Escuta com tempo. Lembrar de um detalhe que compartilhei.","wish":"Organizar uma tarde de histórias e fotografias.","date":"Um aniversário em agosto · data fictícia","likes":["Livros","Plantas","Histórias de família"]}];
+const atlasProfileTopics=["Pistas de cuidado","Gostos e afinidades","Desejos"];
+function atlasProfileTopic(person,index){
+ if(index===0)return `<h4>Eu me sinto cuidado quando…</h4><p>${escapeHtml(person.care)}</p>`;
+ if(index===1)return `<h4>Coisas que me fazem bem</h4><ul>${person.likes.map(like=>`<li>${escapeHtml(like)}</li>`).join("")}</ul>`;
+ return `<h4>Uma vontade para compartilhar</h4><p>${escapeHtml(person.wish)}</p>`;
+}
+function atlasProfiles(screen){
+ const title=screen.id===44?"Conhecer para cuidar.":"Um jeito único de estar no Nós.";
+ const person=atlasProfileExamples[0];
+ return liveHeading("História e vínculos",title,"Pessoas e informações fictícias.")+liveFutureInfoButton()+`
+  <div class="live-profile-layout" data-atlas-profiles data-person="0" data-topic="0">
+   <section class="live-panel">
+    <div class="live-profile-picker" role="group" aria-label="Pessoas fictícias">
+     ${atlasProfileExamples.map((item,i)=>`<button class="live-button live-button-secondary" data-atlas-person="${i}" aria-pressed="${i===0}"><span class="live-avatar" aria-hidden="true">${item.initials}</span>${item.name}</button>`).join("")}
+    </div>
+    <div aria-live="polite" aria-atomic="true"><h4 data-atlas-profile-name>Um pouco sobre ${person.name}</h4><p data-atlas-profile-about>${person.about}</p></div>
+    <button class="live-button live-button-secondary" data-atlas-modal data-live-profile-example>Explorar perfil em detalhe ${liveModalLabel}</button>
+    <div class="live-actions" role="group" aria-label="Temas do perfil">${atlasProfileTopics.map((label,i)=>`<button class="live-button live-button-secondary" data-atlas-topic="${i}" aria-pressed="${i===0}">${label}</button>`).join("")}</div>
+    <div class="live-profile-topic" data-atlas-profile-topic aria-live="polite" aria-atomic="true">${atlasProfileTopic(person,0)}</div>
+   </section>
+   <aside class="live-profile-context"><h4>Conhecer é um convite.</h4><p>Edição e preferências de visibilidade seguem planejadas.</p><h4>Datas com significado</h4><p data-atlas-profile-date>${person.date}</p><p>Lembretes de datas · planejados</p></aside>
+  </div>`;
+}
+function atlasUpdateProfile(workspace){
+ const person=atlasProfileExamples[Number(workspace.dataset.person)],topic=Number(workspace.dataset.topic);
+ for(const key of ["person","topic"])workspace.querySelectorAll(`[data-atlas-${key}]`).forEach(button=>button.setAttribute("aria-pressed",String(button.getAttribute(`data-atlas-${key}`)===workspace.dataset[key])));
+ workspace.querySelector("[data-atlas-profile-name]").textContent="Um pouco sobre "+person.name;
+ workspace.querySelector("[data-atlas-profile-about]").textContent=person.about;
+ workspace.querySelector("[data-atlas-profile-date]").textContent=person.date;
+ workspace.querySelector("[data-atlas-profile-topic]").innerHTML=atlasProfileTopic(person,topic);
+}
 function liveFuture(screen){if([41,45].includes(screen.id))return liveContextStage(screen,liveFuture(byId(screen.id===41?40:49)));if(![38,40,44,49,55,61,62].includes(screen.id))return liveRouteContent(screen);
  if(screen.chapter===4)return atlasHistoryPreview(screen);
- if(screen.chapter===5)return `${liveHeading('História e vínculos',screen.id===44?'Conhecer para cuidar.':'Seu jeito de estar no Nós.','Compartilhe somente o que fizer sentido. Cada pessoa escolherá o que mostrar.')}${liveNotice()}${liveFutureInfoButton()}<div class="live-profile-layout">${livePanel('Seu espaço afetivo · conceito',`<div class="live-account-profile"><span class="live-portrait">Ana</span><h4>Ana · exemplo</h4><p>Um pouco do que gostaria de compartilhar sobre meu jeito de estar no mundo.</p><button class="live-button live-button-secondary" data-atlas-modal data-live-profile-example>Explorar perfil em detalhe ${liveModalLabel}</button></div>${liveRow('Sobre mim','Pequenas coisas que contam quem você é',51,'UserRound')}${liveRow('Gostos, cuidado e datas','Pistas de cuidado sem obrigação',52,'Heart')}${liveRow('Lista de desejos','Ideias para compartilhar',54,'Sparkles')}`)}<section class="live-profile-context"><p class="live-kicker">Laços que merecem cuidado</p><h4>Cada relação tem seu jeito.</h4><p>Perfis, gostos, desejos e conexões não são consultados ou salvos. Força, intimidade e avaliação de pessoas não são calculadas.</p>${liveButton('Privacidade e visibilidade',67,true)}${liveRow('Tipos de vínculo','Uma linguagem para cada relação',47,'Network')}${liveRow('Nossa jornada','Cada história encontra seu ritmo',48,'Sprout')}</section></div>${![44,49].includes(screen.id)?`<section class="live-inline-dialog">${liveContextContent(screen)}</section>`:''}`;
+ if(screen.chapter===5)return atlasProfiles(screen);
  return `${liveHeading('Manifesto e cuidado',screen.id===55?'Palavras que nos representam.':'Conversar também é um cuidado.','Preparação para conversas presenciais, com tempo e liberdade para fazer uma pausa.')}${liveNotice()}${liveFutureInfoButton()}<div class="live-conversation-layout"><aside class="live-conversation-context"><p class="live-kicker">Uma conversa com intenção</p><h4>Espaço para se escutar.</h4><p>Organize o que gostaria de dizer, sem tentar resolver tudo de uma vez.</p>${liveRow('Nosso propósito','O contexto que compartilhamos',55,'Sprout')}${liveRow('Quem participa','Convite e escolha individual',73,'UsersRound')}</aside><section class="live-panel live-conversation-paper"><p class="live-kicker">Cartão de intenção · conceito</p><h4>Eu gostaria que a gente tivesse um tempo para se escutar.</h4><blockquote class="live-quote">Quero conversar sobre como podemos estar mais presentes durante a semana.</blockquote><label class="live-field">O que você quer expressar?<textarea rows="4" placeholder="Uma intenção, com suas palavras…"></textarea></label>${liveButton('Ver preparação · esboço',63)}<p class="live-footnote">Sem chat, envio ou acompanhamento real.</p></section></div>${livePanel('Nosso manifesto · planejado',`<p>O que queremos cultivar, com palavras que representem as pessoas deste Núcleo.</p>${liveButton('Ler exemplo de manifesto',55,true)}`)}${![55,61,62].includes(screen.id)?`<section class="live-inline-dialog">${liveContextContent(screen)}</section>`:''}`;
 }
 function liveNucleusParticipation(){return livePanel('Minha participação', `<p class="live-footnote">Atalhos no Início da prévia Angular.</p>${liveButton('Sair deste Núcleo',71,true)}<button type="button" class="live-text" data-atlas-modal data-live-closure>Encerrar Núcleo ${liveModalLabel}</button>`);}
@@ -554,7 +587,16 @@ document.addEventListener('click',event=>{
  if(target.dataset.liveDialog){const screen=byId(target.dataset.liveDialog);showLiveDialog(liveContextContent(screen),screen.id===16?'Adicionar evento':screen.id===15?'Sua participação':screen.title,screen.status==='Planejada');return;}
  if(target.hasAttribute('data-live-create-nucleus')){showLiveDialog(`<p class="live-copy">Cada espaço começa com o vínculo e o propósito de vocês.</p>${liveRow('Criar um núcleo','Escolher vínculo, nome e propósito',7,'Sprout')}${liveRow('Entrar com um convite','Abrir um espaço que já existe',10,'UsersRound')}`,'Começar com intenção');return;}
  if(target.hasAttribute('data-live-purpose')){showLiveDialog('<blockquote class="live-quote">Cultivar presença, respeito e apoio mútuo.</blockquote><p>Propósito de exemplo. Cada pessoa decide sobre sua própria participação.</p>','Nosso propósito');return;}
- if(target.hasAttribute('data-live-profile-example')){showLiveDialog('<p>Ana · pessoa fictícia. Gosto de dias tranquilos, de cozinhar com companhia e de conversas com tempo.</p><p class="live-info">Pistas de cuidado: companhia, escuta e liberdade para fazer uma pausa.</p><p>Perfil afetivo, consentimento, visibilidade e edição ainda não foram desenvolvidos.</p>','Perfil de exemplo · Ana',true);return;}
+ if(target.dataset.atlasPerson!==undefined || target.dataset.atlasTopic!==undefined){
+  const workspace=target.closest("[data-atlas-profiles]");
+  if(target.dataset.atlasPerson!==undefined)workspace.dataset.person=target.dataset.atlasPerson;
+  else workspace.dataset.topic=target.dataset.atlasTopic;
+  atlasUpdateProfile(workspace);return;
+ }
+ if(target.hasAttribute("data-live-profile-example")){
+  const person=atlasProfileExamples[Number(target.closest("[data-atlas-profiles]").dataset.person)];
+  showLiveDialog(`<p>${escapeHtml(person.about)}</p><p class="live-info">${escapeHtml(person.care)}</p>${atlasProfileTopic(person,1)}<p>Pessoa fictícia. Edição e compartilhamento de perfis reais seguem planejados.</p>`,"Perfil de exemplo · "+person.name,true);return;
+ }
  if(target.hasAttribute('data-live-future-info')){showLiveDialog('<p>Exemplos ilustrativos para explorar esta área. Regras de consentimento, privacidade e persistência ainda serão definidas.</p><p>Nada é salvo, enviado ou publicado por esta prévia.</p>','O que está previsto nesta área?',true);return;}
  if(target.hasAttribute('data-live-remove-event')){showLiveDialog('<p>Remover o evento apaga também as respostas de presença. No aplicativo essa ação não pode ser desfeita.</p><form class="live-calendar-editor" data-local-form="preview"><label class="live-check"><input type="checkbox" required data-live-event-confirm><span>Entendi que o evento e suas respostas serão removidos.</span></label><div class="live-actions"><button class="live-button live-button-secondary" type="button" data-live-close>Manter evento</button><button class="live-button live-button-danger" type="submit" disabled>Confirmar remoção · exemplo</button></div></form>','Remover evento');return;}
  if(target.hasAttribute('data-live-leave-confirm')){showLiveDialog('<p>Você perderá o acesso. O histórico compartilhado permanecerá para quem continuar.</p><form data-local-form="preview"><label class="live-check"><input type="checkbox" required><span>Entendi que perderei acesso e que o histórico compartilhado permanecerá.</span></label><button class="live-button live-button-danger" type="submit">Sair deste Núcleo · exemplo</button></form>','Sair deste Núcleo?');return;}

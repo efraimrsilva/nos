@@ -1,3 +1,15 @@
+# Estado atual — Angular v4.0.0-alpha.27 — 2026-11-20
+
+**Paridade 13 concluída localmente.** Telas 44–54. As prévias de Conexões e Perfis afetivos têm cartões de pessoas fictícias. Temas, datas de exemplo e diálogo acompanham a seleção. As fichas mantêm o planejamento de edição, vínculos e visibilidade. [Registro](registros/registro-v4.0.0-alpha.27-2026-11-20-imp-paridade-angular-fun-conexoes-e-perfis.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.27-2026-11-20-paridade-conexoes-perfis-tela-44-tela-45-tela-46-tela-47-tela-48-tela-49-tela-50-tela-51-tela-52-tela-53-tela-54/index.html).
+
+**Escopo e validação.** NucleusPreview, Atlas, Playwright e manifestos. Tipos, build, jornadas autenticadas em computador e celular, seletores e diálogo offline, Visão global e guia Migração. Dados de exemplo, vínculo existente e rotas preservados.
+
+**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base 96d5b7d. Contador 101 a partir de 100. Último marco auditado 100. Superpowers, Playwright e referência Context7 Angular 22 da entrega anterior continuam aplicáveis. Sem dependência nova ou pesquisa avançada. Autorrevisão. Unidade pronta para commit: paridade de Conexões e perfis. Sugestão: fix(angular): concluir paridade de conexões e perfis.
+
+**Próximo passo.** Paridade 14, Manifesto e Ponte do Nós. A entrega 13 permanece local. [Guia Migração](../wireframes/atlas/index.html#migracao).
+
+## Histórico da paridade 12
+
 # Estado atual — Angular v4.0.0-alpha.26 — 2026-11-20
 
 **Paridade 12 concluída localmente.** Telas 38–43. Jardim ilustrativo com seleção de temas. Memórias com cartões, filtro e detalhe da seleção. Marcos, galeria e gratidão seguem planejados. [Registro](registros/registro-v4.0.0-alpha.26-2026-11-20-imp-paridade-angular-fun-arvore-e-memorias.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.26-2026-11-20-paridade-arvore-memorias-tela-38-tela-39-tela-40-tela-41-tela-42-tela-43/index.html).
@@ -6,7 +18,7 @@
 
 **Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base d433b97. Contador 100, a partir de 99. Marco auditado 100, preservando a origem e as lacunas anteriores. Over-engineering baixo no recorte. Reutilizados componentes, seletores, auxílio visual e diálogo nativo. O Atlas offline tem uma cópia pequena dos exemplos: conferir equivalência quando editar textos ou filtros. Evitar uma camada de geração enquanto não houver demanda em outras áreas. Superpowers e Playwright aplicados. Reaproveitada referência Angular 22 consultada no Context7, sem API adicional ou pesquisa avançada de dependências.
 
-**Unidade pronta para commit:** paridade de Árvore e Memórias. Sugestão: fix(angular): concluir paridade de árvore e memórias. Sem publicação.
+**Git:** paridade 12 incluída no commit 96d5b7d.
 
 **Próximo passo.** Paridade 13, Conexões e perfis nas Telas 44–54. [Guia Migração](../wireframes/atlas/index.html#migracao).
 

@@ -34,6 +34,13 @@
 .memory-copy { display:grid; gap:.35rem; padding:.85rem; overflow-wrap:anywhere; }
 .memory-detail blockquote { border-inline-start:3px solid var(--line); padding-inline-start:.8rem; margin:1rem 0 .2rem; }
 .memory-detail .icon-button { min-height:2.75rem; }
+.profile-choice[aria-pressed="true"] { background:var(--accent-soft); border-color:var(--leaf); }
+.profile-avatar { display:grid; place-items:center; flex:none; width:2.6rem; height:2.6rem; border-radius:50%; font-weight:700; color:var(--leaf); background:var(--accent-soft); }
+.profile-avatar[data-tone="rose"] { background:#f1e3e8; color:#824a60; }
+.profile-avatar[data-tone="blue"] { background:#e1edf2; color:#355b70; }
+.profile-identity h3,.profile-topic h3,.profile-topic h4 { margin:0; }
+.profile-topic p { margin:.25rem 0 0; }
+.profile-affinities li { padding:.2rem .55rem; border:1px solid var(--line); border-radius:1rem; background:var(--surface); }
 @media (prefers-reduced-motion:no-preference) {
   .memory-grid .preview-card { transition:box-shadow .18s,border-color .18s; }
   .memory-grid .preview-card:hover { box-shadow:0 3px 12px color-mix(in srgb,var(--ink) 12%,transparent); }
