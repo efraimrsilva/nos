@@ -1,10 +1,22 @@
+# Estado atual — Angular v4.0.0-alpha.28 — 2026-11-20
+
+**Paridade 14 concluída localmente.** Telas 55–57 e 61–65. Capa e princípios ilustrativos do Manifesto. Cartão temporário da Ponte, etapas Intenção, Escuta e Pausa, limpeza com foco e saída para a Agenda. Revisão e compartilhamento do Manifesto, envio, agendamento pela Ponte e acompanhamento seguem planejados. [Registro](registros/registro-v4.0.0-alpha.28-2026-11-20-imp-paridade-angular-fun-manifesto-e-ponte.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.28-2026-11-20-paridade-manifesto-ponte-tela-55-tela-56-tela-57-tela-61-tela-62-tela-63-tela-64-tela-65/index.html).
+
+**Escopo e validação.** NucleusPreview, Atlas, Playwright e manifestos. Tipos, build, percurso autenticado em computador e celular, Migração, Visão global e demonstração offline. Rascunho apenas na tela, com descarte na navegação. Reutilizados o controle de vínculo e o serviço de leitura existentes.
+
+**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base 3f8bd52. Contador 102 a partir de 101. Último marco auditado 100. Superpowers, Playwright e referência Context7 Angular 22 já consultada para o padrão mantido. Sem dependência nova, alteração de banco ou pesquisa avançada. Autorrevisão. Unidade pronta para commit: paridade do Manifesto e da Ponte do Nós. Sugestão: fix(angular): concluir paridade de manifesto e ponte do nós.
+
+**Próximo passo.** Paridade 15, Conta autenticada, privacidade e suporte, Telas 66–70. Entrega 14 local. [Guia Migração](../wireframes/atlas/index.html#migracao).
+
+## Histórico da paridade 13
+
 # Estado atual — Angular v4.0.0-alpha.27 — 2026-11-20
 
 **Paridade 13 concluída localmente.** Telas 44–54. As prévias de Conexões e Perfis afetivos têm cartões de pessoas fictícias. Temas, datas de exemplo e diálogo acompanham a seleção. As fichas mantêm o planejamento de edição, vínculos e visibilidade. [Registro](registros/registro-v4.0.0-alpha.27-2026-11-20-imp-paridade-angular-fun-conexoes-e-perfis.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.27-2026-11-20-paridade-conexoes-perfis-tela-44-tela-45-tela-46-tela-47-tela-48-tela-49-tela-50-tela-51-tela-52-tela-53-tela-54/index.html).
 
 **Escopo e validação.** NucleusPreview, Atlas, Playwright e manifestos. Tipos, build, jornadas autenticadas em computador e celular, seletores e diálogo offline, Visão global e guia Migração. Dados de exemplo, vínculo existente e rotas preservados.
 
-**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base 96d5b7d. Contador 101 a partir de 100. Último marco auditado 100. Superpowers, Playwright e referência Context7 Angular 22 da entrega anterior continuam aplicáveis. Sem dependência nova ou pesquisa avançada. Autorrevisão. Unidade pronta para commit: paridade de Conexões e perfis. Sugestão: fix(angular): concluir paridade de conexões e perfis.
+**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base 96d5b7d. Contador 101 a partir de 100. Último marco auditado 100. Superpowers, Playwright e referência Context7 Angular 22 da entrega anterior continuam aplicáveis. Sem dependência nova ou pesquisa avançada. Autorrevisão. Paridade 13 incluída no commit 3f8bd52.
 
 **Próximo passo.** Paridade 14, Manifesto e Ponte do Nós. A entrega 13 permanece local. [Guia Migração](../wireframes/atlas/index.html#migracao).
 

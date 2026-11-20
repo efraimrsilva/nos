@@ -851,10 +851,23 @@ test('protege prévias do Núcleo e descarta o rascunho da Ponte ao navegar', as
   await page.getByLabel('O que você quer expressar?').fill('Rascunho apenas nesta página.');
   await page.getByRole('button',{name:'Explorar preparação'}).click();
   await expect(page.getByText('Rascunho apenas nesta página.', {exact:true})).toBeVisible();
+  await page.getByRole('button',{name:'Escuta',exact:true}).click();
+  await expect(page.getByText(/O que gostaria que eu entendesse melhor/)).toBeVisible();
+  await capture('ponte');
+  await page.getByRole('button',{name:'Pausa',exact:true}).click();
+  await expect(page.getByText(/disponibilidade de ambos/)).toBeVisible();
   await page.getByRole('navigation',{name:'Explorações de funcionalidades futuras'}).getByRole('link',{name:'Nossa árvore'}).click();
   await expect(page.getByRole('heading',{name:'Raízes no que vivemos.'})).toBeVisible();
   await page.goBack();
   await expect(page.getByLabel('O que você quer expressar?')).toHaveValue('');
+  const draftInput = page.getByLabel('O que você quer expressar?');
+  await draftInput.fill('Texto temporário a limpar.');
+  await page.getByRole('button',{name:'Explorar preparação'}).click();
+  await page.getByRole('button',{name:'Limpar rascunho'}).click();
+  await expect(draftInput).toHaveValue('');
+  await expect(draftInput).toBeFocused();
+  await expect(page.getByRole('region',{name:'Preparação ilustrativa'})).toBeHidden();
+  await expect(page.getByRole('link',{name:'Abrir agenda existente'})).toHaveAttribute('href',root+'/agenda');
   const previews = page.getByRole('navigation',{name:'Explorações de funcionalidades futuras'});
   const destinations = [
     ['memorias','Há instantes que ficam.'],
@@ -874,6 +887,11 @@ test('protege prévias do Núcleo e descarta o rascunho da Ponte ao navegar', as
       await page.getByRole('button',{name:'Histórias',exact:true}).click();
       await expect(page.getByRole('heading',{name:'O que vivemos também cria raízes.'})).toBeVisible();
       await capture('arvore');
+    }
+    if (destination==='manifesto') {
+      await page.getByText('Escutar com respeito',{exact:true}).click();
+      await expect(page.getByText(/Criar espaço para ouvir até o fim/)).toBeVisible();
+      await capture('manifesto');
     }
     if (destination==='conexoes' || destination==='perfis') {
       await page.getByRole('button',{name:/Lucas/}).click();

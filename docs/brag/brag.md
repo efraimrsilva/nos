@@ -1,3 +1,7 @@
+## 20/11/2026 — Preparação temporária na Ponte do Nós
+
+As etapas do cartão de intenção passaram a ser demonstradas no Atlas offline. Limpar rascunho devolve o foco ao campo no aplicativo e no Atlas. Playwright verificou o descarte ao sair e a limpeza em duas larguras. [Registro](../andamento/registros/registro-v4.0.0-alpha.28-2026-11-20-imp-paridade-angular-fun-manifesto-e-ponte.md).
+
 ## 20/11/2026 — Seleção e detalhe de perfis fictícios
 
 Os cartões do Angular aproximam a composição da referência e o Atlas passou a acompanhar pessoa, tema e data selecionados. Playwright confirmou o diálogo correspondente e o retorno de foco em duas larguras. [Registro](../andamento/registros/registro-v4.0.0-alpha.27-2026-11-20-imp-paridade-angular-fun-conexoes-e-perfis.md).

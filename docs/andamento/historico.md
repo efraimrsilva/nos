@@ -1,3 +1,7 @@
+## 2026-11-20 — Paridade 14 de Manifesto e Ponte do Nós
+
+Capa do Manifesto, princípios expansíveis, cartão de intenção e preparação temporária conferidos no Angular e no Atlas. [Registro](registros/registro-v4.0.0-alpha.28-2026-11-20-imp-paridade-angular-fun-manifesto-e-ponte.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.28-2026-11-20-paridade-manifesto-ponte-tela-55-tela-56-tela-57-tela-61-tela-62-tela-63-tela-64-tela-65/index.html).
+
 ## 2026-11-20 — Paridade 13 de Conexões e perfis
 
 Cartões, temas, datas ilustrativas e diálogo com a pessoa fictícia selecionada no aplicativo e no Atlas. Edição, visibilidade e gestão de vínculos seguem planejadas. [Registro](registros/registro-v4.0.0-alpha.27-2026-11-20-imp-paridade-angular-fun-conexoes-e-perfis.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.27-2026-11-20-paridade-conexoes-perfis-tela-44-tela-45-tela-46-tela-47-tela-48-tela-49-tela-50-tela-51-tela-52-tela-53-tela-54/index.html).

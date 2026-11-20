@@ -349,3 +349,5 @@ for (const id of [30,31,33]) screens.find(screen=>screen.id===id).rule += ' Angu
 for (const id of [38,40,41]) screens.find(screen=>screen.id===id).rule += ' Paridade Angular alpha.26: ilustração e seletores do jardim, cartões com filtro e detalhe da memória de exemplo em diálogo. X, Escape e clique ou toque no fundo fecham o diálogo. Exemplos editoriais sem persistência.';
 
 for (const id of [44,45,46,49,52,54]) screens.find(screen=>screen.id===id).rule += ' Paridade Angular alpha.27: a prévia usa apenas pessoas fictícias. Seletores de pessoa e tema, datas ilustrativas e diálogo acompanham a escolha. Edição, visibilidade e compartilhamento de perfis reais permanecem planejados.';
+
+for (const id of [55,61,62,63]) screens.find(screen=>screen.id===id).rule += ' Paridade Angular alpha.28: a prévia do Manifesto exibe princípios expansíveis. Na Ponte, intenção, escuta e pausa são exploradas localmente. Limpar rascunho devolve o foco ao campo; sair descarta o texto. A Agenda existente é um destino separado.';

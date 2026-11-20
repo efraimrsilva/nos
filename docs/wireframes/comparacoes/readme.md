@@ -1,3 +1,5 @@
+- [v4.0.0-alpha.28 · Manifesto e Ponte do Nós](v4.0.0-alpha.28-2026-11-20-paridade-manifesto-ponte-tela-55-tela-56-tela-57-tela-61-tela-62-tela-63-tela-64-tela-65/index.html) — capa, princípios, rascunho e etapas da preparação.
+
 - [v4.0.0-alpha.27 · Conexões e perfis](v4.0.0-alpha.27-2026-11-20-paridade-conexoes-perfis-tela-44-tela-45-tela-46-tela-47-tela-48-tela-49-tela-50-tela-51-tela-52-tela-53-tela-54/index.html) — pessoas fictícias, temas, diálogos e fichas planejadas.
 
 - [v4.0.0-alpha.26 · Árvore e Memórias](v4.0.0-alpha.26-2026-11-20-paridade-arvore-memorias-tela-38-tela-39-tela-40-tela-41-tela-42-tela-43/index.html) — jardim, cartões, diálogo e desenhos planejados.

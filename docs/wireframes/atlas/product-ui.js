@@ -234,7 +234,7 @@ function habitProposalLayout(screen,interactive){
 const currentAreas=[['Início',13,'House'],['Acordos',18,'Heart'],['Agenda',14,'CalendarDays'],['Árvore e memórias',38,'TreeDeciduous'],['Conexões e perfis',44,'Network'],['Manifesto e cuidado',55,'Heart']];
 const livePlannedLabel='Esboço de funcionalidade · ainda não desenvolvido';
 const liveBadge=(label,tone='')=>`<span class="live-badge ${tone}">${escapeHtml(label)}</span>`;
-const liveBuildVersion='4.0.0-alpha.27';
+const liveBuildVersion='4.0.0-alpha.28';
 const liveModalLabel='<small class="live-modal-label">Modal</small>';
 const liveProposalButton=()=>`<button class="live-button" data-atlas-modal data-live-proposal>Nova proposta ${liveModalLabel}</button>`;
 const liveCreateNucleusButton=()=>`<button class="live-button" data-atlas-modal data-live-create-nucleus>Criar Núcleo ${liveModalLabel}</button>`;
@@ -433,10 +433,52 @@ function atlasUpdateProfile(workspace){
  workspace.querySelector("[data-atlas-profile-date]").textContent=person.date;
  workspace.querySelector("[data-atlas-profile-topic]").innerHTML=atlasProfileTopic(person,topic);
 }
+// O rascunho do Atlas vive no campo da composição e é descartado ao trocar de tela.
+const atlasManifestoPrinciples=[{"title":"Escutar com respeito","text":"Criar espaço para ouvir até o fim, sem transformar uma diferença em disputa. A escuta pode começar por uma pergunta simples: como isso foi para você?","tone":"blue"},{"title":"Fazer espaço para cada pessoa","text":"Reconhecer jeitos, limites e tempos diferentes. Participar de um Núcleo não significa abrir mão das próprias escolhas.","tone":"purple"},{"title":"Cultivar pequenos cuidados","text":"Valorizar gestos possíveis na vida real. Um cuidado faz sentido quando respeita quem oferece e quem recebe.","tone":"rose"},{"title":"Permitir que os combinados amadureçam","text":"Revisitar o que foi escolhido, conversar sobre o que mudou e dar espaço para rever uma participação com liberdade.","tone":"green"}];
+const atlasCareSteps=["Intenção","Escuta","Pausa"];
+function atlasCarePreview(screen){
+ if(screen.id===55)return liveHeading("Manifesto e cuidado","O que escolhemos cultivar.","Palavras que poderiam traduzir a intenção de um Núcleo.")+liveFutureInfoButton()+`
+  <div class="live-conversation-layout">
+   <section class="live-panel live-conversation-paper"><p class="live-kicker">Exemplo ilustrativo · Manifesto</p><h4>Mais presença.<br>Mais espaço para nós.</h4><p>Queremos um lugar onde cada pessoa possa ser quem é. Onde o cuidado seja uma escolha e as conversas tenham tempo para acontecer.</p><p>Texto editorial de exemplo. Escrita conjunta, revisão e compartilhamento do Manifesto seguem planejados.</p></section>
+   <section class="live-panel"><p class="live-kicker">Princípios do exemplo</p><h4>Uma intenção, muitos gestos.</h4>${atlasManifestoPrinciples.map(item=>`<details><summary>${escapeHtml(item.title)}</summary><p>${escapeHtml(item.text)}</p></details>`).join("")}</section>
+  </div>`;
+ return liveHeading("Manifesto e cuidado","Conversar também é um cuidado.","Uma proposta de preparação para conversas presenciais, com espaço para escutar.")+liveFutureInfoButton()+`
+  <div class="live-conversation-layout" data-atlas-care>
+   <section class="live-panel live-conversation-paper"><p class="live-kicker">Cartão de intenção · exemplo ilustrativo</p><h4>Uma conversa com intenção.</h4><blockquote class="live-quote">Quero conversar sobre como podemos estar mais presentes durante a semana.</blockquote>
+    <label class="live-field">O que você quer expressar?<textarea data-atlas-care-draft rows="4" maxlength="1200" placeholder="Uma intenção, com suas palavras…"></textarea></label>
+    <p class="live-footnote" data-atlas-care-count>Rascunho temporário · 0/1200 caracteres.</p>
+    <div class="live-actions"><button class="live-button" type="button" data-atlas-care-toggle aria-expanded="false">Explorar preparação</button><button class="live-button live-button-secondary" type="button" data-atlas-care-clear hidden>Limpar rascunho</button></div>
+    <section data-atlas-care-preparation hidden aria-label="Preparação ilustrativa"><div class="live-actions" role="group" aria-label="Etapas da preparação">${atlasCareSteps.map((label,i)=>`<button class="live-button live-button-secondary" data-atlas-care-step="${i}" aria-pressed="${i===0}">${label}</button>`).join("")}</div><p aria-live="polite" data-atlas-care-text></p></section>
+   </section>
+   <aside class="live-conversation-context"><h4>Um tempo ao vivo</h4><p>O texto fica nesta tela e se perde ao sair ou recarregar.</p>${liveButton("Abrir agenda existente",14,true)}<h4>Depois da conversa</h4><p>Envio do cartão e acompanhamento seguem planejados.</p></aside>
+  </div>`;
+}
+function atlasCareStep(root,index){
+ const draft=root.querySelector("[data-atlas-care-draft]").value.trim();
+ const texts=[draft||"Eu gostaria de encontrar um tempo tranquilo para conversar.","Como você tem vivido isso? O que gostaria que eu entendesse melhor?","Podemos retomar em outro momento, quando houver disponibilidade de ambos."];
+ root.querySelectorAll("[data-atlas-care-step]").forEach(button=>button.setAttribute("aria-pressed",String(Number(button.dataset.atlasCareStep)===index)));
+ root.querySelector("[data-atlas-care-text]").textContent=texts[index];
+}
+function atlasCareExpanded(root,expanded){
+ const toggle=root.querySelector("[data-atlas-care-toggle]");
+ toggle.setAttribute("aria-expanded",String(expanded));
+ toggle.textContent=expanded?"Fechar preparação":"Explorar preparação";
+ root.querySelector("[data-atlas-care-preparation]").hidden=!expanded;
+}
+function atlasCareChanged(root){
+ const draft=root.querySelector("[data-atlas-care-draft]");
+ root.querySelector("[data-atlas-care-count]").textContent=`Rascunho temporário · ${draft.value.length}/1200 caracteres.`;
+ root.querySelector("[data-atlas-care-clear]").hidden=!draft.value;
+ atlasCareExpanded(root,false);atlasCareStep(root,0);
+}
+document.addEventListener("input",event=>{
+ const root=event.target.closest("[data-atlas-care]");
+ if(root && event.target.matches("[data-atlas-care-draft]"))atlasCareChanged(root);
+});
 function liveFuture(screen){if([41,45].includes(screen.id))return liveContextStage(screen,liveFuture(byId(screen.id===41?40:49)));if(![38,40,44,49,55,61,62].includes(screen.id))return liveRouteContent(screen);
  if(screen.chapter===4)return atlasHistoryPreview(screen);
  if(screen.chapter===5)return atlasProfiles(screen);
- return `${liveHeading('Manifesto e cuidado',screen.id===55?'Palavras que nos representam.':'Conversar também é um cuidado.','Preparação para conversas presenciais, com tempo e liberdade para fazer uma pausa.')}${liveNotice()}${liveFutureInfoButton()}<div class="live-conversation-layout"><aside class="live-conversation-context"><p class="live-kicker">Uma conversa com intenção</p><h4>Espaço para se escutar.</h4><p>Organize o que gostaria de dizer, sem tentar resolver tudo de uma vez.</p>${liveRow('Nosso propósito','O contexto que compartilhamos',55,'Sprout')}${liveRow('Quem participa','Convite e escolha individual',73,'UsersRound')}</aside><section class="live-panel live-conversation-paper"><p class="live-kicker">Cartão de intenção · conceito</p><h4>Eu gostaria que a gente tivesse um tempo para se escutar.</h4><blockquote class="live-quote">Quero conversar sobre como podemos estar mais presentes durante a semana.</blockquote><label class="live-field">O que você quer expressar?<textarea rows="4" placeholder="Uma intenção, com suas palavras…"></textarea></label>${liveButton('Ver preparação · esboço',63)}<p class="live-footnote">Sem chat, envio ou acompanhamento real.</p></section></div>${livePanel('Nosso manifesto · planejado',`<p>O que queremos cultivar, com palavras que representem as pessoas deste Núcleo.</p>${liveButton('Ler exemplo de manifesto',55,true)}`)}${![55,61,62].includes(screen.id)?`<section class="live-inline-dialog">${liveContextContent(screen)}</section>`:''}`;
+ return atlasCarePreview(screen);
 }
 function liveNucleusParticipation(){return livePanel('Minha participação', `<p class="live-footnote">Atalhos no Início da prévia Angular.</p>${liveButton('Sair deste Núcleo',71,true)}<button type="button" class="live-text" data-atlas-modal data-live-closure>Encerrar Núcleo ${liveModalLabel}</button>`);}
 function liveHome(){return `${liveHeading('Família · início do Núcleo','Nosso jardim','').replace('</h3></div>', ' <button class="live-icon-button" data-atlas-modal data-live-identity="name" aria-label="Editar nome do Núcleo">'+icon('Pencil',17)+'</button></h3><p class="live-copy">Cultivar presença, respeito e apoio mútuo. <button class="live-icon-button" data-atlas-modal data-live-identity="purpose" aria-label="Editar propósito do Núcleo">'+icon('Pencil',17)+'</button></p><p class="live-copy"><span class="live-badge">'+icon('ShieldCheck',16)+' <strong>Você administra este Núcleo.</strong></span></p></div>')}<div class="live-home-grid live-nucleus-overview">${livePanel('Na agenda',liveEventRows(false)+liveRow('Abrir agenda','Tempo para o que importa',14,'CalendarDays'),'live-home-list')}${livePanel('Núcleos onde estou',`<details class="live-home-nucleus" open><summary><span class="live-row-icon">${icon('House',18)}</span><span><strong>Nosso jardim</strong><small>Família · exemplo</small></span></summary><button class="live-row" data-atlas-modal data-live-members>Ver integrantes ${icon('UsersRound',19)}${liveModalLabel}</button></details><p class="live-footnote">A lista real respeita suas associações.</p>`,'live-home-list')}</div><div class="live-section-heading"><h4>O que estamos cultivando</h4><button class="live-text" data-go="18">Ver acordos ${icon('ArrowRight',16)}</button></div><div class="live-home-agreements">${liveAgreementCard('Conversar sem distrações','Proposta','Depois do jantar · exemplo',18,false)}</div>${liveNucleusParticipation()}`;}
@@ -587,6 +629,17 @@ document.addEventListener('click',event=>{
  if(target.dataset.liveDialog){const screen=byId(target.dataset.liveDialog);showLiveDialog(liveContextContent(screen),screen.id===16?'Adicionar evento':screen.id===15?'Sua participação':screen.title,screen.status==='Planejada');return;}
  if(target.hasAttribute('data-live-create-nucleus')){showLiveDialog(`<p class="live-copy">Cada espaço começa com o vínculo e o propósito de vocês.</p>${liveRow('Criar um núcleo','Escolher vínculo, nome e propósito',7,'Sprout')}${liveRow('Entrar com um convite','Abrir um espaço que já existe',10,'UsersRound')}`,'Começar com intenção');return;}
  if(target.hasAttribute('data-live-purpose')){showLiveDialog('<blockquote class="live-quote">Cultivar presença, respeito e apoio mútuo.</blockquote><p>Propósito de exemplo. Cada pessoa decide sobre sua própria participação.</p>','Nosso propósito');return;}
+ const care=target.closest("[data-atlas-care]");
+ if(care && target.hasAttribute("data-atlas-care-toggle")){
+  const expanded=target.getAttribute("aria-expanded")!=="true";
+  atlasCareExpanded(care,expanded);
+  if(expanded){const selected=care.querySelector("[data-atlas-care-step][aria-pressed=true]");atlasCareStep(care,Number(selected.dataset.atlasCareStep));}
+  return;
+ }
+ if(care && target.hasAttribute("data-atlas-care-clear")){
+  const draft=care.querySelector("[data-atlas-care-draft]");draft.value="";atlasCareChanged(care);draft.focus();return;
+ }
+ if(care && target.dataset.atlasCareStep!==undefined){atlasCareStep(care,Number(target.dataset.atlasCareStep));return;}
  if(target.dataset.atlasPerson!==undefined || target.dataset.atlasTopic!==undefined){
   const workspace=target.closest("[data-atlas-profiles]");
   if(target.dataset.atlasPerson!==undefined)workspace.dataset.person=target.dataset.atlasPerson;

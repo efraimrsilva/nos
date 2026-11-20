@@ -102,15 +102,16 @@
       @case ('manifesto') {
         <div class="preview-columns">
           <section class="surface example-panel manifesto-example">
-            <p class="preview-note">Exemplo ilustrativo · Manifesto</p>
-            <h2>Mais presença. Mais espaço para nós.</h2>
+            <p class="kicker">Exemplo ilustrativo · Manifesto</p>
+            <h2 class="font-display text-4xl leading-tight">Mais presença.<br>Mais espaço para nós.</h2>
             <p>Queremos um lugar onde cada pessoa possa ser quem é. Onde o cuidado seja uma escolha e as conversas tenham tempo para acontecer.</p>
-            <p>Texto editorial para imaginar possibilidades. O Núcleo ainda não possui um manifesto aprovado nesta área.</p>
+            <p class="border-t border-line pt-3 text-sm text-muted">Texto editorial de exemplo. Escrita conjunta, revisão e compartilhamento do Manifesto seguem planejados.</p>
           </section>
           <section class="surface example-panel">
+            <p class="kicker">Princípios do exemplo</p>
             <h2>Uma intenção, muitos gestos.</h2>
             @for (principle of principles; track principle.title) {
-              <details><summary>{{ principle.title }}</summary><p>{{ principle.text }}</p></details>
+              <details><summary>{{ principle.title }}</summary><p class="pt-2">{{ principle.text }}</p></details>
             }
           </section>
         </div>
@@ -118,19 +119,19 @@
       @case ('cuidado') {
         <div class="preview-columns">
           <section class="surface example-panel">
-            <p class="preview-note">Cartão de intenção · exemplo ilustrativo</p>
-            <h2>Uma conversa com intenção.</h2>
-            <p>Organize o que você gostaria de dizer para um encontro presencial. O texto fica nesta tela e se perde ao sair ou recarregar.</p>
+            <p class="kicker">Cartão de intenção · exemplo ilustrativo</p>
+            <h2 class="font-display text-3xl leading-tight">Uma conversa com intenção.</h2>
+            <blockquote class="m-0 border-s-4 border-line bg-[var(--accent-soft)] p-3">Quero conversar sobre como podemos estar mais presentes durante a semana.</blockquote>
             <label for="care-draft">O que você quer expressar?</label>
-            <textarea id="care-draft" #draftInput rows="4" maxlength="1200" [value]="draft()" (input)="setDraft(draftInput.value)" aria-describedby="draft-note"></textarea>
-            <p id="draft-note">Rascunho temporário · {{ draft().length }}/1200 caracteres.</p>
+            <textarea id="care-draft" #draftInput rows="4" maxlength="1200" placeholder="Uma intenção, com suas palavras…" [value]="draft()" (input)="setDraft(draftInput.value)" aria-describedby="draft-note draft-privacy"></textarea>
+            <p id="draft-note" class="text-sm text-muted">Rascunho temporário · {{ draft().length }}/1200 caracteres.</p>
             <div class="preview-options">
               <button class="button" type="button" (click)="togglePreparation()"
                 [attr.aria-expanded]="prepared()" aria-controls="care-preparation">{{ prepared() ? 'Fechar preparação' : 'Explorar preparação' }}</button>
-              @if (draft()) { <button class="icon-button" type="button" (click)="setDraft('')">Limpar rascunho</button> }
+              @if (draft()) { <button class="icon-button" type="button" (click)="setDraft(''); draftInput.focus()">Limpar rascunho</button> }
             </div>
-            <section id="care-preparation" [hidden]="!prepared()" aria-label="Preparação ilustrativa">
-              <div class="preview-options">
+            <section id="care-preparation" class="rounded-lg bg-[var(--accent-soft)] p-3" [hidden]="!prepared()" aria-label="Preparação ilustrativa">
+              <div class="preview-options" role="group" aria-label="Etapas da preparação">
                 @for (option of preparation; track option) {
                   <button class="icon-button" type="button" [attr.aria-pressed]="option === step()" (click)="step.set(option)">{{ option }}</button>
                 }
@@ -144,10 +145,16 @@
               </div>
             </section>
           </section>
-          <section class="surface example-panel">
-            <h2>Um tempo ao vivo</h2><p>A preparação é individual. A prévia não envia mensagem, convite ou cartão.</p>
-            <a class="button" [routerLink]="['/nucleos', nucleus.id, 'agenda']">Abrir agenda existente</a>
-          </section>
+          <aside class="garden-context">
+            <section class="surface example-panel garden-purpose">
+              <h2>Um tempo ao vivo</h2><p>Organize o que você gostaria de dizer para um encontro presencial. O envio do cartão e os convites da Ponte seguem planejados.</p>
+              <p id="draft-privacy">O texto fica nesta tela e se perde ao sair ou recarregar.</p>
+              <a class="button secondary" [routerLink]="['/nucleos', nucleus.id, 'agenda']">Abrir agenda existente</a>
+            </section>
+            <section class="surface example-panel">
+              <h2>Depois da conversa</h2><p>As pessoas envolvidas escolhem juntas o que fazer a seguir. O acompanhamento da conversa segue planejado.</p>
+            </section>
+          </aside>
         </div>
       }
     }
