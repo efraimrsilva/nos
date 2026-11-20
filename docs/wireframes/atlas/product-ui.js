@@ -234,7 +234,7 @@ function habitProposalLayout(screen,interactive){
 const currentAreas=[['Início',13,'House'],['Acordos',18,'Heart'],['Agenda',14,'CalendarDays'],['Árvore e memórias',38,'TreeDeciduous'],['Conexões e perfis',44,'Network'],['Manifesto e cuidado',55,'Heart']];
 const livePlannedLabel='Esboço de funcionalidade · ainda não desenvolvido';
 const liveBadge=(label,tone='')=>`<span class="live-badge ${tone}">${escapeHtml(label)}</span>`;
-const liveBuildVersion='4.0.0-alpha.23';
+const liveBuildVersion='4.0.0-alpha.24';
 const liveModalLabel='<small class="live-modal-label">Modal</small>';
 const liveProposalButton=()=>`<button class="live-button" data-atlas-modal data-live-proposal>Nova proposta ${liveModalLabel}</button>`;
 const liveCreateNucleusButton=()=>`<button class="live-button" data-atlas-modal data-live-create-nucleus>Criar Núcleo ${liveModalLabel}</button>`;
@@ -417,11 +417,11 @@ const habitDemoLabels={record:'Registrar momento',start:'Iniciar teste',activate
 function liveHabitTrigger(action){
  return `<button type="button" class="live-button live-button-secondary" data-atlas-modal data-live-habit="${action}">${habitDemoLabels[action]} ${liveModalLabel}</button>`;
 }
-function liveHabitForm(action){
- if(action==='record')return `<form data-local-form="preview"><p>Registro compartilhado · termos v1 · exemplo.</p><fieldset><legend>Como foi o momento?</legend>${['Ótimo','Bem','Neutro','Difícil'].map(label=>`<label class="live-check"><input type="radio" name="mood-example" required> ${label}</label>`).join('')}</fieldset>${productField('Nota opcional','habit-note-example',{area:true})}<button class="live-button" type="submit">Salvar momento · exemplo</button></form>`;
+function liveHabitForm(action,canCancel=false){
+ if(action==='record')return `<form data-local-form="preview"><p>Registro compartilhado · termos v1 · exemplo.</p><fieldset class="live-habit-moods"><legend>Como foi o momento?</legend>${['Ótimo','Bem','Neutro','Difícil'].map(label=>`<label><input type="radio" name="mood-example" required><span>${label}</span></label>`).join('')}</fieldset>${productField('Nota opcional','habit-note-example',{area:true})}<p class="live-footnote">A nota fica visível às pessoas do Núcleo.</p><button class="live-button" type="submit">Salvar momento · exemplo</button></form>`;
  const copy={start:'Iniciar o teste. Cada pessoa decide se participa.',activate:'Concluir o teste e manter o acordo ativo.',end:'O histórico permanece disponível. Novos momentos ficam bloqueados.',terms:'Publicar uma nova versão solicita novo aceite individual.'};
  const fields=action==='terms'?`${productField('O que vamos fazer?','habit-new-title',{max:100})}${productField('Como será?','habit-new-description',{area:true})}${productField('Quando?','habit-new-when',{max:120})}${productField('Com que frequência?','habit-new-frequency',{max:120})}`:'';
- return `<form data-local-form="preview"><p>Termos v1 · exemplo.</p><p>${copy[action]}</p>${fields}<label class="live-check"><input type="checkbox" required> Entendi e quero confirmar esta ação.</label><button class="live-button ${action==='end'?'live-button-danger':''}" type="submit">${action==='terms'?'Publicar novos termos':habitDemoLabels[action]} · exemplo</button></form>`;
+ return `<form data-local-form="preview"><p>Termos v1 · exemplo.</p><p>${copy[action]}</p>${fields}<label class="live-check"><input type="checkbox" required> Entendi e quero confirmar esta ação.</label><div class="live-actions">${canCancel?'<button type="button" class="live-button live-button-secondary" data-live-close>Cancelar</button>':''}<button class="live-button ${action==='end'?'live-button-danger':''}" type="submit">${action==='terms'?'Publicar novos termos':habitDemoLabels[action]} · exemplo</button></div></form>`;
 }
 function liveHabitActions(screen){
  const actions={24:['record'],28:['start','activate','end'],30:['terms'],31:['terms'],32:['end']}[screen.id] ?? [];
@@ -446,6 +446,8 @@ function liveContextContent(screen){
  </form>`;
  if(screen.id===15)content=`${liveBadge('Aguardando respostas','orange')}<h4>Café e conversa · exemplo</h4><dl class="live-terms"><div><dt>Quando</dt><dd>16 de outubro · 16h00 às 17h00 · exemplo</dd></div><div><dt>Intenção</dt><dd>Uma pausa para escutar como foi a semana.</dd></div><div><dt>Sua participação</dt><dd>Somente você decide sua presença.</dd></div></dl>${liveCalendarPresence()}${liveButton('Editar evento',17,true,true)}<p class="live-footnote">Planejamento: registro após o encontro exige vínculo com um Hábito; o aplicativo ainda não integra esse caminho.</p>${liveButton('Pós-evento do Hábito · planejado',35,true)}`;
  else if(screen.id===27)content=liveHabitForm('record')+liveActions(screen);
+ else if(screen.id===25)content=`<p class="live-kicker">A história deste combinado</p><h4>Momentos registrados</h4><p>Vivências compartilhadas com o Núcleo.</p><ol class="live-habit-timeline"><li><strong>Seu registro · exemplo</strong><p>Bem</p><p>Ouvimos com calma.</p></li></ol>${liveActions(screen)}`;
+ else if([28,29].includes(screen.id))content=`<h4>Situação atual</h4>${liveBadge('Em teste · exemplo')}<dl class="live-terms"><div><dt>Termos atuais</dt><dd>Versão 1 · exemplo</dd></div><div><dt>Duração planejada</dt><dd>${screen.id===29?'Não informada no registro histórico':'14 dias · exemplo'}</dd></div><div><dt>Início do teste</dt><dd>${screen.id===29?'Sem data registrada':'16 de outubro · exemplo'}</dd></div></dl><p>A administração organiza o ciclo. Cada pessoa decide sobre a própria participação.</p>${liveHabitActions(screen)}${liveActions(screen)}`;
  else if(screen.chapter===3)content=`${screen.status==='Planejada'?liveNotice():''}<div class="live-context-columns"><section>${screen.blocks.map(liveBlock).join('')}</section><aside class="live-detail-panel"><p class="live-kicker">Seu lugar aqui</p><h4>Escolhas com contexto.</h4><p>Participação, situação do acordo e etapa individual são informações diferentes.</p><p>Os termos precisam ser conhecidos antes do aceite. Nenhuma pessoa decide por outra.</p>${liveNotice()}<p>Evolução individual e passagens de etapa ainda serão definidas.</p></aside></div>${liveHabitActions(screen)}${liveActions(screen)}`;
  else if(screen.id===59)return liveInvitations(screen);
  else if(screen.id===67)content=`<form data-local-form="preview"><label class="live-check"><input type="checkbox"><span><strong>Ocultar autoria após sair</strong><small>A preferência vale somente para as próximas saídas.</small></span></label><p class="live-info">Humor, notas e interações compartilhadas permanecem. Texto e contexto podem identificar você. Saídas anteriores não são modificadas automaticamente.</p><button class="live-button" type="submit">Salvar preferência · exemplo</button></form>${liveNotice()}<p>Visibilidade por campo, mídia e perfis têm contratos próprios.</p>${liveButton('Suporte sobre meus dados',70,true)}`;
@@ -508,7 +510,13 @@ document.addEventListener('click',event=>{
  if(target.hasAttribute('data-live-appearance')){showLiveDialog(liveAppearanceContent(),'Aparência');return;}
  if(target.dataset.liveTheme){const theme=liveAppearanceThemes.find(item=>item[0]===target.dataset.liveTheme);if(!theme)return;const dialog=target.closest('dialog');dialog.querySelectorAll('[data-live-theme]').forEach(button=>button.setAttribute('aria-pressed',String(button===target)));document.querySelectorAll('.current-atlas-phone').forEach(preview=>{preview.style.setProperty('--atlas-navigation-accent',theme[6]||theme[4]);preview.dataset.previewTheme=theme[0];});dialog.dataset.previewTheme=theme[0];dialog.querySelector('[data-theme-feedback]').hidden=false;dialog.querySelector('[data-theme-feedback]').textContent=`${theme[1]} · prévia local, nenhuma preferência salva`;return;}
  if(target.dataset.go)document.querySelector('#atlas-live-dialog')?.close();
- if(target.dataset.liveHabit){const action=target.dataset.liveHabit;showLiveDialog(liveHabitForm(action),action==='record'?'Registrar momento':action==='terms'?'Alterar termos':'Administrar o ciclo');return;}
+ if(target.dataset.liveHabit){
+  const action=target.dataset.liveHabit;
+  const management=['start','activate','end'].includes(action);
+  // A confirmação administrativa do Atlas só demonstra o fluxo; Cancelar fecha sem efeitos.
+  showLiveDialog(liveHabitForm(action,management),action==='record'?'Registrar momento':action==='terms'?'Alterar termos':'Administrar o ciclo');
+  return;
+ }
  if(target.dataset.liveDialog){const screen=byId(target.dataset.liveDialog);showLiveDialog(liveContextContent(screen),screen.id===16?'Adicionar evento':screen.id===15?'Sua participação':screen.title,screen.status==='Planejada');return;}
  if(target.hasAttribute('data-live-create-nucleus')){showLiveDialog(`<p class="live-copy">Cada espaço começa com o vínculo e o propósito de vocês.</p>${liveRow('Criar um núcleo','Escolher vínculo, nome e propósito',7,'Sprout')}${liveRow('Entrar com um convite','Abrir um espaço que já existe',10,'UsersRound')}`,'Começar com intenção');return;}
  if(target.hasAttribute('data-live-purpose')){showLiveDialog('<blockquote class="live-quote">Cultivar presença, respeito e apoio mútuo.</blockquote><p>Propósito de exemplo. Cada pessoa decide sobre sua própria participação.</p>','Nosso propósito');return;}

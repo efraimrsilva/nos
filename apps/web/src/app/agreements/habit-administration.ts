@@ -26,9 +26,12 @@ import { cycleActions,cycleDescriptions,cycleLabels,type CycleAction } from './h
           <label class="nucleus-confirm"><input type="checkbox" name="confirmed" [disabled]="pending()" required>
             <span>Entendi e quero confirmar esta ação.</span></label>
           @if (error()) { <p class="form-error" role="alert">{{ error() }}</p> }
-          <button class="button" type="submit" [class.nucleus-danger]="choice.action==='end'" [disabled]="pending() || loading()">
-            {{ pending()?'Confirmando…':labels[choice.action] }}
-          </button>
+          <div class="agreement-actions">
+            <button class="button secondary" type="button" (click)="confirmation.close()">Cancelar</button>
+            <button class="button" type="submit" [class.nucleus-danger]="choice.action==='end'" [disabled]="pending() || loading()">
+              {{ pending()?'Confirmando…':labels[choice.action] }}
+            </button>
+          </div>
         }
       </form>
     </dialog>

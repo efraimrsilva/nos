@@ -31,12 +31,25 @@ import { type HabitContext } from './habit-data';
         <a class="text-link" [routerLink]="['/nucleos',view.scope.id,'acordos']">Voltar a Acordos</a>
       </header>
       @if (momentNotice()) { <p class="surface agreement-feedback" role="status">{{ momentNotice() }}</p> }
+      <div class="habit-detail-layout">
       <section class="surface agreement-detail" aria-label="Termos do acordo">
+        <h2>O combinado</h2>
         <app-agreement-terms [scope]="view.scope" [agreement]="view.agreement" [count]="counts.totals().get(view.agreement.id)"
           [countFailed]="counts.failed()" [countTick]="counts.received()" [loading]="state.isLoading() || stale()" (refreshed)="state.reload()">
           @if (stale()) { <p role="status">Confira os termos atuais antes de responder. <button type="button" class="text-link" (click)="state.reload()">Atualizar termos</button></p> }
         </app-agreement-terms>
-        <nav class="agreement-actions habit-section-gap" aria-label="Ações do Hábito">
+      </section>
+      <aside class="surface habit-detail-context" aria-labelledby="habit-context-heading">
+        <p class="kicker">Seu lugar aqui</p>
+        <h2 id="habit-context-heading">No seu tempo.</h2>
+        @if (view.agreement.status==='ended') {
+          <p>O histórico permanece disponível. Este Hábito não recebe novos momentos.</p>
+        } @else if (canRecord(view.agreement)) {
+          <p>Você participa dos termos atuais e pode registrar um momento da prática.</p>
+        } @else {
+          <p>Confira os termos atuais e sua participação antes de registrar um momento.</p>
+        }
+        <nav class="habit-context-actions" aria-label="Ações do Hábito">
           @if (canRecord(view.agreement)) {
             <button type="button" class="button" aria-haspopup="dialog" [disabled]="editorPending() || stale() || state.isLoading()"
               (click)="openMoment(view,recordDialog)">Registrar momento</button>
@@ -44,10 +57,15 @@ import { type HabitContext } from './habit-data';
           <a class="button secondary" [routerLink]="['/nucleos',view.scope.id,'acordos',view.agreement.id,'confirmar']">Período e administração do hábito</a>
           <a class="button secondary" [routerLink]="['/nucleos',view.scope.id,'acordos',view.agreement.id,'revisar']">Termos e histórico</a>
         </nav>
-      </section>
+        <details class="agreement-consent">
+          <summary>Próximas possibilidades · esboços</summary>
+          <p>Reflexões, fotos, vínculo com eventos e a passagem para Essência ainda dependem de critérios de acesso, autoria e consentimento.</p>
+        </details>
+      </aside>
       @if (['testing','active','ended'].includes(view.agreement.status)) {
         <app-habit-moments [context]="view" [refresh]="momentRefresh()" />
       }
+      </div>
       <dialog #recordDialog class="shared-dialog agreement-wide-dialog" aria-label="Registrar momento" (close)="closeMoment(recordDialog)">
         <header class="dialog-heading"><h2>Registrar momento</h2>
           <form method="dialog"><button class="icon-button" aria-label="Fechar registro de momento" autofocus>×</button></form>

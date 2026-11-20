@@ -1,3 +1,5 @@
+- [v4.0.0-alpha.24 · Ciclo de Hábitos](v4.0.0-alpha.24-2026-11-20-paridade-habitos-tela-24-tela-25-tela-26-tela-27-tela-28-tela-29/index.html) — detalhe, histórico, formulário de momento, período e confirmação administrativa.
+
 - [v4.0.0-alpha.23 · Acordos e participação](v4.0.0-alpha.23-2026-11-20-paridade-acordos-tela-18-tela-22-tela-23/index.html) — antes/depois de lista, proposta, conferência e recusa em computador e celular.
 
 - [Roteiro da guia Migração](v4.0.0-alpha.16-2026-11-19-guia-migracao/index.html) — antes e depois da guia em desktop e celular.

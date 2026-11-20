@@ -305,3 +305,12 @@ body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog .live-member-t
 .live-proposal-consent { margin:1rem 0; padding-top:.75rem; border-top:1px solid var(--color-line,#dce3d6); font-size:.8rem; }
 .live-proposal-consent summary { cursor:pointer; min-height:44px; font-weight:600; }
 .live-proposal-consent p { line-height:1.9; margin:.5rem 0; }
+.live-habit-moods { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.5rem; border:0; padding:0; margin:1rem 0; min-width:0; }
+.live-habit-moods legend { padding:0; margin-bottom:.5rem; font-weight:600; }
+.live-habit-moods label { position:relative; cursor:pointer; }
+.live-habit-moods input { position:absolute; width:1px; height:1px; opacity:0; }
+.live-habit-moods span { display:grid; place-items:center; min-height:44px; border:1px solid var(--line); border-radius:.4rem; }
+.live-habit-moods input:checked + span { background:var(--soft); border-color:var(--leaf); font-weight:600; }
+.live-habit-moods input:focus-visible + span { outline:2px solid var(--leaf); outline-offset:2px; }
+.live-habit-timeline { list-style:none; border-inline-start:2px solid var(--line); padding-inline-start:1rem; }
+@media (min-width:600px) { .atlas-live-dialog .live-habit-moods { grid-template-columns:repeat(4,minmax(0,1fr)); } }

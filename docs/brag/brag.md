@@ -1,3 +1,7 @@
+## 20/11/2026 — Mais contexto no ciclo de Hábitos
+
+A nota de momento passou a indicar sua visibilidade junto ao campo. A confirmação administrativa ganhou cancelamento explícito. Playwright comprovou retorno de foco e reinício da confirmação em computador e celular. [Registro](../andamento/registros/registro-v4.0.0-alpha.24-2026-11-20-imp-paridade-angular-fun-ciclo-de-habitos.md).
+
 ## 20/11/2026 — Contexto e consentimento na proposta de Acordos
 
 O formulário não apresentava a orientação completa de administração e consentimento da referência Next.js. A edição e a conferência agora explicam escolha individual, novo aceite por mudança de termos e preservação do histórico. O cartão de computador passou a mostrar descrição e estado. Testes verificaram orientação, descrição, foco e busca; benefício esperado: apoiar decisões mais informadas antes do envio, sem medida de impacto em uso real. [Registro](../andamento/registros/registro-v4.0.0-alpha.23-2026-11-20-imp-paridade-angular-fun-acordos-e-participacao.md).

@@ -1,3 +1,15 @@
+# Estado atual — Angular v4.0.0-alpha.24 — 2026-11-20
+
+**Paridade 10 concluída localmente.** Telas 24–29: detalhe com termos e ações por situação, linha do tempo, registro de momento com cartões de humor e aviso de visibilidade, gestão com cancelamento explícito e indicação de datas ausentes no legado. Reflexões da Tela 26 permanecem planejadas. [Registro](registros/registro-v4.0.0-alpha.24-2026-11-20-imp-paridade-angular-fun-ciclo-de-habitos.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.24-2026-11-20-paridade-habitos-tela-24-tela-25-tela-26-tela-27-tela-28-tela-29/index.html).
+
+**Critérios e arquivos.** Componentes em apps/web/src/app/agreements, jornada autenticada em tests/angular/nuclei.spec.mjs, Atlas e manifestos. Preservados aceite da versão atual, autorização administrativa, histórico, rotas e serviços. Tipos, build, quatro verificações Playwright em duas larguras, 257 testes de banco local, MVP de Hábitos e guia Migração.
+
+**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base 51284a0. Contador 98, a partir de 97. Último marco registrado 100 preservado. Superpowers, Playwright e Supabase local. Referência Angular 22 da consulta Context7 anterior ainda aplicável. Sem pesquisa avançada de dependências nesta entrega. Sem bloqueio. Unidade pronta para commit: paridade do ciclo de Hábitos. Sugestão: fix(angular): concluir paridade do ciclo de hábitos.
+
+**Próximo passo.** Paridade visual 11, termos, versões e esboços nas Telas 30–37. Entrega 10 local. [Guia Migração](../wireframes/atlas/index.html#migracao).
+
+## Histórico da paridade 09
+
 # Estado atual — Angular v4.0.0-alpha.23 — 2026-11-20
 
 **Paridade 09 concluída localmente.** Telas 18, 22 e 23: cartões com descrição e estado, colunas e contexto em Painéis, formulário e conferência com orientação de consentimento. Publicação e respostas continuam individuais. [Registro](registros/registro-v4.0.0-alpha.23-2026-11-20-imp-paridade-angular-fun-acordos-e-participacao.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.23-2026-11-20-paridade-acordos-tela-18-tela-22-tela-23/index.html).
@@ -8,7 +20,7 @@
 
 **Continuidade.** DOCS_DIR `docs`. Branch `codex/migracao-angular`, base `aaa6d0d`. Contador 97, a partir de 96; último marco registrado 100 preservado, sem estimar lacunas anteriores. Superpowers e skill Supabase aplicadas; Context7 linha Angular 22 consultado, revisão 22.2 não indexada. Octocode MCP não exposto e pesquisa avançada desnecessária. Docker/Supabase local recuperados; nenhum reset ou migração remota. Sem bloqueio de entrega.
 
-**Unidade pronta para commit:** paridade de Acordos e participação. Sugestão: `fix(angular): concluir paridade de acordos e participação`. A entrega anterior consta no commit `aaa6d0d`; esta permanece sem commit/push/deploy.
+**Git:** paridade 09 confirmada no objeto `51284a0`. Pendência anterior encerrada.
 
 **Próximo passo executável:** paridade visual 10, detalhe, momento e gestão do ciclo de Hábitos (Telas 24–29), seguindo o [mapa de fontes](planos/paridade-angular-fontes.md). [Guia Migração](../wireframes/atlas/index.html#migracao). A versão local não comprova a versão em produção.
 

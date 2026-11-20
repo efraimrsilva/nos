@@ -1,3 +1,7 @@
+## Ciclo de Hábitos no Angular — v4.0.0-alpha.24 — 2026-11-20
+
+Paridade 10 validada no recorte existente das Telas 24, 25, 27, 28 e 29. Reflexões da Tela 26 continuam planejadas. [Registro](../registros/registro-v4.0.0-alpha.24-2026-11-20-imp-paridade-angular-fun-ciclo-de-habitos.md).
+
 ## Acordos e participação no Angular — v4.0.0-alpha.23 — 2026-11-20
 
 Paridade 09 concluída localmente nas Telas 18, 22 e 23. Cartões, Painéis, formulário e conferência alinhados às referências, com regras de participação preservadas. [Registro](../registros/registro-v4.0.0-alpha.23-2026-11-20-imp-paridade-angular-fun-acordos-e-participacao.md).

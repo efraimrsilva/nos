@@ -8,7 +8,8 @@ import { habitDate,habitMoodLabels,parseHabitMomentCursor } from './habit-model'
   selector:'app-habit-moments',
   imports:[RouterLink],
   template:`
-    <section class="surface agreement-detail habit-section-gap" aria-labelledby="habit-history-title">
+    <section class="surface agreement-detail" aria-labelledby="habit-history-title">
+      <p class="kicker">A história deste combinado</p>
       <h2 id="habit-history-title">Momentos registrados</h2>
       <p>Vivências compartilhadas com o Núcleo.</p>
       @if (state.error()) {
@@ -18,7 +19,7 @@ import { habitDate,habitMoodLabels,parseHabitMomentCursor } from './habit-model'
         <p role="status">Carregando o histórico…</p>
       } @else if (state.value(); as history) {
         @if (history.rows.length) {
-          <ol class="habit-records">
+          <ol class="habit-records habit-timeline">
             @for (item of history.rows; track item.id) {
               <li><p><strong>{{ item.authorship_hidden?'Autoria oculta':!item.author_id?'Conta excluída':item.author_id===context().scope.owner?'Seu registro':'Registro de outra pessoa' }}</strong>
                 <time [attr.datetime]="item.created_at">{{ date(item.created_at) }}</time></p>

@@ -32,12 +32,12 @@ import { statusLabel } from './proposal-model';
         </header>
         @switch (mode) {
           @case ('period') {
-            <section class="surface agreement-detail">
+            <section class="surface agreement-detail habit-period">
               <h2>Situação atual</h2><p><span class="badge">{{ status(view.agreement.status) }}</span></p>
               <dl class="agreement-facts">
                 <div><dt>Termos atuais</dt><dd>Versão {{ view.agreement.terms_version }}</dd></div>
                 <div><dt>Duração planejada</dt><dd>{{ view.agreement.trial_days ? view.agreement.trial_days+' dias':'Não informada no registro histórico' }}</dd></div>
-                @if (view.agreement.test_started_at) { <div><dt>Início do teste</dt><dd>{{ date(view.agreement.test_started_at) }}</dd></div> }
+                <div><dt>Início do teste</dt><dd>{{ view.agreement.test_started_at ? date(view.agreement.test_started_at) : 'Sem data registrada' }}</dd></div>
               </dl>
               <p>Um administrador inicia e conclui o teste. As respostas indicam escolhas de participação.</p>
             </section>

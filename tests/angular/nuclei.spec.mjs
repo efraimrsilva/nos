@@ -91,6 +91,11 @@ test('porta o ciclo de Hábito com novo aceite e histórico preservado', async (
     await expect(page.getByText('Proposta enviada',{exact:true})).toBeVisible();
     await page.getByRole('button',{name:'Iniciar teste',exact:true}).click();
     await confirm.getByRole('checkbox').check();
+    await confirm.getByRole('button',{name:'Cancelar',exact:true}).click();
+    await expect(page.getByRole('button',{name:'Iniciar teste',exact:true})).toBeFocused();
+    await page.getByRole('button',{name:'Iniciar teste',exact:true}).click();
+    await expect(confirm.getByRole('checkbox')).not.toBeChecked();
+    await confirm.getByRole('checkbox').check();
     await confirm.getByRole('button',{name:'Iniciar teste',exact:true}).click();
     await expect(page.getByText('Em teste',{exact:true})).toBeVisible();
     await signIn(guest,member,path+'/registrar');
@@ -100,6 +105,8 @@ test('porta o ciclo de Hábito com novo aceite e histórico preservado', async (
     await guest.goto(path);
     await guest.getByRole('button',{name:'Aceitar proposta'}).click();
     await expect(guest.getByText('Participação aceita · v1',{exact:true})).toBeVisible();
+    await expect(guest.getByRole('complementary',{name:'No seu tempo.'})).toContainText('pode registrar um momento');
+    await capture(guest,'detalhe');
     await guest.getByRole('button',{name:'Registrar momento',exact:true}).click();
     const moment = guest.getByRole('dialog',{name:'Registrar momento'});
     await expect(moment).toBeVisible();
