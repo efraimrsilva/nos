@@ -1,3 +1,7 @@
+## 20/11/2026 — Contexto e consentimento na proposta de Acordos
+
+O formulário não apresentava a orientação completa de administração e consentimento da referência Next.js. A edição e a conferência agora explicam escolha individual, novo aceite por mudança de termos e preservação do histórico. O cartão de computador passou a mostrar descrição e estado. Testes verificaram orientação, descrição, foco e busca; benefício esperado: apoiar decisões mais informadas antes do envio, sem medida de impacto em uso real. [Registro](../andamento/registros/registro-v4.0.0-alpha.23-2026-11-20-imp-paridade-angular-fun-acordos-e-participacao.md).
+
 ## 19/11/2026 — Correção e cancelamento nos formulários da Agenda
 
 O erro de horário passou a identificar e focar o campo correspondente. Cancelar edição retorna à Agenda e reabrir recupera os dados salvos. O fluxo foi confirmado em computador e celular. [Registro](../andamento/registros/registro-v4.0.0-alpha.22-2026-11-19-imp-paridade-angular-fun-gestao-de-eventos.md).

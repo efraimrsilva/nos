@@ -4,13 +4,15 @@
     <label>O que vamos fazer?<input #firstField name="title" required maxlength="100"></label>
     <label for="proposal-description">Como será?</label>
     <textarea id="proposal-description" name="description" rows="3" required maxlength="500"></textarea>
-    <label>Quando?<input name="timing" required maxlength="120" placeholder="Ex.: depois do jantar"></label>
-    <label>Com que frequência?<input name="frequency" required maxlength="120" placeholder="Ex.: uma vez por semana"></label>
+    <div class="proposal-schedule">
+      <label>Quando?<input name="timing" required maxlength="120" placeholder="Ex.: depois do jantar"></label>
+      <label>Com que frequência?<input name="frequency" required maxlength="120" placeholder="Ex.: uma vez por semana"></label>
+    </div>
     <label>Duração do teste (dias)<input name="trialDays" type="number" min="7" max="30" step="1" aria-describedby="proposal-trial" required></label>
     <p id="proposal-trial">Escolha de 7 a 30 dias. A administração organiza o teste e cada pessoa decide se participa.</p>
   </fieldset>
   @if (review(); as terms) {
-    <section aria-labelledby="proposal-review">
+    <section class="proposal-review" aria-labelledby="proposal-review">
       <h3 id="proposal-review" #reviewHeading tabindex="-1">Confira antes de propor</h3>
       <dl class="agreement-facts">
         <div><dt>O que vamos fazer?</dt><dd>{{ terms.title }}</dd></div>
@@ -23,6 +25,12 @@
       <button class="button secondary" type="button" [disabled]="pending() || unknown()" (click)="edit()">Editar proposta</button>
     </section>
   }
+  <details class="agreement-consent" aria-label="Como funcionam as decisões do Hábito">
+    <summary>Administração e participação</summary>
+    <p>Administradores organizam o teste, a ativação e o encerramento. Cada pessoa decide se participa; uma recusa não encerra o acordo das outras pessoas.</p>
+    <p>Quando os termos mudam, cada pessoa precisa aceitar novamente antes de registrar novos momentos. Silêncio não é aceite.</p>
+    <p>A saída de uma pessoa não cancela acordos. Os termos anteriores e os momentos permanecem no histórico.</p>
+  </details>
   @if (error()) { <p class="form-error" role="alert">{{ error() }}</p> }
   <button class="button" type="submit" [disabled]="pending() || unknown()">{{ pending() ? 'Enviando…' : review() ? 'Enviar proposta' : 'Conferir proposta' }}</button>
 </form>

@@ -248,12 +248,20 @@ test('publica proposta sem aceite e atualiza respostas individuais no Angular', 
     await expect(essence).toBeHidden();
     await page.getByRole('button',{name:'Nova proposta',exact:true}).click();
     const form = page.getByRole('dialog',{name:'Nova proposta'});
+    if (info.project.name === 'mobile') await page.touchscreen.tap(5,5);
+    else await page.mouse.click(5,5);
+    await expect(form).toBeHidden();
+    await expect(page.getByRole('button',{name:'Nova proposta',exact:true})).toBeFocused();
+    await page.getByRole('button',{name:'Nova proposta',exact:true}).click();
     await form.getByLabel('O que vamos fazer?').fill('Conversar sem distrações');
     await form.getByLabel('Como será?').fill('Reservar tempo para escutar.');
     await form.getByLabel('Quando?',{exact:true}).fill('Depois do jantar');
     await form.getByLabel('Com que frequência?').fill('Uma vez por semana');
     await form.getByLabel('Duração do teste (dias)').fill('14');
     await capture(page,'proposta');
+    const guidance = form.getByRole('group',{name:'Como funcionam as decisões do Hábito'});
+    await guidance.getByText('Administração e participação',{exact:true}).click();
+    await expect(guidance).toContainText('Silêncio não é aceite.');
     await form.getByRole('button',{name:'Conferir proposta'}).click();
     await expect(form.getByRole('heading',{name:'Confira antes de propor'})).toBeFocused();
     expect((await ownerClient.from('nucleus_agreements').select('id').eq('nucleus_id',id)).data?.length).toBe(1);
@@ -264,12 +272,19 @@ test('publica proposta sem aceite e atualiza respostas individuais no Angular', 
     await form.getByRole('button',{name:'Enviar proposta'}).click();
     await expect(page.getByText(/Proposta enviada\. Escolha/)).toBeVisible();
     const ownerCard = page.getByRole('button',{name:/Conversar sem distrações/});
+    await expect(ownerCard).toContainText('Reservar tempo para escutar.');
     await expect(ownerCard).toContainText('2 a decidir');
     await capture(page,'acordos');
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    const search = page.getByRole('searchbox',{name:'Buscar nos acordos desta página'});
+    await search.fill('nenhum resultado');
+    await expect(page.getByText('Nenhuma correspondência. Tente outra palavra ou limpe a busca.')).toBeVisible();
+    await search.fill('');
     if (info.project.name === 'desktop') {
       await page.getByRole('button',{name:'Painéis · Lado a lado'}).click();
       await page.getByRole('navigation',{name:'Selecionar acordo'}).getByRole('button',{name:'Hábito anterior'}).click();
       await expect(page.getByRole('region',{name:'Acordo selecionado'}).getByText('Termos preservados.')).toBeVisible();
+      await capture(page,'paineis');
       await page.getByRole('button',{name:'Kanban · Fluxo'}).click();
     }
     await ownerCard.click();

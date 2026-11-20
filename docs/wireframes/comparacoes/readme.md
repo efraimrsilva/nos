@@ -1,3 +1,5 @@
+- [v4.0.0-alpha.23 · Acordos e participação](v4.0.0-alpha.23-2026-11-20-paridade-acordos-tela-18-tela-22-tela-23/index.html) — antes/depois de lista, proposta, conferência e recusa em computador e celular.
+
 - [Roteiro da guia Migração](v4.0.0-alpha.16-2026-11-19-guia-migracao/index.html) — antes e depois da guia em desktop e celular.
 
 - [v4.0.0-alpha.16 · Perfil, Mais e lembrete](v4.0.0-alpha.16-2026-11-17-perfil-lembrete-tela-66-tela-67-tela-70/index.html) — 22 capturas do Angular e do Atlas em duas larguras.

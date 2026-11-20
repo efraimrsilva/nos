@@ -1,3 +1,5 @@
+**Paridade 09 — v4.0.0-alpha.23 — 20/11/2026.** Telas 18, 22 e 23 com cartões, contexto em Painéis e proposta/conferência com orientação de consentimento. Atlas demonstra sem gravar. Telas 19–21 e Essência permanecem planejadas; IDs e cobertura preservados. [Registro](../andamento/registros/registro-v4.0.0-alpha.23-2026-11-20-imp-paridade-angular-fun-acordos-e-participacao.md) · [Galeria](comparacoes/v4.0.0-alpha.23-2026-11-20-paridade-acordos-tela-18-tela-22-tela-23/index.html). Próximo passo: paridade 10, Hábitos.
+
 > **Angular v4.0.0-alpha.16 — 17/11/2026.** Telas 66, 67 e 70. Os controles autenticados aparecem no perfil desktop e no Mais móvel, e o cabeçalho exibe o lembrete temporário de relato. As rotas de assistência e a demonstração ilustrativa do Atlas estão descritas no [passo 03 da guia Migração](atlas/index.html#migracao).
 
 > **v3.9.2 — 07/11/2026 — Produção:** Conta pública compacta, ícone oficial Google, transição suave com movimento reduzido e rodapé na base sem sobrepor conteúdo. Publicado e conferido em produção; deploy6aeea7ee5fe36058ee5cebd4. Histórico datado abaixo preservado.

@@ -301,3 +301,7 @@ body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog .live-member-t
 @container (min-width: 1001px) {
   .live-onboarding .live-type-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
+/* A orientação é compartilhada pelos estados de edição e conferência da proposta. */
+.live-proposal-consent { margin:1rem 0; padding-top:.75rem; border-top:1px solid var(--color-line,#dce3d6); font-size:.8rem; }
+.live-proposal-consent summary { cursor:pointer; min-height:44px; font-weight:600; }
+.live-proposal-consent p { line-height:1.9; margin:.5rem 0; }

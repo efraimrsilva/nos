@@ -1,3 +1,7 @@
+## Paridade Angular — v4.0.0-alpha.23 — 20/11/2026
+
+Telas 18, 22 e 23: lista, Painéis, cartões e conferência com orientação de administração e consentimento. Confirmado localmente que conferir/editar não grava e publicar não registra aceite; respostas continuam individuais por versão. Não altera o contrato de domínio. [Registro](../registros/registro-v4.0.0-alpha.23-2026-11-20-imp-paridade-angular-fun-acordos-e-participacao.md).
+
 ## Atualização funcional vigente — v3.8.0 — 06/11/2026
 
 **Prévia Angular A07 · v4.0.0-alpha.7.** O Início abre Acordos. A lista e o detalhe exibem os termos atuais, a resposta própria e os totais compartilhados. **Nova proposta** tem revisão local, com retorno à edição. **Recusar proposta** abre uma confirmação com a versão lida. O registro legado `experience` aparece como Hábito sem regravação. Etapas guiadas, Essência e transições continuam como esboços. Teste do Hábito, momentos e histórico entram na A08. [Registro A07](../registros/registro-v4.0.0-alpha.7-2026-11-15-imp-acordos-angular-fun-propostas-e-respostas.md).

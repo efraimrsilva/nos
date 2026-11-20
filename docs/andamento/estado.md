@@ -1,10 +1,26 @@
+# Estado atual — Angular v4.0.0-alpha.23 — 2026-11-20
+
+**Paridade 09 concluída localmente.** Telas 18, 22 e 23: cartões com descrição e estado, colunas e contexto em Painéis, formulário e conferência com orientação de consentimento. Publicação e respostas continuam individuais. [Registro](registros/registro-v4.0.0-alpha.23-2026-11-20-imp-paridade-angular-fun-acordos-e-participacao.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.23-2026-11-20-paridade-acordos-tela-18-tela-22-tela-23/index.html).
+
+**Escopo e critérios.** Lista no computador/celular, busca, edição/conferência sem escrita, envio sem aceite automático, resposta por versão, cancelamento e retorno de foco. Serviços e banco preservados. Telas 19–21 e Essência continuam planejadas.
+
+**Arquivos e validação.** Componentes em `apps/web/src/app/agreements/`, teste em `tests/angular/nuclei.spec.mjs`, manifestos e Atlas. Tipos/build, jornadas autenticadas de proposta e ciclo em duas larguras, 257 verificações locais de banco e verificadores do Atlas. Autorrevisão e revisão independente; observação de CSS corrigida. Evidências e limitações no registro.
+
+**Continuidade.** DOCS_DIR `docs`. Branch `codex/migracao-angular`, base `aaa6d0d`. Contador 97, a partir de 96; último marco registrado 100 preservado, sem estimar lacunas anteriores. Superpowers e skill Supabase aplicadas; Context7 linha Angular 22 consultado, revisão 22.2 não indexada. Octocode MCP não exposto e pesquisa avançada desnecessária. Docker/Supabase local recuperados; nenhum reset ou migração remota. Sem bloqueio de entrega.
+
+**Unidade pronta para commit:** paridade de Acordos e participação. Sugestão: `fix(angular): concluir paridade de acordos e participação`. A entrega anterior consta no commit `aaa6d0d`; esta permanece sem commit/push/deploy.
+
+**Próximo passo executável:** paridade visual 10, detalhe, momento e gestão do ciclo de Hábitos (Telas 24–29), seguindo o [mapa de fontes](planos/paridade-angular-fontes.md). [Guia Migração](../wireframes/atlas/index.html#migracao). A versão local não comprova a versão em produção.
+
+## Histórico anterior
+
 # Estado atual — Angular v4.0.0-alpha.22 — 2026-11-19
 
 **Paridade 08 concluída localmente.** Telas 15, 16 e 17. Os diálogos de eventos agrupam os horários e o fuso, indicam o campo inválido e permitem cancelar com retorno ao acionador. O diálogo de remoção segue separado e exige confirmação explícita. [Registro](registros/registro-v4.0.0-alpha.22-2026-11-19-imp-paridade-angular-fun-gestao-de-eventos.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.22-2026-11-19-paridade-eventos-tela-15-tela-16-tela-17/index.html).
 
 **Validações.** Tipos, build, percurso autenticado em computador e celular, 257 verificações do banco local, quatro rotinas de concorrência e verificadores da Agenda e da guia Migração no Atlas. O Docker Desktop foi iniciado para recuperar o ambiente local.
 
-**Continuidade.** DOCS_DIR `docs`. Branch `codex/migracao-angular`, base `614ba95`. Contador 96, a partir de 95. Último marco registrado 100, preservado do histórico. Ferramentas: Superpowers, Context7 Angular 22, Playwright e Supabase local. Unidade pronta para commit: paridade da gestão de eventos. Sugestão: `fix(angular): concluir paridade da gestão de eventos`.
+**Continuidade.** DOCS_DIR `docs`. Branch `codex/migracao-angular`, base `614ba95`. Contador 96, a partir de 95. Último marco registrado 100, preservado do histórico. Ferramentas: Superpowers, Context7 Angular 22, Playwright e Supabase local. Entrega 08 confirmada no objeto Git `aaa6d0d`; pendência anterior encerrada.
 
 **Próximo passo.** Paridade visual 09, Acordos, lista, proposta e participação. A v4.0.0-alpha.22 permanece local. [Guia Migração](../wireframes/atlas/index.html#migracao).
 

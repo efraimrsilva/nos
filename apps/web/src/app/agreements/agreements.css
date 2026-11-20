@@ -15,6 +15,43 @@
 .agreement-column h2 { font-size:1.2rem; }
 .agreement-card { display:grid; justify-items:start; gap:.35rem; color:var(--ink); background:var(--canvas); border:1px solid var(--line); border-radius:.65rem; padding:.8rem; width:100%; text-align:left; overflow-wrap:anywhere; }
 .agreement-card:hover { border-color:var(--leaf); }
+.agreement-card-top { display:flex; align-items:center; justify-content:space-between; gap:.5rem; width:100%; }
+.agreement-card-state { font-size:.7rem; color:var(--muted); text-align:right; }
+.agreement-card-top > .badge { flex-shrink:0; white-space:nowrap; }
+.agreement-card-description { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden; color:var(--muted); font-size:.82rem; line-height:1.9; }
+.agreement-card-time { color:var(--muted); font-size:.75rem; }
+.agreement-card-footer { display:flex; justify-content:space-between; gap:.5rem; width:100%; border-top:1px solid var(--line); padding-top:.8rem; margin-top:.3rem; font-size:.75rem; }
+.agreement-card-footer > span { color:var(--leaf); }
+.agreement-board > .agreement-column { background:var(--accent-soft); border:0; border-radius:.65rem; padding:1rem; min-height:27rem; align-content:start; }
+.agreement-board .agreement-card { background:var(--surface); padding:1.1rem 1rem; gap:.7rem; }
+.agreement-board .agreement-card strong { font-size:1.2rem; margin-top:.4rem; }
+.agreement-column-heading { display:flex; align-items:center; gap:.5rem; }
+.agreement-column-heading::before { content:''; width:.45rem; height:.45rem; background:var(--leaf); border-radius:50%; }
+.agreement-proposals .agreement-column-heading::before { background:#a97132; }
+.agreement-proposals .agreement-card .badge { background:#f8ead4; color:#80501d; }
+.agreement-column-heading > span { margin-left:auto; background:var(--surface); border-radius:.25rem; padding:.1rem .4rem; font-size:.7rem; }
+.agreement-board .agreement-column-heading h2 { font-size:.9rem; font-weight:500; }
+.agreement-board .agreement-column > p { color:var(--muted); font-size:.8rem; line-height:1.8; margin-bottom:.6rem; }
+.agreement-essence,.agreement-board > .agreement-essence { border:1px dashed var(--line); }
+.agreement-essence > p,.agreement-context > p { color:var(--muted); font-size:.82rem; line-height:1.9; }
+.agreement-panels { border:1px solid var(--line); border-radius:.65rem; background:var(--surface); overflow:hidden; gap:0; }
+.agreement-panels > .surface { border:0; border-radius:0; }
+.agreement-panels nav { background:var(--accent-soft); align-content:start; }
+.agreement-panels nav > button { text-align:left; justify-items:start; background:transparent; border-color:transparent; }
+.agreement-panels nav > button[aria-pressed=true] { background:var(--surface); border-color:var(--line); }
+.agreement-panels .agreement-context { background:var(--canvas); border-left:1px solid var(--line); align-content:start; gap:1rem; }
+/* Campos e conferência usam o mesmo formulário: voltar à edição preserva os termos. */
+.proposal-schedule { display:grid; gap:1rem; grid-template-columns:repeat(2,minmax(0,1fr)); }
+.proposal-schedule label { display:grid; gap:.35rem; min-width:0; }
+.agreement-form:has(.proposal-schedule),.agreement-fields:has(.proposal-schedule) { gap:1rem; }
+.proposal-review { display:grid; gap:1rem; padding:1.25rem; background:var(--canvas); border:1px solid var(--line); border-radius:.5rem; }
+.proposal-review .agreement-facts { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.proposal-review .agreement-facts div { background:none; border:0; padding:0; }
+.proposal-review .agreement-facts dt { color:var(--leaf); font-size:.75rem; }
+.proposal-review .agreement-facts dd { color:var(--muted); font-size:.85rem; margin-top:.3rem; }
+.agreement-consent { border-top:1px solid var(--line); padding-top:.75rem; font-size:.8rem; }
+.agreement-consent summary { cursor:pointer; color:var(--leaf); font-weight:600; min-height:2.75rem; }
+.agreement-consent p { color:var(--muted); line-height:1.9; margin:.5rem 0; }
 .agreement-card strong { font-size:1.02rem; line-height:1.3; }
 .agreement-card > .badge { margin:0; }
 .agreement-detail,.agreement-wide-dialog { overflow-wrap:anywhere; }
@@ -46,4 +83,15 @@ app-agreement-terms > p + p,app-agreement-terms > .agreement-actions { margin-to
 @media (prefers-reduced-motion:no-preference) {
   .agreement-card { transition:border-color .15s ease,background-color .15s ease; }
   .agreement-card:hover { background:var(--accent-soft); }
+}
+@media (max-width:1100px) and (min-width:701px) {
+  .agreement-panels { grid-template-columns:minmax(0,1fr) minmax(0,2fr); }
+  .agreement-panels .agreement-context { grid-column:span 2; border-left:0; border-top:1px solid var(--line); }
+}
+@media (max-width:700px) {
+  .agreement-mobile-list .agreement-card { padding:1.25rem; gap:.7rem; background:var(--surface); }
+  .agreement-mobile-list .agreement-card strong { font-size:1.2rem; }
+  .agreement-mobile-list .agreement-card-description { display:none; }
+  .proposal-schedule,.proposal-review .agreement-facts { grid-template-columns:1fr; }
+  .agreement-form:has(.proposal-schedule) > button { width:100%; }
 }

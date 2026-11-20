@@ -1,3 +1,7 @@
+## Acordos e participação no Angular — v4.0.0-alpha.23 — 2026-11-20
+
+Paridade 09 concluída localmente nas Telas 18, 22 e 23. Cartões, Painéis, formulário e conferência alinhados às referências, com regras de participação preservadas. [Registro](../registros/registro-v4.0.0-alpha.23-2026-11-20-imp-paridade-angular-fun-acordos-e-participacao.md).
+
 ## Gestão de eventos na Agenda — v4.0.0-alpha.22 — 2026-11-19
 
 Paridade 08 concluída localmente. Formulário, cancelamento, remarcação e confirmação de remoção conferidos. [Registro](../registros/registro-v4.0.0-alpha.22-2026-11-19-imp-paridade-angular-fun-gestao-de-eventos.md).

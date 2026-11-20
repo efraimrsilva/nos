@@ -1,3 +1,7 @@
+## 2026-11-20 — Paridade 09 de Acordos e participação
+
+Cartões, colunas, Painéis e conferência receberam apresentação e orientação alinhadas às referências. Consentimento individual e fluxo entre duas contas conferidos; build, tipos, banco e Atlas aprovados. Entrega local, sem publicação. [Registro](registros/registro-v4.0.0-alpha.23-2026-11-20-imp-paridade-angular-fun-acordos-e-participacao.md).
+
 ## 2026-11-19 — Paridade 08 de gestão de eventos
 
 Os horários ganharam agrupamento e foco em erro. O cancelamento devolve o foco e o rascunho é descartado ao reabrir. Criação, remarcação e remoção foram verificadas localmente. [Registro](registros/registro-v4.0.0-alpha.22-2026-11-19-imp-paridade-angular-fun-gestao-de-eventos.md).

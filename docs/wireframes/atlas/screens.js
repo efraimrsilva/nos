@@ -338,3 +338,6 @@ for (const [id, note] of [
   [60, 'A11 Angular verificada localmente: o painel do cabeçalho é ilustrativo e aponta para Acordos ou Seus Núcleos.'],
   [62, 'A11 Angular verificada localmente: a rota /nucleos/[id]/cuidado prepara o exemplo em memória e descarta o rascunho ao mudar de tela ou de Núcleo.'],
 ]) screens.find(screen => screen.id === id).rule += ' ' + note;
+
+// Paridade visual 09, preservando as etapas guiadas ainda planejadas.
+for (const id of [18,22,23]) screens.find(screen=>screen.id===id).rule += ' Angular v4.0.0-alpha.23: cartões com descrição, estado e participação, contagens por coluna e contexto em Painéis. Nova proposta mantém os termos ao editar e explica administração e consentimento antes do envio. Conferência e recusa usam os diálogos compartilhados com X, Escape e fechamento pelo fundo; cancelar não registra resposta. Verificado localmente em computador e celular.';
