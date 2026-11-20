@@ -343,3 +343,5 @@ for (const [id, note] of [
 for (const id of [18,22,23]) screens.find(screen=>screen.id===id).rule += ' Angular v4.0.0-alpha.23: cartões com descrição, estado e participação, contagens por coluna e contexto em Painéis. Nova proposta mantém os termos ao editar e explica administração e consentimento antes do envio. Conferência e recusa usam os diálogos compartilhados com X, Escape e fechamento pelo fundo; cancelar não registra resposta. Verificado localmente em computador e celular.';
 
 for (const id of [24,25,27,28,29]) screens.find(screen=>screen.id===id).rule += ' Angular v4.0.0-alpha.24: detalhe com contexto de participação, linha do tempo, humor em cartões e visibilidade da nota explícita. Administrar o ciclo pode ser cancelado sem confirmar. Datas legadas ausentes são indicadas sem estimativa.';
+
+for (const id of [30,31,33]) screens.find(screen=>screen.id===id).rule += ' Angular v4.0.0-alpha.25: revisão com versão de partida, confirmação explícita e cancelamento com retorno ao acionador. O histórico separa versão vigente, versões anteriores e registros do modelo anterior.';

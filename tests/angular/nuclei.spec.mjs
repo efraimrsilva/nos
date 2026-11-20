@@ -121,6 +121,15 @@ test('porta o ciclo de Hábito com novo aceite e histórico preservado', async (
     await page.goto(path+'/revisar');
     await page.getByRole('button',{name:'Alterar termos'}).click();
     const revision = page.getByRole('dialog',{name:'Alterar termos'});
+    const originalTerms = await revision.getByLabel('Como será?').inputValue();
+    await revision.getByLabel('Como será?').fill('Rascunho descartado.');
+    await revision.getByRole('checkbox').check();
+    await revision.getByRole('button',{name:'Cancelar',exact:true}).click();
+    await expect(revision).toBeHidden();
+    await expect(page.getByRole('button',{name:'Alterar termos'})).toBeFocused();
+    await page.getByRole('button',{name:'Alterar termos'}).click();
+    await expect(revision.getByLabel('Como será?')).toHaveValue(originalTerms);
+    await expect(revision.getByRole('checkbox')).not.toBeChecked();
     await revision.getByLabel('Como será?').fill('Escutar com tempo e sem distrações.');
     expect((await revision.getByRole('checkbox').boundingBox()).width).toBeLessThan(32);
     await capture(page,'revisao');
@@ -128,6 +137,9 @@ test('porta o ciclo de Hábito com novo aceite e histórico preservado', async (
     await revision.getByRole('button',{name:'Publicar novos termos'}).click();
     await expect(page.getByRole('heading',{name:/Versão 2 · Uma conversa/})).toBeVisible();
     await expect(page.getByRole('heading',{name:/Versão 1 · Uma conversa/})).toBeVisible();
+    const versions = page.getByRole('region',{name:'Histórico dos termos'});
+    await expect(versions.getByRole('listitem').filter({hasText:'Versão 2 · Uma conversa'})).toContainText('Vigente');
+    await expect(versions.getByRole('listitem').filter({hasText:'Versão 1 · Uma conversa'})).toContainText('Anterior');
     const legacy = page.getByRole('region',{name:'Histórico do modelo anterior'});
     await expect(legacy.getByText('Solicitação antiga de encerramento')).toBeVisible();
     await expect(legacy.getByText('Período anterior',{exact:true})).toBeVisible();
@@ -184,7 +196,7 @@ test('porta o ciclo de Hábito com novo aceite e histórico preservado', async (
     await expect(revision.getByRole('alert')).toContainText('O acordo mudou');
     await expect(revision.getByLabel('Como será?')).toHaveValue('Rascunho da versão anterior.');
     await revision.getByRole('button',{name:'Fechar edição de termos'}).click();
-    await expect(page.getByText('Termos atuais · versão 3',{exact:true})).toBeVisible();
+    await expect(page.getByRole('region',{name:'Termos vigentes'}).getByText('Versão 3',{exact:true})).toBeVisible();
     await page.getByRole('button',{name:'Alterar termos'}).click();
     await expect(revision.getByLabel('Como será?')).toHaveValue('Versão publicada em outra sessão.');
     await page.keyboard.press('Escape');

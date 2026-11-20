@@ -1,3 +1,7 @@
+## 2026-11-20 — Paridade 11 de termos, versões e esboços
+
+Revisão com cancelamento explícito, identificação da versão vigente e leitura do histórico. Novo aceite individual, histórico após encerramento e prévias conferidos. [Registro](registros/registro-v4.0.0-alpha.25-2026-11-20-imp-paridade-angular-fun-termos-e-versoes.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.25-2026-11-20-paridade-termos-tela-30-tela-31-tela-32-tela-33-tela-34-tela-35-tela-36-tela-37/index.html).
+
 ## 2026-11-20 — Paridade 10 do ciclo de Hábitos
 
 Detalhe, linha do tempo, formulário de momento e confirmação administrativa conferidos localmente. Datas ausentes do legado aparecem sem estimativa e reflexões seguem planejadas. [Registro](registros/registro-v4.0.0-alpha.24-2026-11-20-imp-paridade-angular-fun-ciclo-de-habitos.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.24-2026-11-20-paridade-habitos-tela-24-tela-25-tela-26-tela-27-tela-28-tela-29/index.html).

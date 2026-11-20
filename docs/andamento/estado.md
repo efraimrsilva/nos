@@ -1,10 +1,22 @@
+# Estado atual — Angular v4.0.0-alpha.25 — 2026-11-20
+
+**Paridade 11 concluída localmente.** Telas 30–37. Termos vigentes, histórico por versão e revisão com cancelamento explícito. Encerramento preserva histórico. Agendamento, pós-evento e promoção para Essência permanecem planejados. Nossa Essência continua como diálogo informativo. [Registro](registros/registro-v4.0.0-alpha.25-2026-11-20-imp-paridade-angular-fun-termos-e-versoes.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.25-2026-11-20-paridade-termos-tela-30-tela-31-tela-32-tela-33-tela-34-tela-35-tela-36-tela-37/index.html).
+
+**Escopo, arquivos e validação.** Templates e estilos em apps/web/src/app/agreements, Playwright em tests/angular/nuclei.spec.mjs, Atlas e manifestos. Conferência em duas larguras, tipos, build, 257 verificações do banco local, MVP de Hábitos e guia Migração.
+
+**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base 78ee422. Contador 99, a partir de 98. Último marco registrado 100 preservado. Superpowers, Playwright e Supabase local. Context7 Angular 22 consultado anteriormente para o padrão mantido; pesquisa avançada de dependências desnecessária. Autorrevisão. Sem bloqueios. Unidade pronta para commit: paridade de termos e versões de Hábitos. Sugestão: fix(angular): concluir paridade de termos e versões de hábitos.
+
+**Próximo passo.** Paridade visual 12, Árvore e Memórias, Telas 38–43. A entrega 11 permanece local. [Guia Migração](../wireframes/atlas/index.html#migracao).
+
+## Histórico da paridade 10
+
 # Estado atual — Angular v4.0.0-alpha.24 — 2026-11-20
 
 **Paridade 10 concluída localmente.** Telas 24–29: detalhe com termos e ações por situação, linha do tempo, registro de momento com cartões de humor e aviso de visibilidade, gestão com cancelamento explícito e indicação de datas ausentes no legado. Reflexões da Tela 26 permanecem planejadas. [Registro](registros/registro-v4.0.0-alpha.24-2026-11-20-imp-paridade-angular-fun-ciclo-de-habitos.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.24-2026-11-20-paridade-habitos-tela-24-tela-25-tela-26-tela-27-tela-28-tela-29/index.html).
 
 **Critérios e arquivos.** Componentes em apps/web/src/app/agreements, jornada autenticada em tests/angular/nuclei.spec.mjs, Atlas e manifestos. Preservados aceite da versão atual, autorização administrativa, histórico, rotas e serviços. Tipos, build, quatro verificações Playwright em duas larguras, 257 testes de banco local, MVP de Hábitos e guia Migração.
 
-**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base 51284a0. Contador 98, a partir de 97. Último marco registrado 100 preservado. Superpowers, Playwright e Supabase local. Referência Angular 22 da consulta Context7 anterior ainda aplicável. Sem pesquisa avançada de dependências nesta entrega. Sem bloqueio. Unidade pronta para commit: paridade do ciclo de Hábitos. Sugestão: fix(angular): concluir paridade do ciclo de hábitos.
+**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base 51284a0. Contador 98, a partir de 97. Último marco registrado 100 preservado. Superpowers, Playwright e Supabase local. Referência Angular 22 da consulta Context7 anterior ainda aplicável. Sem pesquisa avançada de dependências nesta entrega. Sem bloqueio. Paridade 10 incluída no commit 78ee422.
 
 **Próximo passo.** Paridade visual 11, termos, versões e esboços nas Telas 30–37. Entrega 10 local. [Guia Migração](../wireframes/atlas/index.html#migracao).
 

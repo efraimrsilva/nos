@@ -59,7 +59,7 @@ import { type HabitContext } from './habit-data';
         </nav>
         <details class="agreement-consent">
           <summary>Próximas possibilidades · esboços</summary>
-          <p>Reflexões, fotos, vínculo com eventos e a passagem para Essência ainda dependem de critérios de acesso, autoria e consentimento.</p>
+          <p>Reflexões, fotos, vínculo com eventos e a passagem para Essência ainda dependem de critérios de acesso, autoria e consentimento. Registrar momentos não promove o Hábito automaticamente.</p>
         </details>
       </aside>
       @if (['testing','active','ended'].includes(view.agreement.status)) {

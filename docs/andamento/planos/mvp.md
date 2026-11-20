@@ -1,3 +1,7 @@
+## Termos e versões de Hábitos — v4.0.0-alpha.25 — 2026-11-20
+
+Paridade 11. Revisão, versão vigente, encerramento e histórico conferidos nas Telas 30–33. Telas 34–35 e 37 planejadas, com Nossa Essência na Tela 36 como recorte informativo. [Registro](../registros/registro-v4.0.0-alpha.25-2026-11-20-imp-paridade-angular-fun-termos-e-versoes.md).
+
 ## Ciclo de Hábitos no Angular — v4.0.0-alpha.24 — 2026-11-20
 
 Paridade 10 validada no recorte existente das Telas 24, 25, 27, 28 e 29. Reflexões da Tela 26 continuam planejadas. [Registro](../registros/registro-v4.0.0-alpha.24-2026-11-20-imp-paridade-angular-fun-ciclo-de-habitos.md).

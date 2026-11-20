@@ -1,3 +1,5 @@
+- [v4.0.0-alpha.25 · Termos e versões de Hábitos](v4.0.0-alpha.25-2026-11-20-paridade-termos-tela-30-tela-31-tela-32-tela-33-tela-34-tela-35-tela-36-tela-37/index.html) — revisão, histórico, encerramento e esboços em duas larguras.
+
 - [v4.0.0-alpha.24 · Ciclo de Hábitos](v4.0.0-alpha.24-2026-11-20-paridade-habitos-tela-24-tela-25-tela-26-tela-27-tela-28-tela-29/index.html) — detalhe, histórico, formulário de momento, período e confirmação administrativa.
 
 - [v4.0.0-alpha.23 · Acordos e participação](v4.0.0-alpha.23-2026-11-20-paridade-acordos-tela-18-tela-22-tela-23/index.html) — antes/depois de lista, proposta, conferência e recusa em computador e celular.

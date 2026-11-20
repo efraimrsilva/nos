@@ -1,3 +1,7 @@
+## 20/11/2026 — Clareza na publicação de novos termos
+
+A edição identifica a versão de partida e pode ser cancelada com retorno de foco e descarte do rascunho. O histórico diferencia versão vigente e anterior. Playwright confirmou os estados após publicar e o novo aceite individual. [Registro](../andamento/registros/registro-v4.0.0-alpha.25-2026-11-20-imp-paridade-angular-fun-termos-e-versoes.md).
+
 ## 20/11/2026 — Mais contexto no ciclo de Hábitos
 
 A nota de momento passou a indicar sua visibilidade junto ao campo. A confirmação administrativa ganhou cancelamento explícito. Playwright comprovou retorno de foco e reinício da confirmação em computador e celular. [Registro](../andamento/registros/registro-v4.0.0-alpha.24-2026-11-20-imp-paridade-angular-fun-ciclo-de-habitos.md).

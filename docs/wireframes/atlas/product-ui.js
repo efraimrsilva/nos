@@ -234,7 +234,7 @@ function habitProposalLayout(screen,interactive){
 const currentAreas=[['Início',13,'House'],['Acordos',18,'Heart'],['Agenda',14,'CalendarDays'],['Árvore e memórias',38,'TreeDeciduous'],['Conexões e perfis',44,'Network'],['Manifesto e cuidado',55,'Heart']];
 const livePlannedLabel='Esboço de funcionalidade · ainda não desenvolvido';
 const liveBadge=(label,tone='')=>`<span class="live-badge ${tone}">${escapeHtml(label)}</span>`;
-const liveBuildVersion='4.0.0-alpha.24';
+const liveBuildVersion='4.0.0-alpha.25';
 const liveModalLabel='<small class="live-modal-label">Modal</small>';
 const liveProposalButton=()=>`<button class="live-button" data-atlas-modal data-live-proposal>Nova proposta ${liveModalLabel}</button>`;
 const liveCreateNucleusButton=()=>`<button class="live-button" data-atlas-modal data-live-create-nucleus>Criar Núcleo ${liveModalLabel}</button>`;
@@ -448,6 +448,8 @@ function liveContextContent(screen){
  else if(screen.id===27)content=liveHabitForm('record')+liveActions(screen);
  else if(screen.id===25)content=`<p class="live-kicker">A história deste combinado</p><h4>Momentos registrados</h4><p>Vivências compartilhadas com o Núcleo.</p><ol class="live-habit-timeline"><li><strong>Seu registro · exemplo</strong><p>Bem</p><p>Ouvimos com calma.</p></li></ol>${liveActions(screen)}`;
  else if([28,29].includes(screen.id))content=`<h4>Situação atual</h4>${liveBadge('Em teste · exemplo')}<dl class="live-terms"><div><dt>Termos atuais</dt><dd>Versão 1 · exemplo</dd></div><div><dt>Duração planejada</dt><dd>${screen.id===29?'Não informada no registro histórico':'14 dias · exemplo'}</dd></div><div><dt>Início do teste</dt><dd>${screen.id===29?'Sem data registrada':'16 de outubro · exemplo'}</dd></div></dl><p>A administração organiza o ciclo. Cada pessoa decide sobre a própria participação.</p>${liveHabitActions(screen)}${liveActions(screen)}`;
+ else if(screen.id===30)content=`<h4>Termos vigentes</h4>${liveBadge('Versão 2 · exemplo')}<p>Publicar uma nova versão pede novo aceite de cada pessoa. Os momentos e as versões anteriores permanecem.</p>${liveHabitActions(screen)}${liveActions(screen)}`;
+ else if(screen.id===33)content=`<h4>Histórico dos termos</h4><ol class="live-habit-timeline"><li>${liveBadge('Vigente · exemplo')}<h5>Versão 2 · Conversar sem distrações</h5><p>Reservar tempo para escutar sem interrupções.</p></li><li>${liveBadge('Anterior · exemplo')}<h5>Versão 1 · Conversar sem distrações</h5><p>Reservar tempo para escutar.</p></li></ol><p>O histórico é de consulta. Aceitar termos é uma decisão individual.</p>${liveActions(screen)}`;
  else if(screen.chapter===3)content=`${screen.status==='Planejada'?liveNotice():''}<div class="live-context-columns"><section>${screen.blocks.map(liveBlock).join('')}</section><aside class="live-detail-panel"><p class="live-kicker">Seu lugar aqui</p><h4>Escolhas com contexto.</h4><p>Participação, situação do acordo e etapa individual são informações diferentes.</p><p>Os termos precisam ser conhecidos antes do aceite. Nenhuma pessoa decide por outra.</p>${liveNotice()}<p>Evolução individual e passagens de etapa ainda serão definidas.</p></aside></div>${liveHabitActions(screen)}${liveActions(screen)}`;
  else if(screen.id===59)return liveInvitations(screen);
  else if(screen.id===67)content=`<form data-local-form="preview"><label class="live-check"><input type="checkbox"><span><strong>Ocultar autoria após sair</strong><small>A preferência vale somente para as próximas saídas.</small></span></label><p class="live-info">Humor, notas e interações compartilhadas permanecem. Texto e contexto podem identificar você. Saídas anteriores não são modificadas automaticamente.</p><button class="live-button" type="submit">Salvar preferência · exemplo</button></form>${liveNotice()}<p>Visibilidade por campo, mídia e perfis têm contratos próprios.</p>${liveButton('Suporte sobre meus dados',70,true)}`;
@@ -512,9 +514,8 @@ document.addEventListener('click',event=>{
  if(target.dataset.go)document.querySelector('#atlas-live-dialog')?.close();
  if(target.dataset.liveHabit){
   const action=target.dataset.liveHabit;
-  const management=['start','activate','end'].includes(action);
   // A confirmação administrativa do Atlas só demonstra o fluxo; Cancelar fecha sem efeitos.
-  showLiveDialog(liveHabitForm(action,management),action==='record'?'Registrar momento':action==='terms'?'Alterar termos':'Administrar o ciclo');
+  showLiveDialog(liveHabitForm(action,true),action==='record'?'Registrar momento':action==='terms'?'Alterar termos':'Administrar o ciclo');
   return;
  }
  if(target.dataset.liveDialog){const screen=byId(target.dataset.liveDialog);showLiveDialog(liveContextContent(screen),screen.id===16?'Adicionar evento':screen.id===15?'Sua participação':screen.title,screen.status==='Planejada');return;}
