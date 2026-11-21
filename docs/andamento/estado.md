@@ -4,9 +4,13 @@
 
 **Arquitetura.** [Stack e diretórios](../stack.md) inventaria a web ativa, o servidor atual e a estrutura proposta para Nx, NestJS e Capacitor. A página pública de Conta retornou Angular em consulta anônima, com sessão e integrações hospedadas ainda por conferir. [Registro documental](registros/registro-v4.0.0-alpha.29-2026-11-21-imp-documentacao-fun-stack-e-diretorios.md).
 
-**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base 6f718b7, que contém a Paridade 15. Contador 104 a partir de 103. Último marco auditado 100. Superpowers e Context7 para o planejamento de Nx e Capacitor. Unidade pronta para commit: documentação da stack e da estrutura de diretórios. Sugestão: docs: registrar a stack atual e a estrutura-alvo do Nós.
+**Roteiro técnico.** Sete fases sincronizadas na stack, no [plano de migração](planos/migracao-angular.md#ordem-de-implementação) e na guia Migração. A etapa 13 da guia MVP leva aos aceites técnicos. PWA e Capacitor têm dependências próprias após estabilizar a web. [Registro da sincronização](registros/registro-v4.0.0-alpha.29-2026-11-21-imp-planejamento-fun-roteiro-tecnico-da-stack.md).
 
-**Próximo passo.** Escolher os grupos de telas para a próxima entrega da revisão transversal. Ambiente hospedado e recebimento externo de relato continuam pendentes. [Guia Migração](../wireframes/atlas/index.html#migracao).
+**Decisões aprovadas.** Piloto de leitura de Núcleo no NestJS, Supabase Auth mantido e WebSocket na resposta ao convite da Agenda. Expandir a atualização automática a todos os dados mutáveis. Orçamento permanente de R$ 0. PWA antes de Android e iOS. Busca pública e desktop adiados. [Registro das dez decisões](registros/registro-v4.0.0-alpha.29-2026-11-21-01-imp-planejamento-fun-decisoes-da-stack.md).
+
+**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base bdf2c8f, que contém a documentação da stack e da estrutura de diretórios. Contador 106 a partir de 105. Último marco auditado 100. Superpowers e verificadores locais do Atlas. Unidade pronta para commit: roteiro técnico e decisões aprovadas na stack, migração e Atlas. Sugestão: docs: consolidar decisões da stack e etapas no Atlas.
+
+**Próximo passo.** Selecionar os recortes da paridade visual 16, começando pela análise de Início, resposta a convite da Agenda e Acordos no celular, e preparar a conferência hospedada de sessão, fila e recebimento de relato. Liberar a fase Nx após evidência de estabilização e ensaio de retorno. [Guia Migração](../wireframes/atlas/index.html#migracao).
 
 ## Histórico da paridade 14
 

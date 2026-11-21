@@ -1,3 +1,11 @@
+## 21/11/2026 — Critérios de aceite para expansão da plataforma
+
+O roteiro deixava identidade, canal de atualização e orçamento em aberto. As dez decisões agora têm momento de execução e evidência esperada, incluindo reconexão, revogação de acesso e operação gratuita. [Registro](../andamento/registros/registro-v4.0.0-alpha.29-2026-11-21-01-imp-planejamento-fun-decisoes-da-stack.md).
+
+## 21/11/2026 — Roteiro técnico da stack sincronizado
+
+A stack, o plano de migração e o Atlas passaram a apresentar as mesmas sete fases, com dependências e evidências esperadas. A etapa 13 do MVP agora leva aos critérios técnicos. Os verificadores confirmaram o roteiro e preservaram a cobertura das 73 fichas. [Registro](../andamento/registros/registro-v4.0.0-alpha.29-2026-11-21-imp-planejamento-fun-roteiro-tecnico-da-stack.md).
+
 ## 20/11/2026 — Preparação temporária na Ponte do Nós
 
 - **2026-11-20 · Paridade visual da Conta.** A migração havia reduzido a escolha de tema a texto e condensado os controles de privacidade. As nove prévias voltaram junto dos diálogos e das opções ligadas ao papel no Núcleo. Evidência local em desktop e celular. [Registro](../andamento/registros/registro-v4.0.0-alpha.29-2026-11-20-imp-paridade-angular-fun-conta-privacidade-e-suporte.md).

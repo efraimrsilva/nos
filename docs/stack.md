@@ -1,6 +1,6 @@
 # Projeto Nós — stack e arquitetura
 
-**Revisão de 21/11/2026.** Inventário da branch `codex/migracao-angular`, revisão `6f718b7`. O código local está na versão `4.0.0-alpha.29`. A estrutura de destino é uma proposta para discussão, alinhada às tecnologias já previstas no [plano de migração](andamento/planos/migracao-angular.md).
+**Revisão de 21/11/2026.** Inventário da branch `codex/migracao-angular`, código inventariado na revisão `6f718b7`. O código local está na versão `4.0.0-alpha.29`. A estrutura de destino segue as decisões de 21/11/2026, alinhada às tecnologias já previstas no [plano de migração](andamento/planos/migracao-angular.md).
 
 O Nós ajuda pessoas a cultivar vínculos em Núcleos privados por meio de convites, acordos, hábitos e agenda compartilhada. A web responsiva é a primeira plataforma de entrega. O objetivo da etapa móvel é reaproveitar a interface Angular e validar, em cada dispositivo, o que depende de permissões, sessão, navegação ou integração nativa.
 
@@ -101,26 +101,35 @@ nos/
 
 ## 4. Divergências e decisões
 
-| Tema | Ajuste em relação ao anexo | Decisão para a próxima etapa |
+Decisões aprovadas em 21/11/2026. A numeração corresponde às dez perguntas de arquitetura. A execução segue os aceites da migração e das etapas de produto.
+
+| Decisão | Direção aprovada | Momento e critério |
 | --- | --- | --- |
-| Backend e identidade | NestJS está previsto. A operação atual usa Supabase Auth, PostgreSQL e funções Netlify. No plano vigente, a decisão de identidade de longo prazo segue em aberto. | Começar o primeiro fluxo NestJS com a sessão atual do Supabase. Decidir a emissão própria de tokens depois de comparar renovação, revogação, recuperação, login social e isolamento de dados. |
-| Nx e organização | O repositório ainda executa npm com dois lockfiles. As pastas `core/`, `features/`, `layouts/` e `routes/` da árvore original dariam uma nova organização à web existente. | Introduzir Nx com tarefas equivalentes antes de considerar uma instalação unificada. Manter os nomes e a estrutura da web na primeira etapa. A escolha de versão deve considerar Angular, TypeScript e Node em uso. [Adoção incremental do Nx](https://nx.dev/docs/kb/adding-to-existing-project) |
-| Interface | Tailwind e CSS próprio já estão em uso. Angular CDK e Material são opções para necessidades específicas. | Avaliar CDK por componente e preservar a identidade do Nós. Considerar Day.js apenas se surgir uma lacuna que o tratamento de datas atual não resolva. |
-| Tempo real | A consulta periódica já atende alguns casos. Os transportes em avaliação são WebSocket pelo NestJS ou Supabase Realtime. | Escolher um fluxo, definir latência, autorização, reconexão e recuperação e adotar um único canal para essa responsabilidade. |
-| PWA, Android e iOS | Web responsiva está disponível. PWA (aplicação web progressiva), instalação, cache controlado e os aplicativos nativos são entregas futuras. | Definir se a PWA vem antes ou em paralelo ao piloto Android. Na PWA, começar com recursos estáticos e definir por fluxo o comportamento offline e o tratamento de dados privados. |
-| Hospedagem e automação | Netlify é o caminho configurado para a web e as funções atuais. GitHub Actions, hospedagem da futura API e pipeline nativo ainda precisam de definição. | Preservar a publicação web e decidir a hospedagem da API quando houver requisitos do piloto. Tratar assinatura e distribuição mobile como etapas próprias. |
-| Qualidade e alternativas | Playwright, testes de integração Node e pgTAP já têm tarefas. Vitest ou Jest, ESLint, Prettier, OpenAPI e Swagger são avaliações futuras. SSR em páginas públicas, Electron ou Tauri dependem de uma necessidade de produto. | Escolher um executor unitário quando entrar a primeira área que o justifique. Adotar OpenAPI no primeiro contrato HTTP próprio se ajudar o consumo e a verificação da API. |
+| 1 · Primeiro serviço | Angular consulta no NestJS os dados básicos de um Núcleo. | Migração 3. Conferir integrante autorizado, outra conta, sessão expirada e serviço indisponível. |
+| 2 · Identidade | Manter Supabase Auth. Reabrir emissão própria de tokens somente com requisito concreto. | Migração 3–4. Conferir renovação, recuperação, saída e isolamento do navegador até o banco. |
+| 3 · Organização | Introduzir Nx preservando scripts npm, dois lockfiles, pastas atuais e artefato publicado. | Migração 2. Comparar tarefas e ensaio Netlify. Avaliar unificação de dependências separadamente. |
+| 4 · Interface | Referência Next.js para ícones, prévias de temas, foco, teclado, movimento e celular. Avaliar CDK por componente e Day.js por lacuna de datas. | Migração 1. Apresentar diferenças intencionais com capturas lado a lado. |
+| 5 · Atualização automática | Todo dado mutável exibido deve acompanhar mudanças autorizadas sem recarga manual. Usar WebSocket no NestJS, começando pela resposta ao convite da Agenda. | Migração 5 para o canal. MVP e Continuidade para cobertura das telas existentes, aceite de cada módulo novo e central de notificações na etapa 11. |
+| 6 · Plataformas | PWA primeiro, Android em aparelho real depois e iOS em seguida. | Continuidade 13. A PWA pode começar após estabilizar a web. Validar sessão e serviços antes do pacote nativo. |
+| 7 · Sem rede | Exibir estrutura pública, informar indisponibilidade e permitir tentar novamente. Armazenar apenas recursos estáticos públicos. | Piloto PWA. Conferir atualização, retorno da rede e troca de conta. Dados privados ou gravações offline exigem decisão específica. |
+| 8 · Custo | Orçamento permanente de R$ 0 para serviços, automação, hospedagem e distribuição. Preservar o Netlify dentro da gratuidade. | Antes de adotar cada serviço, comparar alternativas gratuitas por cotas, suspensão, excedentes e adequação. Se houver risco de cobrança sem bloqueio ou faltar opção compatível, manter piloto local ou adiar a etapa. |
+| 9 · Qualidade | Documentar campos e erros da primeira rota e validar Angular, servidor e banco antes de expandir a API. Reusar Playwright, testes Node e pgTAP. | Migração 2–3. GitHub Actions dentro da cota gratuita. Avaliar OpenAPI no primeiro contrato, Vitest ou Jest na primeira necessidade unitária e ESLint/Prettier em mudança isolada. |
+| 10 · Busca pública e desktop | Adiar a avaliação de renderização no servidor (SSR) e aplicativo de computador (Electron ou Tauri). | Continuidade, sem data. Retomar diante de uma página pública com necessidade de descoberta ou tarefa específica de desktop. |
 
 ## 5. Sequência de implementação
 
 | Etapa | Entrega | Critério para avançar |
 | --- | --- | --- |
 | 1. Estabilizar a web | Fechar a revisão transversal restante e as pendências de sessão e e-mail no ambiente hospedado, conforme o plano vigente. | Registrar o deploy conferido e a evidência de login, permissões, fluxos críticos e integrações. Validar o caminho de retorno antes de alterações de infraestrutura. |
-| 2. Introduzir Nx | Mapear e reproduzir os comandos de desenvolvimento, tipos, build e testes. Conservar o caminho de publicação e manter o arquivo Next.js fora do grafo de tarefas. | Comparar comandos e artefato antes e depois. Conferir build Netlify em ambiente de ensaio. Tratar eventual unificação de lockfiles como passo distinto. |
-| 3. Pilotar NestJS | Escolher um fluxo pequeno, preferencialmente uma leitura autenticada com operação existente. Documentar campos, erros e como a identidade chega ao banco. Integrar uma chamada Angular e extrair contrato se houver uso real nas duas aplicações. | Verificar usuário autorizado, sessão expirada e outra conta ou Núcleo, preservando o resultado e a autorização PostgreSQL. Escolher o primeiro recorte e a hospedagem antes de iniciar a implementação. |
-| 4. Validar identidade e tempo real | Comparar o ciclo de sessão atual com a alternativa de tokens próprios. Selecionar um único fluxo para medir o ganho da atualização por eventos. | Confirmar renovação/revogação, reconexão, troca de Núcleo e ausência de eventos para quem está fora do vínculo. |
-| 5. Entregar PWA e mobile por recorte | Definir o contrato offline e testar instalação e atualização da PWA quando priorizada. Empacotar o Angular no Capacitor, primeiro em Android e depois em iOS. | Conferir em navegador e aparelhos reais os fluxos suportados, links de retorno, permissões, ausência de rede e distribuição em ambiente de teste. |
+| 2. Introduzir Nx | Reproduzir os comandos e o artefato. Manter o arquivo Next.js fora do grafo de tarefas e usar GitHub Actions dentro da cota gratuita para automatizar verificações. | Depende da fase 1. Conferir o mesmo artefato no ensaio Netlify. Eventual unificação de lockfiles tem entrega própria. |
+| 3. Pilotar NestJS | Ler os dados básicos de um Núcleo. Documentar campos, erros e como a identidade chega ao banco. Integrar uma chamada Angular e extrair contrato se houver uso real nas duas aplicações. | Verificar usuário autorizado, sessão expirada e outra conta ou Núcleo, preservando o resultado e a autorização PostgreSQL. Começar localmente e conferir as condições gratuitas antes de hospedar. |
+| 4. Validar identidade | Manter Supabase Auth. | Conferir renovação, revogação, recuperação, expiração e isolamento com a API. |
+| 5. Pilotar WebSocket | Atualizar a resposta ao convite da Agenda pelo NestJS após validar a identidade. | Sem recarga em duas sessões, inclusive após reconexão. Impedir entrega após perda de vínculo e acompanhar a expansão na guia MVP e Continuidade. |
+| 6. Validar PWA | Depois da fase 1, definir instalação, atualização e limites offline. Pode avançar junto à API e precede o Android. | Testar instalação, recuperação de atualização com falha e privacidade entre contas. O piloto usa cache de recursos públicos. |
+| 7. Pilotar Capacitor | Depois da fase 1, validar os contratos de sessão e os serviços usados pelo pacote. Empacotar o Angular em Android e depois em iOS. | Conferir em aparelhos reais links de retorno, permissões, ausência de rede e distribuição interna. Começar pelo aceite da PWA e verificar distribuição gratuita por plataforma. |
 
 Para estudo e implementação, usar uma entrega real por etapa. Primeiro, mapear o caminho da rota Angular até o PostgreSQL. Depois, reproduzir o build no Nx e implementar a primeira rota NestJS com um teste de isolamento. Na etapa de aplicativos, usar uma prova de conceito de login e retorno por link antes de integrar recursos nativos.
 
-O [plano de migração](andamento/planos/migracao-angular.md) mantém os recortes e critérios da virada. O [estado](andamento/estado.md) registra o próximo passo e a versão do aplicativo. Revisões exclusivamente documentais mantêm a versão do produto.
+Após o piloto da Agenda, registrar a cobertura de cada fluxo no [plano de MVP e Continuidade](andamento/planos/mvp.md). A central de notificações entra na etapa 11 e a distribuição móvel na etapa 13, conforme a disponibilidade de um caminho gratuito.
+
+O [plano de migração](andamento/planos/migracao-angular.md#ordem-de-implementação) detalha as dependências, e a [guia Migração do Atlas](wireframes/atlas/index.html#migracao) apresenta os mesmos marcos. O [estado](andamento/estado.md) registra o próximo passo e a versão do aplicativo. Revisões exclusivamente documentais mantêm a versão do produto.

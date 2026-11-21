@@ -1,3 +1,11 @@
+## 2026-11-21 — Dez decisões de arquitetura aprovadas
+
+A direção técnica passou a prever WebSocket no NestJS em todos os fluxos mutáveis, Supabase Auth e operação gratuita. As fases da migração e as etapas de continuidade indicam onde verificar cada entrega. [Registro](registros/registro-v4.0.0-alpha.29-2026-11-21-01-imp-planejamento-fun-decisoes-da-stack.md).
+
+## 2026-11-21 — Roteiro técnico sincronizado no Atlas
+
+Sete fases com dependências e aceites próprios, desde a estabilização web até PWA e Capacitor. A etapa 13 do MVP referencia a guia Migração. [Registro](registros/registro-v4.0.0-alpha.29-2026-11-21-imp-planejamento-fun-roteiro-tecnico-da-stack.md).
+
 ## 2026-11-21 — Inventário da stack e proposta de diretórios
 
 Conferência do anexo com manifestos, lockfiles, código e configuração de publicação. A árvore atual e a proposta incremental estão em [Stack](../stack.md). [Registro](registros/registro-v4.0.0-alpha.29-2026-11-21-imp-documentacao-fun-stack-e-diretorios.md).

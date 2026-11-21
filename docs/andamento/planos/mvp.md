@@ -1,3 +1,13 @@
+## Relação com o roteiro técnico
+
+## Decisões de continuidade de 21/11/2026
+
+Após o piloto WebSocket no NestJS, acompanhar cada fluxo mutável até a cobertura completa: resposta da Agenda, demais eventos e presenças, identidade e integrantes do Núcleo, convites, Acordos, Conta e totais da navegação. Para cada ação, registrar quais vistas devem mudar e conferir em duas sessões autorizadas, após reconexão e após perda de acesso. Incluir o mesmo aceite ao implementar módulos futuros.
+
+Na etapa 11, usar o canal para a central de notificações respeitando destinatário e preferências. Na etapa 13, entregar PWA com estrutura pública offline e tentativa de reconexão, depois Android em aparelho real e por último iOS. Verificar gratuidade permanente de hospedagem, automação e distribuição antes de cada ensaio. Se não houver opção gratuita adequada, manter o piloto local ou adiar a distribuição. SSR para páginas públicas e aplicativo desktop ficam para avaliação futura, sem prazo.
+
+A etapa 13 reúne os requisitos de produto para integrações e plataformas. A execução técnica está no [plano de migração Angular](migracao-angular.md#ordem-de-implementação) e na [guia Migração do Atlas](../../wireframes/atlas/index.html#migracao). A sequência começa pela estabilização da web e define os aceites de Nx, NestJS, identidade, tempo real, PWA e Capacitor. O roteiro técnico preserva o escopo das fichas e as etapas do MVP.
+
 ## Termos e versões de Hábitos — v4.0.0-alpha.25 — 2026-11-20
 
 Paridade 11. Revisão, versão vigente, encerramento e histórico conferidos nas Telas 30–33. Telas 34–35 e 37 planejadas, com Nossa Essência na Tela 36 como recorte informativo. [Registro](../registros/registro-v4.0.0-alpha.25-2026-11-20-imp-paridade-angular-fun-termos-e-versoes.md).
@@ -143,7 +153,7 @@ Login existente é o início. Reconferir cadastro/confirmação, recuperação/r
 | 10 | Manifesto, versões, aceites e compartilhamento autorizado | 55, 56, 57 | Expansão |
 | 11 | Notificações, canais, preferências e eventos dos módulos | 60, 68 | Expansão |
 | 12 | Conversa de cuidado, Ponte, cartão único, encontro restrito e desfecho | 61, 62, 63, 64, 65 | Expansão |
-| 13 | QR/link/câmera, login Google/Apple, calendários externos, Android → iOS, biometria, IA opcional e operação | Refinar telas anteriores; sem ID fictício novo | Conclusão do projeto |
+| 13 | QR/link/câmera, login Google/Apple, calendários externos, PWA, Android → iOS, biometria, IA opcional e operação | Refinar telas anteriores; sem ID fictício novo | Conclusão do projeto |
 
 As 73 fichas atuais têm uma etapa principal, sem duplicação. As funcionalidades transversais da etapa 13 refinam telas já relacionadas. Administração/revisão anual consensual do propósito entram na 07. QR/link/câmera entram na 13, com alternativa por código e sem associação automática.
 

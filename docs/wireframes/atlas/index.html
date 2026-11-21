@@ -33,8 +33,7 @@
       <div class="side-footer">
         <span class="edition">ATLAS VIVO · v4.0.0-alpha.29 · 20 NOV 2026</span>
         <p>
-          A guia Migração reúne as entregas planejadas para substituir o Next.js
-          por Angular.
+          A guia Migração reúne a estabilização do Angular e as próximas entregas da stack.
         </p>
         <a href="../guia.md">Guia e decisões do wireframe ↗</a>
       </div>
@@ -229,13 +228,13 @@
       >
         <h2 id="migration-title" tabindex="-1">Migração para Angular</h2>
         <p>
-          <span class="badge planned">Planejada</span> Angular publicado. A paridade visual com a referência Next.js segue em andamento.
+          <span class="badge existing">Angular publicado</span> A paridade visual com a referência Next.js e o aceite hospedado seguem em andamento.
           A01–A11 foram verificadas na prévia <strong>v4.0.0-alpha.10</strong>. A preparação da virada foi verificada na v4.0.0-alpha.11. A base publicada <strong>v4.0.0-alpha.16</strong> inclui os controles no perfil e no Mais e o lembrete de relato. A entrada com Google depende da configuração do provedor no ambiente.
         </p>
         <p>
-          O Angular será a aplicação web em computador e celular. A interface
+          O Angular é a aplicação web em computador e celular. A interface
           móvel no navegador espelha a experiência prevista para o aplicativo.
-          Na prévia, o Supabase cuida da autenticação, dos dados e das operações protegidas.
+          O Supabase cuida da autenticação, dos dados e das operações protegidas.
         </p>
         <p>
           Entre telas internas, a navegação mantém cabeçalho e menus visíveis.
@@ -366,9 +365,9 @@
           <p><a href="../../andamento/registros/registro-v4.0.0-alpha.11-2026-11-17-imp-preparacao-angular-fun-transporte-e-paridade.md">Ver registro da preparação</a></p>
         </details>
         <details id="migracao-passo-14" data-migration-delivery="14">
-          <summary>14 · Arquivamento visual do Next.js</summary>
-          <p>Preservar a aparência do Next.js em <code>arquivo/nextjs/</code>, com estilos, marca e evidências visuais. O código executável anterior continua acessível no Git.</p>
-          <p><strong>Aceite.</strong> Arquivo preservado e compilação, testes e publicação Angular independentes do código arquivado.</p>
+          <summary>14 · Arquivamento visual do Next.js · referência preservada</summary>
+          <p>A referência do Next.js está em <code>arquivo/nextjs/</code>, com estilos, marca e evidências visuais. O código executável anterior continua acessível no Git.</p>
+          <p><strong>Aceite.</strong> Conferir a independência da compilação, dos testes e da publicação Angular em relação ao código arquivado.</p>
         </details>
         <section class="migration-visual-roadmap" aria-labelledby="migration-visual-title">
           <h3 id="migration-visual-title">Paridade de interface com o Atlas v3.11.1</h3>
@@ -481,43 +480,59 @@
           <details data-visual-step="16">
             <summary>16 · Revisão transversal</summary>
             <p>Revisitar as 73 fichas pelas etapas anteriores e conferir tipografia, ícones, avisos, movimento reduzido e estados vazios, de erro e de permissão.</p>
-            <p><strong>Aceite.</strong> Comparar com o Atlas nas duas larguras, ampliar onde necessário e registrar as evidências antes da virada.</p>
+            <p><strong>Aceite.</strong> Comparar com o Atlas nas duas larguras, registrar os recortes selecionados e suas evidências antes de fechar a estabilização web.</p>
             <p><a href="#tela-01">01</a> · <a href="#tela-13">13</a> · <a href="#tela-14">14</a> · <a href="#tela-18">18</a> · <a href="#tela-66">66</a></p>
           </details>
         </section>
         <section class="migration-visual-roadmap" aria-labelledby="migration-sequence-title">
-          <h3 id="migration-sequence-title">Implementação após a paridade</h3>
+          <h3 id="migration-sequence-title">Roteiro técnico da stack</h3>
+          <p>Concluir a estabilização da web antes das próximas entregas. O orçamento permanente é R$ 0. A guia MVP e Continuidade acompanha a expansão do tempo real e a sequência PWA (aplicação web progressiva), Android e iOS.</p>
           <details data-migration-phase="1" open>
-            <summary>Fase 1 · Angular no ar e referência Next.js arquivada</summary>
+            <summary>Fase 1 · Estabilização da web Angular · em validação</summary>
             <ol>
-              <li>Concluir os passos de paridade 16 em computador e celular, preservando rotas, permissões, estados e diálogos.</li>
-              <li>No ensaio hospedado, comprovar sessão, confirmação e recuperação, fila e relatos de problema. Ensaiar o retorno ao deploy anterior e preparar a candidata.</li>
-              <li>Publicar o Angular e conferir os fluxos críticos no domínio público. Se a sessão, as permissões, as gravações ou uma integração crítica falharem, restaurar a publicação anterior.</li>
-              <li>Depois de confirmar a virada, arquivar a aplicação Next.js em <code>arquivo/nextjs/</code> e verificar que o Angular compila, é testado e pode ser publicado sem depender dessa pasta.</li>
+              <li>Concluir a paridade 16 em computador e celular, conferindo também ícones, prévias de temas, animações, teclado e foco com a referência Next.js. Apresentar diferenças intencionais lado a lado.</li>
+              <li>No ensaio hospedado, comprovar renovação de sessão, confirmação e recuperação, fila de avisos e recebimento de relatos.</li>
+              <li>Conferir os fluxos críticos no Angular já publicado. Registrar a revisão verificada e ensaiar a restauração do deploy e do destino da fila, se alterado.</li>
+              <li>Conferir build, testes e publicação sem depender da referência preservada em <code>arquivo/nextjs/</code>.</li>
             </ol>
             <p><a href="#migracao-passo-13">13 · Virada pública</a> · <a href="#migracao-passo-14">14 · Arquivamento do Next.js</a></p>
-            <p><strong>Avance quando:</strong> Angular estiver confirmado em produção e a cópia Next.js estiver preservada para consulta.</p>
+            <p><strong>Aceite.</strong> Evidências da paridade, dos fluxos hospedados e do retorno operacional, com o arquivo Next.js fora do build ativo.</p>
           </details>
           <details data-migration-phase="2">
-            <summary>Fase 2 · Monorepo Nx e backend NestJS · planejada</summary>
-            <p>Organizar os aplicativos e bibliotecas no Nx. Portar um fluxo pequeno para o NestJS, mantendo Supabase Auth, PostgreSQL e as regras do banco. Avaliar Vitest ou Jest no primeiro recorte e reutilizar Playwright.</p>
-            <p><strong>Avance quando:</strong> o Angular continuar publicável e o primeiro fluxo comprovar integração, autorização e compatibilidade.</p>
+            <summary>Fase 2 · Nx e automação · planejada</summary>
+            <p>Após a fase 1, introduzir Nx com os scripts npm, lockfiles e caminho do build Angular atuais. Excluir o arquivo Next.js do grafo de tarefas. Usar GitHub Actions em propostas de alteração dentro da cota gratuita. Manter a organização das pastas.</p>
+            <p><strong>Aceite.</strong> Desenvolvimento, tipos, build e testes equivalentes, com o mesmo artefato no ensaio Netlify.</p>
           </details>
           <details data-migration-phase="3">
-            <summary>Fase 3 · Decisão de autenticação · planejada</summary>
-            <p>Comparar Supabase Auth com emissão própria de JWT (JSON Web Token). Se houver motivo para mudar, planejar a migração de identidade e sessão como entrega separada.</p>
-            <p><strong>Avance quando:</strong> a decisão estiver registrada e sessão, recuperação e permissões estiverem verificadas.</p>
+            <summary>Fase 3 · Piloto da API NestJS · planejada</summary>
+            <p>Após a fase 2, ler os dados básicos de um Núcleo por uma rota autenticada em <code>apps/api</code>. Usar Supabase Auth e preservar as políticas por linha do PostgreSQL. Compartilhar o contrato quando houver consumo pela web e pela API. Documentar campos e erros antes da segunda rota. Avaliar OpenAPI no primeiro contrato e Vitest ou Jest quando houver teste unitário. Começar localmente e verificar a gratuidade antes de hospedar.</p>
+            <p><strong>Aceite.</strong> Leitura equivalente, recusa de sessão expirada e isolamento entre contas e Núcleos. Ensaiar a indisponibilidade da API e o retorno ao caminho anterior.</p>
           </details>
           <details data-migration-phase="4">
-            <summary>Fase 4 · WebSocket e Capacitor · planejada</summary>
-            <p>Validar atualização em tempo real em um fluxo com autorização, reconexão e recuperação de eventos. Com a web estável, validar o aplicativo Capacitor em aparelhos reais, primeiro Android e depois iOS.</p>
-            <p><strong>Conclua quando:</strong> o fluxo em tempo real e os dois pacotes tiverem evidências de teste separadas.</p>
+            <summary>Fase 4 · Validação de identidade · planejada</summary>
+            <p>Após a fase 3, validar a continuidade do Supabase Auth. Reabrir tokens próprios apenas se surgir requisito concreto.</p>
+            <p><strong>Aceite.</strong> Decisão documentada e fluxos de sessão, recuperação e autorização verificados.</p>
+          </details>
+          <details data-migration-phase="5">
+            <summary>Fase 5 · Tempo real · planejada</summary>
+            <p>Com identidade definida na fase 4, usar WebSocket no NestJS para a resposta ao convite da Agenda. Atualizar as telas autorizadas sem recarga manual e reler o estado ao reconectar. Verificar cotas e suspensão da hospedagem gratuita.</p>
+            <p><strong>Aceite.</strong> Duas contas vinculadas recebem a atualização e uma conta externa fica fora. Conferir troca de Núcleo, sessão expirada, saída e reconexão.</p>
+          </details>
+          <details data-migration-phase="6">
+            <summary>Fase 6 · PWA e limites offline · planejada</summary>
+            <p>Após a fase 1, definir instalação, atualização e limites sem rede. Começar pelo cache de recursos públicos e manter dados privados e gravações fora da política de cache offline.</p>
+            <p><strong>Aceite.</strong> Instalação, atualização e ausência de rede testadas. Sair ou trocar de conta preserva a privacidade.</p>
+          </details>
+          <details data-migration-phase="7">
+            <summary>Fase 7 · Capacitor em Android e iOS · planejada</summary>
+            <p>Após a fase 1, o aceite da PWA e a validação dos serviços usados pelo pacote, reaproveitar o build Angular em <code>apps/mobile</code>. Conferir origem dos serviços, links de login e recuperação, sessão e permissões.</p>
+            <p><strong>Aceite.</strong> Piloto e distribuição interna em Android. Depois, evidência independente em iOS. Conferir em aparelhos reais ausência de rede, teclado e botão de retorno.</p>
           </details>
         </section>
         <p>
           <a href="../../andamento/planos/migracao-angular.md#ordem-de-implementação"
             >Consultar o plano detalhado, critérios e dependências ↗</a
-          >
+          > · <a href="../../stack.md">Consultar stack e diretórios ↗</a>
         </p>
       </section>
       <footer class="main-footer">
