@@ -8,7 +8,7 @@ O Nós organiza Núcleos, convites, acordos, hábitos e agendas. A participaçã
 
 A aplicação web é Angular com TypeScript, Tailwind CSS e estilos próprios. O Supabase Auth gerencia sessão e o PostgreSQL armazena os dados e verifica autorizações. O Netlify publica os arquivos Angular e executa as funções de avisos de conta e relatos. Playwright cobre jornadas no navegador.
 
-A evolução para Nx, NestJS, WebSocket e Capacitor está no [plano de migração](docs/andamento/planos/migracao-angular.md#ordem-de-implementação).
+O [mapa da stack e dos diretórios](docs/stack.md) reúne as versões em uso e a estrutura proposta para Nx, NestJS e Capacitor. A sequência de entregas está no [plano de migração](docs/andamento/planos/migracao-angular.md#ordem-de-implementação).
 
 ## Executar localmente
 

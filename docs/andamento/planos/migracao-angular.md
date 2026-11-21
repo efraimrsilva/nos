@@ -11,6 +11,8 @@ A [guia Migração do Atlas](../../wireframes/atlas/index.html#migracao) reúne 
 
 **Decisão inicial de arquitetura — 19/11/2026.** Esta é a referência para a evolução da linha Angular.
 
+O [mapa da stack e dos diretórios](../../stack.md) registra a implementação atual, a estrutura-alvo proposta e as decisões em aberto.
+
 | Camada | Tecnologia definida | Situação |
 | --- | --- | --- |
 | Frontend | Angular + TypeScript | Prévia web responsiva em `apps/web`, com Angular 22 e TypeScript 6.0. |
@@ -29,11 +31,11 @@ A prévia usa Supabase Auth, acesso ao PostgreSQL pelas operações existentes e
 
 ## Ordem de implementação
 
-**Próximo passo:** paridade visual 09 (Acordos · lista, proposta e participação). Os passos 01–08 foram verificados localmente. Usar o [mapa de fontes](paridade-angular-fontes.md) em cada recorte e atualizar o estado do projeto com o resultado, a evidência e o próximo passo. Os números **A01–A14** identificam entregas técnicas da fase 1. Os **passos 01–16** descrevem seu roteiro visual.
+**Próximo passo:** paridade visual 16, com a escolha dos recortes da revisão transversal e as pendências da conferência hospedada. Os passos 01–15 foram registrados ao longo das entregas locais. O [estado do projeto](../estado.md) é a referência de retomada. Usar o [mapa de fontes](paridade-angular-fontes.md) ao implementar os recortes escolhidos. Os números **A01–A14** identificam entregas técnicas da fase 1. Os **passos 01–16** descrevem seu roteiro visual.
 
 ### Fase 1 — Publicar o Angular e arquivar o Next.js
 
-1. **Fechar a paridade.** Executar os passos 09–16 na [guia Migração](../../wireframes/atlas/index.html#migracao), retomando por lista, proposta e participação em Acordos. Em 1440 e 390 pixels, comparar com o Next.js e o Atlas e conferir estados, diálogo, teclado, toque, navegação e permissões. Esboços continuam identificados. Guardar evidências por recorte.
+1. **Fechar a paridade.** Concluir o passo 16 na [guia Migração](../../wireframes/atlas/index.html#migracao), a partir dos recortes escolhidos na revisão transversal. Em 1440 e 390 pixels, comparar com o Next.js e o Atlas e conferir estados, diálogo, teclado, toque, navegação e permissões. Esboços continuam identificados. Guardar evidências por recorte.
 2. **Fechar A12 em ensaio hospedado.** Conferir links diretos, login e renovação de sessão, confirmação e recuperação, fila de avisos com falha e nova tentativa, e entrega do relato em caixa de teste. Retestar a falha de relatos registrada. Conferir compatibilidade da sessão entre as duas aplicações e, se necessário, preparar novo login na virada. Ensaiar a restauração do deploy anterior e do destino da fila.
 3. **A13 — Virada pública.** Preparar a candidata após aprovar verificações técnicas e ensaios. Conferir as migrações requeridas no projeto Supabase de destino e guardar as referências do último commit Next.js, do deploy público e do destino anterior da fila. Publicar conforme o [roteiro operacional](../../../apps/web/netlify/README.md) e verificar no domínio público acesso, permissões, gravações principais e integrações. Se uma dessas funções críticas falhar, restaurar o deploy anterior e o destino da fila, quando alterado, e reconferir o serviço.
 4. **A14 — Arquivamento visual do Next.js.** Preservar estilos, recursos de marca e referências em [arquivo/nextjs](../../../arquivo/nextjs/README.md). O código executável permanece recuperável pelo commit do último deploy. Os utilitários e integrações necessários ficam no Angular. Conferir que build, testes e publicação funcionam sem o Next.js.
@@ -64,7 +66,7 @@ A prévia usa Supabase Auth, acesso ao PostgreSQL pelas operações existentes e
 
 ## Estratégia de transição
 
-**Estratégia:** manter Next.js em produção enquanto o Angular evolui em prévia isolada. Migrar os módulos por etapas e fazer uma única virada pública após comprovar paridade. Servir Angular como arquivos estáticos com abertura de rotas diretamente pela URL. Configurar retornos de autenticação e integrações antes da regra de fallback. [Publicação Angular](https://angular.dev/tools/cli/deployment)
+**Estratégia adotada na transição:** evoluir o Angular em prévia isolada antes da publicação. A página pública já serve Angular. A validação hospedada continua descrita na fase 1. O build é servido como arquivos estáticos com abertura de rotas diretamente pela URL. Os retornos de autenticação e de integração devem continuar funcionando com a regra de fallback. [Publicação Angular](https://angular.dev/tools/cli/deployment)
 
 ## Versionamento durante a transição
 

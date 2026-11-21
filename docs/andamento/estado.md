@@ -1,8 +1,10 @@
-# Estado atual — Angular v4.0.0-alpha.29 — 2026-11-20
+# Estado atual — Angular v4.0.0-alpha.29 — 2026-11-21
 
 **Paridade 15 local.** Conta autenticada, Aparência com nove composições, privacidade, indicação de notificações futuras, exclusão e suporte. Conta e menu incorporado usam os atalhos de vínculo com confirmação de encerramento para administradores. [Registro](registros/registro-v4.0.0-alpha.29-2026-11-20-imp-paridade-angular-fun-conta-privacidade-e-suporte.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.29-2026-11-20-paridade-conta-tela-66-tela-67-tela-68-tela-69-tela-70/index.html).
 
-**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base 322e643. Contador 103 a partir de 102. Último marco auditado 100. Superpowers, Angular 22 e Playwright da stack atual. Unidade pronta para commit: paridade Angular de Conta, privacidade e suporte. Sugestão: fix(angular): restaurar paridade visual da conta e das preferências.
+**Arquitetura.** [Stack e diretórios](../stack.md) inventaria a web ativa, o servidor atual e a estrutura proposta para Nx, NestJS e Capacitor. A página pública de Conta retornou Angular em consulta anônima, com sessão e integrações hospedadas ainda por conferir. [Registro documental](registros/registro-v4.0.0-alpha.29-2026-11-21-imp-documentacao-fun-stack-e-diretorios.md).
+
+**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base 6f718b7, que contém a Paridade 15. Contador 104 a partir de 103. Último marco auditado 100. Superpowers e Context7 para o planejamento de Nx e Capacitor. Unidade pronta para commit: documentação da stack e da estrutura de diretórios. Sugestão: docs: registrar a stack atual e a estrutura-alvo do Nós.
 
 **Próximo passo.** Escolher os grupos de telas para a próxima entrega da revisão transversal. Ambiente hospedado e recebimento externo de relato continuam pendentes. [Guia Migração](../wireframes/atlas/index.html#migracao).
 

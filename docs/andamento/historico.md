@@ -1,3 +1,7 @@
+## 2026-11-21 — Inventário da stack e proposta de diretórios
+
+Conferência do anexo com manifestos, lockfiles, código e configuração de publicação. A árvore atual e a proposta incremental estão em [Stack](../stack.md). [Registro](registros/registro-v4.0.0-alpha.29-2026-11-21-imp-documentacao-fun-stack-e-diretorios.md).
+
 ## 2026-11-20 — Paridade 14 de Manifesto e Ponte do Nós
 
 ## 2026-11-20 · Paridade 15 da Conta Angular
