@@ -39,6 +39,50 @@ async function signIn(page, account, next = '/nucleos') {
   await expect(page).toHaveURL(next);
 }
 
+test('mostra e confirma ações da Conta conforme o vínculo do Núcleo', async ({page, accounts}) => {
+  const [owner, other] = accounts;
+  const cfg = localSupabaseConfig();
+  const api = createClient(cfg.API_URL, cfg.PUBLISHABLE_KEY || cfg.ANON_KEY, {auth:{persistSession:false}});
+  const session = await api.auth.signInWithPassword({email:owner.email,password:owner.password});
+  if (session.error) throw new Error('Falha na sessão de teste.');
+  const name = 'Jardim da Conta';
+  const created = await api.rpc('create_nucleus', {
+    nucleus_type:'amigos', nucleus_name:name, nucleus_purpose:'Cultivar presença.',
+  });
+  if (created.error) throw new Error('Falha no Núcleo descartável.');
+
+  await signIn(page, other, '/configuracoes/conta');
+  const main = page.getByRole('main');
+  await expect(main.getByText('Consultando seus vínculos…')).toBeHidden();
+  await expect(main.getByRole('button',{name:/Gerenciar convites|Encerrar Núcleo para todos/})).toHaveCount(0);
+  await main.getByRole('button',{name:'Sair da conta'}).click();
+  await page.getByRole('button',{name:'Confirmar saída'}).click();
+  await expect(page).toHaveURL('/conta?modo=login');
+
+  await signIn(page, owner, '/configuracoes/conta');
+  await main.getByRole('button',{name:/Gerenciar convites/}).click();
+  await expect(page.getByRole('dialog',{name:'Gerenciar convites'}).getByRole('link',{name}))
+    .toHaveAttribute('href', '/nucleos/'+created.data+'/convites');
+  await page.keyboard.press('Escape');
+  await main.getByRole('button',{name:/Sair de um Núcleo/}).click();
+  await expect(page.getByRole('dialog',{name:'Sair de um Núcleo'}).getByRole('link',{name}))
+    .toHaveAttribute('href', '/nucleos/'+created.data+'/sair');
+  await page.keyboard.press('Escape');
+
+  await main.getByRole('button',{name:/Encerrar Núcleo para todos/}).click();
+  const closure = page.getByRole('dialog',{name:'Encerrar Núcleo para todos'});
+  await closure.getByRole('textbox',{name:'Nome atual do Núcleo'}).fill(name);
+  await closure.getByRole('checkbox').check();
+  await page.keyboard.press('Escape');
+  await main.getByRole('button',{name:/Encerrar Núcleo para todos/}).click();
+  await expect(closure.getByRole('textbox')).toHaveValue('');
+  await expect(closure.getByRole('checkbox')).not.toBeChecked();
+  await closure.getByRole('textbox').fill(name);
+  await closure.getByRole('checkbox').check();
+  await closure.getByRole('button',{name:'Confirmar encerramento'}).click();
+  await expect(page).toHaveURL('/nucleos?resultado=encerrado');
+});
+
 test('porta o ciclo de Hábito com novo aceite e histórico preservado', async ({page,accounts,browser},info) => {
   test.setTimeout(75_000);
   page.setDefaultTimeout(10000);

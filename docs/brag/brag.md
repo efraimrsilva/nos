@@ -1,5 +1,7 @@
 ## 20/11/2026 — Preparação temporária na Ponte do Nós
 
+- **2026-11-20 · Paridade visual da Conta.** A migração havia reduzido a escolha de tema a texto e condensado os controles de privacidade. As nove prévias voltaram junto dos diálogos e das opções ligadas ao papel no Núcleo. Evidência local em desktop e celular. [Registro](../andamento/registros/registro-v4.0.0-alpha.29-2026-11-20-imp-paridade-angular-fun-conta-privacidade-e-suporte.md).
+
 As etapas do cartão de intenção passaram a ser demonstradas no Atlas offline. Limpar rascunho devolve o foco ao campo no aplicativo e no Atlas. Playwright verificou o descarte ao sair e a limpeza em duas larguras. [Registro](../andamento/registros/registro-v4.0.0-alpha.28-2026-11-20-imp-paridade-angular-fun-manifesto-e-ponte.md).
 
 ## 20/11/2026 — Seleção e detalhe de perfis fictícios

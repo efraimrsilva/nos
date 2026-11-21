@@ -59,6 +59,16 @@ export class NucleiData {
     return result.error || typeof result.data !== 'string' ? null : result.data;
   }
 
+  async accountMemberships(owner: string, signal: AbortSignal) {
+    const client = await this.clientForAccount(owner);
+    // Os atalhos da conta usam somente os vínculos da própria sessão.
+    const { data, error } = await client.from('nucleus_members').select('role,nucleus:nuclei!inner(id,name)')
+      .eq('user_id', owner).returns<{role: string; nucleus: Pick<Nucleus, 'id' | 'name'>}[]>().abortSignal(signal);
+    if (error) throw new Error('Não foi possível consultar seus Núcleos.');
+    return (data ?? []).map(({ role, nucleus }) => ({ ...nucleus, role }))
+      .sort((first, second) => first.name.localeCompare(second.name, 'pt-BR'));
+  }
+
   async members(owner: string, id: string, signal: AbortSignal) {
     const client = await this.clientForAccount(owner);
     const result = await client.rpc('get_nucleus_management',{target_nucleus:id}).abortSignal(signal);

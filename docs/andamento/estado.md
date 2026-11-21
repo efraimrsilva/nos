@@ -1,12 +1,17 @@
-# Estado atual — Angular v4.0.0-alpha.28 — 2026-11-20
+# Estado atual — Angular v4.0.0-alpha.29 — 2026-11-20
+
+**Paridade 15 local.** Conta autenticada, Aparência com nove composições, privacidade, indicação de notificações futuras, exclusão e suporte. Conta e menu incorporado usam os atalhos de vínculo com confirmação de encerramento para administradores. [Registro](registros/registro-v4.0.0-alpha.29-2026-11-20-imp-paridade-angular-fun-conta-privacidade-e-suporte.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.29-2026-11-20-paridade-conta-tela-66-tela-67-tela-68-tela-69-tela-70/index.html).
+
+**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base 322e643. Contador 103 a partir de 102. Último marco auditado 100. Superpowers, Angular 22 e Playwright da stack atual. Unidade pronta para commit: paridade Angular de Conta, privacidade e suporte. Sugestão: fix(angular): restaurar paridade visual da conta e das preferências.
+
+**Próximo passo.** Escolher os grupos de telas para a próxima entrega da revisão transversal. Ambiente hospedado e recebimento externo de relato continuam pendentes. [Guia Migração](../wireframes/atlas/index.html#migracao).
+
+## Histórico da paridade 14
 
 **Paridade 14 concluída localmente.** Telas 55–57 e 61–65. Capa e princípios ilustrativos do Manifesto. Cartão temporário da Ponte, etapas Intenção, Escuta e Pausa, limpeza com foco e saída para a Agenda. Revisão e compartilhamento do Manifesto, envio, agendamento pela Ponte e acompanhamento seguem planejados. [Registro](registros/registro-v4.0.0-alpha.28-2026-11-20-imp-paridade-angular-fun-manifesto-e-ponte.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.28-2026-11-20-paridade-manifesto-ponte-tela-55-tela-56-tela-57-tela-61-tela-62-tela-63-tela-64-tela-65/index.html).
 
 **Escopo e validação.** NucleusPreview, Atlas, Playwright e manifestos. Tipos, build, percurso autenticado em computador e celular, Migração, Visão global e demonstração offline. Rascunho apenas na tela, com descarte na navegação. Reutilizados o controle de vínculo e o serviço de leitura existentes.
 
-**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base 3f8bd52. Contador 102 a partir de 101. Último marco auditado 100. Superpowers, Playwright e referência Context7 Angular 22 já consultada para o padrão mantido. Sem dependência nova, alteração de banco ou pesquisa avançada. Autorrevisão. Unidade pronta para commit: paridade do Manifesto e da Ponte do Nós. Sugestão: fix(angular): concluir paridade de manifesto e ponte do nós.
-
-**Próximo passo.** Paridade 15, Conta autenticada, privacidade e suporte, Telas 66–70. Entrega 14 local. [Guia Migração](../wireframes/atlas/index.html#migracao).
 
 ## Histórico da paridade 13
 

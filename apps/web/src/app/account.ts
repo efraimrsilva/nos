@@ -3,13 +3,14 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AccountPreferences } from './account-preferences';
 import { NucleiData } from './nuclei/nuclei-data';
+import { NucleusAction } from './nuclei/nucleus-action';
 import { profileLetters } from './nuclei/nucleus-model';
 import { displayName, PreviewProfile } from './preview-profile';
 import { NavIcon } from './shared/nav-icon';
 
 @Component({
   selector: 'app-account',
-  imports: [RouterLink, AccountPreferences, NavIcon],
+  imports: [RouterLink, AccountPreferences, NavIcon, NucleusAction],
   templateUrl: './account.html',
   styleUrl: './account.css',
 })
@@ -25,10 +26,21 @@ export class Account {
   protected readonly name = computed(() => displayName(this.profile.user()));
   protected readonly initials = computed(() => profileLetters(this.name()));
   private readonly nuclei = inject(NucleiData);
+  private readonly owner = computed(() => this.profile.user()?.id);
   protected readonly last = resource({
     params:() => this.embedded() ? undefined : this.profile.user()?.id,
     loader:({params,abortSignal}) => this.nuclei.last(params,abortSignal),
   });
+  protected readonly memberships = resource({
+    params: () => this.owner(),
+    loader: ({params, abortSignal}) => this.nuclei.accountMemberships(params, abortSignal),
+  });
+  protected readonly administrators = computed(() => this.memberships.hasValue()
+    ? this.memberships.value().filter(item => item.role === 'admin') : []);
+  protected readonly closingNucleus = signal('');
+  protected readonly closingBusy = signal(false);
+  protected readonly closure = computed(() => this.administrators().find(item => item.id === this.closingNucleus()));
+  private readonly closureForm = viewChild<NucleusAction>('closureForm');
   protected readonly busy = signal(false);
   protected readonly authError = signal('');
   protected readonly editing = signal(false);
@@ -41,6 +53,12 @@ export class Account {
 
   constructor() {
     void this.profile.connect();
+    effect(() => {
+      this.owner();
+      // Uma troca de sessão desmonta o formulário anterior, mesmo se a operação ainda estiver em curso.
+      this.closingNucleus.set('');
+      this.closingBusy.set(false);
+    });
     effect(() => {
       const fragment = this.fragment();
       const host = this.preferences()?.nativeElement;
@@ -68,6 +86,21 @@ export class Account {
       if (!error && !this.profile.user()) await this.router.navigateByUrl('/conta?modo=login');
     }
     finally { this.busy.set(false); }
+  }
+
+  protected openClosure(dialog: HTMLDialogElement) {
+    const selected = this.administrators()[0];
+    if (!selected || this.closingBusy()) return;
+    this.closureForm()?.reset();
+    this.closingNucleus.set(selected.id);
+    dialog.showModal();
+  }
+
+  protected async finishClosure(dialog: HTMLDialogElement) {
+    dialog.close();
+    this.memberships.reload();
+    this.last.reload();
+    await this.router.navigate(['/nucleos'], {queryParams: {resultado: 'encerrado'}});
   }
 
   protected openDialog() {

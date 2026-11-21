@@ -44,3 +44,18 @@
   .problem-report-label { transition: opacity .15s ease; }
   .problem-report-anchor[data-reminder-visible="true"] .problem-report-label { transition-delay: .12s; }
 }
+.report-fields { display: grid; gap: .55rem; }
+.report-fields p { margin: .45rem 0; color: var(--muted); }
+.report-fields label { font-weight: 600; }
+.report-fields textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: .65rem .75rem;
+  resize: vertical;
+  font: inherit;
+}
+.report-fields button { justify-self: start; }

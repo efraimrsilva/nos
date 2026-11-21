@@ -1,5 +1,9 @@
 ## 2026-11-20 — Paridade 14 de Manifesto e Ponte do Nós
 
+## 2026-11-20 · Paridade 15 da Conta Angular
+
+Restaurou miniaturas de temas, diálogos de privacidade e suporte, exclusão com cancelamento e atalhos de vínculo. Referência Next.js no commit 604a142. [Registro](registros/registro-v4.0.0-alpha.29-2026-11-20-imp-paridade-angular-fun-conta-privacidade-e-suporte.md).
+
 Capa do Manifesto, princípios expansíveis, cartão de intenção e preparação temporária conferidos no Angular e no Atlas. [Registro](registros/registro-v4.0.0-alpha.28-2026-11-20-imp-paridade-angular-fun-manifesto-e-ponte.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.28-2026-11-20-paridade-manifesto-ponte-tela-55-tela-56-tela-57-tela-61-tela-62-tela-63-tela-64-tela-65/index.html).
 
 ## 2026-11-20 — Paridade 13 de Conexões e perfis

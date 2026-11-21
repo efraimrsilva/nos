@@ -1,3 +1,5 @@
+**Paridade 15 · v4.0.0-alpha.29.** Conta, nove miniaturas de tema, privacidade, exclusão e suporte nas Telas 66–70. Notificações exibem aviso de recurso planejado. [Galeria](comparacoes/v4.0.0-alpha.29-2026-11-20-paridade-conta-tela-66-tela-67-tela-68-tela-69-tela-70/index.html).
+
 **Paridade 14 · v4.0.0-alpha.28.** Manifesto editorial e Ponte com preparação temporária no Angular e Atlas. Telas 55–57 e 61–65 preservam estados planejados. [Galeria](comparacoes/v4.0.0-alpha.28-2026-11-20-paridade-manifesto-ponte-tela-55-tela-56-tela-57-tela-61-tela-62-tela-63-tela-64-tela-65/index.html).
 
 **Paridade 13 · v4.0.0-alpha.27.** Telas 44–54 conferidas. Conexões e Perfis afetivos são prévias com pessoas fictícias, temas e diálogo. Edição, visibilidade e compartilhamento seguem planejados. [Galeria](comparacoes/v4.0.0-alpha.27-2026-11-20-paridade-conexoes-perfis-tela-44-tela-45-tela-46-tela-47-tela-48-tela-49-tela-50-tela-51-tela-52-tela-53-tela-54/index.html).

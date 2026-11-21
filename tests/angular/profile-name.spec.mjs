@@ -124,6 +124,7 @@ test('descarta rascunho ao trocar de conta em outra aba', async ({page, context,
   const other = await context.newPage();
   await other.goto(path);
   await other.getByRole('button', { name: 'Sair da conta' }).click();
+  await other.getByRole('button', { name: 'Confirmar saída' }).click();
   await expect(other).toHaveURL(/\/conta\?modo=login$/);
   await signIn(other, second);
   await expect(page.getByRole('dialog')).toBeHidden();
@@ -163,7 +164,10 @@ test('salva aparência e privacidade para a conta conectada', async ({page, acco
   await signIn(page, first);
   await page.getByRole('button', {name: 'Escolher tema'}).click();
   const appearance = page.getByRole('dialog', {name: 'Aparência'});
-  await appearance.getByRole('button', {name: /Azul — Oceano/}).click();
+  await expect(appearance.getByRole('radio')).toHaveCount(9);
+  await expect(appearance.locator('.theme-preview')).toHaveCount(9);
+  await appearance.getByRole('radio', {name: /Azul — Oceano/}).check();
+  await expect(appearance.getByRole('radio', {name: /Azul — Oceano/})).toBeChecked();
   await expect(appearance.getByRole('status')).toContainText('Tema salvo');
   await page.keyboard.press('Escape');
 
@@ -251,7 +255,7 @@ test('relata pela Ajuda, confirma o envio e respeita o limite no cabeçalho', as
   };
   await support.click();
   await fill();
-  await expect(dialog.getByRole('status')).toHaveText('Relato enviado.');
+  await expect(dialog.getByRole('status')).toContainText('Relato enviado.');
   await page.keyboard.press('Escape');
   await page.getByRole('banner').getByRole('button', {name:'Relatar um problema'}).click();
   const limited = page.waitForResponse(response => response.url().endsWith('/api/problem-report') && response.status()===429);

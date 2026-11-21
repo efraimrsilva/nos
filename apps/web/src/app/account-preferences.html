@@ -1,101 +1,106 @@
 <section class="surface" tabindex="-1" [id]="embedded() ? prefix() + '-aparencia' : 'aparencia'">
   @if (embedded()) { <h3>Aparência</h3> } @else { <h2>Aparência</h2> }
-  <app-appearance-picker [prefix]="prefix() + '-appearance'" label="Escolher tema" [embedded]="embedded()" />
+  <app-appearance-picker [prefix]="prefix() + '-appearance'" label="Escolher tema" [row]="true" />
 </section>
 
 <section class="surface" tabindex="-1" [id]="embedded() ? prefix() + '-privacidade' : 'privacidade'">
   @if (embedded()) { <h3>Privacidade</h3> } @else { <h2>Privacidade</h2> }
-  <button [class]="embedded() ? 'account-option' : 'button'" type="button" (click)="openPrivacy()">
-    @if (embedded()) { <span class="option-icon"><app-nav-icon name="lock" /></span> }
-    <span>Visibilidade das próximas saídas @if (embedded()) { <small>Uma escolha para as próximas ações</small> }</span>
+  <button class="account-option" type="button" aria-haspopup="dialog" aria-label="Visibilidade das próximas saídas" (click)="openPrivacy()">
+    <span class="option-icon"><app-nav-icon name="lock" /></span>
+    <span>Visibilidade das próximas saídas<small>Uma escolha para as próximas ações</small></span><app-nav-icon name="chevron" />
   </button>
-  @if (embedded()) {
-    <button class="account-option" type="button" (click)="openHelp('Dados e autonomia')">
-      <span class="option-icon"><app-nav-icon name="book" /></span>
-      <span>Dados e autonomia<small>Orientações e limites do produto</small></span>
-    </button>
-  }
+  <button class="account-option" type="button" aria-haspopup="dialog" aria-label="Dados e autonomia" (click)="openHelp('Dados e autonomia')">
+    <span class="option-icon"><app-nav-icon name="book" /></span>
+    <span>Dados e autonomia<small>Orientações e limites do produto</small></span><app-nav-icon name="chevron" />
+  </button>
 </section>
 
 <section class="surface" tabindex="-1" [id]="embedded() ? prefix() + '-ajuda' : 'ajuda-e-suporte'">
-  @if (embedded()) {
-    <h3>Ajuda e suporte</h3>
-    <app-problem-report [prefix]="prefix() + '-support'" [embedded]="true" />
-    <button class="account-option" type="button" (click)="openHelp('Ajuda e suporte')">
-      <span class="option-icon"><app-nav-icon name="message" /></span>
-      <span>Preciso de orientação<small>Responsável e canal de contato</small></span>
-    </button>
-    <button class="account-option" type="button" (click)="openHelp('Entender os combinados')">
-      <span class="option-icon"><app-nav-icon name="book" /></span>
-      <span>Entender os combinados<small>Participação, termos e administração</small></span>
-    </button>
-  } @else {
-    <h2>Ajuda e suporte</h2>
-    <ng-container [ngTemplateOutlet]="helpContent" />
-    <app-problem-report [prefix]="prefix() + '-support'" />
-  }
+  @if (embedded()) { <h3>Ajuda e suporte</h3> } @else { <h2>Ajuda e suporte</h2> }
+  <app-problem-report [prefix]="prefix() + '-support'" [embedded]="true" />
+  <button class="account-option" type="button" aria-haspopup="dialog" aria-label="Preciso de orientação" (click)="openHelp('Ajuda e suporte')">
+    <span class="option-icon"><app-nav-icon name="message" /></span>
+    <span>Preciso de orientação<small>Responsável e canal de contato</small></span><app-nav-icon name="chevron" />
+  </button>
+  <button class="account-option" type="button" aria-haspopup="dialog" aria-label="Entender os combinados" (click)="openHelp('Entender os combinados')">
+    <span class="option-icon"><app-nav-icon name="book" /></span>
+    <span>Entender os combinados<small>Participação, termos e administração</small></span><app-nav-icon name="chevron" />
+  </button>
 </section>
 
 @if (!embedded()) {
 <section class="surface" tabindex="-1" id="apagar-minha-conta">
   <h2>Apagar minha conta</h2>
   <p>A exclusão é definitiva. Confira as consequências antes de confirmar.</p>
-  <button class="button" type="button" (click)="openRemoval()">Apagar minha conta</button>
+  <button class="account-option removal-row" type="button" aria-haspopup="dialog" aria-label="Apagar minha conta" (click)="openRemoval()">
+    <span class="option-icon"><app-nav-icon name="alert" /></span>
+    <span>Apagar minha conta<small>Ação definitiva · exige confirmação por escrito</small></span><app-nav-icon name="chevron" />
+  </button>
 </section>
 }
 
-<ng-template #helpContent>
-  <p>Responsável pelo aplicativo: Sintagma Software.</p>
-  <p>Administradores gerenciam pessoas e convites. Cada pessoa decide se participa dos acordos do Núcleo.</p>
-  <p>O conteúdo compartilhado é preservado após a saída. Confira como ocultar sua autoria nas próximas saídas.</p>
-  <p>Para solicitar acesso, correção ou exportação de dados, use o formulário de suporte.</p>
-  <p><a routerLink="/conta" fragment="privacidade">Conferir privacidade</a></p>
-</ng-template>
-
-@if (embedded()) {
-  <dialog #helpDialog class="shared-dialog" [attr.aria-labelledby]="prefix() + '-help-title'">
-    <header><h2 [id]="prefix() + '-help-title'">{{ helpTitle() }}</h2>
-      <form method="dialog"><button class="icon-button" aria-label="Fechar orientação" autofocus>×</button></form>
-    </header>
-    <ng-container [ngTemplateOutlet]="helpContent" />
-  </dialog>
-}
-
-<dialog #privacyDialog class="shared-dialog" [attr.aria-labelledby]="prefix() + '-privacy-title'" (close)="resetPrivacy()">
-  <header><h2 [id]="prefix() + '-privacy-title'">Privacidade e visibilidade</h2>
-    <form method="dialog"><button class="icon-button" aria-label="Fechar Privacidade" autofocus>×</button></form>
+<dialog #helpDialog class="shared-dialog account-dialog account-dialog-wide" [attr.aria-labelledby]="prefix() + '-help-title'">
+  <header class="account-dialog-header"><h2 [id]="prefix() + '-help-title'">{{ helpTitle() }}</h2>
+    <form method="dialog"><button class="icon-button" aria-label="Fechar orientação" autofocus><app-nav-icon name="close" /></button></form>
   </header>
-  <p>Somente pessoas associadas consultam o Núcleo e seu conteúdo compartilhado.</p>
-  <p>Esta preferência vale para suas próximas saídas. Ela preserva o conteúdo e oculta sua autoria, sem mudar saídas anteriores. O próprio texto ainda pode identificar você.</p>
-  @if (privacy.isLoading()) { <p role="status">Carregando preferência…</p> }
-  @else if (privacy.error()) {
-    <p role="alert">Não foi possível consultar sua preferência.</p>
-    <button type="button" class="icon-button" (click)="privacy.reload()">Tentar novamente</button>
-  } @else if (privacy.hasValue()) {
-    <form class="fields" (submit)="savePrivacy($event)">
-      <label class="choice"><input type="checkbox" [checked]="hide()" [disabled]="saving()"
-        (change)="hide.set($any($event.target).checked)"> Ocultar minha autoria nas interações após sair de um Núcleo</label>
-      <button class="button" type="submit" [disabled]="saving()">{{ saving() ? 'Salvando…' : 'Salvar preferência' }}</button>
-    </form>
-  }
-  @if (privacyMessage()) { <p role="status">{{ privacyMessage() }}</p> }
-  @if (privacyError()) { <p role="alert">{{ privacyError() }}</p> }
+  <div class="settings-copy">
+    <section class="control-section"><h3>Responsável e suporte</h3><p>Sintagma Software</p><p>Encontrou algo que não funcionou? Envie um relato direto à equipe, sem sair do aplicativo.</p><app-problem-report [prefix]="prefix() + '-help-report'" /></section>
+    <section class="control-section"><h3>Como funcionam os Núcleos?</h3><p>Administradores convidam, gerenciam participantes e organizam acordos. A nomeação comum exige aceite. Se o último administrador sair, o aplicativo sorteia um participante restante. Se o último membro sair, o Núcleo é encerrado.</p><a routerLink="/nucleos" (click)="helpDialog.close()">Abrir Seus Núcleos</a></section>
+    <section class="control-section"><h3>Proposta, teste e acordo ativo</h3><p>Qualquer participante pode propor. Administradores iniciam o teste, ativam e encerram os acordos. Cada pessoa decide se participa. Uma recusa não encerra o acordo das outras pessoas. Alterar os termos exige novo aceite individual; o histórico permanece.</p></section>
+    <section class="control-section"><h3>Informações sobre o tratamento de dados</h3><p>A conta permite autenticar você e proteger o acesso aos Núcleos. Participação, convites, acordos, agenda e momentos são usados para oferecer essas funções. O conteúdo compartilhado fica disponível às pessoas associadas, inclusive depois da saída de quem o registrou. A preferência pode ocultar a autoria nas próximas saídas.</p><a routerLink="/configuracoes/conta" fragment="privacidade" (click)="helpDialog.close()">Conferir privacidade</a></section>
+    <section class="control-section"><h3>Acesso, correção, exportação e exclusão</h3><p>Para acesso, correção e exportação, entre em contato pelo formulário de suporte acima. Para apagar sua própria conta, abra o bloco Apagar minha conta. A exclusão retira seu acesso e identificação, preservando o histórico compartilhado como “Conta excluída”. Textos podem identificar você; retenção e cópias de segurança exigem tratamento próprio do serviço.</p><a routerLink="/configuracoes/conta" fragment="apagar-minha-conta" (click)="helpDialog.close()">Abrir Apagar minha conta</a></section>
+    <section class="control-section"><h3>Condições de uso do MVP</h3><p>Respeite a privacidade e os direitos das outras pessoas. Compartilhe apenas conteúdo que você pode disponibilizar aos participantes do Núcleo. Administrar não autoriza aceitar acordos por outra pessoa. Você pode sair a qualquer momento; a tela de saída explica as consequências antes da confirmação.</p></section>
+    <section class="control-section control-planned"><span class="badge">Esboço de funcionalidade · ainda não desenvolvido</span><h3>Documentos e atendimento</h3><p>Os termos de uso e a política de dados completos, o procedimento operacional do suporte e a comprovação do ambiente de uso ainda precisam ser concluídos.</p></section>
+  </div>
+</dialog>
+
+<dialog #privacyDialog class="shared-dialog account-dialog account-dialog-wide" [attr.aria-labelledby]="prefix() + '-privacy-title'" (close)="resetPrivacy()">
+  <header class="account-dialog-header"><h2 [id]="prefix() + '-privacy-title'">Privacidade e visibilidade</h2>
+    <form method="dialog"><button class="icon-button" aria-label="Fechar Privacidade" autofocus><app-nav-icon name="close" /></button></form>
+  </header>
+  <p class="account-dialog-description">Escolhas claras sobre seu histórico compartilhado.</p>
+  <div class="settings-copy">
+    <section class="control-section"><h3>Núcleos privados</h3><p>Somente pessoas associadas consultam o espaço. Administradores gerenciam pessoas e convites; esse papel não permite consultar conteúdos pessoais privados.</p></section>
+    <section class="control-section"><h3>O que é compartilhado</h3><p>Nome e propósito do Núcleo, termos dos acordos, momentos do Hábito com humor e nota, histórico de alterações e agenda ficam disponíveis às pessoas associadas. Cada pessoa aceita sua própria participação; silêncio não é aceite.</p></section>
+    <section class="control-section"><h3>Ocultar autoria depois de sair</h3><p>Esta preferência vale para suas próximas saídas de qualquer Núcleo. Ela preserva o conteúdo e oculta a identificação da autoria; não apaga notas nem altera saídas anteriores. Uma autoria já ocultada não será revelada ao desativar a preferência. O próprio texto ainda pode identificar você.</p>
+      @if (privacy.isLoading()) { <p role="status">Carregando preferência…</p> }
+      @else if (privacy.error()) {
+        <p role="alert">Não foi possível consultar sua preferência.</p>
+        <button type="button" class="icon-button" (click)="privacy.reload()">Tentar novamente</button>
+      } @else if (privacy.hasValue()) {
+        <form class="fields" (submit)="savePrivacy($event)">
+          <label class="choice"><input type="checkbox" [checked]="hide()" [disabled]="saving()"
+            (change)="hide.set($any($event.target).checked)"> Ocultar minha autoria nas interações após sair de um Núcleo</label>
+          <button class="button" type="submit" [disabled]="saving()">{{ saving() ? 'Salvando…' : 'Salvar preferência' }}</button>
+        </form>
+      }
+      @if (privacyMessage()) { <p role="status">{{ privacyMessage() }}</p> }
+      @if (privacyError()) { <p role="alert">{{ privacyError() }}</p> }
+    </section>
+    <section class="control-section"><h3>Seus dados</h3><p>Acesso, correção e exportação são solicitados ao suporte. Você pode apagar sua própria conta no bloco Apagar minha conta. O histórico compartilhado permanece com autoria “Conta excluída”; textos ainda podem identificar você.</p><a routerLink="/configuracoes/conta" fragment="apagar-minha-conta" (click)="privacyDialog.close()">Abrir Apagar minha conta</a></section>
+    <section class="control-section control-planned"><span class="badge">Esboço de funcionalidade · ainda não desenvolvido</span><h3>Próximas opções de privacidade</h3><p>Perfil afetivo, rascunhos, conversas livres, mídia e seleção de leitores terão controles próprios. Essas funções ainda não estão disponíveis.</p></section>
+  </div>
 </dialog>
 
 @if (!embedded()) {
-<dialog #removalDialog class="shared-dialog" aria-labelledby="removal-title" (close)="resetRemoval()">
-  <header><h2 id="removal-title">Apagar minha conta</h2>
-    <form method="dialog"><button class="icon-button" aria-label="Fechar exclusão" autofocus>×</button></form>
+<dialog #removalDialog class="shared-dialog account-dialog account-dialog-wide" aria-labelledby="removal-title" (close)="resetRemoval()">
+  <header class="account-dialog-header"><h2 id="removal-title">Apagar minha conta</h2>
+    <form method="dialog"><button class="icon-button" aria-label="Fechar exclusão" autofocus><app-nav-icon name="close" /></button></form>
   </header>
+  <p class="account-dialog-description">Ação definitiva. Confira as consequências antes de confirmar.</p>
+  <div class="account-deletion-warning"><h3><app-nav-icon name="alert" /> Apagar minha conta</h3>
   <p>Você perderá o acesso e sairá de todos os Núcleos. O histórico compartilhado permanece com autoria “Conta excluída”. Textos ainda podem identificar você.</p>
   <p>Se você for a última pessoa, o Núcleo será encerrado e os convites serão revogados. Se você for a última pessoa administradora, a sucessão será definida por sorteio entre quem ficar.</p>
+  <p>Uma nova conta não recupera os vínculos anteriores. Cópias de segurança seguem o tratamento de retenção do serviço.</p>
+  </div>
   <form class="fields" (submit)="removeAccount($event)">
     <label for="account-removal-phrase">Digite {{ phrase }} para confirmar</label>
     <input #phraseInput id="account-removal-phrase" type="text" autocomplete="off" maxlength="12"
       [value]="confirmation()" [disabled]="removing()" (input)="confirmation.set(phraseInput.value)">
-    <button class="button" type="submit" [disabled]="removing() || confirmation() !== phrase">
+    <p class="settings-copy">Use as duas palavras em letras maiúsculas, com um espaço entre elas.</p>
+    <div class="removal-actions"><button class="button removal-confirm" type="submit" [disabled]="removing() || confirmation() !== phrase">
       {{ removing() ? 'Confirmando exclusão…' : 'Confirmar exclusão' }}
-    </button>
+    </button><button class="button secondary" type="button" [disabled]="removing()" (click)="removalDialog.close()">Cancelar</button></div>
   </form>
   @if (removalError()) { <p role="alert">{{ removalError() }}</p> }
 </dialog>

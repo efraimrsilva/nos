@@ -1,24 +1,33 @@
-<button [class]="embedded() ? 'account-option' : 'icon-button'" type="button" (click)="picker.showModal()" aria-haspopup="dialog"
+<button [class]="row() ? 'account-option' : 'icon-button'" type="button" (click)="picker.showModal()" aria-haspopup="dialog" [attr.aria-label]="label()"
   [attr.aria-controls]="prefix() + '-dialog'">
-  @if (embedded()) { <span class="option-icon"><app-nav-icon name="appearance" /></span> }
-  <span>{{ label() }} @if (embedded()) { <small>Personalizar as cores do seu espaço</small> }</span>
+  <span class="option-icon"><app-nav-icon name="palette" /></span>
+  <span>{{ label() }}@if (row()) {<small>Escolha as cores do seu espaço</small>}</span>
+  @if (row()) {<app-nav-icon name="chevron" />}
 </button>
-<dialog #picker class="shared-dialog" [id]="prefix() + '-dialog'" [attr.aria-labelledby]="prefix() + '-title'">
-  <header><h2 [id]="prefix() + '-title'">Aparência</h2>
-    <form method="dialog"><button class="icon-button" aria-label="Fechar Aparência" autofocus>×</button></form>
+<dialog #picker class="shared-dialog account-dialog account-dialog-wide" [id]="prefix() + '-dialog'" [attr.aria-labelledby]="prefix() + '-title'">
+  <header class="account-dialog-header"><h2 [id]="prefix() + '-title'">Aparência</h2>
+    <form method="dialog"><button class="icon-button" aria-label="Fechar Aparência" autofocus><app-nav-icon name="close" /></button></form>
   </header>
-  <div class="theme-options">
+  <fieldset class="theme-options"><legend class="sr-only">Escolher tema</legend>
     @for (theme of appearance.themes; track theme.id) {
-      <button class="icon-button theme-option" type="button" [attr.aria-pressed]="appearance.selected() === theme.id"
-        (click)="appearance.select(theme.id)">
-        <span class="swatch" [style.background]="theme.canvas" [style.border-color]="theme.accent" aria-hidden="true"></span>
-        <span>{{ theme.name }}</span>
-      </button>
+      <label class="theme-option" [style.--preview-canvas]="theme.canvas" [style.--preview-surface]="theme.surface"
+        [style.--preview-accent]="theme.accent" [style.--preview-ink]="theme.ink">
+        <input type="radio" [name]="prefix() + '-theme'" [attr.aria-label]="theme.name" [checked]="appearance.selected() === theme.id"
+          (change)="appearance.select(theme.id)">
+        <span class="theme-preview" aria-hidden="true"><span class="theme-preview-nav"></span>
+          <span class="theme-preview-content"><span></span><span></span><i></i></span>
+        </span>
+        <span class="theme-option-title">{{ theme.name }}<app-nav-icon name="check" /></span>
+        <small>{{ theme.description }}</small>
+      </label>
     }
-  </div>
+  </fieldset>
   @if (appearance.saving()) { <p role="status">Salvando sua escolha…</p> }
   @else if (appearance.feedback(); as feedback) {
-    @if (feedback.error) { <p role="alert">{{ feedback.error }}</p> }
+    @if (feedback.error) {
+      <p role="alert">{{ feedback.error }}</p>
+      <button class="button secondary" type="button" (click)="appearance.select(appearance.selected())">Tentar salvar novamente</button>
+    }
     @else { <p role="status">Tema salvo na sua conta.</p> }
   }
 </dialog>

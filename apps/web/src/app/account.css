@@ -4,7 +4,7 @@
 .card h2 { overflow-wrap: anywhere; margin-block-end: .55rem; }
 .row:not(.account-option) { display: block; margin-top: .6rem; }
 .signout { margin-top: 1rem; }
-.account:not(.embedded-account) .account-access { display: grid; gap: .35rem; margin-top: 1rem; }
+.account:not(.embedded-account) .account-access { display: grid; align-content: start; gap: .35rem; }
 .account-access a { color: var(--leaf); }
 .account-access p { margin: 0; }
 button { min-height: 2.75rem; padding: .45rem .9rem; border: 1px solid transparent; border-radius: .65rem; background: var(--leaf); color: var(--on-leaf, #fff); font-weight: 650; }
