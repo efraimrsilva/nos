@@ -33,7 +33,7 @@ A web usa Supabase Auth, acesso ao PostgreSQL pelas operações existentes e fun
 
 ## Ordem de implementação
 
-**Próximo passo:** paridade visual 16, com a escolha dos recortes da revisão transversal e as pendências da conferência hospedada. Os passos 01–15 foram registrados ao longo das entregas locais. O [estado do projeto](../estado.md) é a referência de retomada. Usar o [mapa de fontes](paridade-angular-fontes.md) ao implementar os recortes escolhidos. Os números **A01–A14** identificam entregas técnicas da fase 1. Os **passos 01–16** descrevem seu roteiro visual.
+**Próximo passo:** fechar conferência hospedada e ensaio de retorno. Recortes da paridade 16 implementados localmente na v4.0.0-alpha.30: Início (13), Sua participação na Agenda (15) e lista móvel de Acordos (18). [Registro](../registros/registro-v4.0.0-alpha.30-2026-11-21-imp-paridade-angular-fun-revisao-transversal.md). Os passos 01–15 foram registrados ao longo das entregas locais. O [estado do projeto](../estado.md) é a referência de retomada. Usar o [mapa de fontes](paridade-angular-fontes.md) ao implementar os recortes escolhidos. Os números **A01–A14** identificam entregas técnicas da fase 1. Os **passos 01–16** descrevem seu roteiro visual.
 
 ### Fase 1 — Estabilizar a web Angular
 

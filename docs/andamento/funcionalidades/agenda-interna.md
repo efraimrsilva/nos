@@ -1,3 +1,7 @@
+## Interface vigente — v4.0.0-alpha.30 — 2026-11-21
+
+Na Tela 15, Responder convite abre o modal Sua participação com as duas escolhas individuais existentes. Cancelar por X, Escape ou gesto externo não altera a presença. Remarcação, participantes, autorização e persistência mantêm o contrato abaixo. [Registro](../registros/registro-v4.0.0-alpha.30-2026-11-21-imp-paridade-angular-fun-revisao-transversal.md).
+
 # Agenda interna — v3.5.0
 
 **Angular v4.0.0-alpha.22.** Criar e editar usam horários agrupados com fuso explícito e foco em erro. Cancelar retorna à Agenda. Reabrir edição recupera os dados confirmados e a remoção exige ciência explícita. [Registro](../registros/registro-v4.0.0-alpha.22-2026-11-19-imp-paridade-angular-fun-gestao-de-eventos.md).

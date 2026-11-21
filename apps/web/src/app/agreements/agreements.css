@@ -121,7 +121,12 @@ app-agreement-terms > p + p,app-agreement-terms > .agreement-actions { margin-to
   .agreement-panels .agreement-context { grid-column:span 2; border-left:0; border-top:1px solid var(--line); }
 }
 @media (max-width:700px) {
-  .agreement-mobile-list .agreement-card { padding:1.25rem; gap:.7rem; background:var(--surface); }
+  /* A linha móvel reúne título, termos e participação sem a altura do cartão Kanban. */
+  .agreement-mobile-list .agreement-card { display:grid; grid-template-columns:minmax(0,1fr) auto; padding:1rem; gap:.55rem .75rem; background:var(--surface); }
+  .agreement-mobile-list .agreement-card > strong { grid-column:1; grid-row:1; }
+  .agreement-mobile-list .agreement-card-top { grid-column:2; grid-row:1 / span 2; flex-direction:column; align-items:end; }
+  .agreement-mobile-list .agreement-card-time { grid-column:1; grid-row:2; }
+  .agreement-mobile-list app-agreement-totals,.agreement-mobile-list .agreement-card-footer { grid-column:1 / -1; }
   .agreement-mobile-list .agreement-card strong { font-size:1.2rem; }
   .agreement-mobile-list .agreement-card-description { display:none; }
   .proposal-schedule,.proposal-review .agreement-facts { grid-template-columns:1fr; }

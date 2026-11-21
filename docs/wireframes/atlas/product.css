@@ -286,6 +286,25 @@ body:has(#screen-preview .preview-wrap.mobile) .atlas-live-dialog .live-member-t
 @container (min-width: 701px) {
   .live-nucleus-overview { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
+.live-home-notice-art { display:flex; align-items:center; justify-content:center; gap:1rem; min-height:9rem; }
+.live-home-notice-art p { font:1.5rem/1.4 Georgia,serif; }
+@container (min-width:1050px) { .live-nucleus-overview { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+/* O celular usa uma lista compacta; as colunas e a troca de visualização ficam no computador. */
+@container (max-width:700px) {
+  .current-atlas-agreements .live-view-switch { display:none; }
+  .current-atlas-agreements .current-atlas-board { display:grid; grid-template-columns:1fr; }
+  .current-atlas-board > section[data-live-column="Hábitos"] { display:none; }
+  .current-atlas-board > section[data-live-column="Propostas"] { padding:0; background:none; border:0; }
+  .current-atlas-board > section[data-live-column="Propostas"] > header,
+  .current-atlas-board > section[data-live-column="Propostas"] > p,
+  .current-atlas-board .live-add-card { display:none; }
+  .current-atlas-agreements .live-agreement-card { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:.55rem .75rem; padding:1rem; }
+  .current-atlas-agreements .live-agreement-card > h4 { grid-column:1; grid-row:1; margin:0; font-size:1.2rem; }
+  .current-atlas-agreements .live-agreement-card > span { grid-column:2; grid-row:1 / span 2; flex-direction:column; align-items:end; }
+  .current-atlas-agreements .live-agreement-card > p { display:none; }
+  .current-atlas-agreements .live-card-time { grid-column:1; grid-row:2; }
+  .current-atlas-agreements .live-agreement-card > footer { grid-column:1 / -1; margin:0; }
+}
 .live-invite-entry .live-panel { padding: clamp(20px,3vw,28px); }
 .live-invite-entry input[name="invitation-code"] { font-family: monospace; text-transform: uppercase; }
 .live-invite-entry input[name="invitation-code"]::placeholder { text-transform: none; }

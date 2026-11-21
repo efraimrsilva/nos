@@ -467,6 +467,17 @@ test('muda identidade, aceita nomeação pela própria conta, sai e encerra', as
     const code = await page.getByTestId('invitation-code').innerText();
     await page.getByRole('link',{name:'Concluir por enquanto'}).click();
     await expect(page.getByRole('heading',{name:'Jardim da A06',exact:true})).toBeVisible();
+    await page.getByRole('button',{name:'Conhecer esta área',exact:true}).click();
+    const notifications=page.getByRole('dialog',{name:'Notificações, no seu tempo',exact:true});
+    await expect(notifications).toContainText('ainda não consulta nem envia avisos');
+    await capture(page,'notificacoes');
+    await page.keyboard.press('Escape');
+    await expect(notifications).toBeHidden();
+    await expect(page.getByRole('button',{name:'Conhecer esta área',exact:true})).toBeFocused();
+    await page.getByRole('button',{name:'Conhecer esta área',exact:true}).click();
+    if(info.project.name==='mobile') await page.touchscreen.tap(5,5);
+    else await page.mouse.click(5,5);
+    await expect(notifications).toBeHidden();
     const path = new URL(page.url()).pathname;
     await signIn(guest,member,'/comecar/convite');
     await guest.getByLabel('Código de convite').fill(code);

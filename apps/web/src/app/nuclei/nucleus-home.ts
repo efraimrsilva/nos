@@ -66,6 +66,9 @@ export class NucleusHome {
     },
   });
   protected readonly date = formatCalendarEventDate;
+  // A miniatura acompanha a grade UTC da Agenda; a descrição mantém o fuso do evento.
+  protected readonly day = (date:string) => new Date(date).getUTCDate();
+  protected readonly month = (date:string) => new Intl.DateTimeFormat('pt-BR',{month:'short',timeZone:'UTC'}).format(new Date(date));
 
   constructor() {
     watchNucleusIdentity(() => this.state.hasValue() ? this.state.value()?.version : undefined,

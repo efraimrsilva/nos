@@ -1,3 +1,7 @@
+## 2026-11-21 — Paridade transversal local
+
+Início, modal de resposta da Agenda e Acordos móvel restaurados com serviços existentes. Atlas sincronizado, revisão independente de CSS e verificações locais. Sem publicação. [Registro](registros/registro-v4.0.0-alpha.30-2026-11-21-imp-paridade-angular-fun-revisao-transversal.md).
+
 ## 2026-11-21 — Dez decisões de arquitetura aprovadas
 
 A direção técnica passou a prever WebSocket no NestJS em todos os fluxos mutáveis, Supabase Auth e operação gratuita. As fases da migração e as etapas de continuidade indicam onde verificar cada entrega. [Registro](registros/registro-v4.0.0-alpha.29-2026-11-21-01-imp-planejamento-fun-decisoes-da-stack.md).

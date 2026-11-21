@@ -1,3 +1,7 @@
+## Revisão transversal — v4.0.0-alpha.30 — 2026-11-21
+
+O Início 13 recupera No seu tempo e seu modal informativo, explicitamente planejados, além das datas dos próximos eventos e cartões de acordos. Dados, vínculos e atalhos administrativos anteriores permanecem. Nenhum aviso simulado como real. [Registro](../registros/registro-v4.0.0-alpha.30-2026-11-21-imp-paridade-angular-fun-revisao-transversal.md).
+
 # Organização do Núcleo — v3.11.0 — validado localmente
 
 **Prévia Angular A06 · v4.0.0-alpha.6.** A edição do nome e do propósito fica no cabeçalho. **Ver integrantes** abre Nome/Papel, e o nome abre as ações disponíveis à sessão. A rota legada de Pessoas abre a mesma lista. A seção **Minha participação**, no Início, dá acesso à saída e, para administração, ao encerramento. Os atalhos gerais em Conta e Mais seguem as etapas de preferências e navegação. [Registro A06](../registros/registro-v4.0.0-alpha.6-2026-11-15-imp-pessoas-angular-fun-administracao-e-participacao.md).

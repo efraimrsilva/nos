@@ -1,4 +1,20 @@
-# Estado atual — Angular v4.0.0-alpha.29 — 2026-11-21
+# Estado atual — Angular v4.0.0-alpha.30 — 2026-11-21
+
+**Objetivo e escopo.** Paridade 16 nos recortes Início (13), resposta ao convite da Agenda (15) e Acordos móvel (18). Composições e diálogos sincronizados no Atlas, preservando serviços e permissões. [Registro](registros/registro-v4.0.0-alpha.30-2026-11-21-imp-paridade-angular-fun-revisao-transversal.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.30-2026-11-21-paridade-transversal-tela-13-tela-15-tela-18/index.html).
+
+**Situação.** Recortes selecionados concluídos localmente. Tipos/build, 257 testes de banco, seis cenários autenticados e verificadores pertinentes do Atlas aprovados. Agenda retestada após ajuste final dos ícones em ambas as larguras; falha de inicialização do processo desktop superada por reteste. Galeria com 32 capturas. Autorrevisão e revisão independente estática; dois P2 de CSS corrigidos. A seleção não certifica revisão completa das 73 fichas nem estabilização hospedada.
+
+**Decisões.** Angular e diálogos nativos existentes; sem biblioteca nova. No seu tempo é ilustrativo. Resposta individual da Agenda mantém a função de banco existente, erro explícito e confirmação antes de sucesso. Contratos de domínio preservados.
+
+**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base 78b2a05. O objeto 78b2a05 contém o roteiro técnico e as decisões; pendência documental anterior encerrada. Contador 107 a partir de 106; último marco auditado 100. Superpowers, Context7 Angular 22, Playwright e Supabase local. Octocode não exposto; pesquisa avançada desnecessária. Nenhum segredo novo, migração remota ou publicação.
+
+**Unidade pronta para commit.** Paridade transversal de Início, convite da Agenda e Acordos móvel, com Atlas e documentação. Sugestão: fix(angular): concluir revisão transversal de início, agenda e acordos.
+
+**Próximo passo e bloqueios.** Concluir evidência hospedada de sessão, confirmação, recuperação, fila e relato; ensaiar retorno de deploy antes de liberar Nx. Sem bloqueio local identificado. Publicação deste conjunto não solicitada. [Plano](planos/migracao-angular.md#ordem-de-implementação) · [Contratos de modais](funcionalidades/modais-interface.md).
+
+## Histórico da paridade 15 e planejamento
+
+# Marco histórico — Angular v4.0.0-alpha.29 — 2026-11-21
 
 **Paridade 15 local.** Conta autenticada, Aparência com nove composições, privacidade, indicação de notificações futuras, exclusão e suporte. Conta e menu incorporado usam os atalhos de vínculo com confirmação de encerramento para administradores. [Registro](registros/registro-v4.0.0-alpha.29-2026-11-20-imp-paridade-angular-fun-conta-privacidade-e-suporte.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.29-2026-11-20-paridade-conta-tela-66-tela-67-tela-68-tela-69-tela-70/index.html).
 

@@ -27,17 +27,27 @@
     }
   </header>
   @if (feedback()) { <p class="surface" role="status">{{ feedback() }}</p> }
-  <div class="overview-grid">
+  <div class="overview-grid nucleus-home-overview">
     <section class="surface">
       <h2 class="nucleus-panel-heading">Na agenda <app-nav-icon name="calendar" /></h2>
       @if (view.calendar.length) {
         <ul class="summary-list">
           @for (event of view.calendar; track event.id) {
-            <li><a [routerLink]="['/nucleos',view.nucleus.id,'agenda']" [fragment]="'evento-'+event.id">{{ event.title }}</a><span>{{ date(event.starts_at,event.time_zone).text }}</span></li>
+            <li><a class="nucleus-event-row" [attr.aria-label]="event.title" [attr.aria-describedby]="'home-event-'+event.id" [routerLink]="['/nucleos',view.nucleus.id,'agenda']" [fragment]="'evento-'+event.id">
+              <span class="nucleus-date-tile" aria-hidden="true"><strong>{{ day(event.starts_at) }}</strong><small>{{ month(event.starts_at) }}</small></span>
+              <span><strong>{{ event.title }}</strong><small [id]="'home-event-'+event.id">{{ date(event.starts_at,event.time_zone).text }}</small></span><app-nav-icon name="right" />
+            </a></li>
           }
         </ul>
       } @else { <p>Nada marcado por enquanto.</p> }
       <a class="text-link" [routerLink]="['/nucleos',view.nucleus.id,'agenda']">Abrir agenda</a>
+    </section>
+    <section class="surface nucleus-notice">
+      <h2 class="nucleus-panel-heading">No seu tempo <app-nav-icon name="bell" /></h2>
+      <div class="nucleus-notice-art"><app-nav-icon name="bell" /><p>Presença também<br>precisa de silêncio.</p></div>
+      <p>Um lugar para acompanhar o que pede sua atenção, sem pressa.</p>
+      <button class="text-link" type="button" aria-haspopup="dialog" (click)="notifications.showModal()">Conhecer esta área</button>
+      <small>Esboço · sem avisos ou atividades simuladas</small>
     </section>
     <section class="surface">
       <h2 class="nucleus-panel-heading">Núcleos onde estou <app-nav-icon name="users" /></h2>
@@ -54,9 +64,12 @@
     <section class="surface nucleus-participation" aria-labelledby="cultivation-title">
       <h2 class="nucleus-panel-heading" id="cultivation-title">O que estamos cultivando <app-nav-icon name="sprout" /></h2>
       @if (view.agreements.length) {
-        <ul class="summary-list">
+        <ul class="nucleus-home-agreements">
           @for (agreement of view.agreements; track agreement.id) {
-            <li><a [routerLink]="['/nucleos',view.nucleus.id,'acordos',agreement.id]">{{ agreement.title }}</a><span>{{ status(agreement.status) }}</span></li>
+            <li><a class="surface nucleus-home-agreement" [routerLink]="['/nucleos',view.nucleus.id,'acordos',agreement.id]">
+              <span class="badge">{{ status(agreement.status) }}</span><h3>{{ agreement.title }}</h3>
+              <p>Uma prática compartilhada, com escolha individual.</p><span>Conferir termos <app-nav-icon name="right" /></span>
+            </a></li>
           }
         </ul>
       } @else { <p>Os primeiros acordos podem nascer de uma intenção simples.</p> }
@@ -76,6 +89,14 @@
       }
     </div>
   </section>
+  <dialog #notifications class="shared-dialog" aria-labelledby="home-notifications-title">
+    <header class="dialog-heading"><h2 id="home-notifications-title">Notificações, no seu tempo</h2>
+      <form method="dialog"><button class="icon-button" aria-label="Fechar notificações" autofocus>×</button></form>
+    </header>
+    <p class="badge">Esboço de funcionalidade · ainda não desenvolvido</p>
+    <p>A central de notificações ainda não consulta nem envia avisos. Convites e propostas reais continuam disponíveis em suas próprias áreas.</p>
+    <a class="button secondary" [routerLink]="['/nucleos',view.nucleus.id,'acordos']">Consultar Acordos</a>
+  </dialog>
   <dialog #people class="shared-dialog" aria-labelledby="nucleus-people" (close)="closePeople()">
     <header class="dialog-heading">
       <h2 id="nucleus-people">Integrantes do Núcleo</h2>

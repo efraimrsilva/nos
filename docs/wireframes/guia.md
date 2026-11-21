@@ -1,3 +1,5 @@
+**Paridade 16 · v4.0.0-alpha.30.** Recortes 13, 15 e 18: Início, Sua participação na Agenda e lista compacta móvel. Notificações continuam ilustrativas. [Galeria](comparacoes/v4.0.0-alpha.30-2026-11-21-paridade-transversal-tela-13-tela-15-tela-18/index.html). Conferência hospedada e retorno ainda pendentes.
+
 **Paridade 15 · v4.0.0-alpha.29.** Conta, nove miniaturas de tema, privacidade, exclusão e suporte nas Telas 66–70. Notificações exibem aviso de recurso planejado. [Galeria](comparacoes/v4.0.0-alpha.29-2026-11-20-paridade-conta-tela-66-tela-67-tela-68-tela-69-tela-70/index.html).
 
 **Paridade 14 · v4.0.0-alpha.28.** Manifesto editorial e Ponte com preparação temporária no Angular e Atlas. Telas 55–57 e 61–65 preservam estados planejados. [Galeria](comparacoes/v4.0.0-alpha.28-2026-11-20-paridade-manifesto-ponte-tela-55-tela-56-tela-57-tela-61-tela-62-tela-63-tela-64-tela-65/index.html).

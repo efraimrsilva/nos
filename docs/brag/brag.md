@@ -1,3 +1,7 @@
+## 21/11/2026 — Recuperação de fluxos na revisão transversal
+
+**Problema:** diferenças da migração nos resumos do Início, resposta da Agenda e composição móvel de Acordos. **Contribuição:** composição restaurada, diálogo ligado à operação existente e Atlas sincronizado. **Resultado verificado:** build, tipos e 257 verificações locais de banco aprovados; revisão independente encontrou dois problemas de CSS, corrigidos. **Benefício esperado:** continuidade visual e escolhas de participação mais claras, sem métrica de uso medida. [Registro](../andamento/registros/registro-v4.0.0-alpha.30-2026-11-21-imp-paridade-angular-fun-revisao-transversal.md).
+
 ## 21/11/2026 — Critérios de aceite para expansão da plataforma
 
 O roteiro deixava identidade, canal de atualização e orçamento em aberto. As dez decisões agora têm momento de execução e evidência esperada, incluindo reconexão, revogação de acesso e operação gratuita. [Registro](../andamento/registros/registro-v4.0.0-alpha.29-2026-11-21-01-imp-planejamento-fun-decisoes-da-stack.md).
