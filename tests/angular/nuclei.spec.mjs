@@ -679,6 +679,7 @@ test('cria uma vez mesmo após perder a resposta e abre núcleo autorizado', asy
 
   await page.goto('/configuracoes/conta');
   await page.getByRole('button',{name:'Sair da conta'}).click();
+  await page.getByRole('dialog',{name:'Sair da conta'}).getByRole('button',{name:'Confirmar saída'}).click();
   await expect(page).toHaveURL(/\/conta\?modo=login$/);
   await signIn(page, outsider, path);
   await expect(page.getByRole('heading',{name:'Núcleo indisponível'})).toBeVisible();

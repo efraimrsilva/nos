@@ -27,6 +27,8 @@ main {
   padding-bottom: calc(5.5rem + env(safe-area-inset-bottom)); margin-inline: auto;
 }
 main:focus, main h1:focus { outline: none; }
+/* A lista de Núcleos ocupa a área disponível ao lado da navegação. */
+main:has(.nucleus-workspace) { max-width:none; }
 main h1 { scroll-margin-top: 4.5rem; }
 nav a, .mobile-nav button {
   display: flex; align-items: center; min-height: 2.75rem; padding: .55rem .8rem; border-radius: .45rem;

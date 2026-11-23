@@ -18,14 +18,14 @@
   @if (result.cards.length) {
     <nav class="nucleus-cards" aria-label="Seus Núcleos">
       @for (card of result.cards; track card.id) {
-        <a class="surface nucleus-card" [routerLink]="['/nucleos',card.id]" [attr.aria-label]="card.name">
+        <a class="surface nucleus-card" [routerLink]="['/nucleos',card.id]" [attr.aria-label]="card.name" [attr.data-role]="card.role">
           <div class="nucleus-cover" [attr.data-type]="card.type" aria-hidden="true">
             <app-nav-icon [name]="card.type === 'casal' ? 'heart' : card.type === 'familia' ? 'home' : 'users'" />
           </div>
           <span class="badge">{{ typeLabel(card.type) }}</span>
           <h2 [title]="card.name">{{ card.name }}</h2>
           <app-nucleus-role-badge [admin]="card.role === 'admin'" />
-          <p class="nucleus-active-agreements">{{ card.activeAgreements }} {{ card.activeAgreements === 1 ? 'acordo ativo' : 'acordos ativos' }}</p>
+          <p class="nucleus-active-agreements">{{ card.activeAgreements.toLocaleString('pt-BR') }} {{ card.activeAgreements === 1 ? 'acordo ativo' : 'acordos ativos' }}</p>
           <p class="nucleus-members-heading">{{ card.members.length }} {{ card.members.length === 1 ? 'pessoa' : 'pessoas' }}</p>
           <ul aria-label="Pessoas deste Núcleo">
             @for (person of card.members; track person.user_id) {
