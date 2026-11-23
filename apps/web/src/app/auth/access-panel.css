@@ -1,9 +1,5 @@
 /* Regras de AuthForm e account-motion.css do Next.js, adaptadas ao template Angular. */
 .account-access-layout { align-items:start; }
-@media (min-width: 960px) {
-  .account-access-layout > app-account-story { grid-area:1 / 1; }
-  .account-access-layout > .access-panel { grid-area:1 / 2; }
-}
 .access-panel > .sr-only { margin:0; }
 .access-panel { padding:clamp(1.25rem,2.5vw,1.625rem); }
 .access-panel .auth-modes { display:grid; grid-template-columns:1fr 1fr; position:relative; gap:0; padding:0; }

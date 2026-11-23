@@ -1,3 +1,11 @@
+## 23/11/2026 — Fluidez dos vagalumes da Conta (v4.0.0-alpha.33)
+
+Subida por transformação no Angular e no Atlas. [Registro](registros/registro-v4.0.0-alpha.33-2026-11-23-imp-conta-fun-fluidez-dos-vagalumes.md).
+
+## 23/11/2026 — Boas-vindas antes do formulário no celular (v4.0.0-alpha.32)
+
+Ordem conferida no Angular e no Atlas em 390 px. [Registro](registros/registro-v4.0.0-alpha.32-2026-11-23-imp-conta-fun-boas-vindas-no-celular.md).
+
 ## 23/11/2026 — Integração da Conta na linha de migração Angular (v4.0.0-alpha.31)
 
 Conflitos de versão e documentação entre `47e8e1f` e `39698e3` reconciliados. [Registro](registros/registro-v4.0.0-alpha.31-2026-11-23-imp-integracao-angular-fun-sincronizacao-da-conta.md).

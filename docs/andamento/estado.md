@@ -1,4 +1,8 @@
-# Estado atual — Angular v4.0.0-alpha.31 — 2026-11-23
+# Estado atual — Angular v4.0.0-alpha.33 — 2026-11-23
+
+**Voo dos vagalumes.** Angular e Atlas animam deslocamento e opacidade sem animar a posição de layout a cada quadro. Ganho de fluidez esperado. [Registro](registros/registro-v4.0.0-alpha.33-2026-11-23-imp-conta-fun-fluidez-dos-vagalumes.md).
+
+**Conta no celular.** Boas-vindas acima do formulário, conferido em 390 px no Angular e no Atlas. Unidade pronta para commit. Sugestão: `fix(angular): ajustar layout e animação da conta no celular`. [Registro](registros/registro-v4.0.0-alpha.32-2026-11-23-imp-conta-fun-boas-vindas-no-celular.md).
 
 **Integração.** Abertura e visual da Conta pública de `47e8e1f` integrados às dez entregas recebidas até `39698e3`. Versão consolidada nos manifestos e no Atlas. [Registro](registros/registro-v4.0.0-alpha.31-2026-11-23-imp-integracao-angular-fun-sincronizacao-da-conta.md).
 
@@ -10,7 +14,7 @@
 
 **Comparação local em 2026-11-23.** Angular em [Conta](http://127.0.0.1:4200/conta) e Next.js v3.11.1 em [Conta](http://127.0.0.1:3001/conta), no checkout separado `D:/Proj/nos-next-local` do commit `6e41268`. Ambos usam o Supabase local e responderam HTTP 200 em `/conta`. Para retomar, com o Supabase local ativo, execute `npm run dev` na pasta Angular e `npm run dev:supabase` na pasta Next.js.
 
-**Continuidade.** DOCS_DIR `docs`. Branch `codex/migracao-angular`. Referências integradas `47e8e1f` e `39698e3`. Contador 108 a partir do maior contador registrado nas linhas divergentes (107); os contadores das duas linhas não foram somados. Último marco de auditoria 100.
+**Continuidade.** DOCS_DIR `docs`. Branch `codex/migracao-angular`. Referências integradas `47e8e1f` e `39698e3`. Contador 110 a partir do maior contador registrado nas linhas divergentes (107); os contadores das duas linhas não foram somados. Último marco de auditoria 100.
 
 **Próximo passo.** Retomar as evidências hospedadas de sessão, confirmação, recuperação, fila e relato e ensaiar o retorno do deploy antes de liberar Nx. [Plano](planos/migracao-angular.md#ordem-de-implementação).
 

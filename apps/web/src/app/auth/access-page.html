@@ -19,6 +19,7 @@
     <app-account />
   } @else {
     <section class="auth-layout account-access-layout">
+      <app-account-story />
       <div class="surface auth-card access-panel" [attr.data-auth-mode]="mode()">
         <h1 class="sr-only" tabindex="-1">Acesso à conta</h1>
         <nav class="auth-modes" aria-label="Modo de acesso">
@@ -69,7 +70,6 @@
           <a [routerLink]="link('/conta/confirmar-email')" aria-haspopup="dialog">Confirmar e-mail</a>
         </nav>
       </div>
-      <app-account-story />
     </section>
   }
 }

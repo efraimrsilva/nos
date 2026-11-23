@@ -352,3 +352,5 @@ for (const id of [38,40,41]) screens.find(screen=>screen.id===id).rule += ' Pari
 for (const id of [44,45,46,49,52,54]) screens.find(screen=>screen.id===id).rule += ' Paridade Angular alpha.27: a prévia usa apenas pessoas fictícias. Seletores de pessoa e tema, datas ilustrativas e diálogo acompanham a escolha. Edição, visibilidade e compartilhamento de perfis reais permanecem planejados.';
 
 for (const id of [55,61,62,63]) screens.find(screen=>screen.id===id).rule += ' Paridade Angular alpha.28: a prévia do Manifesto exibe princípios expansíveis. Na Ponte, intenção, escuta e pausa são exploradas localmente. Limpar rascunho devolve o foco ao campo; sair descarta o texto. A Agenda existente é um destino separado.';
+
+for (const id of [1,2]) screens.find(screen => screen.id === id).rule += " Angular v4.0.0-alpha.32: em tela pequena, o bloco de boas-vindas precede o formulário.";

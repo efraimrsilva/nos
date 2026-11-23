@@ -1,6 +1,6 @@
 {
   "name": "nos-web",
-  "version": "4.0.0-alpha.31",
+  "version": "4.0.0-alpha.33",
   "scripts": {
     "start": "node ../../scripts/start-angular-local.mjs",
     "build": "ng build",
