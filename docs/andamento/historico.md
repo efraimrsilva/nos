@@ -1,3 +1,7 @@
+## 23/11/2026 — Adoção da main para o Angular (v4.0.0-alpha.33)
+
+Avanço direto de 18 commits e adoção da main para as próximas entregas. [Registro](registros/registro-v4.0.0-alpha.33-2026-11-23-imp-integracao-angular-fun-adocao-da-main.md).
+
 ## 23/11/2026 — Fluidez dos vagalumes da Conta (v4.0.0-alpha.33)
 
 Subida por transformação no Angular e no Atlas. [Registro](registros/registro-v4.0.0-alpha.33-2026-11-23-imp-conta-fun-fluidez-dos-vagalumes.md).
