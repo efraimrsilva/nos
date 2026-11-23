@@ -1,4 +1,4 @@
-import { DestroyRef, Injectable, inject, signal } from '@angular/core';
+import { DestroyRef, Injectable, inject, isDevMode, signal } from '@angular/core';
 import type { Session, SupabaseClient, User } from '@supabase/supabase-js';
 
 import { readPublicConfig, type PublicConfig } from './auth/public-config';
@@ -41,7 +41,10 @@ export class PreviewProfile {
       if (!response.ok) throw new Error();
       const local = location.protocol === 'http:' && ['127.0.0.1', 'localhost'].includes(location.hostname);
       if (!local && location.protocol !== 'https:') throw new Error();
-      const config = readPublicConfig(await response.json(), local ? 'local' : 'hosted');
+      const payload = await response.json();
+      // A exceção é explícita e restrita ao servidor de desenvolvimento em loopback.
+      const hostedPreview = local && isDevMode() && payload?.hostedPreview === true;
+      const config = readPublicConfig(payload, local && !hostedPreview ? 'local' : 'hosted');
       if (!config) throw new Error();
       // O cabeçalho observa a sessão, mas a página pública só carrega o SDK ao abrir uma rota de acesso.
       const { createClient, isAuthRetryableFetchError } = await import('@supabase/supabase-js');
