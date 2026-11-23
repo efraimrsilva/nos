@@ -1,4 +1,9 @@
 /* Regras de AuthForm e account-motion.css do Next.js, adaptadas ao template Angular. */
+.account-access-layout { align-items:start; }
+@media (min-width: 960px) {
+  .account-access-layout > app-account-story { grid-area:1 / 1; }
+  .account-access-layout > .access-panel { grid-area:1 / 2; }
+}
 .access-panel > .sr-only { margin:0; }
 .access-panel { padding:clamp(1.25rem,2.5vw,1.625rem); }
 .access-panel .auth-modes { display:grid; grid-template-columns:1fr 1fr; position:relative; gap:0; padding:0; }
@@ -22,10 +27,16 @@
 .access-panel .password-toggle:focus-visible { outline-offset:-2px; }
 .access-panel .auth-assistance { justify-content:space-between; gap:.25rem 1rem; margin-top:1rem; font-size:.75rem; }
 .access-panel .auth-assistance a { text-underline-offset:4px; }
-.auth-social .auth-secondary { margin-top:1rem; }
-.auth-social img { flex:none; object-fit:contain; }
+.auth-social .auth-secondary {
+  margin-top:1.125rem; min-height:43px; padding:10px 16px; gap:9px;
+  border:1px solid currentColor; border-radius:7px; background:transparent; color:var(--ink);
+  font-size:14px; font-weight:500; line-height:1.5;
+}
+.auth-social .auth-secondary:hover:not(:disabled) { background:color-mix(in srgb,currentColor 6%,transparent); }
+.auth-social img { flex:none; object-fit:contain; background:#fff; border-radius:50%; }
 .auth-social p[role="status"] { color:var(--muted); font-size:.8rem; }
 @media (prefers-reduced-motion:no-preference) {
+  .auth-social .auth-secondary { transition:background-color .15s ease,opacity .15s ease; }
   .access-panel .auth-modes::after { transition:transform .45s cubic-bezier(.22,1,.36,1); }
   .auth-mode-size { transition:height .24s cubic-bezier(.22,1,.36,1); }
   .access-panel .auth-fields { animation:auth-enter .18s ease-out both; }

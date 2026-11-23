@@ -189,3 +189,20 @@ test('troca o modo sem perder o foco e reajusta a altura real do formulário', a
   await expect(page).toHaveURL(/modo=login&next=%2Fcomecar%2Fconvite/i);
   await expect.poll(async () => (await sizes.boundingBox()).height).toBeLessThan(signupHeight);
 });
+
+test('Conta pública aguarda a primeira rota sem exibir a navegação privada', async ({page}) => {
+  // Captura também elementos visíveis antes de o formulário carregar.
+  await page.addInitScript(() => {
+    window.sawPrivateNavigation = false;
+    const check = () => {
+      if (document.querySelector('.sidebar, .mobile-nav') &&
+          [...document.querySelectorAll('.sidebar, .mobile-nav')].some(element => element.getClientRects().length)) {
+        window.sawPrivateNavigation = true;
+      }
+    };
+    new MutationObserver(check).observe(document, {childList:true, subtree:true, attributes:true, attributeFilter:['class']});
+  });
+  await page.goto('/conta');
+  await expect(page.getByRole('heading', {name:'Acesso à conta'})).toBeVisible();
+  expect(await page.evaluate(() => window.sawPrivateNavigation)).toBe(false);
+});

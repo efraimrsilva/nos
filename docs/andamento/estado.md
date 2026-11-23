@@ -1,10 +1,26 @@
-# Estado atual — Angular v4.0.0-alpha.22 — 2026-11-19
+# Estado atual — Angular v4.0.0-alpha.25 — 2026-11-23
+
+**Botão do Google.** Visual do Next.js restaurado na Conta Angular. A prévia local da porta 4200 foi iniciada com `NOS_ANGULAR_GOOGLE=1` e esta variável deve ser definida novamente ao reiniciar. A conferência visual não incluiu autenticação com o provedor. [Registro](registros/registro-v4.0.0-alpha.25-2026-11-23-imp-conta-fun-botao-google.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.25-2026-11-23-botao-google-tela-01-tela-02/index.html).
+
+**Ajuste tipográfico.** As frases da Conta passaram de 16 para 17 px na configuração padrão. Conferência direta no Angular e no Atlas a 1440 px. [Registro](registros/registro-v4.0.0-alpha.24-2026-11-23-imp-conta-fun-fonte-das-frases.md).
+
+**Conta local concluída.** Em /conta, formulário no topo, vagalumes ascendentes com trajetos sorteados, transição entre frases e barra com as três cores do Next.js. A abertura mantém a estrutura pública enquanto o roteador resolve o endereço. [Registro](registros/registro-v4.0.0-alpha.23-2026-11-23-imp-conta-fun-abertura-e-animacoes.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.23-2026-11-23-conta-tela-01-tela-02/index.html).
+
+**Validação.** Tipos, build e 12 testes de acesso Desktop/Mobile no Edge com Supabase local. Angular e Atlas conferidos em 1440 e 390 pixels. O verificador geral do Atlas repete a falha preexistente da Tela 01 no estado Sucesso.
+
+**Continuidade.** DOCS_DIR `docs`. Branch `codex/migracao-angular`, base `aaa6d0d`. Contador 100, a partir de 95. Marco 100 conferido em 23/11/2026. Over-engineering baixo no recorte da Conta, que reaproveita configuração, componente e arquivo de marca sem dependências novas. Manter as regras visuais limitadas à Conta. Unidade pronta para commit: abertura e animações da Conta no Angular. Sugestão: `fix(angular): ajustar abertura e animações da conta`.
+
+**Próximo passo.** Conferir a Conta em [Angular local](http://127.0.0.1:4200/conta). Depois, retomar a paridade 09 de Acordos.
+
+## Histórico da paridade 08 — Angular v4.0.0-alpha.22 — 2026-11-19
 
 **Paridade 08 concluída localmente.** Telas 15, 16 e 17. Os diálogos de eventos agrupam os horários e o fuso, indicam o campo inválido e permitem cancelar com retorno ao acionador. O diálogo de remoção segue separado e exige confirmação explícita. [Registro](registros/registro-v4.0.0-alpha.22-2026-11-19-imp-paridade-angular-fun-gestao-de-eventos.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.22-2026-11-19-paridade-eventos-tela-15-tela-16-tela-17/index.html).
 
 **Validações.** Tipos, build, percurso autenticado em computador e celular, 257 verificações do banco local, quatro rotinas de concorrência e verificadores da Agenda e da guia Migração no Atlas. O Docker Desktop foi iniciado para recuperar o ambiente local.
 
-**Continuidade.** DOCS_DIR `docs`. Branch `codex/migracao-angular`, base `614ba95`. Contador 96, a partir de 95. Último marco registrado 100, preservado do histórico. Ferramentas: Superpowers, Context7 Angular 22, Playwright e Supabase local. Unidade pronta para commit: paridade da gestão de eventos. Sugestão: `fix(angular): concluir paridade da gestão de eventos`.
+**Continuidade.** DOCS_DIR `docs`. Branch `codex/migracao-angular`, commit da paridade de eventos `aaa6d0d`. Ferramentas: Superpowers, Context7 Angular 22, Playwright e Supabase local.
+
+**Comparação local em 2026-11-23.** Angular em [Conta](http://127.0.0.1:4200/conta) e Next.js v3.11.1 em [Conta](http://127.0.0.1:3001/conta), no checkout separado `D:/Proj/nos-next-local` do commit `6e41268`. Ambos usam o Supabase local e responderam HTTP 200 em `/conta`. Para retomar, com o Supabase local ativo, execute `npm run dev` na pasta Angular e `npm run dev:supabase` na pasta Next.js.
 
 **Próximo passo.** Paridade visual 09, Acordos, lista, proposta e participação. A v4.0.0-alpha.22 permanece local. [Guia Migração](../wireframes/atlas/index.html#migracao).
 

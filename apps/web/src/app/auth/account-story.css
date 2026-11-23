@@ -11,23 +11,28 @@ em { color:var(--leaf); }
 img { display:block; width:100%; height:auto; }
 .account-tree-lights { position:absolute; inset:8% 4% 12%; pointer-events:none; }
 .account-tree-lights > span {
-  position:absolute; left:calc(20% + var(--light) * 8%); top:78%; width:4px; height:4px;
+  position:absolute; left:var(--flight-x); top:90%; width:4px; height:4px;
   border-radius:50%; background:#ffe6ab; box-shadow:0 0 9px 2px #edc975;
-  animation:story-light 10s calc(var(--light) * -1.25s) linear infinite both;
+  animation:story-light var(--flight-duration) var(--flight-delay) linear infinite both;
 }
 .reflection { display:grid; gap:.35rem; text-align:center; }
 .reflection p { min-block-size:3lh; display:grid; align-content:center; color:var(--leaf); font:italic 1rem/1.45 Georgia,serif; }
+.account-story:not(.welcome-story) .reflection p { font-size:calc(1rem + 1px); }
 .reflection-track { height:3px; overflow:hidden; border-radius:3px; background:var(--line); }
 .reflection-track > span { display:block; height:100%; background:var(--leaf); transform-origin:left; animation:story-progress 10s linear both; }
-.reflection-track > .reverse-cycle { animation-name:story-progress-alternate; }
+.account-story:not(.welcome-story) .reflection-track { background:var(--reflection-base,#9b9f9a); }
+.account-story:not(.welcome-story) .reflection-track > span { background:var(--reflection-fill,var(--leaf)); }
+.reflection-track[data-phase="1"] { --reflection-base:var(--leaf); --reflection-fill:#e5b83d; }
+.reflection-track[data-phase="2"] { --reflection-base:#e5b83d; --reflection-fill:#9b9f9a; }
 .reflection button { justify-self:center; min-height:44px; background:transparent; border:0; color:var(--leaf); }
-.story-paused .reflection-track > span, .story-paused .account-tree-lights > span { animation-play-state:paused; }
+.story-paused :is(.reflection p, .reflection-track > span, .account-tree-lights > span) { animation-play-state:paused; }
 @media (min-width: 960px) {
   .account-story { min-height:34rem; align-content:space-between; }
   .account-tree { width:min(86%, 21rem); }
 }
 @media (prefers-reduced-motion:no-preference) {
   .account-tree { animation:story-arrive .75s ease-out both; }
+  .account-story:not(.welcome-story) .reflection p { animation:story-phrase 10s ease-in-out both; }
 }
 @media (prefers-reduced-motion:reduce) {
   .account-tree-lights { display:none; }
@@ -35,10 +40,13 @@ img { display:block; width:100%; height:auto; }
 }
 @keyframes story-arrive { from { opacity:0; transform:scale(.95); } }
 @keyframes story-light {
-  0%,100% { opacity:0; transform:translate(0,0); }
-  25%,65% { opacity:.9; }
-  90% { transform:translate(calc((var(--light) - 3) * 6px),-95px); }
+  from { opacity:0; top:90%; transform:translateX(0); }
+  18%,75% { opacity:.9; }
+  to { opacity:0; top:var(--flight-end); transform:translateX(var(--flight-drift)); }
+}
+@keyframes story-phrase {
+  0% { opacity:0; transform:translateY(4px); }
+  5%,95% { opacity:1; transform:none; }
+  100% { opacity:0; transform:translateY(-4px); }
 }
 @keyframes story-progress { from { transform:scaleX(0); } to { transform:scaleX(1); } }
-/* Alternar o nome reinicia a barra sem desmontar o texto nem o botão de pausa. */
-@keyframes story-progress-alternate { from { transform:scaleX(0); } to { transform:scaleX(1); } }

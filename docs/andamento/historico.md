@@ -1,3 +1,15 @@
+## 23/11/2026 — Botão do Google na Conta Angular v4.0.0-alpha.25
+
+Prévia local ativada, botão alinhado ao Next.js e ícone restaurado no Atlas. [Registro](registros/registro-v4.0.0-alpha.25-2026-11-23-imp-conta-fun-botao-google.md).
+
+## 23/11/2026 — Tipografia das frases da Conta v4.0.0-alpha.24
+
+A fonte das frases aumentou em 1 px. Conferência direta no Angular e no Atlas. [Registro](registros/registro-v4.0.0-alpha.24-2026-11-23-imp-conta-fun-fonte-das-frases.md).
+
+## 23/11/2026 — Conta Angular v4.0.0-alpha.23
+
+Abertura pública sem flash, formulário no topo e animações de vagalumes e frases alinhadas à referência Next.js. Tipos, build, suíte de acesso e conferência visual local. [Registro](registros/registro-v4.0.0-alpha.23-2026-11-23-imp-conta-fun-abertura-e-animacoes.md).
+
 ## 2026-11-19 — Paridade 08 de gestão de eventos
 
 Os horários ganharam agrupamento e foco em erro. O cancelamento devolve o foco e o rascunho é descartado ao reabrir. Criação, remarcação e remoção foram verificadas localmente. [Registro](registros/registro-v4.0.0-alpha.22-2026-11-19-imp-paridade-angular-fun-gestao-de-eventos.md).

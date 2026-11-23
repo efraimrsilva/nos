@@ -1,3 +1,7 @@
+## 23/11/2026 — Abertura previsível da Conta
+
+A navegação interna aparecia brevemente no início da rota pública. O estado inicial usa a estrutura pública e a regressão passou em computador e celular. [Registro e validações](../andamento/registros/registro-v4.0.0-alpha.23-2026-11-23-imp-conta-fun-abertura-e-animacoes.md).
+
 ## 19/11/2026 — Correção e cancelamento nos formulários da Agenda
 
 O erro de horário passou a identificar e focar o campo correspondente. Cancelar edição retorna à Agenda e reabrir recupera os dados salvos. O fluxo foi confirmado em computador e celular. [Registro](../andamento/registros/registro-v4.0.0-alpha.22-2026-11-19-imp-paridade-angular-fun-gestao-de-eventos.md).

@@ -1,3 +1,7 @@
+## Atualização Angular — v4.0.0-alpha.23 — 23/11/2026
+
+Cadastro e login compartilham o formulário no topo. O modo público é usado durante a resolução inicial da rota. A árvore tem oito luzes decorativas ascendentes com trajetos sorteados. A barra passa por cinza, verde e dourado no ritmo das frases. A opção de pausa congela a animação e movimento reduzido mantém o texto estático. [Registro](../registros/registro-v4.0.0-alpha.23-2026-11-23-imp-conta-fun-abertura-e-animacoes.md).
+
 # Atualização vigente — Conta e entrada — v3.9.0 — 2026-11-06
 
 Google/Apple preparados no cadastro e no login, com retorno PKCE seguro, preservação de convites e complemento autenticado de nome. Google ativado e validado no desenvolvimento com Supabase hospedado: retorno a Seus Núcleos e sessão após recarregar confirmados. Apple permanece desativada; publicação Google no site hospedado pendente. Sem migração/deploy. [Contrato, ativação e limites](login-social.md). Os marcos seguintes preservam o histórico.

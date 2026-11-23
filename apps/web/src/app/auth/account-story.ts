@@ -10,7 +10,10 @@ const interval = 10_000;
 })
 export class AccountStory {
   readonly welcome = input(false);
-  protected readonly lights = Array.from({length:8}, (_, index) => index);
+  protected readonly lights = signal(Array.from({length:8}, () => ({
+    ...this.flight(),
+    duration: `${7 + Math.random() * 5}s`,
+  })));
   protected readonly reduced = signal(false);
   protected readonly paused = signal(false);
   protected readonly phrase = signal('');
@@ -44,6 +47,19 @@ export class AccountStory {
     else this.schedule();
   }
 
+  protected renewLight(index: number) {
+    // Atualiza só o vagalume que voltou à base invisível.
+    this.lights.update(lights => lights.map((light, position) => position === index ? {...light, ...this.flight()} : light));
+  }
+
+  private flight() {
+    return {
+      x: `${12 + Math.random() * 76}%`,
+      end: `${4 + Math.random() * 30}%`,
+      drift: `${(Math.random() - .5) * 30}px`,
+    };
+  }
+
   private shuffle() {
     const previous = this.phrase();
     this.order = [...reflectionPhrases];
@@ -65,7 +81,7 @@ export class AccountStory {
       this.remaining = interval;
       if (++this.index === this.order.length) this.shuffle();
       this.phrase.set(this.order[this.index]);
-      // A frase conserva seu nó; somente a barra reinicia a animação a cada ciclo.
+      // A chave reinicia as animações da frase e da barra, preservando o botão de pausa.
       this.cycle.update(value => value + 1);
       this.schedule();
     },this.remaining);

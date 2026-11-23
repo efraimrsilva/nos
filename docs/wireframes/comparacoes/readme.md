@@ -1,3 +1,7 @@
+- [v4.0.0-alpha.25 · Botão do Google](v4.0.0-alpha.25-2026-11-23-botao-google-tela-01-tela-02/index.html) — referência Next.js, Angular e Atlas nas Telas 01 e 02.
+
+- [v4.0.0-alpha.23 · Abertura e animações da Conta](v4.0.0-alpha.23-2026-11-23-conta-tela-01-tela-02/index.html) — Telas 01 e 02, Angular e Atlas em computador e celular.
+
 - [Roteiro da guia Migração](v4.0.0-alpha.16-2026-11-19-guia-migracao/index.html) — antes e depois da guia em desktop e celular.
 
 - [v4.0.0-alpha.16 · Perfil, Mais e lembrete](v4.0.0-alpha.16-2026-11-17-perfil-lembrete-tela-66-tela-67-tela-70/index.html) — 22 capturas do Angular e do Atlas em duas larguras.

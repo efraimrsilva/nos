@@ -338,3 +338,5 @@ for (const [id, note] of [
   [60, 'A11 Angular verificada localmente: o painel do cabeçalho é ilustrativo e aponta para Acordos ou Seus Núcleos.'],
   [62, 'A11 Angular verificada localmente: a rota /nucleos/[id]/cuidado prepara o exemplo em memória e descarta o rascunho ao mudar de tela ou de Núcleo.'],
 ]) screens.find(screen => screen.id === id).rule += ' ' + note;
+
+for (const id of [1,2]) screens.find(screen => screen.id === id).rule += " Angular v4.0.0-alpha.23: formulário no topo, vagalumes com voo ascendente sorteado, transição de frases com barra cinza, verde e dourada e abertura sem navegação privada enquanto a rota inicial é resolvida.";

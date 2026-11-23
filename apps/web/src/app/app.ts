@@ -32,7 +32,8 @@ export class App {
   protected readonly currentPath = signal('');
   protected readonly publicLayout = computed(() => {
     const path = this.currentPath();
-    return path === 'boas-vindas' || path === 'conta/nova-senha' ||
+    // Antes do primeiro NavigationEnd, o layout público evita exibir a navegação interna.
+    return !path || path === 'boas-vindas' || path === 'conta/nova-senha' ||
       (!this.profile.user() && (path === 'conta' || path.startsWith('conta/'))) ||
       path.startsWith('auth/');
   });
