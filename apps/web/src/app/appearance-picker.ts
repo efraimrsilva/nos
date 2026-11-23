@@ -6,11 +6,11 @@ import { NavIcon } from './shared/nav-icon';
   selector: 'app-appearance-picker',
   imports: [NavIcon],
   templateUrl: './appearance-picker.html',
-  styleUrl: './account-preferences.css',
+  styleUrl: './appearance-picker.css',
 })
 export class AppearancePicker {
   readonly prefix = input.required<string>();
   readonly label = input('Aparência');
-  readonly embedded = input(false);
+  readonly row = input(false);
   protected readonly appearance = inject(Appearance);
 }

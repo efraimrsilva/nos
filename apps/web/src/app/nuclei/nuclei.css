@@ -51,6 +51,23 @@
 button.text-link { font:inherit; font-weight:600; text-decoration:underline; background:none; border:0; padding:.35rem 0; cursor:pointer; }
 button.text-link:disabled { opacity:.55; cursor:wait; }
 .nucleus-participation { margin-top:1rem; }
+.nucleus-home-overview > section { min-width:0; }
+.nucleus-event-row { display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:.75rem; align-items:center; width:100%; min-height:4.5rem; text-decoration:none; overflow-wrap:anywhere; }
+.nucleus-event-row small { display:block; color:var(--muted); font-size:.75rem; margin-top:.3rem; }
+.nucleus-date-tile { display:grid; place-items:center; padding:.5rem; border-radius:.4rem; background:var(--accent-soft); }
+.nucleus-date-tile strong { font:1.5rem Georgia,serif; }
+.nucleus-notice-art { display:flex; align-items:center; justify-content:center; gap:1rem; min-height:9rem; color:var(--leaf); }
+.nucleus-notice-art p { font:1.5rem/1.4 Georgia,serif; }
+.nucleus-notice > small { display:block; margin-top:1rem; color:var(--muted); }
+.nucleus-home-agreements { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr)); gap:1rem; list-style:none; padding:0; }
+.nucleus-home-agreement { display:grid; gap:.75rem; height:100%; text-decoration:none; color:var(--ink); overflow-wrap:anywhere; }
+.nucleus-home-agreement .badge { justify-self:start; }
+.nucleus-home-agreement > span:last-child { display:flex; justify-content:space-between; align-items:center; color:var(--leaf); }
+@media (min-width:1200px) { .overview-grid.nucleus-home-overview { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+@media (prefers-reduced-motion:no-preference) {
+  .nucleus-home-agreement,.nucleus-event-row { transition:background-color .15s ease; }
+  .nucleus-home-agreement:hover,.nucleus-event-row:hover { background:var(--accent-soft); }
+}
 .nucleus-participation .nucleus-actions { justify-content:flex-start; align-items:baseline; }
 .nucleus-member-table { width:100%; border-collapse:collapse; }
 .nucleus-member-table th,.nucleus-member-table td { padding:.6rem .15rem; text-align:left; border-bottom:1px solid var(--line); }

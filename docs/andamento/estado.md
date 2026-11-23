@@ -1,4 +1,6 @@
-# Estado atual — Angular v4.0.0-alpha.25 — 2026-11-23
+# Estado atual — Angular v4.0.0-alpha.31 — 2026-11-23
+
+**Integração.** Abertura e visual da Conta pública de `47e8e1f` integrados às dez entregas recebidas até `39698e3`. Versão consolidada nos manifestos e no Atlas. [Registro](registros/registro-v4.0.0-alpha.31-2026-11-23-imp-integracao-angular-fun-sincronizacao-da-conta.md).
 
 **Botão do Google.** Visual do Next.js restaurado na Conta Angular. A prévia local da porta 4200 foi iniciada com `NOS_ANGULAR_GOOGLE=1` e esta variável deve ser definida novamente ao reiniciar. A conferência visual não incluiu autenticação com o provedor. [Registro](registros/registro-v4.0.0-alpha.25-2026-11-23-imp-conta-fun-botao-google.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.25-2026-11-23-botao-google-tela-01-tela-02/index.html).
 
@@ -6,21 +8,124 @@
 
 **Conta local concluída.** Em /conta, formulário no topo, vagalumes ascendentes com trajetos sorteados, transição entre frases e barra com as três cores do Next.js. A abertura mantém a estrutura pública enquanto o roteador resolve o endereço. [Registro](registros/registro-v4.0.0-alpha.23-2026-11-23-imp-conta-fun-abertura-e-animacoes.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.23-2026-11-23-conta-tela-01-tela-02/index.html).
 
-**Validação.** Tipos, build e 12 testes de acesso Desktop/Mobile no Edge com Supabase local. Angular e Atlas conferidos em 1440 e 390 pixels. O verificador geral do Atlas repete a falha preexistente da Tela 01 no estado Sucesso.
+**Comparação local em 2026-11-23.** Angular em [Conta](http://127.0.0.1:4200/conta) e Next.js v3.11.1 em [Conta](http://127.0.0.1:3001/conta), no checkout separado `D:/Proj/nos-next-local` do commit `6e41268`. Ambos usam o Supabase local e responderam HTTP 200 em `/conta`. Para retomar, com o Supabase local ativo, execute `npm run dev` na pasta Angular e `npm run dev:supabase` na pasta Next.js.
 
-**Continuidade.** DOCS_DIR `docs`. Branch `codex/migracao-angular`, base `aaa6d0d`. Contador 100, a partir de 95. Marco 100 conferido em 23/11/2026. Over-engineering baixo no recorte da Conta, que reaproveita configuração, componente e arquivo de marca sem dependências novas. Manter as regras visuais limitadas à Conta. Unidade pronta para commit: abertura e animações da Conta no Angular. Sugestão: `fix(angular): ajustar abertura e animações da conta`.
+**Continuidade.** DOCS_DIR `docs`. Branch `codex/migracao-angular`. Referências integradas `47e8e1f` e `39698e3`. Contador 108 a partir do maior contador registrado nas linhas divergentes (107); os contadores das duas linhas não foram somados. Último marco de auditoria 100.
 
-**Próximo passo.** Conferir a Conta em [Angular local](http://127.0.0.1:4200/conta). Depois, retomar a paridade 09 de Acordos.
+**Próximo passo.** Retomar as evidências hospedadas de sessão, confirmação, recuperação, fila e relato e ensaiar o retorno do deploy antes de liberar Nx. [Plano](planos/migracao-angular.md#ordem-de-implementação).
 
-## Histórico da paridade 08 — Angular v4.0.0-alpha.22 — 2026-11-19
+## Histórico da paridade 16 — Angular v4.0.0-alpha.30 — 2026-11-21
+
+**Objetivo e escopo.** Paridade 16 nos recortes Início (13), resposta ao convite da Agenda (15) e Acordos móvel (18). Composições e diálogos sincronizados no Atlas, preservando serviços e permissões. [Registro](registros/registro-v4.0.0-alpha.30-2026-11-21-imp-paridade-angular-fun-revisao-transversal.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.30-2026-11-21-paridade-transversal-tela-13-tela-15-tela-18/index.html).
+
+**Situação.** Recortes selecionados concluídos localmente. Tipos/build, 257 testes de banco, seis cenários autenticados e verificadores pertinentes do Atlas aprovados. Agenda retestada após ajuste final dos ícones em ambas as larguras; falha de inicialização do processo desktop superada por reteste. Galeria com 32 capturas. Autorrevisão e revisão independente estática; dois P2 de CSS corrigidos. A seleção não certifica revisão completa das 73 fichas nem estabilização hospedada.
+
+**Decisões.** Angular e diálogos nativos existentes; sem biblioteca nova. No seu tempo é ilustrativo. Resposta individual da Agenda mantém a função de banco existente, erro explícito e confirmação antes de sucesso. Contratos de domínio preservados.
+
+**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base 78b2a05. O objeto 78b2a05 contém o roteiro técnico e as decisões; pendência documental anterior encerrada. Contador 107 a partir de 106; último marco auditado 100. Superpowers, Context7 Angular 22, Playwright e Supabase local. Octocode não exposto; pesquisa avançada desnecessária. Nenhum segredo novo, migração remota ou publicação.
+
+**Git.** Paridade transversal confirmada em `39698e3`.
+
+**Próximo passo e bloqueios.** Concluir evidência hospedada de sessão, confirmação, recuperação, fila e relato; ensaiar retorno de deploy antes de liberar Nx. Sem bloqueio local identificado. Publicação deste conjunto não solicitada. [Plano](planos/migracao-angular.md#ordem-de-implementação) · [Contratos de modais](funcionalidades/modais-interface.md).
+
+## Histórico da paridade 15 e planejamento
+
+# Marco histórico — Angular v4.0.0-alpha.29 — 2026-11-21
+
+**Paridade 15 local.** Conta autenticada, Aparência com nove composições, privacidade, indicação de notificações futuras, exclusão e suporte. Conta e menu incorporado usam os atalhos de vínculo com confirmação de encerramento para administradores. [Registro](registros/registro-v4.0.0-alpha.29-2026-11-20-imp-paridade-angular-fun-conta-privacidade-e-suporte.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.29-2026-11-20-paridade-conta-tela-66-tela-67-tela-68-tela-69-tela-70/index.html).
+
+**Arquitetura.** [Stack e diretórios](../stack.md) inventaria a web ativa, o servidor atual e a estrutura proposta para Nx, NestJS e Capacitor. A página pública de Conta retornou Angular em consulta anônima, com sessão e integrações hospedadas ainda por conferir. [Registro documental](registros/registro-v4.0.0-alpha.29-2026-11-21-imp-documentacao-fun-stack-e-diretorios.md).
+
+**Roteiro técnico.** Sete fases sincronizadas na stack, no [plano de migração](planos/migracao-angular.md#ordem-de-implementação) e na guia Migração. A etapa 13 da guia MVP leva aos aceites técnicos. PWA e Capacitor têm dependências próprias após estabilizar a web. [Registro da sincronização](registros/registro-v4.0.0-alpha.29-2026-11-21-imp-planejamento-fun-roteiro-tecnico-da-stack.md).
+
+**Decisões aprovadas.** Piloto de leitura de Núcleo no NestJS, Supabase Auth mantido e WebSocket na resposta ao convite da Agenda. Expandir a atualização automática a todos os dados mutáveis. Orçamento permanente de R$ 0. PWA antes de Android e iOS. Busca pública e desktop adiados. [Registro das dez decisões](registros/registro-v4.0.0-alpha.29-2026-11-21-01-imp-planejamento-fun-decisoes-da-stack.md).
+
+**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base bdf2c8f, que contém a documentação da stack e da estrutura de diretórios. Contador 106 a partir de 105. Último marco auditado 100. Superpowers e verificadores locais do Atlas. Unidade pronta para commit: roteiro técnico e decisões aprovadas na stack, migração e Atlas. Sugestão: docs: consolidar decisões da stack e etapas no Atlas.
+
+**Próximo passo.** Selecionar os recortes da paridade visual 16, começando pela análise de Início, resposta a convite da Agenda e Acordos no celular, e preparar a conferência hospedada de sessão, fila e recebimento de relato. Liberar a fase Nx após evidência de estabilização e ensaio de retorno. [Guia Migração](../wireframes/atlas/index.html#migracao).
+
+## Histórico da paridade 14
+
+**Paridade 14 concluída localmente.** Telas 55–57 e 61–65. Capa e princípios ilustrativos do Manifesto. Cartão temporário da Ponte, etapas Intenção, Escuta e Pausa, limpeza com foco e saída para a Agenda. Revisão e compartilhamento do Manifesto, envio, agendamento pela Ponte e acompanhamento seguem planejados. [Registro](registros/registro-v4.0.0-alpha.28-2026-11-20-imp-paridade-angular-fun-manifesto-e-ponte.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.28-2026-11-20-paridade-manifesto-ponte-tela-55-tela-56-tela-57-tela-61-tela-62-tela-63-tela-64-tela-65/index.html).
+
+**Escopo e validação.** NucleusPreview, Atlas, Playwright e manifestos. Tipos, build, percurso autenticado em computador e celular, Migração, Visão global e demonstração offline. Rascunho apenas na tela, com descarte na navegação. Reutilizados o controle de vínculo e o serviço de leitura existentes.
+
+
+## Histórico da paridade 13
+
+# Estado atual — Angular v4.0.0-alpha.27 — 2026-11-20
+
+**Paridade 13 concluída localmente.** Telas 44–54. As prévias de Conexões e Perfis afetivos têm cartões de pessoas fictícias. Temas, datas de exemplo e diálogo acompanham a seleção. As fichas mantêm o planejamento de edição, vínculos e visibilidade. [Registro](registros/registro-v4.0.0-alpha.27-2026-11-20-imp-paridade-angular-fun-conexoes-e-perfis.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.27-2026-11-20-paridade-conexoes-perfis-tela-44-tela-45-tela-46-tela-47-tela-48-tela-49-tela-50-tela-51-tela-52-tela-53-tela-54/index.html).
+
+**Escopo e validação.** NucleusPreview, Atlas, Playwright e manifestos. Tipos, build, jornadas autenticadas em computador e celular, seletores e diálogo offline, Visão global e guia Migração. Dados de exemplo, vínculo existente e rotas preservados.
+
+**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base 96d5b7d. Contador 101 a partir de 100. Último marco auditado 100. Superpowers, Playwright e referência Context7 Angular 22 da entrega anterior continuam aplicáveis. Sem dependência nova ou pesquisa avançada. Autorrevisão. Paridade 13 incluída no commit 3f8bd52.
+
+**Próximo passo.** Paridade 14, Manifesto e Ponte do Nós. A entrega 13 permanece local. [Guia Migração](../wireframes/atlas/index.html#migracao).
+
+## Histórico da paridade 12
+
+# Estado atual — Angular v4.0.0-alpha.26 — 2026-11-20
+
+**Paridade 12 concluída localmente.** Telas 38–43. Jardim ilustrativo com seleção de temas. Memórias com cartões, filtro e detalhe da seleção. Marcos, galeria e gratidão seguem planejados. [Registro](registros/registro-v4.0.0-alpha.26-2026-11-20-imp-paridade-angular-fun-arvore-e-memorias.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.26-2026-11-20-paridade-arvore-memorias-tela-38-tela-39-tela-40-tela-41-tela-42-tela-43/index.html).
+
+**Escopo e validação.** NucleusPreview, estilos, teste autenticado em tests/angular/nuclei.spec.mjs, Atlas e manifestos. Tipos, build, cenários Playwright antes/depois em computador e celular, guia Migração e Visão global, seletores e diálogo offline. Autorrevisão. As regras de vínculo e os serviços de dados foram preservados. Nenhuma dependência nova.
+
+**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base d433b97. Contador 100, a partir de 99. Marco auditado 100, preservando a origem e as lacunas anteriores. Over-engineering baixo no recorte. Reutilizados componentes, seletores, auxílio visual e diálogo nativo. O Atlas offline tem uma cópia pequena dos exemplos: conferir equivalência quando editar textos ou filtros. Evitar uma camada de geração enquanto não houver demanda em outras áreas. Superpowers e Playwright aplicados. Reaproveitada referência Angular 22 consultada no Context7, sem API adicional ou pesquisa avançada de dependências.
+
+**Git:** paridade 12 incluída no commit 96d5b7d.
+
+**Próximo passo.** Paridade 13, Conexões e perfis nas Telas 44–54. [Guia Migração](../wireframes/atlas/index.html#migracao).
+
+## Histórico da paridade 11
+
+# Estado atual — Angular v4.0.0-alpha.25 — 2026-11-20
+
+**Paridade 11 concluída localmente.** Telas 30–37. Termos vigentes, histórico por versão e revisão com cancelamento explícito. Encerramento preserva histórico. Agendamento, pós-evento e promoção para Essência permanecem planejados. Nossa Essência continua como diálogo informativo. [Registro](registros/registro-v4.0.0-alpha.25-2026-11-20-imp-paridade-angular-fun-termos-e-versoes.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.25-2026-11-20-paridade-termos-tela-30-tela-31-tela-32-tela-33-tela-34-tela-35-tela-36-tela-37/index.html).
+
+**Escopo, arquivos e validação.** Templates e estilos em apps/web/src/app/agreements, Playwright em tests/angular/nuclei.spec.mjs, Atlas e manifestos. Conferência em duas larguras, tipos, build, 257 verificações do banco local, MVP de Hábitos e guia Migração.
+
+**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base 78ee422. Contador 99, a partir de 98. Último marco registrado 100 preservado. Superpowers, Playwright e Supabase local. Context7 Angular 22 consultado anteriormente para o padrão mantido; pesquisa avançada de dependências desnecessária. Autorrevisão. Sem bloqueios. Paridade 11 incluída no commit d433b97.
+
+**Próximo passo.** Paridade visual 12, Árvore e Memórias, Telas 38–43. A entrega 11 permanece local. [Guia Migração](../wireframes/atlas/index.html#migracao).
+
+## Histórico da paridade 10
+
+# Estado atual — Angular v4.0.0-alpha.24 — 2026-11-20
+
+**Paridade 10 concluída localmente.** Telas 24–29: detalhe com termos e ações por situação, linha do tempo, registro de momento com cartões de humor e aviso de visibilidade, gestão com cancelamento explícito e indicação de datas ausentes no legado. Reflexões da Tela 26 permanecem planejadas. [Registro](registros/registro-v4.0.0-alpha.24-2026-11-20-imp-paridade-angular-fun-ciclo-de-habitos.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.24-2026-11-20-paridade-habitos-tela-24-tela-25-tela-26-tela-27-tela-28-tela-29/index.html).
+
+**Critérios e arquivos.** Componentes em apps/web/src/app/agreements, jornada autenticada em tests/angular/nuclei.spec.mjs, Atlas e manifestos. Preservados aceite da versão atual, autorização administrativa, histórico, rotas e serviços. Tipos, build, quatro verificações Playwright em duas larguras, 257 testes de banco local, MVP de Hábitos e guia Migração.
+
+**Continuidade.** DOCS_DIR docs. Branch codex/migracao-angular, base 51284a0. Contador 98, a partir de 97. Último marco registrado 100 preservado. Superpowers, Playwright e Supabase local. Referência Angular 22 da consulta Context7 anterior ainda aplicável. Sem pesquisa avançada de dependências nesta entrega. Sem bloqueio. Paridade 10 incluída no commit 78ee422.
+
+**Próximo passo.** Paridade visual 11, termos, versões e esboços nas Telas 30–37. Entrega 10 local. [Guia Migração](../wireframes/atlas/index.html#migracao).
+
+## Histórico da paridade 09
+
+# Estado atual — Angular v4.0.0-alpha.23 — 2026-11-20
+
+**Paridade 09 concluída localmente.** Telas 18, 22 e 23: cartões com descrição e estado, colunas e contexto em Painéis, formulário e conferência com orientação de consentimento. Publicação e respostas continuam individuais. [Registro](registros/registro-v4.0.0-alpha.23-2026-11-20-imp-paridade-angular-fun-acordos-e-participacao.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.23-2026-11-20-paridade-acordos-tela-18-tela-22-tela-23/index.html).
+
+**Escopo e critérios.** Lista no computador/celular, busca, edição/conferência sem escrita, envio sem aceite automático, resposta por versão, cancelamento e retorno de foco. Serviços e banco preservados. Telas 19–21 e Essência continuam planejadas.
+
+**Arquivos e validação.** Componentes em `apps/web/src/app/agreements/`, teste em `tests/angular/nuclei.spec.mjs`, manifestos e Atlas. Tipos/build, jornadas autenticadas de proposta e ciclo em duas larguras, 257 verificações locais de banco e verificadores do Atlas. Autorrevisão e revisão independente; observação de CSS corrigida. Evidências e limitações no registro.
+
+**Continuidade.** DOCS_DIR `docs`. Branch `codex/migracao-angular`, base `aaa6d0d`. Contador 97, a partir de 96; último marco registrado 100 preservado, sem estimar lacunas anteriores. Superpowers e skill Supabase aplicadas; Context7 linha Angular 22 consultado, revisão 22.2 não indexada. Octocode MCP não exposto e pesquisa avançada desnecessária. Docker/Supabase local recuperados; nenhum reset ou migração remota. Sem bloqueio de entrega.
+
+**Git:** paridade 09 confirmada no objeto `51284a0`. Pendência anterior encerrada.
+
+**Próximo passo executável:** paridade visual 10, detalhe, momento e gestão do ciclo de Hábitos (Telas 24–29), seguindo o [mapa de fontes](planos/paridade-angular-fontes.md). [Guia Migração](../wireframes/atlas/index.html#migracao). A versão local não comprova a versão em produção.
+
+## Histórico anterior
+
+# Estado atual — Angular v4.0.0-alpha.22 — 2026-11-19
 
 **Paridade 08 concluída localmente.** Telas 15, 16 e 17. Os diálogos de eventos agrupam os horários e o fuso, indicam o campo inválido e permitem cancelar com retorno ao acionador. O diálogo de remoção segue separado e exige confirmação explícita. [Registro](registros/registro-v4.0.0-alpha.22-2026-11-19-imp-paridade-angular-fun-gestao-de-eventos.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.22-2026-11-19-paridade-eventos-tela-15-tela-16-tela-17/index.html).
 
 **Validações.** Tipos, build, percurso autenticado em computador e celular, 257 verificações do banco local, quatro rotinas de concorrência e verificadores da Agenda e da guia Migração no Atlas. O Docker Desktop foi iniciado para recuperar o ambiente local.
 
-**Continuidade.** DOCS_DIR `docs`. Branch `codex/migracao-angular`, commit da paridade de eventos `aaa6d0d`. Ferramentas: Superpowers, Context7 Angular 22, Playwright e Supabase local.
-
-**Comparação local em 2026-11-23.** Angular em [Conta](http://127.0.0.1:4200/conta) e Next.js v3.11.1 em [Conta](http://127.0.0.1:3001/conta), no checkout separado `D:/Proj/nos-next-local` do commit `6e41268`. Ambos usam o Supabase local e responderam HTTP 200 em `/conta`. Para retomar, com o Supabase local ativo, execute `npm run dev` na pasta Angular e `npm run dev:supabase` na pasta Next.js.
+**Continuidade.** DOCS_DIR `docs`. Branch `codex/migracao-angular`, base `614ba95`. Contador 96, a partir de 95. Último marco registrado 100, preservado do histórico. Ferramentas: Superpowers, Context7 Angular 22, Playwright e Supabase local. Entrega 08 confirmada no objeto Git `aaa6d0d`; pendência anterior encerrada.
 
 **Próximo passo.** Paridade visual 09, Acordos, lista, proposta e participação. A v4.0.0-alpha.22 permanece local. [Guia Migração](../wireframes/atlas/index.html#migracao).
 

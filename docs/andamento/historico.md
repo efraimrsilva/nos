@@ -1,3 +1,7 @@
+## 23/11/2026 — Integração da Conta na linha de migração Angular (v4.0.0-alpha.31)
+
+Conflitos de versão e documentação entre `47e8e1f` e `39698e3` reconciliados. [Registro](registros/registro-v4.0.0-alpha.31-2026-11-23-imp-integracao-angular-fun-sincronizacao-da-conta.md).
+
 ## 23/11/2026 — Botão do Google na Conta Angular v4.0.0-alpha.25
 
 Prévia local ativada, botão alinhado ao Next.js e ícone restaurado no Atlas. [Registro](registros/registro-v4.0.0-alpha.25-2026-11-23-imp-conta-fun-botao-google.md).
@@ -9,6 +13,49 @@ A fonte das frases aumentou em 1 px. Conferência direta no Angular e no Atlas. 
 ## 23/11/2026 — Conta Angular v4.0.0-alpha.23
 
 Abertura pública sem flash, formulário no topo e animações de vagalumes e frases alinhadas à referência Next.js. Tipos, build, suíte de acesso e conferência visual local. [Registro](registros/registro-v4.0.0-alpha.23-2026-11-23-imp-conta-fun-abertura-e-animacoes.md).
+## 2026-11-21 — Paridade transversal local
+
+Início, modal de resposta da Agenda e Acordos móvel restaurados com serviços existentes. Atlas sincronizado, revisão independente de CSS e verificações locais. Sem publicação. [Registro](registros/registro-v4.0.0-alpha.30-2026-11-21-imp-paridade-angular-fun-revisao-transversal.md).
+
+## 2026-11-21 — Dez decisões de arquitetura aprovadas
+
+A direção técnica passou a prever WebSocket no NestJS em todos os fluxos mutáveis, Supabase Auth e operação gratuita. As fases da migração e as etapas de continuidade indicam onde verificar cada entrega. [Registro](registros/registro-v4.0.0-alpha.29-2026-11-21-01-imp-planejamento-fun-decisoes-da-stack.md).
+
+## 2026-11-21 — Roteiro técnico sincronizado no Atlas
+
+Sete fases com dependências e aceites próprios, desde a estabilização web até PWA e Capacitor. A etapa 13 do MVP referencia a guia Migração. [Registro](registros/registro-v4.0.0-alpha.29-2026-11-21-imp-planejamento-fun-roteiro-tecnico-da-stack.md).
+
+## 2026-11-21 — Inventário da stack e proposta de diretórios
+
+Conferência do anexo com manifestos, lockfiles, código e configuração de publicação. A árvore atual e a proposta incremental estão em [Stack](../stack.md). [Registro](registros/registro-v4.0.0-alpha.29-2026-11-21-imp-documentacao-fun-stack-e-diretorios.md).
+
+## 2026-11-20 — Paridade 14 de Manifesto e Ponte do Nós
+
+## 2026-11-20 · Paridade 15 da Conta Angular
+
+Restaurou miniaturas de temas, diálogos de privacidade e suporte, exclusão com cancelamento e atalhos de vínculo. Referência Next.js no commit 604a142. [Registro](registros/registro-v4.0.0-alpha.29-2026-11-20-imp-paridade-angular-fun-conta-privacidade-e-suporte.md).
+
+Capa do Manifesto, princípios expansíveis, cartão de intenção e preparação temporária conferidos no Angular e no Atlas. [Registro](registros/registro-v4.0.0-alpha.28-2026-11-20-imp-paridade-angular-fun-manifesto-e-ponte.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.28-2026-11-20-paridade-manifesto-ponte-tela-55-tela-56-tela-57-tela-61-tela-62-tela-63-tela-64-tela-65/index.html).
+
+## 2026-11-20 — Paridade 13 de Conexões e perfis
+
+Cartões, temas, datas ilustrativas e diálogo com a pessoa fictícia selecionada no aplicativo e no Atlas. Edição, visibilidade e gestão de vínculos seguem planejadas. [Registro](registros/registro-v4.0.0-alpha.27-2026-11-20-imp-paridade-angular-fun-conexoes-e-perfis.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.27-2026-11-20-paridade-conexoes-perfis-tela-44-tela-45-tela-46-tela-47-tela-48-tela-49-tela-50-tela-51-tela-52-tela-53-tela-54/index.html).
+
+## 2026-11-20 — Paridade 12 de Árvore e Memórias
+
+Jardim, ilustrações dos cartões e detalhe acompanhando o filtro, conferidos no Angular e no Atlas. Marcos, fotos e gratidão seguem no planejamento. [Registro](registros/registro-v4.0.0-alpha.26-2026-11-20-imp-paridade-angular-fun-arvore-e-memorias.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.26-2026-11-20-paridade-arvore-memorias-tela-38-tela-39-tela-40-tela-41-tela-42-tela-43/index.html).
+
+## 2026-11-20 — Paridade 11 de termos, versões e esboços
+
+Revisão com cancelamento explícito, identificação da versão vigente e leitura do histórico. Novo aceite individual, histórico após encerramento e prévias conferidos. [Registro](registros/registro-v4.0.0-alpha.25-2026-11-20-imp-paridade-angular-fun-termos-e-versoes.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.25-2026-11-20-paridade-termos-tela-30-tela-31-tela-32-tela-33-tela-34-tela-35-tela-36-tela-37/index.html).
+
+## 2026-11-20 — Paridade 10 do ciclo de Hábitos
+
+Detalhe, linha do tempo, formulário de momento e confirmação administrativa conferidos localmente. Datas ausentes do legado aparecem sem estimativa e reflexões seguem planejadas. [Registro](registros/registro-v4.0.0-alpha.24-2026-11-20-imp-paridade-angular-fun-ciclo-de-habitos.md) · [Galeria](../wireframes/comparacoes/v4.0.0-alpha.24-2026-11-20-paridade-habitos-tela-24-tela-25-tela-26-tela-27-tela-28-tela-29/index.html).
+
+## 2026-11-20 — Paridade 09 de Acordos e participação
+
+Cartões, colunas, Painéis e conferência receberam apresentação e orientação alinhadas às referências. Consentimento individual e fluxo entre duas contas conferidos; build, tipos, banco e Atlas aprovados. Entrega local, sem publicação. [Registro](registros/registro-v4.0.0-alpha.23-2026-11-20-imp-paridade-angular-fun-acordos-e-participacao.md).
 
 ## 2026-11-19 — Paridade 08 de gestão de eventos
 

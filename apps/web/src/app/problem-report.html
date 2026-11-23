@@ -13,28 +13,35 @@
 } @else {
   <button [class]="embedded() ? 'account-option' : 'icon-button'" type="button" (click)="open()"
     aria-label="Relatar um problema" aria-haspopup="dialog">
-    @if (embedded()) { <span class="option-icon"><app-nav-icon name="bug" /></span> }
+    <span class="option-icon"><app-nav-icon name="bug" /></span>
     <span>Relatar um problema
       @if (embedded()) { <small>Avise a equipe sobre algo que não funcionou</small> }
     </span>
+    @if (embedded()) { <app-nav-icon name="chevron" /> }
   </button>
 }
-<dialog #dialog class="shared-dialog" [attr.aria-labelledby]="prefix() + '-title'" (close)="reset()">
-  <header>
+<dialog #dialog class="shared-dialog account-dialog" [attr.aria-labelledby]="prefix() + '-title'" (close)="reset()">
+  <header class="account-dialog-header">
     <h2 [id]="prefix() + '-title'">Relatar um problema</h2>
-    <form method="dialog"><button class="icon-button" aria-label="Fechar relato" autofocus>×</button></form>
+    <form method="dialog"><button class="icon-button" aria-label="Fechar relato" autofocus><app-nav-icon name="close" /></button></form>
   </header>
   @if (sent()) {
-    <p role="status">Relato enviado.</p>
+    <div class="account-dialog-note" role="status"><strong>Relato enviado.</strong>
+      <p>Obrigado por ajudar a melhorar o Nós. Se precisarmos de mais detalhes, usaremos o e-mail da sua conta.</p>
+    </div>
   } @else {
-    <p>Seu e-mail confirmado acompanha o relato. Evite incluir senhas ou informações íntimas.</p>
-    <form class="fields" (submit)="submit($event)">
+    <p>Descreva o que não funcionou. O relato será enviado à equipe responsável.</p>
+    <form class="report-fields" [attr.aria-busy]="busy()" (submit)="submit($event)">
+      <p [id]="prefix() + '-privacy'">Conte apenas o necessário. Não inclua senhas, códigos de acesso ou conteúdo íntimo de outras pessoas.</p>
       <label [for]="prefix() + '-description'">O que aconteceu?</label>
       <textarea #descriptionInput [id]="prefix() + '-description'" rows="4" required minlength="10"
+        [attr.aria-describedby]="prefix() + '-privacy'" placeholder="Ex.: tentei salvar o propósito, mas apareceu uma mensagem de erro."
         maxlength="2000" [value]="description()" [disabled]="busy()" (input)="description.set(descriptionInput.value)"></textarea>
       <label [for]="prefix() + '-steps'">Como repetir? (opcional)</label>
-      <textarea #stepsInput [id]="prefix() + '-steps'" rows="3" maxlength="1000"
+      <textarea #stepsInput [id]="prefix() + '-steps'" rows="2" maxlength="1000"
+        placeholder="Ex.: abri o Núcleo, toquei no lápis e depois em Salvar."
         [value]="steps()" [disabled]="busy()" (input)="steps.set(stepsInput.value)"></textarea>
+      <p>Em último caso, o e-mail da conta poderá ser usado para contato.</p>
       <button class="button" type="submit" [disabled]="busy() || coolingDown()">{{ busy() ? 'Enviando…' : 'Enviar relato' }}</button>
     </form>
     @if (error()) { <p role="alert">{{ error() }}</p> }

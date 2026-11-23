@@ -5,70 +5,90 @@ A [guia Migração do Atlas](../../wireframes/atlas/index.html#migracao) reúne 
 
 **Status:** A01–A11 validadas na prévia v4.0.0-alpha.10. A12 tem rascunho no Netlify, login confirmado pelo usuário e fila testada em banco local isolado. A13 tem [preparação local v4.0.0-alpha.11](../registros/registro-v4.0.0-alpha.11-2026-11-17-imp-preparacao-angular-fun-transporte-e-paridade.md), com conferência dos 32 caminhos e suporte ao transporte de e-mail oficial. O Angular foi publicado no Netlify em A13. A14 preserva a referência estética Next.js v3.11.1. A validação com sessão real e entrega de e-mail hospedada continua pendente.
 
-**Objetivo:** entregar o Nós em Angular para navegadores de computador e celular. A interface móvel no navegador espelha a experiência que será empacotada com Capacitor. Preservar funcionalidades, URLs públicas e dados e fazer a virada web após a paridade.
+**Objetivo.** Estabilizar o Nós em Angular para navegadores de computador e celular, preservando funcionalidades, endereços públicos e dados. Usar essa base para introduzir a infraestrutura planejada e empacotar a interface com Capacitor.
 
 ## Stack de destino
 
 **Decisão inicial de arquitetura — 19/11/2026.** Esta é a referência para a evolução da linha Angular.
 
+O [mapa da stack e dos diretórios](../../stack.md) registra a implementação atual, a estrutura-alvo proposta e as decisões aprovadas.
+
 | Camada | Tecnologia definida | Situação |
 | --- | --- | --- |
-| Frontend | Angular + TypeScript | Prévia web responsiva em `apps/web`, com Angular 22 e TypeScript 6.0. |
-| Estilização | Tailwind CSS | Em uso na prévia, junto aos estilos próprios do projeto. |
+| Frontend | Angular + TypeScript | Web responsiva em `apps/web`, com Angular 22 e TypeScript 6.0. |
+| Estilização | Tailwind CSS | Em uso junto aos estilos próprios do projeto. CDK e Material dependem de necessidade concreta. |
 | Backend | NestJS | Definido para a API (interface de programação de aplicações) e os serviços de backend. Implementação pendente. |
 | Banco de dados | PostgreSQL / Supabase | Em uso. Preservar dados, migrações, regras transacionais e políticas de acesso vigentes. |
 | Mobile | Capacitor | Empacotamento da web Angular após sua estabilização, primeiro para Android e depois para iOS. |
-| Tempo real | WebSocket | Definido como transporte. Fluxos, provedor e autorização dos canais serão especificados na implementação. |
-| Autenticação | JWT (JSON Web Token) próprio ou Supabase Auth | Supabase Auth funciona na prévia. A escolha de destino é entre manter o serviço gerenciado ou implementar no backend a emissão e o ciclo de vida dos tokens. |
-| Organização | Monorepo com Nx | Definido para organizar aplicativos e bibliotecas no mesmo repositório. A prévia ainda usa npm e lockfile próprio. |
-| Testes | Vitest ou Jest + Playwright | Vitest ou Jest para testes unitários e de integração, com escolha em aberto. Playwright já cobre jornadas no navegador. |
+| PWA | Web instalável e service worker | Planejada. Instalação, cache, atualização e limites offline têm aceite próprio. |
+| Tempo real | WebSocket no NestJS | Resposta ao convite da Agenda como piloto. Estender a cobertura a todos os dados mutáveis. |
+| Autenticação | Supabase Auth | Preservar o provedor e verificar autorização até o PostgreSQL. |
+| Organização | Monorepo com Nx | Planejado. Hoje a raiz e `apps/web` têm lockfiles npm próprios. |
+| Testes | Playwright, Node e pgTAP | Em uso. Avaliar Vitest ou Jest no piloto NestJS. |
+| Publicação e automação | Netlify + automação de verificações | Netlify serve a web e suas funções atuais. Usar GitHub Actions dentro da cota gratuita na fase 2. A API e os apps nativos terão critérios próprios de publicação. |
 
 ### Transição a partir da prévia
 
-A prévia usa Supabase Auth, acesso ao PostgreSQL pelas operações existentes e funções protegidas para e-mails e integrações. Essa base sustenta a virada web. A adoção de Nx, NestJS, a decisão de autenticação, WebSocket e Capacitor ficam para depois da publicação confirmada e do arquivamento do Next.js.
+A web usa Supabase Auth, acesso ao PostgreSQL pelas operações existentes e funções protegidas para e-mails e integrações. Essa base sustenta a publicação Angular. O [inventário da stack](../../stack.md#1-stack-verificada) registra as versões e o que foi verificado na página pública.
 
 ## Ordem de implementação
 
-**Próximo passo:** paridade visual 09 (Acordos · lista, proposta e participação). Os passos 01–08 foram verificados localmente. Usar o [mapa de fontes](paridade-angular-fontes.md) em cada recorte e atualizar o estado do projeto com o resultado, a evidência e o próximo passo. Os números **A01–A14** identificam entregas técnicas da fase 1. Os **passos 01–16** descrevem seu roteiro visual.
+**Próximo passo:** fechar conferência hospedada e ensaio de retorno. Recortes da paridade 16 implementados localmente na v4.0.0-alpha.30: Início (13), Sua participação na Agenda (15) e lista móvel de Acordos (18). [Registro](../registros/registro-v4.0.0-alpha.30-2026-11-21-imp-paridade-angular-fun-revisao-transversal.md). Os passos 01–15 foram registrados ao longo das entregas locais. O [estado do projeto](../estado.md) é a referência de retomada. Usar o [mapa de fontes](paridade-angular-fontes.md) ao implementar os recortes escolhidos. Os números **A01–A14** identificam entregas técnicas da fase 1. Os **passos 01–16** descrevem seu roteiro visual.
 
-### Fase 1 — Publicar o Angular e arquivar o Next.js
+### Fase 1 — Estabilizar a web Angular
 
-1. **Fechar a paridade.** Executar os passos 09–16 na [guia Migração](../../wireframes/atlas/index.html#migracao), retomando por lista, proposta e participação em Acordos. Em 1440 e 390 pixels, comparar com o Next.js e o Atlas e conferir estados, diálogo, teclado, toque, navegação e permissões. Esboços continuam identificados. Guardar evidências por recorte.
-2. **Fechar A12 em ensaio hospedado.** Conferir links diretos, login e renovação de sessão, confirmação e recuperação, fila de avisos com falha e nova tentativa, e entrega do relato em caixa de teste. Retestar a falha de relatos registrada. Conferir compatibilidade da sessão entre as duas aplicações e, se necessário, preparar novo login na virada. Ensaiar a restauração do deploy anterior e do destino da fila.
-3. **A13 — Virada pública.** Preparar a candidata após aprovar verificações técnicas e ensaios. Conferir as migrações requeridas no projeto Supabase de destino e guardar as referências do último commit Next.js, do deploy público e do destino anterior da fila. Publicar conforme o [roteiro operacional](../../../apps/web/netlify/README.md) e verificar no domínio público acesso, permissões, gravações principais e integrações. Se uma dessas funções críticas falhar, restaurar o deploy anterior e o destino da fila, quando alterado, e reconferir o serviço.
-4. **A14 — Arquivamento visual do Next.js.** Preservar estilos, recursos de marca e referências em [arquivo/nextjs](../../../arquivo/nextjs/README.md). O código executável permanece recuperável pelo commit do último deploy. Os utilitários e integrações necessários ficam no Angular. Conferir que build, testes e publicação funcionam sem o Next.js.
+1. **Fechar a paridade.** Classificar as diferenças da revisão transversal por impacto em acesso, conclusão da tarefa e fidelidade visual. Começar pelos candidatos com impacto de uso: Início do Núcleo, resposta a convite da Agenda e Acordos no celular. Registrar a seleção no passo 16 da [guia Migração](../../wireframes/atlas/index.html#migracao). Em 1440 e 390 pixels, comparar os recortes com o Next.js e o Atlas e conferir estados, diálogo, teclado, toque, navegação e permissões. Esboços continuam identificados. Guardar evidências por recorte.
+2. **A12 — Fechar o ensaio hospedado.** Conferir URLs diretas, login, renovação de sessão, confirmação, recuperação, fila de avisos com falha e nova tentativa e recebimento de relato por uma caixa de teste. Retestar a falha de relatos registrada.
+3. **A13 — Confirmar a publicação.** O Angular já está publicado. Antes de uma candidata, registrar revisão, ambiente, migrações requeridas e último deploy recuperável. Ensaiar a restauração do deploy e do destino da fila, se alterado. Conferir no domínio público sessão, permissões, gravações principais e integrações. Usar o [roteiro operacional](../../../apps/web/netlify/README.md) para publicar ou restaurar quando autorizado.
+4. **A14 — Confirmar a independência do arquivo.** Os estilos, a marca e as referências já estão em [arquivo/nextjs](../../../arquivo/nextjs/README.md). O código executável permanece recuperável pelo Git. Confirmar que build, testes e publicação Angular funcionam sem dependência operacional desse caminho.
 
-**Saída:** Angular confirmado no site público, retorno documentado e Next.js disponível para consulta em pasta própria. A fase 2 começa após essa confirmação.
+**Aceite.** A paridade visual 16 e os fluxos críticos hospedados têm evidências com ambiente e revisão. O retorno foi ensaiado e o arquivo Next.js ficou fora do build ativo.
 
-### Fase 2 — Organizar com Nx e introduzir NestJS
+### Fase 2 — Introduzir Nx
 
-1. Mapear aplicações, bibliotecas realmente compartilhadas, comandos de teste e o build de publicação. Introduzir Nx preservando as tarefas da web e seu artefato. Manter a referência arquivada fora das tarefas ativas.
-2. Selecionar um primeiro fluxo pequeno para o NestJS. Documentar entrada, saída, erros, papéis autorizados e como a identidade chega ao PostgreSQL. Começar com Supabase Auth, preservando as operações transacionais e políticas por linha. Só ampliar após provar o recorte integrado com Angular e banco.
-3. Escolher Vitest ou Jest no primeiro recorte conforme compatibilidade e custo de manutenção. Cobrir regras e erros com testes unitários e de integração. Reusar Playwright para validar a jornada pelo navegador.
+**Depende da fase 1.** Registrar os comandos atuais e o artefato `apps/web/dist/nos-web/browser`. Introduzir o Nx em uma entrega independente de NestJS, preservando os scripts npm, o artefato e os dois lockfiles inicialmente. Excluir `arquivo/nextjs` do grafo de tarefas ativas. Avaliar unificar a instalação em outra entrega.
 
-**Saída:** build e publicação Angular preservados no monorepo e primeiro fluxo NestJS validado, incluindo acesso autorizado e recusa entre contas ou Núcleos.
+**Aceite.** Desenvolvimento local, verificação de tipos, build e verificações existentes produzem resultados equivalentes. O ambiente de ensaio do Netlify publica o mesmo artefato, com rotas diretas e integrações funcionando. Automatizar primeiro as verificações determinísticas de dependências, tipos e build. Usar GitHub Actions em propostas de alteração, introduzir a rotina em `.github/workflows` e manter os testes autenticados e de banco condicionados ao ambiente adequado.
 
-### Fase 3 — Fechar a decisão de autenticação
+### Fase 3 — Pilotar uma API NestJS
 
-1. Comparar a continuidade com Supabase Auth e a emissão própria de JWT (JSON Web Token), avaliando manutenção, renovação, revogação, login social, recuperação e autorização no banco. Registrar a opção e a justificativa.
-2. Se optar por JWT próprio, planejar uma entrega separada com continuidade das contas e vínculos, política para sessões existentes, compatibilidade na transição e ensaio de retorno. Em qualquer opção, conferir login, confirmação, recuperação, expiração, saída e isolamento no navegador, na API e no banco.
+**Depende da fase 2.** Abrir `apps/api` com uma leitura autenticada. Operação aprovada: dados básicos de um Núcleo já consultados pela web. Mapear campos, erros e papéis. Manter Supabase Auth no piloto e levar a identidade verificada à operação PostgreSQL para preservar políticas por linha e regras transacionais. Extrair apenas os formatos compartilhados em `libs/contracts` quando a web e a API passarem a consumir o contrato.
 
-**Saída:** contrato de identidade e sessão definido e fluxos críticos verificados na opção escolhida.
+**Aceite.** A leitura via NestJS devolve o mesmo resultado autorizado da web, recusa sessão inválida ou expirada e bloqueia outra conta sem vínculo. Testar também indisponibilidade da API. Escolher Vitest ou Jest se necessário, reaproveitar Playwright e as verificações PostgreSQL e avaliar OpenAPI no contrato HTTP. Começar pelo piloto local e ensaiar a API em hospedagem gratuita verificada, com diagnóstico de disponibilidade e retorno ao caminho anterior. Os dois endpoints Netlify continuam no caminho atual durante o piloto.
 
-### Fase 4 — Tempo real e aplicativos móveis
+### Fase 4 — Validar a continuidade do Supabase Auth
 
-1. Escolher um fluxo que se beneficie de WebSocket, como a atualização de nomes entre sessões do mesmo Núcleo. Definir quem pode receber eventos, conteúdo mínimo, reconexão e atualização a partir do banco após perda de conexão. Conferir com duas contas autorizadas e uma conta externa, incluindo troca de Núcleo, sessão expirada e saída.
-2. Estabilizar a web e empacotar a interface Angular com Capacitor. Validar primeiro Android e depois iOS em aparelhos reais. Conferir retorno de login e recuperação por links, armazenamento e limpeza da sessão, rede indisponível, teclado, navegação de retorno e áreas seguras antes de preparar a distribuição.
+**Depende da fase 3.** Manter Supabase Auth. Verificar identidade e permissões do navegador até o banco. Reabrir emissão própria de tokens somente com necessidade concreta.
 
-**Saída:** fluxo em tempo real comprovado e evidências independentes de funcionamento para Android e iOS.
+**Aceite.** A decisão tem justificativa registrada. Login, confirmação, recuperação, renovação, expiração, saída e isolamento foram conferidos no navegador e nas fronteiras da API e do banco.
+
+### Fase 5 — Validar tempo real em um fluxo
+
+**Depende do contrato de identidade da fase 4.** Usar WebSocket no NestJS para a resposta ao convite da Agenda. Vincular o evento à gravação confirmada, inclusive pelo caminho atual de escrita da web. Autorizar assinatura e entrega por conta e Núcleo. Na reconexão ou retorno ao primeiro plano, reler o estado autorizado. Antes do ensaio hospedado, verificar suporte gratuito a conexões persistentes, suspensão e limites de uso.
+
+**Aceite.** Duas contas autorizadas recebem a atualização e uma conta sem vínculo fica fora. Testar troca de Núcleo, sessão expirada, saída e reconexão. Confirmar a convergência das telas sem recarga manual, inclusive após eventos perdidos ou duplicados. Expandir por fluxo no plano de MVP e Continuidade.
+
+### Fase 6 — Validar PWA e limites offline
+
+**Depende da fase 1.** Primeira plataforma de continuidade. Pode avançar junto à API e precede o Android. Começar pela instalação web e pelo cache dos recursos públicos. Registrar por fluxo o que pode ser usado sem rede, a indicação de indisponibilidade e a estratégia de atualização do service worker. Nesta primeira entrega, manter dados privados e gravações fora da política de cache offline.
+
+**Aceite.** Instalação e atualização conferidas em navegadores compatíveis. Sem rede, a interface informa o limite, e sair ou trocar de conta não revela dados privados anteriores. Verificar também recuperação de uma atualização com falha.
+
+### Fase 7 — Pilotar Capacitor em Android e depois iOS
+
+**Depende da fase 1 e dos contratos de sessão e serviços usados pelo pacote.** Começar Android após o aceite da PWA. Se o pacote consumir uma nova API ou um novo fluxo de identidade, exigir o aceite da entrega correspondente. Abrir `apps/mobile`, reaproveitar o build da web e definir a origem HTTPS das integrações e os retornos de autenticação. Manter projetos nativos, permissões e configurações de assinatura por plataforma.
+
+**Aceite.** Validar primeiro Android em dispositivo real e distribuição interna. A partir dessa evidência, validar iOS separadamente com macOS e Xcode. Para ambos, conferir instalação, retorno de login e recuperação, saída, limpeza da sessão, ausência de rede, teclado, botão de retorno e permissões dos recursos efetivamente usados.
+
+As fases 6 e 7 são marcos técnicos da etapa 13 de [MVP e Continuidade](mvp.md). Em todas as fases vale o orçamento permanente de R$ 0 registrado na [stack](../../stack.md#4-divergências-e-decisões).
 
 ## Estratégia de transição
 
-**Estratégia:** manter Next.js em produção enquanto o Angular evolui em prévia isolada. Migrar os módulos por etapas e fazer uma única virada pública após comprovar paridade. Servir Angular como arquivos estáticos com abertura de rotas diretamente pela URL. Configurar retornos de autenticação e integrações antes da regra de fallback. [Publicação Angular](https://angular.dev/tools/cli/deployment)
+**Estratégia adotada na transição:** evoluir o Angular em prévia isolada antes da publicação. A página pública já serve Angular. A validação hospedada continua descrita na fase 1. O build é servido como arquivos estáticos com abertura de rotas diretamente pela URL. Os retornos de autenticação e de integração devem continuar funcionando com a regra de fallback. [Publicação Angular](https://angular.dev/tools/cli/deployment)
 
 ## Versionamento durante a transição
 
-A migração para Angular marca a passagem para a série `4.x`. Até a virada, a linha Next.js segue em `3.x` e pode receber correções independentemente da prévia Angular.
+A migração para Angular marcou a passagem para a série `4.x`. A linha Next.js `3.x` permanece como referência de histórico. A tabela registra os marcos e os critérios de versão estável.
 
 | Linha ou marco | Versão | Quando usar |
 | --- | --- | --- |
@@ -98,8 +118,8 @@ Validar em dispositivo real o retorno de login e recuperação por links do apli
 | A03 | Páginas públicas e três retornos de autenticação no Angular Router. Google precisa de ensaio com provedor habilitado na prévia. |
 | A04–A09 | Núcleos, convites, administração, acordos, ciclos e Agenda já têm rotas Angular. Desktop e navegador móvel usam a mesma aplicação. Conferir as migrações de criação de Núcleos e registro de momentos no destino antes de hospedar a prévia. |
 | A10–A11 | Completar Conta, Configurações, Privacidade e Ajuda. Portar as seis áreas privadas ilustrativas e conferir os menus nas duas larguras. Os destinos provisórios contam como pendência. |
-| A12 | O Netlify da raiz ainda publica a saída Next.js. Preparar a publicação estática Angular, a configuração pública do Supabase, os retornos de autenticação e o tratamento de `POST /api/account-notifications` antes do fallback da navegação. |
-| A13–A14 | Concluir paridade e ensaio, verificar o Angular público e depois arquivar o Next.js. Mover para a área ativa os utilitários TypeScript e os ativos de marca de que o Angular depende. |
+| A12 | Netlify publica a saída estática Angular. Retornos de autenticação e rotas das funções de e-mail precedem o fallback da navegação. Renovação de sessão, fila e recebimento externo ainda exigem ensaio hospedado. |
+| A13–A14 | Angular publicado e referência visual preservada em `arquivo/nextjs`. Falta fechar a paridade 16, registrar a conferência dos fluxos críticos hospedados e comprovar o retorno operacional. |
 
 Reaproveitar A01–A09 preserva a base Angular e os fluxos que já têm testes. A auditoria do código encontrou reutilização de utilitários TypeScript, sem montagem de React no frontend Angular. Recomeçar exigiria reconstruir e testar esses mesmos fluxos.
 

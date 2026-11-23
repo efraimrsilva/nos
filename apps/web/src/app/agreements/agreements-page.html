@@ -49,11 +49,12 @@
   }
   <ng-template #card let-item>
     <button type="button" class="agreement-card" aria-haspopup="dialog" (click)="showDetails(item.id,details)">
-      <span class="badge">{{ item.status==='pending'?'Proposta':'Hábito' }}</span>
+      <span class="agreement-card-top"><span class="badge">{{ item.status==='pending'?'Proposta':'Hábito' }}</span><span class="agreement-card-state">{{ status(item.status) }}</span></span>
       <strong>{{ item.title }}</strong>
-      <span>{{ item.timing }} · {{ item.frequency }}</span>
+      <span class="agreement-card-description">{{ item.description }}</span>
+      <span class="agreement-card-time">{{ item.timing }} · {{ item.frequency }}</span>
       <app-agreement-totals [value]="counts.totals().get(item.id)" [failed]="counts.failed()" />
-      <span>{{ responseLabel(item) }} · {{ status(item.status) }}</span>
+      <span class="agreement-card-footer">{{ responseLabel(item) }} <span aria-hidden="true">→</span></span>
     </button>
   </ng-template>
   <ng-template #essenceContent>
@@ -77,7 +78,12 @@
             [countTick]="counts.received()" [link]="true" [loading]="state.isLoading() || stale()" (refreshed)="state.reload()" />
         } @else { <p>Selecione um combinado para conferir os termos.</p> }
       </section>
-      <aside class="surface agreement-column"><ng-container [ngTemplateOutlet]="essenceContent" /></aside>
+      <aside class="surface agreement-column agreement-context"><p class="kicker">Seu lugar aqui</p>
+        @if (selected(); as item) { <p>{{ responseLabel(item) }}</p> }
+        <p>Publicar não registra aceite. Cada pessoa decide se participa.</p>
+        <ng-container [ngTemplateOutlet]="essenceContent" />
+        <p>Somente as pessoas deste Núcleo têm acesso.</p>
+      </aside>
     </div>
   } @else if (!desktop()) {
     <ol class="agreement-mobile-list" aria-label="Lista de acordos">
@@ -85,24 +91,24 @@
         <li><ng-container [ngTemplateOutlet]="card" [ngTemplateOutletContext]="{$implicit:item}" /></li>
       }
     </ol>
-    <section class="surface agreement-column"><ng-container [ngTemplateOutlet]="essenceContent" /></section>
+    <section class="surface agreement-column agreement-essence"><ng-container [ngTemplateOutlet]="essenceContent" /></section>
   } @else {
     <div class="agreement-board" aria-label="Propostas, Hábitos e Essência">
-      <section class="surface agreement-column" aria-labelledby="proposals-column">
-        <h2 id="proposals-column">Propostas</h2>
+      <section class="surface agreement-column agreement-proposals" aria-labelledby="proposals-column">
+        <header class="agreement-column-heading"><h2 id="proposals-column">Propostas</h2><span>{{ proposals().length }}</span></header>
         <p>Termos apresentados e participação individual.</p>
         @for (item of proposals(); track item.id) {
           <ng-container [ngTemplateOutlet]="card" [ngTemplateOutletContext]="{$implicit:item}" />
         } @empty { <p>Nenhuma proposta nesta página.</p> }
       </section>
       <section class="surface agreement-column" aria-labelledby="habits-column">
-        <h2 id="habits-column">Hábitos</h2>
+        <header class="agreement-column-heading"><h2 id="habits-column">Hábitos</h2><span>{{ habits().length }}</span></header>
         <p>Práticas, termos e registros anteriores.</p>
         @for (item of habits(); track item.id) {
           <ng-container [ngTemplateOutlet]="card" [ngTemplateOutletContext]="{$implicit:item}" />
         } @empty { <p>Nenhum hábito nesta página.</p> }
       </section>
-      <section class="surface agreement-column"><ng-container [ngTemplateOutlet]="essenceContent" /></section>
+      <section class="surface agreement-column agreement-essence"><ng-container [ngTemplateOutlet]="essenceContent" /></section>
     </div>
   }
   @if (page()>1 || view.hasNext) {

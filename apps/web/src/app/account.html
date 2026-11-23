@@ -1,79 +1,151 @@
 <section class="account" [class.embedded-account]="embedded()" [attr.aria-label]="embedded() ? 'Preferências da conta' : null">
   @if (!embedded()) {
     <h1 tabindex="-1">Minha conta</h1>
-    <p>Configurações do seu perfil.</p>
+    <p>Seu perfil, acesso, Núcleos e preferências em um só lugar.</p>
   }
   @if (profile.loading()) {
     <p role="status">Carregando sua conta…</p>
   } @else if (profile.user(); as user) {
+    <div class="account-settings-grid">
     <section class="card" aria-label="Perfil">
-      @if (embedded()) {
-        <h3>Perfil</h3>
+      @if (embedded()) { <h3>Perfil</h3> } @else { <h2>Perfil</h2> }
         <div class="embedded-profile">
           <span class="profile-initials" aria-hidden="true">{{ initials() }}</span>
-          <strong>{{ name() || 'Sua conta' }}</strong>
-          <p>Você está conectado como {{ user.email || 'membro do Nós' }}.</p>
+          @if (embedded()) { <strong>{{ name() || 'Sua conta' }}</strong> } @else { <h2>{{ name() || 'Sua conta' }}</h2> }
+          <p class="account-identity-email">Você está conectado como <span>{{ user.email || 'membro do Nós' }}</span>.</p>
         </div>
-      } @else {
-        <h2>{{ name() || 'Nome não informado' }}</h2>
-      }
-      <button type="button" class="row" [class.account-option]="embedded()" (click)="openDialog()"
+
+      <button type="button" class="account-option" aria-label="Dados da conta" (click)="openDialog()"
         [attr.aria-describedby]="prefix() + '-row-description'">
-        @if (embedded()) { <span class="option-icon"><app-nav-icon name="lock" /></span> }
+        <span class="option-icon"><app-nav-icon name="users" /></span>
         <span>Dados da conta
-          @if (embedded()) { <small [id]="prefix() + '-row-description'">Nome e identificação</small> }
-        </span>
+          <small [id]="prefix() + '-row-description'">Nome e identificação</small>
+        </span><app-nav-icon name="chevron" />
       </button>
-      @if (!embedded()) { <span [id]="prefix() + '-row-description'">Nome e identificação</span> }
     </section>
-    @if (!embedded()) {
-      @if (last.hasValue() && last.value(); as nucleus) {
-        <a class="button secondary signout" [routerLink]="['/nucleos',nucleus.id]" [attr.title]="nucleus.name">Voltar ao Núcleo</a>
-      }
-      <button type="button" class="secondary signout" [disabled]="busy()" (click)="signOut()">Sair da conta</button>
-    }
     <section class="card account-access">
       @if (embedded()) { <h3>Entrar e recuperar</h3> } @else { <h2>Entrar e recuperar</h2> }
-      <a [class.account-option]="embedded()" routerLink="/conta/recuperar" [queryParams]="{next: '/configuracoes/conta'}">
-        @if (embedded()) { <span class="option-icon"><app-nav-icon name="lock" /></span> }
-        <span>Recuperar acesso @if (embedded()) { <small>Link de recuperação e nova senha</small> }</span>
+      <a class="account-option" routerLink="/conta/recuperar" [queryParams]="{next: '/configuracoes/conta'}">
+        <span class="option-icon"><app-nav-icon name="key" /></span>
+        <span>Recuperar acesso<small>Link de recuperação e nova senha</small></span><app-nav-icon name="chevron" />
       </a>
-      <a [class.account-option]="embedded()" routerLink="/conta/confirmar-email" [queryParams]="{next: '/configuracoes/conta'}">
-        @if (embedded()) { <span class="option-icon"><app-nav-icon name="check" /></span> }
-        <span>Confirmar e-mail @if (embedded()) { <small>{{ user.email_confirmed_at ? 'Seu e-mail já está confirmado' : 'Conferir a etapa de confirmação' }}</small> }</span>
+      <a class="account-option" routerLink="/conta/confirmar-email" [queryParams]="{next: '/configuracoes/conta'}">
+        <span class="option-icon"><app-nav-icon name="check" /></span>
+        <span>Confirmar e-mail<small>{{ user.email_confirmed_at ? 'Seu e-mail já está confirmado' : 'Conferir a etapa de confirmação' }}</small></span><app-nav-icon name="chevron" />
       </a>
-      @if (embedded()) {
-        <button type="button" class="account-option" (click)="signOutDialog.showModal()">
+        <button type="button" class="account-option" aria-label="Sair da conta" (click)="signOutDialog.showModal()">
           <span class="option-icon"><app-nav-icon name="logout" /></span>
-          <span>Sair da conta<small>Encerrar acesso com segurança</small></span>
+          <span>Sair da conta<small>Encerrar acesso com segurança</small></span><app-nav-icon name="chevron" />
         </button>
-        <dialog #signOutDialog class="shared-dialog" [attr.aria-labelledby]="prefix() + '-signout-title'" (close)="authError.set('')">
+        <dialog #signOutDialog class="shared-dialog account-dialog" [attr.aria-labelledby]="prefix() + '-signout-title'" (close)="authError.set('')">
           <header class="dialog-header">
             <h2 [id]="prefix() + '-signout-title'">Sair da conta</h2>
-            <form method="dialog"><button class="icon secondary" aria-label="Fechar saída" autofocus>×</button></form>
+            <form method="dialog"><button class="icon secondary" aria-label="Fechar saída" autofocus><app-nav-icon name="close" /></button></form>
           </header>
           <p>Sair encerra a sessão e mantém sua participação nos Núcleos. Para voltar, entre novamente com sua conta.</p>
           <button type="button" class="signout" [disabled]="busy()" (click)="signOut()">{{ busy() ? 'Saindo…' : 'Confirmar saída' }}</button>
           @if (authError()) { <p role="alert" class="error">{{ authError() }}</p> }
         </dialog>
-      }
     </section>
     <section class="card account-access">
       @if (embedded()) { <h3>Conta e Núcleos</h3> } @else { <h2>Conta e Núcleos</h2> }
-      <a routerLink="/nucleos" [class.account-option]="embedded()">
-        @if (embedded()) { <span class="option-icon"><app-nav-icon name="users" /></span> }
-        <span>Seus Núcleos @if (embedded()) { <small>Escolher um vínculo ou criar e entrar em um Núcleo</small> }</span>
+      <a routerLink="/nucleos" class="account-option">
+        <span class="option-icon"><app-nav-icon name="users" /></span>
+        <span>Seus Núcleos<small>Escolher um vínculo ou criar e entrar em um Núcleo</small></span><app-nav-icon name="chevron" />
       </a>
+      @if (memberships.isLoading()) { <p role="status">Consultando seus vínculos…</p> }
+      @else if (memberships.error()) {
+        <p role="alert">Não foi possível consultar seus Núcleos.</p>
+        <button class="icon-button" type="button" (click)="memberships.reload()">Tentar novamente</button>
+      } @else if (memberships.hasValue()) {
+        @if (administrators().length) {
+          <button type="button" class="account-option" aria-haspopup="dialog" (click)="invitationsDialog.showModal()">
+            <span class="option-icon"><app-nav-icon name="users" /></span>
+            <span>Gerenciar convites<small>Convidar pessoas, conferir e revogar convites</small></span><app-nav-icon name="chevron" />
+          </button>
+          <dialog #invitationsDialog class="shared-dialog account-dialog" [attr.aria-labelledby]="prefix() + '-invitations-title'">
+            <header class="account-dialog-header"><h2 [id]="prefix() + '-invitations-title'">Gerenciar convites</h2>
+              <form method="dialog"><button class="icon-button" aria-label="Fechar convites" autofocus><app-nav-icon name="close" /></button></form>
+            </header>
+            <p>Escolha um Núcleo que você administra.</p>
+            @for (nucleus of administrators(); track nucleus.id) {
+              <a class="account-option" [routerLink]="['/nucleos', nucleus.id, 'convites']" (click)="invitationsDialog.close()">{{ nucleus.name }}</a>
+            }
+          </dialog>
+        }
+        @if (memberships.value().length) {
+          <button type="button" class="account-option" aria-haspopup="dialog" (click)="leaveDialog.showModal()">
+            <span class="option-icon"><app-nav-icon name="logout" /></span>
+            <span>Sair de um Núcleo<small>Escolher o vínculo e conferir a saída</small></span><app-nav-icon name="chevron" />
+          </button>
+          <dialog #leaveDialog class="shared-dialog account-dialog" [attr.aria-labelledby]="prefix() + '-leave-title'">
+            <header class="account-dialog-header"><h2 [id]="prefix() + '-leave-title'">Sair de um Núcleo</h2>
+              <form method="dialog"><button class="icon-button" aria-label="Fechar saída do Núcleo" autofocus><app-nav-icon name="close" /></button></form>
+            </header>
+            <p>Escolha o Núcleo e confira as consequências antes de decidir.</p>
+            @for (nucleus of memberships.value(); track nucleus.id) {
+              <a class="account-option" [routerLink]="['/nucleos', nucleus.id, 'sair']" (click)="leaveDialog.close()">{{ nucleus.name }}</a>
+            }
+          </dialog>
+        }
+        @if (administrators().length) {
+          <button type="button" class="account-option removal-row" aria-haspopup="dialog"
+            [disabled]="closingBusy()" (click)="openClosure(closureDialog)">
+            <span class="option-icon"><app-nav-icon name="alert" /></span>
+            <span>Encerrar Núcleo para todos<small>Encerra o espaço compartilhado · exige confirmação por escrito</small></span><app-nav-icon name="chevron" />
+          </button>
+          <dialog #closureDialog class="shared-dialog account-dialog account-dialog-wide" [attr.aria-labelledby]="prefix() + '-closure-title'">
+            <header class="account-dialog-header"><h2 [id]="prefix() + '-closure-title'">Encerrar Núcleo para todos</h2>
+              <form method="dialog"><button class="icon-button" aria-label="Fechar encerramento" autofocus><app-nav-icon name="close" /></button></form>
+            </header>
+            @if (closure(); as selected) {
+              @if (administrators().length > 1) {
+                <label class="account-nucleus-choice">Escolha o Núcleo
+                  <select [value]="selected.id" [disabled]="closingBusy()" (change)="closingNucleus.set($any($event.target).value)">
+                    @for (nucleus of administrators(); track nucleus.id) {
+                      <option [value]="nucleus.id">{{ nucleus.name }}</option>
+                    }
+                  </select>
+                </label>
+              }
+              <h3>{{ selected.name }}</h3>
+              <p>Todos perderão acesso a este Núcleo e os convites serão revogados. O histórico armazenado será preservado. A conta de cada pessoa continua disponível.</p>
+              <p>Digite o nome atual do Núcleo para confirmar.</p>
+              @for (nucleus of [selected]; track nucleus.id) {
+                <app-nucleus-action #closureForm [scope]="{id: nucleus.id, owner: user.id}" operation="close" label="Confirmar encerramento"
+                  [field]="{label:'Nome atual do Núcleo',max:80}" [danger]="true" [locked]="memberships.isLoading()"
+                  confirmation="Entendi que o Núcleo será encerrado para todos."
+                  (busy)="closingBusy.set($event)" (completed)="finishClosure(closureDialog)" />
+              }
+            }
+          </dialog>
+        }
+      }
+    @if (!embedded()) {
+      @if (last.hasValue() && last.value(); as nucleus) {
+        <a class="button secondary signout" [routerLink]="['/nucleos',nucleus.id]" [attr.title]="nucleus.name">Voltar ao Núcleo</a>
+      }
+    }
     </section>
     @if (!embedded()) {
       <section class="card account-access">
         <h2>Notificações</h2>
-        <p>Preferências de notificação estão planejadas.</p>
+        <span class="badge">Esboço de funcionalidade · ainda não desenvolvido</span>
+        <button type="button" class="account-option" aria-haspopup="dialog" (click)="noticeDialog.showModal()">
+          <span class="option-icon"><app-nav-icon name="bell" /></span><span>Presença também precisa de silêncio<small>Preferências de comunicação futuras</small></span><app-nav-icon name="chevron" />
+        </button>
+        <dialog #noticeDialog class="shared-dialog account-dialog" aria-labelledby="planned-notifications-title">
+          <header class="account-dialog-header"><h2 id="planned-notifications-title">Presença também precisa de silêncio</h2>
+            <form method="dialog"><button class="icon-button" aria-label="Fechar Notificações" autofocus><app-nav-icon name="close" /></button></form>
+          </header><p class="badge">Esboço de funcionalidade · ainda não desenvolvido</p>
+          <p class="settings-copy">Canais de aviso e horários de silêncio ainda não estão disponíveis. Nenhuma configuração de notificação é alterada aqui.</p>
+        </dialog>
       </section>
     }
     @for (owner of [user.id]; track owner) {
       <app-account-preferences #preferences [prefix]="prefix()" [class.embedded-preferences]="embedded()" />
     }
+    </div>
   } @else {
     <section class="card">
       <h2>Acesso à conta</h2>
@@ -86,7 +158,7 @@
   }
 </section>
 
-<dialog #dataDialog class="shared-dialog" [id]="prefix() + '-data'" [attr.aria-labelledby]="prefix() + '-title'"
+<dialog #dataDialog class="shared-dialog account-dialog" [id]="prefix() + '-data'" [attr.aria-labelledby]="prefix() + '-title'"
   [attr.aria-describedby]="prefix() + '-description'" (close)="resetDialog()">
   <header class="dialog-header">
     <div>
@@ -94,7 +166,7 @@
       <p class="account-description" [id]="prefix() + '-description'">Nome e identificação do seu acesso.</p>
     </div>
     <form method="dialog">
-      <button class="icon secondary" aria-label="Fechar Dados da conta" autofocus>×</button>
+      <button class="icon secondary" aria-label="Fechar Dados da conta" autofocus><app-nav-icon name="close" /></button>
     </form>
   </header>
   @if (profile.user(); as user) {

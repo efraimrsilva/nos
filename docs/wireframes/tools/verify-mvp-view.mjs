@@ -33,6 +33,17 @@ try{
   assert.match(await page.locator('[data-mvp-screen="1"]').textContent(),/Limite atual atualizado/);
   await page.reload();await nav.first().click();
   for(const name of ['Impacto','Linguagens de cuidado','Login Google','Calendários externos','Android','iOS','biometria','retenção','IA opcional','Convites por link e QR','Administrador','revisão anual do propósito'])assert.ok((await page.locator('#mvp-view').textContent()).includes(name),`Função transversal: ${name}`);
+  const platforms = page.locator('#mvp-phase-platforms');
+  await platforms.locator('summary').click();
+  assert.match(await platforms.innerText(), /Orçamento permanente de R\$ 0/);
+
+  assert.match(await platforms.innerText(), /PWA e offline/);
+  const technicalRoadmap = platforms.getByRole('button', {name: /fases técnicas na guia Migração/});
+  await technicalRoadmap.focus();
+  await technicalRoadmap.press('Enter');
+  assert.match(page.url(), /#migracao$/);
+  assert.equal(await page.locator('#migration-sequence-title').isVisible(), true);
+  await nav.first().click();
   await page.locator('#mvp-view [data-entry-login]').first().click();
   assert.equal(await page.locator('#screen-preview [data-auth-submit]').innerText(),'Entrar','Abrir login, não cadastro');
   await page.locator('#screen-spec [data-view="mvp"]').click();

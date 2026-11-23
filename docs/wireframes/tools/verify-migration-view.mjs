@@ -1,9 +1,24 @@
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
 import {pathToFileURL} from 'node:url';
 import path from 'node:path';
 import {chromium} from '@playwright/test';
 
 const atlas = pathToFileURL(path.resolve('docs/wireframes/atlas/index.html')).href;
+const stack = readFileSync('docs/stack.md', 'utf8');
+const plan = readFileSync('docs/andamento/planos/migracao-angular.md', 'utf8');
+const roadmap = [
+  [/Estabilização da web Angular/, /paridade 16[\s\S]*ensaio hospedado[\s\S]*Angular já publicado[\s\S]*arquivo\/nextjs\//],
+  [/Nx e automação/, /lockfiles[\s\S]*GitHub Actions[\s\S]*ensaio Netlify/],
+  [/Piloto da API NestJS/, /apps\/api[\s\S]*Supabase Auth[\s\S]*PostgreSQL[\s\S]*sessão expirada/],
+  [/Validação de identidade/, /Supabase Auth[\s\S]*tokens próprios[\s\S]*recuperação/],
+  [/Tempo real/, /WebSocket no NestJS para a resposta ao convite da Agenda[\s\S]*conta externa[\s\S]*reconexão/],
+  [/PWA e limites offline/, /Após a fase 1[\s\S]*recursos públicos[\s\S]*trocar de conta/],
+  [/Capacitor em Android e iOS/, /Após a fase 1[\s\S]*apps\/mobile[\s\S]*Android[\s\S]*Depois[\s\S]*iOS/],
+];
+const phaseNumbers = roadmap.map((_, index) => String(index + 1));
+assert.deepEqual([...stack.matchAll(/^\| (\d+)\. /gm)].map(match => match[1]), phaseNumbers);
+assert.deepEqual([...plan.matchAll(/^### Fase (\d+) — /gm)].map(match => match[1]), phaseNumbers);
 const browser = await chromium.launch();
 try {
   for (const width of [1440, 390]) {
@@ -20,22 +35,26 @@ try {
     assert.equal(await tab.getAttribute('aria-pressed'), 'true');
     assert.match(page.url(), /#migracao$/);
     const phases = panel.locator('[data-migration-phase]');
-    assert.deepEqual(await phases.evaluateAll(items => items.map(item => item.dataset.migrationPhase)), ['1','2','3','4']);
+    assert.deepEqual(await phases.evaluateAll(items => items.map(item => item.dataset.migrationPhase)), phaseNumbers);
     assert.equal(await phases.first().getAttribute('open'), '');
-    const web = await phases.first().innerText();
-    assert.match(web, /paridade 09–16[\s\S]*ensaio hospedado[\s\S]*Publicar o Angular[\s\S]*arquivo\/nextjs\//);
-    assert.match(await panel.innerText(), /Próximo passo:\s*paridade visual 09/);
-    for (const [index, title] of [[1,/Nx e backend NestJS/],[2,/Decisão de autenticação/],[3,/WebSocket e Capacitor/]]) {
-      const summary = phases.nth(index).locator('summary');
+    assert.match(await panel.innerText(), /Próximo passo:\s*paridade visual 16/);
+    assert.equal(await panel.getByRole('link', {name: /Consultar stack e diretórios/}).getAttribute('href'), '../../stack.md');
+    for (const [index, [title, acceptance]] of roadmap.entries()) {
+      const phase = phases.nth(index);
+      const summary = phase.locator('summary');
       assert.match(await summary.innerText(), title);
-      await summary.focus();
-      await summary.press('Enter');
-      assert.equal(await phases.nth(index).getAttribute('open'), '');
+      assert.match(await summary.innerText(), index ? /· planejada$/ : /· em validação$/);
+      if (index) {
+        await summary.focus();
+        await summary.press('Enter');
+      }
+      assert.equal(await phase.getAttribute('open'), '');
+      assert.match(await phase.innerText(), acceptance);
     }
     const closingDeliveries = panel.locator(':scope > details[data-migration-delivery]');
     assert.deepEqual(await closingDeliveries.locator('summary').allTextContents(), [
       '13 · Virada pública · Angular publicado',
-      '14 · Arquivamento visual do Next.js',
+      '14 · Arquivamento visual do Next.js · referência preservada',
     ]);
     assert.equal(await panel.locator(':scope > details').count(), 14);
     assert.deepEqual(await phases.first().locator('a[href^="#migracao-passo-"]').evaluateAll(links => links.map(link => link.hash)), ['#migracao-passo-13','#migracao-passo-14']);
@@ -48,7 +67,6 @@ try {
     await last.locator('summary').focus();
     await last.locator('summary').press('Enter');
     assert.equal(await last.getAttribute('open'), '');
-    assert.match(await panel.innerText(), /Planejada/);
     const first = panel.locator(':scope > details').first();
     await first.locator('summary').click();
     assert.equal(await first.getAttribute('open'), '');

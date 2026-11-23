@@ -1,3 +1,7 @@
+## Paridade transversal — v4.0.0-alpha.30 — 2026-11-21
+
+Início 13 → Conhecer esta área abre **Notificações, no seu tempo**, somente informativo para integrantes, com navegação a Acordos. Agenda 15 → Responder convite abre **Sua participação** para a própria pessoa convidada. A resposta usa o serviço existente e só anuncia sucesso após confirmação; falha mantém orientação no diálogo. Ambos fecham por X, Escape e gesto externo compartilhado, sem gravar ao fechar. Substitui a indicação histórica de respostas diretamente no detalhe. Atlas demonstra sem escrita. [Registro](../registros/registro-v4.0.0-alpha.30-2026-11-21-imp-paridade-angular-fun-revisao-transversal.md).
+
 ## Perfil, Mais e relato no Angular — v4.0.0-alpha.16 — 2026-11-17
 
 | Gatilho | Modal e resultado autenticado |

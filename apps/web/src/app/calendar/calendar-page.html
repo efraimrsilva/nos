@@ -92,13 +92,24 @@
           @if (response.deleted) { <p>{{ response.deleted }} resposta(s) histórica(s) de Conta excluída.</p> }
           <span class="badge" [class.agenda-pending]="response.own?.response==='pending'">{{ response.label }}</span>
           @if (response.own; as own) {
-            <p class="agenda-own-response"><app-nav-icon [name]="own.response==='pending' ? 'calendar' : 'check'" />
+            <p class="agenda-own-response"><app-nav-icon [name]="own.response==='pending' ? 'calendar' : own.response==='accepted' ? 'check' : 'close'" />
               <span>Sua resposta: {{ own.response==='accepted' ? 'vou participar' : own.response==='declined' ? 'não posso participar' : 'ainda não respondi' }}.</span>
             </p>
-            <div class="agenda-actions agenda-presence" role="group" aria-label="Minha presença">
-              <button class="button secondary" type="button" [attr.aria-pressed]="own.response==='accepted'" [disabled]="busy() || state.isLoading()" (click)="respond(event,'accepted')">Posso participar</button>
-              <button class="button secondary" type="button" [attr.aria-pressed]="own.response==='declined'" [disabled]="busy() || state.isLoading()" (click)="respond(event,'declined')">Não posso participar</button>
-            </div>
+            <button class="button" type="button" aria-haspopup="dialog" [disabled]="busy() || state.isLoading()"
+              (click)="dialogError.set(''); participation.showModal()"><app-nav-icon name="message" />Responder convite</button>
+            <!-- A resposta usa o mesmo evento autorizado do detalhe e só fecha após confirmação do serviço. -->
+            <dialog #participation class="shared-dialog" aria-labelledby="agenda-participation-title">
+              <header class="dialog-heading"><h2 id="agenda-participation-title">Sua participação</h2>
+                <form method="dialog"><button class="icon-button" aria-label="Fechar participação" autofocus>×</button></form>
+              </header>
+              <p><strong>{{ event.title }}</strong></p>
+              <p>Cada pessoa decide se pode participar. Você pode atualizar sua resposta enquanto o evento estiver disponível.</p>
+              <div class="agenda-actions agenda-presence" role="group" aria-label="Minha presença">
+                <button class="button" type="button" [attr.aria-pressed]="own.response==='accepted'" [disabled]="busy() || state.isLoading()" (click)="respond(event,'accepted',participation)"><app-nav-icon name="check" />{{ busy() ? 'Registrando…' : 'Posso participar' }}</button>
+                <button class="button secondary" type="button" [attr.aria-pressed]="own.response==='declined'" [disabled]="busy() || state.isLoading()" (click)="respond(event,'declined',participation)"><app-nav-icon name="close" />{{ busy() ? 'Registrando…' : 'Não posso participar' }}</button>
+              </div>
+              @if (dialogError()) { <p role="alert">{{ dialogError() }}</p> }
+            </dialog>
           }
           @if (event.can_manage) {
             <div class="agenda-actions agenda-management">

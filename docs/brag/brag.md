@@ -1,6 +1,43 @@
 ## 23/11/2026 — Abertura previsível da Conta
 
 A navegação interna aparecia brevemente no início da rota pública. O estado inicial usa a estrutura pública e a regressão passou em computador e celular. [Registro e validações](../andamento/registros/registro-v4.0.0-alpha.23-2026-11-23-imp-conta-fun-abertura-e-animacoes.md).
+## 21/11/2026 — Recuperação de fluxos na revisão transversal
+
+**Problema:** diferenças da migração nos resumos do Início, resposta da Agenda e composição móvel de Acordos. **Contribuição:** composição restaurada, diálogo ligado à operação existente e Atlas sincronizado. **Resultado verificado:** build, tipos e 257 verificações locais de banco aprovados; revisão independente encontrou dois problemas de CSS, corrigidos. **Benefício esperado:** continuidade visual e escolhas de participação mais claras, sem métrica de uso medida. [Registro](../andamento/registros/registro-v4.0.0-alpha.30-2026-11-21-imp-paridade-angular-fun-revisao-transversal.md).
+
+## 21/11/2026 — Critérios de aceite para expansão da plataforma
+
+O roteiro deixava identidade, canal de atualização e orçamento em aberto. As dez decisões agora têm momento de execução e evidência esperada, incluindo reconexão, revogação de acesso e operação gratuita. [Registro](../andamento/registros/registro-v4.0.0-alpha.29-2026-11-21-01-imp-planejamento-fun-decisoes-da-stack.md).
+
+## 21/11/2026 — Roteiro técnico da stack sincronizado
+
+A stack, o plano de migração e o Atlas passaram a apresentar as mesmas sete fases, com dependências e evidências esperadas. A etapa 13 do MVP agora leva aos critérios técnicos. Os verificadores confirmaram o roteiro e preservaram a cobertura das 73 fichas. [Registro](../andamento/registros/registro-v4.0.0-alpha.29-2026-11-21-imp-planejamento-fun-roteiro-tecnico-da-stack.md).
+
+## 20/11/2026 — Preparação temporária na Ponte do Nós
+
+- **2026-11-20 · Paridade visual da Conta.** A migração havia reduzido a escolha de tema a texto e condensado os controles de privacidade. As nove prévias voltaram junto dos diálogos e das opções ligadas ao papel no Núcleo. Evidência local em desktop e celular. [Registro](../andamento/registros/registro-v4.0.0-alpha.29-2026-11-20-imp-paridade-angular-fun-conta-privacidade-e-suporte.md).
+
+As etapas do cartão de intenção passaram a ser demonstradas no Atlas offline. Limpar rascunho devolve o foco ao campo no aplicativo e no Atlas. Playwright verificou o descarte ao sair e a limpeza em duas larguras. [Registro](../andamento/registros/registro-v4.0.0-alpha.28-2026-11-20-imp-paridade-angular-fun-manifesto-e-ponte.md).
+
+## 20/11/2026 — Seleção e detalhe de perfis fictícios
+
+Os cartões do Angular aproximam a composição da referência e o Atlas passou a acompanhar pessoa, tema e data selecionados. Playwright confirmou o diálogo correspondente e o retorno de foco em duas larguras. [Registro](../andamento/registros/registro-v4.0.0-alpha.27-2026-11-20-imp-paridade-angular-fun-conexoes-e-perfis.md).
+
+## 20/11/2026 — Prévia navegável de Árvore e Memórias
+
+O Atlas passou a demonstrar seleção de tema, filtro e detalhe correspondente à memória selecionada. A jornada no Angular e na prévia offline confirmou a seleção e o retorno de foco após fechar o detalhe. [Registro](../andamento/registros/registro-v4.0.0-alpha.26-2026-11-20-imp-paridade-angular-fun-arvore-e-memorias.md).
+
+## 20/11/2026 — Clareza na publicação de novos termos
+
+A edição identifica a versão de partida e pode ser cancelada com retorno de foco e descarte do rascunho. O histórico diferencia versão vigente e anterior. Playwright confirmou os estados após publicar e o novo aceite individual. [Registro](../andamento/registros/registro-v4.0.0-alpha.25-2026-11-20-imp-paridade-angular-fun-termos-e-versoes.md).
+
+## 20/11/2026 — Mais contexto no ciclo de Hábitos
+
+A nota de momento passou a indicar sua visibilidade junto ao campo. A confirmação administrativa ganhou cancelamento explícito. Playwright comprovou retorno de foco e reinício da confirmação em computador e celular. [Registro](../andamento/registros/registro-v4.0.0-alpha.24-2026-11-20-imp-paridade-angular-fun-ciclo-de-habitos.md).
+
+## 20/11/2026 — Contexto e consentimento na proposta de Acordos
+
+O formulário não apresentava a orientação completa de administração e consentimento da referência Next.js. A edição e a conferência agora explicam escolha individual, novo aceite por mudança de termos e preservação do histórico. O cartão de computador passou a mostrar descrição e estado. Testes verificaram orientação, descrição, foco e busca; benefício esperado: apoiar decisões mais informadas antes do envio, sem medida de impacto em uso real. [Registro](../andamento/registros/registro-v4.0.0-alpha.23-2026-11-20-imp-paridade-angular-fun-acordos-e-participacao.md).
 
 ## 19/11/2026 — Correção e cancelamento nos formulários da Agenda
 

@@ -1,4 +1,20 @@
-**Sequência da migração — 19/11/2026.** A [guia Migração](atlas/index.html#migracao) apresenta quatro fases. As entregas 13 (virada pública) e 14 (arquivamento do Next.js) ficam na lista principal Migração para Angular. A fase 1 aponta para ambas e depende da paridade e do ensaio hospedado. Depois de confirmar o Angular no domínio público e arquivar o Next.js, avançar com Nx e NestJS, decisão de autenticação, WebSocket e Capacitor. [Plano e critérios](../andamento/planos/migracao-angular.md#ordem-de-implementação).
+**Paridade 16 · v4.0.0-alpha.30.** Recortes 13, 15 e 18: Início, Sua participação na Agenda e lista compacta móvel. Notificações continuam ilustrativas. [Galeria](comparacoes/v4.0.0-alpha.30-2026-11-21-paridade-transversal-tela-13-tela-15-tela-18/index.html). Conferência hospedada e retorno ainda pendentes.
+
+**Paridade 15 · v4.0.0-alpha.29.** Conta, nove miniaturas de tema, privacidade, exclusão e suporte nas Telas 66–70. Notificações exibem aviso de recurso planejado. [Galeria](comparacoes/v4.0.0-alpha.29-2026-11-20-paridade-conta-tela-66-tela-67-tela-68-tela-69-tela-70/index.html).
+
+**Paridade 14 · v4.0.0-alpha.28.** Manifesto editorial e Ponte com preparação temporária no Angular e Atlas. Telas 55–57 e 61–65 preservam estados planejados. [Galeria](comparacoes/v4.0.0-alpha.28-2026-11-20-paridade-manifesto-ponte-tela-55-tela-56-tela-57-tela-61-tela-62-tela-63-tela-64-tela-65/index.html).
+
+**Paridade 13 · v4.0.0-alpha.27.** Telas 44–54 conferidas. Conexões e Perfis afetivos são prévias com pessoas fictícias, temas e diálogo. Edição, visibilidade e compartilhamento seguem planejados. [Galeria](comparacoes/v4.0.0-alpha.27-2026-11-20-paridade-conexoes-perfis-tela-44-tela-45-tela-46-tela-47-tela-48-tela-49-tela-50-tela-51-tela-52-tela-53-tela-54/index.html).
+
+**Paridade 12 · v4.0.0-alpha.26.** Árvore e Memórias são prévias nas Telas 38, 40 e 41. Marcos, galeria e gratidão nas Telas 39, 42 e 43 continuam planejados. [Galeria](comparacoes/v4.0.0-alpha.26-2026-11-20-paridade-arvore-memorias-tela-38-tela-39-tela-40-tela-41-tela-42-tela-43/index.html).
+
+**Paridade 11 · v4.0.0-alpha.25.** Termos, revisão e versões nas Telas 30–33. O diálogo Nossa Essência permanece ilustrativo e as Telas 34, 35 e 37 continuam planejadas. [Galeria](comparacoes/v4.0.0-alpha.25-2026-11-20-paridade-termos-tela-30-tela-31-tela-32-tela-33-tela-34-tela-35-tela-36-tela-37/index.html).
+
+**Paridade 10 · v4.0.0-alpha.24.** Detalhe, histórico, registro, período e contexto legado atualizados. Reflexões da Tela 26 continuam planejadas. [Galeria](comparacoes/v4.0.0-alpha.24-2026-11-20-paridade-habitos-tela-24-tela-25-tela-26-tela-27-tela-28-tela-29/index.html).
+
+**Paridade 09 — v4.0.0-alpha.23 — 20/11/2026.** Telas 18, 22 e 23 com cartões, contexto em Painéis e proposta/conferência com orientação de consentimento. Atlas demonstra sem gravar. Telas 19–21 e Essência permanecem planejadas; IDs e cobertura preservados. [Registro](../andamento/registros/registro-v4.0.0-alpha.23-2026-11-20-imp-paridade-angular-fun-acordos-e-participacao.md) · [Galeria](comparacoes/v4.0.0-alpha.23-2026-11-20-paridade-acordos-tela-18-tela-22-tela-23/index.html). Próximo passo: paridade 10, Hábitos.
+
+**Sequência da migração — 21/11/2026.** A [guia Migração](atlas/index.html#migracao) apresenta sete fases da stack, começando pelo aceite da web Angular publicada e da referência Next.js preservada. Nx, API NestJS, identidade e tempo real têm critérios próprios. A PWA precede o Android e o iOS. MVP e Continuidade acompanha a expansão do WebSocket no NestJS para todos os fluxos mutáveis, as notificações futuras e o orçamento permanente de R$ 0. A etapa 13 da guia MVP leva ao roteiro técnico. [Plano e critérios](../andamento/planos/migracao-angular.md#ordem-de-implementação) · [Stack e diretórios](../stack.md).
 
 **Prévia Angular v4.0.0-alpha.16 (17/11/2026)** — Perfil desktop, Mais móvel e lembrete de relato no passo 03 da guia Migração. As fichas 66, 67 e 70 registram o fluxo Angular. [Comparação local](comparacoes/v4.0.0-alpha.16-2026-11-17-perfil-lembrete-tela-66-tela-67-tela-70/index.html)
 

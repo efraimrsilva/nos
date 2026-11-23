@@ -39,6 +39,50 @@ async function signIn(page, account, next = '/nucleos') {
   await expect(page).toHaveURL(next);
 }
 
+test('mostra e confirma ações da Conta conforme o vínculo do Núcleo', async ({page, accounts}) => {
+  const [owner, other] = accounts;
+  const cfg = localSupabaseConfig();
+  const api = createClient(cfg.API_URL, cfg.PUBLISHABLE_KEY || cfg.ANON_KEY, {auth:{persistSession:false}});
+  const session = await api.auth.signInWithPassword({email:owner.email,password:owner.password});
+  if (session.error) throw new Error('Falha na sessão de teste.');
+  const name = 'Jardim da Conta';
+  const created = await api.rpc('create_nucleus', {
+    nucleus_type:'amigos', nucleus_name:name, nucleus_purpose:'Cultivar presença.',
+  });
+  if (created.error) throw new Error('Falha no Núcleo descartável.');
+
+  await signIn(page, other, '/configuracoes/conta');
+  const main = page.getByRole('main');
+  await expect(main.getByText('Consultando seus vínculos…')).toBeHidden();
+  await expect(main.getByRole('button',{name:/Gerenciar convites|Encerrar Núcleo para todos/})).toHaveCount(0);
+  await main.getByRole('button',{name:'Sair da conta'}).click();
+  await page.getByRole('button',{name:'Confirmar saída'}).click();
+  await expect(page).toHaveURL('/conta?modo=login');
+
+  await signIn(page, owner, '/configuracoes/conta');
+  await main.getByRole('button',{name:/Gerenciar convites/}).click();
+  await expect(page.getByRole('dialog',{name:'Gerenciar convites'}).getByRole('link',{name}))
+    .toHaveAttribute('href', '/nucleos/'+created.data+'/convites');
+  await page.keyboard.press('Escape');
+  await main.getByRole('button',{name:/Sair de um Núcleo/}).click();
+  await expect(page.getByRole('dialog',{name:'Sair de um Núcleo'}).getByRole('link',{name}))
+    .toHaveAttribute('href', '/nucleos/'+created.data+'/sair');
+  await page.keyboard.press('Escape');
+
+  await main.getByRole('button',{name:/Encerrar Núcleo para todos/}).click();
+  const closure = page.getByRole('dialog',{name:'Encerrar Núcleo para todos'});
+  await closure.getByRole('textbox',{name:'Nome atual do Núcleo'}).fill(name);
+  await closure.getByRole('checkbox').check();
+  await page.keyboard.press('Escape');
+  await main.getByRole('button',{name:/Encerrar Núcleo para todos/}).click();
+  await expect(closure.getByRole('textbox')).toHaveValue('');
+  await expect(closure.getByRole('checkbox')).not.toBeChecked();
+  await closure.getByRole('textbox').fill(name);
+  await closure.getByRole('checkbox').check();
+  await closure.getByRole('button',{name:'Confirmar encerramento'}).click();
+  await expect(page).toHaveURL('/nucleos?resultado=encerrado');
+});
+
 test('porta o ciclo de Hábito com novo aceite e histórico preservado', async ({page,accounts,browser},info) => {
   test.setTimeout(75_000);
   page.setDefaultTimeout(10000);
@@ -91,6 +135,11 @@ test('porta o ciclo de Hábito com novo aceite e histórico preservado', async (
     await expect(page.getByText('Proposta enviada',{exact:true})).toBeVisible();
     await page.getByRole('button',{name:'Iniciar teste',exact:true}).click();
     await confirm.getByRole('checkbox').check();
+    await confirm.getByRole('button',{name:'Cancelar',exact:true}).click();
+    await expect(page.getByRole('button',{name:'Iniciar teste',exact:true})).toBeFocused();
+    await page.getByRole('button',{name:'Iniciar teste',exact:true}).click();
+    await expect(confirm.getByRole('checkbox')).not.toBeChecked();
+    await confirm.getByRole('checkbox').check();
     await confirm.getByRole('button',{name:'Iniciar teste',exact:true}).click();
     await expect(page.getByText('Em teste',{exact:true})).toBeVisible();
     await signIn(guest,member,path+'/registrar');
@@ -100,6 +149,8 @@ test('porta o ciclo de Hábito com novo aceite e histórico preservado', async (
     await guest.goto(path);
     await guest.getByRole('button',{name:'Aceitar proposta'}).click();
     await expect(guest.getByText('Participação aceita · v1',{exact:true})).toBeVisible();
+    await expect(guest.getByRole('complementary',{name:'No seu tempo.'})).toContainText('pode registrar um momento');
+    await capture(guest,'detalhe');
     await guest.getByRole('button',{name:'Registrar momento',exact:true}).click();
     const moment = guest.getByRole('dialog',{name:'Registrar momento'});
     await expect(moment).toBeVisible();
@@ -114,6 +165,15 @@ test('porta o ciclo de Hábito com novo aceite e histórico preservado', async (
     await page.goto(path+'/revisar');
     await page.getByRole('button',{name:'Alterar termos'}).click();
     const revision = page.getByRole('dialog',{name:'Alterar termos'});
+    const originalTerms = await revision.getByLabel('Como será?').inputValue();
+    await revision.getByLabel('Como será?').fill('Rascunho descartado.');
+    await revision.getByRole('checkbox').check();
+    await revision.getByRole('button',{name:'Cancelar',exact:true}).click();
+    await expect(revision).toBeHidden();
+    await expect(page.getByRole('button',{name:'Alterar termos'})).toBeFocused();
+    await page.getByRole('button',{name:'Alterar termos'}).click();
+    await expect(revision.getByLabel('Como será?')).toHaveValue(originalTerms);
+    await expect(revision.getByRole('checkbox')).not.toBeChecked();
     await revision.getByLabel('Como será?').fill('Escutar com tempo e sem distrações.');
     expect((await revision.getByRole('checkbox').boundingBox()).width).toBeLessThan(32);
     await capture(page,'revisao');
@@ -121,6 +181,9 @@ test('porta o ciclo de Hábito com novo aceite e histórico preservado', async (
     await revision.getByRole('button',{name:'Publicar novos termos'}).click();
     await expect(page.getByRole('heading',{name:/Versão 2 · Uma conversa/})).toBeVisible();
     await expect(page.getByRole('heading',{name:/Versão 1 · Uma conversa/})).toBeVisible();
+    const versions = page.getByRole('region',{name:'Histórico dos termos'});
+    await expect(versions.getByRole('listitem').filter({hasText:'Versão 2 · Uma conversa'})).toContainText('Vigente');
+    await expect(versions.getByRole('listitem').filter({hasText:'Versão 1 · Uma conversa'})).toContainText('Anterior');
     const legacy = page.getByRole('region',{name:'Histórico do modelo anterior'});
     await expect(legacy.getByText('Solicitação antiga de encerramento')).toBeVisible();
     await expect(legacy.getByText('Período anterior',{exact:true})).toBeVisible();
@@ -177,7 +240,7 @@ test('porta o ciclo de Hábito com novo aceite e histórico preservado', async (
     await expect(revision.getByRole('alert')).toContainText('O acordo mudou');
     await expect(revision.getByLabel('Como será?')).toHaveValue('Rascunho da versão anterior.');
     await revision.getByRole('button',{name:'Fechar edição de termos'}).click();
-    await expect(page.getByText('Termos atuais · versão 3',{exact:true})).toBeVisible();
+    await expect(page.getByRole('region',{name:'Termos vigentes'}).getByText('Versão 3',{exact:true})).toBeVisible();
     await page.getByRole('button',{name:'Alterar termos'}).click();
     await expect(revision.getByLabel('Como será?')).toHaveValue('Versão publicada em outra sessão.');
     await page.keyboard.press('Escape');
@@ -248,12 +311,20 @@ test('publica proposta sem aceite e atualiza respostas individuais no Angular', 
     await expect(essence).toBeHidden();
     await page.getByRole('button',{name:'Nova proposta',exact:true}).click();
     const form = page.getByRole('dialog',{name:'Nova proposta'});
+    if (info.project.name === 'mobile') await page.touchscreen.tap(5,5);
+    else await page.mouse.click(5,5);
+    await expect(form).toBeHidden();
+    await expect(page.getByRole('button',{name:'Nova proposta',exact:true})).toBeFocused();
+    await page.getByRole('button',{name:'Nova proposta',exact:true}).click();
     await form.getByLabel('O que vamos fazer?').fill('Conversar sem distrações');
     await form.getByLabel('Como será?').fill('Reservar tempo para escutar.');
     await form.getByLabel('Quando?',{exact:true}).fill('Depois do jantar');
     await form.getByLabel('Com que frequência?').fill('Uma vez por semana');
     await form.getByLabel('Duração do teste (dias)').fill('14');
     await capture(page,'proposta');
+    const guidance = form.getByRole('group',{name:'Como funcionam as decisões do Hábito'});
+    await guidance.getByText('Administração e participação',{exact:true}).click();
+    await expect(guidance).toContainText('Silêncio não é aceite.');
     await form.getByRole('button',{name:'Conferir proposta'}).click();
     await expect(form.getByRole('heading',{name:'Confira antes de propor'})).toBeFocused();
     expect((await ownerClient.from('nucleus_agreements').select('id').eq('nucleus_id',id)).data?.length).toBe(1);
@@ -264,12 +335,19 @@ test('publica proposta sem aceite e atualiza respostas individuais no Angular', 
     await form.getByRole('button',{name:'Enviar proposta'}).click();
     await expect(page.getByText(/Proposta enviada\. Escolha/)).toBeVisible();
     const ownerCard = page.getByRole('button',{name:/Conversar sem distrações/});
+    await expect(ownerCard).toContainText('Reservar tempo para escutar.');
     await expect(ownerCard).toContainText('2 a decidir');
     await capture(page,'acordos');
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    const search = page.getByRole('searchbox',{name:'Buscar nos acordos desta página'});
+    await search.fill('nenhum resultado');
+    await expect(page.getByText('Nenhuma correspondência. Tente outra palavra ou limpe a busca.')).toBeVisible();
+    await search.fill('');
     if (info.project.name === 'desktop') {
       await page.getByRole('button',{name:'Painéis · Lado a lado'}).click();
       await page.getByRole('navigation',{name:'Selecionar acordo'}).getByRole('button',{name:'Hábito anterior'}).click();
       await expect(page.getByRole('region',{name:'Acordo selecionado'}).getByText('Termos preservados.')).toBeVisible();
+      await capture(page,'paineis');
       await page.getByRole('button',{name:'Kanban · Fluxo'}).click();
     }
     await ownerCard.click();
@@ -389,6 +467,17 @@ test('muda identidade, aceita nomeação pela própria conta, sai e encerra', as
     const code = await page.getByTestId('invitation-code').innerText();
     await page.getByRole('link',{name:'Concluir por enquanto'}).click();
     await expect(page.getByRole('heading',{name:'Jardim da A06',exact:true})).toBeVisible();
+    await page.getByRole('button',{name:'Conhecer esta área',exact:true}).click();
+    const notifications=page.getByRole('dialog',{name:'Notificações, no seu tempo',exact:true});
+    await expect(notifications).toContainText('ainda não consulta nem envia avisos');
+    await capture(page,'notificacoes');
+    await page.keyboard.press('Escape');
+    await expect(notifications).toBeHidden();
+    await expect(page.getByRole('button',{name:'Conhecer esta área',exact:true})).toBeFocused();
+    await page.getByRole('button',{name:'Conhecer esta área',exact:true}).click();
+    if(info.project.name==='mobile') await page.touchscreen.tap(5,5);
+    else await page.mouse.click(5,5);
+    await expect(notifications).toBeHidden();
     const path = new URL(page.url()).pathname;
     await signIn(guest,member,'/comecar/convite');
     await guest.getByLabel('Código de convite').fill(code);
@@ -787,6 +876,12 @@ test('convites preservam a escolha, a revogação e o vínculo confirmado', asyn
 });
 
 test('protege prévias do Núcleo e descarta o rascunho da Ponte ao navegar', async ({page, accounts, browser}, info) => {
+  const capture = async (name) => {
+    if (!process.env.NOS_TREE_CAPTURE) return;
+    const folder = 'artifacts/tree12-' + process.env.NOS_TREE_CAPTURE;
+    mkdirSync(folder,{recursive:true});
+    await page.screenshot({path:folder+'/'+name+'-'+info.project.name+'.png',scale:'css'});
+  };
   const [owner, outsider] = accounts;
   const cfg = localSupabaseConfig();
   const client = createClient(cfg.API_URL, cfg.ANON_KEY, {auth:{persistSession:false}});
@@ -811,10 +906,23 @@ test('protege prévias do Núcleo e descarta o rascunho da Ponte ao navegar', as
   await page.getByLabel('O que você quer expressar?').fill('Rascunho apenas nesta página.');
   await page.getByRole('button',{name:'Explorar preparação'}).click();
   await expect(page.getByText('Rascunho apenas nesta página.', {exact:true})).toBeVisible();
+  await page.getByRole('button',{name:'Escuta',exact:true}).click();
+  await expect(page.getByText(/O que gostaria que eu entendesse melhor/)).toBeVisible();
+  await capture('ponte');
+  await page.getByRole('button',{name:'Pausa',exact:true}).click();
+  await expect(page.getByText(/disponibilidade de ambos/)).toBeVisible();
   await page.getByRole('navigation',{name:'Explorações de funcionalidades futuras'}).getByRole('link',{name:'Nossa árvore'}).click();
   await expect(page.getByRole('heading',{name:'Raízes no que vivemos.'})).toBeVisible();
   await page.goBack();
   await expect(page.getByLabel('O que você quer expressar?')).toHaveValue('');
+  const draftInput = page.getByLabel('O que você quer expressar?');
+  await draftInput.fill('Texto temporário a limpar.');
+  await page.getByRole('button',{name:'Explorar preparação'}).click();
+  await page.getByRole('button',{name:'Limpar rascunho'}).click();
+  await expect(draftInput).toHaveValue('');
+  await expect(draftInput).toBeFocused();
+  await expect(page.getByRole('region',{name:'Preparação ilustrativa'})).toBeHidden();
+  await expect(page.getByRole('link',{name:'Abrir agenda existente'})).toHaveAttribute('href',root+'/agenda');
   const previews = page.getByRole('navigation',{name:'Explorações de funcionalidades futuras'});
   const destinations = [
     ['memorias','Há instantes que ficam.'],
@@ -830,6 +938,46 @@ test('protege prévias do Núcleo e descarta o rascunho da Ponte ao navegar', as
     await expect(link).toHaveAttribute('aria-current','page');
     await expect(page.getByRole('main').getByRole('heading',{name:title,exact:true})).toBeVisible();
     await expect(page.getByRole('main').getByText('Esboço de funcionalidade · ainda não desenvolvido',{exact:true})).toBeVisible();
+    if (destination==='arvore') {
+      await page.getByRole('button',{name:'Histórias',exact:true}).click();
+      await expect(page.getByRole('heading',{name:'O que vivemos também cria raízes.'})).toBeVisible();
+      await capture('arvore');
+    }
+    if (destination==='manifesto') {
+      await page.getByText('Escutar com respeito',{exact:true}).click();
+      await expect(page.getByText(/Criar espaço para ouvir até o fim/)).toBeVisible();
+      await capture('manifesto');
+    }
+    if (destination==='conexoes' || destination==='perfis') {
+      await page.getByRole('button',{name:/Lucas/}).click();
+      await page.getByRole('button',{name:'Gostos e afinidades',exact:true}).click();
+      await expect(page.getByRole('listitem').filter({hasText:'Música ao vivo'})).toBeVisible();
+      await expect(page.getByText(/aniversário em março/)).toBeVisible();
+      await capture(destination);
+      const profileTrigger = page.getByRole('button',{name:'Explorar perfil em detalhe'});
+      await profileTrigger.click();
+      const profile = page.getByRole('dialog',{name:'Perfil de exemplo · Lucas'});
+      await expect(profile).toBeVisible();
+      await capture(destination+'-detalhe');
+      await page.keyboard.press('Escape');
+      await expect(profile).toBeHidden();
+      await expect(profileTrigger).toBeFocused();
+    }
+    if (destination==='memorias') {
+      await page.getByRole('button',{name:'Pequenos gestos',exact:true}).click();
+      await expect(page.getByRole('heading',{name:'Nossa primeira caminhada',exact:true})).toBeVisible();
+      await expect(page.getByRole('button',{name:/O domingo no parque/})).toHaveCount(0);
+      await capture('memorias');
+      const detailTrigger = page.getByRole('button',{name:'Abrir detalhe da memória'});
+      await detailTrigger.click();
+      const memory = page.getByRole('dialog',{name:'Nossa primeira caminhada'});
+      await expect(memory).toBeVisible();
+      await capture('detalhe');
+      if (info.project.name==='mobile') await page.touchscreen.tap(5,5);
+      else await page.mouse.click(5,5);
+      await expect(memory).toBeHidden();
+      await expect(detailTrigger).toBeFocused();
+    }
   }
   const isolated = await browser.newContext();
   try {

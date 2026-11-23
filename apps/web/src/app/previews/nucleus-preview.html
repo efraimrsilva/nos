@@ -25,7 +25,7 @@
 
     @switch (kind) {
       @case ('arvore') {
-        <div class="preview-columns">
+        <div class="preview-columns garden-layout">
           <section class="surface tree-example">
             <h2>Uma árvore de possibilidades</h2>
             <div class="tree-illustration" role="img" aria-label="Árvore ilustrativa de troncos entrelaçados, sem indicador de progresso">
@@ -40,37 +40,53 @@
           <path d="m84 340 7-17 7 17m315 8 7-20 7 20" fill="none" stroke="#8ba66d" stroke-width="3" stroke-linecap="round" />
         </svg>
             </div>
-            <div class="preview-options" aria-label="Significados da árvore">
+            <p class="garden-caption">Cada gesto encontra seu tempo.</p>
+            <div class="preview-options garden-legend" role="group" aria-label="Significados da árvore">
               @for (item of roots; track item.key) {
                 <button class="icon-button" type="button" [attr.aria-pressed]="root() === item" (click)="root.set(item)">{{ item.label }}</button>
               }
             </div>
           </section>
-          <section class="surface example-panel" aria-live="polite">
-            <p class="preview-note">Exemplo ilustrativo · {{ root().label }}</p>
-            <h2>{{ root().title }}</h2><p>{{ root().text }}</p>
-            <p>Os critérios de representação ainda serão definidos. A árvore não calcula crescimento nem pontuação.</p>
-          </section>
+          <aside class="garden-context">
+            <section class="surface example-panel garden-purpose" aria-live="polite" aria-atomic="true">
+              <p class="preview-note">Exemplo ilustrativo · {{ root().label }}</p>
+              <h2>{{ root().title }}</h2><p>{{ root().text }}</p>
+            </section>
+            <section class="surface example-panel">
+              <h2>Sem pressa para florescer</h2>
+              <p>A árvore é uma metáfora visual. Os critérios de representação ainda serão definidos. A prévia não calcula crescimento nem pontuação.</p>
+              <p class="preview-note">Marcos e celebrações · planejados</p>
+            </section>
+          </aside>
         </div>
       }
       @case ('memorias') {
-        <div class="preview-options" aria-label="Filtrar exemplos de memórias">
+        <div class="preview-options memory-filters" role="group" aria-label="Filtrar exemplos de memórias">
           @for (option of filters; track option) {
             <button class="icon-button" type="button" [attr.aria-pressed]="filter() === option" (click)="filterMemories(option)">{{ option }}</button>
           }
+          <span class="preview-note">Sem fotos ou memórias reais</span>
         </div>
-        <div class="preview-columns">
-          <section class="preview-cards" aria-label="Memórias de exemplo">
+        <div class="preview-columns memory-layout">
+          <section class="preview-cards memory-grid" aria-label="Memórias de exemplo">
             @for (item of visibleMemories(); track item.title) {
               <button class="surface preview-card" type="button" [attr.data-tone]="item.tone" [attr.aria-pressed]="memory() === item" (click)="memory.set(item)">
-                <small>{{ item.type }}</small><strong>{{ item.title }}</strong><span>{{ item.date }}</span>
+                <span class="memory-art" aria-hidden="true">
+                  <app-nav-icon [name]="item.tone === 'green' ? 'tree' : item.tone === 'amber' ? 'appearance' : 'heart'" />
+                  <span>Exemplo ilustrativo</span>
+                </span>
+                <span class="memory-copy"><small>{{ item.type }}</small><strong>{{ item.title }}</strong><span>{{ item.date }}</span></span>
               </button>
             }
           </section>
-          <section class="surface example-panel" aria-live="polite">
-            <p class="preview-note">Exemplo ilustrativo · texto editorial</p>
-            <h2>{{ memory().title }}</h2><p>{{ memory().text }}</p>
+          <section class="surface example-panel memory-detail">
+            <div aria-live="polite" aria-atomic="true">
+              <p class="preview-note">Exemplo ilustrativo · texto editorial</p>
+              <h2>{{ memory().title }}</h2><p>{{ memory().text }}</p>
+              <blockquote>{{ memory().caption }}</blockquote>
+            </div>
             <button class="icon-button" type="button" (click)="detail.showModal()" aria-haspopup="dialog">Abrir detalhe da memória</button>
+            <p class="preview-note">Galeria de fotos e gratidão · planejadas</p>
           </section>
         </div>
         <dialog #detail class="shared-dialog" aria-labelledby="memory-example-title">
@@ -78,7 +94,7 @@
             <form method="dialog"><button class="icon-button" autofocus aria-label="Fechar detalhe da memória">×</button></form>
           </header>
           <p>{{ memory().text }}</p><blockquote>{{ memory().caption }}</blockquote>
-          <p>Exemplo editorial. Nenhuma memória é salva ou compartilhada.</p>
+          <p>Exemplo editorial. Galeria, envio de fotos e compartilhamento de memórias ainda estão planejados.</p>
         </dialog>
       }
       @case ('conexoes') { <ng-container [ngTemplateOutlet]="profiles" /> }
@@ -86,15 +102,16 @@
       @case ('manifesto') {
         <div class="preview-columns">
           <section class="surface example-panel manifesto-example">
-            <p class="preview-note">Exemplo ilustrativo · Manifesto</p>
-            <h2>Mais presença. Mais espaço para nós.</h2>
+            <p class="kicker">Exemplo ilustrativo · Manifesto</p>
+            <h2 class="font-display text-4xl leading-tight">Mais presença.<br>Mais espaço para nós.</h2>
             <p>Queremos um lugar onde cada pessoa possa ser quem é. Onde o cuidado seja uma escolha e as conversas tenham tempo para acontecer.</p>
-            <p>Texto editorial para imaginar possibilidades. O Núcleo ainda não possui um manifesto aprovado nesta área.</p>
+            <p class="border-t border-line pt-3 text-sm text-muted">Texto editorial de exemplo. Escrita conjunta, revisão e compartilhamento do Manifesto seguem planejados.</p>
           </section>
           <section class="surface example-panel">
+            <p class="kicker">Princípios do exemplo</p>
             <h2>Uma intenção, muitos gestos.</h2>
             @for (principle of principles; track principle.title) {
-              <details><summary>{{ principle.title }}</summary><p>{{ principle.text }}</p></details>
+              <details><summary>{{ principle.title }}</summary><p class="pt-2">{{ principle.text }}</p></details>
             }
           </section>
         </div>
@@ -102,19 +119,19 @@
       @case ('cuidado') {
         <div class="preview-columns">
           <section class="surface example-panel">
-            <p class="preview-note">Cartão de intenção · exemplo ilustrativo</p>
-            <h2>Uma conversa com intenção.</h2>
-            <p>Organize o que você gostaria de dizer para um encontro presencial. O texto fica nesta tela e se perde ao sair ou recarregar.</p>
+            <p class="kicker">Cartão de intenção · exemplo ilustrativo</p>
+            <h2 class="font-display text-3xl leading-tight">Uma conversa com intenção.</h2>
+            <blockquote class="m-0 border-s-4 border-line bg-[var(--accent-soft)] p-3">Quero conversar sobre como podemos estar mais presentes durante a semana.</blockquote>
             <label for="care-draft">O que você quer expressar?</label>
-            <textarea id="care-draft" #draftInput rows="4" maxlength="1200" [value]="draft()" (input)="setDraft(draftInput.value)" aria-describedby="draft-note"></textarea>
-            <p id="draft-note">Rascunho temporário · {{ draft().length }}/1200 caracteres.</p>
+            <textarea id="care-draft" #draftInput rows="4" maxlength="1200" placeholder="Uma intenção, com suas palavras…" [value]="draft()" (input)="setDraft(draftInput.value)" aria-describedby="draft-note draft-privacy"></textarea>
+            <p id="draft-note" class="text-sm text-muted">Rascunho temporário · {{ draft().length }}/1200 caracteres.</p>
             <div class="preview-options">
               <button class="button" type="button" (click)="togglePreparation()"
                 [attr.aria-expanded]="prepared()" aria-controls="care-preparation">{{ prepared() ? 'Fechar preparação' : 'Explorar preparação' }}</button>
-              @if (draft()) { <button class="icon-button" type="button" (click)="setDraft('')">Limpar rascunho</button> }
+              @if (draft()) { <button class="icon-button" type="button" (click)="setDraft(''); draftInput.focus()">Limpar rascunho</button> }
             </div>
-            <section id="care-preparation" [hidden]="!prepared()" aria-label="Preparação ilustrativa">
-              <div class="preview-options">
+            <section id="care-preparation" class="rounded-lg bg-[var(--accent-soft)] p-3" [hidden]="!prepared()" aria-label="Preparação ilustrativa">
+              <div class="preview-options" role="group" aria-label="Etapas da preparação">
                 @for (option of preparation; track option) {
                   <button class="icon-button" type="button" [attr.aria-pressed]="option === step()" (click)="step.set(option)">{{ option }}</button>
                 }
@@ -128,10 +145,16 @@
               </div>
             </section>
           </section>
-          <section class="surface example-panel">
-            <h2>Um tempo ao vivo</h2><p>A preparação é individual. A prévia não envia mensagem, convite ou cartão.</p>
-            <a class="button" [routerLink]="['/nucleos', nucleus.id, 'agenda']">Abrir agenda existente</a>
-          </section>
+          <aside class="garden-context">
+            <section class="surface example-panel garden-purpose">
+              <h2>Um tempo ao vivo</h2><p>Organize o que você gostaria de dizer para um encontro presencial. O envio do cartão e os convites da Ponte seguem planejados.</p>
+              <p id="draft-privacy">O texto fica nesta tela e se perde ao sair ou recarregar.</p>
+              <a class="button secondary" [routerLink]="['/nucleos', nucleus.id, 'agenda']">Abrir agenda existente</a>
+            </section>
+            <section class="surface example-panel">
+              <h2>Depois da conversa</h2><p>As pessoas envolvidas escolhem juntas o que fazer a seguir. O acompanhamento da conversa segue planejado.</p>
+            </section>
+          </aside>
         </div>
       }
     }
@@ -152,39 +175,60 @@
 }
 
 <ng-template #profiles>
-  <div class="preview-columns">
-    <section class="surface example-panel">
+  <div class="preview-columns profile-layout">
+    <section class="example-panel">
       <h2>{{ kind === 'perfis' ? 'Escolha um perfil de exemplo' : 'Encontros começam na curiosidade' }}</h2>
       <p>Exemplo ilustrativo · pessoas e informações fictícias.</p>
-      <div class="preview-options" aria-label="Pessoas fictícias">
+      <div class="grid grid-cols-3 gap-2" role="group" aria-label="Pessoas fictícias">
         @for (item of people; track item.name) {
-          <button class="icon-button" type="button" [attr.aria-pressed]="person() === item" (click)="person.set(item)">{{ item.name }}</button>
+          <button class="surface profile-choice grid min-w-0 content-start justify-items-center gap-1 break-words px-1 py-2.5 text-forest" type="button" [attr.aria-pressed]="person() === item" (click)="person.set(item)">
+            <span class="profile-avatar" [attr.data-tone]="item.tone" aria-hidden="true">{{ item.initials }}</span>
+            <strong>{{ item.name }}</strong><small>Perfil de exemplo</small>
+          </button>
         }
       </div>
-      <div aria-live="polite"><h3>Um pouco sobre {{ person().name }}</h3><p>{{ person().about }}</p></div>
+      <section class="surface example-panel">
+      <div aria-live="polite" aria-atomic="true">
+        <div class="profile-identity mb-2 flex items-center gap-3">
+          <span class="profile-avatar" [attr.data-tone]="person().tone" aria-hidden="true">{{ person().initials }}</span>
+          <h3>Um pouco sobre {{ person().name }}</h3>
+        </div>
+        <p>{{ person().about }}</p>
+      </div>
       <button class="icon-button" type="button" (click)="profileDetail.showModal()" aria-haspopup="dialog">Explorar perfil em detalhe</button>
-      <div class="preview-options" aria-label="Temas do perfil">
+      <div class="preview-options" role="group" aria-label="Temas do perfil">
         @for (item of topics; track item.key) {
           <button class="icon-button" type="button" [attr.aria-pressed]="topic() === item.key" (click)="topic.set(item.key)">{{ item.label }}</button>
         }
       </div>
-      <div aria-live="polite">
+      <div class="profile-topic rounded-lg bg-[var(--accent-soft)] p-3" aria-live="polite" aria-atomic="true">
         @switch (topic()) {
-          @case ('care') { <p>{{ person().care }}</p> }
-          @case ('likes') { <ul>@for (like of person().likes; track like) { <li>{{ like }}</li> }</ul> }
-          @case ('wish') { <p>{{ person().wish }}</p> }
+          @case ('care') { <h4>Eu me sinto cuidado quando…</h4><p>{{ person().care }}</p> }
+          @case ('likes') { <h4>Coisas que me fazem bem</h4><ul class="profile-affinities my-2 flex list-none flex-wrap gap-1.5 p-0">@for (like of person().likes; track $index) { <li>{{ like }}</li> }</ul> }
+          @case ('wish') { <h4>Uma vontade para compartilhar</h4><p>{{ person().wish }}</p> }
         }
       </div>
+      </section>
     </section>
-    <section class="surface example-panel"><h2>Datas com significado</h2><p>{{ person().date }}</p>
-      <p>Compartilhamento, edição e preferências de visibilidade estão previstos para uma etapa futura.</p>
-    </section>
+    <aside class="garden-context">
+      <section class="surface example-panel garden-purpose">
+        <h2>Conhecer é um convite.</h2>
+        <p>Quando o perfil afetivo estiver disponível, cada pessoa poderá escolher o que compartilhar e com quem.</p>
+      </section>
+      <section class="surface example-panel">
+        <h2>Datas com significado</h2><p>{{ person().date }}</p>
+        <p class="preview-note">Lembretes e notificações de datas · planejados</p>
+      </section>
+    </aside>
   </div>
   <dialog #profileDetail class="shared-dialog" aria-labelledby="profile-example-title">
     <header class="dialog-heading"><h2 id="profile-example-title">Perfil de exemplo · {{ person().name }}</h2>
       <form method="dialog"><button class="icon-button" autofocus aria-label="Fechar detalhe do perfil">×</button></form>
     </header>
-    <p>{{ person().about }}</p><p>{{ person().care }}</p><p>{{ person().likes.join(' · ') }}</p>
-    <p>Pessoa fictícia. Nenhum perfil real é consultado.</p>
+    <p>{{ person().about }}</p>
+    <section class="profile-topic my-3 rounded-lg bg-[var(--accent-soft)] p-3"><h3>Pistas de cuidado</h3><p>{{ person().care }}</p></section>
+    <h3>Gostos e afinidades</h3>
+    <ul class="profile-affinities my-2 flex list-none flex-wrap gap-1.5 p-0">@for (like of person().likes; track $index) { <li>{{ like }}</li> }</ul>
+    <p>Pessoa fictícia. Edição e compartilhamento de perfis reais seguem planejados.</p>
   </dialog>
 </ng-template>

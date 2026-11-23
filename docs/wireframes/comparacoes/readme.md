@@ -1,6 +1,19 @@
 - [v4.0.0-alpha.25 · Botão do Google](v4.0.0-alpha.25-2026-11-23-botao-google-tela-01-tela-02/index.html) — referência Next.js, Angular e Atlas nas Telas 01 e 02.
 
 - [v4.0.0-alpha.23 · Abertura e animações da Conta](v4.0.0-alpha.23-2026-11-23-conta-tela-01-tela-02/index.html) — Telas 01 e 02, Angular e Atlas em computador e celular.
+- [v4.0.0-alpha.30 · Revisão transversal](v4.0.0-alpha.30-2026-11-21-paridade-transversal-tela-13-tela-15-tela-18/index.html) — Início, participação na Agenda e Acordos móvel, antes/depois e Atlas.
+
+- [v4.0.0-alpha.28 · Manifesto e Ponte do Nós](v4.0.0-alpha.28-2026-11-20-paridade-manifesto-ponte-tela-55-tela-56-tela-57-tela-61-tela-62-tela-63-tela-64-tela-65/index.html) — capa, princípios, rascunho e etapas da preparação.
+
+- [v4.0.0-alpha.27 · Conexões e perfis](v4.0.0-alpha.27-2026-11-20-paridade-conexoes-perfis-tela-44-tela-45-tela-46-tela-47-tela-48-tela-49-tela-50-tela-51-tela-52-tela-53-tela-54/index.html) — pessoas fictícias, temas, diálogos e fichas planejadas.
+
+- [v4.0.0-alpha.26 · Árvore e Memórias](v4.0.0-alpha.26-2026-11-20-paridade-arvore-memorias-tela-38-tela-39-tela-40-tela-41-tela-42-tela-43/index.html) — jardim, cartões, diálogo e desenhos planejados.
+
+- [v4.0.0-alpha.25 · Termos e versões de Hábitos](v4.0.0-alpha.25-2026-11-20-paridade-termos-tela-30-tela-31-tela-32-tela-33-tela-34-tela-35-tela-36-tela-37/index.html) — revisão, histórico, encerramento e esboços em duas larguras.
+
+- [v4.0.0-alpha.24 · Ciclo de Hábitos](v4.0.0-alpha.24-2026-11-20-paridade-habitos-tela-24-tela-25-tela-26-tela-27-tela-28-tela-29/index.html) — detalhe, histórico, formulário de momento, período e confirmação administrativa.
+
+- [v4.0.0-alpha.23 · Acordos e participação](v4.0.0-alpha.23-2026-11-20-paridade-acordos-tela-18-tela-22-tela-23/index.html) — antes/depois de lista, proposta, conferência e recusa em computador e celular.
 
 - [Roteiro da guia Migração](v4.0.0-alpha.16-2026-11-19-guia-migracao/index.html) — antes e depois da guia em desktop e celular.
 

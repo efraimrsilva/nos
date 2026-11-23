@@ -52,17 +52,22 @@ try {
     assert.equal(await confirm.isEnabled(),true);
     await dialog.getByRole('button',{name:'Manter evento'}).click();
     assert.equal(await dialog.isVisible(),false);
-    const yes=preview.getByRole('button',{name:'Posso participar · exemplo',exact:true});
-    const no=preview.getByRole('button',{name:'Não posso participar · exemplo',exact:true});
-    await no.click();
-    assert.equal(await no.getAttribute('aria-pressed'),'true');
+    const responder=preview.getByRole('button',{name:/^Responder convite/});
+    await responder.click();
+    assert.equal(await dialog.isVisible(),true);
+    await page.keyboard.press('Escape');
+    assert.equal(await dialog.isVisible(),false);
+    await responder.click();
+    await dialog.getByRole('button',{name:'Não posso participar · exemplo',exact:true}).click();
+    assert.equal(await dialog.isVisible(),false);
     assert.match(await preview.locator('.live-own-attendance').innerText(),/não posso participar/);
-    await yes.click();
-    assert.equal(await no.getAttribute('aria-pressed'),'false');
-    assert.equal(await yes.getAttribute('aria-pressed'),'true');
+    await responder.click();
+    assert.equal(await dialog.getByRole('button',{name:'Não posso participar · exemplo',exact:true}).getAttribute('aria-pressed'),'true');
+    await dialog.getByRole('button',{name:'Posso participar · exemplo',exact:true}).click();
+    assert.match(await preview.locator('.live-own-attendance').innerText(),/vou participar/);
     assert.deepEqual(errors,[]);
     assert.deepEqual(external,[]);
     await page.close();
   }
-  console.log('Atlas Agenda: quatro telas, mês/ano, grade/lista, presença e três diálogos em desktop e celular.');
+  console.log('Atlas Agenda: quatro telas, mês/ano, grade/lista, presença e quatro diálogos em desktop e celular.');
 } finally { await browser.close(); }

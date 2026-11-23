@@ -1,15 +1,9 @@
-:host:not(.embedded-preferences):has(> section) { display: grid; gap: 1rem; margin-top: 1rem; }
-:host(.embedded-preferences) { display: contents; }
+:host { display:contents; }
 section { scroll-margin-top: 1rem; }
-h2 { font-size: 1.2rem; }
+section > h2 { font-size: 1.2rem; }
 section h2, dialog p { margin-bottom: .7rem; }
 section a { color: var(--leaf); }
-header { display: flex; justify-content: space-between; align-items: start; gap: .8rem; margin-bottom: .8rem; }
-.fields, .theme-options { display: grid; gap: .75rem; margin-block: .8rem; }
-.theme-options { grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); }
-.theme-option { display: flex; align-items: center; justify-content: start; gap: .65rem; text-align: start; }
-.theme-option[aria-pressed="true"] { border-color: var(--leaf); background: var(--accent-soft); }
-.swatch { width: 1.2rem; height: 1.2rem; flex: 0 0 auto; border: 2px solid; border-radius: 50%; }
+.fields { display: grid; gap: .75rem; margin-block: .8rem; }
 .choice { display: flex; gap: .65rem; align-items: start; }
 .choice input { margin-top: .45rem; accent-color: var(--leaf); }
 input[type="text"], textarea { font: inherit; min-width: 0; padding: .55rem; border: 1px solid var(--line); border-radius: .5rem; }

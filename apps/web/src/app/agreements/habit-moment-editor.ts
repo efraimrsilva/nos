@@ -11,10 +11,13 @@ import { habitMoodLabels,parseHabitMoment } from './habit-model';
       <fieldset class="habit-moods" [disabled]="pending() || uncertain()">
         <legend>Como foi o momento?</legend>
         @for (mood of moods; track mood.key) {
-          <label><input type="radio" name="mood" [value]="mood.key" required> {{ mood.label }}</label>
+          <label><input type="radio" name="mood" [value]="mood.key" required><span>{{ mood.label }}</span></label>
         }
       </fieldset>
-      <label>Nota opcional <textarea class="habit-note" name="note" rows="4" maxlength="500" [disabled]="pending() || uncertain()"></textarea></label>
+      <label class="habit-note-field">Nota opcional
+        <textarea class="habit-note" name="note" rows="4" maxlength="500" aria-describedby="habit-note-visibility" [disabled]="pending() || uncertain()"></textarea>
+      </label>
+      <p class="habit-field-help" id="habit-note-visibility">A nota fica visível às pessoas do Núcleo.</p>
       @if (error()) { <p class="form-error" role="alert">{{ error() }}</p> }
       <button class="button" type="submit" [disabled]="pending() || uncertain()">{{ pending()?'Salvando…':'Salvar momento' }}</button>
     </form>

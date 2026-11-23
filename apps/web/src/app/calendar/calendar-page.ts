@@ -183,8 +183,8 @@ export class CalendarPage {
     this.dialogError.set('');
   }
 
-  protected respond(event:CalendarEvent,response:'accepted'|'declined') {
-    void this.apply({kind:'respond',event,response});
+  protected respond(event:CalendarEvent,response:'accepted'|'declined',dialog:HTMLDialogElement) {
+    void this.apply({kind:'respond',event,response},dialog);
   }
 
   protected remove(event:SubmitEvent,dialog:HTMLDialogElement) {
