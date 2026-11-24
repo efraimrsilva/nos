@@ -16,7 +16,6 @@ label { font-weight: 650; }
 input { width: 100%; min-width: 0; min-height: 2.75rem; border: 1px solid #9fadab; border-radius: .6rem; padding: .5rem .75rem; }
 .dialog-header, .name-value, .actions { display: flex; align-items: center; gap: .8rem; }
 .dialog-header { justify-content: space-between; align-items: flex-start; }
-.dialog-header h2 { font: 500 clamp(1.4rem, 4vw, 1.8rem)/1.2 var(--app-font); }
 .account-description { margin-top: 1rem; font-size: .9rem; }
 dialog .secondary { background: transparent; border-color: var(--line); color: var(--leaf); }
 dl { margin: 1.35rem 0; }

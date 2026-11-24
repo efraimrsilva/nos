@@ -23,12 +23,12 @@ import { statusLabel } from './proposal-model';
       @if (mode==='record' && !canRecord(view.agreement)) {
         <section class="surface"><h1 tabindex="-1">Registro indisponível</h1>
           <p>Para registrar, aceite os termos vigentes de um Hábito em teste ou ativo.</p>
-          <a class="button" [routerLink]="['/nucleos',view.scope.id,'acordos',view.agreement.id]">Voltar ao Hábito</a>
+          <a class="back-button" [routerLink]="['/nucleos',view.scope.id,'acordos',view.agreement.id]">Voltar ao Hábito</a>
         </section>
       } @else {
         <header class="nucleus-header agreement-heading">
           <div><p class="kicker">{{ view.name }}</p><h1 tabindex="-1">{{ title }}</h1><p>{{ view.agreement.title }}</p></div>
-          <a class="text-link" [routerLink]="['/nucleos',view.scope.id,'acordos',view.agreement.id]">Voltar ao Hábito</a>
+          <a class="back-button" [routerLink]="['/nucleos',view.scope.id,'acordos',view.agreement.id]">Voltar ao Hábito</a>
         </header>
         @switch (mode) {
           @case ('period') {

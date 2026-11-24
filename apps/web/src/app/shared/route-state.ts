@@ -17,7 +17,7 @@ import { RouterLink } from '@angular/router';
         <section class="surface">
           <h1 tabindex="-1">Página não encontrada</h1>
           <p>Confira o endereço ou volte ao início para continuar.</p>
-          <a class="button" routerLink="/boas-vindas">Voltar ao início</a>
+          <a class="back-button" routerLink="/boas-vindas">Voltar ao início</a>
         </section>
       }
     }

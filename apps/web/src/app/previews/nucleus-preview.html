@@ -10,7 +10,7 @@
   @for (nucleus of [access.nucleus]; track nucleus.id) {
     <header class="preview-header">
       <a [routerLink]="['/nucleos', nucleus.id]">{{ nucleus.name }}</a>
-      <p class="preview-note">Esboço de funcionalidade · ainda não desenvolvido</p>
+      <p class="feature-sketch"><strong>Esboço de funcionalidade · ainda não desenvolvido</strong><br>Os exemplos são ilustrativos. As interações desta prévia não são salvas.</p>
       <p class="preview-note">{{ section.eyebrow }}</p>
       <h1 tabindex="-1">{{ section.title }}</h1>
       <p>{{ section.description }}</p>

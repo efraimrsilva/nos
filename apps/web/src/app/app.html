@@ -1,7 +1,7 @@
 <a class="skip" href="#conteudo" (click)="skipToContent($event)">Pular para o conteúdo</a>
 <div class="shell" [class.sidebar-hidden]="sidebarHidden()" [class.public-layout]="publicLayout()">
   <aside id="desktop-navigation" class="sidebar" [attr.inert]="sidebarHidden() ? '' : null">
-    <a class="brand" routerLink="/nucleos" aria-label="Nós — Seus Núcleos">nós<span>.</span></a>
+    <a class="brand shell-brand" routerLink="/nucleos" aria-label="Nós — Seus Núcleos"><span class="shell-brand-mark"><app-nav-icon name="leaf" /></span>nós.</a>
     <p class="caption">Cultivar juntos</p>
     <nav aria-label="Áreas do Nós">
       @for (group of groups(); track group.label) {
@@ -23,14 +23,6 @@
           </svg>
           <span>nós<span>.</span></span>
         </a>
-        @if (currentPath() === 'boas-vindas' || currentPath() === 'conta/nova-senha') {
-          <span class="public-privacy">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
-              <rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4m-4 6v2"/>
-            </svg>
-            Um espaço privado para seus vínculos
-          </span>
-        }
         @if (profile.user()) {
           <app-problem-report prefix="public-header-support" [iconOnly]="true" />
         }
@@ -45,13 +37,15 @@
         </button>
         @if (currentNucleus(); as nucleus) {
           <a class="breadcrumb-context" [routerLink]="['/nucleos',nucleus.id]">{{ nucleus.name }}</a>
-        } @else { <span class="breadcrumb-context">Meu espaço</span> }<span aria-hidden="true">/</span><span>{{ activeLabel() }}</span>
+        } @else { <a class="breadcrumb-context" routerLink="/nucleos">Meu espaço</a> }<span class="breadcrumb-separator" aria-hidden="true">/</span><span>{{ activeLabel() }}</span>
       </div>
-      <a class="brand mobile-brand" routerLink="/boas-vindas" aria-label="Nós — início">nós<span>.</span></a>
-      @if (profile.user()) {
+      <div class="mobile-header-start">
+        <a class="brand mobile-brand shell-brand" [routerLink]="contextId() ? ['/nucleos',contextId()] : ['/nucleos']" aria-label="Nós — início"><span class="shell-brand-mark"><app-nav-icon name="leaf" /></span>nós.</a>
         @if (currentNucleus(); as nucleus) {
-          <a class="mobile-context" routerLink="/nucleos" title="Trocar de Núcleo" aria-label="Trocar de Núcleo" [attr.aria-description]="'Núcleo atual: ' + nucleus.name">{{ nucleus.name }} <span aria-hidden="true">⌄</span></a>
-        }
+          <a class="mobile-context" routerLink="/nucleos" title="Trocar de Núcleo" aria-label="Trocar de Núcleo" [attr.aria-description]="'Núcleo atual: ' + nucleus.name">{{ nucleus.name }}</a>
+        } @else { <span class="mobile-context">Seu espaço</span> }
+      </div>
+      @if (profile.user()) {
         <div class="header-tools">
           <app-problem-report prefix="header-support" [iconOnly]="true" />
           <button class="icon-button" type="button" (click)="notifications.showModal()" aria-haspopup="dialog"

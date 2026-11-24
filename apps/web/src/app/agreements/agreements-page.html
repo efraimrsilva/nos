@@ -58,7 +58,7 @@
     </button>
   </ng-template>
   <ng-template #essenceContent>
-    <h2>Essência</h2><p class="badge">Planejada</p>
+    <h2>Essência</h2><p class="feature-sketch"><strong>Esboço de funcionalidade</strong><br>Os critérios para reconhecer uma Essência ainda estão planejados.</p>
     <p>Reconhecimento voluntário de uma prática. Os critérios e consentimentos ainda serão definidos.</p>
     <button class="button secondary" type="button" aria-haspopup="dialog" (click)="essence.showModal()">Ver esboço de Essência</button>
   </ng-template>
@@ -118,7 +118,7 @@
       @if (view.hasNext) { <a class="button secondary" [routerLink]="[]" [queryParams]="{pagina:page()+1}">Próxima página</a> }
     </nav>
   }
-  <p class="agreement-pagination"><a class="text-link" [routerLink]="['/nucleos',view.scope.id]">Voltar ao Núcleo</a></p>
+  <p class="agreement-pagination"><a class="back-button" [routerLink]="['/nucleos',view.scope.id]">Voltar ao Núcleo</a></p>
   <dialog #proposal class="shared-dialog agreement-wide-dialog" aria-labelledby="proposal-title" (close)="!proposal.open && editor.reset()">
     <header class="dialog-heading"><h2 id="proposal-title">Nova proposta</h2>
       <form method="dialog"><button class="dialog-close" aria-label="Fechar proposta" autofocus></button></form>
@@ -147,6 +147,6 @@
     <header class="dialog-heading"><h2 id="agreement-essence-title">Nossa Essência</h2>
       <form method="dialog"><button class="dialog-close" aria-label="Fechar Essência" autofocus></button></form>
     </header>
-    <p class="badge">Esboço</p><p>Uma possibilidade para reconhecer práticas compartilhadas. Critérios, consentimentos e passagens ainda serão definidos.</p>
+    <p class="feature-sketch"><strong>Esboço de funcionalidade</strong></p><p>Uma possibilidade para reconhecer práticas compartilhadas. Critérios, consentimentos e passagens ainda serão definidos.</p>
   </dialog>
 }

@@ -5,6 +5,7 @@
         <p>Gerencie os convites de {{ item.name }}.</p></div>
       <button class="button invite-icon-action" type="button" aria-haspopup="dialog" (click)="preparing.set(true); prepare.showModal()"><app-nav-icon name="plus" />Preparar convite</button>
     </header>
+    <p class="feature-sketch"><strong>Esboço de funcionalidade · Próximas opções de convite</strong><br>Convites por código já estão disponíveis. QR e convites por link estão planejados.</p>
     <nav class="invite-tabs" aria-label="Status dos convites">
       @for (option of filters; track option.key) {
         <a [routerLink]="['/nucleos',item.scope.id,'convites']" [queryParams]="{status:option.key}"
@@ -52,7 +53,7 @@
         @if (item.hasNext) { <a class="button secondary" [routerLink]="['/nucleos',item.scope.id,'convites']" [queryParams]="{status:item.filter,pagina:item.page+1}">Próxima página</a> }
       </nav>
     }
-    <p class="invite-note"><a class="invite-back" [routerLink]="['/nucleos',item.scope.id]"><app-nav-icon name="left" />Voltar ao Núcleo</a></p>
+    <p class="invite-note"><a class="back-button" [routerLink]="['/nucleos',item.scope.id]"><app-nav-icon name="left" />Voltar ao Núcleo</a></p>
     <dialog #prepare class="shared-dialog" aria-labelledby="prepare-invite-title" (close)="!prepare.open && preparing.set(false)">
       <header class="dialog-heading"><h2 id="prepare-invite-title">Preparar convite</h2>
         <form method="dialog"><button class="dialog-close" aria-label="Fechar preparo" autofocus></button></form></header>

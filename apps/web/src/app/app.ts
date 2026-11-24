@@ -29,6 +29,8 @@ export class App {
   private readonly data = inject(NucleiData);
   protected readonly nucleusId = signal<string | null>(null);
   protected readonly currentPath = signal('');
+  private navigationOrigins: {nav:HTMLElement; rect:DOMRect}[] = [];
+  private readonly navigationHighlights = new Map<HTMLElement,HTMLElement>();
   protected readonly publicLayout = computed(() => {
     const path = this.currentPath();
     // Antes do primeiro NavigationEnd, o layout público evita exibir a navegação interna.
@@ -174,6 +176,7 @@ export class App {
     inject(DestroyRef).onDestroy(installDialogBackdropDismiss(inject(DOCUMENT)));
     this.router.events.pipe(takeUntilDestroyed()).subscribe(event => {
       if (event instanceof NavigationStart || event instanceof NavigationSkipped) this.failedUrl.set('');
+      if (event instanceof NavigationStart) this.rememberNavigationHighlight();
       if (event instanceof NavigationError) this.failedUrl.set(event.url);
       if (event instanceof NavigationEnd) {
         const path = this.router.parseUrl(event.urlAfterRedirects).root.children['primary']
@@ -192,9 +195,60 @@ export class App {
         this.accountMenu()?.nativeElement.close();
         // Depois de Voltar, Avançar ou seguir um link interno, o foco acompanha o novo conteúdo.
         if (!this.initialNavigation && pathChanged) this.focusPage();
+        if (pathChanged && this.navigationOrigins.length) {
+          const origins = this.navigationOrigins;
+          afterNextRender(() => {
+            if (this.currentPath() === path) this.moveNavigationHighlight(origins);
+          },{injector:this.injector});
+        }
         this.initialNavigation = false;
       }
     });
+  }
+
+  private rememberNavigationHighlight() {
+    this.navigationOrigins = [];
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    for (const nav of document.querySelectorAll<HTMLElement>('#desktop-navigation > nav, .mobile-nav')) {
+      const active = this.navigationHighlights.get(nav) ?? nav.querySelector('a.active, a.in-area, button.active');
+      if (active?.getClientRects().length) this.navigationOrigins.push({nav,rect:active.getBoundingClientRect()});
+    }
+  }
+
+  private moveNavigationHighlight(origins: {nav:HTMLElement; rect:DOMRect}[]) {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    for (const {nav,rect:from} of origins) {
+      const active = nav.querySelector('a.active, a.in-area, button.active');
+      if (!active?.getClientRects().length) continue;
+      const to = active.getBoundingClientRect();
+      if (from.x === to.x && from.y === to.y) continue;
+      const frame = nav.getBoundingClientRect();
+      this.navigationHighlights.get(nav)?.remove();
+      const highlight = document.createElement('span');
+      highlight.setAttribute('aria-hidden','true');
+      // Só a sobreposição percorre a distância entre os itens; layout e alvos ficam imóveis.
+      Object.assign(highlight.style,{
+        position:'absolute', pointerEvents:'none', zIndex:'-1', borderRadius:'.45rem',
+        background:'var(--accent-soft)', boxShadow:'var(--nav-moving-shadow,inset 3px 0 var(--leaf))',
+        left:to.x-frame.x-nav.clientLeft+nav.scrollLeft+'px', top:to.y-frame.y-nav.clientTop+nav.scrollTop+'px',
+        width:to.width+'px', height:to.height+'px', transformOrigin:'top left',
+      });
+      this.navigationHighlights.set(nav,highlight);
+      nav.style.setProperty('--nav-active-background','transparent');
+      nav.style.setProperty('--nav-active-shadow','none');
+      nav.append(highlight);
+      const animation = highlight.animate([
+        {transform:`translate(${from.x-to.x}px,${from.y-to.y}px) scale(${from.width/to.width},${from.height/to.height})`},
+        {transform:'none'},
+      ],{duration:300,easing:'cubic-bezier(.22,1,.36,1)'});
+      animation.onfinish = () => {
+        if (this.navigationHighlights.get(nav) !== highlight) return;
+        this.navigationHighlights.delete(nav);
+        highlight.remove();
+        nav.style.removeProperty('--nav-active-background');
+        nav.style.removeProperty('--nav-active-shadow');
+      };
+    }
   }
 
   protected skipToContent(event: Event) {

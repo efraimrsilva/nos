@@ -3,7 +3,7 @@ import { NucleiData } from './nuclei-data';
 import { isNucleusId } from './nucleus-model';
 
 export type ManagementScope = { owner: string; id: string };
-export type ManagementOperation = 'name' | 'purpose' | 'nominate' | 'accept' | 'decline' | 'demote' | 'remove' | 'leave' | 'close';
+export type ManagementOperation = 'name' | 'purpose' | 'promote' | 'demote' | 'remove' | 'leave' | 'close';
 
 @Injectable({providedIn:'root'})
 export class NucleusManagementData {
@@ -23,9 +23,7 @@ export class NucleusManagementData {
     const calls = {
       name:['update_nucleus_identity',{...base,identity_field:'name',identity_value:value}],
       purpose:['update_nucleus_identity',{...base,identity_field:'purpose',identity_value:value}],
-      nominate:['nominate_nucleus_admin',{...base,target_user:target}],
-      accept:['respond_nucleus_admin_nomination',{...base,accept_nomination:true}],
-      decline:['respond_nucleus_admin_nomination',{...base,accept_nomination:false}],
+      promote:['promote_nucleus_admin',{...base,target_user:target}],
       demote:['demote_nucleus_admin',{...base,target_user:target}],
       remove:['remove_nucleus_member',{...base,target_user:target}],
       leave:['leave_nucleus',base],

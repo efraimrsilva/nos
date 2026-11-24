@@ -7,7 +7,7 @@ import { accessLink, isValidPassword, passwordHelp, safeAuthNext } from './auth-
   imports: [RouterLink],
   template: `
     <div class="auth-focused">
-      <a class="auth-back" [routerLink]="link('/conta?modo=login')"><span aria-hidden="true">←</span> Voltar para Conta</a>
+      <a class="back-button" [routerLink]="link('/conta?modo=login')"><span aria-hidden="true">←</span> Voltar para Conta</a>
       <header>
         <p class="auth-kicker">Sua conta</p>
         <h1 tabindex="-1">Redefinir senha</h1>

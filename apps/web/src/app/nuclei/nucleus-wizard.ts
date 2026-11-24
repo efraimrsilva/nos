@@ -11,7 +11,7 @@ import { NucleusSteps } from './nucleus-steps';
   imports:[RouterLink,NavIcon],
   styleUrl:'./nucleus-wizard.css',
   template:`
-    <a class="wizard-back" routerLink="/nucleos"><app-nav-icon name="left" />Voltar a Seus Núcleos</a>
+    <a class="back-button" routerLink="/nucleos"><app-nav-icon name="left" />Voltar a Seus Núcleos</a>
     <header class="nucleus-header">
       <div><p class="kicker">Seu primeiro passo</p><h1 tabindex="-1">Como você quer começar?</h1>
         <p>Crie um espaço novo ou junte-se a quem te convidou.</p></div>
@@ -37,7 +37,7 @@ export class ChoosePath {}
   imports:[RouterLink,NucleusSteps,NavIcon],
   styleUrl:'./nucleus-wizard.css',
   template:`
-    <a class="wizard-back" routerLink="/comecar"><app-nav-icon name="left" />Voltar</a>
+    <a class="back-button" routerLink="/comecar"><app-nav-icon name="left" />Voltar</a>
     <app-nucleus-steps [current]="1" />
     <header class="nucleus-header"><div><p class="kicker">Um espaço com o jeito de vocês</p>
       <h1 tabindex="-1">Que relação vocês têm?</h1><p>Cada tipo de Núcleo cresce com objetivos diferentes.</p></div></header>

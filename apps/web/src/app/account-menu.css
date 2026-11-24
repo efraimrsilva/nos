@@ -99,7 +99,7 @@
 .removal-confirm { background:#9a232e; border-color:#9a232e; color:white; }
 .account-dialog-wide.shared-dialog { width:min(900px,calc(100vw - 32px)); }
 .account-dialog-header { display:flex; justify-content:space-between; align-items:start; gap:22px; margin-bottom:22px; }
-.account-dialog-header h2 { margin:0; font:500 28px/1.25 var(--app-font); letter-spacing:-.5px; overflow-wrap:anywhere; }
+.account-dialog-header h2 { margin:0; }
 .account-dialog-description,.settings-copy { color:var(--muted); font-size:14px; line-height:1.8; }
 .account-dialog-description { margin-bottom:24px; }
 .control-section + .control-section { margin-top:22px; }
@@ -110,7 +110,6 @@
 @media (max-width:700px) {
   .account-settings-grid { grid-template-columns:1fr; gap:18px; }
   .account-dialog.shared-dialog { width:calc(100vw - 24px); padding:22px; }
-  .account-dialog-header h2 { font-size:25px; }
 }
 /* O fechamento continua nativo; o movimento só acompanha a entrada e as interações. */
 @media (prefers-reduced-motion:no-preference) {

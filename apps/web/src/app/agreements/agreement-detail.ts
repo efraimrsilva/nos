@@ -28,7 +28,7 @@ import { type HabitContext } from './habit-data';
       <header class="nucleus-header agreement-heading">
         <div><p class="kicker">{{ view.agreement.status==='pending'?'Proposta':'Hábito' }} · {{ view.name }}</p>
           <h1 tabindex="-1">{{ view.agreement.title }}</h1><p>Confira a prática, os termos e sua participação.</p></div>
-        <a class="text-link" [routerLink]="['/nucleos',view.scope.id,'acordos']">Voltar a Acordos</a>
+        <a class="back-button" [routerLink]="['/nucleos',view.scope.id,'acordos']">Voltar a Acordos</a>
       </header>
       @if (momentNotice()) { <p class="surface agreement-feedback" role="status">{{ momentNotice() }}</p> }
       <div class="habit-detail-layout">

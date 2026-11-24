@@ -22,7 +22,6 @@
 .auth-message { margin-bottom: 1rem; }
 .auth-error { color: #9a232e; }
 .auth-dialog-heading { display:flex; justify-content:space-between; align-items:start; gap:1rem; margin-bottom:.65rem; }
-.auth-dialog-heading h2 { font: 500 1.8rem/1.2 Georgia, serif; }
 @media (min-width: 960px) {
   .auth-layout { grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); }
 }
@@ -40,7 +39,6 @@
 @keyframes auth-enter { from { opacity:0; transform:translateY(6px); } }
 
 .auth-feedback { margin-block:.2rem; padding:.55rem .7rem; border-radius:.45rem; background:var(--accent-soft); }
-.auth-dialog-heading h2 { font-family:inherit; font-size:clamp(1.35rem,3vw,1.65rem); font-weight:600; line-height:1.2; }
 .auth-focused { display:grid; gap:1.1rem; max-width:36rem; margin-inline:auto; }
 .auth-focused .auth-card { width:100%; }
 .auth-focused header { display:grid; gap:.45rem; }

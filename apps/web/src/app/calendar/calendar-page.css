@@ -1,4 +1,3 @@
-.agenda-sketch { border:1px dashed #947433; border-radius:.6rem; background:#faf5e8; color:#624c1c; padding:.7rem .9rem; font-size:.86rem; }
 .agenda-heading { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin:1.25rem 0; }
 .agenda-heading h1 { margin:.25rem 0; }
 .agenda-heading p:last-child,.agenda-note { color:var(--muted); }

@@ -20,7 +20,7 @@ import { NucleusManagementData, type ManagementScope } from './nucleus-managemen
       @for (item of [view]; track item.scope.id) {
         <header class="nucleus-header"><div><p class="kicker">{{ item.name }}</p>
           <h1 tabindex="-1">Sair de um Núcleo</h1><p>Você pode sair a qualquer momento.</p></div>
-          <a class="nucleus-back" [routerLink]="['/nucleos',item.scope.id]"><app-nav-icon name="left" />Voltar ao Núcleo</a>
+          <a class="back-button" [routerLink]="['/nucleos',item.scope.id]"><app-nav-icon name="left" />Voltar ao Núcleo</a>
         </header>
         <div class="overview-grid">
           <section class="surface"><h2 class="nucleus-panel-heading">Antes de sair <app-nav-icon name="logout" /></h2>
@@ -30,11 +30,6 @@ import { NucleusManagementData, type ManagementScope } from './nucleus-managemen
             <p>{{ item.hidden ? 'Sua preferência está ativada: a autoria de suas interações será ocultada após esta saída; o conteúdo permanecerá.' : 'Sua preferência está desativada: a autoria dos registros será preservada.' }} O texto ainda pode identificar você.</p>
             <p><a class="text-link" routerLink="/conta" fragment="privacidade">Conferir minha preferência</a></p>
           </section>
-          @if (item.admin) {
-            <section class="surface"><h2>Você administra este Núcleo</h2>
-              <p>Outro administrador continuará administrando. Se você for o último administrador, uma pessoa que permanecer será sorteada automaticamente. Se ninguém permanecer, o Núcleo será encerrado e os convites revogados.</p>
-            </section>
-          }
         </div>
         <section class="surface nucleus-leave-review" aria-labelledby="leave-review">
           <h2 id="leave-review">Confirmar saída</h2>
