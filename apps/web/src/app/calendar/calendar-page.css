@@ -26,7 +26,7 @@
 .agenda-detail-header { padding-bottom:.7rem; margin-bottom:1rem; border-bottom:1px solid var(--line); }
 .agenda-detail h2 { font-size:1.08rem; }
 .agenda-icon-action { display:flex; --icon-tone:currentColor; }
-.agenda-detail h3 { font:400 1.85rem/1.2 Georgia,serif; margin:.5rem 0; overflow-wrap:anywhere; }
+.agenda-detail h3 { font:400 1.85rem/1.2 var(--app-font); margin:.5rem 0; overflow-wrap:anywhere; }
 .agenda-detail p { margin:.7rem 0; overflow-wrap:anywhere; }
 .agenda-intention { white-space:pre-wrap; }
 .agenda-detail small,.agenda-list-event small { color:var(--muted); }

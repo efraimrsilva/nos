@@ -8,6 +8,7 @@
 <div class="invite-entry">
   <section class="surface invite-entry-card" aria-label="Conferir um convite">
     <form class="invite-form" (submit)="inspect($event)" [attr.aria-busy]="inspecting()" novalidate>
+      <p>Recebeu um convite? Confira o contexto do Núcleo antes de decidir.</p>
       <label for="invitation-input">Código de convite</label>
       <input #input id="invitation-input" data-invitation-secret type="text" spellcheck="false" autocapitalize="off"
         autocomplete="off" maxlength="128" placeholder="Cole o código recebido" required [value]="code()" [disabled]="accepting()"

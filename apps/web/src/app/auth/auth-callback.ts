@@ -5,7 +5,7 @@ import { RecoveryAuth } from './recovery-auth';
 import { accessLink, safeAuthNext, single } from './auth-flow';
 
 @Component({
-  template: '<p role="status">Conferindo o link…</p>',
+  template: '<p class="loading-state" role="status">Conferindo o link…</p>',
 })
 export class AuthCallback implements OnInit {
   private readonly route = inject(ActivatedRoute);

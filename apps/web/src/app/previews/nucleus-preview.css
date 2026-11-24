@@ -17,11 +17,11 @@
 .tree-illustration svg { display: block; width: 100%; height: auto; }
 .tree-example { background:radial-gradient(ellipse at 50% 44%,var(--surface),var(--hero)); }
 .tree-example .tree-illustration { width:min(100%,33rem); background:none; }
-.garden-caption { text-align:center; font:1.2rem/1.5 Georgia,serif; color:var(--leaf); }
+.garden-caption { text-align:center; font:1.2rem/1.5 var(--app-font); color:var(--leaf); }
 .garden-legend { justify-content:center; border-top:1px solid var(--line); padding-top:.75rem; margin-bottom:0; }
 .garden-context { display:grid; gap:1rem; }
 .garden-purpose { background:var(--accent-soft); }
-.garden-purpose h2,.memory-copy strong,.memory-detail blockquote { font-family:Georgia,serif; }
+.garden-purpose h2,.memory-copy strong,.memory-detail blockquote { font-family:var(--app-font); }
 .memory-filters { align-items:center; }
 .memory-filters > span { margin-inline-start:auto; font-size:.85rem; }
 .memory-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }

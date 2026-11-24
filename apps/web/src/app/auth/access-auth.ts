@@ -6,7 +6,7 @@ import { callbackCode, callbackUrl, isValidEmail, isValidPassword, accessLink, s
 const unavailable = 'Não foi possível acessar o serviço de autenticação. Tente novamente em instantes.';
 const signupError = 'Não foi possível criar a conta agora. Confira os dados e tente novamente.';
 const duplicate = 'Este e-mail já possui uma conta. Use Já tenho conta para entrar ou recuperar o acesso.';
-type EmailKind = 'confirmation' | 'recovery';
+export type EmailKind = 'confirmation' | 'recovery';
 type Result = {message: string; success: boolean; path?: string};
 const fail = (message: string): Result => ({message, success: false});
 

@@ -8,6 +8,19 @@
   <meta name="theme-color" content="#f5f7f1">
   <meta name="referrer" content="no-referrer">
   <meta name="robots" content="noindex,nofollow">
+  <script>
+    // Colore o fundo antes de o Angular restaurar a sessão e aplicar a paleta completa.
+    try {
+      const path = location.pathname;
+      if (path !== '/boas-vindas' && !path.startsWith('/conta/') && !path.startsWith('/auth/')) {
+        const saved = JSON.parse(localStorage.getItem('nos-angular-theme') || 'null');
+        if (/^#[0-9a-f]{6}$/i.test(saved?.canvas || '')) {
+          document.documentElement.style.setProperty('--canvas', saved.canvas);
+          document.querySelector('meta[name="theme-color"]').content = saved.canvas;
+        }
+      }
+    } catch { /* A paleta padrão cobre a ausência de armazenamento. */ }
+  </script>
 </head>
 <body>
   <app-root></app-root>

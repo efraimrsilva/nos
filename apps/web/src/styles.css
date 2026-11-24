@@ -13,11 +13,26 @@
   --color-line: var(--line);
   --color-lilac: #7955a5;
   --font-sans: Arial, Helvetica, sans-serif;
-  --font-display: Georgia, serif;
+  --font-display: var(--app-font);
 }
+
+@property --canvas { syntax:"<color>"; inherits:true; initial-value:#f5f7f1; }
+@property --surface { syntax:"<color>"; inherits:true; initial-value:#fffefa; }
+@property --ink { syntax:"<color>"; inherits:true; initial-value:#293e35; }
+@property --muted { syntax:"<color>"; inherits:true; initial-value:#657368; }
+@property --leaf { syntax:"<color>"; inherits:true; initial-value:#345d44; }
+@property --line { syntax:"<color>"; inherits:true; initial-value:#dce3d6; }
+@property --accent-soft { syntax:"<color>"; inherits:true; initial-value:#e6eddf; }
+@property --nav-surface { syntax:"<color>"; inherits:true; initial-value:#fafbf6; }
+@property --hero { syntax:"<color>"; inherits:true; initial-value:#e9efdf; }
+@property --on-leaf { syntax:"<color>"; inherits:true; initial-value:#ffffff; }
+@property --theme-error { syntax:"<color>"; inherits:true; initial-value:#9a232e; }
 
 :root {
   color-scheme: light;
+  --app-font: "Segoe UI", system-ui, sans-serif;
+  --role-admin-ink: #725000;
+  --role-member-ink: #165b32;
   --canvas: #f5f7f1;
   --ink: #293e35;
   --leaf: #345d44;
@@ -52,4 +67,85 @@ button:disabled { cursor: wait; opacity: .65; }
   padding: clamp(1rem, 4vw, 1.75rem); border: 1px solid var(--line); border-radius: .75rem;
   background: var(--surface); color: var(--ink); box-shadow: 0 18px 50px #10292333;
 }
-.shared-dialog::backdrop { background: #17232e7a; }
+dialog::backdrop { background: #17232e7a; backdrop-filter: blur(3px); }
+/* O seletor aninhado aproveita o desfoque que o menu já aplica à página. */
+:is(.account-shortcuts,.more-dialog) .theme-picker-dialog::backdrop { background:#17232e45; backdrop-filter:none; }
+
+/* Ícones de traço mantêm o peso visual inclusive fora do componente de navegação. */
+svg[stroke="currentColor"] {
+  stroke-width:2.35;
+  filter:drop-shadow(0 1px 2px color-mix(in srgb,currentColor 33%,transparent));
+}
+dialog button.dialog-close {
+  appearance:none; display:grid; place-items:center; flex:none; box-sizing:border-box;
+  width:2.75rem; min-width:2.75rem; height:2.75rem; min-height:2.75rem; margin:0; padding:0;
+  border:1px solid var(--line); border-radius:.6rem; background:var(--surface); color:var(--leaf);
+}
+dialog button.dialog-close::before, dialog button.dialog-close::after {
+  content:''; grid-area:1/1; width:1.35rem; height:.16rem; border-radius:1rem; background:currentColor;
+}
+dialog button.dialog-close::before { transform:rotate(45deg); }
+dialog button.dialog-close::after { transform:rotate(-45deg); }
+dialog button.dialog-close:is(:hover,:focus-visible) { background:#c43d40; border-color:#c43d40; color:#fff; }
+
+.loading-state {
+  display: grid; place-content: center; justify-items: center; gap: .85rem;
+  width: 100%; min-height: 8rem; margin-inline: auto; padding: 1rem;
+  color: var(--muted); text-align: center;
+}
+.loading-state::before {
+  content: ''; width: 2.5rem; height: 2.5rem; border-radius: 50%;
+  border: 4px solid var(--line); border-top-color: var(--leaf);
+}
+@media (prefers-reduced-motion: no-preference) {
+  dialog button.dialog-close { transition: transform .18s ease, background-color .25s ease, color .25s ease, border-color .25s ease; }
+  dialog button.dialog-close:is(:hover, :focus-visible) { transform: translateY(-2px); }
+  dialog button.dialog-close:active { transform: scale(.95); }
+  .loading-state::before { animation: loading-spin .75s linear infinite; }
+  /* Só o painel se move. O desfoque permanece estático, inclusive nos modais aninhados. */
+  dialog[open] { animation:dialog-enter .2s cubic-bezier(.22,1,.36,1) backwards; }
+  .account-shortcuts[open] { transform-origin:top right; }
+}
+@keyframes dialog-enter { from { opacity:0; transform:translateY(5px) scale(.99); } }
+@keyframes loading-spin { to { transform: rotate(1turn); } }
+
+/* Nas áreas autenticadas, a espera da rota continua anunciada sem trocar o conteúdo por um spinner. */
+.signed-in-route .route-loading {
+  position:absolute; width:1px; height:1px; min-height:0; padding:0;
+  overflow:hidden; clip-path:inset(50%); white-space:nowrap;
+}
+.signed-in-route .route-loading::before { content:none; }
+
+@media (prefers-reduced-motion:no-preference) {
+  /* O conteúdo entra quando é inserido pelo Angular, inclusive se os dados chegarem após a navegação. */
+  .signed-in-route :where(router-outlet + :not(:has(> router-outlet))) > :is(header,section,article,nav,div,p):not(:where(.route-loading,.account,.nuclei-card-area,.nucleus-workspace,.overview-grid,.preview-columns,.agenda-workspace,.agreement-panels,.agreement-board)),
+  .signed-in-route :is(.nucleus-workspace,.overview-grid,.preview-columns,.agenda-workspace,.agreement-panels,.agreement-board,.agreement-mobile-list,.nucleus-cards) > :is(header,section,article,nav,a,aside,li):not(.route-loading) {
+    animation: route-content-reveal .84s cubic-bezier(.22,1,.36,1) calc(var(--reveal-delay,0ms) * 2) backwards;
+  }
+  .signed-in-route :is(.overview-grid,.preview-columns,.agenda-workspace,.agreement-panels,.agreement-board,.agreement-mobile-list) > * { --reveal-delay:80ms; }
+  .signed-in-route :where(router-outlet + *, .nucleus-workspace, .overview-grid, .preview-columns, .agenda-workspace, .agreement-panels, .agreement-board) > :nth-child(2) { --reveal-delay:65ms; }
+  .signed-in-route :where(router-outlet + *, .nucleus-workspace, .overview-grid, .preview-columns, .agenda-workspace, .agreement-panels, .agreement-board) > :nth-child(3) { --reveal-delay:130ms; }
+  .signed-in-route :where(router-outlet + *, .nucleus-workspace, .overview-grid, .preview-columns, .agenda-workspace, .agreement-panels, .agreement-board) > :nth-child(4) { --reveal-delay:195ms; }
+  .signed-in-route :where(router-outlet + *, .nucleus-workspace, .overview-grid, .preview-columns, .agenda-workspace, .agreement-panels, .agreement-board) > :nth-child(n+5) { --reveal-delay:260ms; }
+  @supports (animation-delay:calc(sibling-index() * 1ms)) {
+    .signed-in-route :where(router-outlet + *, .nucleus-workspace) > * {
+      --reveal-delay:calc((sibling-index() - 1) * 60ms);
+    }
+    .signed-in-route :is(.overview-grid,.preview-columns,.agenda-workspace,.agreement-panels,.agreement-board,.agreement-mobile-list) > * {
+      --reveal-delay:calc((sibling-index() - 1) * 65ms + 80ms);
+    }
+  }
+  .signed-in-route .nucleus-cultivation { --reveal-delay:275ms; }
+}
+@keyframes route-content-reveal {
+  from { opacity:0; transform:translateY(9px); }
+  to { opacity:1; transform:none; }
+}
+
+/* A captura antiga fica sobre a nova até chegar a vez de cada região. */
+.theme-transition::view-transition { pointer-events:none; }
+.theme-transition::view-transition-group(*) { animation:none; }
+.theme-transition::view-transition-new(*), .theme-transition::view-transition-old(*) {
+  animation:none; mix-blend-mode:normal;
+}
+.theme-transition::view-transition-old(*) { z-index:1; }

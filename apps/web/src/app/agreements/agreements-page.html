@@ -4,7 +4,7 @@
     <button class="button" type="button" (click)="state.reload()">Tentar novamente</button>
   </section>
 } @else if (state.isLoading() && !state.hasValue()) {
-  <p role="status">Carregando os acordos…</p>
+  <p class="loading-state route-loading" role="status">Carregando os acordos…</p>
 } @else if (counts.denied() || !state.value()) {
   <section class="surface">
     <h1 tabindex="-1">Acordos indisponíveis</h1><p>Confira os Núcleos dos quais você faz parte.</p>
@@ -121,14 +121,14 @@
   <p class="agreement-pagination"><a class="text-link" [routerLink]="['/nucleos',view.scope.id]">Voltar ao Núcleo</a></p>
   <dialog #proposal class="shared-dialog agreement-wide-dialog" aria-labelledby="proposal-title" (close)="!proposal.open && editor.reset()">
     <header class="dialog-heading"><h2 id="proposal-title">Nova proposta</h2>
-      <form method="dialog"><button class="icon-button" aria-label="Fechar proposta" autofocus>×</button></form>
+      <form method="dialog"><button class="dialog-close" aria-label="Fechar proposta" autofocus></button></form>
     </header>
     <app-proposal-editor #editor [scope]="view.scope" (completed)="finishProposal($event,proposal)" />
   </dialog>
   <dialog #details class="shared-dialog agreement-wide-dialog" aria-labelledby="agreement-dialog-title"
     (close)="!details.open && showing.set(false)">
     <header class="dialog-heading"><h2 id="agreement-dialog-title">{{ dialogItem()?.title ?? 'Termos do acordo' }}</h2>
-      <form method="dialog"><button class="icon-button" aria-label="Fechar termos" autofocus>×</button></form>
+      <form method="dialog"><button class="dialog-close" aria-label="Fechar termos" autofocus></button></form>
     </header>
     @if (dialogItem(); as item) {
       <app-agreement-terms [scope]="view.scope" [agreement]="item" [count]="counts.totals().get(item.id)" [countFailed]="counts.failed()"
@@ -139,13 +139,13 @@
   </dialog>
   <dialog #invitation class="shared-dialog" aria-labelledby="agreement-invite-title" (close)="!invitation.open && inviteOpen.set(false)">
     <header class="dialog-heading"><h2 id="agreement-invite-title">Enviar convite</h2>
-      <form method="dialog"><button class="icon-button" aria-label="Fechar convite" autofocus>×</button></form>
+      <form method="dialog"><button class="dialog-close" aria-label="Fechar convite" autofocus></button></form>
     </header>
     @if (view.role === 'admin') { <app-invitation-generator [scope]="view.scope" [visible]="inviteOpen()" /> }
   </dialog>
   <dialog #essence class="shared-dialog" aria-labelledby="agreement-essence-title">
     <header class="dialog-heading"><h2 id="agreement-essence-title">Nossa Essência</h2>
-      <form method="dialog"><button class="icon-button" aria-label="Fechar Essência" autofocus>×</button></form>
+      <form method="dialog"><button class="dialog-close" aria-label="Fechar Essência" autofocus></button></form>
     </header>
     <p class="badge">Esboço</p><p>Uma possibilidade para reconhecer práticas compartilhadas. Critérios, consentimentos e passagens ainda serão definidos.</p>
   </dialog>

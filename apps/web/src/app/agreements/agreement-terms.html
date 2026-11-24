@@ -36,7 +36,7 @@
 }
 <dialog #decline class="shared-dialog" aria-label="Recusar participação?" (close)="!decline.open && confirming.set(null)">
   <header class="dialog-heading"><h2>Recusar participação?</h2>
-    <form method="dialog"><button class="icon-button" aria-label="Fechar recusa" autofocus>×</button></form>
+    <form method="dialog"><button class="dialog-close" aria-label="Fechar recusa" autofocus></button></form>
   </header>
   @if (confirming(); as version) { <p class="badge">Termos v{{ version.terms_version }}</p> }
   <p>Você deixará de participar destes termos. O acordo e o histórico das outras pessoas permanecem.</p>

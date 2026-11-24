@@ -18,7 +18,7 @@ import { statusLabel } from './proposal-model';
         <p role="alert">Não foi possível consultar o acordo.</p><button class="button" type="button" (click)="state.reload()">Tentar novamente</button>
       </section>
     } @else if (state.isLoading() && !state.hasValue()) {
-      <p role="status">Carregando o acordo…</p>
+      <p class="loading-state route-loading" role="status">Carregando o acordo…</p>
     } @else if (state.value(); as view) {
       @if (mode==='record' && !canRecord(view.agreement)) {
         <section class="surface"><h1 tabindex="-1">Registro indisponível</h1>

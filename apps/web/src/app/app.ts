@@ -4,7 +4,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, NavigationError, NavigationSkipped, NavigationStart, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { Account } from './account';
 import { Appearance } from './appearance';
-import { AppearancePicker } from './appearance-picker';
 import { displayName, PreviewProfile } from './preview-profile';
 import { ProblemReport } from './problem-report';
 import { clearProblemReportReminder } from './problem-report-reminder';
@@ -14,12 +13,12 @@ import { isNucleusId, profileLetters } from './nuclei/nucleus-model';
 import { watchNucleusIdentity } from './nuclei/nucleus-identity-sync';
 import { NucleiData } from './nuclei/nuclei-data';
 import { NavigationLinks, navAreaMatches, type NavigationItem } from './navigation-links';
-import { readNavigationCounts } from '../domain/navigation/counts';
+import { readNavigationCounts, type NavigationCounts } from '../domain/navigation/counts';
 import { NavIcon } from './shared/nav-icon';
 import manifest from '../../package.json';
 
 @Component({
-  imports: [RouterLink, RouterOutlet, RouteState, Account, ProblemReport, AppearancePicker, NavigationLinks, NavIcon],
+  imports: [RouterLink, RouterOutlet, RouteState, Account, ProblemReport, NavigationLinks, NavIcon],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrls: ['./app.css', './shell-navigation.css'],
@@ -38,7 +37,7 @@ export class App {
       path.startsWith('auth/');
   });
   private readonly nucleusList: NavigationItem = {label: 'Seus Núcleos', url: '/nucleos', count: 'nuclei', icon:'users', tone:'blue'};
-  private readonly account: NavigationItem = {label: 'Minha conta', url: '/configuracoes/conta', icon:'lock', tone:'violet'};
+  private readonly account: NavigationItem = {label: 'Conta, Preferências e Ajuda', url: '/configuracoes/conta', icon:'lock', tone:'violet'};
   protected readonly countVisible = computed(() => {
     const path = this.currentPath();
     return Boolean(this.profile.user()) && path !== 'boas-vindas' && !path.startsWith('auth/') && !path.startsWith('conta/');
@@ -49,7 +48,7 @@ export class App {
     const history: NavigationItem[] = [
       {label:'Árvore e memórias',url:base + '/arvore',icon:'tree',planned:true},
       {label:'Conexões e perfis',url:base + '/conexoes',icon:'links',tone:'violet',planned:true},
-      {label:'Manifesto e cuidado',url:base + '/manifesto',icon:'heart',tone:'amber',planned:true},
+      {label:'Manifesto e cuidado',url:base + '/manifesto',icon:'scroll',tone:'amber',planned:true},
     ];
     return [
       {label:'Meu espaço',items:[
@@ -80,6 +79,8 @@ export class App {
     item.url === '/' + this.currentPath() || navAreaMatches(item.url,this.currentPath())));
   protected readonly version = manifest.version;
   protected readonly initials = computed(() => profileLetters(displayName(this.profile.user())));
+  private readonly lastNucleus = signal<{owner: string; nucleus: Awaited<ReturnType<NucleiData['last']>>} | null>(null);
+  private readonly lastCounts = signal<{owner: string; counts: NavigationCounts} | null>(null);
   protected readonly selected = resource({
     params: () => {
       const owner = this.profile.user()?.id;
@@ -94,20 +95,35 @@ export class App {
       ]);
       // Como no Next.js, a lembrança depende de vínculo conferido e pertence à conta atual.
       if (!abortSignal.aborted && params.id && nucleus) this.data.remember(params.owner,nucleus.id);
-      return nucleus ? {nucleus,version} : null;
+      return {owner: params.owner, nucleus: nucleus ?? null, version};
     },
   });
-  protected readonly currentNucleus = computed(() => this.selected.hasValue() && !this.selected.isLoading() ? this.selected.value()?.nucleus ?? null : null);
+  protected readonly currentNucleus = computed(() => {
+    const owner = this.profile.user()?.id;
+    if (!owner || this.publicLayout()) return null;
+    const current = !this.selected.isLoading() && this.selected.hasValue() ? this.selected.value() : this.lastNucleus();
+    const id = this.nucleusId();
+    return current?.owner === owner && (!id || current.nucleus?.id === id) ? current.nucleus : null;
+  });
   protected readonly contextId = computed(() => this.nucleusId() ?? this.currentNucleus()?.id ?? null);
   protected readonly totals = resource({
     params: () => {
       const owner = this.profile.user()?.id;
       return owner && this.countVisible() ? {owner, path:this.currentPath()} : undefined;
     },
-    // O contrato da função usa a própria sessão. Mudar de rota/conta invalida o resultado anterior.
-    loader: async ({params}) => readNavigationCounts(await this.data.clientForAccount(params.owner)),
+    // Um resultado pertence à conta que iniciou a consulta, mesmo após trocar de rota.
+    loader: async ({params}) => ({
+      owner: params.owner,
+      counts: await readNavigationCounts(await this.data.clientForAccount(params.owner)),
+    }),
   });
-  protected readonly counts = computed(() => this.totals.hasValue() && !this.totals.isLoading() ? this.totals.value() : null);
+  protected readonly counts = computed(() => {
+    const owner = this.profile.user()?.id;
+    const latest = this.totals.hasValue() ? this.totals.value() : null;
+    if (latest?.owner === owner && latest?.counts) return latest.counts;
+    const previous = this.lastCounts();
+    return previous && previous.owner === owner ? previous.counts : null;
+  });
   protected readonly sidebarHidden = signal(false);
   protected readonly profileMenuOpen = signal(false);
   protected readonly moreOpen = signal(false);
@@ -116,15 +132,15 @@ export class App {
   private readonly injector = inject(Injector);
   private readonly content = viewChild.required<ElementRef<HTMLElement>>('content');
   private readonly more = viewChild<ElementRef<HTMLDialogElement>>('more');
-  private readonly notifications = viewChild<ElementRef<HTMLElement>>('notifications');
-  private readonly accountMenu = viewChild<ElementRef<HTMLElement>>('accountMenu');
+  private readonly notifications = viewChild<ElementRef<HTMLDialogElement>>('notifications');
+  private readonly accountMenu = viewChild<ElementRef<HTMLDialogElement>>('accountMenu');
   private initialNavigation = true;
 
   constructor() {
     inject(Appearance);
     const mobile = matchMedia('(max-width:700px)');
     const closeMenuOnResize = () => {
-      if (mobile.matches) this.accountMenu()?.nativeElement.hidePopover();
+      if (mobile.matches) this.accountMenu()?.nativeElement.close();
       else this.more()?.nativeElement.close();
     };
     mobile.addEventListener('change', closeMenuOnResize);
@@ -134,14 +150,24 @@ export class App {
       () => this.selected.isLoading(),
       () => this.selected.reload(),
     );
+    effect(() => {
+      const owner = this.profile.user()?.id;
+      const current = this.selected.hasValue() && !this.selected.isLoading() ? this.selected.value() : null;
+      const totals = this.totals.hasValue() ? this.totals.value() : null;
+      // Mantém a lateral durante a atualização, limitando os valores à conta atual.
+      if (current && current.owner === owner) this.lastNucleus.set(current);
+      if (totals?.counts && totals.owner === owner) this.lastCounts.set({owner, counts: totals.counts});
+    });
     let previousAccount: string | undefined;
     effect(() => {
       const account = this.profile.user()?.id;
       if (previousAccount && previousAccount !== account) {
+        this.lastCounts.set(null);
+        this.lastNucleus.set(null);
         clearProblemReportReminder(previousAccount);
-        this.accountMenu()?.nativeElement.hidePopover();
+        this.accountMenu()?.nativeElement.close();
         this.more()?.nativeElement.close();
-        this.notifications()?.nativeElement.hidePopover();
+        this.notifications()?.nativeElement.close();
       }
       previousAccount = account;
     });
@@ -162,8 +188,8 @@ export class App {
         const title = route.title?.split(' · ')[0];
         this.activeLabel.set(this.groups().flatMap(group => group.items).find(item => item.url === '/' + path || navAreaMatches(item.url,path))?.label ?? (account ? 'Sua conta' : title ?? ''));
         this.more()?.nativeElement.close();
-        this.notifications()?.nativeElement.hidePopover();
-        this.accountMenu()?.nativeElement.hidePopover();
+        this.notifications()?.nativeElement.close();
+        this.accountMenu()?.nativeElement.close();
         // Depois de Voltar, Avançar ou seguir um link interno, o foco acompanha o novo conteúdo.
         if (!this.initialNavigation && pathChanged) this.focusPage();
         this.initialNavigation = false;
@@ -185,8 +211,9 @@ export class App {
     if (this.isPlainLinkClick(event)) dialog.close();
   }
 
-  protected closeProfileOnLink(event: MouseEvent, panel: HTMLElement) {
-    if (this.isPlainLinkClick(event)) panel.hidePopover();
+  protected openProfile(panel: HTMLDialogElement) {
+    panel.showModal();
+    this.profileMenuOpen.set(true);
   }
 
   private isPlainLinkClick(event: MouseEvent) {

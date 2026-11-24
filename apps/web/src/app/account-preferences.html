@@ -41,7 +41,7 @@
 
 <dialog #helpDialog class="shared-dialog account-dialog account-dialog-wide" [attr.aria-labelledby]="prefix() + '-help-title'">
   <header class="account-dialog-header"><h2 [id]="prefix() + '-help-title'">{{ helpTitle() }}</h2>
-    <form method="dialog"><button class="icon-button" aria-label="Fechar orientação" autofocus><app-nav-icon name="close" /></button></form>
+    <form method="dialog"><button class="dialog-close" aria-label="Fechar orientação" autofocus></button></form>
   </header>
   <div class="settings-copy">
     <section class="control-section"><h3>Responsável e suporte</h3><p>Sintagma Software</p><p>Encontrou algo que não funcionou? Envie um relato direto à equipe, sem sair do aplicativo.</p><app-problem-report [prefix]="prefix() + '-help-report'" /></section>
@@ -56,14 +56,14 @@
 
 <dialog #privacyDialog class="shared-dialog account-dialog account-dialog-wide" [attr.aria-labelledby]="prefix() + '-privacy-title'" (close)="resetPrivacy()">
   <header class="account-dialog-header"><h2 [id]="prefix() + '-privacy-title'">Privacidade e visibilidade</h2>
-    <form method="dialog"><button class="icon-button" aria-label="Fechar Privacidade" autofocus><app-nav-icon name="close" /></button></form>
+    <form method="dialog"><button class="dialog-close" aria-label="Fechar Privacidade" autofocus></button></form>
   </header>
   <p class="account-dialog-description">Escolhas claras sobre seu histórico compartilhado.</p>
   <div class="settings-copy">
     <section class="control-section"><h3>Núcleos privados</h3><p>Somente pessoas associadas consultam o espaço. Administradores gerenciam pessoas e convites; esse papel não permite consultar conteúdos pessoais privados.</p></section>
     <section class="control-section"><h3>O que é compartilhado</h3><p>Nome e propósito do Núcleo, termos dos acordos, momentos do Hábito com humor e nota, histórico de alterações e agenda ficam disponíveis às pessoas associadas. Cada pessoa aceita sua própria participação; silêncio não é aceite.</p></section>
     <section class="control-section"><h3>Ocultar autoria depois de sair</h3><p>Esta preferência vale para suas próximas saídas de qualquer Núcleo. Ela preserva o conteúdo e oculta a identificação da autoria; não apaga notas nem altera saídas anteriores. Uma autoria já ocultada não será revelada ao desativar a preferência. O próprio texto ainda pode identificar você.</p>
-      @if (privacy.isLoading()) { <p role="status">Carregando preferência…</p> }
+      @if (privacy.isLoading()) { <p class="loading-state" role="status">Carregando preferência…</p> }
       @else if (privacy.error()) {
         <p role="alert">Não foi possível consultar sua preferência.</p>
         <button type="button" class="icon-button" (click)="privacy.reload()">Tentar novamente</button>
@@ -83,9 +83,9 @@
 </dialog>
 
 @if (!embedded()) {
-<dialog #removalDialog class="shared-dialog account-dialog account-dialog-wide" aria-labelledby="removal-title" (close)="resetRemoval()">
-  <header class="account-dialog-header"><h2 id="removal-title">Apagar minha conta</h2>
-    <form method="dialog"><button class="icon-button" aria-label="Fechar exclusão" autofocus><app-nav-icon name="close" /></button></form>
+<dialog #removalDialog class="shared-dialog account-dialog account-dialog-wide" [attr.aria-labelledby]="prefix() + '-removal-title'" (close)="resetRemoval()">
+  <header class="account-dialog-header"><h2 [id]="prefix() + '-removal-title'">Apagar minha conta</h2>
+    <form method="dialog"><button class="dialog-close" aria-label="Fechar exclusão" autofocus></button></form>
   </header>
   <p class="account-dialog-description">Ação definitiva. Confira as consequências antes de confirmar.</p>
   <div class="account-deletion-warning"><h3><app-nav-icon name="alert" /> Apagar minha conta</h3>
@@ -94,8 +94,8 @@
   <p>Uma nova conta não recupera os vínculos anteriores. Cópias de segurança seguem o tratamento de retenção do serviço.</p>
   </div>
   <form class="fields" (submit)="removeAccount($event)">
-    <label for="account-removal-phrase">Digite {{ phrase }} para confirmar</label>
-    <input #phraseInput id="account-removal-phrase" type="text" autocomplete="off" maxlength="12"
+    <label [for]="prefix() + '-removal-phrase'">Digite {{ phrase }} para confirmar</label>
+    <input #phraseInput [id]="prefix() + '-removal-phrase'" type="text" autocomplete="off" maxlength="12"
       [value]="confirmation()" [disabled]="removing()" (input)="confirmation.set(phraseInput.value)">
     <p class="settings-copy">Use as duas palavras em letras maiúsculas, com um espaço entre elas.</p>
     <div class="removal-actions"><button class="button removal-confirm" type="submit" [disabled]="removing() || confirmation() !== phrase">

@@ -19,7 +19,7 @@ import { type HabitContext } from './habit-data';
         <button class="button" type="button" (click)="state.reload()">Tentar novamente</button>
       </section>
     } @else if (state.isLoading() && !state.hasValue()) {
-      <p role="status">Carregando o acordo…</p>
+      <p class="loading-state route-loading" role="status">Carregando o acordo…</p>
     } @else if (counts.denied() || !state.value()) {
       <section class="surface"><h1 tabindex="-1">Acordo indisponível</h1>
         <p>Confira os Núcleos dos quais você faz parte.</p><a class="button" routerLink="/nucleos">Ver Seus Núcleos</a>
@@ -68,7 +68,7 @@ import { type HabitContext } from './habit-data';
       </div>
       <dialog #recordDialog class="shared-dialog agreement-wide-dialog" aria-label="Registrar momento" (close)="closeMoment(recordDialog)">
         <header class="dialog-heading"><h2>Registrar momento</h2>
-          <form method="dialog"><button class="icon-button" aria-label="Fechar registro de momento" autofocus>×</button></form>
+          <form method="dialog"><button class="dialog-close" aria-label="Fechar registro de momento" autofocus></button></form>
         </header>
         @if (momentContext(); as snapshot) {
           <app-habit-moment-editor #momentEditor [context]="snapshot" (completed)="finishMoment($event,recordDialog)" />

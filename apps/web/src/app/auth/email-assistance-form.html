@@ -1,0 +1,14 @@
+<form (submit)="sendEmail($event, assistanceEmail.value)" [attr.aria-busy]="emailPending()">
+  <label [for]="prefix() + '-email'">E-mail da conta</label>
+  <input #assistanceEmail [id]="prefix() + '-email'" type="email" autocomplete="email" maxlength="254"
+    [value]="email()" autofocus [attr.aria-describedby]="prefix() + '-note'">
+  <p [id]="prefix() + '-note'" class="auth-note">{{ kind() === 'recovery'
+    ? 'Vamos verificar se este e-mail possui uma conta. Se existir, enviaremos as instruções para recuperar o acesso. Nunca compartilhe o link recebido.'
+    : 'Vamos verificar se este e-mail já está confirmado. Se a confirmação estiver pendente, enviaremos um novo link. Nunca compartilhe o link de acesso.' }}</p>
+  @if (emailMessage(); as feedback) {
+    <p [attr.role]="feedback.success ? 'status' : 'alert'" class="auth-feedback" [class.auth-error]="!feedback.success">{{ feedback.message }}</p>
+  }
+  <button type="submit" class="button" [disabled]="emailPending()">
+    {{ emailPending() ? 'Aguarde…' : kind() === 'recovery' ? 'Enviar instruções' : 'Reenviar confirmação' }}
+  </button>
+</form>

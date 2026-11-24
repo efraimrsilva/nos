@@ -26,7 +26,6 @@ export class NucleusHome {
   private readonly details = viewChild<ElementRef<HTMLDialogElement>>('details');
   private readonly editForm = viewChild<NucleusAction>('editForm');
   protected readonly editing = signal(false);
-  protected readonly closing = signal(false);
   private readonly stale = signal(false);
   protected readonly memberId = signal<string|null>(null);
   protected readonly identity = signal<{operation:'name'|'purpose';value:string}|null>(null);
@@ -88,7 +87,6 @@ export class NucleusHome {
       this.feedback.set('');
       this.actionBusy.set(false);
       this.editing.set(false);
-      this.closing.set(false);
     });
     effect(() => {
       const id = this.memberId();
@@ -114,7 +112,7 @@ export class NucleusHome {
     dialog.showModal();
   }
 
-  private actionPending() { return this.actionBusy() || this.editing() || this.closing(); }
+  private actionPending() { return this.actionBusy() || this.editing(); }
 
   protected closePeople() {
     if (this.query().get('integrantes') === '1') {
@@ -147,12 +145,7 @@ export class NucleusHome {
     return members.some(member => member.user_id !== owner && member.role === 'admin');
   }
 
-  protected finish(operation:ManagementOperation,scope:ManagementScope,dialog?:HTMLDialogElement) {
-    if (operation === 'close') {
-      this.data.forget(scope.owner,scope.id);
-      void this.router.navigate(['/nucleos'],{queryParams:{resultado:'encerrado'},state:{confirmedClosure:true},replaceUrl:true});
-      return;
-    }
+  protected finish(operation:ManagementOperation,dialog?:HTMLDialogElement) {
     if (dialog?.open) {
       dialog.close();
       // A linha removida deixa de existir; devolva o foco a um controle estável da lista.

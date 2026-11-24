@@ -7,15 +7,19 @@ import { NucleusAction } from './nuclei/nucleus-action';
 import { profileLetters } from './nuclei/nucleus-model';
 import { displayName, PreviewProfile } from './preview-profile';
 import { NavIcon } from './shared/nav-icon';
+import type { EmailKind } from './auth/access-auth';
+import { EmailAssistanceForm } from './auth/email-assistance-form';
 
 @Component({
   selector: 'app-account',
-  imports: [RouterLink, AccountPreferences, NavIcon, NucleusAction],
+  imports: [RouterLink, AccountPreferences, NavIcon, NucleusAction, EmailAssistanceForm],
   templateUrl: './account.html',
   styleUrl: './account.css',
 })
 export class Account {
   readonly prefix = input('account');
+  protected readonly assistance = signal<EmailKind | null>(null);
+  private readonly assistanceDialog = viewChild.required<ElementRef<HTMLDialogElement>>('accountAssistance');
   protected readonly embedded = computed(() => this.prefix() !== 'account');
   protected readonly profile = inject(PreviewProfile);
   private readonly destroy = inject(DestroyRef);
@@ -27,10 +31,6 @@ export class Account {
   protected readonly initials = computed(() => profileLetters(this.name()));
   private readonly nuclei = inject(NucleiData);
   private readonly owner = computed(() => this.profile.user()?.id);
-  protected readonly last = resource({
-    params:() => this.embedded() ? undefined : this.profile.user()?.id,
-    loader:({params,abortSignal}) => this.nuclei.last(params,abortSignal),
-  });
   protected readonly memberships = resource({
     params: () => this.owner(),
     loader: ({params, abortSignal}) => this.nuclei.accountMemberships(params, abortSignal),
@@ -76,6 +76,14 @@ export class Account {
     });
   }
 
+  protected openAssistance(kind: EmailKind) {
+    this.assistance.set(kind);
+    afterNextRender(() => {
+      const dialog = this.assistanceDialog().nativeElement;
+      if (this.assistance() === kind && !dialog.open) dialog.showModal();
+    }, {injector: this.injector});
+  }
+
   protected async signOut() {
     if (this.busy()) return;
     this.busy.set(true);
@@ -99,7 +107,6 @@ export class Account {
   protected async finishClosure(dialog: HTMLDialogElement) {
     dialog.close();
     this.memberships.reload();
-    this.last.reload();
     await this.router.navigate(['/nucleos'], {queryParams: {resultado: 'encerrado'}});
   }
 

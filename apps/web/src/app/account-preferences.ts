@@ -22,7 +22,7 @@ export class AccountPreferences {
   private readonly destroy = inject(DestroyRef);
   private readonly privacyDialog = viewChild.required<ElementRef<HTMLDialogElement>>('privacyDialog');
   private readonly helpDialog = viewChild<ElementRef<HTMLDialogElement>>('helpDialog');
-  private readonly removalDialog = viewChild.required<ElementRef<HTMLDialogElement>>('removalDialog');
+  private readonly removalDialog = viewChild<ElementRef<HTMLDialogElement>>('removalDialog');
   protected readonly privacy = resource({
     params: () => this.profile.user()?.id,
     loader: async ({params, abortSignal}) => {
@@ -48,7 +48,7 @@ export class AccountPreferences {
     effect(() => {
       const owner = this.profile.user()?.id;
       if (this.privacyOwner && this.privacyOwner !== owner) this.privacyDialog().nativeElement.close();
-      if (this.removalOwner && this.removalOwner !== owner) this.removalDialog().nativeElement.close();
+      if (this.removalOwner && this.removalOwner !== owner) this.removalDialog()?.nativeElement.close();
       if (this.privacy.hasValue()) this.hide.set(this.privacy.value());
     });
     this.destroy.onDestroy(() => {
@@ -99,7 +99,7 @@ export class AccountPreferences {
 
   protected openRemoval() {
     this.removalOwner = this.profile.user()?.id;
-    if (this.removalOwner) this.removalDialog().nativeElement.showModal();
+    if (this.removalOwner) this.removalDialog()?.nativeElement.showModal();
   }
 
   protected resetRemoval() {
@@ -117,7 +117,7 @@ export class AccountPreferences {
     this.removalError.set('');
     try {
       const client = await this.data.clientForAccount(owner, true);
-      if (this.removalOwner !== owner || !this.removalDialog().nativeElement.open) return;
+      if (this.removalOwner !== owner || !this.removalDialog()?.nativeElement.open) return;
       // O banco deriva o alvo do token validado e preserva o histórico compartilhado.
       const {error} = await client.rpc('delete_my_account', {confirmation_phrase: confirmation});
       if (error) {

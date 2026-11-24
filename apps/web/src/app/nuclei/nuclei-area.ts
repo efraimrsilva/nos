@@ -7,7 +7,7 @@ import { accessLink } from '../auth/auth-flow';
   imports:[RouterOutlet,RouterLink],
   template:`
     @if (profile.loading()) {
-      <p role="status">Conferindo sua sessão…</p>
+      <p class="loading-state route-loading" role="status">Conferindo sua sessão…</p>
     } @else if (profile.user(); as user) {
       @for (account of [user]; track account.id) {
         <router-outlet />

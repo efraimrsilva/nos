@@ -15,7 +15,7 @@ import { InvitationsData } from './invitations-data';
     }
   `,
   template:`
-    @if (state.isLoading()) { <p role="status">Conferindo o convite inicial…</p> }
+    @if (state.isLoading()) { <p class="loading-state route-loading" role="status">Conferindo o convite inicial…</p> }
     @else if (state.error()) {
       <section class="surface">
         <h1 tabindex="-1">Convite inicial</h1>

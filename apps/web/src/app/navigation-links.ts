@@ -45,13 +45,13 @@ export function navAreaMatches(url: string, path: string) {
     a { display:flex; align-items:center; gap:.25rem; min-height:2.75rem; padding:.5rem .7rem; border-radius:.45rem; color:var(--muted); text-decoration:none; }
     a:hover, a.active { background:var(--accent-soft); color:var(--leaf); }
     a.active, a.in-area { font-weight:700; background:var(--accent-soft); color:var(--leaf); box-shadow:inset 3px 0 var(--leaf); }
-    [data-tone="blue"] { --icon-tone:#44799c; }
-    [data-tone="amber"] { --icon-tone:#ad6c29; }
-    [data-tone="rose"] { --icon-tone:#b85270; }
-    [data-tone="violet"] { --icon-tone:#825ca0; }
+    [data-tone="blue"] { --icon-tone:light-dark(#006eb0,#72caff); }
+    [data-tone="amber"] { --icon-tone:light-dark(#a94e00,#ffc673); }
+    [data-tone="rose"] { --icon-tone:light-dark(#b82c62,#ff9ac1); }
+    [data-tone="violet"] { --icon-tone:light-dark(#7942b8,#d0aeff); }
     .link-label { min-width:0; }
     .nucleus-name { display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:.7rem; }
-    .count { margin-inline-start:auto; font-size:.8em; }
+    .count { margin-inline-start:auto; font-size:.8em; font-variant-numeric:tabular-nums; }
     @media(max-width:700px) {
       :host(.compact) a { display:grid; justify-items:center; align-content:center; min-width:0; text-align:center; padding:.28rem .08rem; font-size:.68rem; line-height:1.18; }
       :host(.compact) a.active, :host(.compact) a.in-area { box-shadow:inset 0 3px var(--leaf); }

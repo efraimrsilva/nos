@@ -1,5 +1,5 @@
 @if (state.isLoading() && !state.hasValue()) {
-  <p role="status">Carregando a agenda…</p>
+  <p class="loading-state route-loading" role="status">Carregando a agenda…</p>
 } @else if (state.error()) {
   <section class="surface">
     <h1 tabindex="-1">Agenda do Núcleo</h1>
@@ -100,7 +100,7 @@
             <!-- A resposta usa o mesmo evento autorizado do detalhe e só fecha após confirmação do serviço. -->
             <dialog #participation class="shared-dialog" aria-labelledby="agenda-participation-title">
               <header class="dialog-heading"><h2 id="agenda-participation-title">Sua participação</h2>
-                <form method="dialog"><button class="icon-button" aria-label="Fechar participação" autofocus>×</button></form>
+                <form method="dialog"><button class="dialog-close" aria-label="Fechar participação" autofocus></button></form>
               </header>
               <p><strong>{{ event.title }}</strong></p>
               <p>Cada pessoa decide se pode participar. Você pode atualizar sua resposta enquanto o evento estiver disponível.</p>
@@ -135,7 +135,7 @@
   </details>
   <dialog #editor class="shared-dialog" aria-labelledby="agenda-editor-title">
     <header class="dialog-heading"><h2 id="agenda-editor-title">{{ editing() ? 'Editar evento' : 'Adicionar evento' }}</h2>
-      <button class="icon-button" type="button" aria-label="Fechar" (click)="editor.close()">×</button></header>
+      <button class="dialog-close" type="button" aria-label="Fechar" (click)="editor.close()"></button></header>
     <form #form class="agenda-form" [attr.aria-busy]="busy()" (submit)="save($event,form,editor)">
       <label>Título<input name="title" required maxlength="100" /></label>
       <label>Intenção do momento (opcional)<textarea name="intention" maxlength="500" rows="3"></textarea></label>
@@ -163,7 +163,7 @@
   </dialog>
   <dialog #removal class="shared-dialog" aria-labelledby="agenda-removal-title">
     <header class="dialog-heading"><h2 id="agenda-removal-title">Remover evento</h2>
-      <button class="icon-button" type="button" aria-label="Fechar" (click)="removal.close()">×</button></header>
+      <button class="dialog-close" type="button" aria-label="Fechar" (click)="removal.close()"></button></header>
     <form class="agenda-form" (submit)="remove($event,removal)" [attr.aria-busy]="busy()">
       <p class="agenda-removal-note">Ao remover <strong>{{ removing()?.title }}</strong>, as respostas também serão apagadas. Esta ação não pode ser desfeita.</p>
       <label class="agenda-consent"><input type="checkbox" [checked]="confirmed()" (change)="confirmed.set($any($event.target).checked)" />Entendo que o evento e as respostas serão removidos.</label>

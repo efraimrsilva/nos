@@ -22,6 +22,13 @@ export class PreviewProfile {
   private accountId: string | null = null;
   private revision = 0;
 
+  cachedTheme(): unknown {
+    try {
+      // A sessão armazenada só antecipa as cores enquanto o Supabase confirma a identidade.
+      return JSON.parse(localStorage.getItem(sessionKey) ?? 'null')?.user?.user_metadata?.appearance_theme;
+    } catch { return undefined; }
+  }
+
   async connect() {
     if (this.client) return;
     // Reentrar na rota durante a primeira leitura compartilha o mesmo cliente e a assinatura de sessão.

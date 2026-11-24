@@ -7,7 +7,7 @@ import { accessLink, safeAuthNext } from './auth-flow';
   imports: [RouterLink],
   template: `
     @if (profile.loading()) {
-      <p role="status">Conferindo sua sessão…</p>
+      <p class="loading-state" role="status">Conferindo sua sessão…</p>
     } @else if (profile.notice()) {
       <section class="surface">
         <h1 tabindex="-1">Sua conta</h1>
@@ -18,7 +18,7 @@ import { accessLink, safeAuthNext } from './auth-flow';
       <section class="surface">
         <h1 tabindex="-1">{{ title }}</h1>
         <p>Esta área será disponibilizada nas próximas etapas da prévia.</p>
-        <a class="button" routerLink="/configuracoes/conta">Minha conta</a>
+        <a class="button" routerLink="/configuracoes/conta">Conta, Preferências e Ajuda</a>
       </section>
     }
   `,

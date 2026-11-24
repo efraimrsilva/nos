@@ -3,7 +3,8 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Account } from '../account';
 import { AccountStory } from './account-story';
-import { AccessAuth } from './access-auth';
+import { AccessAuth, type EmailKind } from './access-auth';
+import { EmailAssistanceForm } from './email-assistance-form';
 import { accessLink, passwordHelp, safeAuthNext } from './auth-flow';
 
 const errors: Record<string, string> = {
@@ -14,7 +15,7 @@ const errors: Record<string, string> = {
 };
 
 @Component({
-  imports: [RouterLink, Account, AccountStory],
+  imports: [RouterLink, Account, AccountStory, EmailAssistanceForm],
   templateUrl: './access-page.html',
   styleUrls: ['./auth.css', './access-panel.css'],
 })
@@ -27,7 +28,7 @@ export class AccessPage {
   private readonly query = toSignal(this.route.queryParams, {initialValue: this.route.snapshot.queryParams});
   private readonly params = toSignal(this.route.params, {initialValue: this.route.snapshot.params});
   private readonly dialog = viewChild<ElementRef<HTMLDialogElement>>('assistance');
-  protected readonly kind = computed(() => {
+  protected readonly kind = computed<EmailKind | null>(() => {
     const mode = this.params()['assistance'] ?? this.query()['acesso'];
     return mode === 'recuperar' || mode === 'recovery' ? 'recovery'
       : mode === 'confirmar-email' || mode === 'confirmation' ? 'confirmation' : null;
@@ -60,8 +61,6 @@ export class AccessPage {
   protected readonly formHeight = signal<number | null>(null);
   private readonly formContent = viewChild<ElementRef<HTMLElement>>('formContent');
   protected readonly error = signal('');
-  protected readonly emailMessage = signal<{message: string; success: boolean} | null>(null);
-  protected readonly emailPending = signal(false);
   protected readonly showPassword = signal(false);
   protected readonly help = passwordHelp;
 
@@ -113,18 +112,7 @@ export class AccessPage {
     finally { this.googlePending.set(false); }
   }
 
-  protected async sendEmail(event: Event, email: string) {
-    event.preventDefault();
-    const kind = this.kind();
-    if (!kind || this.emailPending()) return;
-    this.emailPending.set(true);
-    this.emailMessage.set(null);
-    try { this.emailMessage.set(await this.access.sendEmail(kind, email, this.next())); }
-    finally { this.emailPending.set(false); }
-  }
-
   protected closeAssistance() {
-    this.emailMessage.set(null);
     if (this.kind()) {
       const target = this.mode() === 'login' ? '/conta?modo=login' : '/conta';
       void this.router.navigateByUrl(this.link(target), {replaceUrl: true});

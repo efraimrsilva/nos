@@ -1,5 +1,5 @@
 @if (state.isLoading()) {
-  <p role="status">Conferindo acesso à prévia…</p>
+  <p class="loading-state route-loading" role="status">Conferindo acesso à prévia…</p>
 } @else if (state.error()) {
   <section class="surface">
     <h1 tabindex="-1">Não foi possível abrir a prévia</h1>
@@ -91,7 +91,7 @@
         </div>
         <dialog #detail class="shared-dialog" aria-labelledby="memory-example-title">
           <header class="dialog-heading"><h2 id="memory-example-title">{{ memory().title }}</h2>
-            <form method="dialog"><button class="icon-button" autofocus aria-label="Fechar detalhe da memória">×</button></form>
+            <form method="dialog"><button class="dialog-close" autofocus aria-label="Fechar detalhe da memória"></button></form>
           </header>
           <p>{{ memory().text }}</p><blockquote>{{ memory().caption }}</blockquote>
           <p>Exemplo editorial. Galeria, envio de fotos e compartilhamento de memórias ainda estão planejados.</p>
@@ -160,7 +160,7 @@
     }
     <dialog #about class="shared-dialog" aria-labelledby="preview-about-title">
       <header class="dialog-heading"><h2 id="preview-about-title">Sobre {{ section.label }}</h2>
-        <form method="dialog"><button class="icon-button" autofocus aria-label="Fechar explicação da prévia">×</button></form>
+        <form method="dialog"><button class="dialog-close" autofocus aria-label="Fechar explicação da prévia"></button></form>
       </header>
       <p>{{ section.description }}</p>
       <p>Os exemplos são ilustrativos. Regras de consentimento, privacidade e persistência serão definidas antes da implementação. As interações desta tela não salvam, enviam ou publicam conteúdo.</p>
@@ -223,7 +223,7 @@
   </div>
   <dialog #profileDetail class="shared-dialog" aria-labelledby="profile-example-title">
     <header class="dialog-heading"><h2 id="profile-example-title">Perfil de exemplo · {{ person().name }}</h2>
-      <form method="dialog"><button class="icon-button" autofocus aria-label="Fechar detalhe do perfil">×</button></form>
+      <form method="dialog"><button class="dialog-close" autofocus aria-label="Fechar detalhe do perfil"></button></form>
     </header>
     <p>{{ person().about }}</p>
     <section class="profile-topic my-3 rounded-lg bg-[var(--accent-soft)] p-3"><h3>Pistas de cuidado</h3><p>{{ person().care }}</p></section>

@@ -23,7 +23,7 @@
 <dialog #dialog class="shared-dialog account-dialog" [attr.aria-labelledby]="prefix() + '-title'" (close)="reset()">
   <header class="account-dialog-header">
     <h2 [id]="prefix() + '-title'">Relatar um problema</h2>
-    <form method="dialog"><button class="icon-button" aria-label="Fechar relato" autofocus><app-nav-icon name="close" /></button></form>
+    <form method="dialog"><button class="dialog-close" aria-label="Fechar relato" autofocus></button></form>
   </header>
   @if (sent()) {
     <div class="account-dialog-note" role="status"><strong>Relato enviado.</strong>

@@ -16,7 +16,7 @@ import { habitDate,habitMoodLabels,parseHabitMomentCursor } from './habit-model'
         <p role="alert">Não foi possível consultar o histórico.</p>
         <button class="button secondary" type="button" (click)="state.reload()">Tentar novamente</button>
       } @else if (state.isLoading() && !state.hasValue()) {
-        <p role="status">Carregando o histórico…</p>
+        <p class="loading-state" role="status">Carregando o histórico…</p>
       } @else if (state.value(); as history) {
         @if (history.rows.length) {
           <ol class="habit-records habit-timeline">

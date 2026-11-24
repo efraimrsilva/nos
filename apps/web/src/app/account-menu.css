@@ -85,6 +85,13 @@
 .account:not(.embedded-account) .embedded-profile h2 { margin:20px 0 16px; font:400 26px/1.3 Arial,sans-serif; }
 .account-settings-grid .removal-row,.account-deletion-warning { border:1px solid var(--theme-error,#9a232e); background:color-mix(in srgb,var(--theme-error,#9a232e) 7%,var(--surface)); padding:14px; border-radius:8px; }
 .account-deletion-warning h3 { display:flex; align-items:center; gap:8px; }
+.account-settings-grid .removal-row { color:var(--theme-error,#9a232e); --icon-tone:currentColor; }
+.account-settings-grid .removal-row small { color:inherit; }
+.account-settings-grid .removal-row:is(:hover,:focus-visible,:active) {
+  border-color:#ff2846;
+  background:color-mix(in srgb,#ff2846 12%,var(--surface));
+  box-shadow:0 0 0 2px #ff28462b,0 0 20px #ff284659;
+}
 .removal-actions { display:flex; flex-wrap:wrap; gap:.6rem; }
 .removal-actions .secondary { background:var(--surface); color:var(--leaf); }
 .account-nucleus-choice { display:grid; gap:.35rem; }
@@ -92,7 +99,7 @@
 .removal-confirm { background:#9a232e; border-color:#9a232e; color:white; }
 .account-dialog-wide.shared-dialog { width:min(900px,calc(100vw - 32px)); }
 .account-dialog-header { display:flex; justify-content:space-between; align-items:start; gap:22px; margin-bottom:22px; }
-.account-dialog-header h2 { margin:0; font:500 28px/1.25 Georgia,serif; letter-spacing:-.5px; overflow-wrap:anywhere; }
+.account-dialog-header h2 { margin:0; font:500 28px/1.25 var(--app-font); letter-spacing:-.5px; overflow-wrap:anywhere; }
 .account-dialog-description,.settings-copy { color:var(--muted); font-size:14px; line-height:1.8; }
 .account-dialog-description { margin-bottom:24px; }
 .control-section + .control-section { margin-top:22px; }
@@ -105,7 +112,36 @@
   .account-dialog.shared-dialog { width:calc(100vw - 24px); padding:22px; }
   .account-dialog-header h2 { font-size:25px; }
 }
+/* O fechamento continua nativo; o movimento só acompanha a entrada e as interações. */
 @media (prefers-reduced-motion:no-preference) {
-  .account-dialog[open] { animation:account-dialog-arrive .22s ease-out; }
-  @keyframes account-dialog-arrive { from {opacity:0;transform:translateY(10px) scale(.985)} to {opacity:1;transform:none} }
+  :is(.account,.more-dialog,.account-popover) {
+    --account-ease:cubic-bezier(.22,1,.36,1);
+    --account-spring:cubic-bezier(.2,.8,.25,1.15);
+  }
+  .account:not(.embedded-account) > :is(h1,p) { animation:account-rise .7s var(--account-ease) backwards; }
+  .account:not(.embedded-account) > p { animation-delay:.12s; }
+  :is(.account-settings-grid > .card,.account-settings-grid > app-account-preferences > .surface) {
+    animation:account-rise .48s var(--account-ease) .06s backwards;
+    transition:border-color .3s, box-shadow .3s;
+  }
+  .account-settings-grid > .card:nth-child(2) { animation-delay:.10s; }
+  .account-settings-grid > .card:nth-child(3) { animation-delay:.14s; }
+  .account-settings-grid > .card:nth-child(4) { animation-delay:.18s; }
+  .account-settings-grid > app-account-preferences > .surface { animation-delay:.22s; }
+  .account-settings-grid > app-account-preferences > .surface:nth-of-type(2) { animation-delay:.26s; }
+  .account-settings-grid > app-account-preferences > .surface:nth-of-type(3) { animation-delay:.30s; }
+  .account-settings-grid > app-account-preferences > .surface:nth-of-type(4) { animation-delay:.34s; }
+  .account-settings-grid .profile-initials {
+    animation:account-unfold .7s .2s var(--account-spring) backwards;
+    transition:transform .35s var(--account-spring), box-shadow .35s;
+  }
+  .embedded-profile:hover .profile-initials { transform:rotate(-4deg) scale(1.04); box-shadow:0 0 0 6px var(--accent-soft); }
+  .account-settings-grid .account-option { transition:background .25s,color .25s,border-color .25s,box-shadow .25s; }
+  .account-settings-grid .option-icon { transition:transform .35s var(--account-spring),background .25s; }
+  .account-settings-grid .account-option > app-nav-icon:last-child { transition:transform .3s var(--account-ease); }
+  .account-settings-grid .account-option:is(:hover,:focus-visible) .option-icon { transform:translateY(-2px) rotate(-6deg); }
+  .account-settings-grid .account-option:is(:hover,:focus-visible) > app-nav-icon:last-child { transform:translateX(4px); }
+
 }
+@keyframes account-rise { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
+@keyframes account-unfold { from { opacity:0; transform:translateY(18px) scale(.98); } to { opacity:1; transform:none; } }

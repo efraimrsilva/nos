@@ -30,20 +30,40 @@ export class InvitationManagement {
     return (values.length === 1 && filters.find(item => item.key === values[0])) || filters[0];
   });
   protected readonly page = computed(() => pageNumber(this.query().getAll('pagina')));
+  private readonly owner = computed(() => this.profile.user()?.id);
+  private readonly nucleusId = computed(() => this.route().get('id'));
+  private readonly scope = computed(() => {
+    const owner = this.owner();
+    const id = this.nucleusId();
+    return owner && id ? {owner,id} : undefined;
+  });
+  private lastView?: NonNullable<Awaited<ReturnType<InvitationsData['list']>>> & {
+    scope: InviteScope; filter: typeof filters[number]['key']; page: number;
+  };
   protected readonly state = resource({
     params:() => {
-      const owner = this.profile.user()?.id;
-      const id = this.route().get('id');
-      return owner && id ? {scope:{owner,id},filter:this.filter().key,page:this.page()} : undefined;
+      const scope = this.scope();
+      return scope ? {scope,filter:this.filter().key,page:this.page()} : undefined;
     },
     loader:async ({params,abortSignal}) => {
       const result = await this.data.list(params.scope,params.filter,params.page,abortSignal);
-      return result ? {...result,scope:params.scope,filter:params.filter,page:params.page} : null;
+      const view = result ? {...result,...params} : null;
+      if (!abortSignal.aborted) this.lastView = view ?? undefined;
+      return view;
     },
   });
+  protected readonly view = computed(() => {
+    const scope = this.scope();
+    const current = this.state.hasValue() ? this.state.value() : null;
+    if (current && scope?.id === current.scope.id && scope.owner === current.scope.owner) return current;
+    const last = this.lastView;
+    // O filtro pode mudar, mas os registros antigos só pertencem ao mesmo Núcleo e conta.
+    return this.state.isLoading() && last && scope?.id === last.scope.id && scope.owner === last.scope.owner ? last : null;
+  });
+  protected readonly renderedFilter = computed(() => filters.find(filter => filter.key === this.view()?.filter) ?? filters[0]);
   protected readonly selectedId = signal<string|null>(null);
   protected readonly selected = computed(() => {
-    const rows = this.state.hasValue() ? this.state.value()?.rows : null;
+    const rows = this.view()?.rows;
     return rows?.find(item => item.id === this.selectedId()) ?? rows?.[0];
   });
   protected readonly preparing = signal(false);
@@ -69,7 +89,7 @@ export class InvitationManagement {
   }
 
   protected askRevoke(scope: InviteScope, item: InviteSummary, dialog: HTMLDialogElement) {
-    if (this.revoking()) return;
+    if (this.revoking() || this.state.isLoading()) return;
     this.revokeTarget.set({scope,id:item.id});
     this.error.set('');
     this.success.set('');

@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
   template: `
     @switch (kind()) {
-      @case ('loading') { <p role="status">Carregando página…</p> }
+      @case ('loading') { <p class="loading-state route-loading" role="status">Carregando página…</p> }
       @case ('error') {
         <section class="surface">
           <p role="alert">Não foi possível abrir a página.</p>

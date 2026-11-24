@@ -15,7 +15,7 @@ import { cycleActions,cycleDescriptions,cycleLabels,type CycleAction } from './h
     @if (success()) { <p role="status">{{ success() }}</p> }
     <dialog #confirmation class="shared-dialog" aria-label="Administrar o ciclo">
       <header class="dialog-heading"><h2>Administrar o ciclo</h2>
-        <form method="dialog"><button class="icon-button" aria-label="Fechar administração" autofocus>×</button></form>
+        <form method="dialog"><button class="dialog-close" aria-label="Fechar administração" autofocus></button></form>
       </header>
       @if (selected(); as choice) {
         <p class="badge">Termos v{{ choice.context.agreement.terms_version }}</p>

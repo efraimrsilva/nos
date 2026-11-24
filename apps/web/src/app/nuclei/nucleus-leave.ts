@@ -10,7 +10,7 @@ import { NucleusManagementData, type ManagementScope } from './nucleus-managemen
 @Component({
   imports:[RouterLink,NucleusAction,NavIcon],
   template:`
-    @if (state.isLoading()) { <p role="status">Conferindo sua participação…</p> }
+    @if (state.isLoading()) { <p class="loading-state route-loading" role="status">Conferindo sua participação…</p> }
     @else if (state.error()) {
       <section class="surface">
         <h1 tabindex="-1">Sair de um Núcleo</h1><p role="alert">Não foi possível conferir sua participação e sua preferência.</p>
@@ -43,7 +43,7 @@ import { NucleusManagementData, type ManagementScope } from './nucleus-managemen
         </section>
         <dialog #confirmation class="shared-dialog" aria-labelledby="leave-title" (close)="leaveForm.reset()">
           <header class="dialog-heading"><h2 id="leave-title">Sair deste Núcleo?</h2>
-            <form method="dialog"><button class="icon-button" aria-label="Fechar confirmação de saída" autofocus>×</button></form>
+            <form method="dialog"><button class="dialog-close" aria-label="Fechar confirmação de saída" autofocus></button></form>
           </header>
           <p class="nucleus-consequence">Você perderá o acesso. O histórico compartilhado permanecerá para quem continuar.</p>
           <app-nucleus-action #leaveForm [scope]="item.scope" operation="leave" label="Sair deste Núcleo" [danger]="true"

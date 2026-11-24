@@ -39,11 +39,8 @@
 }
 @keyframes auth-enter { from { opacity:0; transform:translateY(6px); } }
 
-.auth-note { border-inline-start:3px solid var(--line); padding:.7rem .9rem; background:var(--accent-soft); color:var(--ink); font-size:.9rem; }
 .auth-feedback { margin-block:.2rem; padding:.55rem .7rem; border-radius:.45rem; background:var(--accent-soft); }
 .auth-dialog-heading h2 { font-family:inherit; font-size:clamp(1.35rem,3vw,1.65rem); font-weight:600; line-height:1.2; }
-#access-assistance form [type="submit"] { width:100%; }
-#access-assistance::backdrop { backdrop-filter:blur(3px); }
 .auth-focused { display:grid; gap:1.1rem; max-width:36rem; margin-inline:auto; }
 .auth-focused .auth-card { width:100%; }
 .auth-focused header { display:grid; gap:.45rem; }

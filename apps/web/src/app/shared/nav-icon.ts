@@ -17,6 +17,10 @@ const paths = {
   palette:'M12 22a10 10 0 1 1 10-10c0 1.1-.9 2-2 2h-2.5a1.5 1.5 0 0 0-1.2 2.4c.6.8.7 1.8.3 2.7-.6 1.7-2.5 2.9-4.6 2.9Z M7.5 12h.01 M9 7.5h.01 M14.5 7.5h.01 M17 11.5h.01',
   chevron:'m9 18 6-6-6-6',
   alert:'M10.3 3.9 2.5 18a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z M12 9v4m0 4h.01',
+  scroll:'M7 4h11a3 3 0 0 1 3 3v1h-4v10a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-2h5V7a3 3 0 0 1 3-3m4 17a3 3 0 0 1-3-3v-2H7m3-7h4m-4 3h4',
+  pencil:'M4 20l4.5-1 11-11a2.5 2.5 0 0 0-3.5-3.5l-11 11L4 20Zm10.5-14 3.5 3.5',
+  sidebarOpen:'M3 4h18v16H3z M9 4v16 M13 9l3 3-3 3',
+  sidebarClose:'M3 4h18v16H3z M9 4v16 M16 9l-3 3 3 3',
   close:'m18 6-12 12M6 6l12 12',
   more:'M4 12h.01m8 0h.01m8 0h.01',
   bug:'M6 9h12v6a6 6 0 0 1-12 0z M8 9V7a4 4 0 0 1 8 0v2 M8 4 6 2m10 2 2-2 M12 10v10 M3 10l3 2m-3 5 3-1m15-6-3 2m3 5-3-1',
@@ -38,8 +42,17 @@ const paths = {
 
 @Component({
   selector:'app-nav-icon',
-  template:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path [attr.d]="paths[name()]" /></svg>',
-  styles:':host { display:inline-flex; flex:none; color:var(--icon-tone,var(--leaf)); }',
+  template:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path [attr.d]="paths[name()]" /></svg>',
+  host: {'[attr.data-icon]': 'name()'},
+  styles: [
+    ':host { display:inline-flex; flex:none; color:var(--icon-tone,var(--icon-default,var(--leaf))); }',
+    ':host(:is([data-icon=home],[data-icon=tree],[data-icon=sprout],[data-icon=check],[data-icon=plus],[data-icon=pencil])) { --icon-default:light-dark(#247347,#86eda9); }',
+    ':host(:is([data-icon=calendar],[data-icon=users],[data-icon=message],[data-icon=links])) { --icon-default:light-dark(#006eb0,#72caff); }',
+    ':host(:is([data-icon=heart],[data-icon=handHeart])) { --icon-default:light-dark(#b82c62,#ff9ac1); }',
+    ':host(:is([data-icon=bell],[data-icon=key],[data-icon=lightbulb],[data-icon=smile],[data-icon=scroll])) { --icon-default:light-dark(#a94e00,#ffc673); }',
+    ':host(:is([data-icon=palette],[data-icon=appearance],[data-icon=book],[data-icon=lock])) { --icon-default:light-dark(#7942b8,#d0aeff); }',
+    ':host(:is([data-icon=alert],[data-icon=bug],[data-icon=logout],[data-icon=close])) { --icon-default:light-dark(#ba2948,#ff91a6); }',
+  ],
 })
 export class NavIcon {
   readonly name = input.required<NavIconName>();

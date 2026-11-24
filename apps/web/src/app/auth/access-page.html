@@ -1,6 +1,6 @@
 @if (profile.loading()) {
   <h1 tabindex="-1">Sua conta no Nós</h1>
-  <p role="status">Conferindo sua sessão…</p>
+  <p class="loading-state" role="status">Conferindo sua sessão…</p>
 } @else {
   @if (bannerStatus()) { <p role="status" class="auth-message">{{ bannerStatus() }}</p> }
   @if (bannerError() || profile.notice()) { <p role="alert" class="auth-error auth-message">{{ bannerError() || profile.notice() }}</p> }
@@ -29,7 +29,7 @@
         @if (profile.google()) {
           <div class="auth-social grid gap-2" role="group" aria-label="Outras formas de acesso" [attr.aria-busy]="googlePending()">
             <button type="button" class="button auth-secondary" [disabled]="pending() || googlePending()" (click)="google()"><img src="/brand/google-g.png" width="20" height="20" alt="">Continuar com Google</button>
-            @if (googlePending()) { <p role="status">Abrindo acesso seguro…</p> }
+            @if (googlePending()) { <p class="loading-state" role="status">Abrindo acesso seguro…</p> }
             @if (googleError()) { <p role="alert" class="auth-feedback auth-error">{{ googleError() }}</p> }
           </div>
           <p class="auth-divider">ou continue com seu e-mail</p>
@@ -77,21 +77,13 @@
 <dialog #assistance id="access-assistance" class="shared-dialog" (close)="closeAssistance()" aria-labelledby="assistance-title">
   <header class="auth-dialog-heading">
     <h2 id="assistance-title">{{ dialogTitle() }}</h2>
-    <form method="dialog"><button class="icon-button" [attr.aria-label]="'Fechar ' + dialogTitle()">×</button></form>
+    <form method="dialog"><button class="dialog-close" [attr.aria-label]="'Fechar ' + dialogTitle()"></button></form>
   </header>
   <p>{{ kind() === 'recovery' ? 'Vamos ajudar você a voltar.' : 'Um pequeno passo para proteger sua conta.' }}</p>
-  <form (submit)="sendEmail($event, assistanceEmail.value)" [attr.aria-busy]="emailPending()">
-    <label for="assistance-email">E-mail da conta</label>
-    <input #assistanceEmail id="assistance-email" type="email" autocomplete="email" maxlength="254"
-      [value]="profile.user()?.email || access.pendingEmail()" autofocus aria-describedby="assistance-note">
-    <p id="assistance-note" class="auth-note">{{ kind() === 'recovery'
-      ? 'Vamos verificar se este e-mail possui uma conta. Se existir, enviaremos as instruções para recuperar o acesso. Nunca compartilhe o link recebido.'
-      : 'Vamos verificar se este e-mail já está confirmado. Se a confirmação estiver pendente, enviaremos um novo link. Nunca compartilhe o link de acesso.' }}</p>
-    @if (emailMessage(); as feedback) {
-      <p [attr.role]="feedback.success ? 'status' : 'alert'" class="auth-feedback" [class.auth-error]="!feedback.success">{{ feedback.message }}</p>
+  @if (kind(); as mode) {
+    @for (action of [mode]; track action) {
+      <app-email-assistance-form [kind]="action" prefix="access-assistance" [next]="next()"
+        [email]="profile.user()?.email || access.pendingEmail()" />
     }
-    <button type="submit" class="button" [disabled]="emailPending()">
-      {{ emailPending() ? 'Aguarde…' : kind() === 'recovery' ? 'Enviar instruções' : 'Reenviar confirmação' }}
-    </button>
-  </form>
+  }
 </dialog>

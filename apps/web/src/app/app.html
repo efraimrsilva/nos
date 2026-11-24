@@ -1,7 +1,7 @@
 <a class="skip" href="#conteudo" (click)="skipToContent($event)">Pular para o conteúdo</a>
 <div class="shell" [class.sidebar-hidden]="sidebarHidden()" [class.public-layout]="publicLayout()">
   <aside id="desktop-navigation" class="sidebar" [attr.inert]="sidebarHidden() ? '' : null">
-    <a class="brand" routerLink="/boas-vindas" aria-label="Nós — início">nós<span>.</span></a>
+    <a class="brand" routerLink="/nucleos" aria-label="Nós — Seus Núcleos">nós<span>.</span></a>
     <p class="caption">Cultivar juntos</p>
     <nav aria-label="Áreas do Nós">
       @for (group of groups(); track group.label) {
@@ -11,10 +11,6 @@
         </section>
       }
       <p class="shell-version">Versão {{ version }}</p>
-      @if (profile.user()) {
-        <app-appearance-picker prefix="sidebar-appearance" />
-        <a routerLink="/ajuda">Ajuda</a>
-      }
     </nav>
   </aside>
 
@@ -42,9 +38,10 @@
       <div class="desktop-heading">
         <button class="icon-button sidebar-toggle" type="button" aria-controls="desktop-navigation"
           [attr.aria-expanded]="!sidebarHidden()"
+          [title]="sidebarHidden() ? 'Mostrar barra lateral' : 'Ocultar barra lateral'"
           [attr.aria-label]="sidebarHidden() ? 'Mostrar barra lateral' : 'Ocultar barra lateral'"
           (click)="sidebarHidden.update(hidden => !hidden)">
-          <span class="sidebar-icon" aria-hidden="true"></span>
+          <app-nav-icon [name]="sidebarHidden() ? 'sidebarOpen' : 'sidebarClose'" />
         </button>
         @if (currentNucleus(); as nucleus) {
           <a class="breadcrumb-context" [routerLink]="['/nucleos',nucleus.id]">{{ nucleus.name }}</a>
@@ -57,20 +54,20 @@
         }
         <div class="header-tools">
           <app-problem-report prefix="header-support" [iconOnly]="true" />
-          <button class="icon-button" type="button" popovertarget="notifications-preview" aria-haspopup="dialog"
+          <button class="icon-button" type="button" (click)="notifications.showModal()" aria-haspopup="dialog"
             aria-controls="notifications-preview" aria-label="Notificações — esboço">
             <app-nav-icon name="bell" />
           </button>
           <a class="icon-button account-trigger account-mobile-link" routerLink="/configuracoes/conta"
-            aria-label="Minha conta">{{ initials() }}</a>
-          <button class="icon-button account-trigger account-desktop-trigger" type="button" popovertarget="shell-account"
+            aria-label="Conta, Preferências e Ajuda">{{ initials() }}</a>
+          <button class="icon-button account-trigger account-desktop-trigger" type="button" (click)="openProfile(accountMenu)"
             aria-haspopup="dialog" aria-controls="shell-account" aria-label="Abrir opções da conta">{{ initials() }}</button>
         </div>
       }
       }
     </header>
 
-    <main id="conteudo" tabindex="-1" #content>
+    <main id="conteudo" tabindex="-1" #content [class.signed-in-route]="profile.user() && !publicLayout()">
       @if (router.currentNavigation() && !failedUrl()) {
         <app-route-state kind="loading" />
       }
@@ -99,7 +96,7 @@
   (close)="moreOpen.set(more.open)">
   <header class="dialog-heading">
     <h2 id="more-title">Todos os seus caminhos</h2>
-    <form method="dialog"><button class="icon-button" aria-label="Fechar menu" autofocus>×</button></form>
+    <form method="dialog"><button class="dialog-close" aria-label="Fechar menu" autofocus></button></form>
   </header>
   <nav aria-label="Todas as áreas">
     @for (group of menuGroups(); track group.label) {
@@ -113,47 +110,47 @@
     @defer (on immediate) {
       <app-account prefix="mobile-account" class="mt-5 block" (click)="closeMoreOnLink($event, more)" />
     } @loading (after 150ms) {
-      <p class="mt-5" role="status">Carregando preferências…</p>
+      <p class="loading-state mt-5" role="status">Carregando preferências…</p>
     } @error {
-      <p class="mt-5" role="alert">Não foi possível abrir as preferências. Use o link Minha conta.</p>
+      <p class="mt-5" role="alert">Não foi possível abrir as preferências. Use o link Conta, Preferências e Ajuda.</p>
     }
   }
 </dialog>
 
-<div class="account-shortcuts notifications-panel" popover="auto" role="dialog" id="notifications-preview" #notifications aria-labelledby="notifications-title">
+<dialog class="account-shortcuts notifications-panel" id="notifications-preview" #notifications aria-labelledby="notifications-title">
   <header class="dialog-heading">
     <h2 id="notifications-title">Novidades, no seu tempo.</h2>
-    <button class="icon-button" type="button" aria-label="Fechar notificações" popovertarget="notifications-preview" popovertargetaction="hide">×</button>
+    <button class="dialog-close" type="button" aria-label="Fechar notificações" (click)="notifications.close()" autofocus></button>
   </header>
   <p>Esboço de funcionalidade · ainda não desenvolvido</p>
   <p>Este será o lugar para acompanhar convites, propostas e cuidados que pedem sua atenção.</p>
   @if (contextId(); as id) {
-    <a class="button" [routerLink]="['/nucleos', id, 'acordos']" (click)="notifications.hidePopover()">Consultar Acordos</a>
+    <a class="button" [routerLink]="['/nucleos', id, 'acordos']" (click)="notifications.close()">Consultar Acordos</a>
   } @else {
-    <a class="button" routerLink="/nucleos" (click)="notifications.hidePopover()">Abrir Seus Núcleos</a>
+    <a class="button" routerLink="/nucleos" (click)="notifications.close()">Abrir Seus Núcleos</a>
   }
-</div>
+</dialog>
 
-<div #accountMenu id="shell-account" popover="auto" role="dialog" class="account-shortcuts account-popover"
-  aria-labelledby="shell-account-title" (toggle)="profileMenuOpen.set(accountMenu.matches(':popover-open'))">
+<dialog #accountMenu id="shell-account" class="account-shortcuts account-popover"
+  aria-labelledby="shell-account-title" (close)="profileMenuOpen.set(accountMenu.open)">
   <header class="dialog-heading account-popover-heading">
     <div class="grid gap-1">
       <p class="account-kicker">Sua conta</p>
       <h2 id="shell-account-title">Conta, Preferências e Ajuda</h2>
       <p class="account-context">Seu espaço, sem sair do Núcleo.</p>
     </div>
-    <button type="button" class="icon-button" aria-label="Fechar opções da conta" popovertarget="shell-account" popovertargetaction="hide">×</button>
+    <button type="button" class="dialog-close" aria-label="Fechar opções da conta" (click)="accountMenu.close()" autofocus></button>
   </header>
   @if (profileMenuOpen() && profile.user()) {
     <div class="account-popover-content">
-      <a class="account-page-link" routerLink="/configuracoes/conta" (click)="accountMenu.hidePopover()">Minha conta</a>
+      <a class="account-page-link" routerLink="/configuracoes/conta" (click)="accountMenu.close()">Conta, Preferências e Ajuda</a>
       @defer (on immediate) {
-        <app-account prefix="desktop-account" (click)="closeProfileOnLink($event, accountMenu)" />
+        <app-account prefix="desktop-account" (click)="closeMoreOnLink($event, accountMenu)" />
       } @loading (after 150ms) {
-        <p role="status">Carregando preferências…</p>
+        <p class="loading-state" role="status">Carregando preferências…</p>
       } @error {
-        <p role="alert">Não foi possível abrir as preferências. Use o link Minha conta.</p>
+        <p role="alert">Não foi possível abrir as preferências. Use o link Conta, Preferências e Ajuda.</p>
       }
     </div>
   }
-</div>
+</dialog>

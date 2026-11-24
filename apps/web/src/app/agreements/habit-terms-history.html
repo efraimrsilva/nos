@@ -11,7 +11,7 @@
 </section>
 <dialog #editor class="shared-dialog agreement-wide-dialog" aria-label="Alterar termos" (close)="cancel(editor)">
   <header class="dialog-heading"><h2>Alterar termos</h2>
-    <form method="dialog"><button class="icon-button" aria-label="Fechar edição de termos" autofocus>×</button></form>
+    <form method="dialog"><button class="dialog-close" aria-label="Fechar edição de termos" autofocus></button></form>
   </header>
   @if (draft(); as editing) {
     <p class="habit-revision-notice">Você está editando a versão {{ editing.agreement.terms_version }}. Ao publicar, cada integrante decide novamente se quer participar.</p>
@@ -41,7 +41,7 @@
     <p role="alert">Não foi possível consultar os termos anteriores.</p>
     <button class="button secondary" type="button" (click)="state.reload()">Tentar novamente</button>
   } @else if (state.isLoading() && !state.hasValue()) {
-    <p role="status">Carregando as versões…</p>
+    <p class="loading-state" role="status">Carregando as versões…</p>
   } @else if (state.value(); as history) {
     <ol class="habit-version-list">
       @for (item of history.versions; track item.version) {

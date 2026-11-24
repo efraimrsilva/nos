@@ -21,8 +21,13 @@
 .access-panel .password-field input::-ms-reveal { display:none; }
 .access-panel .password-toggle { position:absolute; inset-inline-end:.2rem; top:50%; transform:translateY(-50%); min-width:4.75rem; min-height:44px; border:0; border-radius:.4rem; background:none; color:var(--leaf); font-size:.75rem; cursor:pointer; }
 .access-panel .password-toggle:focus-visible { outline-offset:-2px; }
-.access-panel .auth-assistance { justify-content:space-between; gap:.25rem 1rem; margin-top:1rem; font-size:.75rem; }
-.access-panel .auth-assistance a { text-underline-offset:4px; }
+.access-panel .auth-assistance { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.55rem; margin-top:1rem; }
+.access-panel .auth-assistance a {
+  display:flex; align-items:center; justify-content:center; min-height:44px; padding:.5rem .4rem;
+  border:1px solid var(--line); border-radius:.6rem; background:var(--surface); color:var(--leaf);
+  text-align:center; text-decoration:none; font-size:.8rem; font-weight:600; line-height:1.25;
+}
+.access-panel .auth-assistance a:is(:hover,:focus-visible) { background:var(--accent-soft); border-color:var(--leaf); }
 .auth-social .auth-secondary {
   margin-top:1.125rem; min-height:43px; padding:10px 16px; gap:9px;
   border:1px solid currentColor; border-radius:7px; background:transparent; color:var(--ink);

@@ -33,7 +33,7 @@ export const routes: Routes = [
   { path: 'configuracoes', pathMatch: 'full', redirectTo: 'conta' },
   { path: 'configuracoes/privacidade', pathMatch: 'full', redirectTo: '/conta#privacidade' },
   { path: 'ajuda', pathMatch: 'full', redirectTo: '/conta#ajuda-e-suporte' },
-  { path: 'configuracoes/conta', loadComponent: () => import('./account').then(module => module.Account), title: 'Minha conta · Nós' },
+  { path: 'configuracoes/conta', loadComponent: () => import('./account').then(module => module.Account), title: 'Conta, Preferências e Ajuda · Nós' },
   {
     path: '',
     loadComponent: () => import('./nuclei/nuclei-area').then(module => module.NucleiArea),
