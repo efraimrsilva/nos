@@ -1,17 +1,11 @@
-import { Component,computed,inject,input,resource } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { Component,computed,inject,input,resource,signal } from '@angular/core';
 import { HabitData,type HabitContext } from './habit-data';
 import { habitDate,habitMoodLabels,parseHabitMomentCursor } from './habit-model';
 
 @Component({
   selector:'app-habit-moments',
-  imports:[RouterLink],
   template:`
-    <section class="surface agreement-detail" aria-labelledby="habit-history-title">
-      <p class="kicker">A história deste combinado</p>
-      <h2 id="habit-history-title">Momentos registrados</h2>
-      <p>Vivências compartilhadas com o Núcleo.</p>
+    <section class="agreement-detail" aria-label="Momentos registrados">
       @if (state.error()) {
         <p role="alert">Não foi possível consultar o histórico.</p>
         <button class="button secondary" type="button" (click)="state.reload()">Tentar novamente</button>
@@ -28,11 +22,11 @@ import { habitDate,habitMoodLabels,parseHabitMomentCursor } from './habit-model'
               </li>
             }
           </ol>
-        } @else { <p>{{ cursor()?'Não há registros mais antigos.':'Ainda não há momentos registrados para este Hábito.' }}</p> }
+        } @else { <p>{{ cursor()?'Não há registros mais antigos.':'Ainda não há momentos registrados.' }}</p> }
         @if (cursor() || history.next) {
           <nav class="agreement-actions" aria-label="Páginas dos momentos">
-            @if (cursor()) { <a class="button secondary" [routerLink]="[]" [queryParams]="{antes:null}" queryParamsHandling="merge">Momentos recentes</a> }
-            @if (history.next) { <a class="button secondary" [routerLink]="[]" [queryParams]="{antes:history.next}" queryParamsHandling="merge">Momentos anteriores</a> }
+            @if (cursor()) { <button type="button" class="button secondary" (click)="dialogCursor.set(null)">Momentos recentes</button> }
+            @if (history.next) { <button type="button" class="button secondary" (click)="dialogCursor.set(history.next)">Momentos anteriores</button> }
           </nav>
         }
       } @else { <p>Histórico indisponível.</p> }
@@ -41,19 +35,17 @@ import { habitDate,habitMoodLabels,parseHabitMomentCursor } from './habit-model'
 })
 export class HabitMoments {
   readonly context = input.required<HabitContext>();
-  readonly refresh = input(0);
+  // No modal, a paginação do histórico é independente da lista de acordos.
+  protected readonly dialogCursor = signal<string|null>(null);
   private readonly data = inject(HabitData);
-  private readonly route = inject(ActivatedRoute);
-  private readonly query = toSignal(this.route.queryParamMap,{initialValue:this.route.snapshot.queryParamMap});
-  private readonly before = computed(() => this.query().getAll('antes').length===1 ? this.query().get('antes') : null);
-  protected readonly cursor = computed(() => parseHabitMomentCursor(this.before()));
+  protected readonly cursor = computed(() => parseHabitMomentCursor(this.dialogCursor()));
   protected readonly date = habitDate;
   protected readonly moods = habitMoodLabels;
   private readonly selection = computed(() => this.context(),{
     equal:(a,b)=>a.scope.id===b.scope.id && a.scope.owner===b.scope.owner && a.agreement.id===b.agreement.id,
   });
   protected readonly state = resource({
-    params:()=>({context:this.selection(),cursor:this.cursor(),refresh:this.refresh()}),
+    params:()=>({context:this.selection(),cursor:this.cursor()}),
     loader:({params,abortSignal})=>this.data.moments(params.context,params.cursor,abortSignal),
   });
 }

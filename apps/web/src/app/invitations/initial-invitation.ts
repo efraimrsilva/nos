@@ -30,8 +30,9 @@ import { InvitationsData } from './invitations-data';
       </header>
       @for (item of [view]; track item.scope.id) {
         <div class="surface initial-invitation-panel">
-          <app-invitation-generator [scope]="item.scope" [initial]="item.active" />
-          <a class="text-link" [routerLink]="['/nucleos',item.scope.id,'convites']">Gerenciar convites</a>
+          <app-invitation-generator [scope]="item.scope" [initial]="item.active">
+            <a data-invitation-action class="button secondary nucleus-animated-button" [routerLink]="['/nucleos',item.scope.id,'convites']">Gerenciar convites</a>
+          </app-invitation-generator>
         </div>
         <p class="invite-note"><a class="button secondary" [routerLink]="['/nucleos',item.scope.id]">Concluir por enquanto</a></p>
       }

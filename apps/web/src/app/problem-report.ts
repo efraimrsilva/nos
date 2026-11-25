@@ -4,6 +4,7 @@ import { parseProblemReport } from '../domain/support/input';
 import { NavIcon } from './shared/nav-icon';
 import { PreviewProfile } from './preview-profile';
 import { dismissProblemReportReminder, watchProblemReportReminder } from './problem-report-reminder';
+import { Notice } from './shared/notice';
 
 @Component({
   selector: 'app-problem-report',
@@ -12,6 +13,7 @@ import { dismissProblemReportReminder, watchProblemReportReminder } from './prob
   styleUrls: ['./account-preferences.css', './problem-report.css'],
 })
 export class ProblemReport {
+  private readonly notices = inject(Notice);
   readonly prefix = input.required<string>();
   readonly iconOnly = input(false);
   readonly embedded = input(false);
@@ -99,6 +101,7 @@ export class ProblemReport {
         this.description.set('');
         this.steps.set('');
         this.sent.set(true);
+        this.notices.show('Relato enviado.');
       } else {
         this.error.set(typeof result.error === 'string' ? result.error : 'Não foi possível confirmar o envio. Seu texto foi mantido.');
       }

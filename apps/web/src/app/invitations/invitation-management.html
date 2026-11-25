@@ -12,7 +12,6 @@
           [attr.aria-current]="filter().key === option.key ? 'page' : null">{{ option.title }}</a>
       }
     </nav>
-    @if (success()) { <p class="surface" role="status">{{ success() }}</p> }
     @if (error() && !revokeDialog.open) { <p class="form-error" role="alert">{{ error() }}</p> }
     <div class="invite-grid invite-workspace" [attr.data-invite-filter]="item.filter" [attr.aria-busy]="state.isLoading()">
       <section class="surface" aria-label="Convites do Núcleo">

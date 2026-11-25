@@ -1,10 +1,13 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { afterNextRender, Component, computed, DestroyRef, effect, inject, Injector, resource, signal, untracked } from '@angular/core';
+import { afterNextRender, Component, computed, DestroyRef, effect, inject, Injector, resource, signal, TemplateRef, untracked, viewChild } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { PreviewProfile } from '../preview-profile';
 import { pageNumber } from '../nuclei/nucleus-model';
 import { InvitationGenerator } from '../invitations/invitation-generator';
+import { NavIcon } from '../shared/nav-icon';
+import { HeaderActions } from '../shared/header-actions';
+import { Notice } from '../shared/notice';
 import { AgreementTerms } from './agreement-terms';
 import { AgreementTotals } from './agreement-totals';
 import { AgreementsData } from './agreements-data';
@@ -13,7 +16,8 @@ import { agreementColumn,filterAgreementCards,participationLabel,statusLabel } f
 import { ProposalEditor } from './proposal-editor';
 
 @Component({
-  imports:[RouterLink,NgTemplateOutlet,AgreementTerms,AgreementTotals,ProposalEditor,InvitationGenerator],
+  imports:[RouterLink,NgTemplateOutlet,NavIcon,AgreementTerms,AgreementTotals,ProposalEditor,InvitationGenerator],
+  host:{class:'agreements-page'},
   templateUrl:'./agreements-page.html',
 })
 export class AgreementsPage {
@@ -22,6 +26,9 @@ export class AgreementsPage {
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly injector = inject(Injector);
+  private readonly headerActions = inject(HeaderActions);
+  private readonly notices = inject(Notice);
+  private readonly headerTemplate = viewChild<TemplateRef<unknown>>('headerControls');
   private readonly params = toSignal(this.route.paramMap,{initialValue:this.route.snapshot.paramMap});
   private readonly query = toSignal(this.route.queryParamMap,{initialValue:this.route.snapshot.queryParamMap});
   private lastView?: {view:NonNullable<Awaited<ReturnType<AgreementsData['list']>>>;page:number};
@@ -60,6 +67,10 @@ export class AgreementsPage {
     return view ? {...view.scope,ids:view.rows.map(row=>row.id).sort()} : undefined;
   },{equal:(a,b)=>a?.owner === b?.owner && a?.id === b?.id && a?.ids.join() === b?.ids.join()}));
   protected readonly search = signal('');
+  protected readonly searchOpen = signal(false);
+  protected readonly guideExpanded = signal(true);
+  private readonly guideInteracted = signal(false);
+  private readonly ready = computed(() => this.state.hasValue() && Boolean(this.state.value()) && !this.counts.denied());
   protected readonly mode = signal<'kanban'|'panels'>('kanban');
   protected readonly desktop = signal(false);
   protected readonly active = signal<string|null>(null);
@@ -67,7 +78,6 @@ export class AgreementsPage {
   protected readonly showing = signal(false);
   protected readonly inviteOpen = signal(false);
   protected readonly notice = signal('');
-  protected readonly uncertain = signal(false);
   protected readonly visible = computed(() => filterAgreementCards(this.state.hasValue() ? this.state.value()?.rows ?? [] : [],this.search(),'all'));
   protected readonly proposals = computed(() => this.visible().filter(card=>agreementColumn(card)==='proposal'));
   protected readonly habits = computed(() => this.visible().filter(card=>agreementColumn(card)==='habit'));
@@ -88,12 +98,29 @@ export class AgreementsPage {
     effect(() => {
       this.params().get('id');
       this.search.set('');
+      this.guideExpanded.set(true);
+      this.guideInteracted.set(false);
       this.active.set(null);
       this.openAgreement.set(null);
       this.showing.set(false);
       this.notice.set('');
-      this.uncertain.set(false);
       this.inviteOpen.set(false);
+    });
+    effect(onCleanup => {
+      const template = this.headerTemplate();
+      if (!template) return;
+      // A barra renderiza os controles com o contexto da rota e libera a referência ao sair.
+      this.headerActions.template.set(template);
+      onCleanup(() => {
+        if (this.headerActions.template() === template) this.headerActions.template.set(undefined);
+        this.searchOpen.set(false);
+      });
+    });
+    effect(onCleanup => {
+      this.params().get('id');
+      if (!this.ready() || this.guideInteracted()) return;
+      const timer = setTimeout(() => this.guideExpanded.set(false),5000);
+      onCleanup(() => clearTimeout(timer));
     });
     effect(() => {
       const request = this.data.changes();
@@ -101,6 +128,15 @@ export class AgreementsPage {
         untracked(() => this.refreshResponses());
       }
     });
+  }
+
+  protected toggleGuide() {
+    this.guideInteracted.set(true);
+    this.guideExpanded.update(open => !open);
+  }
+
+  protected toggleView() {
+    this.mode.update(mode => mode === 'kanban' ? 'panels' : 'kanban');
   }
 
   protected showDetails(id:string,dialog:HTMLDialogElement) {
@@ -119,13 +155,12 @@ export class AgreementsPage {
   }
 
   protected finishProposal(kind:'created'|'unknown',dialog:HTMLDialogElement) {
-    this.uncertain.set(kind==='unknown');
     if (kind === 'unknown') {
       this.notice.set('O envio não foi confirmado. Confira a primeira página antes de criar outra proposta.');
       this.state.reload();
       return;
     }
-    this.notice.set('Proposta enviada. Escolha se deseja participar dos termos.');
+    this.notices.show('Proposta enviada.');
     this.search.set('');
     if (dialog.open) dialog.close();
     if (this.page() !== 1) {

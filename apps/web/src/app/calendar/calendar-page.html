@@ -14,7 +14,6 @@
       <p>Planejem momentos no tempo de vocês. Cada pessoa decide se pode participar.</p></div>
     <button type="button" class="button agenda-icon-action flex items-center gap-2.5" aria-haspopup="dialog" [disabled]="busy() || state.isLoading() || uncertainCreate()" (click)="openEditor(editor,form)"><app-nav-icon name="plus" />Novo momento</button>
   </header>
-  @if (notice()) { <p class="surface agenda-feedback" role="status">{{ notice() }}</p> }
   @if (error()) { <p class="surface agenda-feedback" role="alert">{{ error() }}
     @if (uncertainCreate()) { <button type="button" class="button secondary" (click)="uncertainCreate.set(false)">Já conferi a agenda</button> }
   </p> }

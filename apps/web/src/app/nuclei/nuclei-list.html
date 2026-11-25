@@ -1,13 +1,12 @@
 <div class="nucleus-workspace">
-<header class="nucleus-header">
-  <div><p class="kicker">Seus vínculos</p><h1 tabindex="-1">Seus Núcleos</h1>
-    <p>Vários laços. Seu próprio ritmo. Escolha o espaço que quer cuidar agora.</p></div>
+<header class="nucleus-header nuclei-list-header">
+  <div class="nuclei-list-heading"><p class="kicker">Seus vínculos</p><h1 tabindex="-1">Seus Núcleos</h1>
+    <p class="nuclei-list-intro">Vários laços. Seu próprio ritmo. Escolha o espaço que quer cuidar agora.</p></div>
   <div class="nucleus-actions">
     <a class="button secondary" routerLink="/comecar/convite">Entrar com convite</a>
     <button type="button" class="button nucleus-icon-action" (click)="paths.showModal()" aria-haspopup="dialog"><app-nav-icon name="plus" />Criar um núcleo</button>
   </div>
 </header>
-@if (closed()) { <p class="surface" role="status">Núcleo encerrado. O histórico compartilhado foi preservado.</p> }
 @if (state.isLoading() && !state.hasValue()) { <p class="loading-state route-loading" role="status">Carregando seus Núcleos…</p> }
 @else if (state.error()) {
   <section class="surface">

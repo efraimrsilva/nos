@@ -25,7 +25,6 @@
       </div>
     }
   </header>
-  @if (feedback()) { <p class="surface" role="status">{{ feedback() }}</p> }
   <div class="overview-grid nucleus-home-overview">
     <section class="surface">
       <h2 class="nucleus-panel-heading">Na agenda <app-nav-icon name="calendar" /></h2>
@@ -53,7 +52,7 @@
       @for (space of [view.nucleus, ...view.spaces]; track space.id) {
         <div class="nucleus-home-space">
           <a class="nucleus-space-link nucleus-animated-button" [routerLink]="['/nucleos',space.id]" [attr.aria-current]="space.id === view.nucleus.id ? 'page' : null">
-            <span class="nucleus-home-icon"><app-nav-icon name="users" /></span>
+            <span class="nucleus-home-icon"><app-nav-icon [name]="space.id === view.nucleus.id ? 'check' : 'users'" /></span>
             <span><strong>{{ space.name }}</strong><small>{{ typeLabel(space.type) }}</small></span>
           </a>
           <button class="nucleus-space-members nucleus-animated-button" type="button" aria-haspopup="dialog"
@@ -99,7 +98,6 @@
       <p role="alert">Não foi possível consultar os integrantes deste Núcleo.</p>
       <button type="button" class="button secondary" (click)="peopleState.reload()">Tentar novamente</button>
     } @else if (peopleView; as selected) {
-      @if (peopleFeedback()) { <p role="status">{{ peopleFeedback() }}</p> }
       @if (selected.role === 'admin') {
         <div class="nucleus-actions nucleus-people-actions">
           <a class="button secondary nucleus-animated-button" [routerLink]="['/comecar/convite-inicial',selected.scope.id]">Convidar pessoas</a>
@@ -107,22 +105,31 @@
         </div>
       }
       <table class="nucleus-member-table" aria-label="Integrantes do Núcleo">
-        <thead><tr><th scope="col">Nome</th><th scope="col">Papel</th>@if (selected.role === "admin") { <th scope="col" class="nucleus-member-actions">Ações</th> }</tr></thead>
+        <thead><tr><th scope="col">Nome</th><th scope="col" class="nucleus-member-role">Papel</th><th scope="col" class="nucleus-member-actions">Ações</th></tr></thead>
         <tbody>
           @for (member of selected.members; track member.user_id) {
+            @let self = member.user_id === selected.scope.owner;
             <tr><th scope="row">
               <div class="nucleus-member-name">
                 <span class="avatar" [attr.data-tone]="$index % 3" aria-hidden="true">{{ initials(member.display_name) }}</span>
                 <span><strong>{{ member.display_name }}</strong>
-                  @if (member.user_id === selected.scope.owner) { <small>Você</small> }
+                  @if (self) { <small>Você</small> }
                 </span>
               </div>
-            </th><td><span class="badge" [class.participant-badge]="member.role !== 'admin'">
+            </th><td class="nucleus-member-role"><span class="badge" [class.participant-badge]="member.role !== 'admin'">
               <app-nav-icon [name]="member.role === 'admin' ? 'shield' : 'users'" />{{ member.role === 'admin' ? 'Administrador' : 'Participante' }}</span></td>
-            @if (selected.role === 'admin') {
-              <td class="nucleus-member-actions">
-                @if (member.user_id !== selected.scope.owner) {
-                  <div class="nucleus-member-buttons">
+            <td class="nucleus-member-actions">
+              <div class="nucleus-member-buttons">
+                @if (selected.role === 'admin') {
+                  @if (self) {
+                    <button type="button" class="icon-button nucleus-animated-button crown-action" aria-haspopup="dialog"
+                      aria-label="Deixar a administração" title="Deixar a administração"
+                      [disabled]="actionBusy() || peopleState.isLoading() || !hasOtherAdmin(selected.members,selected.scope.owner)"
+                      (click)="openMember(member.user_id,'demote',details)"><app-nav-icon name="crown" /></button>
+                    <button type="button" class="icon-button nucleus-animated-button remove-member-action" aria-haspopup="dialog"
+                      aria-label="Sair do Núcleo" title="Sair do Núcleo"
+                      [disabled]="actionBusy() || peopleState.isLoading()" (click)="openLeave(leaveDialog)"><app-nav-icon name="close" /></button>
+                  } @else {
                     <button type="button" class="icon-button nucleus-animated-button crown-action" aria-haspopup="dialog"
                       [attr.aria-label]="member.role === 'admin' ? 'Retirar administração de ' + member.display_name : 'Tornar ' + member.display_name + ' administrador'"
                       [title]="member.role === 'admin' ? 'Retirar administração' : 'Tornar administrador'"
@@ -131,38 +138,41 @@
                     <button type="button" class="icon-button nucleus-animated-button remove-member-action" aria-haspopup="dialog"
                       [attr.aria-label]="'Remover ' + member.display_name" title="Remover integrante"
                       [disabled]="actionBusy() || peopleState.isLoading()" (click)="openMember(member.user_id,'remove',details)"><app-nav-icon name="close" /></button>
-                  </div>
+                  }
+                } @else {
+                  <button type="button" class="icon-button crown-action" disabled aria-label="Administração indisponível"><app-nav-icon name="crown" /></button>
+                  <button type="button" class="icon-button remove-member-action" disabled aria-label="Remoção indisponível"><app-nav-icon name="close" /></button>
                 }
-              </td>
-            }</tr>
+              </div>
+            </td></tr>
           } @empty {
-            <tr><td [attr.colspan]="selected.role === 'admin' ? 3 : 2">Nenhuma pessoa para exibir.</td></tr>
+            <tr><td colspan="3">Nenhuma pessoa para exibir.</td></tr>
           }
         </tbody>
       </table>
-      <section class="nucleus-people-section" aria-labelledby="my-participation-title">
-        <h3 id="my-participation-title">Sua participação</h3>
-        @if (selected.role === 'admin' && hasOtherAdmin(selected.members,selected.scope.owner)) {
-          <button type="button" class="button secondary nucleus-animated-button" aria-haspopup="dialog" [disabled]="actionBusy()"
-            (click)="openMember(selected.scope.owner,'demote',details)">Deixar a administração</button>
-        }
-        @if (!leaveReview()) {
-          <button type="button" class="button secondary nucleus-icon-action nucleus-animated-button" [disabled]="actionBusy()" (click)="leaveReview.set(true)"><app-nav-icon name="logout" />Revisar saída do Núcleo</button>
-        } @else if (leaveState.isLoading()) {
+    }
+  </dialog>
+  <dialog #leaveDialog class="shared-dialog" aria-labelledby="people-leave-title" (close)="closeLeave(leaveDialog)">
+    <header class="dialog-heading">
+      <h2 id="people-leave-title">Sair do Núcleo</h2>
+      <form method="dialog"><button class="dialog-close" aria-label="Fechar confirmação de saída" autofocus></button></form>
+    </header>
+    @if (leaveReview()) {
+      <div class="nucleus-leave-review">
+        @if (leaveState.isLoading()) {
           <p role="status">Conferindo sua participação…</p>
         } @else if (leaveState.hasValue() && leaveState.value(); as exit) {
           <p>Você perderá acesso ao Núcleo. O histórico compartilhado permanecerá. A saída não cancela acordos.</p>
           <p>{{ exit.hidden ? 'Sua preferência está ativada: a autoria das suas interações será ocultada nesta saída. O conteúdo permanecerá.' : 'Sua preferência está desativada: a autoria dos seus registros será preservada.' }} O texto ainda pode identificar você.</p>
           <app-nucleus-action [scope]="exit.scope" operation="leave" label="Sair deste Núcleo" [danger]="true"
             confirmation="Entendi que perderei acesso e que o histórico compartilhado permanecerá."
-            [locked]="actionBusy()" (busy)="actionBusy.set($event)" (completed)="finishLeave(exit.scope,people)" />
-          <button type="button" class="button secondary" [disabled]="actionBusy()" (click)="leaveReview.set(false)">Cancelar saída</button>
+            [locked]="actionBusy() || peopleState.isLoading() || peopleView?.role !== 'admin'" (busy)="setLeaveBusy($event,leaveDialog)" (completed)="finishLeave(exit.scope,leaveDialog,people)" />
         } @else {
           <p role="alert">Não foi possível conferir sua participação e preferência de privacidade.</p>
           <button type="button" class="button secondary" (click)="leaveState.reload()">Tentar novamente</button>
-          <button type="button" class="button secondary" (click)="leaveReview.set(false)">Cancelar saída</button>
         }
-      </section>
+        <button type="button" class="button secondary" [disabled]="actionBusy()" (click)="leaveDialog.close()">Cancelar saída</button>
+      </div>
     }
   </dialog>
   <dialog #details class="shared-dialog" aria-labelledby="member-details-title" (close)="!details.open && !actionBusy() && memberAction.set(null)">
@@ -176,7 +186,7 @@
             </header>
             <app-nucleus-action [scope]="selected.scope" [operation]="action.operation" [target]="member.user_id"
               [label]="memberActions[action.operation].title" [confirmation]="memberActions[action.operation].confirmation"
-              [danger]="action.operation === 'remove'" [locked]="actionBusy() || peopleState.isLoading()"
+              [danger]="action.operation === 'remove'" [locked]="actionBusy() || peopleState.isLoading() || selected.role !== 'admin'"
               (busy)="actionBusy.set($event)" (completed)="finishMember(details)" />
           }
         }
@@ -188,7 +198,6 @@
       <header class="dialog-heading"><h2 id="edit-identity-title">{{ edit.operation === 'name' ? 'Editar nome do Núcleo' : 'Editar propósito do Núcleo' }}</h2>
         <form method="dialog"><button class="dialog-close" aria-label="Fechar edição" autofocus></button></form>
       </header>
-      @if (feedback()) { <p role="status">{{ feedback() }}</p> }
       <app-nucleus-action #editForm [scope]="view.scope" [operation]="edit.operation" [label]="edit.operation === 'name' ? 'Salvar nome' : 'Salvar propósito'"
         [field]="{label:edit.operation === 'name' ? 'Nome do Núcleo' : 'Propósito do Núcleo',max:edit.operation === 'name' ? 80 : 500,initial:edit.value,multiline:edit.operation === 'purpose'}"
         confirmation="Confirmo que a alteração ficará visível para os integrantes."

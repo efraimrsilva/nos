@@ -6,6 +6,7 @@ import { NucleiData } from './nuclei/nuclei-data';
 import { ProblemReport } from './problem-report';
 import { PreviewProfile } from './preview-profile';
 import { NavIcon } from './shared/nav-icon';
+import { Notice } from './shared/notice';
 
 @Component({
   selector: 'app-account-preferences',
@@ -14,6 +15,7 @@ import { NavIcon } from './shared/nav-icon';
   styleUrl: './account-preferences.css',
 })
 export class AccountPreferences {
+  private readonly notices = inject(Notice);
   readonly prefix = input('account');
   protected readonly embedded = computed(() => this.prefix() !== 'account');
   private readonly profile = inject(PreviewProfile);
@@ -35,7 +37,6 @@ export class AccountPreferences {
   protected readonly hide = signal(false);
   protected readonly helpTitle = signal('');
   protected readonly saving = signal(false);
-  protected readonly privacyMessage = signal('');
   protected readonly privacyError = signal('');
   protected readonly confirmation = signal('');
   protected readonly removing = signal(false);
@@ -69,7 +70,6 @@ export class AccountPreferences {
 
   protected resetPrivacy() {
     this.privacyOwner = undefined;
-    this.privacyMessage.set('');
     this.privacyError.set('');
     if (this.privacy.hasValue()) this.hide.set(this.privacy.value());
   }
@@ -80,7 +80,6 @@ export class AccountPreferences {
     const hide = this.hide();
     if (!owner || this.saving() || !this.privacy.hasValue()) return;
     this.saving.set(true);
-    this.privacyMessage.set('');
     this.privacyError.set('');
     try {
       const client = await this.data.clientForAccount(owner, true);
@@ -88,7 +87,7 @@ export class AccountPreferences {
       if (error) throw error;
       if (this.profile.user()?.id === owner && !this.destroy.destroyed) {
         this.privacy.set(hide);
-        if (this.privacyOwner === owner) this.privacyMessage.set('Preferência salva.');
+        if (this.privacyOwner === owner) this.notices.show('Preferência salva.');
       }
     } catch {
       if (this.privacyOwner === owner) this.privacyError.set('Não foi possível salvar. Confira sua sessão e tente novamente.');

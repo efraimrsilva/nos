@@ -27,10 +27,10 @@ main {
   padding-bottom: calc(5.5rem + env(safe-area-inset-bottom)); margin-inline: auto;
 }
 main:focus, main h1:focus { outline: none; }
-/* A lista de Núcleos ocupa a área disponível ao lado da navegação. */
-main:has(.nucleus-workspace,.nucleus-home-heading) { max-width:1700px; padding-inline:34px; }
-@media (max-width:1100px) { main:has(.nucleus-workspace,.nucleus-home-heading) { padding-inline:24px; } }
-@media (max-width:900px) { main:has(.nucleus-workspace,.nucleus-home-heading) { padding-inline:20px; } }
+/* As telas com painéis ocupam a área disponível ao lado da navegação. */
+main:has(.nucleus-workspace,.nucleus-home-heading,.agreements-page,.agreement-detail-page) { max-width:1700px; padding-inline:34px; }
+@media (max-width:1100px) { main:has(.nucleus-workspace,.nucleus-home-heading,.agreements-page,.agreement-detail-page) { padding-inline:24px; } }
+@media (max-width:900px) { main:has(.nucleus-workspace,.nucleus-home-heading,.agreements-page,.agreement-detail-page) { padding-inline:20px; } }
 main h1 { scroll-margin-top: 4.5rem; }
 nav a, .mobile-nav button {
   display: flex; align-items: center; min-height: 2.75rem; padding: .55rem .8rem; border-radius: .45rem;

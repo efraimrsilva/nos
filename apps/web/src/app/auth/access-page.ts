@@ -2,6 +2,7 @@ import { Component, DestroyRef, computed, effect, inject, signal, viewChild, typ
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Account } from '../account';
+import { Notice } from '../shared/notice';
 import { AccountStory } from './account-story';
 import { AccessAuth, type EmailKind } from './access-auth';
 import { EmailAssistanceForm } from './email-assistance-form';
@@ -25,6 +26,7 @@ export class AccessPage {
   private readonly destroy = inject(DestroyRef);
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
+  private readonly notices = inject(Notice);
   private readonly query = toSignal(this.route.queryParams, {initialValue: this.route.snapshot.queryParams});
   private readonly params = toSignal(this.route.params, {initialValue: this.route.snapshot.params});
   private readonly dialog = viewChild<ElementRef<HTMLDialogElement>>('assistance');
@@ -47,7 +49,7 @@ export class AccessPage {
     const error: unknown = this.query()['erro'];
     return typeof error === 'string' && Object.hasOwn(errors, error) ? errors[error] : '';
   });
-  protected readonly bannerStatus = computed(() => this.query()['resultado'] === 'senha'
+  private readonly bannerStatus = computed(() => this.query()['resultado'] === 'senha'
     ? 'Senha atualizada. Entre com sua nova senha.'
     : this.query()['resultado'] === 'conta-excluida'
       ? 'Sua conta foi excluída.'
@@ -66,6 +68,10 @@ export class AccessPage {
 
   constructor() {
     void this.profile.connect();
+    effect(() => {
+      const message = this.bannerStatus();
+      if (message) this.notices.show(message);
+    });
     effect(onCleanup => {
       const content = this.formContent()?.nativeElement;
       if (!content) { this.formHeight.set(null); return; }

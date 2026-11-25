@@ -6,6 +6,7 @@ import { pageNumber } from '../nuclei/nucleus-model';
 import { NavIcon } from '../shared/nav-icon';
 import { InvitationGenerator } from './invitation-generator';
 import { InvitationsData, inviteDate, type InviteScope, type InviteSummary } from './invitations-data';
+import { Notice } from '../shared/notice';
 
 const filters = [
   {key:'ativos',title:'Ativos',label:'Ativo'},
@@ -18,6 +19,7 @@ const filters = [
   templateUrl:'./invitation-management.html',
 })
 export class InvitationManagement {
+  private readonly notices = inject(Notice);
   private readonly routerState = inject(ActivatedRoute);
   private readonly profile = inject(PreviewProfile);
   private readonly data = inject(InvitationsData);
@@ -68,7 +70,6 @@ export class InvitationManagement {
   });
   protected readonly preparing = signal(false);
   protected readonly revoking = signal(false);
-  protected readonly success = signal('');
   protected readonly error = signal('');
   protected readonly revokeTarget = signal<{scope:InviteScope; id:string}|null>(null);
   private readonly revokeDialog = viewChild<ElementRef<HTMLDialogElement>>('revokeDialog');
@@ -83,7 +84,6 @@ export class InvitationManagement {
       this.selectedId.set(null);
       this.preparing.set(false);
       this.revokeTarget.set(null);
-      this.success.set('');
       this.error.set('');
     });
   }
@@ -92,7 +92,6 @@ export class InvitationManagement {
     if (this.revoking() || this.state.isLoading()) return;
     this.revokeTarget.set({scope,id:item.id});
     this.error.set('');
-    this.success.set('');
     dialog.showModal();
   }
 
@@ -106,7 +105,7 @@ export class InvitationManagement {
       await this.data.revoke(action.scope,action.id);
       if (!this.stillCurrent(action.scope)) return;
       this.revokeDialog()?.nativeElement.close();
-      this.success.set('Convite revogado. Quem já participa continua no Núcleo.');
+      this.notices.show('Convite revogado.');
       this.state.reload();
     } catch {
       if (this.stillCurrent(action.scope)) this.error.set('Não foi possível revogar o convite. Confira seu acesso e tente novamente.');

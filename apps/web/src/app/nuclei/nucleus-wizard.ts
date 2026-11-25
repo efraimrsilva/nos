@@ -34,10 +34,9 @@ import { NucleusSteps } from './nucleus-steps';
 export class ChoosePath {}
 
 @Component({
-  imports:[RouterLink,NucleusSteps,NavIcon],
+  imports:[NucleusSteps,NavIcon],
   styleUrl:'./nucleus-wizard.css',
   template:`
-    <a class="back-button" routerLink="/comecar"><app-nav-icon name="left" />Voltar</a>
     <app-nucleus-steps [current]="1" />
     <header class="nucleus-header"><div><p class="kicker">Um espaço com o jeito de vocês</p>
       <h1 tabindex="-1">Que relação vocês têm?</h1><p>Cada tipo de Núcleo cresce com objetivos diferentes.</p></div></header>

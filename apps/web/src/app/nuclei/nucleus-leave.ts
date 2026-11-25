@@ -6,6 +6,7 @@ import { NavIcon } from '../shared/nav-icon';
 import { NucleiData } from './nuclei-data';
 import { NucleusAction } from './nucleus-action';
 import { NucleusManagementData, type ManagementScope } from './nucleus-management-data';
+import { Notice } from '../shared/notice';
 
 @Component({
   imports:[RouterLink,NucleusAction,NavIcon],
@@ -54,6 +55,7 @@ import { NucleusManagementData, type ManagementScope } from './nucleus-managemen
   `,
 })
 export class NucleusLeave {
+  private readonly notices = inject(Notice);
   private readonly profile = inject(PreviewProfile);
   private readonly management = inject(NucleusManagementData);
   private readonly data = inject(NucleiData);
@@ -71,6 +73,7 @@ export class NucleusLeave {
 
   protected finish(scope: ManagementScope) {
     this.data.forget(scope.owner,scope.id);
+    this.notices.show('Você saiu do Núcleo.');
     void this.router.navigate(['/nucleos'],{replaceUrl:true});
   }
 }

@@ -1,0 +1,27 @@
+<button type="button" class="button secondary" aria-haspopup="dialog" [disabled]="pending() || !editable()" (click)="open(editor)">Editar acordo</button>
+<dialog #editor class="shared-dialog agreement-wide-dialog" aria-label="Editar acordo" (close)="cancel(editor)">
+  <header class="dialog-heading"><h2>Editar acordo</h2>
+    <form method="dialog"><button class="dialog-close" aria-label="Fechar edição" autofocus></button></form>
+  </header>
+  @if (draft(); as editing) {
+    <form class="agreement-form" (submit)="submit($event,editor)" [attr.aria-busy]="pending()">
+      <fieldset class="agreement-fields" [disabled]="pending() || !editable()">
+        <label>O que vamos fazer?<input name="title" [value]="editing.agreement.title" required maxlength="100"></label>
+        <label>Como será?
+          <textarea name="description" [defaultValue]="editing.agreement.description" required maxlength="500" rows="3"></textarea>
+        </label>
+        <div class="proposal-schedule">
+          <label>Quando?<input name="timing" [value]="editing.agreement.timing" required maxlength="120"></label>
+          <label>Com que frequência?<input name="frequency" [value]="editing.agreement.frequency" required maxlength="120"></label>
+        </div>
+        <label class="nucleus-confirm"><input type="checkbox" name="confirmed" required>
+          <span>Confirmo a publicação dos novos detalhes do acordo.</span></label>
+        <div class="agreement-actions">
+          <button type="button" class="button secondary" (click)="editor.close()">Cancelar</button>
+          <button type="submit" class="button">{{ pending()?'Salvando…':'Salvar alterações' }}</button>
+        </div>
+      </fieldset>
+      @if (error()) { <p role="alert" class="form-error">{{ error() }}</p> }
+    </form>
+  }
+</dialog>

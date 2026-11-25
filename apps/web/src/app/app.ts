@@ -1,4 +1,4 @@
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, NgTemplateOutlet } from '@angular/common';
 import { afterNextRender, Component, computed, DestroyRef, effect, inject, Injector, resource, signal, viewChild, type ElementRef } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, NavigationError, NavigationSkipped, NavigationStart, Router, RouterLink, RouterOutlet } from '@angular/router';
@@ -15,15 +15,18 @@ import { NucleiData } from './nuclei/nuclei-data';
 import { NavigationLinks, navAreaMatches, type NavigationItem } from './navigation-links';
 import { readNavigationCounts, type NavigationCounts } from '../domain/navigation/counts';
 import { NavIcon } from './shared/nav-icon';
+import { HeaderActions } from './shared/header-actions';
+import { NoticeView } from './shared/notice';
 import manifest from '../../package.json';
 
 @Component({
-  imports: [RouterLink, RouterOutlet, RouteState, Account, ProblemReport, NavigationLinks, NavIcon],
+  imports: [RouterLink, RouterOutlet, RouteState, Account, ProblemReport, NavigationLinks, NavIcon, NgTemplateOutlet, NoticeView],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrls: ['./app.css', './shell-navigation.css'],
 })
 export class App {
+  protected readonly headerActions = inject(HeaderActions).template;
   protected readonly router = inject(Router);
   protected readonly profile = inject(PreviewProfile);
   private readonly data = inject(NucleiData);

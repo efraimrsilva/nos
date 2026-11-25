@@ -1,24 +1,22 @@
 import { Component,DestroyRef,inject,input,signal } from '@angular/core';
 import { HabitData,type HabitContext } from './habit-data';
+import { Notice } from '../shared/notice';
 import { cycleActions,cycleDescriptions,cycleLabels,type CycleAction } from './habit-model';
 
 @Component({
   selector:'app-habit-administration',
   template:`
-    <p>A administração organiza o ciclo. Cada pessoa decide sobre a própria participação.</p>
-    <div class="agreement-actions habit-section-gap">
+    <div class="agreement-actions">
       @for (action of actions(context().agreement.status); track action) {
         <button type="button" class="button secondary" aria-haspopup="dialog" [disabled]="pending() || loading()"
           (click)="open(action,confirmation,form)">{{ labels[action] }}</button>
       }
     </div>
-    @if (success()) { <p role="status">{{ success() }}</p> }
     <dialog #confirmation class="shared-dialog" aria-label="Administrar o ciclo">
       <header class="dialog-heading"><h2>Administrar o ciclo</h2>
         <form method="dialog"><button class="dialog-close" aria-label="Fechar administração" autofocus></button></form>
       </header>
       @if (selected(); as choice) {
-        <p class="badge">Termos v{{ choice.context.agreement.terms_version }}</p>
         <p>{{ descriptions[choice.action] }}</p>
       }
       <form #form class="agreement-form" (submit)="apply($event,confirmation)" [attr.aria-busy]="pending()">
@@ -46,15 +44,14 @@ export class HabitAdministration {
   protected readonly descriptions = cycleDescriptions;
   protected readonly selected = signal<{action:CycleAction;context:HabitContext}|null>(null);
   protected readonly error = signal('');
-  protected readonly success = signal('');
   private readonly data = inject(HabitData);
+  private readonly notices = inject(Notice);
   private readonly destroy = inject(DestroyRef);
 
   protected open(action:CycleAction,dialog:HTMLDialogElement,form:HTMLFormElement) {
     if (this.pending()) return;
     form.reset();
     this.error.set('');
-    this.success.set('');
     this.selected.set({action,context:this.context()});
     dialog.showModal();
   }
@@ -71,7 +68,7 @@ export class HabitAdministration {
       if (error) this.error.set(error);
       else {
         if (dialog.open) dialog.close();
-        this.success.set('Ciclo atualizado.');
+        this.notices.show('Ciclo atualizado.');
       }
     } catch {
       if (!this.destroy.destroyed) this.error.set('Não foi possível conferir a sessão.');

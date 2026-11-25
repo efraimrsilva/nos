@@ -5,8 +5,8 @@
   <p [id]="prefix() + '-note'" class="auth-note">{{ kind() === 'recovery'
     ? 'Vamos verificar se este e-mail possui uma conta. Se existir, enviaremos as instruções para recuperar o acesso. Nunca compartilhe o link recebido.'
     : 'Vamos verificar se este e-mail já está confirmado. Se a confirmação estiver pendente, enviaremos um novo link. Nunca compartilhe o link de acesso.' }}</p>
-  @if (emailMessage(); as feedback) {
-    <p [attr.role]="feedback.success ? 'status' : 'alert'" class="auth-feedback" [class.auth-error]="!feedback.success">{{ feedback.message }}</p>
+  @if (emailError(); as error) {
+    <p role="alert" class="auth-feedback auth-error">{{ error }}</p>
   }
   <button type="submit" class="button" [disabled]="emailPending()">
     {{ emailPending() ? 'Aguarde…' : kind() === 'recovery' ? 'Enviar instruções' : 'Reenviar confirmação' }}

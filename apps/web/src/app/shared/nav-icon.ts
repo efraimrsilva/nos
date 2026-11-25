@@ -41,6 +41,9 @@ const paths = {
   key:'M15 3a6 6 0 0 1 4 10.5 6 6 0 0 1-6.5.8L6 21H3v-4l7-7a6 6 0 0 1 5-7Zm2 5h.01',
   shield:'M12 22c5-2 8-5.2 8-10V5l-8-3-8 3v7c0 4.8 3 8 8 10Zm-3-10 2 2 4-4',
   copy:'M8 8h12v13H8zM16 8V3H3v13h5',
+  columns:'M3 4h18v16H3z M9 4v16 M15 4v16',
+  search:'M21 21l-4.35-4.35 M19 11a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z',
+  clock:'M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z M12 6v6l4 2',
 } as const;
 
 @Component({

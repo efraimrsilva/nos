@@ -3,6 +3,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { PreviewProfile } from '../preview-profile';
 import { NavIcon } from '../shared/nav-icon';
+import { Notice } from '../shared/notice';
 import { findNucleusType, formatCalendarEventDate, profileLetters } from './nucleus-model';
 import { NucleiData, type Member } from './nuclei-data';
 import { NucleusAction } from './nucleus-action';
@@ -18,6 +19,7 @@ type MemberOperation = 'promote' | 'demote' | 'remove';
 })
 export class NucleusHome {
   private readonly profile = inject(PreviewProfile);
+  private readonly notices = inject(Notice);
   private readonly data = inject(NucleiData);
   private readonly management = inject(NucleusManagementData);
   private readonly route = inject(ActivatedRoute);
@@ -27,6 +29,7 @@ export class NucleusHome {
   private readonly query = toSignal(this.route.queryParamMap,{initialValue:this.route.snapshot.queryParamMap});
   private readonly people = viewChild<ElementRef<HTMLDialogElement>>('people');
   private readonly details = viewChild<ElementRef<HTMLDialogElement>>('details');
+  private readonly leaveDialog = viewChild<ElementRef<HTMLDialogElement>>('leaveDialog');
   private readonly editForm = viewChild<NucleusAction>('editForm');
   protected readonly editing = signal(false);
   private readonly stale = signal(false);
@@ -37,7 +40,6 @@ export class NucleusHome {
     remove:{title:'Remover do Núcleo',confirmation:'Entendi que esta pessoa perderá o acesso ao Núcleo.'},
   };
   protected readonly peopleTarget = signal<{id:string;name:string}|null>(null);
-  protected readonly peopleFeedback = signal('');
   protected readonly leaveReview = signal(false);
   protected readonly leaveState = resource({
     params:() => {
@@ -62,7 +64,6 @@ export class NucleusHome {
     },
   });
   protected readonly identity = signal<{operation:'name'|'purpose';value:string}|null>(null);
-  protected readonly feedback = signal('');
   protected readonly actionBusy = signal(false);
   protected readonly initials = profileLetters;
   private lastView?: NonNullable<Awaited<ReturnType<NucleiData['home']>>> & {scope:ManagementScope;version:string|null};
@@ -116,10 +117,12 @@ export class NucleusHome {
       });
     effect(() => {
       this.params().get('id');
-      untracked(() => this.people()?.nativeElement.close());
+      untracked(() => {
+        this.leaveDialog()?.nativeElement.close();
+        this.people()?.nativeElement.close();
+      });
       this.memberAction.set(null);
       this.identity.set(null);
-      this.feedback.set('');
       this.actionBusy.set(false);
       this.editing.set(false);
     });
@@ -146,7 +149,6 @@ export class NucleusHome {
   }
 
   protected openPeople(target:{id:string;name:string},dialog:HTMLDialogElement) {
-    this.peopleFeedback.set('');
     this.peopleTarget.set(target);
     dialog.showModal();
   }
@@ -155,6 +157,7 @@ export class NucleusHome {
 
   protected closePeople() {
     if (this.people()?.nativeElement.open) return;
+    this.leaveDialog()?.nativeElement.close();
     this.details()?.nativeElement.close();
     this.peopleTarget.set(null);
     this.leaveReview.set(false);
@@ -166,15 +169,32 @@ export class NucleusHome {
   }
 
   protected editIdentity(operation:'name'|'purpose',value:string,dialog:HTMLDialogElement) {
-    this.feedback.set('');
     this.identity.set({operation,value});
     this.openAfterRender(dialog);
   }
 
   protected openMember(id:string,operation:MemberOperation,dialog:HTMLDialogElement) {
-    this.peopleFeedback.set('');
+    if (this.actionBusy() || this.peopleState.isLoading() ||
+        !this.peopleState.hasValue() || this.peopleState.value()?.role !== 'admin') return;
     this.memberAction.set({id,operation});
     this.openAfterRender(dialog);
+  }
+
+  protected openLeave(dialog:HTMLDialogElement) {
+    if (dialog.open || this.actionBusy() || this.peopleState.isLoading() ||
+        !this.peopleState.hasValue() || this.peopleState.value()?.role !== 'admin') return;
+    this.leaveReview.set(true);
+    dialog.showModal();
+  }
+
+  protected closeLeave(dialog:HTMLDialogElement) {
+    // Se a saída já foi confirmada, mantém o formulário até ele receber o resultado.
+    if (!dialog.open && !this.actionBusy()) this.leaveReview.set(false);
+  }
+
+  protected setLeaveBusy(busy:boolean,dialog:HTMLDialogElement) {
+    this.actionBusy.set(busy);
+    if (!busy) this.closeLeave(dialog);
   }
 
   private openAfterRender(dialog:HTMLDialogElement) {
@@ -191,24 +211,25 @@ export class NucleusHome {
   }
 
   protected finish(operation:ManagementOperation) {
-    this.feedback.set(operation==='name' ? 'Nome atualizado.' : operation==='purpose' ? 'Propósito atualizado.' : 'Alteração concluída.');
+    this.notices.show(operation==='name' ? 'Nome atualizado.' : operation==='purpose' ? 'Propósito atualizado.' : 'Alteração concluída.');
     this.state.reload();
   }
 
   protected finishMember(dialog:HTMLDialogElement) {
     dialog.close();
-    this.peopleFeedback.set('Alteração concluída.');
+    this.notices.show('Alteração concluída.');
     this.peopleState.reload();
     this.state.reload();
   }
 
-  protected finishLeave(scope:ManagementScope,dialog:HTMLDialogElement) {
+  protected finishLeave(scope:ManagementScope,dialog:HTMLDialogElement,people:HTMLDialogElement) {
     this.data.forget(scope.owner,scope.id);
     dialog.close();
+    people.close();
+    this.notices.show('Você saiu do Núcleo.');
     if (scope.id === this.params().get('id')) {
       void this.router.navigate(['/nucleos'],{replaceUrl:true});
     } else {
-      this.feedback.set('Você saiu do Núcleo.');
       this.state.reload();
     }
   }

@@ -2,12 +2,16 @@ import { Component, DestroyRef, computed, inject, input, output, signal, effect,
 import { RouterLink } from '@angular/router';
 import { AgreementTotals } from './agreement-totals';
 import { AgreementsData } from './agreements-data';
+import { HabitMoments } from './habit-moments';
+import { HabitAdministration } from './habit-administration';
+import { HabitTermsEditor } from './habit-terms-editor';
+import { Notice } from '../shared/notice';
 import { canRecordMoment } from './habit-model';
 import { accepted, canRespond, participationLabel,statusLabel,type Agreement,type AgreementCount,type AgreementScope,type Response } from './proposal-model';
 
 @Component({
   selector:'app-agreement-terms',
-  imports:[AgreementTotals,RouterLink],
+  imports:[AgreementTotals,RouterLink,HabitMoments,HabitAdministration,HabitTermsEditor],
   templateUrl:'./agreement-terms.html',
 })
 export class AgreementTerms {
@@ -16,12 +20,14 @@ export class AgreementTerms {
   readonly count = input<AgreementCount>();
   readonly countFailed = input(false);
   readonly link = input(false);
+  readonly manage = input(false);
   readonly loading = input(false);
   readonly countTick = input(0);
   readonly live = input(true);
   readonly refreshed = output<void>();
   private readonly data = inject(AgreementsData);
   private readonly destroy = inject(DestroyRef);
+  private readonly notices = inject(Notice);
   protected readonly status = statusLabel;
   protected readonly responseLabel = participationLabel;
   protected readonly accepts = accepted;
@@ -29,15 +35,15 @@ export class AgreementTerms {
   protected readonly canRecord = canRecordMoment;
   protected readonly pending = signal(false);
   protected readonly error = signal('');
-  protected readonly feedback = signal('');
   protected readonly confirming = signal<Agreement|null>(null);
+  protected readonly historyOpen = signal(false);
+  protected readonly canManage = computed(() => this.manage() && canRespond(this.agreement()));
   private readonly id = computed(() => this.agreement().id);
 
   constructor() {
     effect(() => {
       this.id();
       this.error.set('');
-      this.feedback.set('');
     });
     effect(onCleanup => {
       const tick = this.countTick(), id = this.id();
@@ -50,7 +56,6 @@ export class AgreementTerms {
       // Contagens e termos podem mudar em outra sessão; confira apenas o acordo aberto.
       void this.data.termsChanged(scope,snapshot,request.signal).then(changed => {
         if (changed && !request.signal.aborted && this.id() === id && !this.pending() && !this.confirming() && !this.loading()) {
-          this.feedback.set('');
           this.refreshed.emit();
         }
       }).catch(() => { /* Falha de leitura mantém os termos em tela até a próxima conferência. */ });
@@ -69,12 +74,11 @@ export class AgreementTerms {
     if (!agreement) return;
     this.pending.set(true);
     this.error.set('');
-    this.feedback.set('');
     try {
       const result = await this.data.respond(scope,agreement,response);
       if (this.destroy.destroyed || this.scope().id !== scope.id || this.agreement().id !== agreement.id) return;
-      if (result === 'saved') this.feedback.set('Sua resposta foi registrada.');
-      else if (result === 'changed') this.error.set('Os termos mudaram. Confira a versão atual antes de responder.');
+      if (result === 'saved') this.notices.show('Sua resposta foi registrada.');
+      else if (result === 'changed') this.error.set('O acordo foi atualizado. Confira os detalhes antes de responder.');
       else if (result === 'unavailable') this.error.set('O acordo não recebe esta resposta ou seu acesso mudou.');
       else this.error.set('Não foi possível confirmar a resposta. Confira sua participação atual antes de repetir.');
       if (dialog?.open) dialog.close();

@@ -8,6 +8,7 @@ import { CalendarData,type CalendarChange } from './calendar-data';
 import { CalendarMonth } from './calendar-month';
 import { NavIcon } from '../shared/nav-icon';
 import { attendance,clampDay,clock,dayMs,formInstant,localDateTime,maxDay,minDay,monthAndYear,overlaps,shortDay,shortMonth,weekLayout,weekMs,weekOf,type CalendarEvent } from './calendar-model';
+import { Notice } from '../shared/notice';
 
 @Component({
   imports:[RouterLink,RouteState,CalendarMonth,NavIcon],
@@ -15,6 +16,7 @@ import { attendance,clampDay,clock,dayMs,formInstant,localDateTime,maxDay,minDay
   styleUrls:['./calendar-page.css','./calendar-dialog.css'],
 })
 export class CalendarPage {
+  private readonly notices=inject(Notice);
   private readonly profile=inject(PreviewProfile);
   private readonly data=inject(CalendarData);
   private readonly route=inject(ActivatedRoute);
@@ -63,7 +65,6 @@ export class CalendarPage {
   protected readonly maxDay=maxDay;
   protected readonly latestPage=42_949_673;
 
-  protected readonly notice=signal('');
   protected readonly error=signal('');
   protected readonly dialogError=signal('');
   protected readonly invalidTime=signal<'start'|'end'|null>(null);
@@ -80,7 +81,6 @@ export class CalendarPage {
       this.page();
       this.dateChoice.set(null);
       this.eventChoice.set(null);
-      this.notice.set('');
       this.error.set('');
       this.dialogError.set('');
       this.uncertainCreate.set(false);
@@ -200,7 +200,6 @@ export class CalendarPage {
     if(change.event && !view.events.some(event=>event.id===change.event?.id)) return;
     const showError=(message:string)=>(dialog?.open ? this.dialogError : this.error).set(message);
     this.busy.set(true);
-    this.notice.set('');
     this.error.set('');
     this.dialogError.set('');
     try {
@@ -223,12 +222,12 @@ export class CalendarPage {
         day.setUTCHours(0,0,0,0);
         this.chooseDay(day.getTime());
         if(result.id) this.eventChoice.set(result.id);
-        this.notice.set('Evento salvo.');
+        this.notices.show('Evento salvo.');
       } else if(change.kind==='respond') {
-        this.notice.set('Sua resposta foi registrada.');
+        this.notices.show('Sua resposta foi registrada.');
       } else {
         this.eventChoice.set(null);
-        this.notice.set('Evento removido.');
+        this.notices.show('Evento removido.');
       }
       this.state.reload();
     } catch {

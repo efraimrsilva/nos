@@ -21,7 +21,7 @@ export function proposalTerms(form:FormData) {
 }
 
 const statuses:Record<string,string> = {
-  pending:'Proposta enviada',testing:'Em teste',active:'Acordo ativo',declined:'Proposta recusada',ended:'Encerrado pela administração',
+  pending:'Proposta enviada',testing:'Em teste',active:'Acordo ativo',declined:'Proposta recusada',ended:'Encerrado',
 };
 export const statusLabel = (status:string) => statuses[status] ?? 'Estado indisponível';
 export const canRespond = (agreement:Agreement) => ['pending','testing','active'].includes(agreement.status);
@@ -31,7 +31,7 @@ export const accepted = (agreement:Agreement) => {
 };
 export function participationLabel(agreement:Agreement) {
   const own = agreement.nucleus_agreement_participants[0];
-  if (accepted(agreement)) return 'Participação aceita · v' + agreement.terms_version;
+  if (accepted(agreement)) return 'Participação aceita';
   if (own?.response === 'declined') return 'Participação recusada';
   return own?.response === 'accepted' ? 'Novo aceite necessário' : 'Participação a decidir';
 }

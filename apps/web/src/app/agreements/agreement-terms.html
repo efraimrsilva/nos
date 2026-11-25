@@ -1,47 +1,66 @@
 @let item = agreement();
 <ng-content />
-<p><span class="badge">{{ status(item.status) }} · termos v{{ item.terms_version }}</span></p>
-<app-agreement-totals [value]="count()" [failed]="countFailed()" />
-@if (countFailed() && count()) { <p role="status">Exibindo a última contagem disponível. A atualização será tentada novamente.</p> }
+<div class="agreement-detail-summary">
+  <span class="badge">{{ status(item.status) }}</span>
+  <span class="badge">{{ responseLabel(item) }}</span>
+  <app-agreement-totals [value]="count()" [failed]="countFailed()" />
+</div>
 <p class="agreement-description">{{ item.description }}</p>
 <dl class="agreement-facts">
   <div><dt>Quando</dt><dd>{{ item.timing }}</dd></div>
   <div><dt>Frequência</dt><dd>{{ item.frequency }}</dd></div>
-  <div><dt>Teste planejado</dt><dd>{{ item.trial_days ? item.trial_days + ' dias' : 'Não informado no histórico' }}</dd></div>
+  @if (item.trial_days) {
+    <div><dt>Duração do teste</dt><dd>{{ item.trial_days }} dias</dd></div>
+  }
 </dl>
-<p class="badge">{{ responseLabel(item) }}</p>
-@if (feedback()) { <p role="status">{{ feedback() }}</p> }
 @if (error()) { <p role="alert" class="form-error">{{ error() }}</p> }
-@if (canRespond(item)) {
-  <p>{{ accepts(item) ? 'Você participa dos termos atuais. Sua escolha pode ser revista.' : 'Conheça os termos e escolha se deseja participar. Silêncio não é aceite.' }}</p>
-  <div class="agreement-actions" [attr.aria-busy]="pending()">
-    @if (!accepts(item)) {
-      <button type="button" class="button" [disabled]="pending() || loading()" (click)="respond('accepted')">Aceitar proposta</button>
+@if (canRespond(item) || link()) {
+  <div class="agreement-actions agreement-detail-actions" [attr.aria-busy]="pending()">
+    @if (canRespond(item)) {
+      @if (!accepts(item)) {
+        <button type="button" class="button agreement-response agreement-accept" [disabled]="pending() || loading()" (click)="respond('accepted')">Aceitar proposta</button>
+      }
+      <button type="button" class="button agreement-response agreement-decline" aria-haspopup="dialog"
+        [disabled]="pending() || loading()" (click)="openDecline(decline)">Recusar proposta</button>
     }
-    <button type="button" class="button secondary" aria-haspopup="dialog" [disabled]="pending() || loading()"
-      (click)="openDecline(decline)">Recusar proposta</button>
+    @if (link()) {
+      @if (canRecord(item)) {
+        <a class="button secondary" [routerLink]="['/nucleos',scope().id,'acordos',item.id,'registrar']">Registrar momento</a>
+      }
+      <button type="button" class="button secondary" aria-haspopup="dialog" (click)="historyOpen.set(true); history.showModal()">Ver histórico</button>
+    }
+    @if (canManage()) {
+      <button type="button" class="button secondary" aria-haspopup="dialog" [disabled]="pending() || loading()" (click)="management.showModal()">Administrar acordo</button>
+    }
   </div>
-} @else {
-  <p>Este acordo está disponível para consulta dos termos. Novas respostas estão encerradas.</p>
 }
-@if (link()) {
-  <nav class="agreement-actions habit-section-gap" aria-label="Ciclo e histórico">
-    <a class="button secondary" [routerLink]="['/nucleos',scope().id,'acordos',item.id]">Abrir detalhe</a>
-    @if (canRecord(item)) {
-      <a class="button secondary" [routerLink]="['/nucleos',scope().id,'acordos',item.id,'registrar']">Registrar momento</a>
-    }
-    <a class="button secondary" [routerLink]="['/nucleos',scope().id,'acordos',item.id,'confirmar']">Período e administração do hábito</a>
-    <a class="button secondary" [routerLink]="['/nucleos',scope().id,'acordos',item.id,'revisar']">Termos e histórico</a>
-  </nav>
-}
-<dialog #decline class="shared-dialog" aria-label="Recusar participação?" (close)="!decline.open && confirming.set(null)">
+<dialog #management class="shared-dialog agreement-wide-dialog" aria-label="Administrar acordo">
+  <header class="dialog-heading"><h2>Administrar acordo</h2>
+    <form method="dialog"><button class="dialog-close" aria-label="Fechar administração" autofocus></button></form>
+  </header>
+  @if (manage()) {
+    <div class="agreement-management-actions">
+      <app-habit-administration [context]="{scope:scope(),agreement:item}" [loading]="loading()" />
+      <app-habit-terms-editor [context]="{scope:scope(),agreement:item}" [loading]="loading()" />
+    </div>
+  }
+</dialog>
+<dialog #history class="shared-dialog agreement-wide-dialog" aria-label="Histórico do acordo"
+  (close)="!history.open && historyOpen.set(false)">
+  <header class="dialog-heading"><h2>Histórico do acordo</h2>
+    <form method="dialog"><button class="dialog-close" aria-label="Fechar histórico" autofocus></button></form>
+  </header>
+  @if (historyOpen()) {
+    <p class="agreement-history-name">{{ item.title }}</p>
+    <app-habit-moments [context]="{scope:scope(), agreement:item}" />
+  }
+</dialog>
+<dialog #decline class="shared-dialog agreement-dialog" aria-label="Recusar participação?" (close)="!decline.open && confirming.set(null)">
   <header class="dialog-heading"><h2>Recusar participação?</h2>
     <form method="dialog"><button class="dialog-close" aria-label="Fechar recusa" autofocus></button></form>
   </header>
-  @if (confirming(); as version) { <p class="badge">Termos v{{ version.terms_version }}</p> }
-  <p>Você deixará de participar destes termos. O acordo e o histórico das outras pessoas permanecem.</p>
   <div class="agreement-actions">
     <button type="button" class="button secondary" (click)="decline.close()">Cancelar</button>
-    <button type="button" class="button" [disabled]="pending() || loading()" (click)="respond('declined',decline)">{{ pending() ? 'Registrando…' : 'Confirmar recusa' }}</button>
+    <button type="button" class="button agreement-response agreement-decline" [disabled]="pending() || loading()" (click)="respond('declined',decline)">{{ pending() ? 'Registrando…' : 'Confirmar recusa' }}</button>
   </div>
 </dialog>

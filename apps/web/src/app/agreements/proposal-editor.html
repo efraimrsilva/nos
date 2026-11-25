@@ -1,4 +1,3 @@
-<p>Uma conversa pode virar um combinado. Enviar a proposta não registra aceite.</p>
 <form #proposalForm class="agreement-form" (submit)="submit($event)" [attr.aria-busy]="pending()">
   <fieldset class="agreement-fields" [hidden]="review() !== null" [disabled]="pending()">
     <label>O que vamos fazer?<input #firstField name="title" required maxlength="100"></label>
@@ -9,7 +8,7 @@
       <label>Com que frequência?<input name="frequency" required maxlength="120" placeholder="Ex.: uma vez por semana"></label>
     </div>
     <label>Duração do teste (dias)<input name="trialDays" type="number" min="7" max="30" step="1" aria-describedby="proposal-trial" required></label>
-    <p id="proposal-trial">Escolha de 7 a 30 dias. A administração organiza o teste e cada pessoa decide se participa.</p>
+    <p id="proposal-trial">De 7 a 30 dias.</p>
   </fieldset>
   @if (review(); as terms) {
     <section class="proposal-review" aria-labelledby="proposal-review">
@@ -21,16 +20,9 @@
         <div><dt>Com que frequência?</dt><dd>{{ terms.frequency }}</dd></div>
         <div><dt>Duração do teste</dt><dd>{{ terms.trialDays }} dias</dd></div>
       </dl>
-      <p>Depois de publicar, escolha explicitamente se aceita participar. Cada integrante decide por si.</p>
       <button class="button secondary" type="button" [disabled]="pending() || unknown()" (click)="edit()">Editar proposta</button>
     </section>
   }
-  <details class="agreement-consent" aria-label="Como funcionam as decisões do Hábito">
-    <summary>Administração e participação</summary>
-    <p>Administradores organizam o teste, a ativação e o encerramento. Cada pessoa decide se participa; uma recusa não encerra o acordo das outras pessoas.</p>
-    <p>Quando os termos mudam, cada pessoa precisa aceitar novamente antes de registrar novos momentos. Silêncio não é aceite.</p>
-    <p>A saída de uma pessoa não cancela acordos. Os termos anteriores e os momentos permanecem no histórico.</p>
-  </details>
   @if (error()) { <p class="form-error" role="alert">{{ error() }}</p> }
   <button class="button" type="submit" [disabled]="pending() || unknown()">{{ pending() ? 'Enviando…' : review() ? 'Enviar proposta' : 'Conferir proposta' }}</button>
 </form>

@@ -7,9 +7,6 @@ import { type CycleAction,parseHabitMomentCursor,type readNewTerms } from './hab
 
 export type HabitContext = {scope:AgreementScope;agreement:Agreement};
 type Moment = {id:string;author_id:string|null;mood:string;note:string|null;created_at:string;authorship_hidden:boolean};
-type TermsVersion = {version:number;title:string;description:string;timing:string;frequency:string;changed_at:string};
-type LegacyRevision = {id:string;kind:string;status:string;title:string|null;description:string|null;timing:string|null;frequency:string|null;created_at:string};
-type LegacyTrial = {id:string;status:string;started_at:string|null;ends_at:string|null;created_at:string};
 
 @Injectable({providedIn:'root'})
 export class HabitData {
@@ -28,28 +25,6 @@ export class HabitData {
     const rows = (result.data ?? []) as Moment[];
     const last = rows[19];
     return {rows:rows.slice(0,20),next:rows.length>20 ? last.created_at+'|'+last.id : null};
-  }
-
-  async history(context:HabitContext,before:number|null,page:number,signal:AbortSignal) {
-    const client = await this.nuclei.clientForAccount(context.scope.owner);
-    const agreement = context.agreement.id;
-    const start = (page-1)*20;
-    let versions = client.from('nucleus_agreement_versions').select('version,title,description,timing,frequency,changed_at').eq('agreement_id',agreement);
-    if (before) versions = versions.lt('version',before);
-    const [current,revisions,trials] = await Promise.all([
-      versions.order('version',{ascending:false}).limit(21).abortSignal(signal),
-      client.from('nucleus_habit_revisions').select('id,kind,status,title,description,timing,frequency,created_at').eq('agreement_id',agreement)
-        .order('created_at',{ascending:false}).order('id',{ascending:false}).range(start,start+20).abortSignal(signal),
-      client.from('nucleus_habit_trials').select('id,status,started_at,ends_at,created_at').eq('agreement_id',agreement)
-        .order('created_at',{ascending:false}).order('id',{ascending:false}).range(start,start+20).abortSignal(signal),
-    ]);
-    if ([current,revisions,trials].some(result=>result.error)) throw new Error('Não foi possível consultar os termos anteriores.');
-    const rows = (current.data ?? []) as TermsVersion[];
-    return {
-      versions:rows.slice(0,20),nextVersion:rows.length>20 ? rows[19].version : null,
-      revisions:((revisions.data ?? []) as LegacyRevision[]).slice(0,20),trials:((trials.data ?? []) as LegacyTrial[]).slice(0,20),
-      moreLegacy:(revisions.data?.length ?? 0)>20 || (trials.data?.length ?? 0)>20,
-    };
   }
 
   async apply(context:HabitContext,operation:CycleAction,terms?:never):Promise<string>;

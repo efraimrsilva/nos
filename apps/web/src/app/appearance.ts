@@ -4,6 +4,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { themes, resolveTheme, type ThemeId } from '../domain/appearance/themes';
 import { PreviewProfile } from './preview-profile';
+import { Notice } from './shared/notice';
 
 const themeColors = [
   '--canvas', '--surface', '--ink', '--muted', '--leaf', '--line', '--accent-soft',
@@ -16,6 +17,7 @@ export class Appearance {
   readonly themes = themes;
   private readonly document = inject(DOCUMENT);
   private readonly profile = inject(PreviewProfile);
+  private readonly notices = inject(Notice);
   private readonly router = inject(Router);
   private readonly path = signal(this.document.location.pathname);
   private readonly startingTheme = this.readStartingTheme();
@@ -181,6 +183,7 @@ export class Appearance {
         if (!this.queued && this.state()?.owner === desired.owner &&
             this.profile.user()?.id === desired.owner) {
           this.state.set({...desired, saving: false, error});
+          if (!error) this.notices.show('Tema salvo na sua conta.');
         }
       }
     } finally {

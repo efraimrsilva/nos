@@ -1,4 +1,5 @@
 <a class="skip" href="#conteudo" (click)="skipToContent($event)">Pular para o conteúdo</a>
+<app-notice />
 <div class="shell" [class.sidebar-hidden]="sidebarHidden()" [class.public-layout]="publicLayout()">
   <aside id="desktop-navigation" class="sidebar" [attr.inert]="sidebarHidden() ? '' : null">
     <a class="brand shell-brand" routerLink="/nucleos" aria-label="Nós — Seus Núcleos"><span class="shell-brand-mark"><app-nav-icon name="leaf" /></span>nós.</a>
@@ -47,6 +48,7 @@
       </div>
       @if (profile.user()) {
         <div class="header-tools">
+          <ng-container [ngTemplateOutlet]="headerActions() ?? null" />
           <app-problem-report prefix="header-support" [iconOnly]="true" />
           <button class="icon-button" type="button" (click)="notifications.showModal()" aria-haspopup="dialog"
             aria-controls="notifications-preview" aria-label="Notificações — esboço">

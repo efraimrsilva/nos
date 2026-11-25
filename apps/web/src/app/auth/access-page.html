@@ -2,7 +2,6 @@
   <h1 tabindex="-1">Sua conta no Nós</h1>
   <p class="loading-state" role="status">Conferindo sua sessão…</p>
 } @else {
-  @if (bannerStatus()) { <p role="status" class="auth-message">{{ bannerStatus() }}</p> }
   @if (bannerError() || profile.notice()) { <p role="alert" class="auth-error auth-message">{{ bannerError() || profile.notice() }}</p> }
   @if (completeName()) {
     <section class="surface auth-card">

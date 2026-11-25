@@ -9,6 +9,7 @@ import { displayName, PreviewProfile } from './preview-profile';
 import { NavIcon } from './shared/nav-icon';
 import type { EmailKind } from './auth/access-auth';
 import { EmailAssistanceForm } from './auth/email-assistance-form';
+import { Notice } from './shared/notice';
 
 @Component({
   selector: 'app-account',
@@ -17,6 +18,7 @@ import { EmailAssistanceForm } from './auth/email-assistance-form';
   styleUrl: './account.css',
 })
 export class Account {
+  private readonly notices = inject(Notice);
   readonly prefix = input('account');
   protected readonly assistance = signal<EmailKind | null>(null);
   private readonly assistanceDialog = viewChild.required<ElementRef<HTMLDialogElement>>('accountAssistance');
@@ -46,7 +48,6 @@ export class Account {
   protected readonly editing = signal(false);
   protected readonly saving = signal(false);
   protected readonly error = signal('');
-  protected readonly saved = signal(false);
   protected draft = '';
   private readonly dataDialog = viewChild.required<ElementRef<HTMLDialogElement>>('dataDialog');
   private openedFor: string | null = null;
@@ -107,7 +108,8 @@ export class Account {
   protected async finishClosure(dialog: HTMLDialogElement) {
     dialog.close();
     this.memberships.reload();
-    await this.router.navigate(['/nucleos'], {queryParams: {resultado: 'encerrado'}});
+    this.notices.show('Núcleo encerrado.');
+    await this.router.navigate(['/nucleos']);
   }
 
   protected openDialog() {
@@ -122,7 +124,6 @@ export class Account {
 
   protected edit() {
     this.draft = this.name();
-    this.saved.set(false);
     this.error.set('');
     this.editing.set(true);
     this.focus('profile-name');
@@ -145,7 +146,7 @@ export class Account {
       this.error.set(error);
       if (!error) {
         this.resetEditor();
-        this.saved.set(true);
+        this.notices.show('Nome do perfil atualizado.');
         this.focus('edit-name');
       }
     } finally {
@@ -159,7 +160,6 @@ export class Account {
     this.draft = '';
     this.editing.set(false);
     this.error.set('');
-    this.saved.set(false);
   }
 
   private focus(id: string) {

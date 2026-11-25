@@ -74,7 +74,6 @@
           <button class="button" type="submit" [disabled]="saving()">{{ saving() ? 'Salvando…' : 'Salvar preferência' }}</button>
         </form>
       }
-      @if (privacyMessage()) { <p role="status">{{ privacyMessage() }}</p> }
       @if (privacyError()) { <p role="alert">{{ privacyError() }}</p> }
     </section>
     <section class="control-section"><h3>Seus dados</h3><p>Acesso, correção e exportação são solicitados ao suporte. Você pode apagar sua própria conta no bloco Apagar minha conta. O histórico compartilhado permanece com autoria “Conta excluída”; textos ainda podem identificar você.</p><a routerLink="/configuracoes/conta" fragment="apagar-minha-conta" (click)="privacyDialog.close()">Abrir Apagar minha conta</a></section>

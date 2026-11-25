@@ -1,6 +1,6 @@
 import { Component, computed, inject, resource } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { PreviewProfile } from '../preview-profile';
 import { NavIcon } from '../shared/nav-icon';
 import { findNucleusType, pageNumber, profileLetters } from './nucleus-model';
@@ -16,11 +16,8 @@ export class NucleiList {
   private readonly profile = inject(PreviewProfile);
   private readonly data = inject(NucleiData);
   private readonly route = inject(ActivatedRoute);
-  private readonly router = inject(Router);
   private readonly query = toSignal(this.route.queryParamMap,{initialValue:this.route.snapshot.queryParamMap});
   protected readonly page = computed(() => pageNumber(this.query().getAll('pagina')));
-  protected readonly closed = computed(() => this.query().get('resultado') === 'encerrado' &&
-    (this.router.currentNavigation()?.extras.state?.['confirmedClosure'] === true || history.state?.confirmedClosure === true));
   private lastView?: Awaited<ReturnType<NucleiData['list']>> & {owner:string;page:number;version:string|null};
   private stale = false;
   protected readonly state = resource({
