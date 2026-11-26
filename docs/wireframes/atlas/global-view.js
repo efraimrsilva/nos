@@ -5,13 +5,15 @@ const globalAreaNotes=[
   'Após login, Seus Núcleos reúne associações reais e abre o Início escolhido. Sem associações, oferece criação ou convite. Escolher caminho é uma alternativa protegida; não há rascunho antes do login.',
   'O Início é o retorno do Núcleo. Agenda14 → criação16 → evento/respostas15 → edição17 opcional → agenda14. Evento existente abre15 diretamente; os quatro estados compartilham a rota. Remover exige confirmação; manter não grava. Mês e semana já existem nas linhas Next.js e Angular (A09); visão diária detalhada, recorrência, local e integrações são planejados.',
   'Publicar, participar individualmente, testar e registrar são etapas distintas; administrador gerencia o ciclo sem votação. O modelo-alvo é Proposta → Hábito → Essência. Agendamento e registro refinam Hábito; não criam etapa. Aplicativo ainda contém legado, sem migração nesta revisão.',
-  'Árvore e Memórias têm rotas protegidas de esboço, sem persistência. Marcos e gratidão continuam planejados. Indicadores e Essência exigem seus contratos; não avançam automaticamente.',
-  'Conexões e Perfis têm esboços protegidos, sem persistência; o módulo completo depende de autorização e compartilhamento voluntário. Consultar outra pessoa não permite editar seus dados.',
-  'Manifesto e Cuidado têm esboços protegidos sem persistência; convites e notificações partem de contextos distintos. Preparação privada, cartão e encontro não formam um chat.',
+  'Nossa Árvore tem um esboço protegido. Indicadores e marcos dependem dos contratos, sem avanço automático.',
+  'Memórias tem um esboço protegido e sem persistência. Galeria e gratidão permanecem planejadas.',
+  'Conexões reúne os perfis afetivos fictícios em um esboço protegido, sem persistência; o módulo completo depende de autorização e compartilhamento voluntário. Consultar outra pessoa não permite editar seus dados.',
+  'Nosso manifesto tem um esboço protegido. Escrita, revisão e compartilhamento continuam planejados.',
+  'Ponte do Nós tem um esboço protegido e rascunho temporário. Preparação privada, cartão e encontro não formam um chat.',
   'Preferências e segurança são acessos contextuais. Sair da conta, sair do Núcleo e tratar dados têm consequências diferentes.'
 ];
 // Ajustes de leitura: criação antes do detalhe, registro antes do histórico; legado é alternativa da confirmação.
-const globalReadingOrder={1:[12,6,7,8,9,10,11],2:[13,14,16,15,17],3:[18,19,20,21,22,23,24,27,25,28,29,26,30,31,32,33,34,35,36,37],4:[38,39,40,42,41,43],7:[73,71,66,67,69,70,68]};
+const globalReadingOrder={1:[12,6,7,8,9,10,11],2:[13,14,16,15,17],3:[18,19,20,21,22,23,24,27,25,28,29,26,30,31,32,33,34,35,36,37],5:[40,42,41,43],9:[73,71,66,67,69,70,68,60]};
 function orderedGlobalScreens(list,chapter){
   const order=globalReadingOrder[chapter];
   const rank=screen=>order?.includes(screen.id)?order.indexOf(screen.id):1000+screen.id;

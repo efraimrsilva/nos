@@ -1,10 +1,9 @@
-export type PreviewKind = "arvore" | "memorias" | "conexoes" | "perfis" | "manifesto" | "cuidado";
+export type PreviewKind = "arvore" | "memorias" | "conexoes" | "manifesto" | "cuidado";
 
 export const sections: Record<PreviewKind, { label: string; eyebrow: string; title: string; description: string }> = {
   arvore: { label: "Nossa árvore", eyebrow: "NOSSA ÁRVORE / EXPLORAÇÃO", title: "Raízes no que vivemos.", description: "Um estudo visual sobre os gestos e as histórias que aproximam." },
   memorias: { label: "Memórias", eyebrow: "MEMÓRIAS / EXPLORAÇÃO", title: "Há instantes que ficam.", description: "Uma ideia de espaço para reencontrar pequenas histórias, no tempo de vocês." },
   conexoes: { label: "Conexões", eyebrow: "CONEXÕES / EXPLORAÇÃO", title: "Conhecer para cuidar.", description: "Pequenas pistas sobre o que aproxima. Sem comparar ou pontuar pessoas." },
-  perfis: { label: "Perfis afetivos", eyebrow: "PERFIS AFETIVOS / EXPLORAÇÃO", title: "Um jeito único de estar no Nós.", description: "Um conceito de perfil que respeita o que cada pessoa escolhe compartilhar." },
   manifesto: { label: "Nosso manifesto", eyebrow: "MANIFESTO / EXPLORAÇÃO", title: "O que escolhemos cultivar.", description: "Palavras que poderiam traduzir a intenção de um Núcleo." },
   cuidado: { label: "Ponte do Nós", eyebrow: "PONTE DO NÓS / EXPLORAÇÃO", title: "Conversar também é um cuidado.", description: "Uma proposta de preparação para conversas presenciais, com espaço para escutar." },
 };

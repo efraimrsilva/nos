@@ -50,9 +50,11 @@ export class App {
     const id = this.contextId();
     const base = '/nucleos/' + id;
     const history: NavigationItem[] = [
-      {label:'Árvore e memórias',mobileLabel:'Árvore',url:base + '/arvore',icon:'tree',planned:true},
-      {label:'Conexões e perfis',mobileLabel:'Conexões',url:base + '/conexoes',icon:'links',tone:'violet',planned:true},
-      {label:'Manifesto e cuidado',mobileLabel:'Manifesto',url:base + '/manifesto',icon:'scroll',tone:'amber',planned:true},
+      {label:'Nossa Árvore',mobileLabel:'Árvore',url:base + '/arvore',icon:'tree',planned:true},
+      {label:'Memórias',url:base + '/memorias',icon:'camera',planned:true},
+      {label:'Conexões',url:base + '/conexoes',icon:'links',tone:'violet',planned:true},
+      {label:'Nosso manifesto',mobileLabel:'Manifesto',url:base + '/manifesto',icon:'scroll',tone:'amber',planned:true},
+      {label:'Ponte do Nós',mobileLabel:'Ponte',url:base + '/cuidado',icon:'heart',tone:'rose',planned:true},
     ];
     return [
       {label:'Meu espaço',items:[
@@ -186,10 +188,14 @@ export class App {
             }
           }, {injector:this.injector});
         }
-        if (pathChanged && this.navigationOrigins.length) {
+        if (pathChanged) {
           const origins = this.navigationOrigins;
           afterNextRender(() => {
-            if (this.currentPath() === path) this.moveNavigationHighlight(origins);
+            if (this.currentPath() !== path) return;
+            // Links diretos e o histórico também precisam revelar a guia atual na barra rolável.
+            const current = document.querySelector('.mobile-nav-nucleus a:is(.active,.in-area)');
+            current?.scrollIntoView({block:'nearest',inline:'nearest',behavior:'instant'});
+            if (origins.length) this.moveNavigationHighlight(origins);
           },{injector:this.injector});
         }
         this.initialNavigation = false;

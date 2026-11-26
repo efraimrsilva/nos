@@ -1,3 +1,5 @@
+**Guias do Núcleo · v4.0.1.** Nossa Árvore, Memórias, Conexões, Nosso manifesto e Ponte do Nós são áreas independentes no Atlas e na navegação principal do produto. Perfis de exemplo fazem parte de Conexões. As fichas de planejamento continuam disponíveis.
+
 **Paridade 16 · v4.0.0-alpha.30.** Recortes 13, 15 e 18: Início, Sua participação na Agenda e lista compacta móvel. Notificações continuam ilustrativas. [Galeria](comparacoes/v4.0.0-alpha.30-2026-11-21-paridade-transversal-tela-13-tela-15-tela-18/index.html). O fechamento da fase 1 foi aceito pelo usuário na v4.0.0. [Registro](../andamento/registros/registro-v4.0.0-2026-11-26-imp-estabilizacao-web-fun-migracao-angular.md).
 
 **Paridade 15 · v4.0.0-alpha.29.** Conta, nove miniaturas de tema, privacidade, exclusão e suporte nas Telas 66–70. Notificações exibem aviso de recurso planejado. [Galeria](comparacoes/v4.0.0-alpha.29-2026-11-20-paridade-conta-tela-66-tela-67-tela-68-tela-69-tela-70/index.html).

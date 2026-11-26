@@ -1,5 +1,9 @@
 # Navegação e sessão — v3.10.6
 
+## Guias do Núcleo — 26/11/2026 — v4.0.1
+
+Nossa Árvore, Memórias, Conexões, Nosso manifesto e Ponte do Nós são destinos independentes da lateral e da barra rolável no celular. Conexões reúne a prévia de perfis fictícios. Links de Perfis afetivos redirecionam para Conexões no mesmo Núcleo, preservando parâmetros e fragmento. As prévias mantêm sessão e vínculo obrigatórios e não salvam os exemplos. A navegação do Núcleo indica a guia atual.
+
 ## Resumo de Núcleos — 07/11/2026 — v3.10.1
 
 Em Seus Núcleos, cada cartão informa o papel da pessoa autenticada e a contagem exata de acordos com status active naquele Núcleo, incluindo zero e concordância singular/plural. Propostas, testes, recusados e encerrados não entram; aceite individual não altera esse total. A consulta lê apenas id, respeitando concessões por coluna e segurança por linha. Falhas seguem o erro da rota, sem inventar zero. A Home e os cartões reutilizam o emblema: administração com escudo; participação com o texto “Você faz parte deste Núcleo.”, somente texto verde fixo #1B8044 em todos os9 temas, inclusive escuros (clareado na3.10.4) e sem escudo; o fundo é o mesmo do emblema administrativo (esclarecimento3.10.2). Na3.10.6, o contorno é neutro em repouso e acompanha a cor do emblema somente em hover, pressão e foco visível: administrativo segue a cor administrativa do tema, participante mantém #1B8044. A espessura visual de3px combina borda1px e sombra interna2px, sem deslocar o conteúdo. Não há seleção persistente após soltar. Nenhuma permissão ou gravação mudou.

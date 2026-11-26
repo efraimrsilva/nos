@@ -1,5 +1,7 @@
 ## Relação com o roteiro técnico
 
+**Navegação do Núcleo na v4.0.1.** As cinco prévias têm acesso direto e Conexões reúne os perfis fictícios. Fichas, critérios de entrada e cobertura das etapas de expansão são preservados.
+
 ## Decisões de continuidade de 21/11/2026
 
 Após o piloto WebSocket no NestJS, acompanhar cada fluxo mutável até a cobertura completa: resposta da Agenda, demais eventos e presenças, identidade e integrantes do Núcleo, convites, Acordos, Conta e totais da navegação. Para cada ação, registrar quais vistas devem mudar e conferir em duas sessões autorizadas, após reconexão e após perda de acesso. Incluir o mesmo aceite ao implementar módulos futuros.

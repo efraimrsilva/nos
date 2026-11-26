@@ -7,11 +7,8 @@ export type NavigationItem = {label: string; mobileLabel?:string; url: string; c
 
 export function navAreaMatches(url: string, path: string) {
   const target = url.slice(1);
-  const parent = {memorias:'arvore',perfis:'conexoes',cuidado:'manifesto'} as Record<string,string>;
-  const [area,id,section] = path.split('/');
   if (target === 'nucleos' && (path === 'comecar' || path.startsWith('comecar/'))) return true;
-  return (target.endsWith('/acordos') && path.startsWith(target + '/')) ||
-    (area === 'nucleos' && Boolean(parent[section]) && target === [area,id,parent[section]].join('/'));
+  return target.endsWith('/acordos') && path.startsWith(target + '/');
 }
 
 @Component({

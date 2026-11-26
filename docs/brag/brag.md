@@ -1,3 +1,7 @@
+## 26/11/2026 — Navegação das prévias do Núcleo
+
+**Problema:** áreas agrupadas e uma segunda barra repetiam os destinos. **Contribuição:** cinco guias independentes e perfis unificados em Conexões com redirecionamento do link antigo. **Resultado verificado:** acesso, guia atual e fluxo autenticado passaram em computador e celular. [Evidência](../andamento/registros/registro-v4.0.1-2026-11-26-imp-navegacao-nucleo-fun-guias-independentes.md).
+
 ## 26/11/2026 — Estabilização da web Angular
 
 **Problema:** concluir a transição da base web e fechar a paridade de interface. **Contribuição:** registrar o aceite e promover a linha Angular de prévia para estável. **Resultado:** fase 1 aceita pelo usuário e próxima fase identificada. [Evidência](../andamento/registros/registro-v4.0.0-2026-11-26-imp-estabilizacao-web-fun-migracao-angular.md).

@@ -54,6 +54,14 @@ export const routes: Routes = [
       {path:'comecar/proposito',loadComponent:() => import('./nuclei/nucleus-wizard').then(module => module.NucleusPurpose),title:'Propósito do Núcleo · Nós'},
       {path:'comecar/convite',loadComponent:() => import('./invitations/invitation-entry').then(module => module.InvitationEntry),title:'Entrar por convite · Nós'},
       {path:'comecar/convite-inicial/:id',loadComponent:() => import('./invitations/initial-invitation').then(module => module.InitialInvitation),title:'Convite inicial · Nós'},
+      // Endereços salvos de Perfis levam à mesma prévia protegida de Conexões.
+      {
+        path:'nucleos/:id/perfis',
+        pathMatch:'full',
+        redirectTo:({params, queryParams, fragment}) => inject(Router).createUrlTree(
+          ['/nucleos', params['id'], 'conexoes'], {queryParams, fragment:fragment ?? undefined}
+        ),
+      },
       {path:'nucleos/:id/convites',loadComponent:() => import('./invitations/invitation-management').then(module => module.InvitationManagement),title:'Gerenciar convites · Nós'},
       {
         matcher: matchNucleusPreview,

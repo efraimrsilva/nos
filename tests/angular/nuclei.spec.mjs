@@ -912,7 +912,7 @@ test('protege prévias do Núcleo e descarta o rascunho da Ponte ao navegar', as
   await capture('ponte');
   await page.getByRole('button',{name:'Pausa',exact:true}).click();
   await expect(page.getByText(/disponibilidade de ambos/)).toBeVisible();
-  await page.getByRole('navigation',{name:'Explorações de funcionalidades futuras'}).getByRole('link',{name:'Nossa árvore'}).click();
+  await nav.getByRole('link',{name:'Nossa Árvore',exact:true}).click();
   await expect(page.getByRole('heading',{name:'Raízes no que vivemos.'})).toBeVisible();
   await page.goBack();
   await expect(page.getByLabel('O que você quer expressar?')).toHaveValue('');
@@ -924,17 +924,17 @@ test('protege prévias do Núcleo e descarta o rascunho da Ponte ao navegar', as
   await expect(draftInput).toBeFocused();
   await expect(page.getByRole('region',{name:'Preparação ilustrativa'})).toBeHidden();
   await expect(page.getByRole('link',{name:'Abrir agenda existente'})).toHaveAttribute('href',root+'/agenda');
-  const previews = page.getByRole('navigation',{name:'Explorações de funcionalidades futuras'});
+  await expect(page.getByRole('navigation',{name:'Explorações de funcionalidades futuras'})).toHaveCount(0);
+  await expect(nav.getByRole('link',{name:'Perfis afetivos',exact:true})).toHaveCount(0);
   const destinations = [
     ['memorias','Há instantes que ficam.'],
     ['conexoes','Conhecer para cuidar.'],
-    ['perfis','Um jeito único de estar no Nós.'],
     ['manifesto','O que escolhemos cultivar.'],
     ['arvore','Raízes no que vivemos.'],
     ['cuidado','Conversar também é um cuidado.'],
   ];
   for (const [destination,title] of destinations) {
-    const link = previews.locator('a[href="' + root + '/' + destination + '"]');
+    const link = nav.locator('a[href="' + root + '/' + destination + '"]');
     await link.click();
     await expect(link).toHaveAttribute('aria-current','page');
     await expect(page.getByRole('main').getByRole('heading',{name:title,exact:true})).toBeVisible();
@@ -949,11 +949,11 @@ test('protege prévias do Núcleo e descarta o rascunho da Ponte ao navegar', as
       await expect(page.getByText(/Criar espaço para ouvir até o fim/)).toBeVisible();
       await capture('manifesto');
     }
-    if (destination==='conexoes' || destination==='perfis') {
+    if (destination==='conexoes') {
       await page.getByRole('button',{name:/Lucas/}).click();
       await page.getByRole('button',{name:'Gostos e afinidades',exact:true}).click();
       await expect(page.getByRole('listitem').filter({hasText:'Música ao vivo'})).toBeVisible();
-      await expect(page.getByText(/aniversário em março/)).toBeVisible();
+      await expect(page.getByRole('complementary',{name:/Sobre conexões/}).getByText(/aniversário em março/)).toBeVisible();
       await capture(destination);
       const profileTrigger = page.getByRole('button',{name:'Explorar perfil em detalhe'});
       await profileTrigger.click();
@@ -980,6 +980,11 @@ test('protege prévias do Núcleo e descarta o rascunho da Ponte ao navegar', as
       await expect(detailTrigger).toBeFocused();
     }
   }
+  await page.goto(root + '/perfis?origem=atalho#exemplo');
+  await expect(page).toHaveURL(new URL(root + '/conexoes?origem=atalho#exemplo', page.url()).href);
+  await expect(nav.getByRole('link',{name:'Conexões',exact:true})).toHaveAttribute('aria-current','page');
+  await expect(nav.getByRole('link',{name:'Conexões',exact:true})).toBeInViewport();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   const isolated = await browser.newContext();
   try {
     const other = await isolated.newPage();

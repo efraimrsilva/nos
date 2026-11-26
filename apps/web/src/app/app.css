@@ -44,7 +44,7 @@ nav .active { font-weight: 700; }
   background: var(--surface); border-top: 1px solid var(--line); font-size: .875rem;
 }
 .mobile-nav > * { justify-content: center; text-align: center; }
-.mobile-nav-nucleus > * { padding-inline:.2rem; font-size:.78rem; line-height:1.25; }
+.mobile-nav-nucleus { grid-auto-columns:minmax(66px,1fr); overflow-x:auto; }
 .dialog-heading { display: flex; align-items: start; justify-content: space-between; gap: .75rem; }
 .sidebar-toggle { width:2.25rem; height:2.25rem; min-width:2.25rem; min-height:2.25rem; padding:0; flex-shrink:0; border-radius:7px; color:var(--muted); }
 .sidebar-toggle app-nav-icon { --icon-tone:currentColor; }

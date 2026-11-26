@@ -1,4 +1,20 @@
-# Estado atual — Angular v4.0.0 — 2026-11-26
+# Estado atual — Angular v4.0.1 — 2026-11-26
+
+**Resultado.** Cinco guias independentes do Núcleo no Angular e no Atlas. Conexões incorpora a prévia de perfis, com redirecionamento do caminho antigo. Faixa secundária e separadores removidos. [Registro](registros/registro-v4.0.1-2026-11-26-imp-navegacao-nucleo-fun-guias-independentes.md) · [Galeria](../wireframes/comparacoes/v4.0.1-2026-11-26-guias-nucleo-tela-38-tela-40-tela-44-tela-49-tela-55-tela-61/index.html).
+
+**Validações recentes.** Tipos, build, dois cenários autenticados e verificadores da Visão global, MVP e Migração aprovados. Navegação em computador e celular conferida. Build com avisos de tamanho de estilos, sem bloqueio.
+
+**Continuidade.** DOCS_DIR `docs`. Branch `main`, base `c4d4fea`. Contador 115 a partir de 114. Último marco de auditoria 100, próximo 200. Próxima fase planejada: inventariar comandos e saída de build para Nx e automação. Nenhum bloqueio local desta entrega.
+
+**Ambiente local.** Em 26/11/2026, Angular já ativo em `127.0.0.1:4200` e Supabase em `127.0.0.1:54321`. A tela Conta carregou no Chrome. A conexão direta retornou HTTP 200 no aplicativo e na autenticação; o proxy retornou 503 ao intermediar a consulta local.
+
+**Produção Netlify.** Em 26/11/2026, publicação automática de main ativa. Produção em `7ed4bfe`. Os deploys de `7685a7f` e `c4d4fea` aparecem como falhos. O [log de c4d4fea](https://app.netlify.com/projects/noslife/deploys/6b087c1787229df943a1fc7f) registra 15,14 kB em nucleus-preview.css, acima do limite Angular de 8 kB. A divisão local das folhas já passou no build da v4.0.1. O GitHub ainda aponta para `c4d4fea`. O caminho de publicação usa Angular e mantém NETLIFY_NEXT_PLUGIN_SKIP e compatibilidade com variáveis NEXT_PUBLIC_SUPABASE_*.
+
+**Unidade pronta para commit.** Reorganização das guias do Núcleo e virada para v4.0.1. Sugestão: `fix(navegacao): separar guias do Núcleo e unificar Conexões`. Publicação pendente.
+
+**Ferramentas.** Superpowers, Context7, Angular, Playwright com Chrome instalado e Supabase local. A busca foi delimitada ao repositório; pesquisa avançada com Octocode foi dispensada.
+
+## Fechamento da estabilização — Angular v4.0.0 — 2026-11-26
 
 **Objetivo e resultado.** Fechar a migração Angular, os 16 passos de paridade de interface e a fase 1. Os três itens estão concluídos e validados por confirmação do usuário. A versão estável local está sincronizada nos manifestos, arquivos de trava de dependências e Atlas. [Registro do fechamento](registros/registro-v4.0.0-2026-11-26-imp-estabilizacao-web-fun-migracao-angular.md).
 
@@ -6,7 +22,7 @@
 
 **Validações recentes.** Guias Migração e MVP verificadas com Playwright e Chrome instalado. Versões, links novos e diff conferidos. O aceite funcional é o informado pelo usuário.
 
-**Unidade pronta para commit.** Fechamento da fase 1 e virada para v4.0.0. Sugestão: `chore(release): fechar fase 1 do Angular na v4.0.0`. Publicação da nova versão depende de autorização.
+**Fechamento registrado no Git.** O objeto `c4d4fea` contém o Atlas, os manifestos e o registro da v4.0.0.
 
 **Ferramentas.** Superpowers para orientação, revisão e verificação. Consultas de documentação técnica e pesquisa avançada de código foram dispensadas pelo escopo.
 

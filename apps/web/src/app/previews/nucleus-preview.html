@@ -15,12 +15,6 @@
       <p>{{ section().description }}</p>
       <button type="button" class="icon-button preview-about-trigger" (click)="about.showModal()" aria-haspopup="dialog">O que está previsto nesta área?</button>
     </header>
-    <nav class="preview-options" aria-label="Explorações de funcionalidades futuras">
-      @for (destination of destinations; track destination[0]) {
-        <a [routerLink]="['/nucleos', nucleus.id, destination[0]]"
-          [attr.aria-current]="destination[0] === kind() ? 'page' : null">{{ destination[1].label }}</a>
-      }
-    </nav>
 
     @switch (kind()) {
       @case ('arvore') {
@@ -110,7 +104,6 @@
         </dialog>
       }
       @case ('conexoes') { <ng-container [ngTemplateOutlet]="profiles" /> }
-      @case ('perfis') { <ng-container [ngTemplateOutlet]="profiles" /> }
       @case ('manifesto') {
         <div class="manifesto-layout">
           <section class="surface manifesto-cover">
@@ -215,7 +208,7 @@
   <div class="profile-layout">
     <section class="profile-main" aria-labelledby="profile-picker-title">
       <header class="profile-picker-heading">
-        <h2 id="profile-picker-title">{{ kind() === 'perfis' ? 'Escolha um perfil de exemplo' : 'Encontros começam na curiosidade' }}</h2>
+        <h2 id="profile-picker-title">Encontros começam na curiosidade</h2>
         <p>Exemplo ilustrativo · pessoas e informações fictícias.</p>
       </header>
       <div class="profile-picker" role="group" aria-label="Pessoas fictícias">
@@ -252,7 +245,7 @@
       </div>
       </section>
     </section>
-    <aside class="profile-context" aria-label="Sobre conexões e perfis">
+    <aside class="profile-context" aria-label="Sobre conexões">
       <section class="surface profile-context-card profile-purpose">
         <span class="profile-icon" data-tone="purple"><app-nav-icon name="users" /></span>
         <p class="kicker">Conexões com liberdade</p>

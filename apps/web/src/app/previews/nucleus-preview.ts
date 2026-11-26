@@ -11,7 +11,7 @@ import { memories, people, principles, roots, sections, topics, type PreviewKind
 @Component({
   imports: [RouterLink, NgTemplateOutlet, NavIcon],
   templateUrl: './nucleus-preview.html',
-  styleUrl: './nucleus-preview.css',
+  styleUrls: ['./nucleus-preview.css', './nucleus-connections.css', './nucleus-manifesto-care.css'],
   host: {class:'feature-preview-layout'},
 })
 export class NucleusPreview {
@@ -22,7 +22,6 @@ export class NucleusPreview {
   protected readonly id = computed(() => this.params().get('id') ?? '');
   protected readonly kind = computed(() => this.params().get('preview') as PreviewKind);
   protected readonly section = computed(() => sections[this.kind()]);
-  protected readonly destinations = Object.entries(sections);
   protected readonly state = resource({
     params: () => {
       const owner = this.profile.user()?.id;

@@ -1,3 +1,7 @@
+## 26/11/2026 — Guias independentes do Núcleo (v4.0.1)
+
+Cinco destinos na navegação principal e Conexões com os perfis de exemplo. Redirecionamento legado, proteção de escopo e Atlas conferidos em duas larguras. Tipos, build e dois cenários autenticados aprovados. [Registro](registros/registro-v4.0.1-2026-11-26-imp-navegacao-nucleo-fun-guias-independentes.md).
+
 ## 26/11/2026 — Fechamento da fase 1 Angular (v4.0.0)
 
 Aceite da migração, da paridade de interface e da estabilização web confirmado pelo usuário. Atlas, plano e manifestos sincronizados. [Registro do fechamento](registros/registro-v4.0.0-2026-11-26-imp-estabilizacao-web-fun-migracao-angular.md).

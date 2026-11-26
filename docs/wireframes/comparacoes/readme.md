@@ -1,3 +1,5 @@
+- [v4.0.1 · Guias independentes do Núcleo](v4.0.1-2026-11-26-guias-nucleo-tela-38-tela-40-tela-44-tela-49-tela-55-tela-61/index.html) — navegação e perfis unificados, antes/depois e Atlas em computador e celular.
+
 - [v4.0.0-alpha.25 · Botão do Google](v4.0.0-alpha.25-2026-11-23-botao-google-tela-01-tela-02/index.html) — referência Next.js, Angular e Atlas nas Telas 01 e 02.
 
 - [v4.0.0-alpha.23 · Abertura e animações da Conta](v4.0.0-alpha.23-2026-11-23-conta-tela-01-tela-02/index.html) — Telas 01 e 02, Angular e Atlas em computador e celular.
