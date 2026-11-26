@@ -10,15 +10,15 @@ export const sections: Record<PreviewKind, { label: string; eyebrow: string; tit
 };
 
 export const roots = [
-  { key: "proposito", label: "Propósito", title: "Mais presença. Mais espaço para nós.", text: "Uma intenção compartilhada poderia aparecer nas raízes desta árvore. Cada Núcleo teria suas próprias palavras." },
-  { key: "gestos", label: "Pequenos gestos", title: "Cada gesto encontra seu tempo.", text: "Uma forma de representar o cuidado cotidiano. Este desenho não mede atividade, evolução individual ou qualidade dos vínculos." },
-  { key: "historias", label: "Histórias", title: "O que vivemos também cria raízes.", text: "Memórias e marcos poderiam compor esta paisagem, sempre com regras de privacidade e escolhas de compartilhamento a definir." },
+  { key: "proposito", icon:"sprout" as const, label: "Propósito", title: "Mais presença. Mais espaço para nós.", text: "Uma intenção compartilhada poderia aparecer nas raízes desta árvore. Cada Núcleo teria suas próprias palavras." },
+  { key: "gestos", icon:"heart" as const, label: "Pequenos gestos", title: "Cada gesto encontra seu tempo.", text: "Uma forma de representar o cuidado cotidiano. Este desenho não mede atividade, evolução individual ou qualidade dos vínculos." },
+  { key: "historias", icon:"book" as const, label: "Histórias", title: "O que vivemos também cria raízes.", text: "Memórias e marcos poderiam compor esta paisagem, sempre com regras de privacidade e escolhas de compartilhamento a definir." },
 ];
 
 export const memories = [
-  { title: "O domingo no parque", type: "Encontros", tone: "green", date: "Um domingo de primavera", text: "A sombra de uma árvore, uma toalha na grama e tempo para conversar sem pressa. Às vezes, o simples fica.", caption: "Uma pausa no mundo. Um encontro entre nós." },
-  { title: "Nossa primeira caminhada", type: "Pequenos gestos", tone: "amber", date: "Uma manhã de descobertas", text: "Escolhemos um caminho diferente e encontramos uma conversa que ainda não tinha acontecido. Não havia destino urgente.", caption: "O caminho também pode ser um lugar de encontro." },
-  { title: "Uma mesa e boas histórias", type: "Encontros", tone: "rose", date: "Uma noite para lembrar", text: "Cada pessoa trouxe uma história. Entre pratos e risadas, descobrimos um pouco mais sobre quem estava à mesa.", caption: "Cabia mais do que o jantar naquela mesa." },
+  { title: "O domingo no parque", type: "Encontros", tone: "green", icon:"tree" as const, date: "Um domingo de primavera", text: "A sombra de uma árvore, uma toalha na grama e tempo para conversar sem pressa. Às vezes, o simples fica.", caption: "Uma pausa no mundo. Um encontro entre nós." },
+  { title: "Nossa primeira caminhada", type: "Pequenos gestos", tone: "amber", icon:"appearance" as const, date: "Uma manhã de descobertas", text: "Escolhemos um caminho diferente e encontramos uma conversa que ainda não tinha acontecido. Não havia destino urgente.", caption: "O caminho também pode ser um lugar de encontro." },
+  { title: "Uma mesa e boas histórias", type: "Encontros", tone: "rose", icon:"heart" as const, date: "Uma noite para lembrar", text: "Cada pessoa trouxe uma história. Entre pratos e risadas, descobrimos um pouco mais sobre quem estava à mesa.", caption: "Cabia mais do que o jantar naquela mesa." },
 ];
 
 export const people = [
@@ -34,8 +34,8 @@ export const topics = [
 ] as const;
 
 export const principles = [
-  { title: "Escutar com respeito", text: "Criar espaço para ouvir até o fim, sem transformar uma diferença em disputa. A escuta pode começar por uma pergunta simples: como isso foi para você?", tone: "blue" },
-  { title: "Fazer espaço para cada pessoa", text: "Reconhecer jeitos, limites e tempos diferentes. Participar de um Núcleo não significa abrir mão das próprias escolhas.", tone: "purple" },
-  { title: "Cultivar pequenos cuidados", text: "Valorizar gestos possíveis na vida real. Um cuidado faz sentido quando respeita quem oferece e quem recebe.", tone: "rose" },
-  { title: "Permitir que os combinados amadureçam", text: "Revisitar o que foi escolhido, conversar sobre o que mudou e dar espaço para rever uma participação com liberdade.", tone: "green" },
-];
+  { title: "Escutar com respeito", text: "Criar espaço para ouvir até o fim, sem transformar uma diferença em disputa. A escuta pode começar por uma pergunta simples: como isso foi para você?", tone: "blue", icon:"message" },
+  { title: "Fazer espaço para cada pessoa", text: "Reconhecer jeitos, limites e tempos diferentes. Participar de um Núcleo não significa abrir mão das próprias escolhas.", tone: "purple", icon:"users" },
+  { title: "Cultivar pequenos cuidados", text: "Valorizar gestos possíveis na vida real. Um cuidado faz sentido quando respeita quem oferece e quem recebe.", tone: "rose", icon:"heart" },
+  { title: "Permitir que os combinados amadureçam", text: "Revisitar o que foi escolhido, conversar sobre o que mudou e dar espaço para rever uma participação com liberdade.", tone: "green", icon:"leaf" },
+] as const;

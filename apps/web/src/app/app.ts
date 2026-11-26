@@ -41,8 +41,7 @@ export class App {
       (!this.profile.user() && (path === 'conta' || path.startsWith('conta/'))) ||
       path.startsWith('auth/');
   });
-  private readonly nucleusList: NavigationItem = {label: 'Seus Núcleos', url: '/nucleos', count: 'nuclei', icon:'users', tone:'blue'};
-  private readonly account: NavigationItem = {label: 'Conta, Preferências e Ajuda', url: '/configuracoes/conta', icon:'lock', tone:'violet'};
+  private readonly nucleusList: NavigationItem = {label: 'Seus Núcleos', mobileLabel:'Núcleos', url: '/nucleos', count: 'nuclei', icon:'users', tone:'blue'};
   protected readonly countVisible = computed(() => {
     const path = this.currentPath();
     return Boolean(this.profile.user()) && path !== 'boas-vindas' && !path.startsWith('auth/') && !path.startsWith('conta/');
@@ -51,9 +50,9 @@ export class App {
     const id = this.contextId();
     const base = '/nucleos/' + id;
     const history: NavigationItem[] = [
-      {label:'Árvore e memórias',url:base + '/arvore',icon:'tree',planned:true},
-      {label:'Conexões e perfis',url:base + '/conexoes',icon:'links',tone:'violet',planned:true},
-      {label:'Manifesto e cuidado',url:base + '/manifesto',icon:'scroll',tone:'amber',planned:true},
+      {label:'Árvore e memórias',mobileLabel:'Árvore',url:base + '/arvore',icon:'tree',planned:true},
+      {label:'Conexões e perfis',mobileLabel:'Conexões',url:base + '/conexoes',icon:'links',tone:'violet',planned:true},
+      {label:'Manifesto e cuidado',mobileLabel:'Manifesto',url:base + '/manifesto',icon:'scroll',tone:'amber',planned:true},
     ];
     return [
       {label:'Meu espaço',items:[
@@ -68,20 +67,9 @@ export class App {
         ] satisfies NavigationItem[]},
         {label:'História e vínculos',items:history},
       ] : []),
-      {label:'Sua conta',items:[this.account]},
     ];
   });
-  protected readonly mobileAreas = computed(() => this.contextId()
-    ? this.groups().slice(0,2).flatMap(group => group.items)
-    : this.profile.user() ? [this.nucleusList] : this.groups().flatMap(group => group.items));
-  protected readonly menuGroups = computed(() => {
-    if (!this.contextId()) return this.groups();
-    const primary = this.mobileAreas();
-    return this.groups().map(group => ({...group,items:group.items.filter(item => !primary.includes(item))}))
-      .filter(group => group.items.length > 0);
-  });
-  protected readonly mobileAreaActive = computed(() => this.mobileAreas().some(item =>
-    item.url === '/' + this.currentPath() || navAreaMatches(item.url,this.currentPath())));
+  protected readonly mobileAreas = computed(() => this.groups().flatMap(group => group.items));
   protected readonly version = manifest.version;
   protected readonly initials = computed(() => profileLetters(displayName(this.profile.user())));
   private readonly lastNucleus = signal<{owner: string; nucleus: Awaited<ReturnType<NucleiData['last']>>} | null>(null);
@@ -131,25 +119,17 @@ export class App {
   });
   protected readonly sidebarHidden = signal(false);
   protected readonly profileMenuOpen = signal(false);
-  protected readonly moreOpen = signal(false);
+  protected readonly profileSection = signal<string|null>(null);
   protected readonly failedUrl = signal('');
   protected readonly activeLabel = signal('');
   private readonly injector = inject(Injector);
   private readonly content = viewChild.required<ElementRef<HTMLElement>>('content');
-  private readonly more = viewChild<ElementRef<HTMLDialogElement>>('more');
   private readonly notifications = viewChild<ElementRef<HTMLDialogElement>>('notifications');
   private readonly accountMenu = viewChild<ElementRef<HTMLDialogElement>>('accountMenu');
   private initialNavigation = true;
 
   constructor() {
     inject(Appearance);
-    const mobile = matchMedia('(max-width:700px)');
-    const closeMenuOnResize = () => {
-      if (mobile.matches) this.accountMenu()?.nativeElement.close();
-      else this.more()?.nativeElement.close();
-    };
-    mobile.addEventListener('change', closeMenuOnResize);
-    inject(DestroyRef).onDestroy(() => mobile.removeEventListener('change', closeMenuOnResize));
     watchNucleusIdentity(
       () => this.selected.hasValue() ? this.selected.value()?.version : undefined,
       () => this.selected.isLoading(),
@@ -171,7 +151,6 @@ export class App {
         this.lastNucleus.set(null);
         clearProblemReportReminder(previousAccount);
         this.accountMenu()?.nativeElement.close();
-        this.more()?.nativeElement.close();
         this.notifications()?.nativeElement.close();
       }
       previousAccount = account;
@@ -182,6 +161,7 @@ export class App {
       if (event instanceof NavigationStart) this.rememberNavigationHighlight();
       if (event instanceof NavigationError) this.failedUrl.set(event.url);
       if (event instanceof NavigationEnd) {
+        const settings = this.router.currentNavigation()?.extras.state;
         const path = this.router.parseUrl(event.urlAfterRedirects).root.children['primary']
           ?.segments.map(segment => segment.path).join('/') ?? '';
         const [area,id] = path.split('/');
@@ -193,11 +173,19 @@ export class App {
         while (route.firstChild) route = route.firstChild;
         const title = route.title?.split(' · ')[0];
         this.activeLabel.set(this.groups().flatMap(group => group.items).find(item => item.url === '/' + path || navAreaMatches(item.url,path))?.label ?? (account ? 'Sua conta' : title ?? ''));
-        this.more()?.nativeElement.close();
         this.notifications()?.nativeElement.close();
         this.accountMenu()?.nativeElement.close();
         // Depois de Voltar, Avançar ou seguir um link interno, o foco acompanha o novo conteúdo.
         if (!this.initialNavigation && pathChanged) this.focusPage();
+        // Endereços antigos de configurações abrem o mesmo menu usado pelo avatar.
+        if (settings?.['openProfile'] === true) {
+          afterNextRender(() => {
+            const panel = this.accountMenu()?.nativeElement;
+            if (panel && this.profile.user() && this.currentPath() === path) {
+              this.openProfile(panel, typeof settings['profileSection'] === 'string' ? settings['profileSection'] : null);
+            }
+          }, {injector:this.injector});
+        }
         if (pathChanged && this.navigationOrigins.length) {
           const origins = this.navigationOrigins;
           afterNextRender(() => {
@@ -259,17 +247,13 @@ export class App {
     this.content().nativeElement.focus();
   }
 
-  protected openMore(dialog: HTMLDialogElement) {
-    this.moreOpen.set(true);
-    dialog.showModal();
-  }
-
-  protected closeMoreOnLink(event: MouseEvent, dialog: HTMLDialogElement) {
+  protected closeProfileOnLink(event: MouseEvent, dialog: HTMLDialogElement) {
     if (this.isPlainLinkClick(event)) dialog.close();
   }
 
-  protected openProfile(panel: HTMLDialogElement) {
-    panel.showModal();
+  protected openProfile(panel: HTMLDialogElement, section:string|null = null) {
+    if (!panel.open) panel.showModal();
+    this.profileSection.set(section);
     this.profileMenuOpen.set(true);
   }
 

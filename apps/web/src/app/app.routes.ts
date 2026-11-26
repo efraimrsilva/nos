@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Router, type Routes, type UrlMatcher } from '@angular/router';
 import { PreviewHome } from './preview-home';
 import { RouteState } from './shared/route-state';
-import { sections } from './previews/examples';
+import { sections, type PreviewKind } from './previews/examples';
 
 @Component({
   imports: [RouteState],
@@ -19,6 +19,13 @@ const matchAccess: UrlMatcher = parts => {
   return null;
 };
 
+const matchNucleusPreview: UrlMatcher = parts => {
+  const [area,id,preview] = parts;
+  if (parts.length !== 3 || area.path !== 'nucleos' || !Object.hasOwn(sections,preview.path)) return null;
+  // Todas as prévias do mesmo Núcleo compartilham a rota e a consulta de acesso.
+  return {consumed:parts,posParams:{id,preview}};
+};
+
 const loadEntry = () => import('./auth/entry-destination').then(module => module.EntryDestination);
 const loadCallback = () => import('./auth/auth-callback').then(module => module.AuthCallback);
 
@@ -33,7 +40,7 @@ export const routes: Routes = [
   { path: 'configuracoes', pathMatch: 'full', redirectTo: 'conta' },
   { path: 'configuracoes/privacidade', pathMatch: 'full', redirectTo: '/conta#privacidade' },
   { path: 'ajuda', pathMatch: 'full', redirectTo: '/conta#ajuda-e-suporte' },
-  { path: 'configuracoes/conta', loadComponent: () => import('./account').then(module => module.Account), title: 'Conta, Preferências e Ajuda · Nós' },
+  { path: 'configuracoes/conta', pathMatch:'full', redirectTo:({fragment,queryParams}) => inject(Router).createUrlTree(['/conta'],{fragment:fragment ?? undefined,queryParams}) },
   {
     path: '',
     loadComponent: () => import('./nuclei/nuclei-area').then(module => module.NucleiArea),
@@ -48,12 +55,11 @@ export const routes: Routes = [
       {path:'comecar/convite',loadComponent:() => import('./invitations/invitation-entry').then(module => module.InvitationEntry),title:'Entrar por convite · Nós'},
       {path:'comecar/convite-inicial/:id',loadComponent:() => import('./invitations/initial-invitation').then(module => module.InitialInvitation),title:'Convite inicial · Nós'},
       {path:'nucleos/:id/convites',loadComponent:() => import('./invitations/invitation-management').then(module => module.InvitationManagement),title:'Gerenciar convites · Nós'},
-      ...Object.entries(sections).map(([preview, section]) => ({
-        path: 'nucleos/:id/' + preview,
+      {
+        matcher: matchNucleusPreview,
         loadComponent: () => import('./previews/nucleus-preview').then(module => module.NucleusPreview),
-        data: {preview},
-        title: section.label + ' · Nós',
-      })),
+        title: route => sections[route.params['preview'] as PreviewKind].label + ' · Nós',
+      },
       {path:'nucleos/:id/agenda',loadComponent:() => import('./calendar/calendar-page').then(module => module.CalendarPage),title:'Agenda do Núcleo · Nós'},
       {path:'nucleos/:id/acordos',loadComponent:() => import('./agreements/agreements-page').then(module => module.AgreementsPage),title:'Acordos do Núcleo · Nós'},
       {path:'nucleos/:id/acordos/:agreementId',loadComponent:() => import('./agreements/agreement-detail').then(module => module.AgreementDetail),title:'Detalhe do acordo · Nós'},

@@ -54,9 +54,7 @@
             aria-controls="notifications-preview" aria-label="Notificações — esboço">
             <app-nav-icon name="bell" />
           </button>
-          <a class="icon-button account-trigger account-mobile-link" routerLink="/configuracoes/conta"
-            aria-label="Conta, Preferências e Ajuda">{{ initials() }}</a>
-          <button class="icon-button account-trigger account-desktop-trigger" type="button" (click)="openProfile(accountMenu)"
+          <button class="icon-button account-trigger" type="button" (click)="openProfile(accountMenu)"
             aria-haspopup="dialog" aria-controls="shell-account" aria-label="Abrir opções da conta">{{ initials() }}</button>
         </div>
       }
@@ -80,38 +78,10 @@
     }
   </div>
 
-  <nav class="mobile-nav" [class.mobile-nav-nucleus]="contextId() !== null" [class.mobile-nav-pair]="mobileAreas().length === 1" aria-label="Navegação móvel">
+  <nav class="mobile-nav" [class.mobile-nav-nucleus]="contextId() !== null" aria-label="Navegação móvel">
     <app-navigation-links class="compact" [items]="mobileAreas()" [counts]="counts()" [showCounts]="countVisible()" [compact]="true" [path]="currentPath()" [nucleusName]="currentNucleus()?.name ?? ''" />
-    <button type="button" aria-label="Mais áreas e preferências" aria-haspopup="dialog"
-      aria-controls="more-areas" (click)="openMore(more)"
-      [class.active]="!publicLayout() && !mobileAreaActive()"><app-nav-icon name="more" /><span>Mais</span></button>
   </nav>
 </div>
-
-<dialog class="shared-dialog more-dialog" id="more-areas" #more aria-labelledby="more-title"
-  (close)="moreOpen.set(more.open)">
-  <header class="dialog-heading">
-    <h2 id="more-title">Todos os seus caminhos</h2>
-    <form method="dialog"><button class="dialog-close" aria-label="Fechar menu" autofocus></button></form>
-  </header>
-  <nav aria-label="Todas as áreas">
-    @for (group of menuGroups(); track group.label) {
-      <section class="nav-group" [attr.aria-label]="group.label">
-        <h3>{{ group.label }}</h3>
-        <app-navigation-links [items]="group.items" [counts]="counts()" [showCounts]="countVisible()" [path]="currentPath()" (followed)="more.close()" />
-      </section>
-    }
-  </nav>
-  @if (moreOpen() && profile.user()) {
-    @defer (on immediate) {
-      <app-account prefix="mobile-account" class="mt-5 block" (click)="closeMoreOnLink($event, more)" />
-    } @loading (after 150ms) {
-      <p class="loading-state mt-5" role="status">Carregando preferências…</p>
-    } @error {
-      <p class="mt-5" role="alert">Não foi possível abrir as preferências. Use o link Conta, Preferências e Ajuda.</p>
-    }
-  }
-</dialog>
 
 <dialog class="account-shortcuts notifications-panel" id="notifications-preview" #notifications aria-labelledby="notifications-title">
   <header class="dialog-heading">
@@ -139,13 +109,12 @@
   </header>
   @if (profileMenuOpen() && profile.user()) {
     <div class="account-popover-content">
-      <a class="account-page-link" routerLink="/configuracoes/conta" (click)="accountMenu.close()">Conta, Preferências e Ajuda</a>
       @defer (on immediate) {
-        <app-account prefix="desktop-account" (click)="closeMoreOnLink($event, accountMenu)" />
+        <app-account prefix="profile-menu" [section]="profileSection()" (click)="closeProfileOnLink($event, accountMenu)" />
       } @loading (after 150ms) {
         <p class="loading-state" role="status">Carregando preferências…</p>
       } @error {
-        <p role="alert">Não foi possível abrir as preferências. Use o link Conta, Preferências e Ajuda.</p>
+        <p role="alert">Não foi possível abrir as preferências. Feche o menu e tente novamente.</p>
       }
     </div>
   }

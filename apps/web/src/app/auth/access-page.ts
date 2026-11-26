@@ -1,7 +1,6 @@
 import { Component, DestroyRef, computed, effect, inject, signal, viewChild, type ElementRef } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { Account } from '../account';
 import { Notice } from '../shared/notice';
 import { AccountStory } from './account-story';
 import { AccessAuth, type EmailKind } from './access-auth';
@@ -16,7 +15,7 @@ const errors: Record<string, string> = {
 };
 
 @Component({
-  imports: [RouterLink, Account, AccountStory, EmailAssistanceForm],
+  imports: [RouterLink, AccountStory, EmailAssistanceForm],
   templateUrl: './access-page.html',
   styleUrls: ['./auth.css', './access-panel.css'],
 })
@@ -68,6 +67,13 @@ export class AccessPage {
 
   constructor() {
     void this.profile.connect();
+    effect(() => {
+      if (this.profile.loading() || !this.profile.user() || this.completeName() || this.requiresLogin() || this.kind()) return;
+      void this.router.navigate(['/nucleos'], {
+        replaceUrl:true,
+        state:{openProfile:true,profileSection:this.fragment()},
+      });
+    });
     effect(() => {
       const message = this.bannerStatus();
       if (message) this.notices.show(message);

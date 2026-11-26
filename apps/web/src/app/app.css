@@ -28,9 +28,9 @@ main {
 }
 main:focus, main h1:focus { outline: none; }
 /* As telas com painéis ocupam a área disponível ao lado da navegação. */
-main:has(.nucleus-workspace,.nucleus-home-heading,.agreements-page,.agreement-detail-page) { max-width:1700px; padding-inline:34px; }
-@media (max-width:1100px) { main:has(.nucleus-workspace,.nucleus-home-heading,.agreements-page,.agreement-detail-page) { padding-inline:24px; } }
-@media (max-width:900px) { main:has(.nucleus-workspace,.nucleus-home-heading,.agreements-page,.agreement-detail-page) { padding-inline:20px; } }
+main:has(.nucleus-workspace,.nucleus-home-heading,.agreements-page,.agreement-detail-page,.feature-preview-layout,.agenda-workspace) { max-width:1700px; padding-inline:34px; }
+@media (max-width:1100px) { main:has(.nucleus-workspace,.nucleus-home-heading,.agreements-page,.agreement-detail-page,.feature-preview-layout,.agenda-workspace) { padding-inline:24px; } }
+@media (max-width:900px) { main:has(.nucleus-workspace,.nucleus-home-heading,.agreements-page,.agreement-detail-page,.feature-preview-layout,.agenda-workspace) { padding-inline:20px; } }
 main h1 { scroll-margin-top: 4.5rem; }
 nav a, .mobile-nav button {
   display: flex; align-items: center; min-height: 2.75rem; padding: .55rem .8rem; border-radius: .45rem;
@@ -39,14 +39,12 @@ nav a, .mobile-nav button {
 nav a:hover, .mobile-nav button:hover, nav .active { background: var(--accent-soft); color: var(--leaf); }
 nav .active { font-weight: 700; }
 .mobile-nav {
-  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .18rem; position: fixed;
+  display: grid; grid-auto-flow:column; grid-auto-columns:minmax(0,1fr); gap: .1rem; position: fixed;
   inset: auto 0 0; padding: .4rem .5rem calc(.4rem + env(safe-area-inset-bottom));
   background: var(--surface); border-top: 1px solid var(--line); font-size: .875rem;
 }
-.mobile-nav-nucleus { grid-template-columns:repeat(5,minmax(0,1fr)); }
 .mobile-nav > * { justify-content: center; text-align: center; }
 .mobile-nav-nucleus > * { padding-inline:.2rem; font-size:.78rem; line-height:1.25; }
-.more-dialog nav { display: grid; gap: .35rem; margin-top: 1rem; }
 .dialog-heading { display: flex; align-items: start; justify-content: space-between; gap: .75rem; }
 .sidebar-toggle { width:2.25rem; height:2.25rem; min-width:2.25rem; min-height:2.25rem; padding:0; flex-shrink:0; border-radius:7px; color:var(--muted); }
 .sidebar-toggle app-nav-icon { --icon-tone:currentColor; }

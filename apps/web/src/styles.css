@@ -72,7 +72,7 @@ dialog { font-family: var(--app-font); }
 dialog > header h2 { font: 500 clamp(1.4rem, 4vw, 1.8rem)/1.2 var(--app-font); overflow-wrap: anywhere; }
 dialog::backdrop { background: #17232e7a; backdrop-filter: blur(3px); }
 /* O seletor aninhado aproveita o desfoque que o menu já aplica à página. */
-:is(.account-shortcuts,.more-dialog) .theme-picker-dialog::backdrop { background:#17232e45; backdrop-filter:none; }
+.account-shortcuts .theme-picker-dialog::backdrop { background:#17232e45; backdrop-filter:none; }
 
 /* Ícones de traço mantêm o peso visual inclusive fora do componente de navegação. */
 svg[stroke="currentColor"] {

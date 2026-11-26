@@ -11,29 +11,25 @@
 .mobile-header-start .shell-brand-mark { width:28px; height:30px; border-radius:8px; }
 .mobile-context { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:var(--muted); font-size:.75rem; min-height:44px; line-height:44px; }
 .account-trigger { border-radius:50%; background:var(--accent-soft); font-size:.84rem; }
-.account-desktop-trigger { display:none; }
 .account-shortcuts { position:fixed; inset:4.45rem 1rem auto auto; margin:0; width:min(22rem,calc(100% - 2rem)); max-height:calc(100dvh - 5.45rem); padding:1rem; overflow:auto; background:var(--surface); color:var(--ink); border:1px solid var(--line); border-radius:.75rem; box-shadow:0 14px 40px #10292326; }
 .account-popover { inset:80px 24px auto auto; width:min(720px,calc(100vw - 48px)); max-height:calc(100dvh - 104px); padding:0; border-radius:22px; overscroll-behavior:contain; }
 .account-popover-heading { position:sticky; top:0; z-index:1; padding:1.25rem; background:var(--surface); border-bottom:1px solid var(--line); }
 .account-popover-heading h2 { font-size:1.42rem; line-height:1.25; }
 .account-popover-content { padding:1.25rem; }
-.account-page-link { display:inline-flex; align-items:center; min-height:2.75rem; margin-bottom:.55rem; color:var(--leaf); }
 .account-kicker { font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--leaf); }
 .account-context { font-size:.82rem; color:var(--muted); }
 .shell:not(.public-layout) .header { position:sticky; top:0; z-index:1; }
-.more-dialog { overscroll-behavior:contain; }
-.mobile-nav button { display:grid; grid-template-rows:20px 24px 10px; align-content:center; align-items:start; justify-items:center; gap:0; height:60px; min-width:0; padding:.15rem .08rem; font-size:.68rem; line-height:1.18; }
-.mobile-nav-pair { grid-template-columns:repeat(2,minmax(0,1fr)); }
 #desktop-navigation > nav,.mobile-nav { isolation:isolate; }
 #desktop-navigation > nav { position:relative; }
 .mobile-nav { --nav-moving-shadow:inset 0 3px var(--leaf); }
-.mobile-nav button.active { background:var(--nav-active-background,var(--accent-soft)); box-shadow:var(--nav-active-shadow,inset 0 3px var(--leaf)); }
 @media (max-width:700px) {
   .shell:not(.public-layout) .header { gap:.45rem; padding-inline:.65rem; }
   .header-tools { gap:.3rem; }
   .header-tools .icon-button { padding-inline:.35rem; }
+  .account-popover { inset:4.45rem .65rem auto auto; width:calc(100% - 1.3rem); max-height:calc(100dvh - 5.1rem); border-radius:1rem; }
+  .account-popover-heading,.account-popover-content { padding:.9rem; }
+  .account-popover-heading h2 { font-size:1.2rem; }
 }
 @media (min-width:701px) {
-  .mobile-header-start, .account-mobile-link { display:none; }
-  .account-desktop-trigger { display:inline-grid; }
+  .mobile-header-start { display:none; }
 }

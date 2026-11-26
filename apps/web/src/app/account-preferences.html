@@ -15,7 +15,7 @@
   </button>
 </section>
 
-<section class="surface" tabindex="-1" [id]="embedded() ? prefix() + '-ajuda' : 'ajuda-e-suporte'">
+<section class="surface" tabindex="-1" [id]="embedded() ? prefix() + '-ajuda-e-suporte' : 'ajuda-e-suporte'">
   @if (embedded()) { <h3>Ajuda e suporte</h3> } @else { <h2>Ajuda e suporte</h2> }
   <app-problem-report [prefix]="prefix() + '-support'" [embedded]="true" />
   <button class="account-option" type="button" aria-haspopup="dialog" aria-label="Preciso de orientação" (click)="openHelp('Ajuda e suporte')">
@@ -28,16 +28,13 @@
   </button>
 </section>
 
-@if (!embedded()) {
-<section class="surface" tabindex="-1" id="apagar-minha-conta">
-  <h2>Apagar minha conta</h2>
-  <p>A exclusão é definitiva. Confira as consequências antes de confirmar.</p>
+<section class="surface" tabindex="-1" [id]="embedded() ? prefix() + '-apagar-minha-conta' : 'apagar-minha-conta'">
+  @if (embedded()) { <h3>Apagar minha conta</h3> } @else { <h2>Apagar minha conta</h2> }
   <button class="account-option removal-row" type="button" aria-haspopup="dialog" aria-label="Apagar minha conta" (click)="openRemoval()">
     <span class="option-icon"><app-nav-icon name="alert" /></span>
     <span>Apagar minha conta<small>Ação definitiva · exige confirmação por escrito</small></span><app-nav-icon name="chevron" />
   </button>
 </section>
-}
 
 <dialog #helpDialog class="shared-dialog account-dialog account-dialog-wide" [attr.aria-labelledby]="prefix() + '-help-title'">
   <header class="account-dialog-header"><h2 [id]="prefix() + '-help-title'">{{ helpTitle() }}</h2>
@@ -47,8 +44,8 @@
     <section class="control-section"><h3>Responsável e suporte</h3><p>Sintagma Software</p><p>Encontrou algo que não funcionou? Envie um relato direto à equipe, sem sair do aplicativo.</p><app-problem-report [prefix]="prefix() + '-help-report'" /></section>
     <section class="control-section"><h3>Como funcionam os Núcleos?</h3><p>Encontre seus Núcleos e confira as opções disponíveis em cada espaço.</p><a routerLink="/nucleos" (click)="helpDialog.close()">Abrir Seus Núcleos</a></section>
     <section class="control-section"><h3>Proposta, teste e acordo ativo</h3><p>Qualquer participante pode propor. Administradores iniciam o teste, ativam e encerram os acordos. Cada pessoa decide se participa. Uma recusa não encerra o acordo das outras pessoas. Alterar os termos exige novo aceite individual; o histórico permanece.</p></section>
-    <section class="control-section"><h3>Informações sobre o tratamento de dados</h3><p>A conta permite autenticar você e proteger o acesso aos Núcleos. Participação, convites, acordos, agenda e momentos são usados para oferecer essas funções. O conteúdo compartilhado fica disponível às pessoas associadas, inclusive depois da saída de quem o registrou. A preferência pode ocultar a autoria nas próximas saídas.</p><a routerLink="/configuracoes/conta" fragment="privacidade" (click)="helpDialog.close()">Conferir privacidade</a></section>
-    <section class="control-section"><h3>Acesso, correção, exportação e exclusão</h3><p>Para acesso, correção e exportação, entre em contato pelo formulário de suporte acima. Para apagar sua própria conta, abra o bloco Apagar minha conta. A exclusão retira seu acesso e identificação, preservando o histórico compartilhado como “Conta excluída”. Textos podem identificar você; retenção e cópias de segurança exigem tratamento próprio do serviço.</p><a routerLink="/configuracoes/conta" fragment="apagar-minha-conta" (click)="helpDialog.close()">Abrir Apagar minha conta</a></section>
+    <section class="control-section"><h3>Informações sobre o tratamento de dados</h3><p>A conta permite autenticar você e proteger o acesso aos Núcleos. Participação, convites, acordos, agenda e momentos são usados para oferecer essas funções. O conteúdo compartilhado fica disponível às pessoas associadas, inclusive depois da saída de quem o registrou. A preferência pode ocultar a autoria nas próximas saídas.</p><button class="button secondary" type="button" (click)="helpDialog.close(); openPrivacy()">Conferir privacidade</button></section>
+    <section class="control-section"><h3>Acesso, correção, exportação e exclusão</h3><p>Para acesso, correção e exportação, entre em contato pelo formulário de suporte acima. Para apagar sua própria conta, abra o bloco Apagar minha conta. A exclusão retira seu acesso e identificação, preservando o histórico compartilhado como “Conta excluída”. Textos podem identificar você; retenção e cópias de segurança exigem tratamento próprio do serviço.</p><button class="button secondary" type="button" (click)="helpDialog.close(); openRemoval()">Abrir Apagar minha conta</button></section>
     <section class="control-section"><h3>Condições de uso do MVP</h3><p>Respeite a privacidade e os direitos das outras pessoas. Compartilhe apenas conteúdo que você pode disponibilizar aos participantes do Núcleo. Administrar não autoriza aceitar acordos por outra pessoa. Você pode sair a qualquer momento; a tela de saída explica as consequências antes da confirmação.</p></section>
     <section class="control-section control-planned"><span class="badge">Esboço de funcionalidade · ainda não desenvolvido</span><h3>Documentos e atendimento</h3><p>Os termos de uso e a política de dados completos, o procedimento operacional do suporte e a comprovação do ambiente de uso ainda precisam ser concluídos.</p></section>
   </div>
@@ -76,12 +73,11 @@
       }
       @if (privacyError()) { <p role="alert">{{ privacyError() }}</p> }
     </section>
-    <section class="control-section"><h3>Seus dados</h3><p>Acesso, correção e exportação são solicitados ao suporte. Você pode apagar sua própria conta no bloco Apagar minha conta. O histórico compartilhado permanece com autoria “Conta excluída”; textos ainda podem identificar você.</p><a routerLink="/configuracoes/conta" fragment="apagar-minha-conta" (click)="privacyDialog.close()">Abrir Apagar minha conta</a></section>
+    <section class="control-section"><h3>Seus dados</h3><p>Acesso, correção e exportação são solicitados ao suporte. Você pode apagar sua própria conta no bloco Apagar minha conta. O histórico compartilhado permanece com autoria “Conta excluída”; textos ainda podem identificar você.</p><button class="button secondary" type="button" (click)="privacyDialog.close(); openRemoval()">Abrir Apagar minha conta</button></section>
     <section class="control-section control-planned"><span class="badge">Esboço de funcionalidade · ainda não desenvolvido</span><h3>Próximas opções de privacidade</h3><p>Perfil afetivo, rascunhos, conversas livres, mídia e seleção de leitores terão controles próprios. Essas funções ainda não estão disponíveis.</p></section>
   </div>
 </dialog>
 
-@if (!embedded()) {
 <dialog #removalDialog class="shared-dialog account-dialog account-dialog-wide" [attr.aria-labelledby]="prefix() + '-removal-title'" (close)="resetRemoval()">
   <header class="account-dialog-header"><h2 [id]="prefix() + '-removal-title'">Apagar minha conta</h2>
     <form method="dialog"><button class="dialog-close" aria-label="Fechar exclusão" autofocus></button></form>
@@ -103,4 +99,3 @@
   </form>
   @if (removalError()) { <p role="alert">{{ removalError() }}</p> }
 </dialog>
-}

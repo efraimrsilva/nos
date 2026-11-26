@@ -129,9 +129,6 @@
       @if (agenda.hasNext && page()<latestPage) { <a class="button secondary" routerLink="." [queryParams]="{pagina:page()+1}">Mais eventos</a> }
     </nav>
   }
-  <details class="agenda-all"><summary>Esboço de funcionalidade · ainda não desenvolvido</summary>
-    <p>Visão detalhada por dia, recorrência, local, escolha de participantes, outras respostas e sincronização com calendários externos estão planejados.</p>
-  </details>
   <dialog #editor class="shared-dialog" aria-labelledby="agenda-editor-title">
     <header class="dialog-heading"><h2 id="agenda-editor-title">{{ editing() ? 'Editar evento' : 'Adicionar evento' }}</h2>
       <button class="dialog-close" type="button" aria-label="Fechar" (click)="editor.close()"></button></header>

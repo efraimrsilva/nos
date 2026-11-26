@@ -3,14 +3,12 @@ import { RouterLink } from '@angular/router';
 import { NavIcon, type NavIconName } from './shared/nav-icon';
 import type { NavigationCounts } from '../domain/navigation/counts';
 
-export type NavigationItem = {label: string; url: string; count?: keyof NavigationCounts; icon: NavIconName; tone?: string; planned?: boolean};
+export type NavigationItem = {label: string; mobileLabel?:string; url: string; count?: keyof NavigationCounts; icon: NavIconName; tone?: string; planned?: boolean};
 
 export function navAreaMatches(url: string, path: string) {
   const target = url.slice(1);
   const parent = {memorias:'arvore',perfis:'conexoes',cuidado:'manifesto'} as Record<string,string>;
   const [area,id,section] = path.split('/');
-  if (target === 'configuracoes/conta' && (path === 'conta' || path === 'ajuda' ||
-      path.startsWith('configuracoes/') || ['convites','sair'].includes(section))) return true;
   if (target === 'nucleos' && (path === 'comecar' || path.startsWith('comecar/'))) return true;
   return (target.endsWith('/acordos') && path.startsWith(target + '/')) ||
     (area === 'nucleos' && Boolean(parent[section]) && target === [area,id,parent[section]].join('/'));
@@ -23,11 +21,11 @@ export function navAreaMatches(url: string, path: string) {
     @for (item of items(); track item.url) {
       @let active = item.url === '/' + path();
       <a [routerLink]="item.url" [class.active]="active"
-        [attr.aria-current]="active ? 'page' : null" [attr.aria-label]="item.url === '/nucleos' ? item.label : null"
+        [attr.aria-current]="active ? 'page' : null" [attr.aria-label]="item.url === '/nucleos' || (compact() && item.mobileLabel) ? item.label : null"
         [attr.aria-description]="item.count && showCounts() ? description(counts()?.[item.count]) : null"
         (click)="followed.emit()" [class.in-area]="inArea(item.url)">
         <app-nav-icon [name]="item.icon" [attr.data-tone]="item.tone ?? null" />
-        <span class="link-label">@if (item.url === "/nucleos") { Seus<span class="nucleus-second-word">Núcleos</span> } @else { {{ item.label }} }
+        <span class="link-label">@if (item.url === "/nucleos" && !compact()) { Seus<span class="nucleus-second-word">Núcleos</span> } @else { {{ compact() ? item.mobileLabel ?? item.label : item.label }} }
           @if (item.icon === 'home' && nucleusName()) { <small class="nucleus-name" [attr.title]="nucleusName()">{{ nucleusName() }}</small> }
         </span>
         @if (item.planned) { <span title="Esboço de funcionalidade" aria-hidden="true">○</span> }
@@ -58,7 +56,7 @@ export function navAreaMatches(url: string, path: string) {
     @media(min-width:701px) { .nucleus-second-word { display:block; margin-inline-start:0; } }
     @media(max-width:700px) {
       /* Reservar as linhas impede que o nome e os totais redimensionem a barra. */
-      :host(.compact) a { display:grid; grid-template:20px 24px 10px / minmax(0,1fr); justify-items:center; align-content:center; align-items:start; gap:0; height:60px; min-width:0; text-align:center; padding:.15rem .08rem; font-size:.68rem; line-height:1.18; }
+      :host(.compact) a { display:grid; grid-template:20px 24px 10px / minmax(0,1fr); justify-items:center; align-content:center; align-items:start; gap:0; height:60px; min-width:0; text-align:center; padding:.15rem 0; font-size:clamp(.56rem,2.65vw,.68rem); line-height:1.18; }
       :host(.compact) .link-label { max-width:100%; }
       :host(.compact) .nucleus-name { font-size:9px; font-weight:400; }
       :host(.compact) a:is(.active,.in-area) { box-shadow:var(--nav-active-shadow,inset 0 3px var(--leaf)); }

@@ -20,6 +20,7 @@ import { Notice } from './shared/notice';
 export class Account {
   private readonly notices = inject(Notice);
   readonly prefix = input('account');
+  readonly section = input<string|null>(null);
   protected readonly assistance = signal<EmailKind | null>(null);
   private readonly assistanceDialog = viewChild.required<ElementRef<HTMLDialogElement>>('accountAssistance');
   protected readonly embedded = computed(() => this.prefix() !== 'account');
@@ -61,11 +62,12 @@ export class Account {
       this.closingBusy.set(false);
     });
     effect(() => {
-      const fragment = this.fragment();
+      const fragment = this.section() ?? this.fragment();
       const host = this.preferences()?.nativeElement;
-      if (this.embedded() || !host || !fragment || !['aparencia', 'privacidade', 'ajuda-e-suporte', 'apagar-minha-conta'].includes(fragment)) return;
+      if (!host || !fragment || !['aparencia', 'privacidade', 'ajuda-e-suporte', 'apagar-minha-conta'].includes(fragment)) return;
+      const id = this.embedded() ? this.prefix() + '-' + fragment : fragment;
       afterNextRender(() => {
-        if (host.isConnected && this.fragment() === fragment) host.querySelector<HTMLElement>('#' + fragment)?.focus();
+        if (host.isConnected) host.querySelector<HTMLElement>('#' + id)?.focus();
       }, {injector: this.injector});
     });
     effect(() => {

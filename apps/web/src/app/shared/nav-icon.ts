@@ -44,6 +44,10 @@ const paths = {
   columns:'M3 4h18v16H3z M9 4v16 M15 4v16',
   search:'M21 21l-4.35-4.35 M19 11a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z',
   clock:'M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z M12 6v6l4 2',
+  compass:'M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z M16 8l-2.5 5.5L8 16l2.5-5.5L16 8Z',
+  sparkles:'M10 2l1.8 5.2L17 9l-5.2 1.8L10 16l-1.8-5.2L3 9l5.2-1.8L10 2Z M19 11v6m-3-3h6 M5 17v4m-2-2h4',
+  pause:'M9 5H6v14h3zM18 5h-3v14h3z',
+  camera:'M3 7h4l2-3h6l2 3h4v13H3z M16 13a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z',
 } as const;
 
 @Component({

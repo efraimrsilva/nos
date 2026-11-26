@@ -15,7 +15,7 @@
       </form>
     </section>
   } @else if (profile.user() && !requiresLogin()) {
-    <app-account />
+    <p class="loading-state" role="status">Abrindo opções da conta…</p>
   } @else {
     <section class="auth-layout account-access-layout">
       <app-account-story />

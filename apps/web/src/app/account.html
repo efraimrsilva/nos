@@ -122,21 +122,18 @@
         }
       }
     </section>
-    @if (!embedded()) {
       <section class="card account-access">
-        <h2>Notificações</h2>
-        <span class="badge">Esboço de funcionalidade · ainda não desenvolvido</span>
+        @if (embedded()) { <h3>Notificações</h3> } @else { <h2>Notificações</h2> }
         <button type="button" class="account-option" aria-haspopup="dialog" (click)="noticeDialog.showModal()">
           <span class="option-icon"><app-nav-icon name="bell" /></span><span>Presença também precisa de silêncio<small>Preferências de comunicação futuras</small></span><app-nav-icon name="chevron" />
         </button>
-        <dialog #noticeDialog class="shared-dialog account-dialog" aria-labelledby="planned-notifications-title">
-          <header class="account-dialog-header"><h2 id="planned-notifications-title">Presença também precisa de silêncio</h2>
+        <dialog #noticeDialog class="shared-dialog account-dialog" [attr.aria-labelledby]="prefix() + '-notifications'">
+          <header class="account-dialog-header"><h2 [id]="prefix() + '-notifications'">Presença também precisa de silêncio</h2>
             <form method="dialog"><button class="dialog-close" aria-label="Fechar Notificações" autofocus></button></form>
           </header><p class="badge">Esboço de funcionalidade · ainda não desenvolvido</p>
           <p class="settings-copy">Canais de aviso e horários de silêncio ainda não estão disponíveis. Nenhuma configuração de notificação é alterada aqui.</p>
         </dialog>
       </section>
-    }
     @for (owner of [user.id]; track owner) {
       <app-account-preferences #preferences [prefix]="prefix()" [class.embedded-preferences]="embedded()" />
     }

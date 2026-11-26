@@ -143,7 +143,7 @@ export class Appearance {
     const next = readPalette();
     // Uma captura de página sobre o diálogo altera a composição do backdrop. Aqui a camada permanece nativa.
     const regions = [menu, ...menu.querySelectorAll<HTMLElement>(
-      '.account-popover-heading, .account-page-link, .account-settings-grid > .card, app-account-preferences > .surface, .nav-group'
+      '.account-popover-heading, .account-settings-grid > .card, app-account-preferences > .surface, .nav-group'
     )].filter(element => {
       const rect = element.getBoundingClientRect();
       const bounds = menu.getBoundingClientRect();

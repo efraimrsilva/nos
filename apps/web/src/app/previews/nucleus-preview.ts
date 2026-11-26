@@ -2,15 +2,17 @@ import { NgTemplateOutlet } from '@angular/common';
 import { Component, computed, inject, resource, signal } from '@angular/core';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { distinctUntilChanged, map } from 'rxjs';
 import { NucleiData } from '../nuclei/nuclei-data';
 import { PreviewProfile } from '../preview-profile';
-import { NavIcon } from '../shared/nav-icon';
+import { NavIcon, type NavIconName } from '../shared/nav-icon';
 import { memories, people, principles, roots, sections, topics, type PreviewKind } from './examples';
 
 @Component({
   imports: [RouterLink, NgTemplateOutlet, NavIcon],
   templateUrl: './nucleus-preview.html',
   styleUrl: './nucleus-preview.css',
+  host: {class:'feature-preview-layout'},
 })
 export class NucleusPreview {
   private readonly route = inject(ActivatedRoute);
@@ -18,8 +20,8 @@ export class NucleusPreview {
   private readonly data = inject(NucleiData);
   private readonly params = toSignal(this.route.paramMap, {initialValue: this.route.snapshot.paramMap});
   protected readonly id = computed(() => this.params().get('id') ?? '');
-  protected readonly kind = this.route.snapshot.data['preview'] as PreviewKind;
-  protected readonly section = sections[this.kind];
+  protected readonly kind = computed(() => this.params().get('preview') as PreviewKind);
+  protected readonly section = computed(() => sections[this.kind()]);
   protected readonly destinations = Object.entries(sections);
   protected readonly state = resource({
     params: () => {
@@ -40,6 +42,7 @@ export class NucleusPreview {
   protected readonly people = people;
   protected readonly person = signal(people[0]);
   protected readonly topics = topics;
+  protected readonly topicIcons:Record<(typeof topics)[number]['key'],NavIconName> = {care:'heart',likes:'compass',wish:'sparkles'};
   protected readonly topic = signal<(typeof topics)[number]['key']>('care');
   protected readonly principles = principles;
   protected readonly preparation = ['Intenção', 'Escuta', 'Pausa'];
@@ -49,6 +52,14 @@ export class NucleusPreview {
 
   constructor() {
     // A mesma instância de rota pode receber outro Núcleo. Descarte o rascunho entre contextos.
+    this.route.paramMap.pipe(map(params => params.get('id')),distinctUntilChanged(),takeUntilDestroyed()).subscribe(() => {
+      this.root.set(roots[0]);
+      this.filter.set('Todas');
+      this.memory.set(memories[0]);
+      this.person.set(people[0]);
+      this.topic.set('care');
+    });
+    // O rascunho pertence à Ponte e deve ser descartado também ao navegar entre prévias.
     this.route.paramMap.pipe(takeUntilDestroyed()).subscribe(() => this.setDraft(''));
   }
 
