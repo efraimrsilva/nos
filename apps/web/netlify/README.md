@@ -38,9 +38,9 @@ O build só grava URL, chave pública e opção Google no arquivo `supabase.json
 
 ## Preparação da produção para A13
 
-Com as builds automáticas reativadas, o `netlify.toml` da raiz nesta revisão aponta para Angular. Uma solicitação de mudanças para `main` pode gerar uma Deploy Preview. A branch `main` publica Angular. Confirme no log de build que a prévia usa o comando Angular e que o adaptador Next.js foi ignorado. O roteiro de retorno usa o deploy Next.js publicado, sem reconstruí-lo.
+Com as builds automáticas reativadas, o `netlify.toml` da raiz nesta revisão aponta para Angular. Uma solicitação de mudanças para `main` pode gerar uma Deploy Preview. A branch `main` publica Angular. Confirme no log que o build usa o comando Angular. Em 26/11/2026 o runtime Next.js foi removido do painel do site principal; o painel foi alinhado ao comando e aos diretórios Angular. O roteiro de retorno usa o deploy Next.js publicado, sem reconstruí-lo.
 
-O comando `node scripts/build-angular-preview.mjs --production` gera o artefato Angular de produção. A prévia usa `NOS_ANGULAR_...` no contexto de ensaio, sem herdar credenciais de produção. Na virada do mesmo site, se as duas variáveis públicas Angular de produção estiverem ausentes, o build e as funções usam `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_SERVICE_ROLE_KEY` e `ACCOUNT_NOTIFICATION_SECRET` que já existem no Netlify. As duas últimas ficam restritas ao servidor. Se existir uma configuração pública Angular explícita, o conjunto inteiro de produção deve ser configurado para o mesmo Supabase.
+O comando `node scripts/build-angular-preview.mjs --production` gera o artefato Angular de produção. A prévia usa `NOS_ANGULAR_...` no contexto de ensaio, sem herdar credenciais de produção. O site principal usa `SUPABASE_URL` e `SUPABASE_PUBLISHABLE_KEY` no contexto Production, disponíveis ao build e às funções. As funções de produção reutilizam `SUPABASE_SERVICE_ROLE_KEY` e `ACCOUNT_NOTIFICATION_SECRET` como segredos de servidor. A alternativa explícita `NOS_ANGULAR_PRODUCTION_*` usa as quatro variáveis próprias do mesmo projeto Supabase.
 
 | Escopo | Variáveis de produção |
 | --- | --- |
@@ -48,7 +48,7 @@ O comando `node scripts/build-angular-preview.mjs --production` gera o artefato 
 | Build | `NOS_ANGULAR_PRODUCTION_GOOGLE=1` após conferir provedor e retornos. |
 | Functions | `NOS_ANGULAR_PRODUCTION_MAIL=1` ativa a seleção de transporte oficial. `APP_ORIGIN` deve ser a origem HTTPS canônica, sem barra final, igual à origem que a Netlify fornece em `context.site.url`. |
 | Functions | `NOS_ANGULAR_PRODUCTION_SUPABASE_SERVICE_ROLE_KEY` e `NOS_ANGULAR_PRODUCTION_ACCOUNT_NOTIFICATION_SECRET` para a fila de avisos. |
-| Functions | `SUPPORT_SMTP_HOST`, `SUPPORT_SMTP_PORT`, `SUPPORT_SMTP_USER`, `SUPPORT_SMTP_PASSWORD` e `SUPPORT_MAIL_FROM` para usar o transporte e o destino da equipe compartilhados com o Next.js. |
+| Functions | `SUPPORT_SMTP_HOST`, `SUPPORT_SMTP_PORT`, `SUPPORT_SMTP_USER`, `SUPPORT_SMTP_PASSWORD` e `SUPPORT_MAIL_FROM` para usar o transporte e o destino oficial da equipe. |
 
 O transporte oficial exige contexto de produção publicado no domínio canônico. O rascunho e a prévia leem apenas o transporte descartável. Um site de ensaio pode usar o contexto `production` próprio com a caixa de captura quando o envio oficial estiver desabilitado. O [registro local da A13](../../../docs/andamento/registros/registro-v4.0.0-alpha.11-2026-11-17-imp-preparacao-angular-fun-transporte-e-paridade.md) delimita a evidência desta etapa. [Contexto de deploy das funções](https://docs.netlify.com/build/functions/api/#deploy) · [Escopos de variáveis](https://docs.netlify.com/build/functions/environment-variables/).
 

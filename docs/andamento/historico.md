@@ -1,3 +1,11 @@
+## 26/11/2026 — Migração das variáveis públicas do Netlify
+
+Nomes neutros configurados em Production. Angular e funções usam o mesmo Supabase e preservam os segredos existentes. Testes de integração e build local de produção aprovados. [Registro da migração](registros/registro-v4.0.1-2026-11-26-02-imp-netlify-fun-variaveis-angular.md).
+
+## 26/11/2026 — Runtime Next.js removido do painel Netlify (v4.0.1)
+
+Runtime removido e caminhos Angular salvos e conferidos no projeto noslife. A remoção local da flag legada passou em 20 testes de integração. Migração das variáveis de produção e publicação seguem pendentes. [Registro da configuração](registros/registro-v4.0.1-2026-11-26-imp-netlify-fun-remocao-runtime-next.md).
+
 ## 26/11/2026 — Guias independentes do Núcleo (v4.0.1)
 
 Cinco destinos na navegação principal e Conexões com os perfis de exemplo. Redirecionamento legado, proteção de escopo e Atlas conferidos em duas larguras. Tipos, build e dois cenários autenticados aprovados. [Registro](registros/registro-v4.0.1-2026-11-26-imp-navegacao-nucleo-fun-guias-independentes.md).

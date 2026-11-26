@@ -4,13 +4,13 @@
 
 **Validações recentes.** Tipos, build, dois cenários autenticados e verificadores da Visão global, MVP e Migração aprovados. Navegação em computador e celular conferida. Build com avisos de tamanho de estilos, sem bloqueio.
 
-**Continuidade.** DOCS_DIR `docs`. Branch `main`, base `c4d4fea`. Contador 115 a partir de 114. Último marco de auditoria 100, próximo 200. Próxima fase planejada: inventariar comandos e saída de build para Nx e automação. Nenhum bloqueio local desta entrega.
+**Continuidade.** DOCS_DIR `docs`. Branch `main`, base `c4d4fea`. Contador 117 a partir de 116. Último marco de auditoria 100, próximo 200. Próxima fase planejada: inventariar comandos e saída de build para Nx e automação. Nenhum bloqueio local desta entrega.
 
 **Ambiente local.** Em 26/11/2026, Angular já ativo em `127.0.0.1:4200` e Supabase em `127.0.0.1:54321`. A tela Conta carregou no Chrome. A conexão direta retornou HTTP 200 no aplicativo e na autenticação; o proxy retornou 503 ao intermediar a consulta local.
 
-**Produção Netlify.** Em 26/11/2026, publicação automática de main ativa. Produção em `7ed4bfe`. Os deploys de `7685a7f` e `c4d4fea` aparecem como falhos. O [log de c4d4fea](https://app.netlify.com/projects/noslife/deploys/6b087c1787229df943a1fc7f) registra 15,14 kB em nucleus-preview.css, acima do limite Angular de 8 kB. A divisão local das folhas já passou no build da v4.0.1. O GitHub ainda aponta para `c4d4fea`. O caminho de publicação usa Angular e mantém NETLIFY_NEXT_PLUGIN_SKIP e compatibilidade com variáveis NEXT_PUBLIC_SUPABASE_*.
+**Produção Netlify.** A v4.0.1 das guias foi confirmada publicada em `048b73a` ([deploy](https://app.netlify.com/projects/noslife/deploys/6b0893408aa2d07983b634be)). Runtime Next.js removido do painel, dois nomes neutros adicionados apenas a Production e build local validado. [Registro da migração](registros/registro-v4.0.1-2026-11-26-02-imp-netlify-fun-variaveis-angular.md).
 
-**Unidade pronta para commit.** Reorganização das guias do Núcleo e virada para v4.0.1. Sugestão: `fix(navegacao): separar guias do Núcleo e unificar Conexões`. Publicação pendente.
+**Git e publicação.** A configuração Netlify e a migração para os novos nomes compõem a unidade desta entrega. Validar o novo deploy e então remover os dois nomes legados do painel.
 
 **Ferramentas.** Superpowers, Context7, Angular, Playwright com Chrome instalado e Supabase local. A busca foi delimitada ao repositório; pesquisa avançada com Octocode foi dispensada.
 

@@ -178,16 +178,14 @@ test('Netlify reserva as APIs antes da rota padrão Angular e não fixa segredos
   assert.doesNotMatch(toml,/SERVICE_ROLE|ACCOUNT_NOTIFICATION_SECRET|PASSWORD/);
 });
 
-test('virada reaproveita a configuração do site atual somente em produção', () => {
+test('nomes do Next.js não configuram o acesso público do Angular', () => {
   const env = {
     NEXT_PUBLIC_SUPABASE_URL: 'https://official.example.test',
     NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: 'sb_publishable_official',
     SUPABASE_SERVICE_ROLE_KEY: 'fixture-service',
     ACCOUNT_NOTIFICATION_SECRET: 'fixture-notification-secret',
   };
-  assert.deepEqual(readHostedConfig(env, 'production'), {
-    url: env.NEXT_PUBLIC_SUPABASE_URL, publicKey: env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY, google: false,
-  });
+  assert.equal(readHostedConfig(env, 'production'), null);
   assert.deepEqual(readNotificationCredentials(env, 'production'), {
     serviceKey: env.SUPABASE_SERVICE_ROLE_KEY, secret: env.ACCOUNT_NOTIFICATION_SECRET,
   });
@@ -198,4 +196,24 @@ test('virada reaproveita a configuração do site atual somente em produção', 
   const override = {...env, NOS_ANGULAR_PRODUCTION_SUPABASE_URL:'https://other.example.test'};
   assert.equal(readHostedConfig(override, 'production'), null);
   assert.deepEqual(readNotificationCredentials(override, 'production'), {serviceKey: undefined, secret: ''});
+});
+
+test('configuração neutra do site funciona em produção sem variáveis do Next.js', () => {
+  const env = {
+    SUPABASE_URL:'https://official.example.test',
+    SUPABASE_PUBLISHABLE_KEY:'sb_publishable_official',
+    SUPABASE_SERVICE_ROLE_KEY:'fixture-service',
+    ACCOUNT_NOTIFICATION_SECRET:'fixture-notification-secret',
+  };
+  assert.deepEqual(readHostedConfig(env,'production'), {
+    url:env.SUPABASE_URL,publicKey:env.SUPABASE_PUBLISHABLE_KEY,google:false,
+  });
+  assert.deepEqual(readNotificationCredentials(env,'production'),{
+    serviceKey:env.SUPABASE_SERVICE_ROLE_KEY,secret:env.ACCOUNT_NOTIFICATION_SECRET,
+  });
+  assert.equal(readHostedConfig(env,'sandbox'),null);
+  assert.equal(readHostedConfig({...env,SUPABASE_PUBLISHABLE_KEY:undefined,NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY:'sb_publishable_old'},'production'),null);
+  assert.deepEqual(readNotificationCredentials({...env,NOS_ANGULAR_PRODUCTION_SUPABASE_URL:'https://other.example.test'},'production'),{
+    serviceKey:undefined,secret:'',
+  });
 });

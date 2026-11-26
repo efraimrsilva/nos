@@ -13,7 +13,9 @@ const mode = args.length ? 'production' : 'sandbox';
 const config = readHostedConfig(process.env,mode);
 if (!config) {
   const prefix = mode === 'production' ? 'NOS_ANGULAR_PRODUCTION_' : 'NOS_ANGULAR_';
-  console.error('Configure '+prefix+'SUPABASE_URL (HTTPS) e '+prefix+'SUPABASE_PUBLIC_KEY (publishable ou anon).');
+  console.error(mode === 'production'
+    ? 'Configure SUPABASE_URL (HTTPS) e SUPABASE_PUBLISHABLE_KEY ou o par explícito NOS_ANGULAR_PRODUCTION_SUPABASE_*.'
+    : 'Configure '+prefix+'SUPABASE_URL (HTTPS) e '+prefix+'SUPABASE_PUBLIC_KEY (publishable ou anon).');
   process.exit(1);
 }
 

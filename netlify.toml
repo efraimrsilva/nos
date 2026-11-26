@@ -4,8 +4,6 @@
   publish = "apps/web/dist/nos-web/browser"
 
 [build.environment]
-  # Conserva o skip enquanto o site ainda aparece como Next.js no painel.
-  NETLIFY_NEXT_PLUGIN_SKIP = "true"
   SECRETS_SCAN_OMIT_KEYS = "SUPPORT_MAIL_FROM,SUPPORT_SMTP_HOST"
 
 [context.production]

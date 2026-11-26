@@ -2,7 +2,7 @@ import { readPublicConfig } from '../src/app/auth/public-config.ts';
 
 const prefixFor = mode => mode === 'production' ? 'NOS_ANGULAR_PRODUCTION_' : 'NOS_ANGULAR_';
 
-// Na virada do mesmo site, reutilize a configuração já hospedada sem copiar segredos.
+// O site principal compartilha os nomes neutros de configuração pública e credenciais.
 // Se houver uma configuração Angular explícita, dados e credenciais vêm desse conjunto.
 const useCurrentSiteConfig = (env,mode) => mode === 'production' &&
   env.NOS_ANGULAR_PRODUCTION_SUPABASE_URL === undefined &&
@@ -12,8 +12,8 @@ export function readHostedConfig(env,mode) {
   if (!mode) return null;
   if (useCurrentSiteConfig(env,mode)) {
     return readPublicConfig({
-      url:env.NEXT_PUBLIC_SUPABASE_URL,
-      publicKey:env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
+      url:env.SUPABASE_URL,
+      publicKey:env.SUPABASE_PUBLISHABLE_KEY,
       google:env.NOS_ANGULAR_PRODUCTION_GOOGLE === '1',
     },'hosted');
   }
@@ -53,7 +53,7 @@ export async function createHostedMail(env,mode) {
   if (mode !== 'production') return null;
   const {supportMailTransport, sendNewAccountNotification, sendProblemReport} =
     await import('../server/support/mail-transport.ts');
-  // Reutiliza o SMTP e o destinatário fixo do Next.js. O modo local não se aplica ao deploy publicado.
+  // Reutiliza o SMTP e o destinatário oficial do site. O modo local não se aplica ao deploy publicado.
   const transport = supportMailTransport({...env,NOS_AUTH_TEST:undefined});
   if (!transport) return null;
   return {
