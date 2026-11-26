@@ -8,9 +8,9 @@
 
 **Ambiente local.** Em 26/11/2026, Angular já ativo em `127.0.0.1:4200` e Supabase em `127.0.0.1:54321`. A tela Conta carregou no Chrome. A conexão direta retornou HTTP 200 no aplicativo e na autenticação; o proxy retornou 503 ao intermediar a consulta local.
 
-**Produção Netlify.** A v4.0.1 das guias foi confirmada publicada em `048b73a` ([deploy](https://app.netlify.com/projects/noslife/deploys/6b0893408aa2d07983b634be)). Runtime Next.js removido do painel, dois nomes neutros adicionados apenas a Production e build local validado. [Registro da migração](registros/registro-v4.0.1-2026-11-26-02-imp-netlify-fun-variaveis-angular.md).
+**Produção Netlify.** A v4.0.1 das guias foi confirmada publicada em `048b73a` ([deploy](https://app.netlify.com/projects/noslife/deploys/6b0893408aa2d07983b634be)). Runtime Next.js removido. Os dois nomes neutros foram cadastrados apenas em Production. Commit `4d9d8bf` publicado ([deploy](https://app.netlify.com/projects/noslife/deploys/6b089789ebfa3bad67664391)). Conta abriu, o arquivo público conferiu e as duas funções constam no painel. A sondagem HTTP direta das funções foi inconclusiva no navegador e não houve envio real. [Registro da migração](registros/registro-v4.0.1-2026-11-26-02-imp-netlify-fun-variaveis-angular.md).
 
-**Git e publicação.** A configuração Netlify e a migração para os novos nomes compõem a unidade desta entrega. Validar o novo deploy e então remover os dois nomes legados do painel.
+**Git e publicação.** A migração do código está no commit `4d9d8bf`, verificado na main remota. As duas variáveis NEXT_PUBLIC_SUPABASE_* foram removidas após confirmação do usuário; zero registros legados e dois nomes neutros verificados no painel. Conta voltou a abrir com a opção Google após a exclusão. A versão do produto permanece 4.0.1.
 
 **Ferramentas.** Superpowers, Context7, Angular, Playwright com Chrome instalado e Supabase local. A busca foi delimitada ao repositório; pesquisa avançada com Octocode foi dispensada.
 

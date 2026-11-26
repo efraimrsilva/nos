@@ -1,6 +1,6 @@
 ## 26/11/2026 — Migração das variáveis públicas do Netlify
 
-Nomes neutros configurados em Production. Angular e funções usam o mesmo Supabase e preservam os segredos existentes. Testes de integração e build local de produção aprovados. [Registro da migração](registros/registro-v4.0.1-2026-11-26-02-imp-netlify-fun-variaveis-angular.md).
+Nomes neutros configurados em Production. Angular e funções usam o mesmo Supabase e preservam os segredos existentes. Testes de integração e build local de produção aprovados. O Netlify publicou 4d9d8bf. As duas variáveis NEXT_PUBLIC foram excluídas após confirmação e a Conta foi reconferida. [Registro da migração](registros/registro-v4.0.1-2026-11-26-02-imp-netlify-fun-variaveis-angular.md).
 
 ## 26/11/2026 — Runtime Next.js removido do painel Netlify (v4.0.1)
 
