@@ -1,3 +1,7 @@
+## 26/11/2026 — Estabilização da web Angular
+
+**Problema:** concluir a transição da base web e fechar a paridade de interface. **Contribuição:** registrar o aceite e promover a linha Angular de prévia para estável. **Resultado:** fase 1 aceita pelo usuário e próxima fase identificada. [Evidência](../andamento/registros/registro-v4.0.0-2026-11-26-imp-estabilizacao-web-fun-migracao-angular.md).
+
 ## 23/11/2026 — Abertura previsível da Conta
 
 A navegação interna aparecia brevemente no início da rota pública. O estado inicial usa a estrutura pública e a regressão passou em computador e celular. [Registro e validações](../andamento/registros/registro-v4.0.0-alpha.23-2026-11-23-imp-conta-fun-abertura-e-animacoes.md).

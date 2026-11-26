@@ -38,4 +38,4 @@ O build hospedado gera a configuração pública do Supabase separadamente. Cred
 - [Angular](apps/web/src/app/) reúne telas e serviços por funcionalidade. [Domínio](apps/web/src/domain/) contém regras e utilitários usados na interface.
 - [Servidor](apps/web/server/) contém código Node das integrações. [Adaptadores Netlify](apps/web/netlify/functions/) conectam as funções ao ambiente hospedado.
 - [Supabase](supabase/) reúne migrações e testes do banco. [Testes Angular](tests/angular/) contêm as jornadas de navegador.
-- [Documentação](docs/andamento/readme.md) registra decisões e evidências. O [arquivo Next.js](arquivo/nextjs/README.md) é a referência estética para concluir a paridade.
+- [Documentação](docs/andamento/readme.md) registra decisões e evidências. O [arquivo Next.js](arquivo/nextjs/README.md) preserva a referência estética usada na paridade da migração.

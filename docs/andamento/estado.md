@@ -1,4 +1,16 @@
-# Estado atual — Angular v4.0.0-alpha.33 — 2026-11-23
+# Estado atual — Angular v4.0.0 — 2026-11-26
+
+**Objetivo e resultado.** Fechar a migração Angular, os 16 passos de paridade de interface e a fase 1. Os três itens estão concluídos e validados por confirmação do usuário. A versão estável local está sincronizada nos manifestos, arquivos de trava de dependências e Atlas. [Registro do fechamento](registros/registro-v4.0.0-2026-11-26-imp-estabilizacao-web-fun-migracao-angular.md).
+
+**Continuidade.** DOCS_DIR `docs`. Branch `main`, base `7685a7f`. Contador 112 a partir do último valor registrado (111). Último marco de auditoria 100, próximo 200. Próxima etapa planejada: inventariar scripts e saída do build para a fase 2 (Nx e automação). Nenhum bloqueio registrado para preparar o inventário.
+
+**Validações recentes.** Guias Migração e MVP verificadas com Playwright e Chrome instalado. Versões, links novos e diff conferidos. O aceite funcional é o informado pelo usuário.
+
+**Unidade pronta para commit.** Fechamento da fase 1 e virada para v4.0.0. Sugestão: `chore(release): fechar fase 1 do Angular na v4.0.0`. Publicação da nova versão depende de autorização.
+
+**Ferramentas.** Superpowers para orientação, revisão e verificação. Consultas de documentação técnica e pesquisa avançada de código foram dispensadas pelo escopo.
+
+## Histórico da integração — Angular v4.0.0-alpha.33 — 2026-11-23
 
 **Branch de trabalho.** A partir de 23/11/2026, trabalhar diretamente em `main`. A integração local avançou 18 commits até `c0f1e7d`. [Registro](registros/registro-v4.0.0-alpha.33-2026-11-23-imp-integracao-angular-fun-adocao-da-main.md).
 

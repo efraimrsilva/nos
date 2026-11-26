@@ -16,7 +16,7 @@ Proposta → Hábito → Essência no aplicativo, com compatibilidade de leitura
 
 **Marco documental anterior — 18/10/2026:** [fluxo obrigatório Proposta → Hábito → Experiência → Essência](funcionalidades/fluxo-proposta-habito-experiencia-essencia.md). [Registro](registros/registro-v1.1.0-2026-10-18-imp-documentacao-acordos-fun-fluxo-proposta-habito-experiencia-essencia.md). Evolução da pessoa; critérios e implementação pendentes. Resumos anteriores abaixo são históricos. Consulte [estado](estado.md) para a retomada.
 
-**Versão vigente do projeto:** 3.9.0 (referência central: [estado.md](estado.md))
+**Versão vigente do projeto:** consultar o [estado canônico](estado.md).
 
 Entrega histórica: [v0.14.0 — Percurso 05 Uma proposta de Hábito](registros/registro-v0.14.0-2026-10-10-imp-proposta-habito-fun-percurso-05.md). Conferência no hub concluída localmente, com fluxo guiado reservado; unidade incluída no commit autorizado, com objeto conferido em 2026-10-12. [Contrato](funcionalidades/proposta-habito.md). O estado canônico abaixo mantém as publicações anteriores, sem pendência fictícia de Conta.
 
@@ -85,6 +85,8 @@ Decisão de 2026-10-03: manter o [wireframe](../wireframes/atlas/index.html) atu
 Os materiais de origem foram movidos pelo usuário para [Telas](../telas/layout-inicial/nos-app.dc.html), dentro de **docs**. Preservar essa organização; o protótipo antigo é fonte histórica, enquanto o atlas é mantido continuamente.
 
 ## Próxima implementação
+
+A retomada vigente é a fase 2, Nx e automação, após o fechamento da estabilização Angular. [Registro do fechamento](registros/registro-v4.0.0-2026-11-26-imp-estabilizacao-web-fun-migracao-angular.md). As orientações abaixo registram uma prioridade anterior.
 
 Seguir a etapa 01 do [MVP aprovado](planos/mvp.md): reconferir login, recuperação, retorno e operação antes de ampliar. A indicação anterior de iniciar Nossa Árvore foi substituída como prioridade geral; o recorte permanece na etapa 07. Cada implementação mantém aspecto/contrato do Atlas vivo e comparações sincronizados.
 

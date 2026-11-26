@@ -6,7 +6,7 @@ Após o piloto WebSocket no NestJS, acompanhar cada fluxo mutável até a cobert
 
 Na etapa 11, usar o canal para a central de notificações respeitando destinatário e preferências. Na etapa 13, entregar PWA com estrutura pública offline e tentativa de reconexão, depois Android em aparelho real e por último iOS. Verificar gratuidade permanente de hospedagem, automação e distribuição antes de cada ensaio. Se não houver opção gratuita adequada, manter o piloto local ou adiar a distribuição. SSR para páginas públicas e aplicativo desktop ficam para avaliação futura, sem prazo.
 
-A etapa 13 reúne os requisitos de produto para integrações e plataformas. A execução técnica está no [plano de migração Angular](migracao-angular.md#ordem-de-implementação) e na [guia Migração do Atlas](../../wireframes/atlas/index.html#migracao). A sequência começa pela estabilização da web e define os aceites de Nx, NestJS, identidade, tempo real, PWA e Capacitor. O roteiro técnico preserva o escopo das fichas e as etapas do MVP.
+A etapa 13 reúne os requisitos de produto para integrações e plataformas. A execução técnica está no [plano de migração Angular](migracao-angular.md#ordem-de-implementação) e na [guia Migração do Atlas](../../wireframes/atlas/index.html#migracao). A estabilização da web foi concluída na v4.0.0. Nx e automação são a próxima fase planejada. O roteiro também define os aceites de NestJS, identidade, tempo real, PWA e Capacitor. O roteiro técnico preserva o escopo das fichas e as etapas do MVP.
 
 ## Termos e versões de Hábitos — v4.0.0-alpha.25 — 2026-11-20
 

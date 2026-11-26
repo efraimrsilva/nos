@@ -1,3 +1,7 @@
+## 26/11/2026 — Fechamento da fase 1 Angular (v4.0.0)
+
+Aceite da migração, da paridade de interface e da estabilização web confirmado pelo usuário. Atlas, plano e manifestos sincronizados. [Registro do fechamento](registros/registro-v4.0.0-2026-11-26-imp-estabilizacao-web-fun-migracao-angular.md).
+
 ## 23/11/2026 — Adoção da main para o Angular (v4.0.0-alpha.33)
 
 Avanço direto de 18 commits e adoção da main para as próximas entregas. [Registro](registros/registro-v4.0.0-alpha.33-2026-11-23-imp-integracao-angular-fun-adocao-da-main.md).

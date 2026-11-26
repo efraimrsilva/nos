@@ -1,6 +1,6 @@
 # Projeto Nós — stack e arquitetura
 
-**Revisão de 21/11/2026.** Inventário da branch `codex/migracao-angular`, código inventariado na revisão `6f718b7`. O código local está na versão `4.0.0-alpha.29`. A estrutura de destino segue as decisões de 21/11/2026, alinhada às tecnologias já previstas no [plano de migração](andamento/planos/migracao-angular.md).
+**Revisão de 21/11/2026.** Inventário da branch `codex/migracao-angular`, código inventariado na revisão `6f718b7`. A revisão inventariada usava `4.0.0-alpha.29`. Consulte o [estado atual](andamento/estado.md) para a versão vigente. A estrutura de destino segue as decisões de 21/11/2026, alinhada às tecnologias já previstas no [plano de migração](andamento/planos/migracao-angular.md).
 
 O Nós ajuda pessoas a cultivar vínculos em Núcleos privados por meio de convites, acordos, hábitos e agenda compartilhada. A web responsiva é a primeira plataforma de entrega. O objetivo da etapa móvel é reaproveitar a interface Angular e validar, em cada dispositivo, o que depende de permissões, sessão, navegação ou integração nativa.
 
@@ -120,7 +120,7 @@ Decisões aprovadas em 21/11/2026. A numeração corresponde às dez perguntas d
 
 | Etapa | Entrega | Critério para avançar |
 | --- | --- | --- |
-| 1. Estabilizar a web | Fechar a revisão transversal restante e as pendências de sessão e e-mail no ambiente hospedado, conforme o plano vigente. | Registrar o deploy conferido e a evidência de login, permissões, fluxos críticos e integrações. Validar o caminho de retorno antes de alterações de infraestrutura. |
+| 1. Estabilizar a web | Concluída e validada conforme confirmação do usuário em 26/11/2026. | [Registro do fechamento](andamento/registros/registro-v4.0.0-2026-11-26-imp-estabilizacao-web-fun-migracao-angular.md). |
 | 2. Introduzir Nx | Reproduzir os comandos e o artefato. Manter o arquivo Next.js fora do grafo de tarefas e usar GitHub Actions dentro da cota gratuita para automatizar verificações. | Depende da fase 1. Conferir o mesmo artefato no ensaio Netlify. Eventual unificação de lockfiles tem entrega própria. |
 | 3. Pilotar NestJS | Ler os dados básicos de um Núcleo. Documentar campos, erros e como a identidade chega ao banco. Integrar uma chamada Angular e extrair contrato se houver uso real nas duas aplicações. | Verificar usuário autorizado, sessão expirada e outra conta ou Núcleo, preservando o resultado e a autorização PostgreSQL. Começar localmente e conferir as condições gratuitas antes de hospedar. |
 | 4. Validar identidade | Manter Supabase Auth. | Conferir renovação, revogação, recuperação, expiração e isolamento com a API. |

@@ -37,13 +37,14 @@ try {
     const phases = panel.locator('[data-migration-phase]');
     assert.deepEqual(await phases.evaluateAll(items => items.map(item => item.dataset.migrationPhase)), phaseNumbers);
     assert.equal(await phases.first().getAttribute('open'), '');
-    assert.match(await panel.innerText(), /Próximo passo:\s*paridade visual 16/);
+    assert.match(await panel.locator('h2').innerText(), /Migração para Angular · concluída e validada$/);
+    assert.match(await panel.innerText(), /A próxima fase planejada é Nx e automação/);
     assert.equal(await panel.getByRole('link', {name: /Consultar stack e diretórios/}).getAttribute('href'), '../../stack.md');
     for (const [index, [title, acceptance]] of roadmap.entries()) {
       const phase = phases.nth(index);
       const summary = phase.locator('summary');
       assert.match(await summary.innerText(), title);
-      assert.match(await summary.innerText(), index ? /· planejada$/ : /· em validação$/);
+      assert.match(await summary.innerText(), index ? /· planejada$/ : /· concluída e validada$/);
       if (index) {
         await summary.focus();
         await summary.press('Enter');
@@ -53,12 +54,13 @@ try {
     }
     const closingDeliveries = panel.locator(':scope > details[data-migration-delivery]');
     assert.deepEqual(await closingDeliveries.locator('summary').allTextContents(), [
-      '13 · Virada pública · Angular publicado',
-      '14 · Arquivamento visual do Next.js · referência preservada',
+      '13 · Virada pública · validada',
+      '14 · Arquivamento visual do Next.js · validado',
     ]);
     assert.equal(await panel.locator(':scope > details').count(), 14);
     assert.deepEqual(await phases.first().locator('a[href^="#migracao-passo-"]').evaluateAll(links => links.map(link => link.hash)), ['#migracao-passo-13','#migracao-passo-14']);
     const visual = panel.locator('section[aria-labelledby="migration-visual-title"]');
+    assert.match(await visual.locator('h3').innerText(), /Paridade de interface com o Atlas .* · concluída e validada$/);
     assert.equal(await visual.locator('details').count(), 16);
     const ids = await visual.locator('a[href^="#tela-"]').evaluateAll(links =>
       [...new Set(links.map(link => Number(link.getAttribute('href').slice(6))))].sort((a,b) => a-b));
