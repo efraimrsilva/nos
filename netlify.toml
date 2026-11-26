@@ -11,6 +11,9 @@
 [context.production]
   command = "npm ci --prefix apps/web && node scripts/build-angular-preview.mjs --production"
 
+[context.production.environment]
+  NOS_ANGULAR_PRODUCTION_GOOGLE = "1"
+
 [functions]
   directory = "apps/web/netlify/functions"
   node_bundler = "esbuild"
