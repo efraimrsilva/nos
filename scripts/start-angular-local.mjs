@@ -1,6 +1,6 @@
 import { spawn } from 'node:child_process';
 import { once } from 'node:events';
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { parseEnv } from 'node:util';
 import { readPublicConfig } from '../apps/web/src/app/auth/public-config.ts';
@@ -14,11 +14,13 @@ const port = process.argv[2] ?? '4200';
 if (!/^\d{4,5}$/.test(port) || Number(port) > 65535) throw new Error('Porta inválida.');
 
 const hostedPreview = process.env.NOS_LOCAL_HOSTED_SUPABASE === '1';
-const google = process.env.NOS_ANGULAR_GOOGLE === '1';
+const envFile = new URL('.env.local', root);
+// A preferência fica no checkout. Uma opção explícita no terminal tem precedência.
+const env = existsSync(envFile) ? parseEnv(readFileSync(envFile, 'utf8')) : {};
+const google = (process.env.NOS_ANGULAR_GOOGLE ?? env.NOS_ANGULAR_GOOGLE) === '1';
 let publicConfig;
 if (hostedPreview) {
   // Lê apenas a URL e a chave pública; o ambiente do servidor Angular não recebe os segredos do arquivo.
-  const env = parseEnv(readFileSync(new URL('.env.local', root), 'utf8'));
   publicConfig = readPublicConfig({
     url: env.NEXT_PUBLIC_SUPABASE_URL, publicKey: env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY, google,
   }, 'hosted');
